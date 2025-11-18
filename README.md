@@ -1,1 +1,2 @@
-# Mystic-Type
+# R-type
+Online game
