@@ -51,7 +51,7 @@ namespace Network::TransportLayer
          * @param destAddr Destination address to send data to
          * @return ssize_t Number of bytes written, or -1 on error
          */
-        ssize_t writeByte(const void *data, std::size_t size, const struct sockaddr_in &destAddr);
+        ssize_t writeByte(const void *data, std::size_t size, const sockaddr_in &destAddr);
 
         /**
          * @brief Read bytes from the UDP socket
@@ -67,11 +67,11 @@ namespace Network::TransportLayer
          *
          * @return struct sockaddr_in The sender's address
          */
-        inline struct sockaddr_in getSenderAddr() const { return _senderAddr; }
+        inline sockaddr_in getSenderAddr() const { return _senderAddr; }
 
     protected:
     private:
-        struct sockaddr_in _senderAddr;
+        sockaddr_in _senderAddr;
     };
 }
 
