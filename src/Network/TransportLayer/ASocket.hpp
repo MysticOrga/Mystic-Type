@@ -82,7 +82,7 @@ namespace Network::TransportLayer
          * @param timeoutUsec Timeout in microseconds
          * @return IOState The state of the socket
          */
-        IOState SockState(int timeoutSec, int timeoutUsec) override;
+        IOState sockState(int timeoutSec, int timeoutUsec) override;
 
     protected:
         int _socketFd;

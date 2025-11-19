@@ -36,7 +36,7 @@ namespace Network::TransportLayer
         return 0; // Socket already closed
     }
 
-    IOState ASocket::SockState(int timeoutSec, int timeoutUsec)
+    IOState ASocket::sockState(int timeoutSec, int timeoutUsec)
     {
         fd_set readfds, writefds, exceptfds;
         struct timeval timeout;
@@ -87,7 +87,7 @@ namespace Network::TransportLayer
     {
         if (data == nullptr || size == 0)
             return -1; // Invalid data or size
-        if (SockState(0, 0) == IOState::WRITE_READY)
+        if (sockState(0, 0) == IOState::WRITE_READY)
             return write(_socketFd, data, size);
         return -1; // Socket not ready for writing
     }
@@ -96,7 +96,7 @@ namespace Network::TransportLayer
     {
         if (buffer == nullptr || size == 0)
             return -1; // Invalid buffer or size
-        if (SockState(0, 0) == IOState::READ_READY)
+        if (sockState(0, 0) == IOState::READ_READY)
             return read(_socketFd, buffer, size);
         return -1; // Socket not ready for reading
     }

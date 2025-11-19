@@ -76,7 +76,7 @@ namespace Network::TransportLayer
          * @param timeoutUsec Timeout in microseconds
          * @return IOState The state of the socket
          */
-        virtual IOState SockState(int timeoutSec, int timeoutUsec) = 0;
+        virtual IOState sockState(int timeoutSec, int timeoutUsec) = 0;
 
     protected:
     private:
