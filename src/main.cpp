@@ -19,7 +19,6 @@ struct PacketPosition {
     int8_t y;
 };
 
-
 enum Move : uint8_t {
     NONE   = 0,
     UP     = 1,
@@ -135,14 +134,14 @@ int main()
         uint8_t out = encodeByte(p->id, move);
         PacketPosition posPacket;
         posPacket.header = out;
-        posPacket.x = p->x;
-        posPacket.y = p->y;
-        sendto(sockfd, &posPacket, sizeof(posPacket), 0, (sockaddr*)&clientAddr, sizeof(clientAddr));
-        sendto(sockfd, &out, 1, 0, (sockaddr*)&clientAddr, sizeof(clientAddr));
-        for (auto &other : players) {
-            if (other.id != 0 && other.id != p->id) {
-                sendto(sockfd, &out, 1, 0, (sockaddr*)&other.addr, sizeof(other.addr));
-            }
+        posPacket.x = static_cast<int8_t>(p->x);
+        posPacket.y = static_cast<int8_t>(p->y);
+
+        for (auto &target : players) {
+            if (target.id == 0)
+                continue;
+            sendto(sockfd, &posPacket, sizeof(posPacket), 0, (sockaddr*)&target.addr, sizeof(target.addr));
+            sendto(sockfd, &out, 1, 0, (sockaddr*)&target.addr, sizeof(target.addr));
         }
     }
     close(sockfd);
