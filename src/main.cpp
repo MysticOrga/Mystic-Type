@@ -126,6 +126,7 @@ int main()
 
         std::cout << "New pos for player " << p->id << ": (" << p->x << ", " << p->y << ")\n";
         uint8_t out = encodeByte(p->id, move);
+        sendto(sockfd, &out, 1, 0, (sockaddr*)&clientAddr, sizeof(clientAddr));
         for (auto &other : players) {
             if (other.id != 0 && other.id != p->id) {
                 sendto(sockfd, &out, 1, 0, (sockaddr*)&other.addr, sizeof(other.addr));
