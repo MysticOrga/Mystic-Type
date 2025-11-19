@@ -13,6 +13,13 @@
 char buffer[BUFFER_SIZE] = {0};
 std::string msg = "Hello World!\n";
 
+struct PacketPosition {
+    uint8_t header;
+    int8_t x;
+    int8_t y;
+};
+
+
 enum Move : uint8_t {
     NONE   = 0,
     UP     = 1,
@@ -126,6 +133,11 @@ int main()
 
         std::cout << "New pos for player " << p->id << ": (" << p->x << ", " << p->y << ")\n";
         uint8_t out = encodeByte(p->id, move);
+        PacketPosition posPacket;
+        posPacket.header = out;
+        posPacket.x = p->x;
+        posPacket.y = p->y;
+        sendto(sockfd, &posPacket, sizeof(posPacket), 0, (sockaddr*)&clientAddr, sizeof(clientAddr));
         sendto(sockfd, &out, 1, 0, (sockaddr*)&clientAddr, sizeof(clientAddr));
         for (auto &other : players) {
             if (other.id != 0 && other.id != p->id) {
