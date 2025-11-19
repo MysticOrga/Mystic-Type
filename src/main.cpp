@@ -7,75 +7,131 @@
 #include <iostream>
 #include <fstream>
 #include "./Network/Socket/UDPSocket.hpp"
+
 #define BUFFER_SIZE 2048
 #define MAX_CLIENT 4
 char buffer[BUFFER_SIZE] = {0};
 std::string msg = "Hello World!\n";
 
+enum Move : uint8_t {
+    NONE   = 0,
+    UP     = 1,
+    DOWN   = 2,
+    LEFT   = 3,
+    RIGHT  = 4
+};
+
+uint8_t encodeByte(uint8_t user, uint8_t move)
+{
+    return (user << 4) | (move & 0x0F);
+}
+
 struct Player
 {
     int id;
     struct sockaddr_in addr;
+    int x;
+    int y;
 };
 
-int main([[maybe_unused]] int ac, [[maybe_unused]] char **av)
+void applyMove(Player &p, uint8_t move)
 {
-    std::array<Player, MAX_CLIENT> player;
-    RNetwork::UDPSocket server;
+    switch (move) {
+        case UP:    p.y -= 1; break;
+        case DOWN:  p.y += 1; break;
+        case LEFT:  p.x -= 1; break;
+        case RIGHT: p.x += 1; break;
+        default: break;
+    }
+}
 
-    server.createSock(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
-    server.setAddr(AF_INET, 4242, INADDR_ANY);
-    memset(&player, 0, sizeof(Player) * MAX_CLIENT);
+uint8_t encode(uint8_t user, uint8_t move)
+{
+    return (user << 4) | (move & 0x0F);
+}
 
-    if (!server.bindSock())
-    {
-        perror("[bind]");
-        return EXIT_FAILURE;
-    };
+int main()
+{
+    std::cout << "Server start!" << std::endl;
+
+    int sockfd = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    if (sockfd < 0) {
+        perror("socket");
+        return 84;
+    }
+
+    sockaddr_in servAddr{};
+    servAddr.sin_family = AF_INET;
+    servAddr.sin_port = htons(4242);
+    servAddr.sin_addr.s_addr = INADDR_ANY;
+
+    if (bind(sockfd, (sockaddr*)&servAddr, sizeof(servAddr)) < 0) {
+        perror("bind");
+        return 84;
+    }
+
+    std::array<Player, MAX_CLIENT> players{};
+    char buffer[BUFFER_SIZE];
 
     while (1)
     {
-        sockaddr_in clientAddr;
+        sockaddr_in clientAddr{};
         socklen_t clientLen = sizeof(clientAddr);
+        memset(buffer, 0, BUFFER_SIZE);
 
-        memset(&clientAddr, 0, sizeof(clientAddr));
-        int sender = 0;
-        if (recvfrom(server.getSocket(), buffer, BUFFER_SIZE, 0, (struct sockaddr*)&clientAddr, &clientLen) == -1)
-        {
-            perror("recv");
-            return EXIT_FAILURE;
+        ssize_t r = recvfrom(sockfd, buffer, BUFFER_SIZE, 0, (sockaddr*)&clientAddr, &clientLen);
+
+        if (r <= 0) {
+            perror("recvfrom");
+            continue;
         }
 
-        std::cout << "message receive from: " << inet_ntoa(clientAddr.sin_addr) << ":" << ntohs(clientAddr.sin_port) << std::endl;
-        std::cout << "Add a possibly new user" << std::endl;
+        uint8_t byte = buffer[0];
+        uint8_t user = byte >> 4;
+        uint8_t move = byte & 0x0F;
 
-        for (std::size_t i = 0; i < MAX_CLIENT; i++)
-        {
-            std::cout << "Client[" << player[i].id << "]: " << inet_ntoa(player[i].addr.sin_addr) << ":" << ntohs(player[i].addr.sin_port) << std::endl;
-            if (!strcmp(inet_ntoa(player[i].addr.sin_addr), inet_ntoa(clientAddr.sin_addr)) && ntohs(player[i].addr.sin_port) == ntohs(clientAddr.sin_port))
-            {
-                std::cout << "Client already existant\n" << std::endl;
-                sender = player[i].id;
-                break;
-            }
-            if (player[i].id == 0)
-            {
-                std::cout << "Add a new client\n" << std::endl;
-                player[i].id = i + 1;
-                sender = player[i].id;
-                player[i].addr = clientAddr;
-                break;
+        std::cout << "\n--- PACKET ---\n";
+        std::cout << "From: " << inet_ntoa(clientAddr.sin_addr) << ":" << ntohs(clientAddr.sin_port) << "\n";
+        std::cout << "User = " << (int)user << " | Move = " << (int)move << "\n";
+
+        if (user == 0) {
+            std::cout << "Invalid user ID (0 ignored)" << std::endl;
+            continue;
+        }
+
+        Player *p = nullptr;
+
+        for (auto &pl : players) {
+            if (pl.id == user) { p = &pl; break; }
+        }
+
+        if (!p) {
+            for (auto &pl : players) {
+                if (pl.id == 0) {
+                    pl.id = user;
+                    pl.addr = clientAddr;
+                    pl.x = 0;
+                    pl.y = 0;
+                    p = &pl;
+                    break;
+                }
             }
         }
 
-        for (std::size_t i = 0; i < MAX_CLIENT; i++)
-        {
-            if (player[i].id != 0 && player[i].id != sender)
-            {
-                std::cout << "Message send to: " << inet_ntoa(player[i].addr.sin_addr) << ":" << ntohs(player[i].addr.sin_port) << std::endl;
-                sendto(server.getSocket(), buffer, BUFFER_SIZE, 0, (struct sockaddr*)&player[i].addr, sizeof(player[i].addr));
+        if (!p) {
+            std::cout << ">> Erreur: server is full (max 4 players).\n";
+            continue;
+        }
+        applyMove(*p, move);
+
+        std::cout << "New pos for player " << p->id << ": (" << p->x << ", " << p->y << ")\n";
+        uint8_t out = encodeByte(p->id, move);
+        for (auto &other : players) {
+            if (other.id != 0 && other.id != p->id) {
+                sendto(sockfd, &out, 1, 0, (sockaddr*)&other.addr, sizeof(other.addr));
             }
         }
     }
-    return EXIT_SUCCESS;
+    close(sockfd);
+    return 0;
 }
