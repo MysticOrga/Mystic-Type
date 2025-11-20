@@ -9,7 +9,7 @@ CC			=	clang++
 CPPFLAGS	=	-std=c++20 -Wall -Werror -Wextra
 DEBUGFLAGS	=		-g -g3 -ggdb
 RM			=	rm -rf
-EXE			= 	plazza
+EXE			= 	server
 BUILD		= 	./Dev
 SRC 		= 	$(shell find src -type f -name '*.cpp')
 SOCKET		=	$(shell find . -type s)
