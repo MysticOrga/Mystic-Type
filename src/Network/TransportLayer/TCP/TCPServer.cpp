@@ -6,10 +6,12 @@
 */
 
 #include "TCPServer.hpp"
+#include <algorithm>
 #include <iostream>
 #include <unistd.h>
 #include <cstring>
 #include <sys/select.h>
+#include <string_view>
 
 TCPServer::TCPServer(uint16_t port)
 {
@@ -23,49 +25,93 @@ TCPServer::TCPServer(uint16_t port)
 TCPServer::~TCPServer()
 {
     for (auto &c : _clients) {
-        if (c.fd != -1) {
-            ::close(c.fd);
-        }
+        resetClient(c);
     }
     _serverSocket.closeSocket();
 }
 
-bool TCPServer::performHandshake(int clientFd, int playerId)
+bool TCPServer::sendMessage(int fd, std::string_view message)
 {
-    const char *serverHello = "R-Type Server\n";
-    ::write(clientFd, serverHello, strlen(serverHello));
+    if (fd == -1) {
+        return false;
+    }
+    ssize_t sent = ::write(fd, message.data(), message.size());
+    return sent == static_cast<ssize_t>(message.size());
+}
 
-    fd_set rfds;
-    FD_ZERO(&rfds);
-    FD_SET(clientFd, &rfds);
-
-    struct timeval timeout{3, 0};
-
-    int ret = select(clientFd + 1, &rfds, nullptr, nullptr, &timeout);
-    if (ret <= 0) {
-        const char *msg = "REFUSED TIMEOUT\n";
-        ::write(clientFd, msg, strlen(msg));
+bool TCPServer::receiveMessage(int fd, std::string &message)
+{
+    if (fd == -1) {
         return false;
     }
 
     char buffer[BUFFER_SIZE]{};
-    ssize_t n = read(clientFd, buffer, sizeof(buffer) - 1);
+    ssize_t n = ::read(fd, buffer, sizeof(buffer));
     if (n <= 0) {
-        const char *msg = "REFUSED NO_DATA\n";
-        ::write(clientFd, msg, strlen(msg));
+        return false;
+    }
+    message.assign(buffer, static_cast<size_t>(n));
+    return true;
+}
+
+bool TCPServer::waitForReadable(int fd, int timeoutSec, int timeoutUsec)
+{
+    fd_set rfds;
+    FD_ZERO(&rfds);
+    FD_SET(fd, &rfds);
+
+    struct timeval timeout{timeoutSec, timeoutUsec};
+
+    int ret = ::select(fd + 1, &rfds, nullptr, nullptr, &timeout);
+    return ret > 0 && FD_ISSET(fd, &rfds);
+}
+
+void TCPServer::closeFd(int &fd)
+{
+    if (fd != -1) {
+        ::close(fd);
+        fd = -1;
+    }
+}
+
+void TCPServer::resetClient(Client &client)
+{
+    closeFd(client.fd);
+    client.id = 0;
+    client.addr = {};
+    client.handshakeDone = false;
+    client.lastPongTime = 0;
+}
+
+int TCPServer::pollSockets(fd_set &readfds, int maxFd, struct timeval &timeout)
+{
+    return ::select(maxFd + 1, &readfds, nullptr, nullptr, &timeout);
+}
+
+bool TCPServer::performHandshake(int clientFd, int playerId)
+{
+    if (!sendMessage(clientFd, "R-Type Server\n")) {
         return false;
     }
 
-    std::string resp(buffer);
+    if (!waitForReadable(clientFd, 3)) {
+        sendMessage(clientFd, "REFUSED TIMEOUT\n");
+        return false;
+    }
+
+    std::string resp;
+    if (!receiveMessage(clientFd, resp)) {
+        sendMessage(clientFd, "REFUSED NO_DATA\n");
+        return false;
+    }
 
     if (resp.rfind("toto", 0) != 0) {
-        const char *msg = "REFUSED BAD_HANDSHAKE\n";
-        ::write(clientFd, msg, strlen(msg));
+        sendMessage(clientFd, "REFUSED BAD_HANDSHAKE\n");
         return false;
     }
 
     std::string ok = "OK " + std::to_string(playerId) + "\n";
-    ::write(clientFd, ok.c_str(), ok.size());
+    sendMessage(clientFd, ok);
 
     return true;
 }
@@ -87,9 +133,8 @@ void TCPServer::acceptNewClient()
     }
 
     if (slot == -1) {
-        const char *msg = "FULL\n";
-        ::write(clientFd, msg, strlen(msg));
-        ::close(clientFd);
+        sendMessage(clientFd, "FULL\n");
+        closeFd(clientFd);
         std::cout << "[SERVER] refused new client (FULL)\n";
         return;
     }
@@ -100,9 +145,7 @@ void TCPServer::acceptNewClient()
 
     if (!performHandshake(clientFd, _clients[slot].id)) {
         std::cout << "[SERVER] handshake failed\n";
-        ::close(clientFd);
-        _clients[slot].fd = -1;
-        _clients[slot].id = 0;
+        resetClient(_clients[slot]);
         return;
     }
 
@@ -114,18 +157,12 @@ void TCPServer::acceptNewClient()
 
 void TCPServer::processClientData(Client &client)
 {
-    char buffer[BUFFER_SIZE]{};
-    ssize_t n = read(client.fd, buffer, sizeof(buffer));
-
-    if (n <= 0) {
+    std::string msg;
+    if (!receiveMessage(client.fd, msg)) {
         std::cout << "[SERVER] client " << client.id << " disconnected\n";
-        ::close(client.fd);
-        client.fd = -1;
-        client.id = 0;
+        resetClient(client);
         return;
     }
-
-    std::string msg(buffer, n);
 
     if (msg.rfind("PONG", 0) == 0) {
         client.lastPongTime = getCurrentTime();
@@ -144,12 +181,10 @@ long TCPServer::getCurrentTime()
 
 void TCPServer::sendPingToAll()
 {
-    char *ping = "PING\n";
-
     for (auto &c : _clients) {
         if (c.fd != -1 && c.handshakeDone) {
             std::cout << "[SERVER] Sending PING to client " << c.id << std::endl;
-            ::write(c.fd, ping, strlen(ping));
+            sendMessage(c.fd, "PING\n");
         }
     }
 }
@@ -165,9 +200,7 @@ void TCPServer::checkHeartbeat()
         if (now - c.lastPongTime > 10) {
             std::cout << "[SERVER] Client " << c.id << " timed out (no PONG for " << (now - c.lastPongTime) << "s)" << std::endl;
 
-            ::close(c.fd);
-            c.fd = -1;
-            c.id = 0;
+            resetClient(c);
         }
     }
 }
@@ -202,7 +235,7 @@ void TCPServer::run()
         tv.tv_sec = 1;
         tv.tv_usec = 0;
 
-        int activity = select(maxFd + 1, &readfds, nullptr, nullptr, &tv);
+        int activity = pollSockets(readfds, maxFd, tv);
         if (activity < 0) {
             continue;
         }

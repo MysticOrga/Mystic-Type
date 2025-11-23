@@ -9,7 +9,10 @@
 
 #include <array>
 #include <vector>
+#include <string>
+#include <string_view>
 #include <netinet/in.h>
+#include <sys/select.h>
 #include "TCPSocket.hpp"
 
 #define MAX_CLIENT 4
@@ -36,6 +39,12 @@ class TCPServer {
         void sendPingToAll();
         void checkHeartbeat();
         long getCurrentTime();
+        bool waitForReadable(int fd, int timeoutSec, int timeoutUsec = 0);
+        bool sendMessage(int fd, std::string_view message);
+        bool receiveMessage(int fd, std::string &message);
+        void closeFd(int &fd);
+        void resetClient(Client &client);
+        int pollSockets(fd_set &readfds, int maxFd, struct timeval &timeout);
 
     private:
         Network::TransportLayer::TCPSocket _serverSocket;
