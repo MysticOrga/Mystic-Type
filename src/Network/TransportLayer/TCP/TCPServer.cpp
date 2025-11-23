@@ -7,11 +7,11 @@
 
 #include "TCPServer.hpp"
 #include <algorithm>
+#include <chrono>
 #include <iostream>
+#include <string>
 #include <unistd.h>
-#include <cstring>
 #include <sys/select.h>
-#include <string_view>
 
 TCPServer::TCPServer(uint16_t port)
 {
@@ -30,27 +30,42 @@ TCPServer::~TCPServer()
     _serverSocket.closeSocket();
 }
 
-bool TCPServer::sendMessage(int fd, std::string_view message)
+Packet TCPServer::makeStringPacket(PacketType type, const std::string &payload)
 {
-    if (fd == -1) {
-        return false;
-    }
-    ssize_t sent = ::write(fd, message.data(), message.size());
-    return sent == static_cast<ssize_t>(message.size());
+    return Packet{type, std::vector<uint8_t>(payload.begin(), payload.end())};
 }
 
-bool TCPServer::receiveMessage(int fd, std::string &message)
+Packet TCPServer::makeIdPacket(PacketType type, int value)
+{
+    std::vector<uint8_t> payload{
+        static_cast<uint8_t>((value >> 8) & 0xFF),
+        static_cast<uint8_t>(value & 0xFF)
+    };
+    return Packet{type, payload};
+}
+
+bool TCPServer::sendPacket(int fd, const Packet &packet)
+{
+    if (fd == -1) {
+        return false;
+    }
+    std::vector<uint8_t> buffer = packet.serialize();
+    ssize_t sent = writeFd(fd, buffer.data(), buffer.size());
+    return sent == static_cast<ssize_t>(buffer.size());
+}
+
+bool TCPServer::receivePacket(int fd, Packet &packet)
 {
     if (fd == -1) {
         return false;
     }
 
-    char buffer[BUFFER_SIZE]{};
-    ssize_t n = ::read(fd, buffer, sizeof(buffer));
+    uint8_t buffer[BUFFER_SIZE]{};
+    ssize_t n = readFd(fd, buffer, sizeof(buffer));
     if (n <= 0) {
         return false;
     }
-    message.assign(buffer, static_cast<size_t>(n));
+    packet = Packet::deserialize(buffer, static_cast<size_t>(n));
     return true;
 }
 
@@ -62,14 +77,14 @@ bool TCPServer::waitForReadable(int fd, int timeoutSec, int timeoutUsec)
 
     struct timeval timeout{timeoutSec, timeoutUsec};
 
-    int ret = ::select(fd + 1, &rfds, nullptr, nullptr, &timeout);
+    int ret = selectFdSet(fd + 1, &rfds, nullptr, nullptr, &timeout);
     return ret > 0 && FD_ISSET(fd, &rfds);
 }
 
 void TCPServer::closeFd(int &fd)
 {
     if (fd != -1) {
-        ::close(fd);
+        closeFdRaw(fd);
         fd = -1;
     }
 }
@@ -85,33 +100,39 @@ void TCPServer::resetClient(Client &client)
 
 int TCPServer::pollSockets(fd_set &readfds, int maxFd, struct timeval &timeout)
 {
-    return ::select(maxFd + 1, &readfds, nullptr, nullptr, &timeout);
+    return selectFdSet(maxFd + 1, &readfds, nullptr, nullptr, &timeout);
 }
 
 bool TCPServer::performHandshake(int clientFd, int playerId)
 {
-    if (!sendMessage(clientFd, "R-Type Server\n")) {
+    Packet serverHello = makeStringPacket(PacketType::SERVER_HELLO, "R-Type Server");
+    if (!sendPacket(clientFd, serverHello)) {
         return false;
     }
 
     if (!waitForReadable(clientFd, 3)) {
-        sendMessage(clientFd, "REFUSED TIMEOUT\n");
+        sendPacket(clientFd, makeStringPacket(PacketType::REFUSED, "TIMEOUT"));
         return false;
     }
 
-    std::string resp;
-    if (!receiveMessage(clientFd, resp)) {
-        sendMessage(clientFd, "REFUSED NO_DATA\n");
+    Packet resp;
+    try {
+        if (!receivePacket(clientFd, resp)) {
+            sendPacket(clientFd, makeStringPacket(PacketType::REFUSED, "NO_DATA"));
+            return false;
+        }
+    } catch (const std::exception &e) {
+        sendPacket(clientFd, makeStringPacket(PacketType::REFUSED, "BAD_PACKET"));
         return false;
     }
 
-    if (resp.rfind("toto", 0) != 0) {
-        sendMessage(clientFd, "REFUSED BAD_HANDSHAKE\n");
+    std::string payloadStr(resp.payload.begin(), resp.payload.end());
+    if (resp.type != PacketType::CLIENT_HELLO || payloadStr.rfind("toto", 0) != 0) {
+        sendPacket(clientFd, makeStringPacket(PacketType::REFUSED, "BAD_HANDSHAKE"));
         return false;
     }
 
-    std::string ok = "OK " + std::to_string(playerId) + "\n";
-    sendMessage(clientFd, ok);
+    sendPacket(clientFd, makeIdPacket(PacketType::OK, playerId));
 
     return true;
 }
@@ -133,7 +154,7 @@ void TCPServer::acceptNewClient()
     }
 
     if (slot == -1) {
-        sendMessage(clientFd, "FULL\n");
+        sendPacket(clientFd, makeStringPacket(PacketType::REFUSED, "FULL"));
         closeFd(clientFd);
         std::cout << "[SERVER] refused new client (FULL)\n";
         return;
@@ -157,34 +178,44 @@ void TCPServer::acceptNewClient()
 
 void TCPServer::processClientData(Client &client)
 {
-    std::string msg;
-    if (!receiveMessage(client.fd, msg)) {
-        std::cout << "[SERVER] client " << client.id << " disconnected\n";
+    Packet packet;
+    try {
+        if (!receivePacket(client.fd, packet)) {
+            std::cout << "[SERVER] client " << client.id << " disconnected\n";
+            resetClient(client);
+            return;
+        }
+    } catch (const std::exception &e) {
+        std::cout << "[SERVER] client " << client.id << " sent invalid packet: " << e.what() << std::endl;
         resetClient(client);
         return;
     }
 
-    if (msg.rfind("PONG", 0) == 0) {
+    if (packet.type == PacketType::PONG) {
         client.lastPongTime = getCurrentTime();
         std::cout << "[SERVER] Received PONG from client " << client.id << std::endl;
         return;
     }
 
-    std::cout << "[SERVER] (" << client.id << ") said: " << msg;
+    std::string payloadStr(packet.payload.begin(), packet.payload.end());
+    std::cout << "[SERVER] (" << client.id << ") packet type " << static_cast<int>(packet.type)
+              << " payload: " << payloadStr << std::endl;
 }
 
 
 long TCPServer::getCurrentTime()
 {
-    return static_cast<long>(time(nullptr));
+    using namespace std::chrono;
+    return duration_cast<seconds>(steady_clock::now().time_since_epoch()).count();
 }
+
 
 void TCPServer::sendPingToAll()
 {
     for (auto &c : _clients) {
         if (c.fd != -1 && c.handshakeDone) {
             std::cout << "[SERVER] Sending PING to client " << c.id << std::endl;
-            sendMessage(c.fd, "PING\n");
+            sendPacket(c.fd, Packet(PacketType::PING, {}));
         }
     }
 }
@@ -204,7 +235,6 @@ void TCPServer::checkHeartbeat()
         }
     }
 }
-
 
 void TCPServer::run()
 {
@@ -254,4 +284,24 @@ void TCPServer::run()
             }
         }
     }
+}
+
+ssize_t TCPServer::writeFd(int fd, const uint8_t *data, std::size_t size)
+{
+    return ::write(fd, data, size);
+}
+
+ssize_t TCPServer::readFd(int fd, uint8_t *data, std::size_t size)
+{
+    return ::read(fd, data, size);
+}
+
+int TCPServer::selectFdSet(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout)
+{
+    return ::select(nfds, readfds, writefds, exceptfds, timeout);
+}
+
+int TCPServer::closeFdRaw(int fd)
+{
+    return ::close(fd);
 }

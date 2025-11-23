@@ -7,9 +7,16 @@
 
 #include "Network/TransportLayer/TCP/TCPServer.hpp"
 
+#include <iostream>
+
 int main()
 {
-    TCPServer server(4242);
-    server.run();
+    try {
+        TCPServer server(4242);
+        server.run();
+    }
+    catch (const std::exception &e) {
+        std::cerr << "[SERVER ERROR] " << e.what() << std::endl;
+    }
     return 0;
 }

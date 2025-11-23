@@ -10,10 +10,11 @@
 #include <array>
 #include <vector>
 #include <string>
-#include <string_view>
 #include <netinet/in.h>
 #include <sys/select.h>
 #include "TCPSocket.hpp"
+#include "../Packet.hpp"
+#include "../Packet.hpp"
 
 #define MAX_CLIENT 4
 #define BUFFER_SIZE 1024
@@ -40,11 +41,17 @@ class TCPServer {
         void checkHeartbeat();
         long getCurrentTime();
         bool waitForReadable(int fd, int timeoutSec, int timeoutUsec = 0);
-        bool sendMessage(int fd, std::string_view message);
-        bool receiveMessage(int fd, std::string &message);
         void closeFd(int &fd);
         void resetClient(Client &client);
         int pollSockets(fd_set &readfds, int maxFd, struct timeval &timeout);
+        bool sendPacket(int fd, const Packet &packet);
+        bool receivePacket(int fd, Packet &packet);
+        Packet makeStringPacket(PacketType type, const std::string &payload);
+        Packet makeIdPacket(PacketType type, int value);
+        ssize_t writeFd(int fd, const uint8_t *data, std::size_t size);
+        ssize_t readFd(int fd, uint8_t *data, std::size_t size);
+        int selectFdSet(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);
+        int closeFdRaw(int fd);
 
     private:
         Network::TransportLayer::TCPSocket _serverSocket;
