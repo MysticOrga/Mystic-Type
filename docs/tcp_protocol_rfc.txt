@@ -1,0 +1,65 @@
+Mystic-Type TCP Protocol (informal RFC)
+======================================
+
+1. Framing
+- Transport: TCP stream.
+- Each application packet is fixed header + payload.
+- Layout (all integers big-endian):
+  - uint16 header_magic = 0x5254 ("RT")
+  - uint8  type         = PacketType
+  - uint8  size         = payload length in bytes (0..255)
+  - uint8  payload[size]
+- Maximum payload: 255 bytes (enforced).
+
+2. Packet types (PacketType enum)
+- 1 SERVER_HELLO : server greeting payload (text bytes)
+- 2 CLIENT_HELLO : client greeting payload (must start with "toto")
+- 3 OK           : acknowledgment; payload = 2 bytes player id
+- 4 REFUSED      : refusal; payload = ASCII reason text
+- 5 PING         : keepalive ping (no payload)
+- 6 PONG         : keepalive response (no payload)
+- 7 MESSAGE      : generic application data (payload free-form)
+
+3. Handshake
+- Step 1 (server): send SERVER_HELLO with payload "R-Type Server".
+- Step 2 (client): reply CLIENT_HELLO payload beginning with "toto".
+- Step 3 (server): if accepted, send OK with 2-byte player id (big-endian).
+- Failure cases (server sends REFUSED then closes):
+  - TIMEOUT: no readable data within 3s after SERVER_HELLO.
+  - NO_DATA: read returned <= 0.
+  - BAD_PACKET: deserialize failed (bad magic/size).
+  - BAD_HANDSHAKE: type not CLIENT_HELLO or payload not starting with "toto".
+- Capacity full: server replies REFUSED payload "FULL" and closes.
+
+4. Heartbeat
+- Server sends PING every 5 seconds to each handshaken client.
+- Client must reply with PONG promptly; server tracks last PONG time.
+- If no PONG for > 10 seconds, server logs timeout and drops the client.
+
+5. Serialization notes
+- Header magic is always 0x52,0x54.
+- type is serialized as its numeric code.
+- size is derived from payload length; if payload >255, serialization throws.
+- deserialize validates: at least 4 bytes; magic matches; size fits buffer.
+
+6. Closing behavior
+- Server resets client state and closes the TCP fd on disconnect/read <=0 or invalid packet.
+- REFUSED is advisory; connection may be closed immediately after sending it.
+
+7. Extensibility
+- New PacketType values can be appended; ensure clients treat unknown types as MESSAGE or drop gracefully.
+- Keep size within one byte unless you revise framing (would require version bump).
+
+8. Examples (hex)
+- SERVER_HELLO ("R-Type Server"):
+  52 54 01 0c 52 2d 54 79 70 65 20 53 65 72 76 65 72
+- CLIENT_HELLO ("toto123"):
+  52 54 02 07 74 6f 74 6f 31 32 33
+- OK (player id 0x00 0a):
+  52 54 03 02 00 0a
+- REFUSED ("FULL"):
+  52 54 04 04 46 55 4c 4c
+- PING:
+  52 54 05 00
+- PONG:
+  52 54 06 00
