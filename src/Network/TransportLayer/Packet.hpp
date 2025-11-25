@@ -19,7 +19,9 @@ enum class PacketType : uint8_t {
     REFUSED = 4,
     PING = 5,
     PONG = 6,
-    MESSAGE = 7
+    MESSAGE = 7,
+    PLAYER_LIST = 8,
+    NEW_PLAYER  = 9
 };
 
 class Packet {

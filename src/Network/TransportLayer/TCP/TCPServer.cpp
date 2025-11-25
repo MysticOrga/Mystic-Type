@@ -96,6 +96,8 @@ void TCPServer::resetClient(Client &client)
     client.addr = {};
     client.handshakeDone = false;
     client.lastPongTime = 0;
+    client.posX = 0;
+    client.posY = 0;
 }
 
 int TCPServer::pollSockets(fd_set &readfds, int maxFd, struct timeval &timeout)
@@ -163,6 +165,8 @@ void TCPServer::acceptNewClient()
     _clients[slot].fd = clientFd;
     _clients[slot].addr = addr;
     _clients[slot].id = _nextId++;
+    _clients[slot].posX = static_cast<uint8_t>(slot);
+    _clients[slot].posY = 0;
 
     if (!performHandshake(clientFd, _clients[slot].id)) {
         std::cout << "[SERVER] handshake failed\n";
@@ -174,6 +178,8 @@ void TCPServer::acceptNewClient()
     _clients[slot].lastPongTime = getCurrentTime();
 
     std::cout << "[SERVER] client " << _clients[slot].id << " connected successfully\n";
+    sendPlayerListToClient(_clients[slot]);
+    broadcastNewPlayer(_clients[slot]);
 }
 
 void TCPServer::processClientData(Client &client)
@@ -304,4 +310,49 @@ int TCPServer::selectFdSet(int nfds, fd_set *readfds, fd_set *writefds, fd_set *
 int TCPServer::closeFdRaw(int fd)
 {
     return ::close(fd);
+}
+
+Packet TCPServer::buildPlayerListPacket() const
+{
+    std::vector<uint8_t> payload;
+    payload.reserve(1 + _clients.size() * 6);
+
+    payload.push_back(0); // placeholder for count
+    uint8_t count = 0;
+
+    for (const auto &c : _clients) {
+        if (c.fd == -1 || !c.handshakeDone)
+            continue;
+        ++count;
+        payload.push_back(static_cast<uint8_t>((c.id >> 8) & 0xFF));
+        payload.push_back(static_cast<uint8_t>(c.id & 0xFF));
+        payload.push_back(c.posX);
+        payload.push_back(c.posY);
+    }
+
+    payload[0] = count;
+    return Packet(PacketType::PLAYER_LIST, payload);
+}
+
+void TCPServer::sendPlayerListToClient(const Client &client)
+{
+    Packet list = buildPlayerListPacket();
+    sendPacket(client.fd, list);
+}
+
+void TCPServer::broadcastNewPlayer(const Client &newClient)
+{
+    std::vector<uint8_t> payload{
+        static_cast<uint8_t>((newClient.id >> 8) & 0xFF),
+        static_cast<uint8_t>(newClient.id & 0xFF),
+        newClient.posX,
+        newClient.posY
+    };
+    Packet pkt(PacketType::NEW_PLAYER, payload);
+
+    for (auto &c : _clients) {
+        if (c.fd == -1 || !c.handshakeDone || c.id == newClient.id)
+            continue;
+        sendPacket(c.fd, pkt);
+    }
 }
