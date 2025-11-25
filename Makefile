@@ -42,11 +42,9 @@ all: $(EXE_SERVER) $(EXE_CLIENT)
 
 $(EXE_SERVER): $(OBJ_COMMON) $(OBJ_SERVER)
 	$(CC) $(CPPFLAGS) $(OBJ_COMMON) $(OBJ_SERVER) -o $@
-	@echo "[OK] server compilé"
 
 $(EXE_CLIENT): $(OBJ_COMMON) $(OBJ_CLIENT)
 	$(CC) $(CPPFLAGS) $(OBJ_COMMON) $(OBJ_CLIENT) -o $@
-	@echo "[OK] client compilé"
 
 $(BUILD)/%.o: %.cpp
 	@mkdir -p $(dir $@)
@@ -65,11 +63,9 @@ debug: fclean all
 
 clean:
 	$(RM) $(BUILD)
-	@echo "[OK] clean effectué"
 
 fclean: clean
 	$(RM) $(EXE_SERVER) $(EXE_CLIENT)
-	@echo "[OK] fclean effectué"
 
 re: fclean all
 

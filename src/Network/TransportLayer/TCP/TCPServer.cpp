@@ -199,7 +199,7 @@ void TCPServer::processClientData(Client &client)
 
     std::string payloadStr(packet.payload.begin(), packet.payload.end());
     std::cout << "[SERVER] (" << client.id << ") packet type " << static_cast<int>(packet.type)
-              << " payload: " << payloadStr << std::endl;
+            << " payload: " << payloadStr << std::endl;
 }
 
 
