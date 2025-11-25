@@ -40,7 +40,7 @@ Packet Packet::deserialize(const uint8_t* data, size_t len)
     p.type = static_cast<PacketType>(data[2]);
     p.size = data[3];
 
-    if (len < (size_t)(4 + p.size))
+    if (len < 4 + p.size)
         throw std::runtime_error("Incomplete payload");
 
     p.payload.assign(data + 4, data + 4 + p.size);

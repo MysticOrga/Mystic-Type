@@ -8,6 +8,7 @@
 #ifndef UDPSOCKET_HPP_
 #define UDPSOCKET_HPP_
 #include "../ASocket.hpp"
+#include <cstdint>
 
 /**
  * @namespace Network::TransportLayer
@@ -68,6 +69,15 @@ namespace Network::TransportLayer
          * @return struct sockaddr_in The sender's address
          */
         inline sockaddr_in getSenderAddr() const { return _senderAddr; }
+
+        /**
+         * @brief Bind the UDP socket to a port/address
+         *
+         * @param port Port to bind to
+         * @param address Address (default INADDR_ANY)
+         * @return true on success, false otherwise
+         */
+        bool bindTo(std::uint16_t port, std::uint32_t address = INADDR_ANY);
 
     protected:
     private:

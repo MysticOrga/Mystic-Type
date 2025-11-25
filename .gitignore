@@ -1,4 +1,6 @@
-build
+build/
+rtype
+.clang-format
 # Prerequisites
 *.d
 

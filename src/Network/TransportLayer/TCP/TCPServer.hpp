@@ -14,7 +14,6 @@
 #include <sys/select.h>
 #include "TCPSocket.hpp"
 #include "../Packet.hpp"
-#include "../Packet.hpp"
 
 #define MAX_CLIENT 4
 #define BUFFER_SIZE 1024
@@ -33,6 +32,9 @@ class TCPServer {
             sockaddr_in addr{};
             bool handshakeDone = false;
             long lastPongTime = 0;
+
+            uint8_t posX = 0;
+            uint8_t posY = 0;
         };
         bool performHandshake(int clientFd, int playerId);
         void acceptNewClient();
@@ -52,6 +54,9 @@ class TCPServer {
         ssize_t readFd(int fd, uint8_t *data, std::size_t size);
         int selectFdSet(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout);
         int closeFdRaw(int fd);
+        Packet buildPlayerListPacket() const;
+        void sendPlayerListToClient(const Client &client);
+        void broadcastNewPlayer(const Client &newClient);
 
     private:
         Network::TransportLayer::TCPSocket _serverSocket;
