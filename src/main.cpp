@@ -6,14 +6,24 @@
 */
 
 #include "Network/TransportLayer/TCP/TCPServer.hpp"
+#include "Network/TransportLayer/UDP/UDPGameServer.hpp"
 
 #include <iostream>
+#include <thread>
 
 int main()
 {
     try {
-        TCPServer server(4242);
-        server.run();
+        TCPServer tcpServer(4242);
+        UDPGameServer udpServer(4242, 500); // snapshot every 500 ms
+
+        std::thread tcpThread([&tcpServer]() {
+            tcpServer.run();
+        });
+
+        udpServer.run();
+
+        tcpThread.join();
     }
     catch (const std::exception &e) {
         std::cerr << "[SERVER ERROR] " << e.what() << std::endl;

@@ -9,6 +9,11 @@
 
 namespace Network::TransportLayer
 {
+    bool UDPSocket::bindTo(std::uint16_t port, std::uint32_t address)
+    {
+        return bindSock(AF_INET, port, address);
+    }
+
     ssize_t UDPSocket::writeByte(const void *data, std::size_t size)
     {
         if (data == nullptr || size == 0)
