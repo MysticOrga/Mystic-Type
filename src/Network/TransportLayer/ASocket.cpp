@@ -7,6 +7,7 @@
 
 #include "ASocket.hpp"
 #include <stdexcept>
+#include <iostream>
 
 // Implementation of ASocket methods
 namespace Network::TransportLayer
@@ -54,24 +55,31 @@ namespace Network::TransportLayer
         int activity = select(_socketFd + 1, &readfds, &writefds, &exceptfds, &timeout);
         if (activity < 0)
         {
+            std::cout << "Eroor" <<std::endl;
             return IOState::ERROR;
         }
         if (activity != 0)
         {
+            // std::cout << "Activiry" << std::endl;
             if (FD_ISSET(_socketFd, &readfds))
             {
+                // std::cout << "Read ready" << std::endl;
                 return IOState::READ_READY;
             }
             if (FD_ISSET(_socketFd, &exceptfds))
             {
+                // std::cout << "Exception" << std::endl;
                 return IOState::EXCEPTION;
             }
             if (FD_ISSET(_socketFd, &writefds))
             {
+                // std::cout << "Write ready" << std::endl;
                 return IOState::WRITE_READY;
             }
+            // std::cout << "timeout" << std::endl;
             return IOState::TIMEOUT;
         }
+        // std::cout << "timeout" << std::endl;
         return IOState::TIMEOUT;
     }
 
@@ -83,21 +91,14 @@ namespace Network::TransportLayer
 
         return bind(_socketFd, reinterpret_cast<struct sockaddr *>(&_addr), sizeof(_addr)) == 0;
     }
+
     ssize_t ASocket::writeByte(const void *data, std::size_t size)
     {
-        if (data == nullptr || size == 0)
-            return -1; // Invalid data or size
-        if (sockState(0, 0) == IOState::WRITE_READY)
             return write(_socketFd, data, size);
-        return -1; // Socket not ready for writing
     }
 
     ssize_t ASocket::readByte(void *buffer, std::size_t size)
     {
-        if (buffer == nullptr || size == 0)
-            return -1; // Invalid buffer or size
-        if (sockState(0, 0) == IOState::READ_READY)
             return read(_socketFd, buffer, size);
-        return -1; // Socket not ready for reading
     }
 }
