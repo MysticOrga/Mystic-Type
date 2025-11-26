@@ -96,6 +96,12 @@ namespace Network::ProtocolLayer
          */
         inline void setStrategy(const FramingStrategy_t &strategy) { _strategy = strategy; };
 
+        /**
+         * @brief Read package from the a socket
+         *
+         * @param sock
+         * @return ssize_t
+         */
         ssize_t readFromSock(TransportLayer::ISocket &sock)
         {
             memset(_buffer, 0, _bufferSize);
@@ -114,18 +120,36 @@ namespace Network::ProtocolLayer
             }
         }
 
+        /**
+         * @brief Get the Payload object
+         *
+         * @return std::vector<byte>
+         */
         inline std::vector<byte> getPayload(void) const { return _payload; }
 
+        /**
+         * @brief Get the Header object
+         *
+         * @return std::vector<byte>
+         */
         inline std::vector<byte> getHeader(void) const { return _header; }
 
     protected:
     private:
-        byte _buffer[N];
-        std::size_t _bufferSize = N;
+        byte _buffer[N];             // internal buffer
+        std::size_t _bufferSize = N; // size of the internal buffer
         std::vector<byte> _header;   // package header
         std::vector<byte> _payload;  // payload package
         FramingStrategy_t _strategy; // Framing strategy
 
+        /**
+         * @brief turn a buffer to a size
+         *
+         * @param buf the buffer to read from
+         * @param off offset of the size in the buffer
+         * @param len number of byte to convert
+         * @return std::size_t
+         */
         std::size_t byteToSize(const std::vector<byte> buf, const std::size_t off, const std::size_t len) const
         {
             std::size_t size = 0;
@@ -139,6 +163,11 @@ namespace Network::ProtocolLayer
             return size;
         }
 
+        /**
+         * @brief get package len from the header given
+         *
+         * @return std::size_t
+         */
         std::size_t lenFromHeader(void) const
         {
             std::size_t headerOff = 0;
@@ -159,6 +188,10 @@ namespace Network::ProtocolLayer
             return 0;
         }
 
+        /**
+         * @brief fill the header buffer
+         *
+         */
         void fillHeader(void)
         {
             _header.clear();
@@ -179,6 +212,10 @@ namespace Network::ProtocolLayer
             }
         }
 
+        /**
+         * @brief fille the payload
+         *
+         */
         void fillBuffer(void)
         {
             std::size_t payloadLen = this->lenFromHeader();
