@@ -24,7 +24,8 @@ public:
     bool performHandshake();
     bool sendPong();
     bool sendHelloUdp(uint8_t x = 0, uint8_t y = 0);
-    bool sendInput(uint8_t x, uint8_t y);
+    enum class MoveCmd : uint8_t { Up = 0, Down = 1, Left = 2, Right = 3 };
+    bool sendInput(MoveCmd cmd);
 
     bool pollPackets();
 
@@ -35,12 +36,15 @@ public:
     void clearEvents() { _events.clear(); }
 
 private:
+    enum class RecvResult { Disconnected, Incomplete, Ok };
     bool readTcpPacket(Packet &p);
     bool readUdpPacket(Packet &p);
     bool sendPacketTcp(const Packet &p);
     bool sendPacketUdp(const Packet &p);
     void handleTcpPacket(const Packet &p);
     void handleUdpPacket(const Packet &p);
+    bool writeAll(int fd, const uint8_t *data, std::size_t size);
+    RecvResult receiveTcpFramed(Packet &p);
 
     int _tcpFd = -1;
     int _udpFd = -1;
@@ -50,4 +54,5 @@ private:
     std::vector<PlayerState> _lastSnapshot;
     std::vector<PlayerState> _lastPlayerList;
     std::vector<std::string> _events;
+    std::vector<uint8_t> _tcpRecvBuffer;
 };

@@ -27,7 +27,7 @@ static Entity createPlayerEntity(ECS &ecs, float x, float y)
         "./sprites/r-typesheet42.gif",
         raylib::Vector2{33, 17},
         raylib::Vector2{0, 0},
-        5,
+        4,
         0.15f,
         raylib::Vector2{x, y}
     );
@@ -60,6 +60,7 @@ int main()
 
     ECS ecs;
     SpriteRenderSystem spriteRenderSystem;
+    InputSystem inputSystem;
     std::unordered_map<int, Entity> entities;
 
     auto syncEntities = [&](const std::vector<PlayerState> &players) {
@@ -85,9 +86,6 @@ int main()
     syncEntities(state.listPlayers());
     net.clearEvents();
 
-    uint8_t posX = 0;
-    uint8_t posY = 0;
-    auto lastInputSend = std::chrono::steady_clock::now();
     while (!window.ShouldClose()) {
         net.pollPackets();
         for (const auto &ev : net.getEvents()) {
@@ -97,24 +95,22 @@ int main()
             } else if (ev == "SNAPSHOT") {
                 for (const auto &p : net.getLastSnapshot())
                     state.upsertPlayer(p.id, p.x, p.y);
-                std::cout << "[CLIENT] Snapshot: ";
-                for (const auto &p : state.listPlayers())
-                    std::cout << p.id << "(" << static_cast<int>(p.x) << "," << static_cast<int>(p.y) << ") ";
-                std::cout << "\n";
             }
         }
         net.clearEvents();
         syncEntities(state.listPlayers());
-        auto now = std::chrono::steady_clock::now();
-        if (std::chrono::duration_cast<std::chrono::milliseconds>(now - lastInputSend).count() >= 1000) {
-            posX = static_cast<uint8_t>(posX + 1);
-            net.sendInput(posX, posY);
-            lastInputSend = now;
-        }
+
+        inputSystem.update(net);
+
         window.BeginDrawing();
         window.ClearBackground(RAYWHITE);
-        for (const auto &kv : entities)
-            spriteRenderSystem.update(ecs, kv.second);
+        for (const auto &kv : entities) {
+            if (kv.first == net.getPlayerId()) {
+                spriteRenderSystem.update(ecs, kv.second);
+            } else {
+                spriteRenderSystem.update(ecs, kv.second, {255, 255, 255, 150});
+            }
+        }
         window.EndDrawing();
     }
 

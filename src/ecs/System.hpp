@@ -11,25 +11,28 @@
 #include "Components.hpp"
 #include "Core.hpp"
 #include "raylib-cpp.hpp"
+#include "../Client/NetworkClient.hpp"
 
 class InputSystem
 {
   public:
-    void update(ECS &ecs, Entity e)
+    void update(NetworkClient &net)
     {
-        auto &vel = ecs.getComponent<Velocity>(e);
+        bool moved = false;
+        NetworkClient::MoveCmd cmd = NetworkClient::MoveCmd::Up;
 
-        vel.vx = 0;
-        vel.vy = 0;
+        if (::IsKeyDown(KEY_D))
+            { cmd = NetworkClient::MoveCmd::Right; moved = true; }
+        if (::IsKeyDown(KEY_A))
+            { cmd = NetworkClient::MoveCmd::Left; moved = true; }
+        if (::IsKeyDown(KEY_W))
+            { cmd = NetworkClient::MoveCmd::Up; moved = true; }
+        if (::IsKeyDown(KEY_S))
+            { cmd = NetworkClient::MoveCmd::Down; moved = true; }
 
-        if (::IsKeyDown(KEY_RIGHT))
-            vel.vx = 2;
-        if (::IsKeyDown(KEY_LEFT))
-            vel.vx = -2;
-        if (::IsKeyDown(KEY_UP))
-            vel.vy = -2;
-        if (::IsKeyDown(KEY_DOWN))
-            vel.vy = 2;
+        if (moved) {
+            net.sendInput(cmd);
+        }
     }
 };
 
@@ -72,6 +75,19 @@ class SpriteRenderSystem
 {
   public:
     void update(ECS &ecs, Entity e)
+    {
+        auto &pos = ecs.getComponent<Position>(e);
+        auto &sprite = ecs.getComponent<Sprite>(e);
+
+        if (!sprite.sprite)
+            return;
+
+        sprite.sprite->setPosition({pos.x, pos.y});
+        sprite.sprite->update();
+        sprite.sprite->draw();
+    }
+
+    void update(ECS &ecs, Entity e, ::Color color)
     {
         auto &pos = ecs.getComponent<Position>(e);
         auto &sprite = ecs.getComponent<Sprite>(e);

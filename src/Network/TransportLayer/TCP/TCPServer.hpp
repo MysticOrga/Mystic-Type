@@ -15,6 +15,8 @@
 #include "TCPSocket.hpp"
 #include "../Packet.hpp"
 
+#include <vector>
+
 #define MAX_CLIENT 4
 #define BUFFER_SIZE 1024
 
@@ -35,8 +37,9 @@ class TCPServer {
 
             uint8_t posX = 0;
             uint8_t posY = 0;
+            std::vector<uint8_t> recvBuffer;
         };
-        bool performHandshake(int clientFd, int playerId);
+        bool performHandshake(Client &client);
         void acceptNewClient();
         void processClientData(Client &client);
         void sendPingToAll();
@@ -47,7 +50,8 @@ class TCPServer {
         void resetClient(Client &client);
         int pollSockets(fd_set &readfds, int maxFd, struct timeval &timeout);
         bool sendPacket(int fd, const Packet &packet);
-        bool receivePacket(int fd, Packet &packet);
+        enum class RecvResult { Disconnected, Incomplete, Ok };
+        RecvResult receivePacket(int fd, Packet &packet, std::vector<uint8_t> &buffer);
         Packet makeStringPacket(PacketType type, const std::string &payload);
         Packet makeIdPacket(PacketType type, int value);
         ssize_t writeFd(int fd, const uint8_t *data, std::size_t size);
@@ -57,6 +61,7 @@ class TCPServer {
         Packet buildPlayerListPacket() const;
         void sendPlayerListToClient(const Client &client);
         void broadcastNewPlayer(const Client &newClient);
+        bool writeAll(int fd, const uint8_t *data, std::size_t size);
 
     private:
         Network::TransportLayer::TCPSocket _serverSocket;

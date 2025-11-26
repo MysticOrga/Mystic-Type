@@ -8,6 +8,7 @@
 #include "TCPServer.hpp"
 #include <algorithm>
 #include <chrono>
+#include <cstdint>
 #include <iostream>
 #include <string>
 #include <unistd.h>
@@ -49,24 +50,51 @@ bool TCPServer::sendPacket(int fd, const Packet &packet)
     if (fd == -1) {
         return false;
     }
-    std::vector<uint8_t> buffer = packet.serialize();
-    ssize_t sent = writeFd(fd, buffer.data(), buffer.size());
-    return sent == static_cast<ssize_t>(buffer.size());
+    std::vector<uint8_t> payload = packet.serialize();
+    if (payload.size() > UINT16_MAX) {
+        return false;
+    }
+    uint16_t len = static_cast<uint16_t>(payload.size());
+    std::vector<uint8_t> framed;
+    framed.reserve(payload.size() + 2);
+    framed.push_back(static_cast<uint8_t>(len >> 8));
+    framed.push_back(static_cast<uint8_t>(len & 0xFF));
+    framed.insert(framed.end(), payload.begin(), payload.end());
+
+    return writeAll(fd, framed.data(), framed.size());
 }
 
-bool TCPServer::receivePacket(int fd, Packet &packet)
+TCPServer::RecvResult TCPServer::receivePacket(int fd, Packet &packet, std::vector<uint8_t> &recvBuffer)
 {
     if (fd == -1) {
-        return false;
+        return RecvResult::Disconnected;
     }
 
-    uint8_t buffer[BUFFER_SIZE]{};
-    ssize_t n = readFd(fd, buffer, sizeof(buffer));
+    uint8_t tmp[BUFFER_SIZE]{};
+    ssize_t n = readFd(fd, tmp, sizeof(tmp));
     if (n <= 0) {
-        return false;
+        return RecvResult::Disconnected;
     }
-    packet = Packet::deserialize(buffer, static_cast<size_t>(n));
-    return true;
+
+    recvBuffer.insert(recvBuffer.end(), tmp, tmp + n);
+
+    while (recvBuffer.size() >= 2) {
+        uint16_t len = (static_cast<uint16_t>(recvBuffer[0]) << 8) | recvBuffer[1];
+        if (recvBuffer.size() < (size_t)(2 + len))
+            return RecvResult::Incomplete;
+
+        std::vector<uint8_t> pktData(recvBuffer.begin() + 2, recvBuffer.begin() + 2 + len);
+        recvBuffer.erase(recvBuffer.begin(), recvBuffer.begin() + 2 + len);
+        try {
+            packet = Packet::deserialize(pktData.data(), pktData.size());
+            return RecvResult::Ok;
+        } catch (const std::exception &) {
+            // drop malformed packet and continue
+            continue;
+        }
+    }
+
+    return RecvResult::Incomplete;
 }
 
 bool TCPServer::waitForReadable(int fd, int timeoutSec, int timeoutUsec)
@@ -98,6 +126,7 @@ void TCPServer::resetClient(Client &client)
     client.lastPongTime = 0;
     client.posX = 0;
     client.posY = 0;
+    client.recvBuffer.clear();
 }
 
 int TCPServer::pollSockets(fd_set &readfds, int maxFd, struct timeval &timeout)
@@ -105,36 +134,40 @@ int TCPServer::pollSockets(fd_set &readfds, int maxFd, struct timeval &timeout)
     return selectFdSet(maxFd + 1, &readfds, nullptr, nullptr, &timeout);
 }
 
-bool TCPServer::performHandshake(int clientFd, int playerId)
+bool TCPServer::performHandshake(Client &client)
 {
     Packet serverHello = makeStringPacket(PacketType::SERVER_HELLO, "R-Type Server");
-    if (!sendPacket(clientFd, serverHello)) {
+    if (!sendPacket(client.fd, serverHello)) {
         return false;
     }
 
-    if (!waitForReadable(clientFd, 3)) {
-        sendPacket(clientFd, makeStringPacket(PacketType::REFUSED, "TIMEOUT"));
+    if (!waitForReadable(client.fd, 3)) {
+        sendPacket(client.fd, makeStringPacket(PacketType::REFUSED, "TIMEOUT"));
         return false;
     }
 
     Packet resp;
     try {
-        if (!receivePacket(clientFd, resp)) {
-            sendPacket(clientFd, makeStringPacket(PacketType::REFUSED, "NO_DATA"));
+        auto res = receivePacket(client.fd, resp, client.recvBuffer);
+        if (res == RecvResult::Disconnected) {
+            sendPacket(client.fd, makeStringPacket(PacketType::REFUSED, "NO_DATA"));
+            return false;
+        } else if (res == RecvResult::Incomplete) {
+            sendPacket(client.fd, makeStringPacket(PacketType::REFUSED, "BAD_PACKET"));
             return false;
         }
     } catch (const std::exception &e) {
-        sendPacket(clientFd, makeStringPacket(PacketType::REFUSED, "BAD_PACKET"));
+        sendPacket(client.fd, makeStringPacket(PacketType::REFUSED, "BAD_PACKET"));
         return false;
     }
 
     std::string payloadStr(resp.payload.begin(), resp.payload.end());
     if (resp.type != PacketType::CLIENT_HELLO || payloadStr.rfind("toto", 0) != 0) {
-        sendPacket(clientFd, makeStringPacket(PacketType::REFUSED, "BAD_HANDSHAKE"));
+        sendPacket(client.fd, makeStringPacket(PacketType::REFUSED, "BAD_HANDSHAKE"));
         return false;
     }
 
-    sendPacket(clientFd, makeIdPacket(PacketType::OK, playerId));
+    sendPacket(client.fd, makeIdPacket(PacketType::OK, client.id));
 
     return true;
 }
@@ -168,7 +201,7 @@ void TCPServer::acceptNewClient()
     _clients[slot].posX = static_cast<uint8_t>(slot);
     _clients[slot].posY = 0;
 
-    if (!performHandshake(clientFd, _clients[slot].id)) {
+    if (!performHandshake(_clients[slot])) {
         std::cout << "[SERVER] handshake failed\n";
         resetClient(_clients[slot]);
         return;
@@ -185,15 +218,13 @@ void TCPServer::acceptNewClient()
 void TCPServer::processClientData(Client &client)
 {
     Packet packet;
-    try {
-        if (!receivePacket(client.fd, packet)) {
-            std::cout << "[SERVER] client " << client.id << " disconnected\n";
-            resetClient(client);
-            return;
-        }
-    } catch (const std::exception &e) {
-        std::cout << "[SERVER] client " << client.id << " sent invalid packet: " << e.what() << std::endl;
+    auto res = receivePacket(client.fd, packet, client.recvBuffer);
+    if (res == RecvResult::Disconnected) {
+        std::cout << "[SERVER] client " << client.id << " disconnected\n";
         resetClient(client);
+        return;
+    }
+    if (res == RecvResult::Incomplete) {
         return;
     }
 
@@ -312,6 +343,18 @@ int TCPServer::closeFdRaw(int fd)
     return ::close(fd);
 }
 
+bool TCPServer::writeAll(int fd, const uint8_t *data, std::size_t size)
+{
+    std::size_t total = 0;
+    while (total < size) {
+        ssize_t n = writeFd(fd, data + total, size - total);
+        if (n <= 0) {
+            return false;
+        }
+        total += static_cast<std::size_t>(n);
+    }
+    return true;
+}
 Packet TCPServer::buildPlayerListPacket() const
 {
     std::vector<uint8_t> payload;

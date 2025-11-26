@@ -11,6 +11,7 @@
 #include <unistd.h>
 #include <iostream>
 #include <algorithm>
+#include <cstdint>
 
 namespace {
     constexpr size_t BUFFER_SIZE = 1024;
@@ -48,20 +49,17 @@ bool NetworkClient::connectToServer()
 
 bool NetworkClient::performHandshake()
 {
-    uint8_t buffer[BUFFER_SIZE]{};
-    ssize_t n = ::read(_tcpFd, buffer, sizeof(buffer));
-    if (n <= 0)
+    Packet serverHello;
+    if (receiveTcpFramed(serverHello) != RecvResult::Ok)
         return false;
-    Packet serverHello = Packet::deserialize(buffer, n);
 
     Packet clientHello(PacketType::CLIENT_HELLO, {'t','o','t','o'});
     if (!sendPacketTcp(clientHello))
         return false;
 
-    n = ::read(_tcpFd, buffer, sizeof(buffer));
-    if (n <= 0)
+    Packet ok;
+    if (receiveTcpFramed(ok) != RecvResult::Ok)
         return false;
-    Packet ok = Packet::deserialize(buffer, n);
     if (ok.type != PacketType::OK || ok.payload.size() < 2)
         return false;
     _playerId = (ok.payload[0] << 8) | ok.payload[1];
@@ -84,12 +82,12 @@ bool NetworkClient::sendHelloUdp(uint8_t x, uint8_t y)
     return sendPacketUdp(helloUdp);
 }
 
-bool NetworkClient::sendInput(uint8_t x, uint8_t y)
+bool NetworkClient::sendInput(MoveCmd cmd)
 {
     Packet input(PacketType::INPUT, {
         static_cast<uint8_t>((_playerId >> 8) & 0xFF),
         static_cast<uint8_t>(_playerId & 0xFF),
-        x, y
+        static_cast<uint8_t>(cmd)
     });
     return sendPacketUdp(input);
 }
@@ -97,26 +95,29 @@ bool NetworkClient::sendInput(uint8_t x, uint8_t y)
 bool NetworkClient::sendPacketTcp(const Packet &p)
 {
     auto data = p.serialize();
-    ssize_t sent = ::write(_tcpFd, data.data(), data.size());
-    return sent == static_cast<ssize_t>(data.size());
+    if (data.size() > UINT16_MAX)
+        return false;
+    uint16_t len = static_cast<uint16_t>(data.size());
+    std::vector<uint8_t> framed;
+    framed.reserve(data.size() + 2);
+    framed.push_back(static_cast<uint8_t>(len >> 8));
+    framed.push_back(static_cast<uint8_t>(len & 0xFF));
+    framed.insert(framed.end(), data.begin(), data.end());
+
+    return writeAll(_tcpFd, framed.data(), framed.size());
 }
 
 bool NetworkClient::sendPacketUdp(const Packet &p)
 {
     auto data = p.serialize();
-    ssize_t sent = sendto(_udpFd, data.data(), data.size(), 0,
-                          reinterpret_cast<sockaddr*>(&_serverAddr), sizeof(_serverAddr));
+    ssize_t sent = sendto(_udpFd, data.data(), data.size(), 0, reinterpret_cast<sockaddr*>(&_serverAddr), sizeof(_serverAddr));
     return sent == static_cast<ssize_t>(data.size());
 }
 
 bool NetworkClient::readTcpPacket(Packet &p)
 {
-    uint8_t buffer[BUFFER_SIZE]{};
-    ssize_t n = ::read(_tcpFd, buffer, sizeof(buffer));
-    if (n <= 0)
-        return false;
-    p = Packet::deserialize(buffer, static_cast<size_t>(n));
-    return true;
+    auto res = receiveTcpFramed(p);
+    return res == RecvResult::Ok;
 }
 
 bool NetworkClient::readUdpPacket(Packet &p)
@@ -124,8 +125,7 @@ bool NetworkClient::readUdpPacket(Packet &p)
     uint8_t buffer[BUFFER_SIZE]{};
     sockaddr_in from{};
     socklen_t len = sizeof(from);
-    ssize_t n = recvfrom(_udpFd, buffer, sizeof(buffer), 0,
-                         reinterpret_cast<sockaddr*>(&from), &len);
+    ssize_t n = recvfrom(_udpFd, buffer, sizeof(buffer), 0, reinterpret_cast<sockaddr*>(&from), &len);
     if (n <= 0)
         return false;
     p = Packet::deserialize(buffer, static_cast<size_t>(n));
@@ -218,4 +218,43 @@ void NetworkClient::handleUdpPacket(const Packet &p)
             _events.push_back("SNAPSHOT");
         }
     }
+}
+
+bool NetworkClient::writeAll(int fd, const uint8_t *data, std::size_t size)
+{
+    std::size_t total = 0;
+    while (total < size) {
+        ssize_t n = ::write(fd, data + total, size - total);
+        if (n <= 0)
+            return false;
+        total += static_cast<std::size_t>(n);
+    }
+    return true;
+}
+
+NetworkClient::RecvResult NetworkClient::receiveTcpFramed(Packet &p)
+{
+    uint8_t tmp[BUFFER_SIZE]{};
+    ssize_t n = ::read(_tcpFd, tmp, sizeof(tmp));
+    if (n <= 0)
+        return RecvResult::Disconnected;
+
+    _tcpRecvBuffer.insert(_tcpRecvBuffer.end(), tmp, tmp + n);
+
+    while (_tcpRecvBuffer.size() >= 2) {
+        uint16_t len = (static_cast<uint16_t>(_tcpRecvBuffer[0]) << 8) | _tcpRecvBuffer[1];
+        if (_tcpRecvBuffer.size() < size_t(2+ len))
+            return RecvResult::Incomplete;
+
+        std::vector<uint8_t> pkt(_tcpRecvBuffer.begin() + 2, _tcpRecvBuffer.begin() + 2 + len);
+        _tcpRecvBuffer.erase(_tcpRecvBuffer.begin(), _tcpRecvBuffer.begin() + 2 + len);
+        try {
+            p = Packet::deserialize(pkt.data(), pkt.size());
+            return RecvResult::Ok;
+        } catch (const std::exception &) {
+            continue;
+        }
+    }
+
+    return RecvResult::Incomplete;
 }
