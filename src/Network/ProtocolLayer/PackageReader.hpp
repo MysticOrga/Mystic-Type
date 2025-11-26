@@ -132,10 +132,8 @@ namespace Network::ProtocolLayer
 
             if ((off + len) > buf.size())
                 return -1;
-            std::cout << "i = " << off + len << std::endl;
             for (ssize_t i = (off + len) - 1; i >= (ssize_t)off; i--)
             {
-                std::cout << "byte[" << i << "]: " << buf[i] << std::endl;
                 size = (size << 8) | buf[i];
             }
             return size;
@@ -192,7 +190,6 @@ namespace Network::ProtocolLayer
             switch (_strategy.type)
             {
             case FramingType::HEADER_BASED:
-                std::cout << "payload len: " << payloadLen << std::endl;
                 headerSize = _strategy.details.header.headerSize;
                 for (std::size_t i = headerSize; i < (headerSize + payloadLen); i++)
                 {

@@ -60,26 +60,20 @@ namespace Network::TransportLayer
         }
         if (activity != 0)
         {
-            // std::cout << "Activiry" << std::endl;
             if (FD_ISSET(_socketFd, &readfds))
             {
-                // std::cout << "Read ready" << std::endl;
                 return IOState::READ_READY;
             }
             if (FD_ISSET(_socketFd, &exceptfds))
             {
-                // std::cout << "Exception" << std::endl;
                 return IOState::EXCEPTION;
             }
             if (FD_ISSET(_socketFd, &writefds))
             {
-                // std::cout << "Write ready" << std::endl;
                 return IOState::WRITE_READY;
             }
-            // std::cout << "timeout" << std::endl;
             return IOState::TIMEOUT;
         }
-        // std::cout << "timeout" << std::endl;
         return IOState::TIMEOUT;
     }
 
