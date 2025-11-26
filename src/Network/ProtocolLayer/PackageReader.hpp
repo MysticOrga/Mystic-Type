@@ -23,9 +23,6 @@ namespace Network::ProtocolLayer
         std::size_t headerSize;   // Total size of the header in bytes
         std::size_t lengthOffset; // Offset of the length field within the header in bytes
         std::size_t lengthSize;   // Size of the length field in bytes
-        std::size_t typeOffset;   // Offset of the type field within the header
-        std::size_t typeSize;     // Size of the type field in bytes
-        std::size_t magicNumber;  // Magic number for validation
         std::size_t maxLength;    // Maximum allowed length of the payload in bytes
     } HeaderStrategy_t;
 
