@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include <chrono>
+#include <sys/select.h>
+#include <unistd.h>
 #include "Client/NetworkClient.hpp"
 #include "Client/GameState.hpp"
 
@@ -25,11 +27,9 @@ int main()
     }
     std::cout << "[CLIENT] Assigned ID " << net.getPlayerId() << "\n";
 
-    net.sendHelloUdp(0, 0);
-    uint8_t posX = 0;
-    uint8_t posY = 0;
-    auto lastInputSend = std::chrono::steady_clock::now();
-
+    uint8_t posX = 100;
+    uint8_t posY = 100;
+    net.sendHelloUdp(posX, posY);
     while (true) {
         net.pollPackets();
 
@@ -48,11 +48,32 @@ int main()
         }
         net.clearEvents();
 
-        auto now = std::chrono::steady_clock::now();
-        if (std::chrono::duration_cast<std::chrono::milliseconds>(now - lastInputSend).count() >= 1000) {
-            posX = static_cast<uint8_t>(posX + 1);
-            net.sendInput(posX, posY);
-            lastInputSend = now;
+        fd_set rfds;
+        FD_ZERO(&rfds);
+        FD_SET(STDIN_FILENO, &rfds);
+        struct timeval tv{0, 0};
+        int r = select(STDIN_FILENO + 1, &rfds, nullptr, nullptr, &tv);
+        if (r > 0 && FD_ISSET(STDIN_FILENO, &rfds)) {
+            char c;
+            if (std::cin.get(c)) {
+                bool moved = false;
+                NetworkClient::MoveCmd cmd = NetworkClient::MoveCmd::Up;
+                if (c == 'z')
+                    { cmd = NetworkClient::MoveCmd::Up; moved = true; }
+                if (c == 'q')
+                    { cmd = NetworkClient::MoveCmd::Left; moved = true; }
+                if (c == 's')
+                    { cmd = NetworkClient::MoveCmd::Down; moved = true; }
+                if (c == 'd')
+                    { cmd = NetworkClient::MoveCmd::Right; moved = true; }
+
+                if (moved) {
+                    net.sendInput(cmd);
+                    std::cout << "[CLIENT] Sent move input: " << c << "\n";
+                }
+            } else {
+                break;
+            }
         }
     }
 }

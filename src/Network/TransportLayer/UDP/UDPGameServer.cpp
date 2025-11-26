@@ -80,26 +80,39 @@ void UDPGameServer::handleHello(const Packet &packet, const sockaddr_in &from)
 
 void UDPGameServer::handleInput(const Packet &packet, const sockaddr_in &from)
 {
-    if (packet.payload.size() < 4) {
+    if (packet.payload.size() < 3) {
         std::cerr << "[UDP] INPUT payload too small\n";
         return;
     }
     int id = (packet.payload[0] << 8) | packet.payload[1];
-    uint8_t x = packet.payload[2];
-    uint8_t y = packet.payload[3];
+    uint8_t cmd = packet.payload[2];
 
     auto it = _players.find(id);
     if (it == _players.end()) {
         PlayerState state;
         state.id = id;
         state.addr = from;
-        state.x = x;
-        state.y = y;
         _players[id] = state;
-    } else {
-        it->second.x = x;
-        it->second.y = y;
-        it->second.addr = from;
+        it = _players.find(id);
+    }
+
+    PlayerState &p = it->second;
+    p.addr = from;
+    switch (cmd) {
+        case 0:
+            if (p.y > 0) p.y -= 1;
+            break;
+        case 1:
+            if (p.y < 255) p.y += 1;
+            break;
+        case 2:
+            if (p.x > 0) p.x -= 1;
+            break;
+        case 3:
+            if (p.x < 255) p.x += 1;
+            break;
+        default:
+            break;
     }
 }
 

@@ -15,7 +15,7 @@ int main()
 {
     try {
         TCPServer tcpServer(4242);
-        UDPGameServer udpServer(4242, 500); // snapshot every 500 ms
+        UDPGameServer udpServer(4242, 500); // snapshot tous les 500 ms
 
         std::thread tcpThread([&tcpServer]() {
             tcpServer.run();
