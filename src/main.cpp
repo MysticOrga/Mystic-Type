@@ -24,7 +24,7 @@ static Entity createPlayerEntity(ECS &ecs, float x, float y)
     ecs.addComponent(ent, Velocity{0, 0});
 
     auto sprite = std::make_shared<Rtype::Graphic::AnimatedSprite>(
-        "./sprites/r-typesheet42.gif",
+        "../sprites/r-typesheet42.gif",
         raylib::Vector2{33, 17},
         raylib::Vector2{0, 0},
         4,
@@ -35,21 +35,29 @@ static Entity createPlayerEntity(ECS &ecs, float x, float y)
     return ent;
 }
 
-static void syncEntities(ECS &ecs, std::unordered_map<int, Entity> &entities, const std::vector<PlayerState> &players)
+static void syncEntities(ECS &ecs, std::unordered_map<int, Entity> &entities, const std::vector<PlayerState> &players, int windowWidth, int windowHeight)
 {
     for (const auto &p : players) {
         if (entities.size() >= 4 && entities.find(p.id) == entities.end())
             continue;
+
+        float clientX = static_cast<float>(p.x) * (static_cast<float>(windowWidth) / 255.0f);
+        float clientY = static_cast<float>(p.y) * (static_cast<float>(windowHeight) / 255.0f);
+
         auto it = entities.find(p.id);
         if (it == entities.end()) {
-            Entity ent = createPlayerEntity(ecs, p.x, p.y);
+            Entity ent = createPlayerEntity(ecs, clientX, clientY);
             entities[p.id] = ent;
-            std::cout << "[CLIENT] Spawned player " << p.id << " at (" << static_cast<int>(p.x)
-                      << "," << static_cast<int>(p.y) << ")\n";
+            std::cout << "[CLIENT] Spawned player " << p.id << " at (" << static_cast<int>(clientX)
+                      << "," << static_cast<int>(clientY) << ") from server pos ("
+                      << static_cast<int>(p.x) << "," << static_cast<int>(p.y) << ")\n";
         } else {
             auto &pos = ecs.getComponent<Position>(it->second);
-            pos.x = p.x;
-            pos.y = p.y;
+            pos.x = clientX;
+            pos.y = clientY;
+            // Optional: reduce log spam
+            // std::cout << "[CLIENT] Updated player " << p.id << " to (" << static_cast<int>(clientX)
+            //           << "," << static_cast<int>(clientY) << ")\n";
         }
     }
 }
@@ -85,7 +93,7 @@ int main()
     net.pollPackets();
     for (const auto &p : net.getLastPlayerList())
         state.upsertPlayer(p.id, p.x, p.y);
-    syncEntities(ecs, entities, state.listPlayers());
+    syncEntities(ecs, entities, state.listPlayers(), window.GetWidth(), window.GetHeight());
     net.clearEvents();
 
     while (!window.ShouldClose()) {
@@ -100,7 +108,7 @@ int main()
             }
         }
         net.clearEvents();
-        syncEntities(ecs, entities, state.listPlayers());
+        syncEntities(ecs, entities, state.listPlayers(), window.GetWidth(), window.GetHeight());
 
         inputSystem.update(net);
 
