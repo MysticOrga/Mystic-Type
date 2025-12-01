@@ -25,6 +25,9 @@ class UDPGameServer {
             uint8_t x = 0;
             uint8_t y = 0;
             sockaddr_in addr{};
+            int8_t velX = 0;
+            int8_t velY = 0;
+            uint8_t dir = 0;
         };
 
         void handlePacket(const Packet &packet, const sockaddr_in &from);
@@ -34,10 +37,13 @@ class UDPGameServer {
         void broadcastSnapshot();
         bool sendPacketTo(const Packet &packet, const sockaddr_in &to);
         long long nowMs() const;
+        void updateSimulation(long long nowMs);
 
         Network::TransportLayer::UDPSocket _socket;
         std::unordered_map<int, PlayerState> _players;
         long long _lastSnapshotMs = 0;
+        long long _lastTickMs = 0;
         const uint16_t _port;
         const long long _snapshotIntervalMs;
+        const long long _tickIntervalMs = 32; // ~60 Hz
 };

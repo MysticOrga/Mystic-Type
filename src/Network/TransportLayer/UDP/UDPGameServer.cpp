@@ -8,6 +8,7 @@
 #include "UDPGameServer.hpp"
 #include <iostream>
 #include <thread>
+#include <algorithm>
 
 namespace {
     constexpr std::size_t UDP_BUFFER_SIZE = 1024;
@@ -73,6 +74,8 @@ void UDPGameServer::handleHello(const Packet &packet, const sockaddr_in &from)
     state.x = x;
     state.y = y;
     state.addr = from;
+    state.velX = 0;
+    state.velY = 0;
     _players[id] = state;
 
     std::cout << "[UDP] Registered client id=" << id << " at " << static_cast<int>(x) << "," << static_cast<int>(y) << "\n";
@@ -80,40 +83,35 @@ void UDPGameServer::handleHello(const Packet &packet, const sockaddr_in &from)
 
 void UDPGameServer::handleInput(const Packet &packet, const sockaddr_in &from)
 {
-    if (packet.payload.size() < 3) {
+    if (packet.payload.size() < 7) {
         std::cerr << "[UDP] INPUT payload too small\n";
         return;
     }
     int id = (packet.payload[0] << 8) | packet.payload[1];
-    uint8_t cmd = packet.payload[2];
+    uint8_t posX = packet.payload[2];
+    uint8_t posY = packet.payload[3];
+    int8_t velX = static_cast<int8_t>(packet.payload[4]);
+    int8_t velY = static_cast<int8_t>(packet.payload[5]);
+    uint8_t dir = packet.payload[6];
 
     auto it = _players.find(id);
     if (it == _players.end()) {
         PlayerState state;
         state.id = id;
         state.addr = from;
+        state.x = posX;
+        state.y = posY;
         _players[id] = state;
         it = _players.find(id);
     }
 
     PlayerState &p = it->second;
     p.addr = from;
-    switch (cmd) {
-        case 0:
-            if (p.y > 0) p.y -= 1;
-            break;
-        case 1:
-            if (p.y < 255) p.y += 1;
-            break;
-        case 2:
-            if (p.x > 0) p.x -= 1;
-            break;
-        case 3:
-            if (p.x < 255) p.x += 1;
-            break;
-        default:
-            break;
-    }
+    p.x = posX;
+    p.y = posY;
+    p.velX = velX;
+    p.velY = velY;
+    p.dir = dir;
 }
 
 void UDPGameServer::handlePacket(const Packet &packet, const sockaddr_in &from)
@@ -134,6 +132,7 @@ void UDPGameServer::run()
 {
     uint8_t buffer[UDP_BUFFER_SIZE]{};
     _lastSnapshotMs = nowMs();
+    _lastTickMs = _lastSnapshotMs;
 
     while (true) {
         ssize_t n = _socket.readByte(buffer, sizeof(buffer));
@@ -147,11 +146,32 @@ void UDPGameServer::run()
         }
 
         long long now = nowMs();
+        if (now - _lastTickMs >= _tickIntervalMs) {
+            updateSimulation(now);
+            _lastTickMs = now;
+        }
+
         if (now - _lastSnapshotMs >= _snapshotIntervalMs) {
             broadcastSnapshot();
             _lastSnapshotMs = now;
         }
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    }
+}
+
+void UDPGameServer::updateSimulation(long long)
+{
+    for (auto &kv : _players) {
+        auto &p = kv.second;
+        int nx = static_cast<int>(p.x) + p.velX;
+        int ny = static_cast<int>(p.y) + p.velY;
+        nx = std::clamp(nx, 0, 255);
+        ny = std::clamp(ny, 0, 255);
+        p.x = static_cast<uint8_t>(nx);
+        p.y = static_cast<uint8_t>(ny);
+        // Reset velocity after applying one-step movement
+        p.velX = 0;
+        p.velY = 0;
     }
 }

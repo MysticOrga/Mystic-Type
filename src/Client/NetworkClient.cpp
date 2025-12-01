@@ -82,11 +82,15 @@ bool NetworkClient::sendHelloUdp(uint8_t x, uint8_t y)
     return sendPacketUdp(helloUdp);
 }
 
-bool NetworkClient::sendInput(MoveCmd cmd)
+bool NetworkClient::sendInput(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY, MoveCmd cmd)
 {
     Packet input(PacketType::INPUT, {
         static_cast<uint8_t>((_playerId >> 8) & 0xFF),
         static_cast<uint8_t>(_playerId & 0xFF),
+        posX,
+        posY,
+        static_cast<uint8_t>(velX),
+        static_cast<uint8_t>(velY),
         static_cast<uint8_t>(cmd)
     });
     return sendPacketUdp(input);

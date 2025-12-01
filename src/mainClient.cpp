@@ -57,19 +57,27 @@ int main()
             char c;
             if (std::cin.get(c)) {
                 bool moved = false;
-                NetworkClient::MoveCmd cmd = NetworkClient::MoveCmd::Up;
-                if (c == 'z')
-                    { cmd = NetworkClient::MoveCmd::Up; moved = true; }
-                if (c == 'q')
-                    { cmd = NetworkClient::MoveCmd::Left; moved = true; }
-                if (c == 's')
-                    { cmd = NetworkClient::MoveCmd::Down; moved = true; }
+                NetworkClient::MoveCmd dir = NetworkClient::MoveCmd::Up;
+                int8_t velX = 0;
+                int8_t velY = 0;
+
                 if (c == 'd')
-                    { cmd = NetworkClient::MoveCmd::Right; moved = true; }
+                    { dir = NetworkClient::MoveCmd::Right; velX = 1; moved = true; }
+                if (c == 'q')
+                    { dir = NetworkClient::MoveCmd::Left; velX = -1; moved = true; }
+                if (c == 'z')
+                    { dir = NetworkClient::MoveCmd::Up; velY = -1; moved = true; }
+                if (c == 's')
+                    { dir = NetworkClient::MoveCmd::Down; velY = 1; moved = true; }
 
                 if (moved) {
-                    net.sendInput(cmd);
-                    std::cout << "[CLIENT] Sent move input: " << c << "\n";
+                    int nx = std::clamp(static_cast<int>(posX) + velX, 0, 255);
+                    int ny = std::clamp(static_cast<int>(posY) + velY, 0, 255);
+                    posX = static_cast<uint8_t>(nx);
+                    posY = static_cast<uint8_t>(ny);
+                    net.sendInput(posX, posY, velX, velY, dir);
+                    std::cout << "[CLIENT] Sent MOVE pos=(" << static_cast<int>(posX) << "," << static_cast<int>(posY)
+                              << ") vel=(" << static_cast<int>(velX) << "," << static_cast<int>(velY) << ")\n";
                 }
             } else {
                 break;
