@@ -45,5 +45,5 @@ class UDPGameServer {
         long long _lastTickMs = 0;
         const uint16_t _port;
         const long long _snapshotIntervalMs;
-        const long long _tickIntervalMs = 32; // ~60 Hz
+        const long long _tickIntervalMs = 32; // 16 = ~60 hz (les grand jeux c'est environ 100 ticks/d)
 };
