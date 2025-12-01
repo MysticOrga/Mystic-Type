@@ -35,6 +35,25 @@ static Entity createPlayerEntity(ECS &ecs, float x, float y)
     return ent;
 }
 
+static void syncEntities(ECS &ecs, std::unordered_map<int, Entity> &entities, const std::vector<PlayerState> &players)
+{
+    for (const auto &p : players) {
+        if (entities.size() >= 4 && entities.find(p.id) == entities.end())
+            continue;
+        auto it = entities.find(p.id);
+        if (it == entities.end()) {
+            Entity ent = createPlayerEntity(ecs, p.x, p.y);
+            entities[p.id] = ent;
+            std::cout << "[CLIENT] Spawned player " << p.id << " at (" << static_cast<int>(p.x)
+                      << "," << static_cast<int>(p.y) << ")\n";
+        } else {
+            auto &pos = ecs.getComponent<Position>(it->second);
+            pos.x = p.x;
+            pos.y = p.y;
+        }
+    }
+}
+
 int main()
 {
     NetworkClient net("127.0.0.1", 4242);
@@ -63,27 +82,10 @@ int main()
     InputSystem inputSystem;
     std::unordered_map<int, Entity> entities;
 
-    auto syncEntities = [&](const std::vector<PlayerState> &players) {
-        for (const auto &p : players) {
-            if (entities.size() >= 4 && entities.find(p.id) == entities.end())
-                continue;
-            auto it = entities.find(p.id);
-            if (it == entities.end()) {
-                Entity ent = createPlayerEntity(ecs, p.x, p.y);
-                entities[p.id] = ent;
-                std::cout << "[CLIENT] Spawned player " << p.id << " at (" << static_cast<int>(p.x)
-                          << "," << static_cast<int>(p.y) << ")\n";
-            } else {
-                auto &pos = ecs.getComponent<Position>(it->second);
-                pos.x = p.x;
-                pos.y = p.y;
-            }
-        }
-    };
     net.pollPackets();
     for (const auto &p : net.getLastPlayerList())
         state.upsertPlayer(p.id, p.x, p.y);
-    syncEntities(state.listPlayers());
+    syncEntities(ecs, entities, state.listPlayers());
     net.clearEvents();
 
     while (!window.ShouldClose()) {
@@ -98,7 +100,7 @@ int main()
             }
         }
         net.clearEvents();
-        syncEntities(state.listPlayers());
+        syncEntities(ecs, entities, state.listPlayers());
 
         inputSystem.update(net);
 
