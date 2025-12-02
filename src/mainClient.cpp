@@ -76,8 +76,7 @@ int main()
                     posX = static_cast<uint8_t>(nx);
                     posY = static_cast<uint8_t>(ny);
                     net.sendInput(posX, posY, velX, velY, dir);
-                    std::cout << "[CLIENT] Sent MOVE pos=(" << static_cast<int>(posX) << "," << static_cast<int>(posY)
-                              << ") vel=(" << static_cast<int>(velX) << "," << static_cast<int>(velY) << ")\n";
+                    std::cout << "[CLIENT] Sent MOVE pos=(" << static_cast<int>(posX) << "," << static_cast<int>(posY) << ") vel=(" << static_cast<int>(velX) << "," << static_cast<int>(velY) << ")\n";
                 }
             } else {
                 break;

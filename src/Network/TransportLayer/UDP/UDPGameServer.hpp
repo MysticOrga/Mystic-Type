@@ -14,12 +14,32 @@
 #include "UDPSocket.hpp"
 #include "../Packet.hpp"
 
+/**
+ * @brief Simple UDP authoritative game server that manages players and snapshots.
+ *
+ * The server listens on a UDP port, accepts player "hello" packets, tracks their
+ * positions/velocities, updates a small simulation loop, and periodically broadcasts
+ * snapshots to all connected players.
+ */
 class UDPGameServer {
     public:
+        /**
+         * @brief Construct a new UDPGameServer.
+         *
+         * @param port UDP port the server binds to.
+         * @param snapshotIntervalMs Interval in milliseconds between state snapshots.
+         */
         explicit UDPGameServer(uint16_t port, long long snapshotIntervalMs = 500);
+
+        /**
+         * @brief Start the main server loop (blocking).
+         */
         void run();
 
     private:
+        /**
+         * @brief Minimal state tracked for each connected player.
+         */
         struct PlayerState {
             int id = 0;
             uint8_t x = 0;
@@ -30,13 +50,59 @@ class UDPGameServer {
             uint8_t dir = 0;
         };
 
+        /**
+         * @brief Route an incoming packet to the appropriate handler.
+         *
+         * @param packet Parsed packet contents.
+         * @param from Sender endpoint.
+         */
         void handlePacket(const Packet &packet, const sockaddr_in &from);
+
+        /**
+         * @brief Register a new player on receipt of a hello message.
+         *
+         * @param packet Incoming hello packet.
+         * @param from Sender endpoint.
+         */
         void handleHello(const Packet &packet, const sockaddr_in &from);
+
+        /**
+         * @brief Update player inputs (movement/direction).
+         *
+         * @param packet Incoming input packet.
+         * @param from Sender endpoint.
+         */
         void handleInput(const Packet &packet, const sockaddr_in &from);
+
+        /**
+         * @brief Build a snapshot packet representing the current world state.
+         */
         Packet buildSnapshotPacket() const;
+
+        /**
+         * @brief Broadcast the current snapshot to all connected players.
+         */
         void broadcastSnapshot();
+
+        /**
+         * @brief Send a packet to a single endpoint.
+         *
+         * @param packet Packet to send.
+         * @param to Destination endpoint.
+         * @return true on success, false otherwise.
+         */
         bool sendPacketTo(const Packet &packet, const sockaddr_in &to);
+
+        /**
+         * @brief Monotonic time helper in milliseconds.
+         */
         long long nowMs() const;
+
+        /**
+         * @brief Advance the local simulation based on elapsed time.
+         *
+         * @param nowMs Current timestamp in milliseconds.
+         */
         void updateSimulation(long long nowMs);
 
         Network::TransportLayer::UDPSocket _socket;
