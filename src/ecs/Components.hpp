@@ -8,7 +8,9 @@
 #ifndef COMPONENTS_HPP_
 #define COMPONENTS_HPP_
 #pragma once
+
 #include "../Graphic/Graphic.hpp"
+#include <raylib.h> // Pour Vector2, Color, etc. (C structs)
 #include <memory>
 
 class Position
@@ -17,9 +19,7 @@ class Position
     float x;
     float y;
 
-    Position(float x = 0, float y = 0) : x(x), y(y)
-    {
-    }
+    Position(float x = 0, float y = 0) : x(x), y(y) {}
 };
 
 class Sprite
@@ -28,9 +28,7 @@ class Sprite
     std::shared_ptr<Rtype::Graphic::AnimatedSprite> sprite;
 
     Sprite() = default;
-    explicit Sprite(std::shared_ptr<Rtype::Graphic::AnimatedSprite> s) : sprite(std::move(s))
-    {
-    }
+    explicit Sprite(std::shared_ptr<Rtype::Graphic::AnimatedSprite> s) : sprite(std::move(s)) {}
 };
 
 class Velocity
@@ -39,9 +37,7 @@ class Velocity
     float vx;
     float vy;
 
-    Velocity(float vx = 0, float vy = 0) : vx(vx), vy(vy)
-    {
-    }
+    Velocity(float vx = 0, float vy = 0) : vx(vx), vy(vy) {}
 };
 
 class CircleComponent
@@ -50,9 +46,7 @@ class CircleComponent
     float radius;
     Color color;
 
-    CircleComponent(float r = 20, Color c = RED) : radius(r), color(c)
-    {
-    }
+    CircleComponent(float r = 20, Color c = RED) : radius(r), color(c) {}
 };
 
 #endif /* !COMPONENTS_HPP_ */

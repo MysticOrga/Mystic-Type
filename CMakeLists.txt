@@ -32,22 +32,22 @@ if(raylib_ADDED)
     message(STATUS "raylib fetched via CPM")
 endif()
 
-CPMAddPackage(
-    NAME raylib_cpp
-    GITHUB_REPOSITORY RobLoach/raylib-cpp
-    GIT_TAG v5.0.1
-)
+# CPMAddPackage(
+#     NAME raylib_cpp
+#     GITHUB_REPOSITORY RobLoach/raylib-cpp
+#     GIT_TAG v5.0.1
+# )
 
-if(raylib_cpp_ADDED)
-    message(STATUS "raylib-cpp fetched via CPM")
-endif()
+# if(raylib_cpp_ADDED)
+#     message(STATUS "raylib-cpp fetched via CPM")
+# endif()
 
 file(GLOB_RECURSE RTYPE_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 
 add_executable(rtype ${RTYPE_SOURCES})
 target_include_directories(rtype PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/src")
 
-target_link_libraries(rtype PRIVATE raylib raylib_cpp)
+target_link_libraries(rtype PRIVATE raylib)
 
 if(WIN32)
     target_link_libraries(rtype PRIVATE opengl32 gdi32 winmm)

@@ -13,15 +13,14 @@
 GraphicClient::GraphicClient(const std::string& ip, int port)
     : _window(1920, 1080, "Mystic-Type"), _net(ip, port)
 {
-    ::SetTargetFPS(60);
+    _window.setTargetFPS(60);
 }
 
 bool GraphicClient::init()
 {
-    if (!::IsWindowReady()) {
-        std::cerr << "Failed to initialize window." << std::endl;
-        return false;
-    }
+    // On assume que le constructeur de _window a réussi (InitWindow ne renvoie pas de bool, mais IsWindowReady peut être checké)
+    // Notre wrapper Window gère l'init.
+    
     if (!_net.connectToServer()) {
         std::cerr << "[CLIENT] Failed to connect\n";
         return false;
@@ -47,13 +46,14 @@ Entity GraphicClient::createPlayerEntity(float x, float y)
     _ecs.addComponent(ent, Position{x, y});
     _ecs.addComponent(ent, Velocity{0, 0});
 
+    // Note: Vector2{x, y} est maintenant la struct C native via raylib.h
     auto sprite = std::make_shared<Rtype::Graphic::AnimatedSprite>(
         "../sprites/r-typesheet42.gif",
-        raylib::Vector2{33, 17},
-        raylib::Vector2{0, 0},
+        Vector2{33, 17},
+        Vector2{0, 0},
         4,
         0.15f,
-        raylib::Vector2{x, y}
+        Vector2{x, y}
     );
     _ecs.addComponent(ent, Sprite{sprite});
     return ent;
@@ -65,8 +65,9 @@ void GraphicClient::syncEntities(const std::vector<PlayerState> &players)
         if (_entities.size() >= 4 && _entities.find(p.id) == _entities.end())
             continue;
 
-        float clientX = static_cast<float>(p.x) * (static_cast<float>(_window.GetWidth()) / 255.0f);
-        float clientY = static_cast<float>(p.y) * (static_cast<float>(_window.GetHeight()) / 255.0f);
+        // Appel modifié: _window.getWidth() au lieu de GetWidth()
+        float clientX = static_cast<float>(p.x) * (static_cast<float>(_window.getWidth()) / 255.0f);
+        float clientY = static_cast<float>(p.y) * (static_cast<float>(_window.getHeight()) / 255.0f);
 
         auto it = _entities.find(p.id);
         if (it == _entities.end()) {
@@ -97,6 +98,7 @@ void GraphicClient::processNetworkEvents()
     }
     _net.clearEvents();
 }
+
 void GraphicClient::updateEntities()
 {
     syncEntities(_state.listPlayers());
@@ -108,19 +110,23 @@ void GraphicClient::updateEntities()
         _inputSystem.update(_net, myPos);
     }
 }
+
 void GraphicClient::render()
 {
-    _window.BeginDrawing();
-    _window.ClearBackground(RAYWHITE);
+    _window.beginDrawing();
+    _window.clearBackground(RAYWHITE); // RAYWHITE vient de raylib.h
+    
+    float dt = _window.getFrameTime();
+    
     for (const auto &kv : _entities) {
-        _spriteRenderSystem.update(_ecs, kv.second);
+        _spriteRenderSystem.update(_ecs, kv.second, dt);
     }
-    _window.EndDrawing();
+    _window.endDrawing();
 }
 
 void GraphicClient::gameLoop()
 {
-    while (!_window.ShouldClose()) {
+    while (!_window.shouldClose()) {
         processNetworkEvents();
         updateEntities();
         render();

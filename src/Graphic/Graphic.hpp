@@ -1,5 +1,7 @@
 #pragma once
-#include "raylib-cpp.hpp"
+#include "../Raylib/Raylib.hpp" // Utilise notre wrapper
+#include <memory>
+#include <string>
 
 namespace Rtype
 {
@@ -9,34 +11,46 @@ namespace Graphic
 class AnimatedSprite
 {
   private:
-    raylib::Texture2D _texture;
-    raylib::Vector2 _size;
-    raylib::Vector2 _positionInSpritesheet;
+    // On utilise maintenant std::shared_ptr pour la texture ou on la stocke directement si on veut RAII
+    // Ici, utilisons notre classe wrapper Texture.
+    std::shared_ptr<Raylib::Texture> _texture; 
+    
+    Vector2 _size;                 // Struct C native de raylib.h
+    Vector2 _positionInSpritesheet;
     int _maxFrames;
     float _frameTime;
     float _timer;
     int _currentFrame;
 
-    raylib::Rectangle _sourceRect;
-    raylib::Vector2 _position;
+    Rectangle _sourceRect;         // Struct C native
+    Vector2 _position;
 
   public:
-    AnimatedSprite(const std::string &path, raylib::Vector2 size, raylib::Vector2 posInSheet, int maxFrames,
-                   float frameTime = 0.1f, raylib::Vector2 pos = {0, 0})
-        : _texture(path), _size(size), _positionInSpritesheet(posInSheet), _maxFrames(maxFrames), _frameTime(frameTime),
+    AnimatedSprite(const std::string &path, Vector2 size, Vector2 posInSheet, int maxFrames,
+                   float frameTime = 0.1f, Vector2 pos = {0, 0})
+        : _size(size), _positionInSpritesheet(posInSheet), _maxFrames(maxFrames), _frameTime(frameTime),
           _position(pos), _timer(0.0f), _currentFrame(0)
     {
-        _sourceRect = raylib::Rectangle(posInSheet.x * size.x, posInSheet.y * size.y, size.x, size.y);
+        // Instanciation de notre wrapper Texture
+        _texture = std::make_shared<Raylib::Texture>(path);
+        
+        // Setup du rectangle source
+        _sourceRect = {
+            posInSheet.x * size.x, 
+            posInSheet.y * size.y, 
+            size.x, 
+            size.y
+        };
     }
 
-    void setPosition(const raylib::Vector2 &pos)
+    void setPosition(const Vector2 &pos)
     {
         _position = pos;
     }
 
-    void update()
+    void update(float dt) // On passe le delta time pour éviter l'appel global GetFrameTime ici si possible, sinon on garde l'appel
     {
-        _timer += GetFrameTime();
+        _timer += dt;
 
         if (_timer >= _frameTime)
         {
@@ -52,7 +66,8 @@ class AnimatedSprite
 
     void draw()
     {
-        _texture.Draw(_sourceRect, _position);
+        if (_texture)
+            _texture->draw(_sourceRect, _position, WHITE);
     }
 };
 

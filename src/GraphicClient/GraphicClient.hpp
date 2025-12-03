@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "raylib-cpp.hpp"
+#include "../Raylib/Raylib.hpp"
 #include "../ecs/Core.hpp"
 #include "../ecs/System.hpp"
 #include "../Client/NetworkClient.hpp"
@@ -32,7 +32,8 @@ private:
     Entity createPlayerEntity(float x, float y);
     void syncEntities(const std::vector<PlayerState> &players);
 
-    raylib::Window _window;
+    // Changement ici: Raylib::Window au lieu de raylib::Window
+    Raylib::Window _window;
     NetworkClient _net;
     GameState _state;
     ECS _ecs;
