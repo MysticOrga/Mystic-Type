@@ -97,13 +97,17 @@ void GraphicClient::processNetworkEvents()
     }
     _net.clearEvents();
 }
-
 void GraphicClient::updateEntities()
 {
     syncEntities(_state.listPlayers());
-    _inputSystem.update(_net);
-}
+    int myId = _net.getPlayerId();
 
+    if (_entities.find(myId) != _entities.end()) {
+        Entity myEntity = _entities[myId];
+        const auto &myPos = _ecs.getComponent<Position>(myEntity);
+        _inputSystem.update(_net, myPos);
+    }
+}
 void GraphicClient::render()
 {
     _window.BeginDrawing();

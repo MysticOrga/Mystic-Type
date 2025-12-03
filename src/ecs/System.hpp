@@ -16,22 +16,36 @@
 class InputSystem
 {
   public:
-    void update(NetworkClient &net)
+    void update(NetworkClient &net, const Position &pos)
     {
         bool moved = false;
         NetworkClient::MoveCmd cmd = NetworkClient::MoveCmd::Up;
+        int8_t velX = 0;
+        int8_t velY = 0;
 
-        if (::IsKeyDown(KEY_D))
-            { cmd = NetworkClient::MoveCmd::Right; moved = true; }
-        if (::IsKeyDown(KEY_A))
-            { cmd = NetworkClient::MoveCmd::Left; moved = true; }
-        if (::IsKeyDown(KEY_W))
-            { cmd = NetworkClient::MoveCmd::Up; moved = true; }
-        if (::IsKeyDown(KEY_S))
-            { cmd = NetworkClient::MoveCmd::Down; moved = true; }
+        if (::IsKeyDown(KEY_D)) { 
+            cmd = NetworkClient::MoveCmd::Right; 
+            velX = 1; 
+            moved = true; 
+        }
+        if (::IsKeyDown(KEY_A)) { 
+            cmd = NetworkClient::MoveCmd::Left; 
+            velX = -1; 
+            moved = true; 
+        }
+        if (::IsKeyDown(KEY_W)) { 
+            cmd = NetworkClient::MoveCmd::Up; 
+            velY = -1; 
+            moved = true; 
+        }
+        if (::IsKeyDown(KEY_S)) { 
+            cmd = NetworkClient::MoveCmd::Down; 
+            velY = 1; 
+            moved = true; 
+        }
 
         if (moved) {
-            net.sendInput(cmd);
+            net.sendInput(static_cast<uint8_t>(pos.x), static_cast<uint8_t>(pos.y), velX, velY, cmd);
         }
     }
 };

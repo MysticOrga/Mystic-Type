@@ -80,7 +80,7 @@ TCPServer::RecvResult TCPServer::receivePacket(int fd, Packet &packet, std::vect
 
     while (recvBuffer.size() >= 2) {
         uint16_t len = (static_cast<uint16_t>(recvBuffer[0]) << 8) | recvBuffer[1];
-        if (recvBuffer.size() < (size_t)(2 + len))
+        if (recvBuffer.size() < 2 + len)
             return RecvResult::Incomplete;
 
         std::vector<uint8_t> pktData(recvBuffer.begin() + 2, recvBuffer.begin() + 2 + len);

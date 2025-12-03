@@ -82,11 +82,15 @@ bool NetworkClient::sendHelloUdp(uint8_t x, uint8_t y)
     return sendPacketUdp(helloUdp);
 }
 
-bool NetworkClient::sendInput(MoveCmd cmd)
+bool NetworkClient::sendInput(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY, MoveCmd cmd)
 {
     Packet input(PacketType::INPUT, {
         static_cast<uint8_t>((_playerId >> 8) & 0xFF),
         static_cast<uint8_t>(_playerId & 0xFF),
+        posX,
+        posY,
+        static_cast<uint8_t>(velX),
+        static_cast<uint8_t>(velY),
         static_cast<uint8_t>(cmd)
     });
     return sendPacketUdp(input);
@@ -243,7 +247,7 @@ NetworkClient::RecvResult NetworkClient::receiveTcpFramed(Packet &p)
 
     while (_tcpRecvBuffer.size() >= 2) {
         uint16_t len = (static_cast<uint16_t>(_tcpRecvBuffer[0]) << 8) | _tcpRecvBuffer[1];
-        if (_tcpRecvBuffer.size() < size_t(2+ len))
+        if (_tcpRecvBuffer.size() < 2 + len)
             return RecvResult::Incomplete;
 
         std::vector<uint8_t> pkt(_tcpRecvBuffer.begin() + 2, _tcpRecvBuffer.begin() + 2 + len);
@@ -255,6 +259,5 @@ NetworkClient::RecvResult NetworkClient::receiveTcpFramed(Packet &p)
             continue;
         }
     }
-
     return RecvResult::Incomplete;
 }

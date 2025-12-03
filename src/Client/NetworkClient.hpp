@@ -25,7 +25,7 @@ public:
     bool sendPong();
     bool sendHelloUdp(uint8_t x = 0, uint8_t y = 0);
     enum class MoveCmd : uint8_t { Up = 0, Down = 1, Left = 2, Right = 3 };
-    bool sendInput(MoveCmd cmd);
+    bool sendInput(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY, MoveCmd dir);
 
     bool pollPackets();
 
