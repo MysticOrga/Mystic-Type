@@ -9,7 +9,6 @@
 
 namespace Raylib
 {
-    // --- Window ---
     Window::Window(int width, int height, const std::string &title)
     {
         ::InitWindow(width, height, title.c_str());
@@ -17,8 +16,6 @@ namespace Raylib
 
     Window::~Window()
     {
-        // CloseWindow vérifie en interne si la fenêtre est déjà fermée, 
-        // mais c'est une bonne pratique de s'assurer qu'on ne double-free pas si on étend la logique.
         if (::IsWindowReady()) {
             ::CloseWindow();
         }
@@ -34,7 +31,6 @@ namespace Raylib
     float Window::getFrameTime() const { return ::GetFrameTime(); }
     void Window::setTargetFPS(int fps) { ::SetTargetFPS(fps); }
 
-    // --- Texture ---
     Texture::Texture(const std::string &fileName)
     {
         _texture = ::LoadTexture(fileName.c_str());
@@ -49,11 +45,10 @@ namespace Raylib
     {
         ::DrawTextureRec(_texture, source, position, tint);
     }
-    
+
     int Texture::getWidth() const { return _texture.width; }
     int Texture::getHeight() const { return _texture.height; }
 
-    // --- Draw Utils ---
     void Draw::circle(int centerX, int centerY, float radius, Color color)
     {
         ::DrawCircle(centerX, centerY, radius, color);
@@ -64,7 +59,6 @@ namespace Raylib
         ::DrawRectangle(posX, posY, width, height, color);
     }
 
-    // --- Input ---
     bool Input::isKeyDown(int key) { return ::IsKeyDown(key); }
 
 } // namespace Raylib

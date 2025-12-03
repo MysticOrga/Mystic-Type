@@ -10,7 +10,7 @@
 #pragma once
 
 #include "../Graphic/Graphic.hpp"
-#include <raylib.h> // Pour Vector2, Color, etc. (C structs)
+#include <raylib.h>
 #include <memory>
 
 class Position

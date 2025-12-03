@@ -18,9 +18,6 @@ GraphicClient::GraphicClient(const std::string& ip, int port)
 
 bool GraphicClient::init()
 {
-    // On assume que le constructeur de _window a réussi (InitWindow ne renvoie pas de bool, mais IsWindowReady peut être checké)
-    // Notre wrapper Window gère l'init.
-    
     if (!_net.connectToServer()) {
         std::cerr << "[CLIENT] Failed to connect\n";
         return false;
@@ -46,7 +43,6 @@ Entity GraphicClient::createPlayerEntity(float x, float y)
     _ecs.addComponent(ent, Position{x, y});
     _ecs.addComponent(ent, Velocity{0, 0});
 
-    // Note: Vector2{x, y} est maintenant la struct C native via raylib.h
     auto sprite = std::make_shared<Rtype::Graphic::AnimatedSprite>(
         "../sprites/r-typesheet42.gif",
         Vector2{33, 17},
@@ -65,7 +61,6 @@ void GraphicClient::syncEntities(const std::vector<PlayerState> &players)
         if (_entities.size() >= 4 && _entities.find(p.id) == _entities.end())
             continue;
 
-        // Appel modifié: _window.getWidth() au lieu de GetWidth()
         float clientX = static_cast<float>(p.x) * (static_cast<float>(_window.getWidth()) / 255.0f);
         float clientY = static_cast<float>(p.y) * (static_cast<float>(_window.getHeight()) / 255.0f);
 

@@ -8,12 +8,11 @@
 #ifndef RAYLIB_HPP_
 #define RAYLIB_HPP_
 
-#include <raylib.h> // On inclut la C-API brute
+#include <raylib.h>
 #include <string>
 
 namespace Raylib
 {
-    // Encapsulation RAII de la fenêtre
     class Window {
     public:
         Window(int width, int height, const std::string &title);
@@ -30,7 +29,6 @@ namespace Raylib
         void setTargetFPS(int fps);
     };
 
-    // Encapsulation RAII de la texture
     class Texture {
     public:
         Texture(const std::string &fileName);
@@ -44,7 +42,6 @@ namespace Raylib
         Texture2D _texture;
     };
 
-    // Utilitaires statiques (Input, Formes géométriques simple)
     class Draw {
     public:
         static void circle(int centerX, int centerY, float radius, Color color);

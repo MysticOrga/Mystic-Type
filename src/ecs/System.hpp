@@ -10,7 +10,7 @@
 #pragma once
 #include "Components.hpp"
 #include "Core.hpp"
-#include "../Raylib/Raylib.hpp" // Notre wrapper
+#include "../Raylib/Raylib.hpp"
 #include "../Client/NetworkClient.hpp"
 
 class InputSystem
@@ -23,7 +23,6 @@ class InputSystem
         int8_t velX = 0;
         int8_t velY = 0;
 
-        // Utilisation du wrapper Input
         if (Raylib::Input::isKeyDown(KEY_D)) { 
             cmd = NetworkClient::MoveCmd::Right; 
             velX = 1; 
@@ -72,7 +71,6 @@ class CircleRenderSystem
         auto &pos = ecs.getComponent<Position>(e);
         auto &circle = ecs.getComponent<CircleComponent>(e);
 
-        // Utilisation du wrapper Draw
         Raylib::Draw::circle((int)pos.x, (int)pos.y, circle.radius, circle.color);
     }
 };
@@ -90,7 +88,6 @@ class RenderSystem
 class SpriteRenderSystem
 {
   public:
-    // Ajout du frameTime en paramètre pour l'update du sprite
     void update(ECS &ecs, Entity e, float dt)
     {
         auto &pos = ecs.getComponent<Position>(e);

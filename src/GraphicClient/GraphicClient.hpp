@@ -32,7 +32,6 @@ private:
     Entity createPlayerEntity(float x, float y);
     void syncEntities(const std::vector<PlayerState> &players);
 
-    // Changement ici: Raylib::Window au lieu de raylib::Window
     Raylib::Window _window;
     NetworkClient _net;
     GameState _state;

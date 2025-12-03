@@ -11,18 +11,16 @@ namespace Graphic
 class AnimatedSprite
 {
   private:
-    // On utilise maintenant std::shared_ptr pour la texture ou on la stocke directement si on veut RAII
-    // Ici, utilisons notre classe wrapper Texture.
-    std::shared_ptr<Raylib::Texture> _texture; 
-    
-    Vector2 _size;                 // Struct C native de raylib.h
+    std::shared_ptr<Raylib::Texture> _texture;
+
+    Vector2 _size;
     Vector2 _positionInSpritesheet;
     int _maxFrames;
     float _frameTime;
     float _timer;
     int _currentFrame;
 
-    Rectangle _sourceRect;         // Struct C native
+    Rectangle _sourceRect;
     Vector2 _position;
 
   public:
@@ -31,10 +29,8 @@ class AnimatedSprite
         : _size(size), _positionInSpritesheet(posInSheet), _maxFrames(maxFrames), _frameTime(frameTime),
           _position(pos), _timer(0.0f), _currentFrame(0)
     {
-        // Instanciation de notre wrapper Texture
         _texture = std::make_shared<Raylib::Texture>(path);
-        
-        // Setup du rectangle source
+
         _sourceRect = {
             posInSheet.x * size.x, 
             posInSheet.y * size.y, 
@@ -48,7 +44,7 @@ class AnimatedSprite
         _position = pos;
     }
 
-    void update(float dt) // On passe le delta time pour éviter l'appel global GetFrameTime ici si possible, sinon on garde l'appel
+    void update(float dt)
     {
         _timer += dt;
 
