@@ -6,6 +6,15 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# Fix de compatibilité : raylib utilise cmake_minimum_required(VERSION 3.0)
+set(CMAKE_POLICY_VERSION_MINIMUM 3.5)
+
+# Force Apple Silicon
+if(APPLE AND CMAKE_SYSTEM_PROCESSOR MATCHES "arm64")
+    set(CMAKE_OSX_ARCHITECTURES "arm64" CACHE STRING "" FORCE)
+endif()
+
+# CPM configuration
 set(CPM_DOWNLOAD_VERSION 0.38.6)
 set(CPM_DOWNLOAD_LOCATION "${CMAKE_BINARY_DIR}/cmake/CPM.cmake")
 
@@ -22,6 +31,7 @@ include(${CPM_DOWNLOAD_LOCATION})
 set(BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(BUILD_GAMES OFF CACHE BOOL "" FORCE)
 
+# ---- raylib ----
 CPMAddPackage(
     NAME raylib
     GITHUB_REPOSITORY raysan5/raylib
@@ -32,16 +42,7 @@ if(raylib_ADDED)
     message(STATUS "raylib fetched via CPM")
 endif()
 
-# CPMAddPackage(
-#     NAME raylib_cpp
-#     GITHUB_REPOSITORY RobLoach/raylib-cpp
-#     GIT_TAG v5.0.1
-# )
-
-# if(raylib_cpp_ADDED)
-#     message(STATUS "raylib-cpp fetched via CPM")
-# endif()
-
+# ---- Source files ----
 file(GLOB_RECURSE RTYPE_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 
 add_executable(rtype ${RTYPE_SOURCES})
@@ -49,8 +50,25 @@ target_include_directories(rtype PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/src")
 
 target_link_libraries(rtype PRIVATE raylib)
 
+# ---- macOS Specific Frameworks ----
+if(APPLE)
+    target_link_libraries(rtype PRIVATE
+        "-framework Cocoa"
+        "-framework IOKit"
+        "-framework CoreVideo"
+        "-framework CoreAudio"
+        "-framework AudioToolbox"
+        "-framework QuartzCore"
+        "-framework Metal"
+    )
+endif()
+
+# ---- Linux ----
+if(UNIX AND NOT APPLE)
+    target_link_libraries(rtype PRIVATE m pthread dl rt)
+endif()
+
+# ---- Windows ----
 if(WIN32)
     target_link_libraries(rtype PRIVATE opengl32 gdi32 winmm)
-elseif(UNIX AND NOT APPLE)
-    target_link_libraries(rtype PRIVATE m pthread dl rt)
 endif()

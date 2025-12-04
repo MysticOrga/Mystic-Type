@@ -61,8 +61,9 @@ void GraphicClient::syncEntities(const std::vector<PlayerState> &players)
         if (_entities.size() >= 4 && _entities.find(p.id) == _entities.end())
             continue;
 
-        float clientX = static_cast<float>(p.x) * (static_cast<float>(_window.getWidth()) / 255.0f);
-        float clientY = static_cast<float>(p.y) * (static_cast<float>(_window.getHeight()) / 255.0f);
+        // Use the server coordinates directly to avoid exaggerated jumps caused by window scaling.
+        float clientX = static_cast<float>(p.x);
+        float clientY = static_cast<float>(p.y);
 
         auto it = _entities.find(p.id);
         if (it == _entities.end()) {
@@ -112,6 +113,9 @@ void GraphicClient::render()
     _window.clearBackground(RAYWHITE); // RAYWHITE vient de raylib.h
     
     float dt = _window.getFrameTime();
+    float scaleX = static_cast<float>(_window.getWidth()) / 255.0f;
+    float scaleY = static_cast<float>(_window.getHeight()) / 255.0f;
+    _spriteRenderSystem.setScale(scaleX, scaleY);
     
     for (const auto &kv : _entities) {
         _spriteRenderSystem.update(_ecs, kv.second, dt);

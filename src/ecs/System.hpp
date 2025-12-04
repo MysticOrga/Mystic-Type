@@ -88,6 +88,12 @@ class RenderSystem
 class SpriteRenderSystem
 {
   public:
+    void setScale(float sx, float sy)
+    {
+        _scaleX = sx;
+        _scaleY = sy;
+    }
+
     void update(ECS &ecs, Entity e, float dt)
     {
         auto &pos = ecs.getComponent<Position>(e);
@@ -96,10 +102,15 @@ class SpriteRenderSystem
         if (!sprite.sprite)
             return;
 
-        sprite.sprite->setPosition({pos.x, pos.y});
+        // Render using scaled coordinates so server-space (0-255) fills the window.
+        sprite.sprite->setPosition({pos.x * _scaleX, pos.y * _scaleY});
         sprite.sprite->update(dt);
         sprite.sprite->draw();
     }
+
+  private:
+    float _scaleX = 1.0f;
+    float _scaleY = 1.0f;
 };
 
 #endif /* !SYSTEM_HPP_ */
