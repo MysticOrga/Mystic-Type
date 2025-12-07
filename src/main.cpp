@@ -13,3 +13,88 @@ int main()
     GraphicClient client("127.0.0.1", 4242);
     return client.run();
 }
+//     int id;
+//     struct sockaddr_in addr;
+// };
+
+// int main([[maybe_unused]] int ac, [[maybe_unused]] char **av)
+// {
+//     std::array<Player, MAX_CLIENT> player;
+//     Network::TransportLayer::UDPSocket server;
+//     Network::ProtocolLayer::FramingStrategy_t strategy;
+//     strategy.type = Network::ProtocolLayer::FramingType::HEADER_BASED;
+
+//     memset(&strategy.details.header, 0, sizeof(Network::ProtocolLayer::HeaderStrategy_t));
+//     strategy.details.header.headerSize = 8;
+//     strategy.details.header.lengthOffset = 4;
+//     strategy.details.header.lengthSize = 4;
+//     Network::ProtocolLayer::PackageReader<255> reader(strategy);
+
+//     memset(&player, 0, sizeof(Player) * MAX_CLIENT);
+
+//     if (!server.bindSock(AF_INET, 4242, INADDR_ANY))
+//     {
+//         perror("[bind]");
+//         return EXIT_FAILURE;
+//     };
+
+//     while (1)
+//     {
+//         sockaddr_in clientAddr;
+
+//         memset(&clientAddr, 0, sizeof(clientAddr));
+//         if (server.sockState(0, 0) == Network::TransportLayer::IOState::READ_READY)
+//         {
+//             reader.readFromSock(server);
+//             std::vector<Network::ProtocolLayer::byte> buf = reader.getPayload();
+//             for (std::size_t i = 0; i < buf.size(); i++)
+//             {
+//                 std::cout << "byte: " << buf[i];
+//             }
+//             std::cout << std::endl;
+//             clientAddr = server.getSenderAddr();
+//             std::cout << "message receive from: " << inet_ntoa(clientAddr.sin_addr) << ":" << ntohs(clientAddr.sin_port) << std::endl;
+//             buf.clear();
+//             for (std::size_t i = 0; i < buf.size(); i++)
+//             {
+//                 std::cout << buf[i];
+//             }
+//             std::cout << std::endl;
+
+            // std::cout << "Add a possibly new user" << std::endl;
+
+            // for (std::size_t i = 0; i < MAX_CLIENT; i++)
+            // {
+            //     std::cout << "Client[" << player[i].id << "]: " << inet_ntoa(player[i].addr.sin_addr) << ":" << ntohs(player[i].addr.sin_port) << std::endl;
+            //     if (!strcmp(inet_ntoa(player[i].addr.sin_addr), inet_ntoa(clientAddr.sin_addr)) && ntohs(player[i].addr.sin_port) == ntohs(clientAddr.sin_port))
+            //     {
+            //         std::cout << "Client already existant\n"
+            //                   << std::endl;
+            //         sender = player[i].id;
+            //         break;
+            //     }
+            //     if (player[i].id == 0)
+            //     {
+            //         std::cout << "Add a new client\n"
+            //                   << std::endl;
+            //         player[i].id = i + 1;
+            //         sender = player[i].id;
+            //         player[i].addr = clientAddr;
+            //         break;
+            //     }
+            // }
+
+            // for (std::size_t i = 0; i < MAX_CLIENT; i++)
+            // {
+            //     if (player[i].id != 0 && player[i].id != sender)
+            //     {
+            //         std::cout << "Message send to: " << inet_ntoa(player[i].addr.sin_addr) << ":" << ntohs(player[i].addr.sin_port) << std::endl;
+            //         if (server.writeByte(buffer, strlen(buffer), player[i].addr) == -1)
+            //             std::cout << "Error sending data" << std::endl;
+            //     }
+            // }
+            // memset(buffer, 0, BUFFER_SIZE);
+//         }
+//     }
+//     return EXIT_SUCCESS;
+// }
