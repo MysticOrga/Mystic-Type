@@ -96,6 +96,19 @@ bool NetworkClient::sendInput(uint8_t posX, uint8_t posY, int8_t velX, int8_t ve
     return sendPacketUdp(input);
 }
 
+bool NetworkClient::sendShoot(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY)
+{
+    Packet shoot(PacketType::SHOOT, {
+        static_cast<uint8_t>((_playerId >> 8) & 0xFF),
+        static_cast<uint8_t>(_playerId & 0xFF),
+        posX,
+        posY,
+        static_cast<uint8_t>(velX),
+        static_cast<uint8_t>(velY)
+    });
+    return sendPacketUdp(shoot);
+}
+
 bool NetworkClient::sendPacketTcp(const Packet &p)
 {
     auto data = p.serialize();
@@ -209,18 +222,42 @@ void NetworkClient::handleUdpPacket(const Packet &p)
 {
     if (p.type == PacketType::SNAPSHOT && !p.payload.empty()) {
         _lastSnapshot.clear();
+        _lastSnapshotBullets.clear();
         uint8_t count = p.payload[0];
-        size_t expected = 1 + count * 4;
-        if (p.payload.size() >= expected) {
-            for (size_t i = 0; i < count; ++i) {
-                size_t off = 1 + i * 4;
-                int id = (p.payload[off] << 8) | p.payload[off + 1];
-                uint8_t x = p.payload[off + 2];
-                uint8_t y = p.payload[off + 3];
-                _lastSnapshot.push_back({id, x, y});
-            }
-            _events.push_back("SNAPSHOT");
+        size_t off = 1;
+        size_t expectedPlayers = off + count * 4;
+        if (p.payload.size() < expectedPlayers)
+            return;
+
+        for (size_t i = 0; i < count; ++i) {
+            size_t idx = off + i * 4;
+            int id = (p.payload[idx] << 8) | p.payload[idx + 1];
+            uint8_t x = p.payload[idx + 2];
+            uint8_t y = p.payload[idx + 3];
+            _lastSnapshot.push_back({id, x, y});
         }
+
+        off = expectedPlayers;
+        if (off >= p.payload.size()) {
+            _events.push_back("SNAPSHOT");
+            return;
+        }
+
+        uint8_t bulletCount = p.payload[off++];
+        size_t expectedBullets = off + bulletCount * 6;
+        if (p.payload.size() < expectedBullets)
+            return;
+        for (size_t i = 0; i < bulletCount; ++i) {
+            size_t idx = off + i * 6;
+            int id = (p.payload[idx] << 8) | p.payload[idx + 1];
+            uint8_t x = p.payload[idx + 2];
+            uint8_t y = p.payload[idx + 3];
+            int8_t vx = static_cast<int8_t>(p.payload[idx + 4]);
+            int8_t vy = static_cast<int8_t>(p.payload[idx + 5]);
+            _lastSnapshotBullets.push_back({id, x, y, vx, vy});
+        }
+
+        _events.push_back("SNAPSHOT");
     }
 }
 
@@ -259,5 +296,6 @@ NetworkClient::RecvResult NetworkClient::receiveTcpFramed(Packet &p)
             continue;
         }
     }
+
     return RecvResult::Incomplete;
 }

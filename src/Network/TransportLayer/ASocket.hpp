@@ -85,8 +85,8 @@ namespace Network::TransportLayer
         IOState sockState(int timeoutSec, int timeoutUsec) override;
 
     protected:
-        int _socketFd;
-        struct sockaddr_in _addr;
+        int _socketFd;              // native socket descriptor
+        struct sockaddr_in _addr;   // bound address/port for the socket
     private:
     };
 }

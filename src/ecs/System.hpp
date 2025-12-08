@@ -23,31 +23,52 @@ class InputSystem
         int8_t velX = 0;
         int8_t velY = 0;
 
+        const int8_t speed = 4; 
+
         if (Raylib::Input::isKeyDown(KEY_D)) { 
             cmd = NetworkClient::MoveCmd::Right; 
-            velX = 1; 
+            velX = speed;
             moved = true; 
         }
         if (Raylib::Input::isKeyDown(KEY_A)) { 
             cmd = NetworkClient::MoveCmd::Left; 
-            velX = -1; 
+            velX = -speed;
             moved = true; 
         }
         if (Raylib::Input::isKeyDown(KEY_W)) { 
             cmd = NetworkClient::MoveCmd::Up; 
-            velY = -1; 
+            velY = -speed; 
             moved = true; 
         }
         if (Raylib::Input::isKeyDown(KEY_S)) { 
             cmd = NetworkClient::MoveCmd::Down; 
-            velY = 1; 
+            velY = speed; 
             moved = true; 
         }
 
         if (moved) {
+            _lastDir = cmd; // Update direction
             net.sendInput(static_cast<uint8_t>(pos.x), static_cast<uint8_t>(pos.y), velX, velY, cmd);
         }
+
+        // Shooting Mechanic
+        if (Raylib::Input::isKeyPressed(KEY_SPACE)) {
+            int8_t bvx = 0;
+            int8_t bvy = 0;
+
+            switch (_lastDir) {
+                case NetworkClient::MoveCmd::Right: bvx = 2; break;
+                case NetworkClient::MoveCmd::Left:  bvx = -2; break;
+                case NetworkClient::MoveCmd::Down:  bvy = 2; break;
+                case NetworkClient::MoveCmd::Up:    bvy = -2; break;
+            }
+            
+            net.sendShoot(static_cast<uint8_t>(pos.x), static_cast<uint8_t>(pos.y), bvx, bvy);
+        }
     }
+
+  private:
+    NetworkClient::MoveCmd _lastDir = NetworkClient::MoveCmd::Right; // Track last direction
 };
 
 class MovementSystem
@@ -75,13 +96,15 @@ class CircleRenderSystem
     }
 };
 
-class RenderSystem
+class RectangleRenderSystem
 {
   public:
-    void update(ECS &ecs, Entity e, Color color = RED)
+    void update(ECS &ecs, Entity e)
     {
         auto &pos = ecs.getComponent<Position>(e);
-        Raylib::Draw::rectangle((int)pos.x, (int)pos.y, 60, 60, color);
+        auto &rect = ecs.getComponent<RectangleComponent>(e);
+
+        Raylib::Draw::rectangle((int)pos.x, (int)pos.y, rect.width, rect.height, rect.color);
     }
 };
 
@@ -102,8 +125,8 @@ class SpriteRenderSystem
         if (!sprite.sprite)
             return;
 
-        // Render using scaled coordinates so server-space (0-255) fills the window.
-        sprite.sprite->setPosition({pos.x * _scaleX, pos.y * _scaleY});
+        // sprite.sprite->setPosition({pos.x * _scaleX, pos.y * _scaleY});
+        sprite.sprite->setPosition({pos.x, pos.y});
         sprite.sprite->update(dt);
         sprite.sprite->draw();
     }

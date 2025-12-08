@@ -26,11 +26,13 @@ public:
     bool sendHelloUdp(uint8_t x = 0, uint8_t y = 0);
     enum class MoveCmd : uint8_t { Up = 0, Down = 1, Left = 2, Right = 3 };
     bool sendInput(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY, MoveCmd dir);
+    bool sendShoot(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY);
 
     bool pollPackets();
 
     int getPlayerId() const { return _playerId; }
     const std::vector<PlayerState> &getLastSnapshot() const { return _lastSnapshot; }
+    const std::vector<BulletState> &getLastSnapshotBullets() const { return _lastSnapshotBullets; }
     const std::vector<PlayerState> &getLastPlayerList() const { return _lastPlayerList; }
     const std::vector<std::string> &getEvents() const { return _events; }
     void clearEvents() { _events.clear(); }
@@ -52,6 +54,7 @@ private:
     int _playerId = -1;
 
     std::vector<PlayerState> _lastSnapshot;
+    std::vector<BulletState> _lastSnapshotBullets;
     std::vector<PlayerState> _lastPlayerList;
     std::vector<std::string> _events;
     std::vector<uint8_t> _tcpRecvBuffer;

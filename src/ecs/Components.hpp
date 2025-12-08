@@ -49,4 +49,16 @@ class CircleComponent
     CircleComponent(float r = 20, Color c = RED) : radius(r), color(c) {}
 };
 
+// Added RectangleComponent for the bullet
+class RectangleComponent
+{
+  public:
+    int width;
+    int height;
+    Color color;
+
+    RectangleComponent(int w = 10, int h = 10, Color c = BLACK) 
+        : width(w), height(h), color(c) {}
+};
+
 #endif /* !COMPONENTS_HPP_ */

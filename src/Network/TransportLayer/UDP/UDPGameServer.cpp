@@ -38,7 +38,7 @@ bool UDPGameServer::sendPacketTo(const Packet &packet, const sockaddr_in &to)
 Packet UDPGameServer::buildSnapshotPacket() const
 {
     std::vector<uint8_t> payload;
-    payload.reserve(1 + _players.size() * 4);
+    payload.reserve(2 + _players.size() * 4 + _bullets.size() * 6);
 
     payload.push_back(static_cast<uint8_t>(_players.size()));
     for (const auto &kv : _players) {
@@ -47,6 +47,15 @@ Packet UDPGameServer::buildSnapshotPacket() const
         payload.push_back(static_cast<uint8_t>(p.id & 0xFF));
         payload.push_back(p.x);
         payload.push_back(p.y);
+    }
+    payload.push_back(static_cast<uint8_t>(_bullets.size()));
+    for (const auto &b : _bullets) {
+        payload.push_back(static_cast<uint8_t>((b.id >> 8) & 0xFF));
+        payload.push_back(static_cast<uint8_t>(b.id & 0xFF));
+        payload.push_back(b.x);
+        payload.push_back(b.y);
+        payload.push_back(static_cast<uint8_t>(b.velX));
+        payload.push_back(static_cast<uint8_t>(b.velY));
     }
     return Packet(PacketType::SNAPSHOT, payload);
 }
@@ -114,6 +123,30 @@ void UDPGameServer::handleInput(const Packet &packet, const sockaddr_in &from)
     p.dir = dir;
 }
 
+void UDPGameServer::handleShoot(const Packet &packet)
+{
+    if (packet.payload.size() < 6)
+        return;
+
+    int id = (packet.payload[0] << 8) | packet.payload[1];
+    uint8_t posX = packet.payload[2];
+    uint8_t posY = packet.payload[3];
+    int8_t velX = static_cast<int8_t>(packet.payload[4]);
+    int8_t velY = static_cast<int8_t>(packet.payload[5]);
+
+    BulletState b;
+    b.id = (_nextBulletId++ & 0xFFFF);
+    b.x = posX;
+    b.y = posY;
+    b.velX = velX;
+    b.velY = velY;
+    _bullets.push_back(b);
+
+    std::cout << "[UDP] Player " << id << " fired bullet " << b.id
+              << " from " << static_cast<int>(posX) << "," << static_cast<int>(posY)
+              << " vel " << static_cast<int>(velX) << "," << static_cast<int>(velY) << "\n";
+}
+
 void UDPGameServer::handlePacket(const Packet &packet, const sockaddr_in &from)
 {
     switch (packet.type) {
@@ -122,6 +155,9 @@ void UDPGameServer::handlePacket(const Packet &packet, const sockaddr_in &from)
             break;
         case PacketType::INPUT:
             handleInput(packet, from);
+            break;
+        case PacketType::SHOOT:
+            handleShoot(packet);
             break;
         default:
             break;
@@ -173,5 +209,27 @@ void UDPGameServer::updateSimulation(long long)
         // Reset velocity after applying one-step movement
         p.velX = 0;
         p.velY = 0;
+    }
+
+    // Move bullets and remove those that leave the arena
+    auto it = _bullets.begin();
+    while (it != _bullets.end()) {
+        int nx = static_cast<int>(it->x) + it->velX;
+        int ny = static_cast<int>(it->y) + it->velY;
+        if (nx < 0 || nx > 255 || ny < 0 || ny > 255) {
+            it = _bullets.erase(it);
+            continue;
+        }
+        it->x = static_cast<uint8_t>(nx);
+        it->y = static_cast<uint8_t>(ny);
+        ++it;
+    }
+
+    if (!_bullets.empty()) {
+        std::cout << "[UDP] Bullets: ";
+        for (const auto &b : _bullets) {
+            std::cout << b.id << "(" << static_cast<int>(b.x) << "," << static_cast<int>(b.y) << ") ";
+        }
+        std::cout << "\n";
     }
 }

@@ -9,11 +9,20 @@
 
 #include <unordered_map>
 #include <vector>
+#include <cstdint>
 
 struct PlayerState {
     int id = 0;
     uint8_t x = 0;
     uint8_t y = 0;
+};
+
+struct BulletState {
+    int id = 0;
+    uint8_t x = 0;
+    uint8_t y = 0;
+    int8_t vx = 0;
+    int8_t vy = 0;
 };
 
 class GameState {
@@ -23,9 +32,15 @@ public:
         _players[id] = PlayerState{id, x, y};
     }
 
+    void upsertBullet(int id, uint8_t x, uint8_t y, int8_t vx, int8_t vy)
+    {
+        _bullets[id] = BulletState{id, x, y, vx, vy};
+    }
+
     void clear()
     {
         _players.clear();
+        _bullets.clear();
     }
 
     std::vector<PlayerState> listPlayers() const
@@ -37,6 +52,16 @@ public:
         return res;
     }
 
+    std::vector<BulletState> listBullets() const
+    {
+        std::vector<BulletState> res;
+        res.reserve(_bullets.size());
+        for (const auto &kv : _bullets)
+            res.push_back(kv.second);
+        return res;
+    }
+
 private:
     std::unordered_map<int, PlayerState> _players;
+    std::unordered_map<int, BulletState> _bullets;
 };

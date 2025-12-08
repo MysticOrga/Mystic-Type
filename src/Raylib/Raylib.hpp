@@ -51,6 +51,7 @@ namespace Raylib
     class Input {
     public:
         static bool isKeyDown(int key);
+        static bool isKeyPressed(int key); // Added this
     };
 
 } // namespace Raylib

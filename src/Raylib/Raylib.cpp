@@ -60,5 +60,6 @@ namespace Raylib
     }
 
     bool Input::isKeyDown(int key) { return ::IsKeyDown(key); }
+    bool Input::isKeyPressed(int key) { return ::IsKeyPressed(key); } // Implementation
 
 } // namespace Raylib
