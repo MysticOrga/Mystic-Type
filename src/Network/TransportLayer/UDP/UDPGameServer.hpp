@@ -50,6 +50,14 @@ class UDPGameServer {
             uint8_t dir = 0;
         };
 
+        struct BulletState {
+            int id = 0;
+            uint8_t x = 0;
+            uint8_t y = 0;
+            int8_t velX = 0;
+            int8_t velY = 0;
+        };
+
         /**
          * @brief Route an incoming packet to the appropriate handler.
          *
@@ -73,6 +81,11 @@ class UDPGameServer {
          * @param from Sender endpoint.
          */
         void handleInput(const Packet &packet, const sockaddr_in &from);
+
+        /**
+         * @brief Handle a shoot command (spawn a bullet).
+         */
+        void handleShoot(const Packet &packet);
 
         /**
          * @brief Build a snapshot packet representing the current world state.
@@ -107,9 +120,11 @@ class UDPGameServer {
 
         Network::TransportLayer::UDPSocket _socket;
         std::unordered_map<int, PlayerState> _players;
+        std::vector<BulletState> _bullets;
         long long _lastSnapshotMs = 0;
         long long _lastTickMs = 0;
         const uint16_t _port;
         const long long _snapshotIntervalMs;
         const long long _tickIntervalMs = 32; // 16 = ~60 hz (les grand jeux c'est environ 100 ticks/d)
+        int _nextBulletId = 1;
 };

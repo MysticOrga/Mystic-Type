@@ -27,7 +27,8 @@ enum class PacketType : uint8_t {
     NEW_PLAYER  = 9,    ///< Notification of a newly connected player.
     HELLO_UDP   = 10,   ///< UDP hello used for NAT hole punching.
     INPUT       = 11,   ///< Player input payload.
-    SNAPSHOT    = 12    ///< World state snapshot.
+    SNAPSHOT    = 12,   ///< World state snapshot.
+    SHOOT       = 13    ///< Player shoot command.
 };
 
 /**
