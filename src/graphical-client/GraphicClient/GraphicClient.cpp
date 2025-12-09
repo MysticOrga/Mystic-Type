@@ -5,8 +5,8 @@
 ** GraphicClient
 */
 
-#include "GraphicClient.hpp"
-#include "../ecs/Components.hpp"
+#include "graphical-client/GraphicClient/GraphicClient.hpp"
+#include "graphical-client/ecs/Components.hpp"
 #include <iostream>
 #include <memory>
 #include <unordered_set>

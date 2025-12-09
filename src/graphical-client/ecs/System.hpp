@@ -11,7 +11,8 @@
 #include "Components.hpp"
 #include "Core.hpp"
 #include "../Raylib/Raylib.hpp"
-#include "../Client/NetworkClient.hpp"
+#include "../../Network/Client/NetworkClient.hpp"
+
 
 class InputSystem
 {

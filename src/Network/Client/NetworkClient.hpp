@@ -11,8 +11,8 @@
 #include <string>
 #include <netinet/in.h>
 #include <sys/select.h>
-#include "../Network/TransportLayer/Packet.hpp"
-#include "../Network/TransportLayer/UDP/UDPSocket.hpp"
+#include "../TransportLayer/Packet.hpp"
+#include "../TransportLayer/UDP/UDPSocket.hpp"
 #include "GameState.hpp"
 
 class NetworkClient {

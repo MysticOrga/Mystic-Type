@@ -1,3 +1,10 @@
+/*
+** EPITECH PROJECT, 2025
+** Mystic-Type
+** File description:
+** Graphic
+*/
+
 #pragma once
 #include "../Raylib/Raylib.hpp" // Utilise notre wrapper
 #include <memory>
