@@ -45,7 +45,7 @@ Entity GraphicClient::createPlayerEntity(float x, float y)
     _ecs.addComponent(ent, Velocity{0, 0});
 
     auto sprite = std::make_shared<Rtype::Graphic::AnimatedSprite>(
-        "../sprites/r-typesheet42.gif",
+        "../../../sprites/r-typesheet42.gif",
         Vector2{33, 17},
         Vector2{0, 0},
         4,
