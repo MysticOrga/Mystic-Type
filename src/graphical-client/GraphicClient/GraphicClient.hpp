@@ -30,18 +30,22 @@ private:
     void render();
 
     Entity createPlayerEntity(float x, float y);
-    Entity createBulletEntity(float x, float y); // New method
+    Entity createBulletEntity(float x, float y);
 
     void syncEntities(const std::vector<PlayerState> &players);
-    void syncBullets(const std::vector<BulletState> &bullets); // New method
+    void syncBullets(const std::vector<BulletState> &bullets);
 
     Raylib::Window _window;
     NetworkClient _net;
     GameState _state;
     ECS _ecs;
+
+    // Systèmes
     SpriteRenderSystem _spriteRenderSystem;
-    RectangleRenderSystem _rectangleRenderSystem; // New system
+    RectangleRenderSystem _rectangleRenderSystem;
     InputSystem _inputSystem;
-    std::unordered_map<int, Entity> _entities; // For players
-    std::unordered_map<int, Entity> _bulletEntities; // For bullets
+    MovementSystem _movementSystem;
+
+    std::unordered_map<int, Entity> _entities;
+    std::unordered_map<int, Entity> _bulletEntities;
 };
