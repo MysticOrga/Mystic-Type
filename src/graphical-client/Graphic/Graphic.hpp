@@ -6,7 +6,7 @@
 */
 
 #pragma once
-#include "../Raylib/Raylib.hpp" // Utilise notre wrapper
+#include "../Raylib/Raylib.hpp"
 #include <memory>
 #include <string>
 
@@ -69,8 +69,13 @@ class AnimatedSprite
 
     void draw()
     {
-        if (_texture)
-            _texture->draw(_sourceRect, _position, WHITE);
+        if (_texture) {
+            Vector2 centeredPos = _position;
+            centeredPos.x -= _sourceRect.width / 2.0f;
+            centeredPos.y -= _sourceRect.height / 2.0f;
+
+            _texture->draw(_sourceRect, centeredPos, WHITE);
+        }
     }
 };
 

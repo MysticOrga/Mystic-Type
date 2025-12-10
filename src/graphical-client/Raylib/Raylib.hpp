@@ -13,6 +13,7 @@
 
 namespace Raylib
 {
+    // ... (Window et Texture restent inchangés) ...
     class Window {
     public:
         Window(int width, int height, const std::string &title);
@@ -46,12 +47,13 @@ namespace Raylib
     public:
         static void circle(int centerX, int centerY, float radius, Color color);
         static void rectangle(int posX, int posY, int width, int height, Color color);
+        static void rectangleLines(int posX, int posY, int width, int height, Color color);
     };
 
     class Input {
     public:
         static bool isKeyDown(int key);
-        static bool isKeyPressed(int key); // Added this
+        static bool isKeyPressed(int key);
     };
 
 } // namespace Raylib

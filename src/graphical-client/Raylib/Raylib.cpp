@@ -13,14 +13,12 @@ namespace Raylib
     {
         ::InitWindow(width, height, title.c_str());
     }
-
     Window::~Window()
     {
         if (::IsWindowReady()) {
             ::CloseWindow();
         }
     }
-
     bool Window::shouldClose() const { return ::WindowShouldClose(); }
     void Window::close() { ::CloseWindow(); }
     void Window::beginDrawing() { ::BeginDrawing(); }
@@ -35,17 +33,14 @@ namespace Raylib
     {
         _texture = ::LoadTexture(fileName.c_str());
     }
-
     Texture::~Texture()
     {
         ::UnloadTexture(_texture);
     }
-
     void Texture::draw(Rectangle source, Vector2 position, Color tint)
     {
         ::DrawTextureRec(_texture, source, position, tint);
     }
-
     int Texture::getWidth() const { return _texture.width; }
     int Texture::getHeight() const { return _texture.height; }
 
@@ -59,7 +54,13 @@ namespace Raylib
         ::DrawRectangle(posX, posY, width, height, color);
     }
 
+    // [AJOUT] Implémentation
+    void Draw::rectangleLines(int posX, int posY, int width, int height, Color color)
+    {
+        ::DrawRectangleLines(posX, posY, width, height, color);
+    }
+
     bool Input::isKeyDown(int key) { return ::IsKeyDown(key); }
-    bool Input::isKeyPressed(int key) { return ::IsKeyPressed(key); } // Implementation
+    bool Input::isKeyPressed(int key) { return ::IsKeyPressed(key); }
 
 } // namespace Raylib
