@@ -12,6 +12,8 @@
 #include "Core.hpp"
 #include "../Raylib/Raylib.hpp"
 #include "../../Network/Client/NetworkClient.hpp"
+#include <unordered_map>
+#include <algorithm>
 
 
 class InputSystem
@@ -61,16 +63,15 @@ class InputSystem
 
         // Tir (Shooting)
         if (Raylib::Input::isKeyPressed(KEY_SPACE)) {
-            int8_t bvx = 0;
-            int8_t bvy = 0;
-
-            switch (_lastDir) {
-                case NetworkClient::MoveCmd::Right: bvx = 2; break;
-                case NetworkClient::MoveCmd::Left:  bvx = -2; break;
-                case NetworkClient::MoveCmd::Down:  bvy = 2; break;
-                case NetworkClient::MoveCmd::Up:    bvy = -2; break;
-            }
-            net.sendShoot(static_cast<uint8_t>(pos.x), static_cast<uint8_t>(pos.y), bvx, bvy);
+            // On tire toujours vers l'axe X (à droite) avec une vitesse fixe
+            const int8_t bvx = 2;
+            const int8_t bvy = 0;
+            // Décale légèrement le point de départ vers l'avant du sprite pour un spawn visuel cohérent
+            float startX = pos.x + 4.0f;
+            float startY = pos.y + 1.0f;
+            net.sendShoot(static_cast<uint8_t>(std::clamp(startX, 0.0f, 255.0f)),
+                         static_cast<uint8_t>(std::clamp(startY, 0.0f, 255.0f)),
+                         bvx, bvy);
         }
     }
 
@@ -82,15 +83,25 @@ class InputSystem
 class MovementSystem
 {
   public:
-    void update(ECS &ecs, Entity e)
+    // Intègre les vitesses en suivant le pas de tick serveur (32 ms) pour éviter les accélérations/ralentissements
+    void update(ECS &ecs, Entity e, float dt)
     {
         auto &pos = ecs.getComponent<Position>(e);
         auto &vel = ecs.getComponent<Velocity>(e);
 
-        pos.x += vel.vx;
-        pos.y += vel.vy;
+        float &acc = _accumulator[e];
+        acc += dt;
+        constexpr float tickDuration = 0.032f; // 32 ms
+        while (acc >= tickDuration) {
+            pos.x += vel.vx;
+            pos.y += vel.vy;
+            acc -= tickDuration;
+        }
     }
-};
+
+  private:
+    std::unordered_map<Entity, float> _accumulator;
+    };
 
 class CircleRenderSystem
 {

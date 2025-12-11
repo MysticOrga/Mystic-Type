@@ -47,11 +47,11 @@ Entity GraphicClient::createPlayerEntity(float x, float y)
     return ent;
 }
 
-Entity GraphicClient::createBulletEntity(float x, float y)
+Entity GraphicClient::createBulletEntity(float x, float y, float vx, float vy)
 {
     Entity ent = _ecs.createEntity();
     _ecs.addComponent(ent, Position{x, y});
-    _ecs.addComponent(ent, Velocity{0, 0}); 
+    _ecs.addComponent(ent, Velocity{vx, vy});
     _ecs.addComponent(ent, RectangleComponent{6, 6, BLACK});
     return ent;
 }
@@ -94,20 +94,28 @@ void GraphicClient::syncBullets(const std::vector<BulletState> &bullets)
         liveIds.insert(b.id);
         float clientX = static_cast<float>(b.x);
         float clientY = static_cast<float>(b.y);
+        float serverVx = static_cast<float>(b.vx);
+        float serverVy = static_cast<float>(b.vy);
         auto it = _bulletEntities.find(b.id);
         if (it == _bulletEntities.end()) {
-            Entity ent = createBulletEntity(clientX, clientY);
+            Entity ent = createBulletEntity(clientX, clientY, serverVx, serverVy);
             _bulletEntities[b.id] = ent;
         } else {
             auto &pos = _ecs.getComponent<Position>(it->second);
-            pos.x = clientX;
-            pos.y = clientY;
+            auto &vel = _ecs.getComponent<Velocity>(it->second);
+
+            vel.vx = serverVx;
+            vel.vy = serverVy;
         }
     }
     for (auto &kv : _bulletEntities) {
         if (liveIds.find(kv.first) == liveIds.end()) {
             auto &pos = _ecs.getComponent<Position>(kv.second);
-            pos.x = -1000.0f; pos.y = -1000.0f;
+            auto &vel = _ecs.getComponent<Velocity>(kv.second);
+            pos.x = -1000.0f; 
+            pos.y = -1000.0f;
+            vel.vx = 0.0f;
+            vel.vy = 0.0f;
         }
     }
 }
@@ -126,7 +134,7 @@ void GraphicClient::processNetworkEvents()
     }
     _net.clearEvents();
 }
-void GraphicClient::updateEntities()
+void GraphicClient::updateEntities(float dt)
 {
     syncEntities(_state.listPlayers());
     syncBullets(_net.getLastSnapshotBullets());
@@ -142,10 +150,10 @@ void GraphicClient::updateEntities()
     }
 
     for (const auto &kv : _entities) {
-        _movementSystem.update(_ecs, kv.second);
+        _movementSystem.update(_ecs, kv.second, dt);
     }
     for (const auto &kv : _bulletEntities) {
-        _movementSystem.update(_ecs, kv.second);
+        _movementSystem.update(_ecs, kv.second, dt);
     }
 
     if (_entities.find(myId) != _entities.end()) {
@@ -159,11 +167,10 @@ void GraphicClient::updateEntities()
     }
 }
 
-void GraphicClient::render()
+void GraphicClient::render(float dt)
 {
     _window.beginDrawing();
     _window.clearBackground(RAYWHITE);
-    float dt = _window.getFrameTime();
 
     Raylib::Draw::rectangleLines(0, 0, 255 * 5, 255 * 5, RED);
 
@@ -182,9 +189,10 @@ void GraphicClient::render()
 void GraphicClient::gameLoop()
 {
     while (!_window.shouldClose()) {
+        float dt = _window.getFrameTime();
         processNetworkEvents();
-        updateEntities();
-        render();
+        updateEntities(dt);
+        render(dt);
     }
 }
 

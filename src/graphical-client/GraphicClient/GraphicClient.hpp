@@ -26,11 +26,11 @@ private:
     bool init();
     void gameLoop();
     void processNetworkEvents();
-    void updateEntities();
-    void render();
+    void updateEntities(float dt);
+    void render(float dt);
 
     Entity createPlayerEntity(float x, float y);
-    Entity createBulletEntity(float x, float y);
+    Entity createBulletEntity(float x, float y, float vx, float vy);
 
     void syncEntities(const std::vector<PlayerState> &players);
     void syncBullets(const std::vector<BulletState> &bullets);
