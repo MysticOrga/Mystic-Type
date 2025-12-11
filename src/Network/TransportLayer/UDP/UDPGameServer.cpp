@@ -9,6 +9,8 @@
 #include <iostream>
 #include <thread>
 #include <algorithm>
+#include <random>
+#include <cmath>
 
 namespace {
     constexpr std::size_t UDP_BUFFER_SIZE = 1024;
@@ -38,7 +40,7 @@ bool UDPGameServer::sendPacketTo(const Packet &packet, const sockaddr_in &to)
 Packet UDPGameServer::buildSnapshotPacket() const
 {
     std::vector<uint8_t> payload;
-    payload.reserve(2 + _players.size() * 4 + _bullets.size() * 6);
+    payload.reserve(2 + _players.size() * 4 + _bullets.size() * 6 + _monsters.size() * 5);
 
     payload.push_back(static_cast<uint8_t>(_players.size()));
     for (const auto &kv : _players) {
@@ -56,6 +58,14 @@ Packet UDPGameServer::buildSnapshotPacket() const
         payload.push_back(b.y);
         payload.push_back(static_cast<uint8_t>(b.velX));
         payload.push_back(static_cast<uint8_t>(b.velY));
+    }
+    payload.push_back(static_cast<uint8_t>(_monsters.size()));
+    for (const auto &m : _monsters) {
+        payload.push_back(static_cast<uint8_t>((m.id >> 8) & 0xFF));
+        payload.push_back(static_cast<uint8_t>(m.id & 0xFF));
+        payload.push_back(static_cast<uint8_t>(std::clamp<int>(static_cast<int>(m.x), 0, 255)));
+        payload.push_back(static_cast<uint8_t>(std::clamp<int>(static_cast<int>(m.y), 0, 255)));
+        payload.push_back(static_cast<uint8_t>(std::clamp<int>(m.hp, 0, 127)));
     }
     return Packet(PacketType::SNAPSHOT, payload);
 }
@@ -169,6 +179,7 @@ void UDPGameServer::run()
     uint8_t buffer[UDP_BUFFER_SIZE]{};
     _lastSnapshotMs = nowMs();
     _lastTickMs = _lastSnapshotMs;
+    _lastMonsterSpawnMs = _lastSnapshotMs;
 
     while (true) {
         ssize_t n = _socket.readByte(buffer, sizeof(buffer));
@@ -183,7 +194,7 @@ void UDPGameServer::run()
 
         long long now = nowMs();
         if (now - _lastTickMs >= _tickIntervalMs) {
-            updateSimulation(now);
+            updateSimulation(now, now - _lastTickMs);
             _lastTickMs = now;
         }
 
@@ -196,8 +207,37 @@ void UDPGameServer::run()
     }
 }
 
-void UDPGameServer::updateSimulation(long long)
+void UDPGameServer::spawnMonster(long long nowMs)
 {
+    static std::mt19937 rng(static_cast<unsigned long>(std::chrono::steady_clock::now().time_since_epoch().count()));
+    std::uniform_int_distribution<int> yDist(20, 235);
+    std::uniform_int_distribution<int> ampDist(8, 18);
+    std::uniform_real_distribution<float> freqDist(2.5f, 5.0f);
+    std::uniform_int_distribution<int> intervalDist(1600, 2400);
+
+    MonsterState m;
+    m.id = (_nextMonsterId++ & 0xFFFF);
+    m.x = 255.0f;
+    m.baseY = static_cast<float>(yDist(rng));
+    m.amplitude = static_cast<float>(ampDist(rng));
+    m.phase = 0.0f;
+    m.freq = freqDist(rng);
+    m.speedX = -1.3f; // move left, slightly slower
+    m.y = m.baseY;
+    m.hp = 3;
+    _monsters.push_back(m);
+
+    _monsterSpawnIntervalMs = intervalDist(rng);
+    _lastMonsterSpawnMs = nowMs;
+    std::cout << "[UDP] Spawned monster " << m.id << " at y=" << m.baseY << "\n";
+}
+
+void UDPGameServer::updateSimulation(long long nowMs, long long deltaMs)
+{
+    if (nowMs - _lastMonsterSpawnMs >= _monsterSpawnIntervalMs) {
+        spawnMonster(nowMs);
+    }
+
     for (auto &kv : _players) {
         auto &p = kv.second;
         int nx = static_cast<int>(p.x) + p.velX;
@@ -223,6 +263,55 @@ void UDPGameServer::updateSimulation(long long)
         it->x = static_cast<uint8_t>(nx);
         it->y = static_cast<uint8_t>(ny);
         ++it;
+    }
+
+    // Bullet/monster collisions
+    const float monsterHalf = 9.0f; // ~18x18 in client
+    const float bulletHalf = 3.0f;  // ~6x6 in client
+    std::vector<int> bulletsToErase;
+    for (std::size_t bi = 0; bi < _bullets.size(); ++bi) {
+        const auto &b = _bullets[bi];
+        bool hit = false;
+        for (auto &m : _monsters) {
+            float dx = std::fabs(m.x - static_cast<float>(b.x));
+            float dy = std::fabs(m.y - static_cast<float>(b.y));
+            if (dx <= monsterHalf + bulletHalf && dy <= monsterHalf + bulletHalf) {
+                m.hp -= 1;
+                hit = true;
+                break;
+            }
+        }
+        if (hit)
+            bulletsToErase.push_back(static_cast<int>(bi));
+    }
+    // remove bullets hit (from back to front)
+    std::sort(bulletsToErase.rbegin(), bulletsToErase.rend());
+    for (int idx : bulletsToErase) {
+        if (idx >= 0 && static_cast<std::size_t>(idx) < _bullets.size())
+            _bullets.erase(_bullets.begin() + idx);
+    }
+    // remove dead monsters
+    auto mIt = _monsters.begin();
+    while (mIt != _monsters.end()) {
+        if (mIt->hp <= 0) {
+            mIt = _monsters.erase(mIt);
+        } else {
+            ++mIt;
+        }
+    }
+
+    // Update monsters with sinus pattern
+    float dtSec = static_cast<float>(deltaMs) / 1000.0f;
+    auto mit = _monsters.begin();
+    while (mit != _monsters.end()) {
+        mit->phase += mit->freq * dtSec;
+        mit->x += mit->speedX * dtSec * 32.0f; // scale to roughly match player units per tick
+        mit->y = mit->baseY + mit->amplitude * std::sin(mit->phase);
+        if (mit->x < -5.0f || mit->y < -5.0f || mit->y > 260.0f) {
+            mit = _monsters.erase(mit);
+        } else {
+            ++mit;
+        }
     }
 
     if (!_bullets.empty()) {

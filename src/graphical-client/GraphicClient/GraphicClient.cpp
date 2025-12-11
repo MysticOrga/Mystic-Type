@@ -56,6 +56,15 @@ Entity GraphicClient::createBulletEntity(float x, float y, float vx, float vy)
     return ent;
 }
 
+Entity GraphicClient::createMonsterEntity(float x, float y)
+{
+    Entity ent = _ecs.createEntity();
+    _ecs.addComponent(ent, Position{x, y});
+    _ecs.addComponent(ent, Velocity{0, 0});
+    _ecs.addComponent(ent, RectangleComponent{18, 18, RED});
+    return ent;
+}
+
 void GraphicClient::syncEntities(const std::vector<PlayerState> &players)
 {
     int myId = _net.getPlayerId();
@@ -120,6 +129,33 @@ void GraphicClient::syncBullets(const std::vector<BulletState> &bullets)
     }
 }
 
+void GraphicClient::syncMonsters(const std::vector<MonsterState> &monsters)
+{
+    std::unordered_set<int> liveIds;
+    for (const auto &m : monsters) {
+        liveIds.insert(m.id);
+        float clientX = static_cast<float>(m.x);
+        float clientY = static_cast<float>(m.y);
+        auto it = _monsterEntities.find(m.id);
+        if (it == _monsterEntities.end()) {
+            Entity ent = createMonsterEntity(clientX, clientY);
+            _monsterEntities[m.id] = ent;
+        } else {
+            auto &pos = _ecs.getComponent<Position>(it->second);
+            const float smoothing = 0.25f;
+            pos.x += (clientX - pos.x) * smoothing;
+            pos.y += (clientY - pos.y) * smoothing;
+        }
+    }
+    for (auto &kv : _monsterEntities) {
+        if (liveIds.find(kv.first) == liveIds.end()) {
+            auto &pos = _ecs.getComponent<Position>(kv.second);
+            pos.x = -1000.0f;
+            pos.y = -1000.0f;
+        }
+    }
+}
+
 void GraphicClient::processNetworkEvents()
 {
     _net.pollPackets();
@@ -130,6 +166,8 @@ void GraphicClient::processNetworkEvents()
         } else if (ev == "SNAPSHOT") {
             for (const auto &p : _net.getLastSnapshot())
                 _state.upsertPlayer(p.id, p.x, p.y);
+            for (const auto &m : _net.getLastSnapshotMonsters())
+                _state.upsertMonster(m.id, m.x, m.y, m.hp);
         }
     }
     _net.clearEvents();
@@ -138,6 +176,7 @@ void GraphicClient::updateEntities(float dt)
 {
     syncEntities(_state.listPlayers());
     syncBullets(_net.getLastSnapshotBullets());
+    syncMonsters(_net.getLastSnapshotMonsters());
 
     int myId = _net.getPlayerId();
 
@@ -180,6 +219,9 @@ void GraphicClient::render(float dt)
         _spriteRenderSystem.update(_ecs, kv.second, dt);
     }
     for (const auto &kv : _bulletEntities) {
+        _rectangleRenderSystem.update(_ecs, kv.second);
+    }
+    for (const auto &kv : _monsterEntities) {
         _rectangleRenderSystem.update(_ecs, kv.second);
     }
 

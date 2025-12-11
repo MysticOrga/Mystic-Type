@@ -223,6 +223,7 @@ void NetworkClient::handleUdpPacket(const Packet &p)
     if (p.type == PacketType::SNAPSHOT && !p.payload.empty()) {
         _lastSnapshot.clear();
         _lastSnapshotBullets.clear();
+        _lastSnapshotMonsters.clear();
         uint8_t count = p.payload[0];
         size_t off = 1;
         size_t expectedPlayers = off + count * 4;
@@ -255,6 +256,22 @@ void NetworkClient::handleUdpPacket(const Packet &p)
             int8_t vx = static_cast<int8_t>(p.payload[idx + 4]);
             int8_t vy = static_cast<int8_t>(p.payload[idx + 5]);
             _lastSnapshotBullets.push_back({id, x, y, vx, vy});
+        }
+
+        off = expectedBullets;
+        if (off < p.payload.size()) {
+            uint8_t monsterCount = p.payload[off++];
+            size_t expectedMonsters = off + monsterCount * 5;
+            if (p.payload.size() < expectedMonsters)
+                return;
+            for (size_t i = 0; i < monsterCount; ++i) {
+                size_t idx = off + i * 5;
+                int id = (p.payload[idx] << 8) | p.payload[idx + 1];
+                uint8_t x = p.payload[idx + 2];
+                uint8_t y = p.payload[idx + 3];
+                uint8_t hp = p.payload[idx + 4];
+                _lastSnapshotMonsters.push_back({id, x, y, hp});
+            }
         }
 
         _events.push_back("SNAPSHOT");

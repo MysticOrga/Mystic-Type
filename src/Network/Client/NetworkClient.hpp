@@ -33,6 +33,7 @@ public:
     int getPlayerId() const { return _playerId; }
     const std::vector<PlayerState> &getLastSnapshot() const { return _lastSnapshot; }
     const std::vector<BulletState> &getLastSnapshotBullets() const { return _lastSnapshotBullets; }
+    const std::vector<MonsterState> &getLastSnapshotMonsters() const { return _lastSnapshotMonsters; }
     const std::vector<PlayerState> &getLastPlayerList() const { return _lastPlayerList; }
     const std::vector<std::string> &getEvents() const { return _events; }
     void clearEvents() { _events.clear(); }
@@ -55,6 +56,7 @@ private:
 
     std::vector<PlayerState> _lastSnapshot;
     std::vector<BulletState> _lastSnapshotBullets;
+    std::vector<MonsterState> _lastSnapshotMonsters;
     std::vector<PlayerState> _lastPlayerList;
     std::vector<std::string> _events;
     std::vector<uint8_t> _tcpRecvBuffer;

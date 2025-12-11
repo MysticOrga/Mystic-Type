@@ -25,6 +25,13 @@ struct BulletState {
     int8_t vy = 0;
 };
 
+struct MonsterState {
+    int id = 0;
+    uint8_t x = 0;
+    uint8_t y = 0;
+    uint8_t hp = 0;
+};
+
 class GameState {
 public:
     void upsertPlayer(int id, uint8_t x, uint8_t y)
@@ -37,10 +44,16 @@ public:
         _bullets[id] = BulletState{id, x, y, vx, vy};
     }
 
+    void upsertMonster(int id, uint8_t x, uint8_t y, uint8_t hp)
+    {
+        _monsters[id] = MonsterState{id, x, y, hp};
+    }
+
     void clear()
     {
         _players.clear();
         _bullets.clear();
+        _monsters.clear();
     }
 
     std::vector<PlayerState> listPlayers() const
@@ -61,7 +74,17 @@ public:
         return res;
     }
 
+    std::vector<MonsterState> listMonsters() const
+    {
+        std::vector<MonsterState> res;
+        res.reserve(_monsters.size());
+        for (const auto &kv : _monsters)
+            res.push_back(kv.second);
+        return res;
+    }
+
 private:
     std::unordered_map<int, PlayerState> _players;
     std::unordered_map<int, BulletState> _bullets;
+    std::unordered_map<int, MonsterState> _monsters;
 };

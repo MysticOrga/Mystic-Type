@@ -31,9 +31,11 @@ private:
 
     Entity createPlayerEntity(float x, float y);
     Entity createBulletEntity(float x, float y, float vx, float vy);
+    Entity createMonsterEntity(float x, float y);
 
     void syncEntities(const std::vector<PlayerState> &players);
     void syncBullets(const std::vector<BulletState> &bullets);
+    void syncMonsters(const std::vector<MonsterState> &monsters);
 
     Raylib::Window _window;
     NetworkClient _net;
@@ -48,4 +50,5 @@ private:
 
     std::unordered_map<int, Entity> _entities;
     std::unordered_map<int, Entity> _bulletEntities;
+    std::unordered_map<int, Entity> _monsterEntities;
 };
