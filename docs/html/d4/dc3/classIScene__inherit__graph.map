@@ -1,0 +1,9 @@
+<map id="IScene" name="IScene">
+<area shape="rect" id="Node000001" title="Abstract base interface for all scene implementations." alt="" coords="147,5,212,31"/>
+<area shape="rect" id="Node000002" href="$db/d9f/classGameScene.html" title="Main gameplay scene with ECS&#45;based entity management." alt="" coords="5,79,105,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="149,40,77,81,74,76,146,35"/>
+<area shape="rect" id="Node000003" href="$de/df0/classLobbyScene.html" title="Player lobby scene for waiting and game start." alt="" coords="129,79,229,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,44,182,79,177,79,177,44"/>
+<area shape="rect" id="Node000004" href="$d2/da6/classMenuScene.html" title="Main menu scene with play button." alt="" coords="253,79,351,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="212,35,283,76,281,81,209,40"/>
+</map>

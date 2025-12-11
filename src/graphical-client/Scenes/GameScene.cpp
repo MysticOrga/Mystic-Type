@@ -1,0 +1,230 @@
+/*
+** EPITECH PROJECT, 2025
+** Mystic-Type
+** File description:
+** GameScene - Main gameplay scene implementation
+*/
+
+#include "GameScene.hpp"
+#include "../ecs/Components.hpp"
+#include <iostream>
+#include <unordered_set>
+#include <cmath>
+#include <algorithm>
+
+GameScene::GameScene(Raylib::Window& window, NetworkClient& networkClient)
+    : _window(window), _net(networkClient), _sceneManager(nullptr)
+{
+}
+
+void GameScene::onEnter()
+{
+    std::cout << "[GameScene] Entering game scene\n";
+}
+
+void GameScene::onExit()
+{
+    std::cout << "[GameScene] Exiting game scene\n";
+}
+
+Entity GameScene::createPlayerEntity(float x, float y)
+{
+    Entity ent = _ecs.createEntity();
+    _ecs.addComponent(ent, Position{x, y});
+    _ecs.addComponent(ent, Velocity{0, 0});
+    auto sprite = std::make_shared<Rtype::Graphic::AnimatedSprite>(
+        "../../../sprites/r-typesheet42.gif", Vector2{33, 17}, Vector2{0, 0}, 4, 0.15f, Vector2{x, y}
+    );
+    _ecs.addComponent(ent, Sprite{sprite});
+    return ent;
+}
+
+Entity GameScene::createBulletEntity(float x, float y, float vx, float vy)
+{
+    Entity ent = _ecs.createEntity();
+    _ecs.addComponent(ent, Position{x, y});
+    _ecs.addComponent(ent, Velocity{vx, vy});
+    _ecs.addComponent(ent, RectangleComponent{6, 6, BLACK});
+    return ent;
+}
+
+Entity GameScene::createMonsterEntity(float x, float y, uint8_t type)
+{
+    Entity ent = _ecs.createEntity();
+    _ecs.addComponent(ent, Position{x, y});
+    _ecs.addComponent(ent, Velocity{0, 0});
+    Color c = (type == 1) ? BLUE : RED;
+    _ecs.addComponent(ent, RectangleComponent{18, 18, c});
+    return ent;
+}
+
+void GameScene::syncEntities(const std::vector<PlayerState>& players)
+{
+    int myId = _net.getPlayerId();
+
+    for (const auto& p : players) {
+        if (_entities.size() >= 4 && _entities.find(p.id) == _entities.end())
+            continue;
+
+        float clientX = static_cast<float>(p.x);
+        float clientY = static_cast<float>(p.y);
+
+        auto it = _entities.find(p.id);
+        if (it == _entities.end()) {
+            Entity ent = createPlayerEntity(clientX, clientY);
+            _entities[p.id] = ent;
+        } else {
+            if (p.id == myId) {
+                continue;
+            }
+
+            auto& pos = _ecs.getComponent<Position>(it->second);
+            auto& vel = _ecs.getComponent<Velocity>(it->second);
+
+            float smoothingFactor = 0.1f;
+            vel.vx = (clientX - pos.x) * smoothingFactor;
+            vel.vy = (clientY - pos.y) * smoothingFactor;
+        }
+    }
+}
+
+void GameScene::syncBullets(const std::vector<BulletState>& bullets)
+{
+    std::unordered_set<int> liveIds;
+    for (const auto& b : bullets) {
+        liveIds.insert(b.id);
+        float clientX = static_cast<float>(b.x);
+        float clientY = static_cast<float>(b.y);
+        float serverVx = static_cast<float>(b.vx);
+        float serverVy = static_cast<float>(b.vy);
+        auto it = _bulletEntities.find(b.id);
+        if (it == _bulletEntities.end()) {
+            Entity ent = createBulletEntity(clientX, clientY, serverVx, serverVy);
+            _bulletEntities[b.id] = ent;
+        } else {
+            auto& pos = _ecs.getComponent<Position>(it->second);
+            auto& vel = _ecs.getComponent<Velocity>(it->second);
+
+            vel.vx = serverVx;
+            vel.vy = serverVy;
+        }
+    }
+    for (auto& kv : _bulletEntities) {
+        if (liveIds.find(kv.first) == liveIds.end()) {
+            auto& pos = _ecs.getComponent<Position>(kv.second);
+            auto& vel = _ecs.getComponent<Velocity>(kv.second);
+            pos.x = -1000.0f;
+            pos.y = -1000.0f;
+            vel.vx = 0.0f;
+            vel.vy = 0.0f;
+        }
+    }
+}
+
+void GameScene::syncMonsters(const std::vector<MonsterState>& monsters)
+{
+    std::unordered_set<int> liveIds;
+    for (const auto& m : monsters) {
+        liveIds.insert(m.id);
+        float clientX = static_cast<float>(m.x);
+        float clientY = static_cast<float>(m.y);
+        auto it = _monsterEntities.find(m.id);
+        if (it == _monsterEntities.end()) {
+            Entity ent = createMonsterEntity(clientX, clientY, m.type);
+            _monsterEntities[m.id] = ent;
+        } else {
+            auto& pos = _ecs.getComponent<Position>(it->second);
+            auto& rect = _ecs.getComponent<RectangleComponent>(it->second);
+            const float smoothing = 0.25f;
+            pos.x += (clientX - pos.x) * smoothing;
+            pos.y += (clientY - pos.y) * smoothing;
+            rect.color = (m.type == 1) ? BLUE : RED;
+        }
+    }
+    for (auto& kv : _monsterEntities) {
+        if (liveIds.find(kv.first) == liveIds.end()) {
+            auto& pos = _ecs.getComponent<Position>(kv.second);
+            pos.x = -1000.0f;
+            pos.y = -1000.0f;
+        }
+    }
+}
+
+void GameScene::processNetworkEvents()
+{
+    _net.pollPackets();
+    for (const auto& ev : _net.getEvents()) {
+        if (ev == "PLAYER_LIST" || ev == "NEW_PLAYER") {
+            for (const auto& p : _net.getLastPlayerList())
+                _state.upsertPlayer(p.id, p.x, p.y);
+        } else if (ev == "SNAPSHOT") {
+            for (const auto& p : _net.getLastSnapshot())
+                _state.upsertPlayer(p.id, p.x, p.y);
+            for (const auto& m : _net.getLastSnapshotMonsters())
+                _state.upsertMonster(m.id, m.x, m.y, m.hp, m.type);
+        }
+    }
+    _net.clearEvents();
+}
+
+void GameScene::updateEntities(float dt)
+{
+    syncEntities(_state.listPlayers());
+    syncBullets(_net.getLastSnapshotBullets());
+    syncMonsters(_net.getLastSnapshotMonsters());
+
+    int myId = _net.getPlayerId();
+
+    if (_entities.find(myId) != _entities.end()) {
+        Entity myEntity = _entities[myId];
+        const auto& myPos = _ecs.getComponent<Position>(myEntity);
+        auto& myVel = _ecs.getComponent<Velocity>(myEntity);
+
+        _inputSystem.update(_net, myPos, myVel);
+    }
+
+    for (const auto& kv : _entities) {
+        _movementSystem.update(_ecs, kv.second, dt);
+    }
+    for (const auto& kv : _bulletEntities) {
+        _movementSystem.update(_ecs, kv.second, dt);
+    }
+
+    if (_entities.find(myId) != _entities.end()) {
+        Entity myEntity = _entities[myId];
+        auto& pos = _ecs.getComponent<Position>(myEntity);
+
+        if (pos.x < 0) pos.x = 0;
+        if (pos.y < 0) pos.y = 0;
+        if (pos.x > 255) pos.x = 255;
+        if (pos.y > 255) pos.y = 255;
+    }
+}
+
+void GameScene::update(float dt)
+{
+    processNetworkEvents();
+    updateEntities(dt);
+}
+
+void GameScene::render(float dt)
+{
+    _window.beginDrawing();
+    _window.clearBackground(RAYWHITE);
+
+    Raylib::Draw::rectangleLines(0, 0, 255 * 5, 255 * 5, RED);
+
+    _spriteRenderSystem.setScale(2.0f, 2.0f);
+
+    for (const auto& kv : _entities) {
+        _spriteRenderSystem.update(_ecs, kv.second, dt);
+    }
+    for (const auto& kv : _bulletEntities) {
+        _rectangleRenderSystem.update(_ecs, kv.second);
+    }
+    for (const auto& kv : _monsterEntities) {
+        _rectangleRenderSystem.update(_ecs, kv.second);
+    }
+
+    _window.endDrawing();
+}

@@ -22,6 +22,10 @@ set(CLIENT_SOURCES
     GraphicClient/GraphicClient.cpp
     Raylib/Raylib.cpp
     Graphic/Graphic.cpp
+    Scenes/SceneManager.cpp
+    Scenes/GameScene.cpp
+    Scenes/MenuScene.cpp
+    Scenes/LobbyScene.cpp
 
     ../Network/Client/NetworkClient.cpp
     ../Network/TransportLayer/Packet.cpp

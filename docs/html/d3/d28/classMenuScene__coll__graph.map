@@ -1,0 +1,5 @@
+<map id="MenuScene" name="MenuScene">
+<area shape="rect" id="Node000001" title="Main menu scene with play button." alt="" coords="5,79,103,104"/>
+<area shape="rect" id="Node000002" href="$db/da8/classIScene.html" title="Abstract base interface for all scene implementations." alt="" coords="21,5,87,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="57,44,57,79,51,79,51,44"/>
+</map>
