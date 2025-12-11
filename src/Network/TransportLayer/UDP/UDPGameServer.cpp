@@ -40,7 +40,7 @@ bool UDPGameServer::sendPacketTo(const Packet &packet, const sockaddr_in &to)
 Packet UDPGameServer::buildSnapshotPacket() const
 {
     std::vector<uint8_t> payload;
-    payload.reserve(2 + _players.size() * 4 + _bullets.size() * 6 + _monsters.size() * 5);
+    payload.reserve(2 + _players.size() * 4 + _bullets.size() * 6 + _monsters.size() * 6);
 
     payload.push_back(static_cast<uint8_t>(_players.size()));
     for (const auto &kv : _players) {
@@ -66,6 +66,7 @@ Packet UDPGameServer::buildSnapshotPacket() const
         payload.push_back(static_cast<uint8_t>(std::clamp<int>(static_cast<int>(m.x), 0, 255)));
         payload.push_back(static_cast<uint8_t>(std::clamp<int>(static_cast<int>(m.y), 0, 255)));
         payload.push_back(static_cast<uint8_t>(std::clamp<int>(m.hp, 0, 127)));
+        payload.push_back(static_cast<uint8_t>(m.kind));
     }
     return Packet(PacketType::SNAPSHOT, payload);
 }
@@ -114,15 +115,9 @@ void UDPGameServer::handleInput(const Packet &packet, const sockaddr_in &from)
     uint8_t dir = packet.payload[6];
 
     auto it = _players.find(id);
-    if (it == _players.end()) {
-        PlayerState state;
-        state.id = id;
-        state.addr = from;
-        state.x = posX;
-        state.y = posY;
-        _players[id] = state;
-        it = _players.find(id);
-    }
+    // Si le joueur n'existe plus, ignore l'input pour éviter de le recréer
+    if (it == _players.end())
+        return;
 
     PlayerState &p = it->second;
     p.addr = from;
@@ -139,6 +134,8 @@ void UDPGameServer::handleShoot(const Packet &packet)
         return;
 
     int id = (packet.payload[0] << 8) | packet.payload[1];
+    if (_players.find(id) == _players.end())
+        return; // ignore tir d'un joueur inexistant (mort)
     uint8_t posX = packet.payload[2];
     uint8_t posY = packet.payload[3];
     int8_t velX = static_cast<int8_t>(packet.payload[4]);
@@ -214,17 +211,31 @@ void UDPGameServer::spawnMonster(long long nowMs)
     std::uniform_int_distribution<int> ampDist(8, 18);
     std::uniform_real_distribution<float> freqDist(2.5f, 5.0f);
     std::uniform_int_distribution<int> intervalDist(1600, 2400);
+    std::uniform_int_distribution<int> typeDist(0, 1);
 
     MonsterState m;
     m.id = (_nextMonsterId++ & 0xFFFF);
     m.x = 255.0f;
     m.baseY = static_cast<float>(yDist(rng));
-    m.amplitude = static_cast<float>(ampDist(rng));
-    m.phase = 0.0f;
-    m.freq = freqDist(rng);
-    m.speedX = -1.3f; // move left, slightly slower
     m.y = m.baseY;
     m.hp = 3;
+    m.kind = typeDist(rng) == 0 ? MonsterKind::Sine : MonsterKind::Cosine;
+
+    // Paramètres distincts selon le type pour un pattern visuellement différent
+    if (m.kind == MonsterKind::Sine) {
+        m.amplitude = static_cast<float>(ampDist(rng));
+        m.phase = 0.0f;
+        m.freq = freqDist(rng);      // 2.5 -> 5
+        m.speedX = -1.3f;
+    } else {
+        // Cosinus : amplitude un peu plus grande, fréquence plus lente, phase décalée
+        std::uniform_int_distribution<int> ampDistCos(12, 24);
+        std::uniform_real_distribution<float> freqDistCos(1.5f, 3.0f);
+        m.amplitude = static_cast<float>(ampDistCos(rng));
+        m.phase = static_cast<float>(M_PI_2); // décalage de phase
+        m.freq = freqDistCos(rng);
+        m.speedX = -1.1f; // léger différentiel de vitesse
+    }
     _monsters.push_back(m);
 
     _monsterSpawnIntervalMs = intervalDist(rng);
@@ -306,13 +317,18 @@ void UDPGameServer::updateSimulation(long long nowMs, long long deltaMs)
     while (mit != _monsters.end()) {
         mit->phase += mit->freq * dtSec;
         mit->x += mit->speedX * dtSec * 32.0f; // scale to roughly match player units per tick
-        mit->y = mit->baseY + mit->amplitude * std::sin(mit->phase);
+        float oscillation = (mit->kind == MonsterKind::Sine)
+            ? std::sin(mit->phase)
+            : std::cos(mit->phase);
+        mit->y = mit->baseY + mit->amplitude * oscillation;
         if (mit->x < -5.0f || mit->y < -5.0f || mit->y > 260.0f) {
             mit = _monsters.erase(mit);
         } else {
             ++mit;
         }
     }
+
+    // Plus de gestion de collision joueurs/monstres ni de PV joueurs
 
     if (!_bullets.empty()) {
         std::cout << "[UDP] Bullets: ";

@@ -48,6 +48,7 @@ namespace Raylib
         static void circle(int centerX, int centerY, float radius, Color color);
         static void rectangle(int posX, int posY, int width, int height, Color color);
         static void rectangleLines(int posX, int posY, int width, int height, Color color);
+        static void text(const std::string &msg, int posX, int posY, int fontSize, Color color);
     };
 
     class Input {

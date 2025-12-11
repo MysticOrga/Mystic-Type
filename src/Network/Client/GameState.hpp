@@ -30,6 +30,7 @@ struct MonsterState {
     uint8_t x = 0;
     uint8_t y = 0;
     uint8_t hp = 0;
+    uint8_t type = 0; // 0 = sin, 1 = cos
 };
 
 class GameState {
@@ -44,9 +45,9 @@ public:
         _bullets[id] = BulletState{id, x, y, vx, vy};
     }
 
-    void upsertMonster(int id, uint8_t x, uint8_t y, uint8_t hp)
+    void upsertMonster(int id, uint8_t x, uint8_t y, uint8_t hp, uint8_t type)
     {
-        _monsters[id] = MonsterState{id, x, y, hp};
+        _monsters[id] = MonsterState{id, x, y, hp, type};
     }
 
     void clear()

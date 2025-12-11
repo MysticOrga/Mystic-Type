@@ -23,6 +23,8 @@
  */
 class UDPGameServer {
     public:
+        enum class MonsterKind : uint8_t { Sine = 0, Cosine = 1 };
+
         /**
          * @brief Construct a new UDPGameServer.
          *
@@ -68,6 +70,7 @@ class UDPGameServer {
             float freq = 0;
             float speedX = 0;
             int8_t hp = 0;
+            MonsterKind kind = MonsterKind::Sine;
         };
 
         /**

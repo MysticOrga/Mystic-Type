@@ -31,7 +31,7 @@ private:
 
     Entity createPlayerEntity(float x, float y);
     Entity createBulletEntity(float x, float y, float vx, float vy);
-    Entity createMonsterEntity(float x, float y);
+    Entity createMonsterEntity(float x, float y, uint8_t type);
 
     void syncEntities(const std::vector<PlayerState> &players);
     void syncBullets(const std::vector<BulletState> &bullets);

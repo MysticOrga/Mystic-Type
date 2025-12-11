@@ -261,16 +261,17 @@ void NetworkClient::handleUdpPacket(const Packet &p)
         off = expectedBullets;
         if (off < p.payload.size()) {
             uint8_t monsterCount = p.payload[off++];
-            size_t expectedMonsters = off + monsterCount * 5;
+            size_t expectedMonsters = off + monsterCount * 6;
             if (p.payload.size() < expectedMonsters)
                 return;
             for (size_t i = 0; i < monsterCount; ++i) {
-                size_t idx = off + i * 5;
+                size_t idx = off + i * 6;
                 int id = (p.payload[idx] << 8) | p.payload[idx + 1];
                 uint8_t x = p.payload[idx + 2];
                 uint8_t y = p.payload[idx + 3];
                 uint8_t hp = p.payload[idx + 4];
-                _lastSnapshotMonsters.push_back({id, x, y, hp});
+                uint8_t type = p.payload[idx + 5];
+                _lastSnapshotMonsters.push_back({id, x, y, hp, type});
             }
         }
 

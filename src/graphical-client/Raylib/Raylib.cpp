@@ -60,6 +60,11 @@ namespace Raylib
         ::DrawRectangleLines(posX, posY, width, height, color);
     }
 
+    void Draw::text(const std::string &msg, int posX, int posY, int fontSize, Color color)
+    {
+        ::DrawText(msg.c_str(), posX, posY, fontSize, color);
+    }
+
     bool Input::isKeyDown(int key) { return ::IsKeyDown(key); }
     bool Input::isKeyPressed(int key) { return ::IsKeyPressed(key); }
 

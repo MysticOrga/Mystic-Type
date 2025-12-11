@@ -56,12 +56,13 @@ Entity GraphicClient::createBulletEntity(float x, float y, float vx, float vy)
     return ent;
 }
 
-Entity GraphicClient::createMonsterEntity(float x, float y)
+Entity GraphicClient::createMonsterEntity(float x, float y, uint8_t type)
 {
     Entity ent = _ecs.createEntity();
     _ecs.addComponent(ent, Position{x, y});
     _ecs.addComponent(ent, Velocity{0, 0});
-    _ecs.addComponent(ent, RectangleComponent{18, 18, RED});
+    Color c = (type == 1) ? BLUE : RED;
+    _ecs.addComponent(ent, RectangleComponent{18, 18, c});
     return ent;
 }
 
@@ -138,13 +139,15 @@ void GraphicClient::syncMonsters(const std::vector<MonsterState> &monsters)
         float clientY = static_cast<float>(m.y);
         auto it = _monsterEntities.find(m.id);
         if (it == _monsterEntities.end()) {
-            Entity ent = createMonsterEntity(clientX, clientY);
+            Entity ent = createMonsterEntity(clientX, clientY, m.type);
             _monsterEntities[m.id] = ent;
         } else {
             auto &pos = _ecs.getComponent<Position>(it->second);
+            auto &rect = _ecs.getComponent<RectangleComponent>(it->second);
             const float smoothing = 0.25f;
             pos.x += (clientX - pos.x) * smoothing;
             pos.y += (clientY - pos.y) * smoothing;
+            rect.color = (m.type == 1) ? BLUE : RED;
         }
     }
     for (auto &kv : _monsterEntities) {
@@ -167,7 +170,7 @@ void GraphicClient::processNetworkEvents()
             for (const auto &p : _net.getLastSnapshot())
                 _state.upsertPlayer(p.id, p.x, p.y);
             for (const auto &m : _net.getLastSnapshotMonsters())
-                _state.upsertMonster(m.id, m.x, m.y, m.hp);
+                _state.upsertMonster(m.id, m.x, m.y, m.hp, m.type);
         }
     }
     _net.clearEvents();
@@ -204,6 +207,8 @@ void GraphicClient::updateEntities(float dt)
         if (pos.x > 255) pos.x = 255;
         if (pos.y > 255) pos.y = 255;
     }
+
+    // Plus de gestion de PV joueur ni fermeture auto ici
 }
 
 void GraphicClient::render(float dt)
