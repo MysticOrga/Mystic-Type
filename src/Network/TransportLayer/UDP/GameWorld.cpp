@@ -1,0 +1,223 @@
+/*
+** EPITECH PROJECT, 2025
+** Mystic-Type
+** File description:
+** Game world state and simulation (server authoritative)
+*/
+
+#include "GameWorld.hpp"
+#include <algorithm>
+#include <chrono>
+#include <cmath>
+#include <iostream>
+#include <random>
+
+namespace {
+    constexpr float monsterHalf = 9.0f;  // ~18x18 in client
+    constexpr float bulletHalf = 3.0f;   // ~6x6 in client
+}
+
+void GameWorld::registerPlayer(int id, uint8_t x, uint8_t y, const sockaddr_in &addr)
+{
+    PlayerState state;
+    state.id = id;
+    state.x = x;
+    state.y = y;
+    state.addr = addr;
+    state.velX = 0;
+    state.velY = 0;
+    _players[id] = state;
+}
+
+void GameWorld::updateInput(int id, uint8_t posX, uint8_t posY, int8_t velX, int8_t velY, uint8_t dir, const sockaddr_in &addr)
+{
+    auto it = _players.find(id);
+    if (it == _players.end())
+        return;
+
+    PlayerState &p = it->second;
+    p.addr = addr;
+    p.x = posX;
+    p.y = posY;
+    p.velX = velX;
+    p.velY = velY;
+    p.dir = dir;
+}
+
+void GameWorld::addShot(int id, uint8_t posX, uint8_t posY, int8_t velX, int8_t velY)
+{
+    if (_players.find(id) == _players.end())
+        return; // ignore shot from unknown player
+
+    BulletState b;
+    b.id = (_nextBulletId++ & 0xFFFF);
+    b.x = posX;
+    b.y = posY;
+    b.velX = velX;
+    b.velY = velY;
+    _bullets.push_back(b);
+
+    std::cout << "[UDP] Player " << id << " fired bullet " << b.id
+              << " from " << static_cast<int>(posX) << "," << static_cast<int>(posY)
+              << " vel " << static_cast<int>(velX) << "," << static_cast<int>(velY) << "\n";
+}
+
+void GameWorld::spawnMonster(long long nowMs)
+{
+    static std::mt19937 rng(static_cast<unsigned long>(std::chrono::steady_clock::now().time_since_epoch().count()));
+    std::uniform_int_distribution<int> yDist(20, 235);
+    std::uniform_int_distribution<int> ampDist(8, 18);
+    std::uniform_real_distribution<float> freqDist(2.5f, 5.0f);
+    std::uniform_int_distribution<int> intervalDist(1600, 2400);
+    std::uniform_int_distribution<int> typeDist(0, 1);
+
+    MonsterState m;
+    m.id = (_nextMonsterId++ & 0xFFFF);
+    m.x = 255.0f;
+    m.baseY = static_cast<float>(yDist(rng));
+    m.y = m.baseY;
+    m.hp = 3;
+    m.kind = typeDist(rng) == 0 ? MonsterKind::Sine : MonsterKind::Cosine;
+
+    if (m.kind == MonsterKind::Sine) {
+        m.amplitude = static_cast<float>(ampDist(rng));
+        m.phase = 0.0f;
+        m.freq = freqDist(rng);
+        m.speedX = -1.3f;
+    } else {
+        std::uniform_int_distribution<int> ampDistCos(12, 24);
+        std::uniform_real_distribution<float> freqDistCos(1.5f, 3.0f);
+        m.amplitude = static_cast<float>(ampDistCos(rng));
+        m.phase = static_cast<float>(M_PI_2);
+        m.freq = freqDistCos(rng);
+        m.speedX = -1.1f;
+    }
+    _monsters.push_back(m);
+
+    _monsterSpawnIntervalMs = intervalDist(rng);
+    _lastMonsterSpawnMs = nowMs;
+    std::cout << "[UDP] Spawned monster " << m.id << " at y=" << m.baseY << "\n";
+}
+
+void GameWorld::tick(long long nowMs, long long deltaMs)
+{
+    if (nowMs - _lastMonsterSpawnMs >= _monsterSpawnIntervalMs) {
+        spawnMonster(nowMs);
+    }
+
+    for (auto &kv : _players) {
+        auto &p = kv.second;
+        int nx = static_cast<int>(p.x) + p.velX;
+        int ny = static_cast<int>(p.y) + p.velY;
+        nx = std::clamp(nx, 0, 255);
+        ny = std::clamp(ny, 0, 255);
+        p.x = static_cast<uint8_t>(nx);
+        p.y = static_cast<uint8_t>(ny);
+        p.velX = 0;
+        p.velY = 0;
+    }
+
+    auto it = _bullets.begin();
+    while (it != _bullets.end()) {
+        int nx = static_cast<int>(it->x) + it->velX;
+        int ny = static_cast<int>(it->y) + it->velY;
+        if (nx < 0 || nx > 255 || ny < 0 || ny > 255) {
+            it = _bullets.erase(it);
+            continue;
+        }
+        it->x = static_cast<uint8_t>(nx);
+        it->y = static_cast<uint8_t>(ny);
+        ++it;
+    }
+
+    std::vector<int> bulletsToErase;
+    for (std::size_t bi = 0; bi < _bullets.size(); ++bi) {
+        const auto &b = _bullets[bi];
+        bool hit = false;
+        for (auto &m : _monsters) {
+            float dx = std::fabs(m.x - static_cast<float>(b.x));
+            float dy = std::fabs(m.y - static_cast<float>(b.y));
+            if (dx <= monsterHalf + bulletHalf && dy <= monsterHalf + bulletHalf) {
+                m.hp -= 1;
+                hit = true;
+                break;
+            }
+        }
+        if (hit)
+            bulletsToErase.push_back(static_cast<int>(bi));
+    }
+    std::sort(bulletsToErase.rbegin(), bulletsToErase.rend());
+    for (int idx : bulletsToErase) {
+        if (idx >= 0 && static_cast<std::size_t>(idx) < _bullets.size())
+            _bullets.erase(_bullets.begin() + idx);
+    }
+
+    auto mIt = _monsters.begin();
+    while (mIt != _monsters.end()) {
+        if (mIt->hp <= 0) {
+            mIt = _monsters.erase(mIt);
+        } else {
+            ++mIt;
+        }
+    }
+
+    float dtSec = static_cast<float>(deltaMs) / 1000.0f;
+    auto mit = _monsters.begin();
+    while (mit != _monsters.end()) {
+        mit->phase += mit->freq * dtSec;
+        mit->x += mit->speedX * dtSec * 32.0f;
+        float oscillation = (mit->kind == MonsterKind::Sine)
+            ? std::sin(mit->phase)
+            : std::cos(mit->phase);
+        mit->y = mit->baseY + mit->amplitude * oscillation;
+        if (mit->x < -5.0f || mit->y < -5.0f || mit->y > 260.0f) {
+            mit = _monsters.erase(mit);
+        } else {
+            ++mit;
+        }
+    }
+
+    if (!_bullets.empty()) {
+        std::cout << "[UDP] Bullets: ";
+        for (const auto &b : _bullets) {
+            std::cout << b.id << "(" << static_cast<int>(b.x) << "," << static_cast<int>(b.y) << ") ";
+        }
+        std::cout << "\n";
+    }
+}
+
+Packet GameWorld::buildSnapshotPacket() const
+{
+    std::vector<uint8_t> payload;
+    payload.reserve(2 + _players.size() * 4 + _bullets.size() * 6 + _monsters.size() * 6);
+
+    payload.push_back(static_cast<uint8_t>(_players.size()));
+    for (const auto &kv : _players) {
+        const auto &p = kv.second;
+        payload.push_back(static_cast<uint8_t>((p.id >> 8) & 0xFF));
+        payload.push_back(static_cast<uint8_t>(p.id & 0xFF));
+        payload.push_back(p.x);
+        payload.push_back(p.y);
+    }
+
+    payload.push_back(static_cast<uint8_t>(_bullets.size()));
+    for (const auto &b : _bullets) {
+        payload.push_back(static_cast<uint8_t>((b.id >> 8) & 0xFF));
+        payload.push_back(static_cast<uint8_t>(b.id & 0xFF));
+        payload.push_back(b.x);
+        payload.push_back(b.y);
+        payload.push_back(static_cast<uint8_t>(b.velX));
+        payload.push_back(static_cast<uint8_t>(b.velY));
+    }
+
+    payload.push_back(static_cast<uint8_t>(_monsters.size()));
+    for (const auto &m : _monsters) {
+        payload.push_back(static_cast<uint8_t>((m.id >> 8) & 0xFF));
+        payload.push_back(static_cast<uint8_t>(m.id & 0xFF));
+        payload.push_back(static_cast<uint8_t>(std::clamp<int>(static_cast<int>(m.x), 0, 255)));
+        payload.push_back(static_cast<uint8_t>(std::clamp<int>(static_cast<int>(m.y), 0, 255)));
+        payload.push_back(static_cast<uint8_t>(std::clamp<int>(m.hp, 0, 127)));
+        payload.push_back(static_cast<uint8_t>(m.kind));
+    }
+    return Packet(PacketType::SNAPSHOT, payload);
+}

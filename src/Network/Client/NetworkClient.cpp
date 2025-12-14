@@ -12,6 +12,7 @@
 #include <iostream>
 #include <algorithm>
 #include <cstdint>
+#include "../TransportLayer/Protocol.hpp"
 
 namespace {
     constexpr size_t BUFFER_SIZE = 1024;
@@ -111,16 +112,12 @@ bool NetworkClient::sendShoot(uint8_t posX, uint8_t posY, int8_t velX, int8_t ve
 
 bool NetworkClient::sendPacketTcp(const Packet &p)
 {
-    auto data = p.serialize();
-    if (data.size() > UINT16_MAX)
-        return false;
-    uint16_t len = static_cast<uint16_t>(data.size());
     std::vector<uint8_t> framed;
-    framed.reserve(data.size() + 2);
-    framed.push_back(static_cast<uint8_t>(len >> 8));
-    framed.push_back(static_cast<uint8_t>(len & 0xFF));
-    framed.insert(framed.end(), data.begin(), data.end());
-
+    try {
+        framed = Protocol::frameTcp(p);
+    } catch (const std::exception &) {
+        return false;
+    }
     return writeAll(_tcpFd, framed.data(), framed.size());
 }
 
@@ -298,22 +295,10 @@ NetworkClient::RecvResult NetworkClient::receiveTcpFramed(Packet &p)
     if (n <= 0)
         return RecvResult::Disconnected;
 
-    _tcpRecvBuffer.insert(_tcpRecvBuffer.end(), tmp, tmp + n);
-
-    while (_tcpRecvBuffer.size() >= 2) {
-        uint16_t len = (static_cast<uint16_t>(_tcpRecvBuffer[0]) << 8) | _tcpRecvBuffer[1];
-        if (_tcpRecvBuffer.size() < 2 + len)
-            return RecvResult::Incomplete;
-
-        std::vector<uint8_t> pkt(_tcpRecvBuffer.begin() + 2, _tcpRecvBuffer.begin() + 2 + len);
-        _tcpRecvBuffer.erase(_tcpRecvBuffer.begin(), _tcpRecvBuffer.begin() + 2 + len);
-        try {
-            p = Packet::deserialize(pkt.data(), pkt.size());
-            return RecvResult::Ok;
-        } catch (const std::exception &) {
-            continue;
-        }
-    }
-
-    return RecvResult::Incomplete;
+    auto status = Protocol::consumeChunk(tmp, static_cast<std::size_t>(n), _tcpRecvBuffer, p);
+    if (status == Protocol::StreamStatus::Ok)
+        return RecvResult::Ok;
+    if (status == Protocol::StreamStatus::Incomplete)
+        return RecvResult::Incomplete;
+    return RecvResult::Disconnected;
 }

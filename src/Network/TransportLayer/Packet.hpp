@@ -16,6 +16,7 @@ constexpr uint16_t PACKET_MAGIC = 0x5254; // "RT"
  * @brief Supported packet types exchanged between server and clients.
  */
 enum class PacketType : uint8_t {
+    //TCP
     SERVER_HELLO = 1,   ///< Server greeting with assigned id.
     CLIENT_HELLO = 2,   ///< Client greeting when connecting.
     OK = 3,             ///< Generic acknowledgement.
@@ -25,6 +26,8 @@ enum class PacketType : uint8_t {
     MESSAGE = 7,        ///< Text or generic payload message.
     PLAYER_LIST = 8,    ///< Broadcast of currently connected players.
     NEW_PLAYER  = 9,    ///< Notification of a newly connected player.
+
+    //UDP
     HELLO_UDP   = 10,   ///< UDP hello used for NAT hole punching.
     INPUT       = 11,   ///< Player input payload.
     SNAPSHOT    = 12,   ///< World state snapshot.

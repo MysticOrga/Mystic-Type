@@ -27,6 +27,7 @@ set(CLIENT_SOURCES
     ../Network/TransportLayer/Packet.cpp
     ../Network/TransportLayer/ASocket.cpp
     ../Network/TransportLayer/UDP/UDPSocket.cpp
+    ../Network/TransportLayer/Protocol.cpp
 )
 
 add_executable(rtype-client ${CLIENT_SOURCES})

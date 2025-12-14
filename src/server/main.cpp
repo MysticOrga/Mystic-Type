@@ -15,7 +15,6 @@ int main()
 {
     try {
         TCPServer tcpServer(4243);
-        // Snapshots plus fréquents pour réduire la latence d’apparition des tirs
         UDPGameServer udpServer(4243, 50); // ~20 snapshots/s
 
         std::thread tcpThread([&tcpServer]() {

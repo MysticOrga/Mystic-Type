@@ -13,6 +13,7 @@
 #include <string>
 #include <unistd.h>
 #include <sys/select.h>
+#include "../Protocol.hpp"
 
 TCPServer::TCPServer(uint16_t port)
 {
@@ -50,17 +51,12 @@ bool TCPServer::sendPacket(int fd, const Packet &packet)
     if (fd == -1) {
         return false;
     }
-    std::vector<uint8_t> payload = packet.serialize();
-    if (payload.size() > UINT16_MAX) {
+    std::vector<uint8_t> framed;
+    try {
+        framed = Protocol::frameTcp(packet);
+    } catch (const std::exception &) {
         return false;
     }
-    uint16_t len = static_cast<uint16_t>(payload.size());
-    std::vector<uint8_t> framed;
-    framed.reserve(payload.size() + 2);
-    framed.push_back(static_cast<uint8_t>(len >> 8));
-    framed.push_back(static_cast<uint8_t>(len & 0xFF));
-    framed.insert(framed.end(), payload.begin(), payload.end());
-
     return writeAll(fd, framed.data(), framed.size());
 }
 
@@ -78,23 +74,12 @@ TCPServer::RecvResult TCPServer::receivePacket(int fd, Packet &packet, std::vect
 
     recvBuffer.insert(recvBuffer.end(), tmp, tmp + n);
 
-    while (recvBuffer.size() >= 2) {
-        uint16_t len = (static_cast<uint16_t>(recvBuffer[0]) << 8) | recvBuffer[1];
-        if (recvBuffer.size() < 2 + len)
-            return RecvResult::Incomplete;
-
-        std::vector<uint8_t> pktData(recvBuffer.begin() + 2, recvBuffer.begin() + 2 + len);
-        recvBuffer.erase(recvBuffer.begin(), recvBuffer.begin() + 2 + len);
-        try {
-            packet = Packet::deserialize(pktData.data(), pktData.size());
-            return RecvResult::Ok;
-        } catch (const std::exception &) {
-            // drop malformed packet and continue
-            continue;
-        }
-    }
-
-    return RecvResult::Incomplete;
+    auto status = Protocol::consumeChunk(tmp, static_cast<std::size_t>(n), recvBuffer, packet);
+    if (status == Protocol::StreamStatus::Ok)
+        return RecvResult::Ok;
+    if (status == Protocol::StreamStatus::Incomplete)
+        return RecvResult::Incomplete;
+    return RecvResult::Disconnected;
 }
 
 bool TCPServer::waitForReadable(int fd, int timeoutSec, int timeoutUsec)
