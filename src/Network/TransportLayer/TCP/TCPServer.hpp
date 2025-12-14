@@ -14,6 +14,7 @@
 #include <sys/select.h>
 #include "TCPSocket.hpp"
 #include "../Packet.hpp"
+#include "../../SessionManager.hpp"
 
 #include <vector>
 
@@ -33,7 +34,7 @@ class TCPServer {
          *
          * @param port TCP port to listen on.
          */
-        TCPServer(uint16_t port);
+        TCPServer(uint16_t port, SessionManager &sessions);
 
         /**
          * @brief Destroy the TCPServer, closing the listening socket.
@@ -187,4 +188,5 @@ class TCPServer {
         Network::TransportLayer::TCPSocket _serverSocket;
         std::array<Client, MAX_CLIENT> _clients;
         int _nextId = 1;
+        SessionManager &_sessions;
 };

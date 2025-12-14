@@ -13,6 +13,7 @@ set(SERVER_SOURCES
     ../Network/TransportLayer/UDP/UDPSocket.cpp
     ../Network/TransportLayer/UDP/GameWorld.cpp
     ../Network/TransportLayer/Protocol.cpp
+    ../Network/SessionManager.cpp
 )
 
 add_executable(rtype-server ${SERVER_SOURCES})

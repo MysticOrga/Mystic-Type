@@ -70,7 +70,9 @@ void GraphicClient::syncEntities(const std::vector<PlayerState> &players)
 {
     int myId = _net.getPlayerId();
 
+    std::unordered_set<int> liveIds;
     for (const auto &p : players) {
+        liveIds.insert(p.id);
         if (_entities.size() >= 4 && _entities.find(p.id) == _entities.end())
             continue;
 
@@ -92,6 +94,15 @@ void GraphicClient::syncEntities(const std::vector<PlayerState> &players)
             float smoothingFactor = 0.1f;
             vel.vx = (clientX - pos.x) * smoothingFactor;
             vel.vy = (clientY - pos.y) * smoothingFactor;
+        }
+    }
+
+    // Remove entities that are no longer in the snapshot/player list
+    for (auto it = _entities.begin(); it != _entities.end(); ) {
+        if (liveIds.find(it->first) == liveIds.end()) {
+            it = _entities.erase(it);
+        } else {
+            ++it;
         }
     }
 }
@@ -164,9 +175,11 @@ void GraphicClient::processNetworkEvents()
     _net.pollPackets();
     for (const auto &ev : _net.getEvents()) {
         if (ev == "PLAYER_LIST" || ev == "NEW_PLAYER") {
+            _state.clearPlayers();
             for (const auto &p : _net.getLastPlayerList())
                 _state.upsertPlayer(p.id, p.x, p.y);
         } else if (ev == "SNAPSHOT") {
+            _state.clear();
             for (const auto &p : _net.getLastSnapshot())
                 _state.upsertPlayer(p.id, p.x, p.y);
             for (const auto &m : _net.getLastSnapshotMonsters())

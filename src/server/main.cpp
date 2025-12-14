@@ -7,6 +7,7 @@
 
 #include "Network/TransportLayer/TCP/TCPServer.hpp"
 #include "Network/TransportLayer/UDP/UDPGameServer.hpp"
+#include "Network/SessionManager.hpp"
 
 #include <iostream>
 #include <thread>
@@ -14,8 +15,9 @@
 int main()
 {
     try {
-        TCPServer tcpServer(4243);
-        UDPGameServer udpServer(4243, 50); // ~20 snapshots/s
+        SessionManager sessions;
+        TCPServer tcpServer(4243, sessions);
+        UDPGameServer udpServer(4243, sessions, 50); // ~20 snapshots/s
 
         std::thread tcpThread([&tcpServer]() {
             tcpServer.run();

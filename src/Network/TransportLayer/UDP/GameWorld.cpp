@@ -21,15 +21,15 @@ void GameWorld::registerPlayer(int id, uint8_t x, uint8_t y, const sockaddr_in &
 {
     PlayerState state;
     state.id = id;
-    state.x = x;
-    state.y = y;
+    state.x = std::clamp<uint8_t>(x, 0, 255);
+    state.y = std::clamp<uint8_t>(y, 0, 255);
     state.addr = addr;
     state.velX = 0;
     state.velY = 0;
     _players[id] = state;
 }
 
-void GameWorld::updateInput(int id, uint8_t posX, uint8_t posY, int8_t velX, int8_t velY, uint8_t dir, const sockaddr_in &addr)
+void GameWorld::updateInput(int id, int8_t velX, int8_t velY, uint8_t dir, const sockaddr_in &addr)
 {
     auto it = _players.find(id);
     if (it == _players.end())
@@ -37,10 +37,9 @@ void GameWorld::updateInput(int id, uint8_t posX, uint8_t posY, int8_t velX, int
 
     PlayerState &p = it->second;
     p.addr = addr;
-    p.x = posX;
-    p.y = posY;
-    p.velX = velX;
-    p.velY = velY;
+    constexpr int8_t maxSpeed = 10;
+    p.velX = std::clamp<int8_t>(velX, -maxSpeed, maxSpeed);
+    p.velY = std::clamp<int8_t>(velY, -maxSpeed, maxSpeed);
     p.dir = dir;
 }
 
@@ -51,15 +50,30 @@ void GameWorld::addShot(int id, uint8_t posX, uint8_t posY, int8_t velX, int8_t 
 
     BulletState b;
     b.id = (_nextBulletId++ & 0xFFFF);
-    b.x = posX;
-    b.y = posY;
-    b.velX = velX;
-    b.velY = velY;
+    b.ownerId = id;
+    b.x = std::clamp<uint8_t>(posX, 0, 255);
+    b.y = std::clamp<uint8_t>(posY, 0, 255);
+    constexpr int8_t maxSpeed = 10;
+    b.velX = std::clamp<int8_t>(velX, -maxSpeed, maxSpeed);
+    b.velY = std::clamp<int8_t>(velY, -maxSpeed, maxSpeed);
     _bullets.push_back(b);
 
     std::cout << "[UDP] Player " << id << " fired bullet " << b.id
               << " from " << static_cast<int>(posX) << "," << static_cast<int>(posY)
               << " vel " << static_cast<int>(velX) << "," << static_cast<int>(velY) << "\n";
+}
+
+void GameWorld::removePlayer(int id)
+{
+    _players.erase(id);
+    auto it = _bullets.begin();
+    while (it != _bullets.end()) {
+        if (it->ownerId == id) {
+            it = _bullets.erase(it);
+        } else {
+            ++it;
+        }
+    }
 }
 
 void GameWorld::spawnMonster(long long nowMs)

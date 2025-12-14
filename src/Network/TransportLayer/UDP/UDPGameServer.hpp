@@ -14,6 +14,7 @@
 #include "UDPSocket.hpp"
 #include "../Packet.hpp"
 #include "GameWorld.hpp"
+#include "../../SessionManager.hpp"
 
 /**
  * @brief Simple UDP authoritative game server that manages players and snapshots.
@@ -24,7 +25,7 @@
  */
 class UDPGameServer {
     public:
-        explicit UDPGameServer(uint16_t port, long long snapshotIntervalMs = 500);
+        explicit UDPGameServer(uint16_t port, SessionManager &sessions, long long snapshotIntervalMs = 500);
 
         /**
          * @brief Start the main server loop (blocking).
@@ -89,6 +90,7 @@ class UDPGameServer {
 
         Network::TransportLayer::UDPSocket _socket;
         GameWorld _world;
+        SessionManager &_sessions;
         long long _lastSnapshotMs = 0;
         long long _lastTickMs = 0;
         const uint16_t _port;

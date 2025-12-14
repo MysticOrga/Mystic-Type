@@ -29,6 +29,8 @@ public:
     bool sendShoot(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY);
 
     bool pollPackets();
+    void disconnect();
+    bool isConnected() const { return _tcpConnected; }
 
     int getPlayerId() const { return _playerId; }
     const std::vector<PlayerState> &getLastSnapshot() const { return _lastSnapshot; }
@@ -51,6 +53,8 @@ private:
 
     int _tcpFd = -1;
     int _udpFd = -1;
+    bool _tcpConnected = false;
+    bool _udpConnected = false;
     sockaddr_in _serverAddr{};
     int _playerId = -1;
 

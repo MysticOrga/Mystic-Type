@@ -27,10 +27,7 @@ NetworkClient::NetworkClient(const std::string &ip, uint16_t port)
 
 NetworkClient::~NetworkClient()
 {
-    if (_tcpFd != -1)
-        close(_tcpFd);
-    if (_udpFd != -1)
-        close(_udpFd);
+    disconnect();
 }
 
 bool NetworkClient::connectToServer()
@@ -40,10 +37,12 @@ bool NetworkClient::connectToServer()
         return false;
     if (::connect(_tcpFd, reinterpret_cast<sockaddr*>(&_serverAddr), sizeof(_serverAddr)) < 0)
         return false;
+    _tcpConnected = true;
 
     _udpFd = socket(AF_INET, SOCK_DGRAM, 0);
     if (_udpFd < 0)
         return false;
+    _udpConnected = true;
 
     return true;
 }
@@ -131,6 +130,10 @@ bool NetworkClient::sendPacketUdp(const Packet &p)
 bool NetworkClient::readTcpPacket(Packet &p)
 {
     auto res = receiveTcpFramed(p);
+    if (res == RecvResult::Disconnected) {
+        _events.push_back("TIMEOUT");
+        disconnect();
+    }
     return res == RecvResult::Ok;
 }
 
@@ -150,9 +153,17 @@ bool NetworkClient::pollPackets()
 {
     fd_set rfds;
     FD_ZERO(&rfds);
-    FD_SET(_tcpFd, &rfds);
-    FD_SET(_udpFd, &rfds);
-    int maxFd = std::max(_tcpFd, _udpFd);
+    int maxFd = -1;
+    if (_tcpFd != -1) {
+        FD_SET(_tcpFd, &rfds);
+        maxFd = std::max(maxFd, _tcpFd);
+    }
+    if (_udpFd != -1) {
+        FD_SET(_udpFd, &rfds);
+        maxFd = std::max(maxFd, _udpFd);
+    }
+    if (maxFd == -1)
+        return false;
     struct timeval tv{0, 50000}; // 50ms
 
     int activity = select(maxFd + 1, &rfds, nullptr, nullptr, &tv);
@@ -160,14 +171,14 @@ bool NetworkClient::pollPackets()
         return false;
 
     bool handled = false;
-    if (FD_ISSET(_tcpFd, &rfds)) {
+    if (_tcpFd != -1 && FD_ISSET(_tcpFd, &rfds)) {
         Packet p;
         if (readTcpPacket(p)) {
             handleTcpPacket(p);
             handled = true;
         }
     }
-    if (FD_ISSET(_udpFd, &rfds)) {
+    if (_udpFd != -1 && FD_ISSET(_udpFd, &rfds)) {
         Packet p;
         if (readUdpPacket(p)) {
             handleUdpPacket(p);
@@ -183,6 +194,10 @@ void NetworkClient::handleTcpPacket(const Packet &p)
         case PacketType::PING:
             sendPong();
             _events.push_back("PING");
+            break;
+        case PacketType::REFUSED:
+            _events.push_back("REFUSED:" + std::string(p.payload.begin(), p.payload.end()));
+            disconnect();
             break;
         case PacketType::PLAYER_LIST:
             _lastPlayerList.clear();
@@ -209,6 +224,9 @@ void NetworkClient::handleTcpPacket(const Packet &p)
                 _lastPlayerList.push_back({id, x, y});
                 _events.push_back("NEW_PLAYER");
             }
+            break;
+        case PacketType::MESSAGE:
+            _events.push_back("MESSAGE:" + std::string(p.payload.begin(), p.payload.end()));
             break;
         default:
             break;
@@ -301,4 +319,18 @@ NetworkClient::RecvResult NetworkClient::receiveTcpFramed(Packet &p)
     if (status == Protocol::StreamStatus::Incomplete)
         return RecvResult::Incomplete;
     return RecvResult::Disconnected;
+}
+
+void NetworkClient::disconnect()
+{
+    if (_tcpFd != -1) {
+        ::close(_tcpFd);
+        _tcpFd = -1;
+    }
+    if (_udpFd != -1) {
+        ::close(_udpFd);
+        _udpFd = -1;
+    }
+    _tcpConnected = false;
+    _udpConnected = false;
 }

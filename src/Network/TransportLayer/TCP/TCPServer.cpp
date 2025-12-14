@@ -15,7 +15,8 @@
 #include <sys/select.h>
 #include "../Protocol.hpp"
 
-TCPServer::TCPServer(uint16_t port)
+TCPServer::TCPServer(uint16_t port, SessionManager &sessions)
+    : _sessions(sessions)
 {
     if (!_serverSocket.bindAndListen(port, INADDR_ANY, MAX_CLIENT)) {
         throw std::runtime_error("Failed to start TCP server");
@@ -104,6 +105,7 @@ void TCPServer::closeFd(int &fd)
 
 void TCPServer::resetClient(Client &client)
 {
+    _sessions.removeById(client.id);
     closeFd(client.fd);
     client.id = 0;
     client.addr = {};
@@ -185,6 +187,7 @@ void TCPServer::acceptNewClient()
     _clients[slot].id = _nextId++;
     _clients[slot].posX = static_cast<uint8_t>(slot);
     _clients[slot].posY = 0;
+    _sessions.addSession(_clients[slot].id, clientFd, addr, getCurrentTime());
 
     if (!performHandshake(_clients[slot])) {
         std::cout << "[SERVER] handshake failed\n";
@@ -215,6 +218,7 @@ void TCPServer::processClientData(Client &client)
 
     if (packet.type == PacketType::PONG) {
         client.lastPongTime = getCurrentTime();
+        _sessions.updatePong(client.id, client.lastPongTime);
         std::cout << "[SERVER] Received PONG from client " << client.id << std::endl;
         return;
     }

@@ -57,6 +57,11 @@ public:
         _monsters.clear();
     }
 
+    void clearPlayers()
+    {
+        _players.clear();
+    }
+
     std::vector<PlayerState> listPlayers() const
     {
         std::vector<PlayerState> res;
