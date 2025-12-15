@@ -157,8 +157,11 @@ void GameWorld::tick(long long nowMs, long long deltaMs)
                 break;
             }
         }
-        if (hit)
+        if (hit) {
             bulletsToErase.push_back(static_cast<int>(bi));
+            _monsterKilled += 1;
+            std::cerr << "Monster killed: " << (int)_monsterKilled << std::endl;
+        }
     }
     std::sort(bulletsToErase.rbegin(), bulletsToErase.rend());
     for (int idx : bulletsToErase) {

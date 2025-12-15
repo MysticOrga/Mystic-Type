@@ -87,4 +87,5 @@ private:
     int _nextMonsterId = 1;
     long long _lastMonsterSpawnMs = 0;
     long long _monsterSpawnIntervalMs = 1800;
+    uint8_t _monsterKilled = 0;
 };
