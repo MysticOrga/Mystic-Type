@@ -35,7 +35,7 @@ bool GraphicClient::init()
     return true;
 }
 
-Entity GraphicClient::createPlayerEntity(float x, float y)
+Entity GraphicClient::xcreatePlayerEntity(float x, float y)
 {
     Entity ent = _ecs.createEntity();
     _ecs.addComponent(ent, Position{x, y});
