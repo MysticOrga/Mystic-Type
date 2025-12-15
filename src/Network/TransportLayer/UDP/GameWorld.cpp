@@ -91,26 +91,25 @@ void GameWorld::spawnMonster(long long nowMs)
     m.baseY = static_cast<float>(yDist(rng));
     m.y = m.baseY;
     m.hp = 3;
-    m.kind = typeDist(rng) == 0 ? MonsterKind::Sine : MonsterKind::Cosine;
+    int t = typeDist(rng);
+    m.kind = t == 0 ? MonsterKind::Sine : MonsterKind::ZigZag;
 
     if (m.kind == MonsterKind::Sine) {
         m.amplitude = static_cast<float>(ampDist(rng));
         m.phase = 0.0f;
         m.freq = freqDist(rng);
         m.speedX = -1.3f;
-    } else {
-        std::uniform_int_distribution<int> ampDistCos(12, 24);
-        std::uniform_real_distribution<float> freqDistCos(1.5f, 3.0f);
-        m.amplitude = static_cast<float>(ampDistCos(rng));
-        m.phase = static_cast<float>(M_PI_2);
-        m.freq = freqDistCos(rng);
-        m.speedX = -1.1f;
+    } else { // ZigZag
+        m.amplitude = 22.0f;
+        m.phase = 0.0f;
+        m.freq = 0.0f;
+        m.speedX = -1.4f;
     }
     _monsters.push_back(m);
 
     _monsterSpawnIntervalMs = intervalDist(rng);
     _lastMonsterSpawnMs = nowMs;
-    std::cout << "[UDP] Spawned monster " << m.id << " at y=" << m.baseY << "\n";
+    std::cout << "[UDP] Spawned monster " << m.id << " at y=" << m.baseY << " kind=" << static_cast<int>(m.kind) << "\n";
 }
 
 void GameWorld::tick(long long nowMs, long long deltaMs)
@@ -180,9 +179,14 @@ void GameWorld::tick(long long nowMs, long long deltaMs)
     while (mit != _monsters.end()) {
         mit->phase += mit->freq * dtSec;
         mit->x += mit->speedX * dtSec * 32.0f;
-        float oscillation = (mit->kind == MonsterKind::Sine)
-            ? std::sin(mit->phase)
-            : std::cos(mit->phase);
+        float oscillation = 0.0f;
+        if (mit->kind == MonsterKind::Sine) {
+            oscillation = std::sin(mit->phase);
+        } else { // ZigZag: alternate up/down every ~0.4s
+            float period = 0.4f;
+            float phaseT = std::fmod(static_cast<float>(nowMs) / 1000.0f, period * 2.0f);
+            oscillation = (phaseT < period) ? 1.0f : -1.0f;
+        }
         mit->y = mit->baseY + mit->amplitude * oscillation;
         if (mit->x < -5.0f || mit->y < -5.0f || mit->y > 260.0f) {
             mit = _monsters.erase(mit);

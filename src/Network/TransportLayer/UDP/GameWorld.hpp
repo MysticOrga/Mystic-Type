@@ -40,7 +40,7 @@ public:
             int8_t velY = 0;
         };
 
-    enum class MonsterKind : uint8_t { Sine = 0, Cosine = 1 };
+        enum class MonsterKind : uint8_t { Sine = 0, ZigZag = 1 };
 
     struct MonsterState {
         int id = 0;
