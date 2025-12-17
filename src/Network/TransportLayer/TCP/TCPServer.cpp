@@ -47,9 +47,9 @@ Packet TCPServer::makeIdPacket(PacketType type, int value)
     return Packet{type, payload};
 }
 
-bool TCPServer::sendPacket(int fd, const Packet &packet)
+bool TCPServer::sendPacket(socket_t fd, const Packet &packet)
 {
-    if (fd == -1) {
+    if (fd == INVALID_SOCKET_FD) {
         return false;
     }
     std::vector<uint8_t> framed;
@@ -61,9 +61,9 @@ bool TCPServer::sendPacket(int fd, const Packet &packet)
     return writeAll(fd, framed.data(), framed.size());
 }
 
-TCPServer::RecvResult TCPServer::receivePacket(int fd, Packet &packet, std::vector<uint8_t> &recvBuffer)
+TCPServer::RecvResult TCPServer::receivePacket(socket_t fd, Packet &packet, std::vector<uint8_t> &recvBuffer)
 {
-    if (fd == -1) {
+    if (fd == INVALID_SOCKET_FD) {
         return RecvResult::Disconnected;
     }
 
@@ -83,7 +83,7 @@ TCPServer::RecvResult TCPServer::receivePacket(int fd, Packet &packet, std::vect
     return RecvResult::Disconnected;
 }
 
-bool TCPServer::waitForReadable(int fd, int timeoutSec, int timeoutUsec)
+bool TCPServer::waitForReadable(socket_t fd, int timeoutSec, int timeoutUsec)
 {
     fd_set rfds;
     FD_ZERO(&rfds);
@@ -95,11 +95,11 @@ bool TCPServer::waitForReadable(int fd, int timeoutSec, int timeoutUsec)
     return ret > 0 && FD_ISSET(fd, &rfds);
 }
 
-void TCPServer::closeFd(int &fd)
+void TCPServer::closeFd(socket_t &fd)
 {
-    if (fd != -1) {
+    if (fd != INVALID_SOCKET_FD) {
         closeFdRaw(fd);
-        fd = -1;
+        fd = INVALID_SOCKET_FD;
     }
 }
 
@@ -162,9 +162,9 @@ bool TCPServer::performHandshake(Client &client)
 void TCPServer::acceptNewClient()
 {
     sockaddr_in addr{};
-    int clientFd = _serverSocket.acceptClient(addr);
+    socket_t clientFd = _serverSocket.acceptClient(addr);
 
-    if (clientFd == -1)
+    if (clientFd == INVALID_SOCKET_FD)
         return;
 
     int slot = -1;
@@ -312,12 +312,12 @@ void TCPServer::run()
     }
 }
 
-ssize_t TCPServer::writeFd(int fd, const uint8_t *data, std::size_t size)
+ssize_t TCPServer::writeFd(socket_t fd, const uint8_t *data, std::size_t size)
 {
     return ::write(fd, data, size);
 }
 
-ssize_t TCPServer::readFd(int fd, uint8_t *data, std::size_t size)
+ssize_t TCPServer::readFd(socket_t fd, uint8_t *data, std::size_t size)
 {
     return ::read(fd, data, size);
 }
@@ -327,12 +327,12 @@ int TCPServer::selectFdSet(int nfds, fd_set *readfds, fd_set *writefds, fd_set *
     return ::select(nfds, readfds, writefds, exceptfds, timeout);
 }
 
-int TCPServer::closeFdRaw(int fd)
+int TCPServer::closeFdRaw(socket_t fd)
 {
-    return ::close(fd);
+    return CLOSE(fd);
 }
 
-bool TCPServer::writeAll(int fd, const uint8_t *data, std::size_t size)
+bool TCPServer::writeAll(socket_t fd, const uint8_t *data, std::size_t size)
 {
     std::size_t total = 0;
     while (total < size) {

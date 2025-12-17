@@ -8,8 +8,6 @@
 #ifndef ASOCKET_HPP_
 #define ASOCKET_HPP_
 #include "ISocket.hpp"
-#include <sys/socket.h>
-#include <arpa/inet.h>
 
 namespace Network::TransportLayer
 {
@@ -36,7 +34,7 @@ namespace Network::TransportLayer
          *
          * @return int The socket file descriptor
          */
-        inline int getSocketFd() const override
+        inline socket_t getSocketFd() const override
         {
             return _socketFd;
         }
@@ -64,7 +62,7 @@ namespace Network::TransportLayer
          * @param size Number of bytes to read
          * @return ssize_t Number of bytes read, or -1 on error
          */
-        virtual ssize_t readByte(void *buffer, std::size_t size) override;
+        virtual ssize_t readByte(char *buffer, std::size_t size) override;
 
         /**
          * @brief Write bytes to the socket
@@ -73,7 +71,7 @@ namespace Network::TransportLayer
          * @param size Number of bytes to write
          * @return ssize_t Number of bytes written, or -1 on error
          */
-        virtual ssize_t writeByte(const void *data, std::size_t size) override;
+        virtual ssize_t writeByte(const char *data, std::size_t size) override;
 
         /**
          * @brief Check the socket state for read, write, or exception
@@ -85,7 +83,7 @@ namespace Network::TransportLayer
         IOState sockState(int timeoutSec, int timeoutUsec) override;
 
     protected:
-        int _socketFd;              // native socket descriptor
+        socket_t _socketFd;              // native socket descriptor
         struct sockaddr_in _addr;   // bound address/port for the socket
     private:
     };

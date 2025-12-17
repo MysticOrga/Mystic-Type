@@ -53,7 +53,7 @@ class TCPServer {
         struct Client
         {
             int id = 0;
-            int fd = -1;
+            socket_t fd = INVALID_SOCKET_FD;
             sockaddr_in addr{};
             bool handshakeDone = false;
             long lastPongTime = 0;
@@ -96,12 +96,12 @@ class TCPServer {
         /**
          * @brief Block until a file descriptor is readable or times out.
          */
-        bool waitForReadable(int fd, int timeoutSec, int timeoutUsec = 0);
+        bool waitForReadable(socket_t fd, int timeoutSec, int timeoutUsec = 0);
 
         /**
          * @brief Close and invalidate a file descriptor.
          */
-        void closeFd(int &fd);
+        void closeFd(socket_t &fd);
 
         /**
          * @brief Reset client fields and close its socket.
@@ -118,7 +118,7 @@ class TCPServer {
         /**
          * @brief Send a packet to a specific client fd.
          */
-        bool sendPacket(int fd, const Packet &packet);
+        bool sendPacket(socket_t fd, const Packet &packet);
 
         /**
          * @brief Result of a receive attempt.
@@ -132,7 +132,7 @@ class TCPServer {
          * @param packet Output parsed packet.
          * @param buffer Receive buffer for reassembly.
          */
-        RecvResult receivePacket(int fd, Packet &packet, std::vector<uint8_t> &buffer);
+        RecvResult receivePacket(socket_t fd, Packet &packet, std::vector<uint8_t> &buffer);
 
         /**
          * @brief Build a packet carrying a string payload.
@@ -147,12 +147,12 @@ class TCPServer {
         /**
          * @brief Write raw bytes to a socket fd.
          */
-        ssize_t writeFd(int fd, const uint8_t *data, std::size_t size);
+        ssize_t writeFd(socket_t fd, const uint8_t *data, std::size_t size);
 
         /**
          * @brief Read raw bytes from a socket fd.
          */
-        ssize_t readFd(int fd, uint8_t *data, std::size_t size);
+        ssize_t readFd(socket_t fd, uint8_t *data, std::size_t size);
 
         /**
          * @brief Wrapper around select for testability.
@@ -162,7 +162,7 @@ class TCPServer {
         /**
          * @brief Close a raw fd without resetting the caller's variable.
          */
-        int closeFdRaw(int fd);
+        int closeFdRaw(socket_t fd);
 
         /**
          * @brief Build the packet containing the list of connected players.
@@ -182,7 +182,7 @@ class TCPServer {
         /**
          * @brief Ensure the full buffer is written to the socket.
          */
-        bool writeAll(int fd, const uint8_t *data, std::size_t size);
+        bool writeAll(socket_t fd, const uint8_t *data, std::size_t size);
 
     private:
         Network::TransportLayer::TCPSocket _serverSocket;

@@ -102,7 +102,7 @@ Value | Type Name      | Description
 0x01  | CONNECTION     | Client connection request
 0x02  | DISCONNECTION  | Client disconnection notification
 0x03  | MOVE           | Player movement data transmission
-0xFF  | ERROR          | Error notification
+0xFF  | IOERROR          | Error notification
 
 4.2 Type Definitions
 --------------------
@@ -160,7 +160,7 @@ Payload Fields:
 Usage: Sent by clients to update their position, broadcasted by server to 
 other clients
 
-4.2.4 ERROR (0xFF)
+4.2.4 IOERROR (0xFF)
 Purpose: Error condition notification
 
 Payload Format:

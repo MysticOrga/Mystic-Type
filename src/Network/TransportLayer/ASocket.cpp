@@ -14,7 +14,7 @@ namespace Network::TransportLayer
     ASocket::ASocket(int domain, int type, int protocol)
     {
         _socketFd = socket(domain, type, protocol);
-        if (_socketFd == -1)
+        if (_socketFd == INVALID_SOCKET_FD)
         {
             throw std::runtime_error("Failed to create socket");
         }
@@ -27,10 +27,10 @@ namespace Network::TransportLayer
 
     int ASocket::closeSocket()
     {
-        if (_socketFd != -1)
+        if (_socketFd != -INVALID_SOCKET_FD)
         {
-            int result = close(_socketFd);
-            _socketFd = -1;
+            int result = CLOSE(_socketFd);
+            _socketFd = INVALID_SOCKET_FD;
             return result;
         }
         return 0; // Socket already closed
@@ -54,7 +54,7 @@ namespace Network::TransportLayer
         int activity = select(_socketFd + 1, &readfds, &writefds, &exceptfds, &timeout);
         if (activity < 0)
         {
-            return IOState::ERROR;
+            return IOState::IOERROR;
         }
         if (activity != 0)
         {
@@ -83,21 +83,22 @@ namespace Network::TransportLayer
 
         return bind(_socketFd, reinterpret_cast<struct sockaddr *>(&_addr), sizeof(_addr)) == 0;
     }
-    ssize_t ASocket::writeByte(const void *data, std::size_t size)
+
+    ssize_t ASocket::writeByte(const char *data, std::size_t size)
     {
         if (data == nullptr || size == 0)
             return -1; // Invalid data or size
         if (sockState(0, 0) == IOState::WRITE_READY)
-            return write(_socketFd, data, size);
+            return send(_socketFd, data, size, 0);
         return -1; // Socket not ready for writing
     }
 
-    ssize_t ASocket::readByte(void *buffer, std::size_t size)
+    ssize_t ASocket::readByte(char *buffer, std::size_t size)
     {
         if (buffer == nullptr || size == 0)
             return -1; // Invalid buffer or size
         if (sockState(0, 0) == IOState::READ_READY)
-            return read(_socketFd, buffer, size);
+            return recv(_socketFd, buffer, size, 0);
         return -1; // Socket not ready for reading
     }
 }

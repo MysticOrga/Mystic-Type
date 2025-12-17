@@ -42,7 +42,7 @@ namespace Network::TransportLayer
          * @param size Number of bytes to write
          * @return ssize_t Number of bytes written, or -1 on error
          */
-        ssize_t writeByte(const void *data, std::size_t size) override;
+        ssize_t writeByte(const char *data, std::size_t size) override;
 
         /**
          * @brief Write bytes to the UDP socket to a specific address
@@ -52,7 +52,7 @@ namespace Network::TransportLayer
          * @param destAddr Destination address to send data to
          * @return ssize_t Number of bytes written, or -1 on error
          */
-        ssize_t writeByte(const void *data, std::size_t size, const sockaddr_in &destAddr);
+        ssize_t writeByte(const char*data, std::size_t size, const sockaddr_in &destAddr);
 
         /**
          * @brief Read bytes from the UDP socket
@@ -61,7 +61,7 @@ namespace Network::TransportLayer
          * @param size Number of bytes to read
          * @return ssize_t Number of bytes read, or -1 on error
          */
-        ssize_t readByte(void *buffer, std::size_t size) override;
+        ssize_t readByte(char *buffer, std::size_t size) override;
 
         /**
          * @brief Get the sender address of the last received packet
