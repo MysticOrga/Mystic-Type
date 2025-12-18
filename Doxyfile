@@ -1,19 +1,25 @@
-# Doxyfile for Mystic-Type
 PROJECT_NAME           = "Mystic-Type"
-OUTPUT_DIRECTORY       = docs/doxygen
+
+OUTPUT_DIRECTORY       = docs
+HTML_OUTPUT            = .
+
+GENERATE_HTML          = YES
 GENERATE_LATEX         = NO
 GENERATE_MAN           = NO
 GENERATE_RTF           = NO
 GENERATE_XML           = NO
+
 QUIET                  = YES
 EXTRACT_ALL            = YES
 EXTRACT_PRIVATE        = NO
 EXTRACT_STATIC         = NO
 EXTRACT_LOCAL_CLASSES  = YES
 RECURSIVE              = YES
+
 INPUT                  = src
 FILE_PATTERNS          = *.hpp *.cpp
 EXCLUDE_PATTERNS       = */build/* */docs/* */sprites/*
+
 USE_MDFILE_AS_MAINPAGE = README.md
 GENERATE_TREEVIEW      = YES
 STRIP_FROM_PATH        = src

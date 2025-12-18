@@ -17,6 +17,5 @@ var searchData=
   ['connecttoserver_14',['connectToServer',['../class_network_client.html#aaeedfac221d22aa5df4135b1680c4c99',1,'NetworkClient']]],
   ['consumechunk_15',['consumeChunk',['../namespace_protocol.html#ad768525ca5f0324a5f414440e67679b6',1,'Protocol']]],
   ['core_2ehpp_16',['Core.hpp',['../_core_8hpp.html',1,'']]],
-  ['cosine_17',['Cosine',['../class_game_world.html#af3c04dc6f6e4211cd6007390bee1d9a7a46ff06ae696616afdf3a695efd3db84c',1,'GameWorld']]],
-  ['createentity_18',['createEntity',['../class_e_c_s.html#a41b876f3725cbb04aac3f2edd95522c6',1,'ECS']]]
+  ['createentity_17',['createEntity',['../class_e_c_s.html#a41b876f3725cbb04aac3f2edd95522c6',1,'ECS']]]
 ];
