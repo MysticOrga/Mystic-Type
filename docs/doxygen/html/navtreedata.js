@@ -25,6 +25,15 @@
 var NAVTREE =
 [
   [ "Mystic-Type", "index.html", [
+    [ "Prerequisites", "index.html#autotoc_md1", null ],
+    [ "Build", "index.html#autotoc_md2", null ],
+    [ "Run", "index.html#autotoc_md3", null ],
+    [ "Architecture", "index.html#autotoc_md4", null ],
+    [ "Network protocol (summary)", "index.html#autotoc_md5", null ],
+    [ "Controls by default (client)", "index.html#autotoc_md6", null ],
+    [ "Key features", "index.html#autotoc_md7", null ],
+    [ "Documentation", "index.html#autotoc_md8", null ],
+    [ "Authors", "index.html#autotoc_md9", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [

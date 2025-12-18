@@ -63,7 +63,7 @@ cd build/src/graphical-client
 - Simple graphical client (raylib) with a minimal ECS.
 
 ## Documentation
-- Doxygen: `doxygen Doxyfile` → `docs/doxygen/`
+- Doxygen: `https://mysticorga.github.io/Mystic-Type/`
 - Protocol RFCs: `docs/tcp_protocol_rfc.txt`, `docs/mtp_protocol_rfc.txt`
 
 ## Authors

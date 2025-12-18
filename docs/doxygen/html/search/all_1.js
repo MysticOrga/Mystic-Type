@@ -10,7 +10,9 @@ var searchData=
   ['allowshoot_7',['allowShoot',['../class_session_manager.html#a3b6210717467960e603c7308ead2a23a',1,'SessionManager']]],
   ['amplitude_8',['amplitude',['../struct_game_world_1_1_monster_state.html#a4fb30943cf1d5a76583972d92caa325b',1,'GameWorld::MonsterState']]],
   ['animatedsprite_9',['AnimatedSprite',['../class_rtype_1_1_graphic_1_1_animated_sprite.html',1,'Rtype::Graphic::AnimatedSprite'],['../class_rtype_1_1_graphic_1_1_animated_sprite.html#ae284bb557cb2c7261d888df9ac1a94af',1,'Rtype::Graphic::AnimatedSprite::AnimatedSprite()']]],
-  ['asocket_10',['ASocket',['../class_network_1_1_transport_layer_1_1_a_socket.html',1,'Network::TransportLayer::ASocket'],['../class_network_1_1_transport_layer_1_1_a_socket.html#ae23454a39eaa82b8acf04d3e2b864e8d',1,'Network::TransportLayer::ASocket::ASocket()']]],
-  ['asocket_2ecpp_11',['ASocket.cpp',['../_a_socket_8cpp.html',1,'']]],
-  ['asocket_2ehpp_12',['ASocket.hpp',['../_a_socket_8hpp.html',1,'']]]
+  ['architecture_10',['Architecture',['../index.html#autotoc_md4',1,'']]],
+  ['asocket_11',['ASocket',['../class_network_1_1_transport_layer_1_1_a_socket.html',1,'Network::TransportLayer::ASocket'],['../class_network_1_1_transport_layer_1_1_a_socket.html#ae23454a39eaa82b8acf04d3e2b864e8d',1,'Network::TransportLayer::ASocket::ASocket()']]],
+  ['asocket_2ecpp_12',['ASocket.cpp',['../_a_socket_8cpp.html',1,'']]],
+  ['asocket_2ehpp_13',['ASocket.hpp',['../_a_socket_8hpp.html',1,'']]],
+  ['authors_14',['Authors',['../index.html#autotoc_md9',1,'']]]
 ];

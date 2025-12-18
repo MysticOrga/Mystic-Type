@@ -6,6 +6,8 @@ var searchData=
   ['bindsock_3',['bindSock',['../class_network_1_1_transport_layer_1_1_a_socket.html#a65fa2f6ba45358b7a7776d14b0111756',1,'Network::TransportLayer::ASocket']]],
   ['bindto_4',['bindTo',['../class_network_1_1_transport_layer_1_1_u_d_p_socket.html#a4972fa36f907bdcdae38d7d551f34e8b',1,'Network::TransportLayer::UDPSocket']]],
   ['buffer_5fsize_5',['BUFFER_SIZE',['../_t_c_p_server_8hpp.html#a6b20d41d6252e9871430c242cb1a56e7',1,'TCPServer.hpp']]],
-  ['buildsnapshotpacket_6',['buildSnapshotPacket',['../class_game_world.html#a191e4f983d282f3179fd6944cbb82e37',1,'GameWorld']]],
-  ['bulletstate_7',['BulletState',['../struct_bullet_state.html',1,'BulletState'],['../struct_game_world_1_1_bullet_state.html',1,'GameWorld::BulletState']]]
+  ['build_6',['Build',['../index.html#autotoc_md2',1,'']]],
+  ['buildsnapshotpacket_7',['buildSnapshotPacket',['../class_game_world.html#a191e4f983d282f3179fd6944cbb82e37',1,'GameWorld']]],
+  ['bulletstate_8',['BulletState',['../struct_bullet_state.html',1,'BulletState'],['../struct_game_world_1_1_bullet_state.html',1,'GameWorld::BulletState']]],
+  ['by_20default_20client_9',['Controls by default (client)',['../index.html#autotoc_md6',1,'']]]
 ];

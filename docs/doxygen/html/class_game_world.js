@@ -5,7 +5,7 @@ var class_game_world =
     [ "MonsterState", "struct_game_world_1_1_monster_state.html", "struct_game_world_1_1_monster_state" ],
     [ "MonsterKind", "class_game_world.html#af3c04dc6f6e4211cd6007390bee1d9a7", [
       [ "Sine", "class_game_world.html#af3c04dc6f6e4211cd6007390bee1d9a7a6ca9e2d793f678aba7c1b19526592a46", null ],
-      [ "Cosine", "class_game_world.html#af3c04dc6f6e4211cd6007390bee1d9a7a46ff06ae696616afdf3a695efd3db84c", null ]
+      [ "ZigZag", "class_game_world.html#af3c04dc6f6e4211cd6007390bee1d9a7aeacf3a101066b77f05938928385bd8d9", null ]
     ] ],
     [ "GameWorld", "class_game_world.html#ad315664f50c7327f02ef2b4634953499", null ],
     [ "addShot", "class_game_world.html#a62bb0ece1a3e4cdc6cc15910bb8f6706", null ],
