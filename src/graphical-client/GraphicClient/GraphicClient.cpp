@@ -10,7 +10,7 @@
 #include <iostream>
 #include <memory>
 #include <unordered_set>
-#include <cmath> 
+#include <cmath>
 #include <algorithm>
 
 // ... (Constructeur et init inchangés) ...
@@ -35,7 +35,7 @@ bool GraphicClient::init()
     return true;
 }
 
-Entity GraphicClient::xcreatePlayerEntity(float x, float y)
+Entity GraphicClient::createPlayerEntity(float x, float y)
 {
     Entity ent = _ecs.createEntity();
     _ecs.addComponent(ent, Position{x, y});
@@ -84,16 +84,33 @@ void GraphicClient::syncEntities(const std::vector<PlayerState> &players)
             Entity ent = createPlayerEntity(clientX, clientY);
             _entities[p.id] = ent;
         } else {
-            if (p.id == myId) {
-                continue; 
-            }
-
             auto &pos = _ecs.getComponent<Position>(it->second);
             auto &vel = _ecs.getComponent<Velocity>(it->second);
 
-            float smoothingFactor = 0.1f;
-            vel.vx = (clientX - pos.x) * smoothingFactor;
-            vel.vy = (clientY - pos.y) * smoothingFactor;
+            // On suit les positions serveur mais en lissant pour éviter l'effet rollback
+            float dx = clientX - pos.x;
+            float dy = clientY - pos.y;
+            float dist2 = dx * dx + dy * dy;
+
+            if (p.id == myId) {
+                // On suit directement le serveur pour soi-même pour éviter l'avance locale puis rollback
+                pos.x = clientX;
+                pos.y = clientY;
+                vel.vx = 0.0f;
+                vel.vy = 0.0f;
+            } else {
+                // Pour les autres joueurs, on lisse toujours (et on remet les vitesses à zéro)
+                const float smooth = 0.25f;
+                if (dist2 > 100.0f) { // snap si trop loin (~10 unités)
+                    pos.x = clientX;
+                    pos.y = clientY;
+                } else {
+                    pos.x += dx * smooth;
+                    pos.y += dy * smooth;
+                }
+                vel.vx = 0.0f;
+                vel.vy = 0.0f;
+            }
         }
     }
 
@@ -133,7 +150,7 @@ void GraphicClient::syncBullets(const std::vector<BulletState> &bullets)
         if (liveIds.find(kv.first) == liveIds.end()) {
             auto &pos = _ecs.getComponent<Position>(kv.second);
             auto &vel = _ecs.getComponent<Velocity>(kv.second);
-            pos.x = -1000.0f; 
+            pos.x = -1000.0f;
             pos.y = -1000.0f;
             vel.vx = 0.0f;
             vel.vy = 0.0f;
@@ -205,6 +222,8 @@ void GraphicClient::updateEntities(float dt)
     }
 
     for (const auto &kv : _entities) {
+        if (kv.first == myId)
+            continue; // On ne réintègre pas localement son propre joueur pour éviter les rollbacks visibles
         _movementSystem.update(_ecs, kv.second, dt);
     }
     for (const auto &kv : _bulletEntities) {
