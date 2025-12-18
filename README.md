@@ -52,7 +52,7 @@ cd build/src/graphical-client
   - SHOOT(id, pos, vel).
   - SNAPSHOT periodically: players, bullets, monsters.
 
-## Controls (client)
+## Controls by default (client)
 - Move: W/A/S/D
 - Shoot: Space
 
@@ -66,7 +66,8 @@ cd build/src/graphical-client
 - Doxygen: `doxygen Doxyfile` → `docs/doxygen/`
 - Protocol RFCs: `docs/tcp_protocol_rfc.txt`, `docs/mtp_protocol_rfc.txt`
 
-## Known limitations
-- No full Windows port (WSA missing).
-- No client auto-reconnect, no advanced anti-cheat.
-- Simplified physics/visuals, minimal accessibility options.
+## Authors
+- Quentin Hivanhoe
+- Loic Rabearivelo
+- Emma Hoarau
+- Nicolas Samy
