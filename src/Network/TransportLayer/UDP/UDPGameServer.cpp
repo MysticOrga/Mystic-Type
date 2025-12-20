@@ -9,20 +9,20 @@
 #include <iostream>
 #include <thread>
 
-namespace {
-    constexpr std::size_t UDP_BUFFER_SIZE = 1024;
+namespace
+{
+constexpr std::size_t UDP_BUFFER_SIZE = 1024;
 }
 
 UDPGameServer::UDPGameServer(uint16_t port, SessionManager &sessions, long long snapshotIntervalMs)
     : _port(port), _snapshotIntervalMs(snapshotIntervalMs), _sessions(sessions)
 {
-    if (!_socket.bindTo(port)) {
+    if (!_socket.bindTo(port))
+    {
         throw std::runtime_error("Failed to bind UDP socket");
     }
     std::cout << "[UDP] Listening on port " << port << std::endl;
-    _sessions.setOnRemove([this](int id) {
-        _world.removePlayer(id);
-    });
+    _sessions.setOnRemove([this](int id) { _world.removePlayer(id); });
 }
 
 long long UDPGameServer::nowMs() const
@@ -34,20 +34,22 @@ long long UDPGameServer::nowMs() const
 bool UDPGameServer::sendPacketTo(const Packet &packet, const sockaddr_in &to)
 {
     auto data = packet.serialize();
-    return _socket.writeByte(data.data(), data.size(), to) == static_cast<ssize_t>(data.size());
+    return _socket.writeByte(reinterpret_cast <const char *>(data.data()), data.size(), to) == static_cast<ssize_t>(data.size());
 }
 
 void UDPGameServer::broadcastSnapshot()
 {
     Packet snap = _world.buildSnapshotPacket();
-    for (const auto &kv : _world.players()) {
+    for (const auto &kv : _world.players())
+    {
         sendPacketTo(snap, kv.second.addr);
     }
 }
 
 void UDPGameServer::handleHello(const Packet &packet, const sockaddr_in &from)
 {
-    if (packet.payload.size() < 2) {
+    if (packet.payload.size() < 2)
+    {
         std::cerr << "[UDP] HELLO_UDP payload too small\n";
         return;
     }
@@ -55,18 +57,21 @@ void UDPGameServer::handleHello(const Packet &packet, const sockaddr_in &from)
     uint8_t x = packet.payload.size() >= 3 ? packet.payload[2] : 0;
     uint8_t y = packet.payload.size() >= 4 ? packet.payload[3] : 0;
 
-    if (!_sessions.getSession(id).has_value()) {
+    if (!_sessions.getSession(id).has_value())
+    {
         std::cerr << "[UDP] HELLO_UDP from unknown id=" << id << "\n";
         return;
     }
     _world.registerPlayer(id, x, y, from);
     _sessions.setUdpAddr(id, from);
-    std::cout << "[UDP] Registered client id=" << id << " at " << static_cast<int>(x) << "," << static_cast<int>(y) << "\n";
+    std::cout << "[UDP] Registered client id=" << id << " at " << static_cast<int>(x) << "," << static_cast<int>(y)
+              << "\n";
 }
 
 void UDPGameServer::handleInput(const Packet &packet, const sockaddr_in &from)
 {
-    if (packet.payload.size() < 7) {
+    if (packet.payload.size() < 7)
+    {
         std::cerr << "[UDP] INPUT payload too small\n";
         return;
     }
@@ -77,7 +82,8 @@ void UDPGameServer::handleInput(const Packet &packet, const sockaddr_in &from)
     uint8_t dir = packet.payload[6];
 
     long now = nowMs();
-    if (!_sessions.allowInput(id, now)) {
+    if (!_sessions.allowInput(id, now))
+    {
         std::cerr << "[UDP] INPUT rate limited for id=" << id << "\n";
         return;
     }
@@ -96,7 +102,8 @@ void UDPGameServer::handleShoot(const Packet &packet)
     int8_t velY = static_cast<int8_t>(packet.payload[5]);
 
     long now = nowMs();
-    if (!_sessions.allowShoot(id, now)) {
+    if (!_sessions.allowShoot(id, now))
+    {
         std::cerr << "[UDP] SHOOT rate limited for id=" << id << "\n";
         return;
     }
@@ -105,18 +112,19 @@ void UDPGameServer::handleShoot(const Packet &packet)
 
 void UDPGameServer::handlePacket(const Packet &packet, const sockaddr_in &from)
 {
-    switch (packet.type) {
-        case PacketType::HELLO_UDP:
-            handleHello(packet, from);
-            break;
-        case PacketType::INPUT:
-            handleInput(packet, from);
-            break;
-        case PacketType::SHOOT:
-            handleShoot(packet);
-            break;
-        default:
-            break;
+    switch (packet.type)
+    {
+    case PacketType::HELLO_UDP:
+        handleHello(packet, from);
+        break;
+    case PacketType::INPUT:
+        handleInput(packet, from);
+        break;
+    case PacketType::SHOOT:
+        handleShoot(packet);
+        break;
+    default:
+        break;
     }
 }
 
@@ -126,24 +134,31 @@ void UDPGameServer::run()
     _lastSnapshotMs = nowMs();
     _lastTickMs = _lastSnapshotMs;
 
-    while (true) {
-        ssize_t n = _socket.readByte(buffer, sizeof(buffer));
-        if (n > 0) {
-            try {
+    while (true)
+    {
+        ssize_t n = _socket.readByte(reinterpret_cast<char *>(buffer), sizeof(buffer));
+        if (n > 0)
+        {
+            try
+            {
                 Packet packet = Packet::deserialize(buffer, static_cast<size_t>(n));
                 handlePacket(packet, _socket.getSenderAddr());
-            } catch (const std::exception &e) {
+            }
+            catch (const std::exception &e)
+            {
                 std::cerr << "[UDP] Failed to parse packet: " << e.what() << "\n";
             }
         }
 
         long long now = nowMs();
-        if (now - _lastTickMs >= _tickIntervalMs) {
+        if (now - _lastTickMs >= _tickIntervalMs)
+        {
             updateSimulation(now, now - _lastTickMs);
             _lastTickMs = now;
         }
 
-        if (now - _lastSnapshotMs >= _snapshotIntervalMs) {
+        if (now - _lastSnapshotMs >= _snapshotIntervalMs)
+        {
             broadcastSnapshot();
             _lastSnapshotMs = now;
         }

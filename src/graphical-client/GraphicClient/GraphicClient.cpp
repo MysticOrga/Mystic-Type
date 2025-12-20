@@ -41,7 +41,7 @@ Entity GraphicClient::createPlayerEntity(float x, float y)
     _ecs.addComponent(ent, Position{x, y});
     _ecs.addComponent(ent, Velocity{0, 0});
     auto sprite = std::make_shared<Rtype::Graphic::AnimatedSprite>(
-        "../../../sprites/r-typesheet42.gif", Vector2{33, 17}, Vector2{0, 0}, 4, 0.15f, Vector2{x, y}
+        "../../sprites/r-typesheet42.gif", Vector2{33, 17}, Vector2{0, 0}, 4, 0.15f, Vector2{x, y}
     );
     _ecs.addComponent(ent, Sprite{sprite});
     return ent;
@@ -143,6 +143,7 @@ void GraphicClient::syncBullets(const std::vector<BulletState> &bullets)
 
 void GraphicClient::syncMonsters(const std::vector<MonsterState> &monsters)
 {
+    int i = 0;
     std::unordered_set<int> liveIds;
     for (const auto &m : monsters) {
         liveIds.insert(m.id);
@@ -248,17 +249,29 @@ void GraphicClient::render(float dt)
 
 void GraphicClient::gameLoop()
 {
+    // int i = 0;
     while (!_window.shouldClose()) {
         float dt = _window.getFrameTime();
+        // std::cerr << "before processing network event" << i << std::endl;
         processNetworkEvents();
+        // std::cerr << "after processing network event" << i << std::endl;
+        // std::cerr << "before updatinf entities" << i << std::endl;
         updateEntities(dt);
+        // std::cerr << "after update entities" << i << std::endl;
+        // std::cerr << "before render" << i << std::endl;
         render(dt);
+        // std::cerr << "after render" << i << std::endl;
+        // i++;
     }
+
 }
 
 int GraphicClient::run()
 {
     if (!init()) return 1;
     gameLoop();
+#ifdef _WIN32
+    WSACleanup();
+#endif
     return 0;
 }

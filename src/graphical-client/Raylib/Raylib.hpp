@@ -8,6 +8,11 @@
 #ifndef RAYLIB_HPP_
 #define RAYLIB_HPP_
 
+#ifdef _WIN32
+    #undef Rectangle
+    #undef ShowCursor
+    #undef CloseWindow
+#endif
 #include <raylib.h>
 #include <string>
 

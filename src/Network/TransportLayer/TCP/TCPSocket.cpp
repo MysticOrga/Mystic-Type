@@ -29,7 +29,7 @@ namespace Network::TransportLayer
         if (!bindSock(AF_INET, port, address))
             return false;
         int opt = 1;
-        if (setsockopt(_socketFd, SOL_SOCKET, SO_REUSEADDR, &opt, sizeof(opt)) < 0) {
+        if (setsockopt(_socketFd, SOL_SOCKET, SO_REUSEADDR, reinterpret_cast<const char *>(&opt), sizeof(opt)) < 0) {
             return false;
         }
         if (::listen(_socketFd, backlog) == -1)

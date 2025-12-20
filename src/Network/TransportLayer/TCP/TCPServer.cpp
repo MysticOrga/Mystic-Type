@@ -11,8 +11,6 @@
 #include <cstdint>
 #include <iostream>
 #include <string>
-#include <unistd.h>
-#include <sys/select.h>
 #include "../Protocol.hpp"
 
 TCPServer::TCPServer(uint16_t port, SessionManager &sessions)
@@ -212,9 +210,11 @@ void TCPServer::processClientData(Client &client)
         resetClient(client);
         return;
     }
+
     if (res == RecvResult::Incomplete) {
         return;
     }
+
 
     if (packet.type == PacketType::PONG) {
         client.lastPongTime = getCurrentTime();
@@ -283,14 +283,13 @@ void TCPServer::run()
         for (auto &c : _clients) {
             if (c.fd != -1) {
                 FD_SET(c.fd, &readfds);
-                maxFd = std::max(maxFd, c.fd);
+                maxFd = maxFd > c.fd ? maxFd : c.fd;
             }
         }
 
         struct timeval tv;
         tv.tv_sec = 1;
         tv.tv_usec = 0;
-
         int activity = pollSockets(readfds, maxFd, tv);
         if (activity < 0) {
             continue;
@@ -305,7 +304,7 @@ void TCPServer::run()
         }
 
         for (auto &c : _clients) {
-            if (c.fd != -1 && FD_ISSET(c.fd, &readfds)) {
+            if (c.fd != -INVALID_SOCKET_FD && FD_ISSET(c.fd, &readfds)) {
                 processClientData(c);
             }
         }

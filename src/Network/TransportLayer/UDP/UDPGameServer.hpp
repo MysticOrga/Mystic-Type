@@ -10,7 +10,6 @@
 #include <unordered_map>
 #include <vector>
 #include <chrono>
-#include <netinet/in.h>
 #include "UDPSocket.hpp"
 #include "../Packet.hpp"
 #include "GameWorld.hpp"

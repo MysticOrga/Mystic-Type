@@ -43,4 +43,3 @@ rtype
 # debug information files
 *.dwo
 .vscode/
-client.cpp

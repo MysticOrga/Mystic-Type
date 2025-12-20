@@ -41,8 +41,8 @@ namespace Network::TransportLayer
         socklen_t addrLen = sizeof(_senderAddr);
         if (buffer == nullptr || size == 0)
             return -1; // Invalid buffer or size
-        // if (sockState(0, 0) != IOState::READ_READY)
-        //     return -1; // Socket not ready for reading
+        if (sockState(0, 0) != IOState::READ_READY)
+            return -1; // Socket not ready for reading
         return recvfrom(_socketFd, buffer, size, 0,
                         reinterpret_cast<struct sockaddr *>(&_senderAddr),
                         &addrLen);

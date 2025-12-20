@@ -10,8 +10,6 @@
 #include <array>
 #include <vector>
 #include <string>
-#include <netinet/in.h>
-#include <sys/select.h>
 #include "TCPSocket.hpp"
 #include "../Packet.hpp"
 #include "../../SessionManager.hpp"

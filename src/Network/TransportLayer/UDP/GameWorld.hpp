@@ -8,7 +8,11 @@
 #pragma once
 
 #include "../Packet.hpp"
-#include <netinet/in.h>
+#ifndef _WIN32
+    #include <netinet/in.h>
+#else
+    #include <winsock2.h>
+#endif
 #include <unordered_map>
 #include <vector>
 #include <cstdint>

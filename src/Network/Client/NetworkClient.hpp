@@ -9,8 +9,10 @@
 
 #include <cstdint>
 #include <string>
-#include <netinet/in.h>
-#include <sys/select.h>
+// #include <netinet/in.h>
+#ifndef _WIN32
+    #include <sys/select.h>
+#endif
 #include "../TransportLayer/Packet.hpp"
 #include "../TransportLayer/UDP/UDPSocket.hpp"
 #include "GameState.hpp"
@@ -51,8 +53,8 @@ private:
     bool writeAll(int fd, const uint8_t *data, std::size_t size);
     RecvResult receiveTcpFramed(Packet &p);
 
-    int _tcpFd = -1;
-    int _udpFd = -1;
+    socket_t _tcpFd = -1;
+    socket_t _udpFd = -1;
     bool _tcpConnected = false;
     bool _udpConnected = false;
     sockaddr_in _serverAddr{};

@@ -7,8 +7,6 @@
 
 #include "NetworkClient.hpp"
 #include "GameState.hpp"
-#include <arpa/inet.h>
-#include <unistd.h>
 #include <iostream>
 #include <algorithm>
 #include <cstdint>
@@ -123,7 +121,7 @@ bool NetworkClient::sendPacketTcp(const Packet &p)
 bool NetworkClient::sendPacketUdp(const Packet &p)
 {
     auto data = p.serialize();
-    ssize_t sent = sendto(_udpFd, data.data(), data.size(), 0, reinterpret_cast<sockaddr*>(&_serverAddr), sizeof(_serverAddr));
+    ssize_t sent = sendto(_udpFd, reinterpret_cast<const char *>(data.data()), data.size(), 0, reinterpret_cast<sockaddr*>(&_serverAddr), sizeof(_serverAddr));
     return sent == static_cast<ssize_t>(data.size());
 }
 
@@ -142,7 +140,7 @@ bool NetworkClient::readUdpPacket(Packet &p)
     uint8_t buffer[BUFFER_SIZE]{};
     sockaddr_in from{};
     socklen_t len = sizeof(from);
-    ssize_t n = recvfrom(_udpFd, buffer, sizeof(buffer), 0, reinterpret_cast<sockaddr*>(&from), &len);
+    ssize_t n = recvfrom(_udpFd, reinterpret_cast<char *>(buffer), sizeof(buffer), 0, reinterpret_cast<sockaddr*>(&from), &len);
     if (n <= 0)
         return false;
     p = Packet::deserialize(buffer, static_cast<size_t>(n));
@@ -151,9 +149,9 @@ bool NetworkClient::readUdpPacket(Packet &p)
 
 bool NetworkClient::pollPackets()
 {
-    fd_set rfds;
+    fd_set rfds, wfds, efds;
     FD_ZERO(&rfds);
-    int maxFd = -1;
+    socket_t maxFd = -1;
     if (_tcpFd != -1) {
         FD_SET(_tcpFd, &rfds);
         maxFd = std::max(maxFd, _tcpFd);
@@ -167,18 +165,18 @@ bool NetworkClient::pollPackets()
     struct timeval tv{0, 50000}; // 50ms
 
     int activity = select(maxFd + 1, &rfds, nullptr, nullptr, &tv);
-    if (activity <= 0)
+    if (activity < 0)
         return false;
 
     bool handled = false;
-    if (_tcpFd != -1 && FD_ISSET(_tcpFd, &rfds)) {
+    if (_tcpFd != INVALID_SOCKET_FD && FD_ISSET(_tcpFd, &rfds)) {
         Packet p;
         if (readTcpPacket(p)) {
             handleTcpPacket(p);
             handled = true;
         }
     }
-    if (_udpFd != -1 && FD_ISSET(_udpFd, &rfds)) {
+    if (_udpFd != INVALID_SOCKET_FD && FD_ISSET(_udpFd, &rfds)) {
         Packet p;
         if (readUdpPacket(p)) {
             handleUdpPacket(p);
@@ -298,9 +296,11 @@ bool NetworkClient::writeAll(int fd, const uint8_t *data, std::size_t size)
 {
     std::size_t total = 0;
     while (total < size) {
-        ssize_t n = ::write(fd, data + total, size - total);
-        if (n <= 0)
+        ssize_t n = send(fd, reinterpret_cast<const char *>(data + total), size - total, 0);
+        if (n <= 0) {
+            std::cerr << "FALSE" << std::endl;
             return false;
+        }
         total += static_cast<std::size_t>(n);
     }
     return true;
@@ -309,7 +309,9 @@ bool NetworkClient::writeAll(int fd, const uint8_t *data, std::size_t size)
 NetworkClient::RecvResult NetworkClient::receiveTcpFramed(Packet &p)
 {
     uint8_t tmp[BUFFER_SIZE]{};
-    ssize_t n = ::read(_tcpFd, tmp, sizeof(tmp));
+    std::cout << "before tcp receive" << std::endl;
+    ssize_t n = recv(_tcpFd, reinterpret_cast<char *>(tmp), sizeof(tmp), 0);
+    std::cout << "after tcp receive" << std::endl;
     if (n <= 0)
         return RecvResult::Disconnected;
 
@@ -324,11 +326,11 @@ NetworkClient::RecvResult NetworkClient::receiveTcpFramed(Packet &p)
 void NetworkClient::disconnect()
 {
     if (_tcpFd != -1) {
-        ::close(_tcpFd);
+        CLOSE(_tcpFd);
         _tcpFd = -1;
     }
     if (_udpFd != -1) {
-        ::close(_udpFd);
+        CLOSE(_udpFd);
         _udpFd = -1;
     }
     _tcpConnected = false;
