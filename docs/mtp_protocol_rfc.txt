@@ -316,3 +316,16 @@ Appendix A: Implementation Checklist
 - [ ] Error handling
 - [ ] Timeout implementation
 - [ ] Unit tests for packet parsing
+
+================================================================================
+10. Addendum: Lobby-aware Routing (2025-03)
+================================================================================
+
+In the current Mystic-Type implementation, UDP packets remain unchanged but are
+logically scoped per lobby:
+
+- The TCP handshake assigns each player to a lobby (see tcp_protocol_rfc.txt).
+- The server routes HELLO_UDP/INPUT/SHOOT/SNAPSHOT using the lobby associated
+  to the player's session; each lobby has its own authoritative GameWorld.
+- Clients do not need to include the lobby code in UDP payloads; routing is done
+  server-side via the player ID → lobby mapping established over TCP.

@@ -11,16 +11,15 @@ Date: 2025
 --------------------------------------
 
 This document defines the Mystic-Type TCP Protocol, a lightweight
-binary protocol used exclusively for:
+binary protocol used for:
 
 - Client connection
-- Handshake validation
+- Lobby creation/join and listing
 - Assignment of player ID
 - Heartbeat / keepalive (PING/PONG)
+- Player list broadcast within a lobby
 
 All gameplay data is transmitted over UDP, not TCP.
-
-This protocol ensures reliable connection negotiation only.
 
 --------------------------------------
 2. Transport and Framing
@@ -47,21 +46,32 @@ Maximum payload = 255 bytes.
 PacketType enumeration:
 
   1 : SERVER_HELLO
-  2 : CLIENT_HELLO
-  3 : OK
-  4 : REFUSED
+  2 : (reserved, was CLIENT_HELLO)
+  3 : OK (reused for lobby success)
+  4 : REFUSED (generic)
   5 : PING
   6 : PONG
   7 : MESSAGE
+  8 : PLAYER_LIST
+  9 : NEW_PLAYER
+
+Lobby management (TCP, new):
+ 10 : LOBBY_CREATE_REQ
+ 11 : LOBBY_CREATE_OK
+ 12 : LOBBY_JOIN_REQ
+ 13 : LOBBY_JOIN_OK
+ 14 : LOBBY_LOBBY_REFUSED
+ 15 : LOBBY_LIST_REQ
+ 16 : LOBBY_LIST_RESP
+ 17 : LOBBY_CLOSED
 
 Details:
 
 SERVER_HELLO (1)
   Payload: ASCII text, typically "R-Type Server"
-CLIENT_HELLO (2)
-  Payload must begin with "toto"
 OK (3)
-  Payload: 2 bytes (big-endian player ID)
+  Payload: 2 bytes (player ID) + optional data depending on context
+    - On lobby create/join success: [id_hi][id_lo][code0..code5]
 REFUSED (4)
   Payload: ASCII reason (e.g., "FULL", "TIMEOUT", ...)
 PING (5)
@@ -70,6 +80,42 @@ PONG (6)
   No payload
 MESSAGE (7)
   Free-form application-defined payload
+PLAYER_LIST (8)
+  Payload: [count][id_hi][id_lo][x][y]... (scoped to the current lobby)
+NEW_PLAYER (9)
+  Payload: [id_hi][id_lo][x][y] (scoped to the current lobby)
+
+LOBBY_CREATE_REQ (10)
+  Payload: [nameLen][name bytes...] (nameLen may be 0 if unused)
+
+LOBBY_CREATE_OK (11)
+  Payload: [id_hi][id_lo][code0..code5] (code = 6 ASCII chars A-Z0-9)
+
+LOBBY_JOIN_REQ (12)
+  Payload: [code0..code5][nameLen][name bytes...]
+
+LOBBY_JOIN_OK (13)
+  Payload: [id_hi][id_lo][code0..code5]
+
+LOBBY_LOBBY_REFUSED (14)
+  Payload: [reasonCode]
+    reasonCode:
+      0: unknown
+      1: not_found
+      2: full
+      3: closed
+      4: bad_payload
+
+LOBBY_LIST_REQ (15)
+  Payload: empty
+
+LOBBY_LIST_RESP (16)
+  Payload: [count] then repeated for each lobby:
+    [code0..code5][players][maxPlayers][isOpen]
+  count, players, maxPlayers, isOpen are 1-byte fields (0-255).
+
+LOBBY_CLOSED (17)
+  Payload: [code0..code5] (notifies members that the lobby has been closed)
 
 
 --------------------------------------
@@ -79,13 +125,16 @@ MESSAGE (7)
 Handshake sequence:
 
 1) Server → SERVER_HELLO("R-Type Server")
-2) Client → CLIENT_HELLO("toto...")
+2) Client → either:
+   - LOBBY_CREATE_REQ([nameLen][name...])
+   - LOBBY_JOIN_REQ([code0..5][nameLen][name...])
 
 If valid:
-3) Server → OK(player_id)
+3) Server → LOBBY_CREATE_OK(id, code) or LOBBY_JOIN_OK(id, code)
+4) Server → PLAYER_LIST (scoped to this lobby)
 
-Else:
-3) Server → REFUSED(reason)
+On failure:
+3) Server → LOBBY_LOBBY_REFUSED(reasonCode) or REFUSED("BAD_PACKET"/"TIMEOUT")
 4) Server closes connection.
 
 Refusal reasons:
@@ -93,8 +142,7 @@ Refusal reasons:
 - "TIMEOUT"     → no data from client within 3 seconds
 - "NO_DATA"     → client closed the socket
 - "BAD_PACKET"  → deserialize error, bad magic or truncated
-- "BAD_HANDSHAKE" → wrong type or payload not starting with "toto"
-- "FULL"        → server capacity = 4 clients
+- reasonCode    → lobby errors (not_found, full, closed, bad_payload)
 
 
 --------------------------------------
@@ -116,12 +164,19 @@ Server drop conditions:
 6. Server Behavior
 --------------------------------------
 
-Maximum of 4 simultaneous clients.
+Capacity: maximum of 4 simultaneous TCP clients (per process).
+
+Lobby model:
+  - Each client belongs to exactly one lobby (created or joined at handshake).
+  - PLAYER_LIST and NEW_PLAYER are scoped to that lobby only.
+  - On disconnect, the server removes the player from its lobby and may close
+    the lobby if empty, notifying remaining members with LOBBY_CLOSED.
 
 On disconnect, timeout, or invalid packet:
   - Close TCP socket
   - Reset client slot
   - Free slot for next player
+  - Remove the player from its lobby (if any)
 
 REFUSED is advisory: server may close immediately after sending it.
 
