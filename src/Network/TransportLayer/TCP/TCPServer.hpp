@@ -10,6 +10,7 @@
 #include <array>
 #include <vector>
 #include <string>
+#include <unordered_map>
 #include <netinet/in.h>
 #include <sys/select.h>
 #include "TCPSocket.hpp"
@@ -57,6 +58,7 @@ class TCPServer {
             sockaddr_in addr{};
             bool handshakeDone = false;
             long lastPongTime = 0;
+            std::string lobbyCode;
 
             uint8_t posX = 0;
             uint8_t posY = 0;
@@ -143,6 +145,7 @@ class TCPServer {
          * @brief Build a packet carrying a simple integer id.
          */
         Packet makeIdPacket(PacketType type, int value);
+        Packet makeLobbyPacket(PacketType type, const std::string &payload);
 
         /**
          * @brief Write raw bytes to a socket fd.
@@ -167,7 +170,7 @@ class TCPServer {
         /**
          * @brief Build the packet containing the list of connected players.
          */
-        Packet buildPlayerListPacket() const;
+        Packet buildPlayerListPacket(const std::string &lobbyCode) const;
 
         /**
          * @brief Send the current player list to a single client.
@@ -184,9 +187,45 @@ class TCPServer {
          */
         bool writeAll(int fd, const uint8_t *data, std::size_t size);
 
+        /**
+         * @brief Assign a client to a lobby (public or private).
+         */
+        bool assignLobby(Client &client, const std::string &code, bool createIfMissing, bool isPublic, bool allowFull = false);
+
+        /**
+         * @brief Remove a client from its current lobby.
+         */
+        void removeFromLobby(const Client &client);
+
+        /**
+         * @brief Resend the player list to all members of a lobby.
+         */
+        void refreshLobby(const std::string &code);
+
+        /**
+         * @brief Auto-match the client into a public lobby.
+         */
+        std::string autoAssignPublic(Client &client);
+
+        /**
+         * @brief Generate a random lobby code (6 chars alnum).
+         */
+        std::string generateLobbyCode();
+
+        /**
+         * @brief Handle lobby-related packets for a client.
+         */
+        void handleLobbyPacket(Client &client, const Packet &packet);
+
     private:
         Network::TransportLayer::TCPSocket _serverSocket;
         std::array<Client, MAX_CLIENT> _clients;
         int _nextId = 1;
         SessionManager &_sessions;
+        struct LobbyInfo {
+            bool isPublic = false;
+            std::vector<int> players;
+        };
+        std::unordered_map<std::string, LobbyInfo> _lobbies;
+        std::unordered_map<int, std::string> _clientLobby;
 };

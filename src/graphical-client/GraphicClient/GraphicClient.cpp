@@ -12,12 +12,15 @@
 #include <unordered_set>
 #include <cmath>
 #include <algorithm>
+#include <limits>
+#include <cctype>
 
 // ... (Constructeur et init inchangés) ...
 GraphicClient::GraphicClient(const std::string& ip, int port)
     : _window(1920, 1080, "Mystic-Type"), _net(ip, port)
 {
     _window.setTargetFPS(60);
+    _lastKeepAlive = std::chrono::steady_clock::now();
 }
 
 bool GraphicClient::init()
@@ -25,6 +28,10 @@ bool GraphicClient::init()
     if (!_net.connectToServer()) return false;
     if (!_net.performHandshake()) return false;
     std::cout << "[CLIENT] Assigned ID " << _net.getPlayerId() << "\n";
+    if (!selectLobby()) {
+        std::cerr << "[CLIENT] Failed to select lobby\n";
+        return false;
+    }
     _net.sendHelloUdp(0, 0);
 
     _net.pollPackets();
@@ -243,6 +250,170 @@ void GraphicClient::updateEntities(float dt)
     // Plus de gestion de PV joueur ni fermeture auto ici
 }
 
+bool GraphicClient::selectLobby()
+{
+    // Build UI entities
+    _uiEcs = ECS(); // reset
+    std::vector<Entity> buttons;
+
+    auto makeButton = [&](float x, float y, float w, float h, const std::string &label, const std::string &action) {
+        Entity e = _uiEcs.createEntity();
+        _uiEcs.addComponent(e, UIButton{Rectangle{x, y, w, h}, label, action});
+        buttons.push_back(e);
+    };
+    makeButton(200, 200, 360, 60, "Auto - Public Lobby", "auto");
+    makeButton(200, 280, 360, 60, "Create Private Lobby", "create");
+    makeButton(200, 360, 360, 60, "Join with Code", "join");
+
+    std::string codeInput;
+    bool enteringCode = false;
+    bool submitted = false;
+    std::string action = "auto";
+    bool hasLobbyOk = false;
+    std::string lobbyError;
+
+    auto start = std::chrono::steady_clock::now();
+
+    auto processEvents = [&](bool checkImmediate) {
+        bool ok = false;
+        for (const auto &ev : _net.getEvents()) {
+            if (ev.rfind("LOBBY_OK:", 0) == 0) {
+                hasLobbyOk = true;
+                ok = true;
+            }
+            if (ev.rfind("LOBBY_ERROR:", 0) == 0) {
+                lobbyError = ev.substr(std::string("LOBBY_ERROR:").size());
+            }
+            // Fallback: if we receive PLAYER_LIST before LOBBY_OK, assume lobby joined
+            if (ev == "PLAYER_LIST" || ev == "NEW_PLAYER") {
+                hasLobbyOk = true;
+                ok = true;
+            }
+        }
+        _net.clearEvents();
+        if (checkImmediate && ok)
+            return true;
+        return false;
+    };
+
+    while (!submitted) {
+        // Poll to reply to PING during menu
+        _net.pollPackets();
+        processEvents(false);
+        // Send periodic PONG as keepalive even if PING is missed
+        auto nowKeep = std::chrono::steady_clock::now();
+        if (std::chrono::duration_cast<std::chrono::seconds>(nowKeep - _lastKeepAlive).count() >= 3) {
+            _net.sendPong();
+            _lastKeepAlive = nowKeep;
+        }
+
+        _window.beginDrawing();
+        _window.clearBackground({20, 20, 40, 255});
+        Raylib::Draw::text("Lobby Selection", 200, 140, 32, RAYWHITE);
+
+        Vector2 mouse{(float)GetMouseX(), (float)GetMouseY()};
+        bool click = IsMouseButtonPressed(MOUSE_BUTTON_LEFT);
+
+        for (auto e : buttons) {
+            auto &btn = _uiEcs.getComponent<UIButton>(e);
+            btn.hovered = CheckCollisionPointRec(mouse, btn.bounds);
+            Color bg = btn.hovered ? btn.hoverBg : btn.bg;
+            Raylib::Draw::rectangle(static_cast<int>(btn.bounds.x), static_cast<int>(btn.bounds.y),
+                                    static_cast<int>(btn.bounds.width), static_cast<int>(btn.bounds.height), bg);
+            int textW = MeasureText(btn.label.c_str(), 22);
+            Raylib::Draw::text(btn.label.c_str(), btn.bounds.x + (btn.bounds.width - textW) / 2, btn.bounds.y + 18, 22, btn.text);
+            if (btn.hovered && click) {
+                action = btn.action;
+                if (action == "join") {
+                    enteringCode = true;
+                } else {
+                    submitted = true;
+                }
+            }
+        }
+
+        if (enteringCode) {
+            // text input area
+            Rectangle inputBox{200, 440, 360, 60};
+            Raylib::Draw::rectangle(static_cast<int>(inputBox.x), static_cast<int>(inputBox.y),
+                                    static_cast<int>(inputBox.width), static_cast<int>(inputBox.height),
+                                    {30, 30, 60, 255});
+            Raylib::Draw::text("Enter code:", inputBox.x + 10, inputBox.y - 26, 20, RAYWHITE);
+
+            int key = GetCharPressed();
+            while (key > 0) {
+                if (std::isalnum(key) && codeInput.size() < 8) {
+                    codeInput.push_back(static_cast<char>(std::toupper(key)));
+                }
+                key = GetCharPressed();
+            }
+            if (Raylib::Input::isKeyPressed(KEY_BACKSPACE) && !codeInput.empty())
+                codeInput.pop_back();
+
+            Raylib::Draw::text(codeInput.c_str(), inputBox.x + 14, inputBox.y + 18, 26, RAYWHITE);
+            if (!codeInput.empty()) {
+                Raylib::Draw::text("Press Enter to join", inputBox.x, inputBox.y + 70, 18, LIGHTGRAY);
+            }
+            if (Raylib::Input::isKeyPressed(KEY_ENTER) && !codeInput.empty()) {
+                submitted = true;
+            }
+        }
+
+        _window.endDrawing();
+
+        if (submitted) {
+            if (action == "create") {
+                if (!_net.sendCreateLobby()) {
+                    std::cerr << "[CLIENT] Failed to send CREATE_LOBBY\n";
+                    return false;
+                }
+            } else if (action == "join") {
+                if (codeInput.empty()) {
+                    submitted = false;
+                    enteringCode = true;
+                } else if (!_net.sendJoinLobby(codeInput)) {
+                    std::cerr << "[CLIENT] Failed to send JOIN_LOBBY\n";
+                    return false;
+                }
+            }
+            // else {
+            //     // auto public: demander explicitement le lobby public
+            //     if (!_net.sendJoinLobby("PUBLIC")) {
+            //         std::cerr << "[CLIENT] Failed to send AUTO PUBLIC\n";
+            //         return false;
+            //     }
+            // }
+            break;
+        }
+
+        auto now = std::chrono::steady_clock::now();
+        if (std::chrono::duration_cast<std::chrono::seconds>(now - start).count() > 30) {
+            std::cerr << "[CLIENT] Lobby selection timeout\n";
+            return false;
+        }
+    }
+
+    // Wait for LOBBY_OK/ERROR
+    auto waitStart = std::chrono::steady_clock::now();
+    while (true) {
+        _net.pollPackets();
+        if (processEvents(true)) {
+            std::cout << "[CLIENT] Joined lobby " << _net.getLobbyCode() << "\n";
+            return true;
+        }
+        if (!lobbyError.empty()) {
+            std::cerr << "[CLIENT] Lobby error: " << lobbyError << "\n";
+            return false;
+        }
+        // auto now = std::chrono::steady_clock::now();
+        // if (std::chrono::duration_cast<std::chrono::seconds>(now - waitStart).count() > 10) {
+        //     std::cerr << "[CLIENT] Lobby selection timeout (server), forcing PUBLIC\n";
+        //     // Fallback: assume public and continue to avoid closing the window
+        //     return true;
+        // }
+    }
+}
+
 void GraphicClient::render(float dt)
 {
     _window.beginDrawing();
@@ -270,6 +441,22 @@ void GraphicClient::gameLoop()
     while (!_window.shouldClose()) {
         float dt = _window.getFrameTime();
         processNetworkEvents();
+        // If PING send failed, drop to avoid server timeout
+        for (const auto &ev : _net.getEvents()) {
+            if (ev == "PING_SEND_FAIL") {
+                std::cerr << "[CLIENT] Failed to send PONG, disconnecting\n";
+                _net.disconnect();
+                return;
+            }
+        }
+        _net.clearEvents();
+
+        // Periodic proactive PONG to keep TCP alive even if a PING is missed
+        auto nowKeep = std::chrono::steady_clock::now();
+        if (std::chrono::duration_cast<std::chrono::seconds>(nowKeep - _lastKeepAlive).count() >= 3) {
+            _net.sendPong();
+            _lastKeepAlive = nowKeep;
+        }
         updateEntities(dt);
         render(dt);
     }

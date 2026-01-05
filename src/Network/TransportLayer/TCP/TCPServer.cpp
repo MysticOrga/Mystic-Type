@@ -11,6 +11,7 @@
 #include <cstdint>
 #include <iostream>
 #include <string>
+#include <random>
 #include <unistd.h>
 #include <sys/select.h>
 #include "../Protocol.hpp"
@@ -45,6 +46,11 @@ Packet TCPServer::makeIdPacket(PacketType type, int value)
         static_cast<uint8_t>(value & 0xFF)
     };
     return Packet{type, payload};
+}
+
+Packet TCPServer::makeLobbyPacket(PacketType type, const std::string &payload)
+{
+    return Packet{type, std::vector<uint8_t>(payload.begin(), payload.end())};
 }
 
 bool TCPServer::sendPacket(int fd, const Packet &packet)
@@ -105,6 +111,7 @@ void TCPServer::closeFd(int &fd)
 
 void TCPServer::resetClient(Client &client)
 {
+    removeFromLobby(client);
     _sessions.removeById(client.id);
     closeFd(client.fd);
     client.id = 0;
@@ -113,6 +120,7 @@ void TCPServer::resetClient(Client &client)
     client.lastPongTime = 0;
     client.posX = 0;
     client.posY = 0;
+    client.lobbyCode.clear();
     client.recvBuffer.clear();
 }
 
@@ -198,9 +206,7 @@ void TCPServer::acceptNewClient()
     _clients[slot].handshakeDone = true;
     _clients[slot].lastPongTime = getCurrentTime();
 
-    std::cout << "[SERVER] client " << _clients[slot].id << " connected successfully\n";
-    sendPlayerListToClient(_clients[slot]);
-    broadcastNewPlayer(_clients[slot]);
+    std::cout << "[SERVER] client " << _clients[slot].id << " connected successfully (awaiting lobby selection)\n";
 }
 
 void TCPServer::processClientData(Client &client)
@@ -220,6 +226,11 @@ void TCPServer::processClientData(Client &client)
         client.lastPongTime = getCurrentTime();
         _sessions.updatePong(client.id, client.lastPongTime);
         std::cout << "[SERVER] Received PONG from client " << client.id << std::endl;
+        return;
+    }
+
+    if (packet.type == PacketType::CREATE_LOBBY || packet.type == PacketType::JOIN_LOBBY) {
+        handleLobbyPacket(client, packet);
         return;
     }
 
@@ -344,7 +355,7 @@ bool TCPServer::writeAll(int fd, const uint8_t *data, std::size_t size)
     }
     return true;
 }
-Packet TCPServer::buildPlayerListPacket() const
+Packet TCPServer::buildPlayerListPacket(const std::string &lobbyCode) const
 {
     std::vector<uint8_t> payload;
     payload.reserve(1 + _clients.size() * 6);
@@ -353,7 +364,7 @@ Packet TCPServer::buildPlayerListPacket() const
     uint8_t count = 0;
 
     for (const auto &c : _clients) {
-        if (c.fd == -1 || !c.handshakeDone)
+        if (c.fd == -1 || !c.handshakeDone || c.lobbyCode != lobbyCode)
             continue;
         ++count;
         payload.push_back(static_cast<uint8_t>((c.id >> 8) & 0xFF));
@@ -368,7 +379,7 @@ Packet TCPServer::buildPlayerListPacket() const
 
 void TCPServer::sendPlayerListToClient(const Client &client)
 {
-    Packet list = buildPlayerListPacket();
+    Packet list = buildPlayerListPacket(client.lobbyCode);
     sendPacket(client.fd, list);
 }
 
@@ -383,8 +394,134 @@ void TCPServer::broadcastNewPlayer(const Client &newClient)
     Packet pkt(PacketType::NEW_PLAYER, payload);
 
     for (auto &c : _clients) {
-        if (c.fd == -1 || !c.handshakeDone || c.id == newClient.id)
+        if (c.fd == -1 || !c.handshakeDone || c.id == newClient.id || c.lobbyCode != newClient.lobbyCode)
             continue;
         sendPacket(c.fd, pkt);
+    }
+}
+
+void TCPServer::refreshLobby(const std::string &code)
+{
+    for (auto &c : _clients) {
+        if (c.fd == -1 || !c.handshakeDone || c.lobbyCode != code)
+            continue;
+        sendPlayerListToClient(c);
+    }
+}
+
+std::string TCPServer::generateLobbyCode()
+{
+    static const char chars[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    static std::mt19937 rng(static_cast<unsigned long>(std::chrono::steady_clock::now().time_since_epoch().count()));
+    std::uniform_int_distribution<int> dist(0, static_cast<int>(sizeof(chars) - 2));
+
+    std::string code(6, 'A');
+    do {
+        for (auto &ch : code) {
+            ch = chars[dist(rng)];
+        }
+    } while (_lobbies.find(code) != _lobbies.end());
+    return code;
+}
+
+void TCPServer::removeFromLobby(const Client &client)
+{
+    std::string code = client.lobbyCode;
+    auto mapIt = _clientLobby.find(client.id);
+    if (code.empty() && mapIt != _clientLobby.end())
+        code = mapIt->second;
+    if (code.empty())
+        return;
+
+    auto it = _lobbies.find(code);
+    if (it != _lobbies.end()) {
+        auto &vec = it->second.players;
+        vec.erase(std::remove(vec.begin(), vec.end(), client.id), vec.end());
+        // Keep lobby entry even if empty to allow reconnection by code.
+    }
+    _clientLobby.erase(client.id);
+    _sessions.setLobbyCode(client.id, "");
+    refreshLobby(code);
+}
+
+bool TCPServer::assignLobby(Client &client, const std::string &code, bool createIfMissing, bool isPublic, bool allowFull)
+{
+    removeFromLobby(client);
+
+    auto it = _lobbies.find(code);
+    if (it == _lobbies.end()) {
+        if (!createIfMissing)
+            return false;
+        _lobbies[code] = LobbyInfo{isPublic, {}};
+        it = _lobbies.find(code);
+    }
+
+    if (!allowFull && it->second.players.size() >= MAX_CLIENT)
+        return false;
+
+    it->second.players.push_back(client.id);
+    client.lobbyCode = code;
+    _clientLobby[client.id] = code;
+    _sessions.setLobbyCode(client.id, code);
+    return true;
+}
+
+std::string TCPServer::autoAssignPublic(Client &client)
+{
+    const std::string code = "PUBLIC";
+    assignLobby(client, code, true, true);
+    return code;
+}
+
+void TCPServer::handleLobbyPacket(Client &client, const Packet &packet)
+{
+    if (!client.handshakeDone)
+        return;
+
+    if (packet.type == PacketType::CREATE_LOBBY) {
+        std::cout << "[SERVER] client " << client.id << " requested CREATE_LOBBY\n";
+        std::string code = generateLobbyCode();
+        if (!assignLobby(client, code, true, false, true)) {
+            sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_ERROR, "INVALID_STATE"));
+            return;
+        }
+        std::cout << "[SERVER] client " << client.id << " joined lobby " << code << "\n";
+        sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_OK, code));
+        sendPlayerListToClient(client);
+        broadcastNewPlayer(client);
+        return;
+    }
+
+    if (packet.type == PacketType::JOIN_LOBBY) {
+        std::string code(packet.payload.begin(), packet.payload.end());
+        bool isAutoPublic = (code == "PUBLIC");
+        if (code.empty())
+            code = "PUBLIC";
+
+        std::cout << "[SERVER] client " << client.id << " requested JOIN_LOBBY " << code << "\n";
+        if (!isAutoPublic) {
+            auto it = _lobbies.find(code);
+            if (it == _lobbies.end()) {
+                sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_ERROR, "UNKNOWN_CODE"));
+                return;
+            }
+            if (it->second.players.size() >= MAX_CLIENT) {
+                sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_ERROR, "FULL"));
+                return;
+            }
+            if (!assignLobby(client, code, false, it->second.isPublic)) {
+                sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_ERROR, "INVALID_STATE"));
+                return;
+            }
+        } else {
+            if (!assignLobby(client, code, true, true, false)) {
+                sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_ERROR, "INVALID_STATE"));
+                return;
+            }
+        }
+        std::cout << "[SERVER] client " << client.id << " joined lobby " << code << "\n";
+        sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_OK, code));
+        sendPlayerListToClient(client);
+        broadcastNewPlayer(client);
     }
 }

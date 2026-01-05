@@ -15,6 +15,7 @@ void SessionManager::addSession(int id, int tcpFd, const sockaddr_in &tcpAddr, l
     s.tcpFd = tcpFd;
     s.tcpAddr = tcpAddr;
     s.lastPong = nowMs;
+    s.lobbyCode.clear();
     _sessions[id] = s;
 }
 
@@ -73,6 +74,24 @@ void SessionManager::updatePong(int id, long nowMs)
     if (it == _sessions.end())
         return;
     it->second.lastPong = nowMs;
+}
+
+void SessionManager::setLobbyCode(int id, const std::string &code)
+{
+    std::lock_guard<std::mutex> lock(_mutex);
+    auto it = _sessions.find(id);
+    if (it == _sessions.end())
+        return;
+    it->second.lobbyCode = code;
+}
+
+std::optional<std::string> SessionManager::getLobbyCode(int id) const
+{
+    std::lock_guard<std::mutex> lock(_mutex);
+    auto it = _sessions.find(id);
+    if (it == _sessions.end())
+        return std::nullopt;
+    return it->second.lobbyCode;
 }
 
 void SessionManager::resetCounter(long nowMs, long &lastMs, int &count, int limit)

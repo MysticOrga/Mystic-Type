@@ -10,6 +10,7 @@
 #include <unordered_map>
 #include <vector>
 #include <chrono>
+#include <string>
 #include <netinet/in.h>
 #include "UDPSocket.hpp"
 #include "../Packet.hpp"
@@ -89,7 +90,8 @@ class UDPGameServer {
         void updateSimulation(long long nowMs, long long deltaMs);
 
         Network::TransportLayer::UDPSocket _socket;
-        GameWorld _world;
+        std::unordered_map<std::string, GameWorld> _worlds;
+        std::unordered_map<int, std::string> _playerLobby;
         SessionManager &_sessions;
         long long _lastSnapshotMs = 0;
         long long _lastTickMs = 0;

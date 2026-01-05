@@ -109,6 +109,20 @@ bool NetworkClient::sendShoot(uint8_t posX, uint8_t posY, int8_t velX, int8_t ve
     return sendPacketUdp(shoot);
 }
 
+bool NetworkClient::sendCreateLobby()
+{
+    std::cout << "[CLIENT] SEND CREATE_LOBBY\n";
+    Packet pkt(PacketType::CREATE_LOBBY, {});
+    return sendPacketTcp(pkt);
+}
+
+bool NetworkClient::sendJoinLobby(const std::string &code)
+{
+    std::cout << "[CLIENT] SEND JOIN_LOBBY " << code << "\n";
+    Packet pkt(PacketType::JOIN_LOBBY, {code.begin(), code.end()});
+    return sendPacketTcp(pkt);
+}
+
 bool NetworkClient::sendPacketTcp(const Packet &p)
 {
     std::vector<uint8_t> framed;
@@ -192,8 +206,11 @@ void NetworkClient::handleTcpPacket(const Packet &p)
 {
     switch (p.type) {
         case PacketType::PING:
-            sendPong();
-            _events.push_back("PING");
+            if (sendPong()) {
+                _events.push_back("PING");
+            } else {
+                _events.push_back("PING_SEND_FAIL");
+            }
             break;
         case PacketType::REFUSED:
             _events.push_back("REFUSED:" + std::string(p.payload.begin(), p.payload.end()));
@@ -224,6 +241,15 @@ void NetworkClient::handleTcpPacket(const Packet &p)
                 _lastPlayerList.push_back({id, x, y});
                 _events.push_back("NEW_PLAYER");
             }
+            break;
+        case PacketType::LOBBY_OK:
+        {
+            _lobbyCode.assign(p.payload.begin(), p.payload.end());
+            _events.push_back("LOBBY_OK:" + _lobbyCode);
+            break;
+        }
+        case PacketType::LOBBY_ERROR:
+            _events.push_back("LOBBY_ERROR:" + std::string(p.payload.begin(), p.payload.end()));
             break;
         case PacketType::MESSAGE:
             _events.push_back("MESSAGE:" + std::string(p.payload.begin(), p.payload.end()));
@@ -333,4 +359,5 @@ void NetworkClient::disconnect()
     }
     _tcpConnected = false;
     _udpConnected = false;
+    _lobbyCode.clear();
 }

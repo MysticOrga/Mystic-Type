@@ -14,6 +14,8 @@
 #include "../../Network/Client/GameState.hpp"
 #include <unordered_map>
 #include <string>
+#include <chrono>
+#include <vector>
 
 class GraphicClient {
 public:
@@ -36,11 +38,13 @@ private:
     void syncEntities(const std::vector<PlayerState> &players);
     void syncBullets(const std::vector<BulletState> &bullets);
     void syncMonsters(const std::vector<MonsterState> &monsters);
+    bool selectLobby();
 
     Raylib::Window _window;
     NetworkClient _net;
     GameState _state;
     ECS _ecs;
+    ECS _uiEcs;
 
     // Systèmes
     SpriteRenderSystem _spriteRenderSystem;
@@ -51,4 +55,5 @@ private:
     std::unordered_map<int, Entity> _entities;
     std::unordered_map<int, Entity> _bulletEntities;
     std::unordered_map<int, Entity> _monsterEntities;
+    std::chrono::steady_clock::time_point _lastKeepAlive{};
 };

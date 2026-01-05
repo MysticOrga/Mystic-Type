@@ -21,7 +21,17 @@ UDPGameServer::UDPGameServer(uint16_t port, SessionManager &sessions, long long 
     }
     std::cout << "[UDP] Listening on port " << port << std::endl;
     _sessions.setOnRemove([this](int id) {
-        _world.removePlayer(id);
+        auto itLobby = _playerLobby.find(id);
+        if (itLobby != _playerLobby.end()) {
+            auto worldIt = _worlds.find(itLobby->second);
+            if (worldIt != _worlds.end()) {
+                worldIt->second.removePlayer(id);
+                if (worldIt->second.players().empty()) {
+                    _worlds.erase(worldIt);
+                }
+            }
+            _playerLobby.erase(itLobby);
+        }
     });
 }
 
@@ -39,9 +49,11 @@ bool UDPGameServer::sendPacketTo(const Packet &packet, const sockaddr_in &to)
 
 void UDPGameServer::broadcastSnapshot()
 {
-    Packet snap = _world.buildSnapshotPacket();
-    for (const auto &kv : _world.players()) {
-        sendPacketTo(snap, kv.second.addr);
+    for (auto &kv : _worlds) {
+        Packet snap = kv.second.buildSnapshotPacket();
+        for (const auto &player : kv.second.players()) {
+            sendPacketTo(snap, player.second.addr);
+        }
     }
 }
 
@@ -55,12 +67,20 @@ void UDPGameServer::handleHello(const Packet &packet, const sockaddr_in &from)
     uint8_t x = packet.payload.size() >= 3 ? packet.payload[2] : 0;
     uint8_t y = packet.payload.size() >= 4 ? packet.payload[3] : 0;
 
-    if (!_sessions.getSession(id).has_value()) {
+    auto sessionOpt = _sessions.getSession(id);
+    if (!sessionOpt.has_value()) {
         std::cerr << "[UDP] HELLO_UDP from unknown id=" << id << "\n";
         return;
     }
-    _world.registerPlayer(id, x, y, from);
+    if (sessionOpt->lobbyCode.empty()) {
+        std::cerr << "[UDP] HELLO_UDP without lobby code for id=" << id << "\n";
+        return;
+    }
+
+    GameWorld &world = _worlds[sessionOpt->lobbyCode];
+    world.registerPlayer(id, x, y, from);
     _sessions.setUdpAddr(id, from);
+    _playerLobby[id] = sessionOpt->lobbyCode;
     std::cout << "[UDP] Registered client id=" << id << " at " << static_cast<int>(x) << "," << static_cast<int>(y) << "\n";
 }
 
@@ -81,7 +101,24 @@ void UDPGameServer::handleInput(const Packet &packet, const sockaddr_in &from)
         std::cerr << "[UDP] INPUT rate limited for id=" << id << "\n";
         return;
     }
-    _world.updateInput(id, velX, velY, dir, from);
+    auto lobbyIt = _playerLobby.find(id);
+    if (lobbyIt == _playerLobby.end()) {
+        auto sessionOpt = _sessions.getSession(id);
+        if (!sessionOpt.has_value() || sessionOpt->lobbyCode.empty()) {
+            std::cerr << "[UDP] INPUT from unknown lobby id=" << id << "\n";
+            return;
+        }
+        _playerLobby[id] = sessionOpt->lobbyCode;
+        lobbyIt = _playerLobby.find(id);
+    }
+
+    auto worldIt = _worlds.find(lobbyIt->second);
+    if (worldIt == _worlds.end()) {
+        std::cerr << "[UDP] INPUT with missing world for lobby " << lobbyIt->second << "\n";
+        return;
+    }
+
+    worldIt->second.updateInput(id, velX, velY, dir, from);
 }
 
 void UDPGameServer::handleShoot(const Packet &packet)
@@ -100,7 +137,19 @@ void UDPGameServer::handleShoot(const Packet &packet)
         std::cerr << "[UDP] SHOOT rate limited for id=" << id << "\n";
         return;
     }
-    _world.addShot(id, posX, posY, velX, velY);
+    auto lobbyIt = _playerLobby.find(id);
+    if (lobbyIt == _playerLobby.end()) {
+        auto sessionOpt = _sessions.getSession(id);
+        if (!sessionOpt.has_value() || sessionOpt->lobbyCode.empty())
+            return;
+        _playerLobby[id] = sessionOpt->lobbyCode;
+        lobbyIt = _playerLobby.find(id);
+    }
+    auto worldIt = _worlds.find(lobbyIt->second);
+    if (worldIt == _worlds.end())
+        return;
+
+    worldIt->second.addShot(id, posX, posY, velX, velY);
 }
 
 void UDPGameServer::handlePacket(const Packet &packet, const sockaddr_in &from)
@@ -154,5 +203,7 @@ void UDPGameServer::run()
 
 void UDPGameServer::updateSimulation(long long nowMs, long long deltaMs)
 {
-    _world.tick(nowMs, deltaMs);
+    for (auto &kv : _worlds) {
+        kv.second.tick(nowMs, deltaMs);
+    }
 }

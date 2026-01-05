@@ -27,12 +27,15 @@ public:
     enum class MoveCmd : uint8_t { Up = 0, Down = 1, Left = 2, Right = 3 };
     bool sendInput(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY, MoveCmd dir);
     bool sendShoot(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY);
+    bool sendCreateLobby();
+    bool sendJoinLobby(const std::string &code);
 
     bool pollPackets();
     void disconnect();
     bool isConnected() const { return _tcpConnected; }
 
     int getPlayerId() const { return _playerId; }
+    const std::string &getLobbyCode() const { return _lobbyCode; }
     const std::vector<PlayerState> &getLastSnapshot() const { return _lastSnapshot; }
     const std::vector<BulletState> &getLastSnapshotBullets() const { return _lastSnapshotBullets; }
     const std::vector<MonsterState> &getLastSnapshotMonsters() const { return _lastSnapshotMonsters; }
@@ -57,6 +60,7 @@ private:
     bool _udpConnected = false;
     sockaddr_in _serverAddr{};
     int _playerId = -1;
+    std::string _lobbyCode;
 
     std::vector<PlayerState> _lastSnapshot;
     std::vector<BulletState> _lastSnapshotBullets;

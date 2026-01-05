@@ -26,6 +26,10 @@ enum class PacketType : uint8_t {
     MESSAGE = 7,        ///< Text or generic payload message.
     PLAYER_LIST = 8,    ///< Broadcast of currently connected players.
     NEW_PLAYER  = 9,    ///< Notification of a newly connected player.
+    CREATE_LOBBY = 14,  ///< Request to create a private lobby.
+    JOIN_LOBBY   = 15,  ///< Request to join a lobby by code.
+    LOBBY_OK     = 16,  ///< Lobby join/create success with code.
+    LOBBY_ERROR  = 17,  ///< Lobby join/create failure reason.
 
     //UDP
     HELLO_UDP   = 10,   ///< UDP hello used for NAT hole punching.
