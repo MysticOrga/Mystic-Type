@@ -437,7 +437,6 @@ void TCPServer::removeFromLobby(const Client &client)
     if (it != _lobbies.end()) {
         auto &vec = it->second.players;
         vec.erase(std::remove(vec.begin(), vec.end(), client.id), vec.end());
-        // Keep lobby entry even if empty to allow reconnection by code.
     }
     _clientLobby.erase(client.id);
     _sessions.setLobbyCode(client.id, "");
@@ -487,6 +486,7 @@ void TCPServer::handleLobbyPacket(Client &client, const Packet &packet)
         }
         std::cout << "[SERVER] client " << client.id << " joined lobby " << code << "\n";
         sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_OK, code));
+        refreshLobby(code);
         sendPlayerListToClient(client);
         broadcastNewPlayer(client);
         return;
@@ -521,6 +521,7 @@ void TCPServer::handleLobbyPacket(Client &client, const Packet &packet)
         }
         std::cout << "[SERVER] client " << client.id << " joined lobby " << code << "\n";
         sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_OK, code));
+        refreshLobby(code);
         sendPlayerListToClient(client);
         broadcastNewPlayer(client);
     }

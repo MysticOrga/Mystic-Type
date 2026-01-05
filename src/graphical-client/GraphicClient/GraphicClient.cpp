@@ -15,7 +15,6 @@
 #include <limits>
 #include <cctype>
 
-// ... (Constructeur et init inchangés) ...
 GraphicClient::GraphicClient(const std::string& ip, int port)
     : _window(1920, 1080, "Mystic-Type"), _net(ip, port)
 {
@@ -299,10 +298,13 @@ bool GraphicClient::selectLobby()
     while (!submitted) {
         // Poll to reply to PING during menu
         _net.pollPackets();
-        processEvents(false);
-        // Send periodic PONG as keepalive even if PING is missed
+        // Process once to catch LOBBY_OK quickly
+        if (processEvents(true)) {
+            return true;
+        }
+        // Proactive keepalive to avoid server timeout when idling in the menu
         auto nowKeep = std::chrono::steady_clock::now();
-        if (std::chrono::duration_cast<std::chrono::seconds>(nowKeep - _lastKeepAlive).count() >= 3) {
+        if (std::chrono::duration_cast<std::chrono::seconds>(nowKeep - _lastKeepAlive).count() >= 4) {
             _net.sendPong();
             _lastKeepAlive = nowKeep;
         }
@@ -451,12 +453,13 @@ void GraphicClient::gameLoop()
         }
         _net.clearEvents();
 
-        // Periodic proactive PONG to keep TCP alive even if a PING is missed
+        // Proactive keepalive to avoid timeout when idle in game
         auto nowKeep = std::chrono::steady_clock::now();
-        if (std::chrono::duration_cast<std::chrono::seconds>(nowKeep - _lastKeepAlive).count() >= 3) {
+        if (std::chrono::duration_cast<std::chrono::seconds>(nowKeep - _lastKeepAlive).count() >= 4) {
             _net.sendPong();
             _lastKeepAlive = nowKeep;
         }
+
         updateEntities(dt);
         render(dt);
     }

@@ -11,6 +11,11 @@
 #include <vector>
 #include <chrono>
 #include <string>
+#include <queue>
+#include <mutex>
+#include <condition_variable>
+#include <atomic>
+#include <thread>
 #include <netinet/in.h>
 #include "UDPSocket.hpp"
 #include "../Packet.hpp"
@@ -27,6 +32,7 @@
 class UDPGameServer {
     public:
         explicit UDPGameServer(uint16_t port, SessionManager &sessions, long long snapshotIntervalMs = 500);
+        ~UDPGameServer();
 
         /**
          * @brief Start the main server loop (blocking).
@@ -89,6 +95,11 @@ class UDPGameServer {
          */
         void updateSimulation(long long nowMs, long long deltaMs);
 
+        /**
+         * @brief Thread loop to read incoming UDP packets without blocking the simulation tick.
+         */
+        void networkLoop();
+
         Network::TransportLayer::UDPSocket _socket;
         std::unordered_map<std::string, GameWorld> _worlds;
         std::unordered_map<int, std::string> _playerLobby;
@@ -98,4 +109,12 @@ class UDPGameServer {
         const uint16_t _port;
         const long long _snapshotIntervalMs;
         const long long _tickIntervalMs = 32; // 16 = ~60 hz (les grand jeux c'est environ 100 ticks/d)
+        struct Incoming {
+            Packet pkt;
+            sockaddr_in from{};
+        };
+        std::queue<Incoming> _incoming;
+        std::mutex _queueMutex;
+        std::atomic<bool> _running{false};
+        std::thread _networkThread;
 };

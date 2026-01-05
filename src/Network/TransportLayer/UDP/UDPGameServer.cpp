@@ -35,6 +35,14 @@ UDPGameServer::UDPGameServer(uint16_t port, SessionManager &sessions, long long 
     });
 }
 
+UDPGameServer::~UDPGameServer()
+{
+    _running = false;
+    if (_networkThread.joinable()) {
+        _networkThread.join();
+    }
+}
+
 long long UDPGameServer::nowMs() const
 {
     using namespace std::chrono;
@@ -81,6 +89,9 @@ void UDPGameServer::handleHello(const Packet &packet, const sockaddr_in &from)
     world.registerPlayer(id, x, y, from);
     _sessions.setUdpAddr(id, from);
     _playerLobby[id] = sessionOpt->lobbyCode;
+    // Send a fresh snapshot immediately so the client sees the lobby state without waiting the next tick.
+    Packet snap = world.buildSnapshotPacket();
+    sendPacketTo(snap, from);
     std::cout << "[UDP] Registered client id=" << id << " at " << static_cast<int>(x) << "," << static_cast<int>(y) << "\n";
 }
 
@@ -171,18 +182,19 @@ void UDPGameServer::handlePacket(const Packet &packet, const sockaddr_in &from)
 
 void UDPGameServer::run()
 {
-    uint8_t buffer[UDP_BUFFER_SIZE]{};
+    _running = true;
+    _networkThread = std::thread(&UDPGameServer::networkLoop, this);
+
     _lastSnapshotMs = nowMs();
     _lastTickMs = _lastSnapshotMs;
 
-    while (true) {
-        ssize_t n = _socket.readByte(buffer, sizeof(buffer));
-        if (n > 0) {
-            try {
-                Packet packet = Packet::deserialize(buffer, static_cast<size_t>(n));
-                handlePacket(packet, _socket.getSenderAddr());
-            } catch (const std::exception &e) {
-                std::cerr << "[UDP] Failed to parse packet: " << e.what() << "\n";
+    while (_running) {
+        {
+            std::lock_guard<std::mutex> lock(_queueMutex);
+            while (!_incoming.empty()) {
+                auto item = _incoming.front();
+                _incoming.pop();
+                handlePacket(item.pkt, item.from);
             }
         }
 
@@ -199,11 +211,37 @@ void UDPGameServer::run()
 
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
+
+    if (_networkThread.joinable()) {
+        _networkThread.join();
+    }
 }
 
 void UDPGameServer::updateSimulation(long long nowMs, long long deltaMs)
 {
     for (auto &kv : _worlds) {
         kv.second.tick(nowMs, deltaMs);
+    }
+}
+
+void UDPGameServer::networkLoop()
+{
+    uint8_t buffer[UDP_BUFFER_SIZE]{};
+    while (_running) {
+        ssize_t n = _socket.readByte(buffer, sizeof(buffer));
+        if (n > 0) {
+            try {
+                Packet packet = Packet::deserialize(buffer, static_cast<size_t>(n));
+                Incoming inc;
+                inc.pkt = std::move(packet);
+                inc.from = _socket.getSenderAddr();
+                std::lock_guard<std::mutex> lock(_queueMutex);
+                _incoming.push(std::move(inc));
+            } catch (const std::exception &e) {
+                std::cerr << "[UDP] Failed to parse packet: " << e.what() << "\n";
+            }
+        } else {
+            std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        }
     }
 }
