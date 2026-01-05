@@ -118,6 +118,7 @@ void TCPServer::resetClient(Client &client)
     client.addr = {};
     client.handshakeDone = false;
     client.lastPongTime = 0;
+    client.handshakeStart = 0;
     client.posX = 0;
     client.posY = 0;
     client.lobbyCode.clear();
@@ -127,44 +128,6 @@ void TCPServer::resetClient(Client &client)
 int TCPServer::pollSockets(fd_set &readfds, int maxFd, struct timeval &timeout)
 {
     return selectFdSet(maxFd + 1, &readfds, nullptr, nullptr, &timeout);
-}
-
-bool TCPServer::performHandshake(Client &client)
-{
-    Packet serverHello = makeStringPacket(PacketType::SERVER_HELLO, "R-Type Server");
-    if (!sendPacket(client.fd, serverHello)) {
-        return false;
-    }
-
-    if (!waitForReadable(client.fd, 3)) {
-        sendPacket(client.fd, makeStringPacket(PacketType::REFUSED, "TIMEOUT"));
-        return false;
-    }
-
-    Packet resp;
-    try {
-        auto res = receivePacket(client.fd, resp, client.recvBuffer);
-        if (res == RecvResult::Disconnected) {
-            sendPacket(client.fd, makeStringPacket(PacketType::REFUSED, "NO_DATA"));
-            return false;
-        } else if (res == RecvResult::Incomplete) {
-            sendPacket(client.fd, makeStringPacket(PacketType::REFUSED, "BAD_PACKET"));
-            return false;
-        }
-    } catch (const std::exception &e) {
-        sendPacket(client.fd, makeStringPacket(PacketType::REFUSED, "BAD_PACKET"));
-        return false;
-    }
-
-    std::string payloadStr(resp.payload.begin(), resp.payload.end());
-    if (resp.type != PacketType::CLIENT_HELLO || payloadStr.rfind("toto", 0) != 0) {
-        sendPacket(client.fd, makeStringPacket(PacketType::REFUSED, "BAD_HANDSHAKE"));
-        return false;
-    }
-
-    sendPacket(client.fd, makeIdPacket(PacketType::OK, client.id));
-
-    return true;
 }
 
 void TCPServer::acceptNewClient()
@@ -196,17 +159,11 @@ void TCPServer::acceptNewClient()
     _clients[slot].posX = static_cast<uint8_t>(slot);
     _clients[slot].posY = 0;
     _sessions.addSession(_clients[slot].id, clientFd, addr, getCurrentTime());
+    _clients[slot].handshakeStart = getCurrentTime();
+    // Send SERVER_HELLO immediately; wait for CLIENT_HELLO asynchronously
+    sendPacket(_clients[slot].fd, makeStringPacket(PacketType::SERVER_HELLO, "R-Type Server"));
 
-    if (!performHandshake(_clients[slot])) {
-        std::cout << "[SERVER] handshake failed\n";
-        resetClient(_clients[slot]);
-        return;
-    }
-
-    _clients[slot].handshakeDone = true;
-    _clients[slot].lastPongTime = getCurrentTime();
-
-    std::cout << "[SERVER] client " << _clients[slot].id << " connected successfully (awaiting lobby selection)\n";
+    std::cout << "[SERVER] client " << _clients[slot].id << " connected (awaiting CLIENT_HELLO)\n";
 }
 
 void TCPServer::processClientData(Client &client)
@@ -219,6 +176,20 @@ void TCPServer::processClientData(Client &client)
         return;
     }
     if (res == RecvResult::Incomplete) {
+        return;
+    }
+
+    if (!client.handshakeDone) {
+        std::string payloadStr(packet.payload.begin(), packet.payload.end());
+        if (packet.type != PacketType::CLIENT_HELLO || payloadStr.rfind("toto", 0) != 0) {
+            sendPacket(client.fd, makeStringPacket(PacketType::REFUSED, "BAD_HANDSHAKE"));
+            resetClient(client);
+            return;
+        }
+        sendPacket(client.fd, makeIdPacket(PacketType::OK, client.id));
+        client.handshakeDone = true;
+        client.lastPongTime = getCurrentTime();
+        std::cout << "[SERVER] client " << client.id << " handshake done (awaiting lobby selection)\n";
         return;
     }
 
@@ -262,9 +233,16 @@ void TCPServer::checkHeartbeat()
     long now = getCurrentTime();
 
     for (auto &c : _clients) {
-        if (c.fd == -1 || !c.handshakeDone)
+        if (c.fd == -1)
             continue;
 
+        if (!c.handshakeDone) {
+            if (now - c.handshakeStart > 3) {
+                sendPacket(c.fd, makeStringPacket(PacketType::REFUSED, "TIMEOUT"));
+                resetClient(c);
+            }
+            continue;
+        }
         if (now - c.lastPongTime > 10) {
             std::cout << "[SERVER] Client " << c.id << " timed out (no PONG for " << (now - c.lastPongTime) << "s)" << std::endl;
 

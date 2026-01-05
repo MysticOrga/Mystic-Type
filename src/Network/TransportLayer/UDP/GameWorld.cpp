@@ -15,6 +15,8 @@
 namespace {
     constexpr float monsterHalf = 9.0f;  // ~18x18 in client
     constexpr float bulletHalf = 3.0f;   // ~6x6 in client
+    constexpr bool kLogSpawn = false;
+    constexpr bool kLogBullets = false;
 }
 
 void GameWorld::registerPlayer(int id, uint8_t x, uint8_t y, const sockaddr_in &addr)
@@ -109,7 +111,9 @@ void GameWorld::spawnMonster(long long nowMs)
 
     _monsterSpawnIntervalMs = intervalDist(rng);
     _lastMonsterSpawnMs = nowMs;
-    std::cout << "[UDP] Spawned monster " << m.id << " at y=" << m.baseY << " kind=" << static_cast<int>(m.kind) << "\n";
+    if (kLogSpawn) {
+        std::cout << "[UDP] Spawned monster " << m.id << " at y=" << m.baseY << " kind=" << static_cast<int>(m.kind) << "\n";
+    }
 }
 
 void GameWorld::tick(long long nowMs, long long deltaMs)
@@ -195,7 +199,7 @@ void GameWorld::tick(long long nowMs, long long deltaMs)
         }
     }
 
-    if (!_bullets.empty()) {
+    if (kLogBullets && !_bullets.empty()) {
         std::cout << "[UDP] Bullets: ";
         for (const auto &b : _bullets) {
             std::cout << b.id << "(" << static_cast<int>(b.x) << "," << static_cast<int>(b.y) << ") ";

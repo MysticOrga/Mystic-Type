@@ -58,17 +58,13 @@ class TCPServer {
             sockaddr_in addr{};
             bool handshakeDone = false;
             long lastPongTime = 0;
+            long handshakeStart = 0;
             std::string lobbyCode;
 
             uint8_t posX = 0;
             uint8_t posY = 0;
             std::vector<uint8_t> recvBuffer;
         };
-
-        /**
-         * @brief Complete initial handshake and assign an id to a new client.
-         */
-        bool performHandshake(Client &client);
 
         /**
          * @brief Accept incoming connection and register a new client slot.
