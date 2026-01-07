@@ -19,6 +19,9 @@
 TCPServer::TCPServer(uint16_t port, SessionManager &sessions)
     : _sessions(sessions)
 {
+    for (auto &c : _clients) {
+        c.fd = -1;
+    }
     if (!_serverSocket.bindAndListen(port, INADDR_ANY, MAX_CLIENT)) {
         throw std::runtime_error("Failed to start TCP server");
     }

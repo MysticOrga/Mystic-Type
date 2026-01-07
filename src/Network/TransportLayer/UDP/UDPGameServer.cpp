@@ -75,20 +75,17 @@ void UDPGameServer::handleHello(const Packet &packet, const sockaddr_in &from)
     uint8_t x = packet.payload.size() >= 3 ? packet.payload[2] : 0;
     uint8_t y = packet.payload.size() >= 4 ? packet.payload[3] : 0;
 
+    // Fallback to "PUBLIC" when no session is available (separate process: no shared SessionManager).
+    std::string lobbyCode = "PUBLIC";
     auto sessionOpt = _sessions.getSession(id);
-    if (!sessionOpt.has_value()) {
-        std::cerr << "[UDP] HELLO_UDP from unknown id=" << id << "\n";
-        return;
-    }
-    if (sessionOpt->lobbyCode.empty()) {
-        std::cerr << "[UDP] HELLO_UDP without lobby code for id=" << id << "\n";
-        return;
+    if (sessionOpt.has_value() && !sessionOpt->lobbyCode.empty()) {
+        lobbyCode = sessionOpt->lobbyCode;
+        _sessions.setUdpAddr(id, from);
     }
 
-    GameWorld &world = _worlds[sessionOpt->lobbyCode];
+    GameWorld &world = _worlds[lobbyCode];
     world.registerPlayer(id, x, y, from);
-    _sessions.setUdpAddr(id, from);
-    _playerLobby[id] = sessionOpt->lobbyCode;
+    _playerLobby[id] = lobbyCode;
     // Send a fresh snapshot immediately so the client sees the lobby state without waiting the next tick.
     Packet snap = world.buildSnapshotPacket();
     sendPacketTo(snap, from);
@@ -107,26 +104,21 @@ void UDPGameServer::handleInput(const Packet &packet, const sockaddr_in &from)
     int8_t velY = static_cast<int8_t>(packet.payload[5]);
     uint8_t dir = packet.payload[6];
 
-    long now = nowMs();
-    if (!_sessions.allowInput(id, now)) {
-        std::cerr << "[UDP] INPUT rate limited for id=" << id << "\n";
-        return;
-    }
+    // Rate limiting disabled here because SessionManager is not shared across processes.
     auto lobbyIt = _playerLobby.find(id);
     if (lobbyIt == _playerLobby.end()) {
         auto sessionOpt = _sessions.getSession(id);
-        if (!sessionOpt.has_value() || sessionOpt->lobbyCode.empty()) {
-            std::cerr << "[UDP] INPUT from unknown lobby id=" << id << "\n";
-            return;
+        if (sessionOpt.has_value() && !sessionOpt->lobbyCode.empty()) {
+            _playerLobby[id] = sessionOpt->lobbyCode;
+        } else {
+            _playerLobby[id] = "PUBLIC";
         }
-        _playerLobby[id] = sessionOpt->lobbyCode;
         lobbyIt = _playerLobby.find(id);
     }
 
     auto worldIt = _worlds.find(lobbyIt->second);
     if (worldIt == _worlds.end()) {
-        std::cerr << "[UDP] INPUT with missing world for lobby " << lobbyIt->second << "\n";
-        return;
+        worldIt = _worlds.emplace(lobbyIt->second, GameWorld{}).first;
     }
 
     worldIt->second.updateInput(id, velX, velY, dir, from);
@@ -143,22 +135,20 @@ void UDPGameServer::handleShoot(const Packet &packet)
     int8_t velX = static_cast<int8_t>(packet.payload[4]);
     int8_t velY = static_cast<int8_t>(packet.payload[5]);
 
-    long now = nowMs();
-    if (!_sessions.allowShoot(id, now)) {
-        std::cerr << "[UDP] SHOOT rate limited for id=" << id << "\n";
-        return;
-    }
     auto lobbyIt = _playerLobby.find(id);
     if (lobbyIt == _playerLobby.end()) {
         auto sessionOpt = _sessions.getSession(id);
-        if (!sessionOpt.has_value() || sessionOpt->lobbyCode.empty())
-            return;
-        _playerLobby[id] = sessionOpt->lobbyCode;
+        if (sessionOpt.has_value() && !sessionOpt->lobbyCode.empty()) {
+            _playerLobby[id] = sessionOpt->lobbyCode;
+        } else {
+            _playerLobby[id] = "PUBLIC";
+        }
         lobbyIt = _playerLobby.find(id);
     }
     auto worldIt = _worlds.find(lobbyIt->second);
-    if (worldIt == _worlds.end())
-        return;
+    if (worldIt == _worlds.end()) {
+        worldIt = _worlds.emplace(lobbyIt->second, GameWorld{}).first;
+    }
 
     worldIt->second.addShot(id, posX, posY, velX, velY);
 }

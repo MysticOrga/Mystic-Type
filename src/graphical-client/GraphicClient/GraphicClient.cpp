@@ -377,14 +377,13 @@ bool GraphicClient::selectLobby()
                     std::cerr << "[CLIENT] Failed to send JOIN_LOBBY\n";
                     return false;
                 }
+            } else {
+                // auto public: demander explicitement le lobby public
+                if (!_net.sendJoinLobby("PUBLIC")) {
+                    std::cerr << "[CLIENT] Failed to send AUTO PUBLIC\n";
+                    return false;
+                }
             }
-            // else {
-            //     // auto public: demander explicitement le lobby public
-            //     if (!_net.sendJoinLobby("PUBLIC")) {
-            //         std::cerr << "[CLIENT] Failed to send AUTO PUBLIC\n";
-            //         return false;
-            //     }
-            // }
             break;
         }
 
