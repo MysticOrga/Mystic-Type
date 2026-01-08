@@ -10,6 +10,7 @@
 #include <string>
 #include <unordered_map>
 #include <optional>
+#include <cstdint>
 
 struct ChildInfo {
     int pid = -1;

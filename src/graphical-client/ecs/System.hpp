@@ -117,18 +117,41 @@ class CircleRenderSystem
 class RectangleRenderSystem
 {
   public:
+    void setGameAreaOffset(float offsetX, float offsetY, float areaSize) 
+    { 
+        _offsetX = offsetX;
+        _offsetY = offsetY;
+        _areaSize = areaSize;
+    }
+
     void update(ECS &ecs, Entity e)
     {
         auto &pos = ecs.getComponent<Position>(e);
         auto &rect = ecs.getComponent<RectangleComponent>(e);
-        Raylib::Draw::rectangle((int)(pos.x * 5), (int)(pos.y * 5), rect.width, rect.height, rect.color);
+        
+        // Convert game coordinates (0-255) to screen coordinates
+        float screenX = _offsetX + (pos.x / 255.0f) * _areaSize;
+        float screenY = _offsetY + (pos.y / 255.0f) * _areaSize;
+        
+        Raylib::Draw::rectangle((int)screenX, (int)screenY, rect.width, rect.height, rect.color);
     }
+  private:
+    float _offsetX = 0.0f;
+    float _offsetY = 0.0f;
+    float _areaSize = 1280.0f;
 };
 
 class SpriteRenderSystem
 {
   public:
     void setScale(float sx, float sy) { _scaleX = sx; _scaleY = sy; }
+    
+    void setGameAreaOffset(float offsetX, float offsetY, float areaSize)
+    {
+        _offsetX = offsetX;
+        _offsetY = offsetY;
+        _areaSize = areaSize;
+    }
 
     void update(ECS &ecs, Entity e, float dt)
     {
@@ -137,13 +160,20 @@ class SpriteRenderSystem
 
         if (!sprite.sprite) return;
         
-        sprite.sprite->setPosition({pos.x * 5.0f, pos.y * 5.0f});
+        // Convert game coordinates (0-255) to screen coordinates
+        float screenX = _offsetX + (pos.x / 255.0f) * _areaSize;
+        float screenY = _offsetY + (pos.y / 255.0f) * _areaSize;
+        
+        sprite.sprite->setPosition({screenX, screenY});
         sprite.sprite->update(dt);
         sprite.sprite->draw();
     }
   private:
     float _scaleX = 1.0f;
     float _scaleY = 1.0f;
+    float _offsetX = 0.0f;
+    float _offsetY = 0.0f;
+    float _areaSize = 1280.0f;
 };
 
 #endif /* !SYSTEM_HPP_ */

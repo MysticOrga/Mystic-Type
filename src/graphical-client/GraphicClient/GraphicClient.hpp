@@ -23,6 +23,9 @@ public:
     ~GraphicClient() = default;
 
     int run();
+    static constexpr float GAME_AREA_SIZE = 765.0f;
+    static constexpr float GAME_AREA_OFFSET_X = 577.5f;
+    static constexpr float GAME_AREA_OFFSET_Y = 157.5f;
 
 private:
     bool init();
@@ -30,6 +33,7 @@ private:
     void processNetworkEvents();
     void updateEntities(float dt);
     void render(float dt);
+    void drawGameBackground(float hoverAnimTimer);
 
     Entity createPlayerEntity(float x, float y);
     Entity createBulletEntity(float x, float y, float vx, float vy);
@@ -46,7 +50,6 @@ private:
     ECS _ecs;
     ECS _uiEcs;
 
-    // Systèmes
     SpriteRenderSystem _spriteRenderSystem;
     RectangleRenderSystem _rectangleRenderSystem;
     InputSystem _inputSystem;
@@ -58,4 +61,5 @@ private:
     std::chrono::steady_clock::time_point _lastKeepAlive{};
     std::chrono::steady_clock::time_point _lastHello{};
     bool _udpReady = false;
+    float _gameAnimTimer = 0.0f;
 };
