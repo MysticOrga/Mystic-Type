@@ -24,7 +24,6 @@ GraphicClient::GraphicClient(const std::string &ip, int port) : _window(1920, 10
 
 bool GraphicClient::init()
 {
-    // Initialize render systems with game area parameters
     _spriteRenderSystem.setGameAreaOffset(GAME_AREA_OFFSET_X, GAME_AREA_OFFSET_Y, GAME_AREA_SIZE);
     _rectangleRenderSystem.setGameAreaOffset(GAME_AREA_OFFSET_X, GAME_AREA_OFFSET_Y, GAME_AREA_SIZE);
 
@@ -74,8 +73,22 @@ Entity GraphicClient::createMonsterEntity(float x, float y, uint8_t type)
     Entity ent = _ecs.createEntity();
     _ecs.addComponent(ent, Position{x, y});
     _ecs.addComponent(ent, Velocity{0, 0});
-    Color c = (type == 1) ? BLUE : RED;
-    _ecs.addComponent(ent, RectangleComponent{18, 18, c});
+    
+    // Create animated sprite for monster
+    // Spritesheet: 205x18, 17 sprites, so each sprite is ~12x18
+    // Type 1 = Blue (row 0), Type 2 = Red (row 1)
+    Vector2 spriteSize{17, 18};
+    Vector2 posInSheet{0, static_cast<float>(type - 1)}; // Row based on type
+    auto sprite = std::make_shared<Rtype::Graphic::AnimatedSprite>(
+        "../../../sprites/r-typesheet3.gif", 
+        spriteSize, 
+        posInSheet, 
+        12,  // 17 sprites in the sheet
+        0.15f,  // Frame time
+        Vector2{x, y}
+    );
+    _ecs.addComponent(ent, Sprite{sprite});
+    
     return ent;
 }
 
@@ -104,14 +117,12 @@ void GraphicClient::syncEntities(const std::vector<PlayerState> &players)
             auto &pos = _ecs.getComponent<Position>(it->second);
             auto &vel = _ecs.getComponent<Velocity>(it->second);
 
-            // On suit les positions serveur mais en lissant pour éviter l'effet rollback
             float dx = clientX - pos.x;
             float dy = clientY - pos.y;
             float dist2 = dx * dx + dy * dy;
 
             if (p.id == myId)
             {
-                // On suit directement le serveur pour soi-même pour éviter l'avance locale puis rollback
                 pos.x = clientX;
                 pos.y = clientY;
                 vel.vx = 0.0f;
@@ -119,10 +130,9 @@ void GraphicClient::syncEntities(const std::vector<PlayerState> &players)
             }
             else
             {
-                // Pour les autres joueurs, on lisse toujours (et on remet les vitesses à zéro)
                 const float smooth = 0.25f;
                 if (dist2 > 100.0f)
-                { // snap si trop loin (~10 unités)
+                {
                     pos.x = clientX;
                     pos.y = clientY;
                 }
@@ -208,11 +218,9 @@ void GraphicClient::syncMonsters(const std::vector<MonsterState> &monsters)
         else
         {
             auto &pos = _ecs.getComponent<Position>(it->second);
-            auto &rect = _ecs.getComponent<RectangleComponent>(it->second);
             const float smoothing = 0.25f;
             pos.x += (clientX - pos.x) * smoothing;
             pos.y += (clientY - pos.y) * smoothing;
-            rect.color = (m.type == 1) ? BLUE : RED;
         }
     }
     for (auto &kv : _monsterEntities)
@@ -596,7 +604,7 @@ void GraphicClient::render(float dt)
 
     for (const auto &kv : _monsterEntities)
     {
-        _rectangleRenderSystem.update(_ecs, kv.second);
+        _spriteRenderSystem.update(_ecs, kv.second, dt);
     }
 
     _window.endDrawing();
