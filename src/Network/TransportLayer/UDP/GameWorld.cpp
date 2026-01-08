@@ -60,7 +60,8 @@ void GameWorld::addShot(int id, uint8_t posX, uint8_t posY, int8_t velX, int8_t 
     b.velY = std::clamp<int8_t>(velY, -maxSpeed, maxSpeed);
     _bullets.push_back(b);
 
-    std::cout << "[UDP] Player " << id << " fired bullet " << b.id
+    const std::string prefix = _logPrefix.empty() ? "[UDP] " : _logPrefix;
+    std::cout << prefix << "Player " << id << " fired bullet " << b.id
               << " from " << static_cast<int>(posX) << "," << static_cast<int>(posY)
               << " vel " << static_cast<int>(velX) << "," << static_cast<int>(velY) << "\n";
 }
@@ -112,7 +113,8 @@ void GameWorld::spawnMonster(long long nowMs)
     _monsterSpawnIntervalMs = intervalDist(rng);
     _lastMonsterSpawnMs = nowMs;
     if (kLogSpawn) {
-        std::cout << "[UDP] Spawned monster " << m.id << " at y=" << m.baseY << " kind=" << static_cast<int>(m.kind) << "\n";
+        const std::string prefix = _logPrefix.empty() ? "[UDP] " : _logPrefix;
+        std::cout << prefix << "Spawned monster " << m.id << " at y=" << m.baseY << " kind=" << static_cast<int>(m.kind) << "\n";
     }
 }
 
@@ -200,7 +202,8 @@ void GameWorld::tick(long long nowMs, long long deltaMs)
     }
 
     if (kLogBullets && !_bullets.empty()) {
-        std::cout << "[UDP] Bullets: ";
+        const std::string prefix = _logPrefix.empty() ? "[UDP] " : _logPrefix;
+        std::cout << prefix << "Bullets: ";
         for (const auto &b : _bullets) {
             std::cout << b.id << "(" << static_cast<int>(b.x) << "," << static_cast<int>(b.y) << ") ";
         }

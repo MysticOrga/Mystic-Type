@@ -16,8 +16,8 @@
 #include <sys/select.h>
 #include "../Protocol.hpp"
 
-TCPServer::TCPServer(uint16_t port, SessionManager &sessions)
-    : _sessions(sessions)
+TCPServer::TCPServer(uint16_t port, SessionManager &sessions, ChildProcessManager *childMgr)
+    : _sessions(sessions), _childMgr(childMgr)
 {
     for (auto &c : _clients) {
         c.fd = -1;
@@ -424,6 +424,39 @@ void TCPServer::removeFromLobby(const Client &client)
     refreshLobby(code);
 }
 
+uint16_t TCPServer::allocatePort()
+{
+    static uint16_t nextPort = 50000;
+    if (nextPort == 0 || nextPort >= 65000)
+        nextPort = 50000;
+    return nextPort++;
+}
+
+void TCPServer::ensureLobbyProcess(const std::string &code, bool isPublic)
+{
+    auto it = _lobbies.find(code);
+    if (it == _lobbies.end())
+        return;
+    if (it->second.udpPort == 0) {
+        it->second.udpPort = allocatePort();
+    }
+    if (_childMgr) {
+        if (it->second.ipcPath.empty()) {
+            it->second.ipcPath = "/tmp/rtype_" + code + ".sock";
+        }
+        if (!it->second.ipc) {
+            it->second.ipc = std::make_unique<IpcChannel>();
+            if (!it->second.ipc->bindServer(it->second.ipcPath)) {
+                std::cerr << "[PARENT] Failed to bind IPC at " << it->second.ipcPath << "\n";
+            }
+        }
+        _childMgr->spawn(code, it->second.udpPort, it->second.ipcPath);
+        std::cout << "[PARENT] UDP servers active " << _childMgr->activeCount()
+                  << "/" << _childMgr->maxCount() << "\n";
+    }
+    (void)isPublic;
+}
+
 bool TCPServer::assignLobby(Client &client, const std::string &code, bool createIfMissing, bool isPublic, bool allowFull)
 {
     removeFromLobby(client);
@@ -432,8 +465,9 @@ bool TCPServer::assignLobby(Client &client, const std::string &code, bool create
     if (it == _lobbies.end()) {
         if (!createIfMissing)
             return false;
-        _lobbies[code] = LobbyInfo{isPublic, {}};
+        _lobbies[code] = LobbyInfo{isPublic, {}, 0};
         it = _lobbies.find(code);
+        ensureLobbyProcess(code, isPublic);
     }
 
     if (!allowFull && it->second.players.size() >= MAX_CLIENT)
@@ -443,6 +477,9 @@ bool TCPServer::assignLobby(Client &client, const std::string &code, bool create
     client.lobbyCode = code;
     _clientLobby[client.id] = code;
     _sessions.setLobbyCode(client.id, code);
+    if (it->second.udpPort == 0) {
+        ensureLobbyProcess(code, isPublic);
+    }
     return true;
 }
 
@@ -466,7 +503,10 @@ void TCPServer::handleLobbyPacket(Client &client, const Packet &packet)
             return;
         }
         std::cout << "[SERVER] client " << client.id << " joined lobby " << code << "\n";
-        sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_OK, code));
+        // For now, send code|port in the payload so the client can aim UDP correctly.
+        uint16_t port = _lobbies[code].udpPort ? _lobbies[code].udpPort : 4243;
+        std::string payload = code + "|" + std::to_string(port);
+        sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_OK, payload));
         refreshLobby(code);
         sendPlayerListToClient(client);
         broadcastNewPlayer(client);
@@ -501,7 +541,9 @@ void TCPServer::handleLobbyPacket(Client &client, const Packet &packet)
             }
         }
         std::cout << "[SERVER] client " << client.id << " joined lobby " << code << "\n";
-        sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_OK, code));
+        uint16_t port = _lobbies[code].udpPort ? _lobbies[code].udpPort : 4243;
+        std::string payload = code + "|" + std::to_string(port);
+        sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_OK, payload));
         refreshLobby(code);
         sendPlayerListToClient(client);
         broadcastNewPlayer(client);

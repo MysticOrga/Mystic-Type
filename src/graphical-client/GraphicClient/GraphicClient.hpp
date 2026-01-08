@@ -56,4 +56,6 @@ private:
     std::unordered_map<int, Entity> _bulletEntities;
     std::unordered_map<int, Entity> _monsterEntities;
     std::chrono::steady_clock::time_point _lastKeepAlive{};
+    std::chrono::steady_clock::time_point _lastHello{};
+    bool _udpReady = false;
 };

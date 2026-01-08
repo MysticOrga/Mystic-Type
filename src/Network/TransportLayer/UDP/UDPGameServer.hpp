@@ -31,7 +31,7 @@
  */
 class UDPGameServer {
     public:
-        explicit UDPGameServer(uint16_t port, SessionManager &sessions, long long snapshotIntervalMs = 500);
+        explicit UDPGameServer(uint16_t port, SessionManager &sessions, long long snapshotIntervalMs = 500, std::string lobbyCode = "PUBLIC");
         ~UDPGameServer();
 
         /**
@@ -99,6 +99,7 @@ class UDPGameServer {
          * @brief Thread loop to read incoming UDP packets without blocking the simulation tick.
          */
         void networkLoop();
+        std::string logPrefix() const;
 
         Network::TransportLayer::UDPSocket _socket;
         std::unordered_map<std::string, GameWorld> _worlds;
@@ -108,6 +109,7 @@ class UDPGameServer {
         long long _lastTickMs = 0;
         const uint16_t _port;
         const long long _snapshotIntervalMs;
+        std::string _expectedLobby;
         const long long _tickIntervalMs = 32; // 16 = ~60 hz (les grand jeux c'est environ 100 ticks/d)
         struct Incoming {
             Packet pkt;

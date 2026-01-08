@@ -13,9 +13,12 @@
 #include <unordered_map>
 #include <netinet/in.h>
 #include <sys/select.h>
+#include <memory>
 #include "TCPSocket.hpp"
 #include "../Packet.hpp"
 #include "../../SessionManager.hpp"
+#include "server/ChildProcessManager.hpp"
+#include "server/IpcChannel.hpp"
 
 #include <vector>
 
@@ -35,7 +38,7 @@ class TCPServer {
          *
          * @param port TCP port to listen on.
          */
-        TCPServer(uint16_t port, SessionManager &sessions);
+        TCPServer(uint16_t port, SessionManager &sessions, ChildProcessManager *childMgr = nullptr);
 
         /**
          * @brief Destroy the TCPServer, closing the listening socket.
@@ -221,7 +224,14 @@ class TCPServer {
         struct LobbyInfo {
             bool isPublic = false;
             std::vector<int> players;
+            uint16_t udpPort = 0;
+            std::string ipcPath;
+            std::unique_ptr<IpcChannel> ipc;
         };
         std::unordered_map<std::string, LobbyInfo> _lobbies;
         std::unordered_map<int, std::string> _clientLobby;
+        ChildProcessManager *_childMgr = nullptr; // optional, not wired yet
+
+        uint16_t allocatePort();
+        void ensureLobbyProcess(const std::string &code, bool isPublic);
 };

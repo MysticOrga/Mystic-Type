@@ -12,6 +12,7 @@ set(COMMON_SOURCES
 
 set(TCP_SOURCES
     main.cpp
+    ChildProcessManager.cpp
     ../Network/TransportLayer/TCP/TCPServer.cpp
     ../Network/TransportLayer/TCP/TCPSocket.cpp
 )

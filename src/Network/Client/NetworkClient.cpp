@@ -244,7 +244,19 @@ void NetworkClient::handleTcpPacket(const Packet &p)
             break;
         case PacketType::LOBBY_OK:
         {
-            _lobbyCode.assign(p.payload.begin(), p.payload.end());
+            // Payload format: CODE|PORT (simple ASCII) for now.
+            std::string payloadStr(p.payload.begin(), p.payload.end());
+            auto sep = payloadStr.find('|');
+            if (sep == std::string::npos) {
+                _lobbyCode = payloadStr;
+            } else {
+                _lobbyCode = payloadStr.substr(0, sep);
+                std::string portStr = payloadStr.substr(sep + 1);
+                int port = std::atoi(portStr.c_str());
+                if (port > 0 && port < 65536) {
+                    _serverAddr.sin_port = htons(static_cast<uint16_t>(port));
+                }
+            }
             _events.push_back("LOBBY_OK:" + _lobbyCode);
             break;
         }

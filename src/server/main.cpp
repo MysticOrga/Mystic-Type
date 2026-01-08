@@ -7,14 +7,19 @@
 
 #include "Network/TransportLayer/TCP/TCPServer.hpp"
 #include "Network/SessionManager.hpp"
+#include "server/ChildProcessManager.hpp"
+#include "server/IpcChannel.hpp"
 
 #include <iostream>
+#include <string>
 
+// Parent server entry point: TCP matchmaking only.
 int main()
 {
     try {
         SessionManager sessions;
-        TCPServer tcpServer(4243, sessions);
+        ChildProcessManager childMgr;
+        TCPServer tcpServer(4243, sessions, &childMgr);
         tcpServer.run();
     }
     catch (const std::exception &e) {

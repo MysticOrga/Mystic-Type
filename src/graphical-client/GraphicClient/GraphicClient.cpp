@@ -20,6 +20,7 @@ GraphicClient::GraphicClient(const std::string& ip, int port)
 {
     _window.setTargetFPS(60);
     _lastKeepAlive = std::chrono::steady_clock::now();
+    _lastHello = _lastKeepAlive;
 }
 
 bool GraphicClient::init()
@@ -32,6 +33,7 @@ bool GraphicClient::init()
         return false;
     }
     _net.sendHelloUdp(0, 0);
+    _lastHello = std::chrono::steady_clock::now();
 
     _net.pollPackets();
     for (const auto &p : _net.getLastPlayerList())
@@ -202,6 +204,7 @@ void GraphicClient::processNetworkEvents()
             for (const auto &p : _net.getLastPlayerList())
                 _state.upsertPlayer(p.id, p.x, p.y);
         } else if (ev == "SNAPSHOT") {
+            _udpReady = true;
             _state.clear();
             for (const auto &p : _net.getLastSnapshot())
                 _state.upsertPlayer(p.id, p.x, p.y);
@@ -457,6 +460,14 @@ void GraphicClient::gameLoop()
         if (std::chrono::duration_cast<std::chrono::seconds>(nowKeep - _lastKeepAlive).count() >= 4) {
             _net.sendPong();
             _lastKeepAlive = nowKeep;
+        }
+
+        if (!_udpReady) {
+            auto nowHello = std::chrono::steady_clock::now();
+            if (std::chrono::duration_cast<std::chrono::seconds>(nowHello - _lastHello).count() >= 1) {
+                _net.sendHelloUdp(0, 0);
+                _lastHello = nowHello;
+            }
         }
 
         updateEntities(dt);

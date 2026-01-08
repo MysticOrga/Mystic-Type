@@ -76,6 +76,7 @@ public:
     Packet buildSnapshotPacket() const;
 
     const std::unordered_map<int, PlayerState> &players() const { return _players; }
+    void setLogPrefix(const std::string &prefix) { _logPrefix = prefix; }
 
 private:
     void spawnMonster(long long nowMs);
@@ -87,4 +88,5 @@ private:
     int _nextMonsterId = 1;
     long long _lastMonsterSpawnMs = 0;
     long long _monsterSpawnIntervalMs = 1800;
+    std::string _logPrefix;
 };
