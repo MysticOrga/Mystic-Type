@@ -66,6 +66,7 @@ class TCPServer {
 
             uint8_t posX = 0;
             uint8_t posY = 0;
+            uint8_t hp = 0;
             std::vector<uint8_t> recvBuffer;
         };
 
@@ -215,6 +216,7 @@ class TCPServer {
          * @brief Handle lobby-related packets for a client.
          */
         void handleLobbyPacket(Client &client, const Packet &packet);
+        void processIpcMessages();
 
     private:
         Network::TransportLayer::TCPSocket _serverSocket;

@@ -68,6 +68,9 @@ int main(int argc, char **argv)
     try {
         SessionManager sessions;
         UDPGameServer udpServer(args.port, sessions, 50, args.lobby);
+        if (!args.ipcSock.empty()) {
+            udpServer.setIpc(&ipc);
+        }
         std::cout << logPrefix(args) << "Started\n";
         udpServer.run();
     }

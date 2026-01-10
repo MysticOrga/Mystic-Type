@@ -42,7 +42,7 @@ bool GraphicClient::init()
 
     _net.pollPackets();
     for (const auto &p : _net.getLastPlayerList())
-        _state.upsertPlayer(p.id, p.x, p.y);
+        _state.upsertPlayer(p.id, p.x, p.y, p.hp);
     syncEntities(_state.listPlayers());
     _net.clearEvents();
     return true;
@@ -243,16 +243,51 @@ void GraphicClient::processNetworkEvents()
         {
             _state.clearPlayers();
             for (const auto &p : _net.getLastPlayerList())
-                _state.upsertPlayer(p.id, p.x, p.y);
+                _state.upsertPlayer(p.id, p.x, p.y, p.hp);
         }
         else if (ev == "SNAPSHOT")
         {
             _udpReady = true;
             _state.clear();
             for (const auto &p : _net.getLastSnapshot())
-                _state.upsertPlayer(p.id, p.x, p.y);
+                _state.upsertPlayer(p.id, p.x, p.y, p.hp);
             for (const auto &m : _net.getLastSnapshotMonsters())
                 _state.upsertMonster(m.id, m.x, m.y, m.hp, m.type);
+            int myId = _net.getPlayerId();
+            bool foundMe = false;
+            for (const auto &p : _state.listPlayers())
+            {
+                if (p.id == myId)
+                {
+                    foundMe = true;
+                    if (p.hp == 0)
+                    {
+                        std::cerr << "[CLIENT] Vous etes mort\n";
+                        _net.disconnect();
+                        _window.close();
+                        _forceExit = true;
+                    }
+                    break;
+                }
+            }
+            if (!foundMe)
+            {
+                std::cerr << "[CLIENT] Vous etes mort\n";
+                _net.disconnect();
+                _window.close();
+                _forceExit = true;
+            }
+        }
+        else if (ev.rfind("MESSAGE:", 0) == 0)
+        {
+            std::string msg = ev.substr(std::string("MESSAGE:").size());
+            if (msg == "DEAD")
+            {
+                std::cerr << "[CLIENT] Vous etes mort\n";
+                _net.disconnect();
+                _window.close();
+                _forceExit = true;
+            }
         }
     }
     _net.clearEvents();
@@ -591,6 +626,23 @@ void GraphicClient::render(float dt)
     _window.beginDrawing();
 
     drawGameBackground(_gameAnimTimer);
+
+    uint8_t myHp = 0;
+    bool hasHp = false;
+    int myId = _net.getPlayerId();
+    for (const auto &p : _state.listPlayers())
+    {
+        if (p.id == myId)
+        {
+            myHp = p.hp;
+            hasHp = true;
+            break;
+        }
+    }
+    std::string hpText = hasHp ? ("HP: " + std::to_string(myHp)) : "HP: --";
+    Raylib::Draw::text(hpText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
+                       static_cast<int>(GAME_AREA_OFFSET_Y) + 12, 24, {255, 255, 255, 230});
+
     _spriteRenderSystem.setScale(1.0f, 1.0f);
     for (const auto &kv : _entities)
     {
@@ -616,6 +668,8 @@ void GraphicClient::gameLoop()
     {
         float dt = _window.getFrameTime();
         processNetworkEvents();
+        if (_forceExit)
+            return;
         // If PING send failed, drop to avoid server timeout
         for (const auto &ev : _net.getEvents())
         {

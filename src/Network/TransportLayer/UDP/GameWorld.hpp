@@ -25,10 +25,12 @@ public:
         int id = 0;
         uint8_t x = 0;
         uint8_t y = 0;
+        uint8_t hp = 0;
         sockaddr_in addr{};
         int8_t velX = 0;
         int8_t velY = 0;
         uint8_t dir = 0;
+        long long lastHitMs = 0;
     };
 
         struct BulletState {

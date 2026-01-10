@@ -16,6 +16,10 @@
 #include <sys/select.h>
 #include "../Protocol.hpp"
 
+namespace {
+    constexpr uint8_t kDefaultPlayerHp = 5;
+}
+
 TCPServer::TCPServer(uint16_t port, SessionManager &sessions, ChildProcessManager *childMgr)
     : _sessions(sessions), _childMgr(childMgr)
 {
@@ -124,6 +128,7 @@ void TCPServer::resetClient(Client &client)
     client.handshakeStart = 0;
     client.posX = 0;
     client.posY = 0;
+    client.hp = 0;
     client.lobbyCode.clear();
     client.recvBuffer.clear();
 }
@@ -161,9 +166,9 @@ void TCPServer::acceptNewClient()
     _clients[slot].id = _nextId++;
     _clients[slot].posX = static_cast<uint8_t>(slot);
     _clients[slot].posY = 0;
+    _clients[slot].hp = kDefaultPlayerHp;
     _sessions.addSession(_clients[slot].id, clientFd, addr, getCurrentTime());
     _clients[slot].handshakeStart = getCurrentTime();
-    // Send SERVER_HELLO immediately; wait for CLIENT_HELLO asynchronously
     sendPacket(_clients[slot].fd, makeStringPacket(PacketType::SERVER_HELLO, "R-Type Server"));
 
     std::cout << "[SERVER] client " << _clients[slot].id << " connected (awaiting CLIENT_HELLO)\n";
@@ -254,11 +259,44 @@ void TCPServer::checkHeartbeat()
     }
 }
 
+void TCPServer::processIpcMessages()
+{
+    for (auto &kv : _lobbies) {
+        auto &ipc = kv.second.ipc;
+        if (!ipc)
+            continue;
+        while (true) {
+            auto msgOpt = ipc->recv(0);
+            if (!msgOpt.has_value())
+                break;
+            const std::string &msg = *msgOpt;
+            if (msg.rfind("DEAD:", 0) == 0) {
+                int id = 0;
+                try {
+                    id = std::stoi(msg.substr(5));
+                } catch (const std::exception &) {
+                    continue;
+                }
+                if (id <= 0)
+                    continue;
+                for (auto &c : _clients) {
+                    if (c.fd != -1 && c.id == id) {
+                        sendPacket(c.fd, makeStringPacket(PacketType::MESSAGE, "DEAD"));
+                        resetClient(c);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+}
+
 void TCPServer::run()
 {
     long lastPing = getCurrentTime();
 
     while (true) {
+        processIpcMessages();
         long now = getCurrentTime();
         if (now - lastPing >= 5) {
             sendPingToAll();
@@ -339,7 +377,7 @@ bool TCPServer::writeAll(int fd, const uint8_t *data, std::size_t size)
 Packet TCPServer::buildPlayerListPacket(const std::string &lobbyCode) const
 {
     std::vector<uint8_t> payload;
-    payload.reserve(1 + _clients.size() * 6);
+    payload.reserve(1 + _clients.size() * 5);
 
     payload.push_back(0); // placeholder for count
     uint8_t count = 0;
@@ -352,6 +390,7 @@ Packet TCPServer::buildPlayerListPacket(const std::string &lobbyCode) const
         payload.push_back(static_cast<uint8_t>(c.id & 0xFF));
         payload.push_back(c.posX);
         payload.push_back(c.posY);
+        payload.push_back(c.hp);
     }
 
     payload[0] = count;
@@ -370,7 +409,8 @@ void TCPServer::broadcastNewPlayer(const Client &newClient)
         static_cast<uint8_t>((newClient.id >> 8) & 0xFF),
         static_cast<uint8_t>(newClient.id & 0xFF),
         newClient.posX,
-        newClient.posY
+        newClient.posY,
+        newClient.hp
     };
     Packet pkt(PacketType::NEW_PLAYER, payload);
 

@@ -15,8 +15,12 @@
 namespace {
     constexpr float monsterHalf = 9.0f;  // ~18x18 in client
     constexpr float bulletHalf = 3.0f;   // ~6x6 in client
+    constexpr float playerHalfX = 16.5f; // ~33x17 in client
+    constexpr float playerHalfY = 8.5f;
     constexpr bool kLogSpawn = false;
     constexpr bool kLogBullets = false;
+    constexpr uint8_t kDefaultPlayerHp = 5;
+    constexpr long long kPlayerHitCooldownMs = 500;
 }
 
 void GameWorld::registerPlayer(int id, uint8_t x, uint8_t y, const sockaddr_in &addr)
@@ -28,6 +32,8 @@ void GameWorld::registerPlayer(int id, uint8_t x, uint8_t y, const sockaddr_in &
     state.addr = addr;
     state.velX = 0;
     state.velY = 0;
+    state.hp = kDefaultPlayerHp;
+    state.lastHitMs = 0;
     _players[id] = state;
 }
 
@@ -136,6 +142,24 @@ void GameWorld::tick(long long nowMs, long long deltaMs)
         p.velY = 0;
     }
 
+    for (auto &kv : _players) {
+        auto &p = kv.second;
+        if (p.hp == 0)
+            continue;
+        for (const auto &m : _monsters) {
+            float dx = std::fabs(m.x - static_cast<float>(p.x));
+            float dy = std::fabs(m.y - static_cast<float>(p.y));
+            if (dx <= monsterHalf + playerHalfX && dy <= monsterHalf + playerHalfY) {
+                if (nowMs - p.lastHitMs >= kPlayerHitCooldownMs) {
+                    int newHp = std::max(0, static_cast<int>(p.hp) - 1);
+                    p.hp = static_cast<uint8_t>(newHp);
+                    p.lastHitMs = nowMs;
+                }
+                break;
+            }
+        }
+    }
+
     auto it = _bullets.begin();
     while (it != _bullets.end()) {
         int nx = static_cast<int>(it->x) + it->velX;
@@ -214,7 +238,7 @@ void GameWorld::tick(long long nowMs, long long deltaMs)
 Packet GameWorld::buildSnapshotPacket() const
 {
     std::vector<uint8_t> payload;
-    payload.reserve(2 + _players.size() * 4 + _bullets.size() * 6 + _monsters.size() * 6);
+    payload.reserve(2 + _players.size() * 5 + _bullets.size() * 6 + _monsters.size() * 6);
 
     payload.push_back(static_cast<uint8_t>(_players.size()));
     for (const auto &kv : _players) {
@@ -223,6 +247,7 @@ Packet GameWorld::buildSnapshotPacket() const
         payload.push_back(static_cast<uint8_t>(p.id & 0xFF));
         payload.push_back(p.x);
         payload.push_back(p.y);
+        payload.push_back(p.hp);
     }
 
     payload.push_back(static_cast<uint8_t>(_bullets.size()));

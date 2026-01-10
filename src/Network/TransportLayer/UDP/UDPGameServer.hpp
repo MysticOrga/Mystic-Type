@@ -21,6 +21,7 @@
 #include "../Packet.hpp"
 #include "GameWorld.hpp"
 #include "../../SessionManager.hpp"
+#include "server/IpcChannel.hpp"
 
 /**
  * @brief Simple UDP authoritative game server that manages players and snapshots.
@@ -38,6 +39,7 @@ class UDPGameServer {
          * @brief Start the main server loop (blocking).
          */
         void run();
+        void setIpc(IpcChannel *ipc) { _ipc = ipc; }
 
     private:
         /**
@@ -119,4 +121,5 @@ class UDPGameServer {
         std::mutex _queueMutex;
         std::atomic<bool> _running{false};
         std::thread _networkThread;
+        IpcChannel *_ipc = nullptr;
 };

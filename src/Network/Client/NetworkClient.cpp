@@ -220,25 +220,27 @@ void NetworkClient::handleTcpPacket(const Packet &p)
             _lastPlayerList.clear();
             if (!p.payload.empty()) {
                 uint8_t count = p.payload[0];
-                size_t expected = 1 + count * 4;
+                size_t expected = 1 + count * 5;
                 if (p.payload.size() >= expected) {
                     for (size_t i = 0; i < count; ++i) {
-                        size_t off = 1 + i * 4;
+                        size_t off = 1 + i * 5;
                         int id = (p.payload[off] << 8) | p.payload[off + 1];
                         uint8_t x = p.payload[off + 2];
                         uint8_t y = p.payload[off + 3];
-                        _lastPlayerList.push_back({id, x, y});
+                        uint8_t hp = p.payload[off + 4];
+                        _lastPlayerList.push_back({id, x, y, hp});
                     }
                     _events.push_back("PLAYER_LIST");
                 }
             }
             break;
         case PacketType::NEW_PLAYER:
-            if (p.payload.size() >= 4) {
+            if (p.payload.size() >= 5) {
                 int id = (p.payload[0] << 8) | p.payload[1];
                 uint8_t x = p.payload[2];
                 uint8_t y = p.payload[3];
-                _lastPlayerList.push_back({id, x, y});
+                uint8_t hp = p.payload[4];
+                _lastPlayerList.push_back({id, x, y, hp});
                 _events.push_back("NEW_PLAYER");
             }
             break;
@@ -279,16 +281,17 @@ void NetworkClient::handleUdpPacket(const Packet &p)
         _lastSnapshotMonsters.clear();
         uint8_t count = p.payload[0];
         size_t off = 1;
-        size_t expectedPlayers = off + count * 4;
+        size_t expectedPlayers = off + count * 5;
         if (p.payload.size() < expectedPlayers)
             return;
 
         for (size_t i = 0; i < count; ++i) {
-            size_t idx = off + i * 4;
+            size_t idx = off + i * 5;
             int id = (p.payload[idx] << 8) | p.payload[idx + 1];
             uint8_t x = p.payload[idx + 2];
             uint8_t y = p.payload[idx + 3];
-            _lastSnapshot.push_back({id, x, y});
+            uint8_t hp = p.payload[idx + 4];
+            _lastSnapshot.push_back({id, x, y, hp});
         }
 
         off = expectedPlayers;

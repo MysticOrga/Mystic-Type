@@ -227,6 +227,19 @@ void UDPGameServer::updateSimulation(long long nowMs, long long deltaMs)
 {
     for (auto &kv : _worlds) {
         kv.second.tick(nowMs, deltaMs);
+        std::vector<int> toRemove;
+        for (const auto &p : kv.second.players()) {
+            if (p.second.hp == 0) {
+                toRemove.push_back(p.first);
+            }
+        }
+        for (int id : toRemove) {
+            if (_ipc) {
+                _ipc->send("DEAD:" + std::to_string(id));
+            }
+            kv.second.removePlayer(id);
+            _playerLobby.erase(id);
+        }
     }
 }
 

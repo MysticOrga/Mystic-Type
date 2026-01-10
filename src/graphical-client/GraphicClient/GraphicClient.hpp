@@ -62,4 +62,5 @@ private:
     std::chrono::steady_clock::time_point _lastHello{};
     bool _udpReady = false;
     float _gameAnimTimer = 0.0f;
+    bool _forceExit = false;
 };
