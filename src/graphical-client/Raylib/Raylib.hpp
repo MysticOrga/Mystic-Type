@@ -36,6 +36,7 @@ namespace Raylib
         ~Texture();
 
         void draw(Rectangle source, Vector2 position, Color tint = WHITE);
+        void draw(Rectangle source, Rectangle dest, Color tint = WHITE);
         int getWidth() const;
         int getHeight() const;
 

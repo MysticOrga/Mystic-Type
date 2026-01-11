@@ -29,6 +29,7 @@ class AnimatedSprite
 
     Rectangle _sourceRect;
     Vector2 _position;
+    Vector2 _scale{1.0f, 1.0f};
 
   public:
     AnimatedSprite(const std::string &path, Vector2 size, Vector2 posInSheet, int maxFrames,
@@ -51,6 +52,11 @@ class AnimatedSprite
         _position = pos;
     }
 
+    void setScale(float sx, float sy)
+    {
+        _scale = {sx, sy};
+    }
+
     void update(float dt)
     {
         _timer += dt;
@@ -70,11 +76,14 @@ class AnimatedSprite
     void draw()
     {
         if (_texture) {
+            float w = _sourceRect.width * _scale.x;
+            float h = _sourceRect.height * _scale.y;
             Vector2 centeredPos = _position;
-            centeredPos.x -= _sourceRect.width / 2.0f;
-            centeredPos.y -= _sourceRect.height / 2.0f;
+            centeredPos.x -= w / 2.0f;
+            centeredPos.y -= h / 2.0f;
 
-            _texture->draw(_sourceRect, centeredPos, WHITE);
+            Rectangle dest{centeredPos.x, centeredPos.y, w, h};
+            _texture->draw(_sourceRect, dest, WHITE);
         }
     }
 };

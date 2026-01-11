@@ -228,7 +228,7 @@ void NetworkClient::handleTcpPacket(const Packet &p)
                         uint8_t x = p.payload[off + 2];
                         uint8_t y = p.payload[off + 3];
                         uint8_t hp = p.payload[off + 4];
-                        _lastPlayerList.push_back({id, x, y, hp});
+                        _lastPlayerList.push_back({id, x, y, hp, 0});
                     }
                     _events.push_back("PLAYER_LIST");
                 }
@@ -240,7 +240,7 @@ void NetworkClient::handleTcpPacket(const Packet &p)
                 uint8_t x = p.payload[2];
                 uint8_t y = p.payload[3];
                 uint8_t hp = p.payload[4];
-                _lastPlayerList.push_back({id, x, y, hp});
+                _lastPlayerList.push_back({id, x, y, hp, 0});
                 _events.push_back("NEW_PLAYER");
             }
             break;
@@ -276,61 +276,81 @@ void NetworkClient::handleTcpPacket(const Packet &p)
 void NetworkClient::handleUdpPacket(const Packet &p)
 {
     if (p.type == PacketType::SNAPSHOT && !p.payload.empty()) {
-        _lastSnapshot.clear();
-        _lastSnapshotBullets.clear();
-        _lastSnapshotMonsters.clear();
-        uint8_t count = p.payload[0];
-        size_t off = 1;
-        size_t expectedPlayers = off + count * 5;
-        if (p.payload.size() < expectedPlayers)
-            return;
+        auto parseSnapshot = [&](size_t perPlayer, bool hasScore,
+                                 std::vector<PlayerState> &players,
+                                 std::vector<BulletState> &bullets,
+                                 std::vector<MonsterState> &monsters) -> bool {
+            uint8_t count = p.payload[0];
+            size_t off = 1;
+            size_t expectedPlayers = off + count * perPlayer;
+            if (p.payload.size() < expectedPlayers)
+                return false;
 
-        for (size_t i = 0; i < count; ++i) {
-            size_t idx = off + i * 5;
-            int id = (p.payload[idx] << 8) | p.payload[idx + 1];
-            uint8_t x = p.payload[idx + 2];
-            uint8_t y = p.payload[idx + 3];
-            uint8_t hp = p.payload[idx + 4];
-            _lastSnapshot.push_back({id, x, y, hp});
-        }
-
-        off = expectedPlayers;
-        if (off >= p.payload.size()) {
-            _events.push_back("SNAPSHOT");
-            return;
-        }
-
-        uint8_t bulletCount = p.payload[off++];
-        size_t expectedBullets = off + bulletCount * 6;
-        if (p.payload.size() < expectedBullets)
-            return;
-        for (size_t i = 0; i < bulletCount; ++i) {
-            size_t idx = off + i * 6;
-            int id = (p.payload[idx] << 8) | p.payload[idx + 1];
-            uint8_t x = p.payload[idx + 2];
-            uint8_t y = p.payload[idx + 3];
-            int8_t vx = static_cast<int8_t>(p.payload[idx + 4]);
-            int8_t vy = static_cast<int8_t>(p.payload[idx + 5]);
-            _lastSnapshotBullets.push_back({id, x, y, vx, vy});
-        }
-
-        off = expectedBullets;
-        if (off < p.payload.size()) {
-            uint8_t monsterCount = p.payload[off++];
-            size_t expectedMonsters = off + monsterCount * 6;
-            if (p.payload.size() < expectedMonsters)
-                return;
-            for (size_t i = 0; i < monsterCount; ++i) {
-                size_t idx = off + i * 6;
+            for (size_t i = 0; i < count; ++i) {
+                size_t idx = off + i * perPlayer;
                 int id = (p.payload[idx] << 8) | p.payload[idx + 1];
                 uint8_t x = p.payload[idx + 2];
                 uint8_t y = p.payload[idx + 3];
                 uint8_t hp = p.payload[idx + 4];
-                uint8_t type = p.payload[idx + 5];
-                _lastSnapshotMonsters.push_back({id, x, y, hp, type});
+                uint16_t score = 0;
+                if (hasScore) {
+                    score = (p.payload[idx + 5] << 8) | p.payload[idx + 6];
+                }
+                players.push_back({id, x, y, hp, score});
             }
+
+            off = expectedPlayers;
+            if (off >= p.payload.size())
+                return true;
+
+            uint8_t bulletCount = p.payload[off++];
+            size_t expectedBullets = off + bulletCount * 6;
+            if (p.payload.size() < expectedBullets)
+                return false;
+            for (size_t i = 0; i < bulletCount; ++i) {
+                size_t idx = off + i * 6;
+                int id = (p.payload[idx] << 8) | p.payload[idx + 1];
+                uint8_t x = p.payload[idx + 2];
+                uint8_t y = p.payload[idx + 3];
+                int8_t vx = static_cast<int8_t>(p.payload[idx + 4]);
+                int8_t vy = static_cast<int8_t>(p.payload[idx + 5]);
+                bullets.push_back({id, x, y, vx, vy});
+            }
+
+            off = expectedBullets;
+            if (off < p.payload.size()) {
+                uint8_t monsterCount = p.payload[off++];
+                size_t expectedMonsters = off + monsterCount * 6;
+                if (p.payload.size() < expectedMonsters)
+                    return false;
+                for (size_t i = 0; i < monsterCount; ++i) {
+                    size_t idx = off + i * 6;
+                    int id = (p.payload[idx] << 8) | p.payload[idx + 1];
+                    uint8_t x = p.payload[idx + 2];
+                    uint8_t y = p.payload[idx + 3];
+                    uint8_t hp = p.payload[idx + 4];
+                    uint8_t type = p.payload[idx + 5];
+                    monsters.push_back({id, x, y, hp, type});
+                }
+            }
+
+            return true;
+        };
+
+        std::vector<PlayerState> players;
+        std::vector<BulletState> bullets;
+        std::vector<MonsterState> monsters;
+        if (!parseSnapshot(7, true, players, bullets, monsters)) {
+            players.clear();
+            bullets.clear();
+            monsters.clear();
+            if (!parseSnapshot(5, false, players, bullets, monsters))
+                return;
         }
 
+        _lastSnapshot = std::move(players);
+        _lastSnapshotBullets = std::move(bullets);
+        _lastSnapshotMonsters = std::move(monsters);
         _events.push_back("SNAPSHOT");
     }
 }

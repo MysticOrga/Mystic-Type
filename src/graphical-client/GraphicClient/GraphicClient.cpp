@@ -42,7 +42,7 @@ bool GraphicClient::init()
 
     _net.pollPackets();
     for (const auto &p : _net.getLastPlayerList())
-        _state.upsertPlayer(p.id, p.x, p.y, p.hp);
+        _state.upsertPlayer(p.id, p.x, p.y, p.hp, p.score);
     syncEntities(_state.listPlayers());
     _net.clearEvents();
     return true;
@@ -87,6 +87,9 @@ Entity GraphicClient::createMonsterEntity(float x, float y, uint8_t type)
         0.15f,  // Frame time
         Vector2{x, y}
     );
+    if (type == 2) {
+        sprite->setScale(2.0f, 2.0f);
+    }
     _ecs.addComponent(ent, Sprite{sprite});
     
     return ent;
@@ -243,14 +246,14 @@ void GraphicClient::processNetworkEvents()
         {
             _state.clearPlayers();
             for (const auto &p : _net.getLastPlayerList())
-                _state.upsertPlayer(p.id, p.x, p.y, p.hp);
+                _state.upsertPlayer(p.id, p.x, p.y, p.hp, p.score);
         }
         else if (ev == "SNAPSHOT")
         {
             _udpReady = true;
             _state.clear();
             for (const auto &p : _net.getLastSnapshot())
-                _state.upsertPlayer(p.id, p.x, p.y, p.hp);
+                _state.upsertPlayer(p.id, p.x, p.y, p.hp, p.score);
             for (const auto &m : _net.getLastSnapshotMonsters())
                 _state.upsertMonster(m.id, m.x, m.y, m.hp, m.type);
             int myId = _net.getPlayerId();
@@ -628,20 +631,27 @@ void GraphicClient::render(float dt)
     drawGameBackground(_gameAnimTimer);
 
     uint8_t myHp = 0;
+    uint16_t myScore = 0;
     bool hasHp = false;
+    bool hasScore = false;
     int myId = _net.getPlayerId();
     for (const auto &p : _state.listPlayers())
     {
         if (p.id == myId)
         {
             myHp = p.hp;
+            myScore = p.score;
             hasHp = true;
+            hasScore = true;
             break;
         }
     }
     std::string hpText = hasHp ? ("HP: " + std::to_string(myHp)) : "HP: --";
     Raylib::Draw::text(hpText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
                        static_cast<int>(GAME_AREA_OFFSET_Y) + 12, 24, {255, 255, 255, 230});
+    std::string scoreText = hasScore ? ("SCORE: " + std::to_string(myScore)) : "SCORE: --";
+    Raylib::Draw::text(scoreText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
+                       static_cast<int>(GAME_AREA_OFFSET_Y) + 40, 22, {255, 255, 255, 210});
 
     _spriteRenderSystem.setScale(1.0f, 1.0f);
     for (const auto &kv : _entities)

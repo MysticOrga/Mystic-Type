@@ -41,6 +41,11 @@ namespace Raylib
     {
         ::DrawTextureRec(_texture, source, position, tint);
     }
+    void Texture::draw(Rectangle source, Rectangle dest, Color tint)
+    {
+        Vector2 origin{0.0f, 0.0f};
+        ::DrawTexturePro(_texture, source, dest, origin, 0.0f, tint);
+    }
     int Texture::getWidth() const { return _texture.width; }
     int Texture::getHeight() const { return _texture.height; }
 

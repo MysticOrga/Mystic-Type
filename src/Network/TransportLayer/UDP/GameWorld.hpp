@@ -26,6 +26,7 @@ public:
         uint8_t x = 0;
         uint8_t y = 0;
         uint8_t hp = 0;
+        uint16_t score = 0;
         sockaddr_in addr{};
         int8_t velX = 0;
         int8_t velY = 0;
@@ -42,7 +43,7 @@ public:
             int8_t velY = 0;
         };
 
-        enum class MonsterKind : uint8_t { Sine = 0, ZigZag = 1 };
+        enum class MonsterKind : uint8_t { Sine = 0, ZigZag = 1, Boss = 2 };
 
     struct MonsterState {
         int id = 0;
@@ -53,8 +54,11 @@ public:
         float phase = 0;
         float freq = 0;
         float speedX = 0;
+        float speedY = 0;
         int8_t hp = 0;
         MonsterKind kind = MonsterKind::Sine;
+        long long nextPatternMs = 0;
+        long long nextShotMs = 0;
     };
 
     GameWorld() = default;
@@ -82,6 +86,11 @@ public:
 
 private:
     void spawnMonster(long long nowMs);
+    void spawnBoss(long long nowMs);
+    void spawnBossBullet(const MonsterState &boss, long long nowMs);
+    bool shouldSpawnBoss() const;
+    bool hasBoss() const;
+    void updateBossMovement(MonsterState &boss, long long nowMs, float dtSec);
 
     std::unordered_map<int, PlayerState> _players;
     std::vector<BulletState> _bullets;
