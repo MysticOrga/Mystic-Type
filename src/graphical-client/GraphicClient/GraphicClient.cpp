@@ -241,7 +241,10 @@ void GraphicClient::syncMonsters(const std::vector<MonsterState> &monsters)
 
 void GraphicClient::processNetworkEvents()
 {
-    _net.pollPackets();
+    for (int i = 0; i < 8; ++i) {
+        if (!_net.pollPackets())
+            break;
+    }
     for (const auto &ev : _net.getEvents())
     {
         if (ev == "PLAYER_LIST" || ev == "NEW_PLAYER")

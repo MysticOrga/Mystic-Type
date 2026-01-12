@@ -254,7 +254,13 @@ void TCPServer::processClientData(Client &client)
     }
 
     if (packet.type == PacketType::MESSAGE) {
-        if (!client.lobbyCode.empty()) {
+        std::string lobbyCode = client.lobbyCode;
+        if (lobbyCode.empty()) {
+            auto lobbyOpt = _sessions.getLobbyCode(client.id);
+            if (lobbyOpt.has_value())
+                lobbyCode = *lobbyOpt;
+        }
+        if (!lobbyCode.empty()) {
             std::string text(packet.payload.begin(), packet.payload.end());
             std::string clean;
             clean.reserve(text.size());
@@ -266,8 +272,36 @@ void TCPServer::processClientData(Client &client)
                     break;
             }
             if (!clean.empty()) {
-                std::string msg = "CHAT:" + client.pseudo + ": " + clean;
-                broadcastToLobby(client.lobbyCode, makeStringPacket(PacketType::MESSAGE, msg));
+                std::string name = client.pseudo;
+                if (name.empty()) {
+                    auto pseudoOpt = _sessions.getPseudo(client.id);
+                    if (pseudoOpt.has_value())
+                        name = *pseudoOpt;
+                }
+                if (name.empty()) {
+                    name = "Player" + std::to_string(client.id);
+                }
+                std::string msg = "CHAT:" + name + ": " + clean;
+                broadcastToLobby(lobbyCode, makeStringPacket(PacketType::MESSAGE, msg));
+            }
+        } else {
+            std::string text(packet.payload.begin(), packet.payload.end());
+            std::string clean;
+            clean.reserve(text.size());
+            for (char c : text) {
+                if (c >= 32 && c <= 126) {
+                    clean.push_back(c);
+                }
+                if (clean.size() >= 120)
+                    break;
+            }
+            if (!clean.empty()) {
+                std::string name = client.pseudo.empty() ? ("Player" + std::to_string(client.id)) : client.pseudo;
+                std::string msg = "CHAT:" + name + ": " + clean;
+                for (auto &c : _clients) {
+                    if (c.fd != -1 && c.handshakeDone)
+                        sendPacket(c.fd, makeStringPacket(PacketType::MESSAGE, msg));
+                }
             }
         }
         return;
