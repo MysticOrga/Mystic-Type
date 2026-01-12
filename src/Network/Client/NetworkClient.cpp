@@ -142,8 +142,13 @@ bool NetworkClient::sendChat(const std::string &text)
     }
     if (clean.empty())
         return false;
+    std::cout << "[CLIENT] sendChat \"" << clean << "\"\n";
     Packet msg(PacketType::MESSAGE, std::vector<uint8_t>(clean.begin(), clean.end()));
-    return sendPacketTcp(msg);
+    bool ok = sendPacketTcp(msg);
+    if (!ok) {
+        std::cout << "[CLIENT] sendChat failed\n";
+    }
+    return ok;
 }
 
 bool NetworkClient::sendCreateLobby()
@@ -303,6 +308,7 @@ void NetworkClient::handleTcpPacket(const Packet &p)
             _events.push_back("LOBBY_ERROR:" + std::string(p.payload.begin(), p.payload.end()));
             break;
         case PacketType::MESSAGE:
+            std::cout << "[CLIENT] recv MESSAGE \"" << std::string(p.payload.begin(), p.payload.end()) << "\"\n";
             _events.push_back("MESSAGE:" + std::string(p.payload.begin(), p.payload.end()));
             break;
         default:

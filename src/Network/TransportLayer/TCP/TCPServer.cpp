@@ -254,12 +254,15 @@ void TCPServer::processClientData(Client &client)
     }
 
     if (packet.type == PacketType::MESSAGE) {
+        std::cerr << "message\n";
         std::string lobbyCode = client.lobbyCode;
         if (lobbyCode.empty()) {
             auto lobbyOpt = _sessions.getLobbyCode(client.id);
             if (lobbyOpt.has_value())
                 lobbyCode = *lobbyOpt;
         }
+        std::cout << "[SERVER] CHAT from id=" << client.id
+                << " lobby=" << (lobbyCode.empty() ? "?" : lobbyCode) << "\n";
         if (!lobbyCode.empty()) {
             std::string text(packet.payload.begin(), packet.payload.end());
             std::string clean;
@@ -282,6 +285,13 @@ void TCPServer::processClientData(Client &client)
                     name = "Player" + std::to_string(client.id);
                 }
                 std::string msg = "CHAT:" + name + ": " + clean;
+                int recipients = 0;
+                for (auto &c : _clients) {
+                    if (c.fd != -1 && c.handshakeDone && c.lobbyCode == lobbyCode)
+                        recipients++;
+                }
+                std::cout << "[SERVER] Broadcast lobby=" << lobbyCode << " recipients=" << recipients
+                          << " msg=\"" << msg << "\"\n";
                 broadcastToLobby(lobbyCode, makeStringPacket(PacketType::MESSAGE, msg));
             }
         } else {
@@ -298,6 +308,12 @@ void TCPServer::processClientData(Client &client)
             if (!clean.empty()) {
                 std::string name = client.pseudo.empty() ? ("Player" + std::to_string(client.id)) : client.pseudo;
                 std::string msg = "CHAT:" + name + ": " + clean;
+                int recipients = 0;
+                for (auto &c : _clients) {
+                    if (c.fd != -1 && c.handshakeDone)
+                        recipients++;
+                }
+                std::cout << "[SERVER] Broadcast ALL recipients=" << recipients << " msg=\"" << msg << "\"\n";
                 for (auto &c : _clients) {
                     if (c.fd != -1 && c.handshakeDone)
                         sendPacket(c.fd, makeStringPacket(PacketType::MESSAGE, msg));

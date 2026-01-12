@@ -241,7 +241,7 @@ void GraphicClient::syncMonsters(const std::vector<MonsterState> &monsters)
 
 void GraphicClient::processNetworkEvents()
 {
-    for (int i = 0; i < 8; ++i) {
+    for (int i = 0; i < 64; ++i) {
         if (!_net.pollPackets())
             break;
     }
@@ -853,7 +853,11 @@ void GraphicClient::gameLoop()
                     if (_chatLog.size() > 8)
                         _chatLog.erase(_chatLog.begin());
                     _lastChatSent = _chatInput;
-                    _net.sendChat(_chatInput);
+                    if (!_net.sendChat(_chatInput)) {
+                        _chatLog.push_back("[SYS] sendChat failed");
+                        if (_chatLog.size() > 8)
+                            _chatLog.erase(_chatLog.begin());
+                    }
                 }
                 _chatActive = false;
             }
