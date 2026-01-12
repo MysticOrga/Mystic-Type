@@ -14,6 +14,7 @@
 #include <random>
 #include <thread>
 #include <unistd.h>
+#include <netinet/tcp.h>
 #include <sys/select.h>
 #include "../Protocol.hpp"
 
@@ -110,8 +111,6 @@ TCPServer::RecvResult TCPServer::receivePacket(int fd, Packet &packet, std::vect
         return RecvResult::Disconnected;
     }
 
-    recvBuffer.insert(recvBuffer.end(), tmp, tmp + n);
-
     auto status = Protocol::consumeChunk(tmp, static_cast<std::size_t>(n), recvBuffer, packet);
     if (status == Protocol::StreamStatus::Ok)
         return RecvResult::Ok;
@@ -170,6 +169,8 @@ void TCPServer::acceptNewClient()
 
     if (clientFd == -1)
         return;
+    int flag = 1;
+    setsockopt(clientFd, IPPROTO_TCP, TCP_NODELAY, &flag, sizeof(flag));
 
     int slot = -1;
     for (size_t i = 0; i < _clients.size(); i++) {

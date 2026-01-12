@@ -12,6 +12,7 @@
 #include <iostream>
 #include <algorithm>
 #include <cstdint>
+#include <netinet/tcp.h>
 #include "../TransportLayer/Protocol.hpp"
 
 namespace {
@@ -37,6 +38,8 @@ bool NetworkClient::connectToServer()
         return false;
     if (::connect(_tcpFd, reinterpret_cast<sockaddr*>(&_serverAddr), sizeof(_serverAddr)) < 0)
         return false;
+    int flag = 1;
+    setsockopt(_tcpFd, IPPROTO_TCP, TCP_NODELAY, &flag, sizeof(flag));
     _tcpConnected = true;
 
     _udpFd = socket(AF_INET, SOCK_DGRAM, 0);
@@ -231,6 +234,10 @@ bool NetworkClient::pollPackets()
         Packet p;
         if (readTcpPacket(p)) {
             handleTcpPacket(p);
+            Packet extra;
+            while (Protocol::extractFromBuffer(_tcpRecvBuffer, extra) == Protocol::StreamStatus::Ok) {
+                handleTcpPacket(extra);
+            }
             handled = true;
         }
     }
