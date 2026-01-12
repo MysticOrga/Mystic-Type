@@ -54,6 +54,7 @@ public:
      * @brief Close the socket and unlink the path when in server mode.
      */
     void close();
+    int fd() const { return _fd; }
 
 private:
     int _fd = -1;

@@ -227,6 +227,9 @@ void UDPGameServer::updateSimulation(long long nowMs, long long deltaMs)
 {
     for (auto &kv : _worlds) {
         kv.second.tick(nowMs, deltaMs);
+        if (_ipc && kv.second.takeBossSpawned()) {
+            _ipc->send("BOSS:" + kv.first);
+        }
         std::vector<int> toRemove;
         for (const auto &p : kv.second.players()) {
             if (p.second.hp == 0) {

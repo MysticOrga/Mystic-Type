@@ -41,7 +41,7 @@ void GameWorld::registerPlayer(int id, uint8_t x, uint8_t y, const sockaddr_in &
     state.velX = 0;
     state.velY = 0;
     state.hp = kDefaultPlayerHp;
-    state.score = 0;
+    state.score = _lobbyScore;
     state.lastHitMs = 0;
     _players[id] = state;
 }
@@ -135,11 +135,7 @@ void GameWorld::spawnMonster(long long nowMs)
 
 bool GameWorld::shouldSpawnBoss() const
 {
-    for (const auto &kv : _players) {
-        if (kv.second.score >= kBossScoreThreshold)
-            return true;
-    }
-    return false;
+    return _lobbyScore >= kBossScoreThreshold;
 }
 
 bool GameWorld::hasBoss() const
@@ -165,9 +161,17 @@ void GameWorld::spawnBoss(long long nowMs)
     m.nextPatternMs = nowMs;
     m.nextShotMs = nowMs;
     _monsters.push_back(m);
+    _bossSpawnedFlag = true;
 
     const std::string prefix = _logPrefix.empty() ? "[UDP] " : _logPrefix;
     std::cout << prefix << "Spawned BOSS " << m.id << "\n";
+}
+
+bool GameWorld::takeBossSpawned()
+{
+    bool wasSpawned = _bossSpawnedFlag;
+    _bossSpawnedFlag = false;
+    return wasSpawned;
 }
 
 void GameWorld::spawnBossBullet(const MonsterState &boss, long long nowMs)
@@ -319,13 +323,9 @@ void GameWorld::tick(long long nowMs, long long deltaMs)
             if (dx <= half + bulletHalf && dy <= half + bulletHalf) {
                 m.hp = static_cast<int8_t>(m.hp - 1);
                 if (m.hp <= 0) {
-                    auto ownerIt = _players.find(b.ownerId);
-                    if (ownerIt != _players.end()) {
-                        auto &owner = ownerIt->second;
-                        int maxScore = std::numeric_limits<uint16_t>::max();
-                        int newScore = std::min<int>(owner.score + kKillScore, maxScore);
-                        owner.score = static_cast<uint16_t>(newScore);
-                    }
+                    int maxScore = std::numeric_limits<uint16_t>::max();
+                    int newScore = std::min<int>(_lobbyScore + kKillScore, maxScore);
+                    _lobbyScore = static_cast<uint16_t>(newScore);
                 }
                 hit = true;
                 break;
@@ -409,8 +409,8 @@ Packet GameWorld::buildSnapshotPacket() const
         payload.push_back(p.x);
         payload.push_back(p.y);
         payload.push_back(p.hp);
-        payload.push_back(static_cast<uint8_t>((p.score >> 8) & 0xFF));
-        payload.push_back(static_cast<uint8_t>(p.score & 0xFF));
+        payload.push_back(static_cast<uint8_t>((_lobbyScore >> 8) & 0xFF));
+        payload.push_back(static_cast<uint8_t>(_lobbyScore & 0xFF));
     }
 
     payload.push_back(static_cast<uint8_t>(_bullets.size()));

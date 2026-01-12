@@ -293,6 +293,26 @@ void GraphicClient::processNetworkEvents()
                 _window.close();
                 _forceExit = true;
             }
+            else if (msg.rfind("CHAT:", 0) == 0)
+            {
+                std::string line = msg.substr(5);
+                if (!_localPseudo.empty() && !_lastChatSent.empty()) {
+                    std::string expected = _localPseudo + ": " + _lastChatSent;
+                    if (line == expected) {
+                        _lastChatSent.clear();
+                        continue;
+                    }
+                }
+                _chatLog.push_back(line);
+                if (_chatLog.size() > 8)
+                    _chatLog.erase(_chatLog.begin());
+            }
+            else if (msg.rfind("SYS:", 0) == 0)
+            {
+                _chatLog.push_back("[SYS] " + msg.substr(4));
+                if (_chatLog.size() > 8)
+                    _chatLog.erase(_chatLog.begin());
+            }
         }
     }
     _net.clearEvents();
@@ -311,7 +331,8 @@ void GraphicClient::updateEntities(float dt)
         const auto &myPos = _ecs.getComponent<Position>(myEntity);
         auto &myVel = _ecs.getComponent<Velocity>(myEntity);
 
-        _inputSystem.update(_net, myPos, myVel);
+        if (!_chatActive)
+            _inputSystem.update(_net, myPos, myVel);
     }
 
     for (const auto &kv : _entities)
@@ -668,6 +689,7 @@ bool GraphicClient::selectPseudo()
         if (submitNow || Raylib::Input::isKeyPressed(KEY_ENTER) || Raylib::Input::isKeyPressed(KEY_KP_ENTER))
         {
             _net.setPseudo(pseudo);
+            _localPseudo = pseudo;
             submitted = true;
         }
 
@@ -728,6 +750,19 @@ void GraphicClient::render(float dt)
     Raylib::Draw::text(scoreText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
                        static_cast<int>(GAME_AREA_OFFSET_Y) + 40, 22, {255, 255, 255, 210});
 
+    float chatX = GAME_AREA_OFFSET_X + 12;
+    float chatY = GAME_AREA_OFFSET_Y + GAME_AREA_SIZE - 140.0f;
+    for (const auto &line : _chatLog)
+    {
+        Raylib::Draw::text(line, static_cast<int>(chatX), static_cast<int>(chatY), 18, {230, 230, 230, 220});
+        chatY += 20.0f;
+    }
+    if (_chatActive)
+    {
+        std::string input = "> " + _chatInput;
+        Raylib::Draw::text(input, static_cast<int>(chatX), static_cast<int>(chatY), 18, {180, 230, 255, 255});
+    }
+
     _spriteRenderSystem.setScale(1.0f, 1.0f);
     for (const auto &kv : _entities)
     {
@@ -782,6 +817,42 @@ void GraphicClient::gameLoop()
             {
                 _net.sendHelloUdp(0, 0);
                 _lastHello = nowHello;
+            }
+        }
+
+        if (!_chatActive && Raylib::Input::isKeyPressed(KEY_ENTER))
+        {
+            _chatActive = true;
+            _chatInput.clear();
+        }
+        else if (_chatActive)
+        {
+            int key = GetCharPressed();
+            while (key > 0)
+            {
+                if (key >= 32 && key <= 126 && _chatInput.size() < 120)
+                {
+                    _chatInput.push_back(static_cast<char>(key));
+                }
+                key = GetCharPressed();
+            }
+            if (Raylib::Input::isKeyPressed(KEY_BACKSPACE) && !_chatInput.empty())
+                _chatInput.pop_back();
+            if (Raylib::Input::isKeyPressed(KEY_ESCAPE))
+            {
+                _chatActive = false;
+            }
+            else if (Raylib::Input::isKeyPressed(KEY_ENTER))
+            {
+                if (!_chatInput.empty()) {
+                    std::string name = _localPseudo.empty() ? "Me" : _localPseudo;
+                    _chatLog.push_back(name + ": " + _chatInput);
+                    if (_chatLog.size() > 8)
+                        _chatLog.erase(_chatLog.begin());
+                    _lastChatSent = _chatInput;
+                    _net.sendChat(_chatInput);
+                }
+                _chatActive = false;
             }
         }
 

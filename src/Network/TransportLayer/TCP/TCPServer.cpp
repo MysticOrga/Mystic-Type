@@ -12,6 +12,7 @@
 #include <iostream>
 #include <string>
 #include <random>
+#include <thread>
 #include <unistd.h>
 #include <sys/select.h>
 #include "../Protocol.hpp"
@@ -72,6 +73,15 @@ Packet TCPServer::makeIdPacket(PacketType type, int value)
 Packet TCPServer::makeLobbyPacket(PacketType type, const std::string &payload)
 {
     return Packet{type, std::vector<uint8_t>(payload.begin(), payload.end())};
+}
+
+void TCPServer::broadcastToLobby(const std::string &lobbyCode, const Packet &packet)
+{
+    for (auto &c : _clients) {
+        if (c.fd == -1 || !c.handshakeDone || c.lobbyCode != lobbyCode)
+            continue;
+        sendPacket(c.fd, packet);
+    }
 }
 
 bool TCPServer::sendPacket(int fd, const Packet &packet)
@@ -195,6 +205,10 @@ void TCPServer::processClientData(Client &client)
     auto res = receivePacket(client.fd, packet, client.recvBuffer);
     if (res == RecvResult::Disconnected) {
         std::cout << "[SERVER] client " << client.id << " disconnected\n";
+        if (client.handshakeDone && !client.lobbyCode.empty()) {
+            std::string sys = "SYS:" + client.pseudo + " disconnected";
+            broadcastToLobby(client.lobbyCode, makeStringPacket(PacketType::MESSAGE, sys));
+        }
         resetClient(client);
         return;
     }
@@ -239,6 +253,26 @@ void TCPServer::processClientData(Client &client)
         return;
     }
 
+    if (packet.type == PacketType::MESSAGE) {
+        if (!client.lobbyCode.empty()) {
+            std::string text(packet.payload.begin(), packet.payload.end());
+            std::string clean;
+            clean.reserve(text.size());
+            for (char c : text) {
+                if (c >= 32 && c <= 126) {
+                    clean.push_back(c);
+                }
+                if (clean.size() >= 120)
+                    break;
+            }
+            if (!clean.empty()) {
+                std::string msg = "CHAT:" + client.pseudo + ": " + clean;
+                broadcastToLobby(client.lobbyCode, makeStringPacket(PacketType::MESSAGE, msg));
+            }
+        }
+        return;
+    }
+
     std::string payloadStr(packet.payload.begin(), packet.payload.end());
     std::cout << "[SERVER] (" << client.id << ") packet type " << static_cast<int>(packet.type)
             << " payload: " << payloadStr << std::endl;
@@ -279,7 +313,10 @@ void TCPServer::checkHeartbeat()
         }
         if (now - c.lastPongTime > 10) {
             std::cout << "[SERVER] Client " << c.id << " timed out (no PONG for " << (now - c.lastPongTime) << "s)" << std::endl;
-
+            if (c.handshakeDone && !c.lobbyCode.empty()) {
+                std::string sys = "SYS:" + c.pseudo + " disconnected";
+                broadcastToLobby(c.lobbyCode, makeStringPacket(PacketType::MESSAGE, sys));
+            }
             resetClient(c);
         }
     }
@@ -296,6 +333,13 @@ void TCPServer::processIpcMessages()
             if (!msgOpt.has_value())
                 break;
             const std::string &msg = *msgOpt;
+            if (msg.rfind("BOSS:", 0) == 0) {
+                std::string lobbyCode = msg.substr(5);
+                if (!lobbyCode.empty()) {
+                    broadcastToLobby(lobbyCode, makeStringPacket(PacketType::MESSAGE, "SYS:Boss spawned"));
+                }
+                continue;
+            }
             if (msg.rfind("DEAD:", 0) == 0) {
                 int id = 0;
                 try {
@@ -307,6 +351,10 @@ void TCPServer::processIpcMessages()
                     continue;
                 for (auto &c : _clients) {
                     if (c.fd != -1 && c.id == id) {
+                        if (!c.lobbyCode.empty()) {
+                            std::string sys = "SYS:" + c.pseudo + " died";
+                            broadcastToLobby(c.lobbyCode, makeStringPacket(PacketType::MESSAGE, sys));
+                        }
                         sendPacket(c.fd, makeStringPacket(PacketType::MESSAGE, "DEAD"));
                         resetClient(c);
                         break;
@@ -342,10 +390,19 @@ void TCPServer::run()
                 maxFd = std::max(maxFd, c.fd);
             }
         }
+        for (const auto &kv : _lobbies) {
+            if (!kv.second.ipc)
+                continue;
+            int ipcFd = kv.second.ipc->fd();
+            if (ipcFd != -1) {
+                FD_SET(ipcFd, &readfds);
+                maxFd = std::max(maxFd, ipcFd);
+            }
+        }
 
         struct timeval tv;
-        tv.tv_sec = 1;
-        tv.tv_usec = 0;
+        tv.tv_sec = 0;
+        tv.tv_usec = 1000;
 
         int activity = pollSockets(readfds, maxFd, tv);
         if (activity < 0) {
@@ -353,7 +410,18 @@ void TCPServer::run()
         }
 
         if (activity == 0) {
+            std::this_thread::sleep_for(std::chrono::milliseconds(1));
             continue;
+        }
+
+        for (const auto &kv : _lobbies) {
+            if (!kv.second.ipc)
+                continue;
+            int ipcFd = kv.second.ipc->fd();
+            if (ipcFd != -1 && FD_ISSET(ipcFd, &readfds)) {
+                processIpcMessages();
+                break;
+            }
         }
 
         if (FD_ISSET(_serverSocket.getSocketFd(), &readfds)) {

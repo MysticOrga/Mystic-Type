@@ -218,6 +218,7 @@ class TCPServer {
          */
         void handleLobbyPacket(Client &client, const Packet &packet);
         void processIpcMessages();
+        void broadcastToLobby(const std::string &lobbyCode, const Packet &packet);
 
     private:
         Network::TransportLayer::TCPSocket _serverSocket;

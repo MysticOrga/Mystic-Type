@@ -27,6 +27,7 @@ public:
     enum class MoveCmd : uint8_t { Up = 0, Down = 1, Left = 2, Right = 3 };
     bool sendInput(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY, MoveCmd dir);
     bool sendShoot(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY);
+    bool sendChat(const std::string &text);
     bool sendCreateLobby();
     bool sendJoinLobby(const std::string &code);
     void setPseudo(const std::string &pseudo) { _pseudo = pseudo; }
@@ -37,6 +38,7 @@ public:
 
     int getPlayerId() const { return _playerId; }
     const std::string &getLobbyCode() const { return _lobbyCode; }
+    const std::string &getPseudo() const { return _pseudo; }
     const std::vector<PlayerState> &getLastSnapshot() const { return _lastSnapshot; }
     const std::vector<BulletState> &getLastSnapshotBullets() const { return _lastSnapshotBullets; }
     const std::vector<MonsterState> &getLastSnapshotMonsters() const { return _lastSnapshotMonsters; }

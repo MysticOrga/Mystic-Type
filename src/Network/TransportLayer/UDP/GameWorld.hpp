@@ -80,6 +80,7 @@ public:
     void tick(long long nowMs, long long deltaMs);
 
     Packet buildSnapshotPacket() const;
+    bool takeBossSpawned();
 
     const std::unordered_map<int, PlayerState> &players() const { return _players; }
     void setLogPrefix(const std::string &prefix) { _logPrefix = prefix; }
@@ -99,5 +100,7 @@ private:
     int _nextMonsterId = 1;
     long long _lastMonsterSpawnMs = 0;
     long long _monsterSpawnIntervalMs = 1800;
+    bool _bossSpawnedFlag = false;
+    uint16_t _lobbyScore = 0;
     std::string _logPrefix;
 };

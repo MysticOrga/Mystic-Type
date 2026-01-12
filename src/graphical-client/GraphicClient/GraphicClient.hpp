@@ -59,6 +59,11 @@ private:
     std::unordered_map<int, Entity> _entities;
     std::unordered_map<int, Entity> _bulletEntities;
     std::unordered_map<int, Entity> _monsterEntities;
+    std::vector<std::string> _chatLog;
+    std::string _chatInput;
+    bool _chatActive = false;
+    std::string _localPseudo;
+    std::string _lastChatSent;
     std::chrono::steady_clock::time_point _lastKeepAlive{};
     std::chrono::steady_clock::time_point _lastHello{};
     bool _udpReady = false;

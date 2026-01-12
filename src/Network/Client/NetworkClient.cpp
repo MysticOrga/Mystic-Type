@@ -129,6 +129,23 @@ bool NetworkClient::sendShoot(uint8_t posX, uint8_t posY, int8_t velX, int8_t ve
     return sendPacketUdp(shoot);
 }
 
+bool NetworkClient::sendChat(const std::string &text)
+{
+    std::string clean;
+    clean.reserve(text.size());
+    for (char c : text) {
+        if (c >= 32 && c <= 126) {
+            clean.push_back(c);
+        }
+        if (clean.size() >= 120)
+            break;
+    }
+    if (clean.empty())
+        return false;
+    Packet msg(PacketType::MESSAGE, std::vector<uint8_t>(clean.begin(), clean.end()));
+    return sendPacketTcp(msg);
+}
+
 bool NetworkClient::sendCreateLobby()
 {
     std::cout << "[CLIENT] SEND CREATE_LOBBY\n";
@@ -198,7 +215,7 @@ bool NetworkClient::pollPackets()
     }
     if (maxFd == -1)
         return false;
-    struct timeval tv{0, 50000}; // 50ms
+    struct timeval tv{0, 0}; // non-blocking
 
     int activity = select(maxFd + 1, &rfds, nullptr, nullptr, &tv);
     if (activity <= 0)
