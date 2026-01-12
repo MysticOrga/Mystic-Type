@@ -20,6 +20,7 @@ FetchContent_MakeAvailable(raylib)
 set(CLIENT_SOURCES
     main.cpp
     GraphicClient/GraphicClient.cpp
+    GraphicClient/MenuScreens.cpp
     Raylib/Raylib.cpp
     Graphic/Graphic.cpp
 

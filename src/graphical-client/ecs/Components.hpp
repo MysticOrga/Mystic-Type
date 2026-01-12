@@ -79,4 +79,18 @@ struct UIText {
     Color color{230, 230, 230, 255};
 };
 
+struct UIInput {
+    Rectangle bounds;
+    std::string label;
+    std::string value;
+    std::string placeholder;
+    bool focused = false;
+    float blinkTimer = 0.0f;
+    int maxLength = 50;
+    Color borderColor{100, 200, 255, 150};
+    Color focusedBorderColor{150, 220, 255, 255};
+    Color bgColor{15, 40, 80, 200};
+    Color textColor{220, 240, 255, 255};
+};
+
 #endif /* !COMPONENTS_HPP_ */

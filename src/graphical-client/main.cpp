@@ -10,6 +10,6 @@
 
 int main()
 {
-    GraphicClient client("10.49.84.165", 4243);
+    GraphicClient client("127.0.0.1", 4243);
     return client.run();
 }

@@ -12,6 +12,8 @@
 #include "../ecs/System.hpp"
 #include "../../Network/Client/NetworkClient.hpp"
 #include "../../Network/Client/GameState.hpp"
+#include "MenuState.hpp"
+#include "MenuScreens.hpp"
 #include <unordered_map>
 #include <string>
 #include <chrono>

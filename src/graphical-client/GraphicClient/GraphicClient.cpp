@@ -870,6 +870,16 @@ void GraphicClient::gameLoop()
 
 int GraphicClient::run()
 {
+    MenuState menuState;
+    MenuScreens menuScreens(_window);
+
+    // Show connection menu
+    if (!menuScreens.showConnectionScreen(menuState, _net))
+        return 1;
+
+    // Update network client with new IP and port from menu
+    _net = NetworkClient(menuState.getServerIp(), menuState.getServerPort());
+
     if (!init())
         return 1;
     gameLoop();
