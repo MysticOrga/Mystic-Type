@@ -43,6 +43,7 @@ private:
     void syncBullets(const std::vector<BulletState> &bullets);
     void syncMonsters(const std::vector<MonsterState> &monsters);
     bool selectLobby();
+    bool selectPseudo();
 
     Raylib::Window _window;
     NetworkClient _net;

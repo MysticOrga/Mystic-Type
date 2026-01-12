@@ -63,6 +63,7 @@ class TCPServer {
             long lastPongTime = 0;
             long handshakeStart = 0;
             std::string lobbyCode;
+            std::string pseudo;
 
             uint8_t posX = 0;
             uint8_t posY = 0;

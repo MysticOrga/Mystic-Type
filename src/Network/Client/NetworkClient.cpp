@@ -53,7 +53,27 @@ bool NetworkClient::performHandshake()
     if (receiveTcpFramed(serverHello) != RecvResult::Ok)
         return false;
 
-    Packet clientHello(PacketType::CLIENT_HELLO, {'t','o','t','o'});
+    auto sanitizePseudo = [](const std::string &raw) {
+        std::string out;
+        out.reserve(raw.size());
+        for (char c : raw) {
+            if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+                || (c >= '0' && c <= '9') || c == '_' || c == '-') {
+                out.push_back(c);
+            }
+            if (out.size() >= 12)
+                break;
+        }
+        return out;
+    };
+    std::string cleanPseudo = sanitizePseudo(_pseudo);
+    std::string helloPayload = "toto";
+    if (!cleanPseudo.empty()) {
+        helloPayload += "|" + cleanPseudo;
+    } else {
+        helloPayload += "|";
+    }
+    Packet clientHello(PacketType::CLIENT_HELLO, std::vector<uint8_t>(helloPayload.begin(), helloPayload.end()));
     if (!sendPacketTcp(clientHello))
         return false;
 

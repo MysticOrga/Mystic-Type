@@ -29,6 +29,7 @@ public:
     bool sendShoot(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY);
     bool sendCreateLobby();
     bool sendJoinLobby(const std::string &code);
+    void setPseudo(const std::string &pseudo) { _pseudo = pseudo; }
 
     bool pollPackets();
     void disconnect();
@@ -61,6 +62,7 @@ private:
     sockaddr_in _serverAddr{};
     int _playerId = -1;
     std::string _lobbyCode;
+    std::string _pseudo;
 
     std::vector<PlayerState> _lastSnapshot;
     std::vector<BulletState> _lastSnapshotBullets;

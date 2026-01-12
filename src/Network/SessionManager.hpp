@@ -29,6 +29,7 @@ struct Session {
     long lastShootMs = 0;
     int shootCount = 0;
     std::string lobbyCode;
+    std::string pseudo;
 };
 
 /**
@@ -48,6 +49,8 @@ public:
     void updatePong(int id, long nowMs);
     void setLobbyCode(int id, const std::string &code);
     std::optional<std::string> getLobbyCode(int id) const;
+    void setPseudo(int id, const std::string &pseudo);
+    std::optional<std::string> getPseudo(int id) const;
 
     bool allowInput(int id, long nowMs);
     bool allowShoot(int id, long nowMs);

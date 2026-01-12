@@ -94,6 +94,24 @@ std::optional<std::string> SessionManager::getLobbyCode(int id) const
     return it->second.lobbyCode;
 }
 
+void SessionManager::setPseudo(int id, const std::string &pseudo)
+{
+    std::lock_guard<std::mutex> lock(_mutex);
+    auto it = _sessions.find(id);
+    if (it == _sessions.end())
+        return;
+    it->second.pseudo = pseudo;
+}
+
+std::optional<std::string> SessionManager::getPseudo(int id) const
+{
+    std::lock_guard<std::mutex> lock(_mutex);
+    auto it = _sessions.find(id);
+    if (it == _sessions.end())
+        return std::nullopt;
+    return it->second.pseudo;
+}
+
 void SessionManager::resetCounter(long nowMs, long &lastMs, int &count, int limit)
 {
     if (nowMs - lastMs >= 1000) {

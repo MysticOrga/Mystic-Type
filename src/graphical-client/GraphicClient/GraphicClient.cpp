@@ -27,6 +27,8 @@ bool GraphicClient::init()
     _spriteRenderSystem.setGameAreaOffset(GAME_AREA_OFFSET_X, GAME_AREA_OFFSET_Y, GAME_AREA_SIZE);
     _rectangleRenderSystem.setGameAreaOffset(GAME_AREA_OFFSET_X, GAME_AREA_OFFSET_Y, GAME_AREA_SIZE);
 
+    if (!selectPseudo())
+        return false;
     if (!_net.connectToServer())
         return false;
     if (!_net.performHandshake())
@@ -600,6 +602,79 @@ bool GraphicClient::selectLobby()
         //     return true;
         // }
     }
+}
+
+bool GraphicClient::selectPseudo()
+{
+    std::string pseudo;
+    bool submitted = false;
+    float blinkTimer = 0.0f;
+    const float screenWidth = 1920.0f;
+    const float screenHeight = 1080.0f;
+
+    while (!submitted && !_window.shouldClose())
+    {
+        float dt = _window.getFrameTime();
+        blinkTimer += dt;
+        _window.beginDrawing();
+        _window.clearBackground({15, 25, 50, 255});
+
+        const char *title = "ENTER YOUR PSEUDO";
+        int titleSize = 46;
+        int titleWidth = MeasureText(title, titleSize);
+        Raylib::Draw::text(title, static_cast<int>((screenWidth - titleWidth) / 2.0f), 140, titleSize,
+                           {100, 200, 255, 255});
+
+        const float inputWidth = 420.0f;
+        const float inputHeight = 70.0f;
+        const float inputX = (screenWidth - inputWidth) / 2.0f;
+        const float inputY = 420.0f;
+        Rectangle inputBox{inputX, inputY, inputWidth, inputHeight};
+
+        Raylib::Draw::rectangleLines(static_cast<int>(inputBox.x) - 2, static_cast<int>(inputBox.y) - 2,
+                                     static_cast<int>(inputBox.width) + 4, static_cast<int>(inputBox.height) + 4,
+                                     Color{100, 200, 255, 150});
+        Raylib::Draw::rectangle(static_cast<int>(inputBox.x), static_cast<int>(inputBox.y),
+                                static_cast<int>(inputBox.width), static_cast<int>(inputBox.height),
+                                Color{15, 40, 80, 200});
+
+        bool submitNow = false;
+        int key = GetCharPressed();
+        while (key > 0)
+        {
+            if (key == '\n' || key == '\r')
+            {
+                submitNow = true;
+            }
+            if ((std::isalnum(key) || key == '_' || key == '-') && pseudo.size() < 12)
+            {
+                pseudo.push_back(static_cast<char>(key));
+            }
+            key = GetCharPressed();
+        }
+        if (Raylib::Input::isKeyPressed(KEY_BACKSPACE) && !pseudo.empty())
+            pseudo.pop_back();
+
+        std::string display = pseudo;
+        if (static_cast<int>(blinkTimer * 2.0f) % 2 == 0)
+            display.push_back('_');
+        int textW = MeasureText(display.c_str(), 32);
+        Raylib::Draw::text(display.c_str(), static_cast<int>(inputX + (inputWidth - textW) / 2.0f),
+                           static_cast<int>(inputY + 18), 32, {220, 240, 255, 255});
+
+        Raylib::Draw::text("Press Enter to continue", static_cast<int>(inputX),
+                           static_cast<int>(inputY + 90), 18, {150, 200, 255, 200});
+
+        if (submitNow || Raylib::Input::isKeyPressed(KEY_ENTER) || Raylib::Input::isKeyPressed(KEY_KP_ENTER))
+        {
+            _net.setPseudo(pseudo);
+            submitted = true;
+        }
+
+        _window.endDrawing();
+    }
+
+    return submitted;
 }
 
 void GraphicClient::drawGameBackground(float hoverAnimTimer)

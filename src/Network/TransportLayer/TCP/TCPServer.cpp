@@ -18,6 +18,20 @@
 
 namespace {
     constexpr uint8_t kDefaultPlayerHp = 5;
+    std::string sanitizePseudo(const std::string &raw)
+    {
+        std::string out;
+        out.reserve(raw.size());
+        for (char c : raw) {
+            if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
+                || (c >= '0' && c <= '9') || c == '_' || c == '-') {
+                out.push_back(c);
+            }
+            if (out.size() >= 12)
+                break;
+        }
+        return out;
+    }
 }
 
 TCPServer::TCPServer(uint16_t port, SessionManager &sessions, ChildProcessManager *childMgr)
@@ -130,6 +144,7 @@ void TCPServer::resetClient(Client &client)
     client.posY = 0;
     client.hp = 0;
     client.lobbyCode.clear();
+    client.pseudo.clear();
     client.recvBuffer.clear();
 }
 
@@ -194,9 +209,20 @@ void TCPServer::processClientData(Client &client)
             resetClient(client);
             return;
         }
+        std::string pseudo;
+        auto sep = payloadStr.find('|');
+        if (sep != std::string::npos && sep + 1 < payloadStr.size()) {
+            pseudo = payloadStr.substr(sep + 1);
+        }
+        pseudo = sanitizePseudo(pseudo);
+        if (pseudo.empty()) {
+            pseudo = "Player" + std::to_string(client.id);
+        }
         sendPacket(client.fd, makeIdPacket(PacketType::OK, client.id));
         client.handshakeDone = true;
+        client.pseudo = pseudo;
         client.lastPongTime = getCurrentTime();
+        _sessions.setPseudo(client.id, pseudo);
         std::cout << "[SERVER] client " << client.id << " handshake done (awaiting lobby selection)\n";
         return;
     }
