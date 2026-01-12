@@ -34,6 +34,27 @@ namespace {
         }
         return out;
     }
+
+    std::vector<uint8_t> encodeU64(uint64_t value)
+    {
+        std::vector<uint8_t> out(8);
+        for (int i = 7; i >= 0; --i) {
+            out[7 - i] = static_cast<uint8_t>((value >> (i * 8)) & 0xFF);
+        }
+        return out;
+    }
+
+    bool decodeU64(const std::vector<uint8_t> &data, uint64_t &out)
+    {
+        if (data.size() < 8)
+            return false;
+        uint64_t value = 0;
+        for (size_t i = 0; i < 8; ++i) {
+            value = (value << 8) | static_cast<uint64_t>(data[i]);
+        }
+        out = value;
+        return true;
+    }
 }
 
 TCPServer::TCPServer(uint16_t port, SessionManager &sessions, ChildProcessManager *childMgr)
@@ -149,6 +170,8 @@ void TCPServer::resetClient(Client &client)
     client.handshakeDone = false;
     client.lastPongTime = 0;
     client.handshakeStart = 0;
+    client.lastPingSentMs = 0;
+    client.pingMs = 0;
     client.posX = 0;
     client.posY = 0;
     client.hp = 0;
@@ -245,6 +268,19 @@ void TCPServer::processClientData(Client &client)
     if (packet.type == PacketType::PONG) {
         client.lastPongTime = getCurrentTime();
         _sessions.updatePong(client.id, client.lastPongTime);
+        long long nowMs = getCurrentTimeMs();
+        uint64_t sentMs = 0;
+        int rtt = 0;
+        if (decodeU64(packet.payload, sentMs)) {
+            rtt = static_cast<int>(std::max<long long>(0, nowMs - static_cast<long long>(sentMs)));
+        } else if (client.lastPingSentMs > 0) {
+            rtt = static_cast<int>(std::max<long long>(0, nowMs - client.lastPingSentMs));
+        }
+        client.pingMs = rtt;
+        if (!client.lobbyCode.empty()) {
+            std::string pingMsg = "PING:" + std::to_string(client.id) + ":" + std::to_string(rtt);
+            broadcastToLobby(client.lobbyCode, makeStringPacket(PacketType::MESSAGE, pingMsg));
+        }
         std::cout << "[SERVER] Received PONG from client " << client.id << std::endl;
         return;
     }
@@ -336,13 +372,22 @@ long TCPServer::getCurrentTime()
     return duration_cast<seconds>(steady_clock::now().time_since_epoch()).count();
 }
 
+long long TCPServer::getCurrentTimeMs()
+{
+    using namespace std::chrono;
+    return duration_cast<milliseconds>(steady_clock::now().time_since_epoch()).count();
+}
+
 
 void TCPServer::sendPingToAll()
 {
+    long long nowMs = getCurrentTimeMs();
+    std::vector<uint8_t> payload = encodeU64(static_cast<uint64_t>(nowMs));
     for (auto &c : _clients) {
         if (c.fd != -1 && c.handshakeDone) {
             std::cout << "[SERVER] Sending PING to client " << c.id << std::endl;
-            sendPacket(c.fd, Packet(PacketType::PING, {}));
+            c.lastPingSentMs = nowMs;
+            sendPacket(c.fd, Packet(PacketType::PING, payload));
         }
     }
 }
@@ -423,7 +468,7 @@ void TCPServer::run()
     while (true) {
         processIpcMessages();
         long now = getCurrentTime();
-        if (now - lastPing >= 5) {
+        if (now - lastPing >= 1) {
             sendPingToAll();
             checkHeartbeat();
             lastPing = now;

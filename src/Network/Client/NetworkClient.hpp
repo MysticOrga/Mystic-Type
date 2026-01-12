@@ -72,4 +72,5 @@ private:
     std::vector<PlayerState> _lastPlayerList;
     std::vector<std::string> _events;
     std::vector<uint8_t> _tcpRecvBuffer;
+    std::vector<uint8_t> _lastPingPayload;
 };

@@ -296,6 +296,18 @@ void GraphicClient::processNetworkEvents()
                 _window.close();
                 _forceExit = true;
             }
+            else if (msg.rfind("PING:", 0) == 0)
+            {
+                auto first = msg.find(':');
+                auto second = msg.find(':', first + 1);
+                if (first != std::string::npos && second != std::string::npos) {
+                    int id = std::atoi(msg.substr(first + 1, second - first - 1).c_str());
+                    int ping = std::atoi(msg.substr(second + 1).c_str());
+                    if (id > 0 && ping >= 0) {
+                        _playerPingMs[id] = ping;
+                    }
+                }
+            }
             else if (msg.rfind("CHAT:", 0) == 0)
             {
                 std::string line = msg.substr(5);
@@ -752,6 +764,20 @@ void GraphicClient::render(float dt)
     std::string scoreText = hasScore ? ("SCORE: " + std::to_string(myScore)) : "SCORE: --";
     Raylib::Draw::text(scoreText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
                        static_cast<int>(GAME_AREA_OFFSET_Y) + 40, 22, {255, 255, 255, 210});
+
+    float pingX = GAME_AREA_OFFSET_X + GAME_AREA_SIZE - 170.0f;
+    float pingY = GAME_AREA_OFFSET_Y + 12.0f;
+    for (const auto &p : _state.listPlayers())
+    {
+        auto itPing = _playerPingMs.find(p.id);
+        std::string line = "P" + std::to_string(p.id) + ": ";
+        if (itPing != _playerPingMs.end())
+            line += std::to_string(itPing->second) + " ms";
+        else
+            line += "--";
+        Raylib::Draw::text(line, static_cast<int>(pingX), static_cast<int>(pingY), 18, {200, 230, 255, 220});
+        pingY += 20.0f;
+    }
 
     float chatX = GAME_AREA_OFFSET_X + 12;
     float chatY = GAME_AREA_OFFSET_Y + GAME_AREA_SIZE - 140.0f;

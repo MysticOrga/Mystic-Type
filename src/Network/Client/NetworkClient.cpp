@@ -91,7 +91,7 @@ bool NetworkClient::performHandshake()
 
 bool NetworkClient::sendPong()
 {
-    Packet pong(PacketType::PONG, {});
+    Packet pong(PacketType::PONG, _lastPingPayload);
     return sendPacketTcp(pong);
 }
 
@@ -255,6 +255,7 @@ void NetworkClient::handleTcpPacket(const Packet &p)
 {
     switch (p.type) {
         case PacketType::PING:
+            _lastPingPayload = p.payload;
             if (sendPong()) {
                 _events.push_back("PING");
             } else {

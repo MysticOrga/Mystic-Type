@@ -62,6 +62,8 @@ class TCPServer {
             bool handshakeDone = false;
             long lastPongTime = 0;
             long handshakeStart = 0;
+            long long lastPingSentMs = 0;
+            int pingMs = 0;
             std::string lobbyCode;
             std::string pseudo;
 
@@ -95,6 +97,7 @@ class TCPServer {
          * @brief Get current time in milliseconds.
          */
         long getCurrentTime();
+        long long getCurrentTimeMs();
 
         /**
          * @brief Block until a file descriptor is readable or times out.

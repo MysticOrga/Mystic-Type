@@ -64,6 +64,7 @@ private:
     bool _chatActive = false;
     std::string _localPseudo;
     std::string _lastChatSent;
+    std::unordered_map<int, int> _playerPingMs;
     std::chrono::steady_clock::time_point _lastKeepAlive{};
     std::chrono::steady_clock::time_point _lastHello{};
     bool _udpReady = false;
