@@ -8,21 +8,46 @@
 #include "UDPGameServer.hpp"
 #include <iostream>
 #include <thread>
+#include <sstream>
 
 namespace
 {
 constexpr std::size_t UDP_BUFFER_SIZE = 1024;
 }
 
-UDPGameServer::UDPGameServer(uint16_t port, SessionManager &sessions, long long snapshotIntervalMs)
-    : _port(port), _snapshotIntervalMs(snapshotIntervalMs), _sessions(sessions)
+UDPGameServer::UDPGameServer(uint16_t port, SessionManager &sessions, long long snapshotIntervalMs, std::string lobbyCode)
+    : _port(port), _snapshotIntervalMs(snapshotIntervalMs), _sessions(sessions), _expectedLobby(std::move(lobbyCode))
 {
     if (!_socket.bindTo(port))
     {
         throw std::runtime_error("Failed to bind UDP socket");
     }
-    std::cout << "[UDP] Listening on port " << port << std::endl;
-    _sessions.setOnRemove([this](int id) { _world.removePlayer(id); });
+    std::cout << logPrefix() << "Listening on port " << port << std::endl;
+    if (!_expectedLobby.empty()) {
+        _worlds[_expectedLobby] = GameWorld{};
+        _worlds[_expectedLobby].setLogPrefix(logPrefix());
+    }
+    _sessions.setOnRemove([this](int id) {
+        auto itLobby = _playerLobby.find(id);
+        if (itLobby != _playerLobby.end()) {
+            auto worldIt = _worlds.find(itLobby->second);
+            if (worldIt != _worlds.end()) {
+                worldIt->second.removePlayer(id);
+                if (worldIt->second.players().empty()) {
+                    _worlds.erase(worldIt);
+                }
+            }
+            _playerLobby.erase(itLobby);
+        }
+    });
+}
+
+UDPGameServer::~UDPGameServer()
+{
+    _running = false;
+    if (_networkThread.joinable()) {
+        _networkThread.join();
+    }
 }
 
 long long UDPGameServer::nowMs() const
@@ -39,40 +64,46 @@ bool UDPGameServer::sendPacketTo(const Packet &packet, const sockaddr_in &to)
 
 void UDPGameServer::broadcastSnapshot()
 {
-    Packet snap = _world.buildSnapshotPacket();
-    for (const auto &kv : _world.players())
-    {
-        sendPacketTo(snap, kv.second.addr);
+    for (auto &kv : _worlds) {
+        Packet snap = kv.second.buildSnapshotPacket();
+        for (const auto &player : kv.second.players()) {
+            sendPacketTo(snap, player.second.addr);
+        }
     }
 }
 
 void UDPGameServer::handleHello(const Packet &packet, const sockaddr_in &from)
 {
-    if (packet.payload.size() < 2)
-    {
-        std::cerr << "[UDP] HELLO_UDP payload too small\n";
+    if (packet.payload.size() < 2) {
+        std::cerr << logPrefix() << "HELLO_UDP payload too small\n";
         return;
     }
     int id = (packet.payload[0] << 8) | packet.payload[1];
     uint8_t x = packet.payload.size() >= 3 ? packet.payload[2] : 0;
     uint8_t y = packet.payload.size() >= 4 ? packet.payload[3] : 0;
 
-    if (!_sessions.getSession(id).has_value())
-    {
-        std::cerr << "[UDP] HELLO_UDP from unknown id=" << id << "\n";
-        return;
+    // Use expected lobby when provided; fallback to session info or PUBLIC.
+    std::string lobbyCode = !_expectedLobby.empty() ? _expectedLobby : "PUBLIC";
+    auto sessionOpt = _sessions.getSession(id);
+    if (sessionOpt.has_value() && !sessionOpt->lobbyCode.empty()) {
+        lobbyCode = sessionOpt->lobbyCode;
+        _sessions.setUdpAddr(id, from);
     }
-    _world.registerPlayer(id, x, y, from);
-    _sessions.setUdpAddr(id, from);
-    std::cout << "[UDP] Registered client id=" << id << " at " << static_cast<int>(x) << "," << static_cast<int>(y)
-              << "\n";
+
+    GameWorld &world = _worlds[lobbyCode];
+    world.setLogPrefix(logPrefix());
+    world.registerPlayer(id, x, y, from);
+    _playerLobby[id] = lobbyCode;
+    // Send a fresh snapshot immediately so the client sees the lobby state without waiting the next tick.
+    Packet snap = world.buildSnapshotPacket();
+    sendPacketTo(snap, from);
+    std::cout << logPrefix() << "Registered client id=" << id << " at " << static_cast<int>(x) << "," << static_cast<int>(y) << "\n";
 }
 
 void UDPGameServer::handleInput(const Packet &packet, const sockaddr_in &from)
 {
-    if (packet.payload.size() < 7)
-    {
-        std::cerr << "[UDP] INPUT payload too small\n";
+    if (packet.payload.size() < 7) {
+        std::cerr << logPrefix() << "INPUT payload too small\n";
         return;
     }
     int id = (packet.payload[0] << 8) | packet.payload[1];
@@ -81,13 +112,29 @@ void UDPGameServer::handleInput(const Packet &packet, const sockaddr_in &from)
     int8_t velY = static_cast<int8_t>(packet.payload[5]);
     uint8_t dir = packet.payload[6];
 
-    long now = nowMs();
-    if (!_sessions.allowInput(id, now))
-    {
-        std::cerr << "[UDP] INPUT rate limited for id=" << id << "\n";
-        return;
+    // Rate limiting disabled here because SessionManager is not shared across processes.
+    auto lobbyIt = _playerLobby.find(id);
+    if (lobbyIt == _playerLobby.end()) {
+        if (!_expectedLobby.empty()) {
+            _playerLobby[id] = _expectedLobby;
+        } else {
+            auto sessionOpt = _sessions.getSession(id);
+            if (sessionOpt.has_value() && !sessionOpt->lobbyCode.empty()) {
+                _playerLobby[id] = sessionOpt->lobbyCode;
+            } else {
+                _playerLobby[id] = "PUBLIC";
+            }
+        }
+        lobbyIt = _playerLobby.find(id);
     }
-    _world.updateInput(id, velX, velY, dir, from);
+
+    auto worldIt = _worlds.find(lobbyIt->second);
+    if (worldIt == _worlds.end()) {
+        worldIt = _worlds.emplace(lobbyIt->second, GameWorld{}).first;
+    }
+    worldIt->second.setLogPrefix(logPrefix());
+
+    worldIt->second.updateInput(id, velX, velY, dir, from);
 }
 
 void UDPGameServer::handleShoot(const Packet &packet)
@@ -101,13 +148,27 @@ void UDPGameServer::handleShoot(const Packet &packet)
     int8_t velX = static_cast<int8_t>(packet.payload[4]);
     int8_t velY = static_cast<int8_t>(packet.payload[5]);
 
-    long now = nowMs();
-    if (!_sessions.allowShoot(id, now))
-    {
-        std::cerr << "[UDP] SHOOT rate limited for id=" << id << "\n";
-        return;
+    auto lobbyIt = _playerLobby.find(id);
+    if (lobbyIt == _playerLobby.end()) {
+        if (!_expectedLobby.empty()) {
+            _playerLobby[id] = _expectedLobby;
+        } else {
+            auto sessionOpt = _sessions.getSession(id);
+            if (sessionOpt.has_value() && !sessionOpt->lobbyCode.empty()) {
+                _playerLobby[id] = sessionOpt->lobbyCode;
+            } else {
+                _playerLobby[id] = "PUBLIC";
+            }
+        }
+        lobbyIt = _playerLobby.find(id);
     }
-    _world.addShot(id, posX, posY, velX, velY);
+    auto worldIt = _worlds.find(lobbyIt->second);
+    if (worldIt == _worlds.end()) {
+        worldIt = _worlds.emplace(lobbyIt->second, GameWorld{}).first;
+    }
+    worldIt->second.setLogPrefix(logPrefix());
+
+    worldIt->second.addShot(id, posX, posY, velX, velY);
 }
 
 void UDPGameServer::handlePacket(const Packet &packet, const sockaddr_in &from)
@@ -130,23 +191,19 @@ void UDPGameServer::handlePacket(const Packet &packet, const sockaddr_in &from)
 
 void UDPGameServer::run()
 {
-    uint8_t buffer[UDP_BUFFER_SIZE]{};
+    _running = true;
+    _networkThread = std::thread(&UDPGameServer::networkLoop, this);
+
     _lastSnapshotMs = nowMs();
     _lastTickMs = _lastSnapshotMs;
 
-    while (true)
-    {
-        ssize_t n = _socket.readByte(reinterpret_cast<char *>(buffer), sizeof(buffer));
-        if (n > 0)
+    while (_running) {
         {
-            try
-            {
-                Packet packet = Packet::deserialize(buffer, static_cast<size_t>(n));
-                handlePacket(packet, _socket.getSenderAddr());
-            }
-            catch (const std::exception &e)
-            {
-                std::cerr << "[UDP] Failed to parse packet: " << e.what() << "\n";
+            std::lock_guard<std::mutex> lock(_queueMutex);
+            while (!_incoming.empty()) {
+                auto item = _incoming.front();
+                _incoming.pop();
+                handlePacket(item.pkt, item.from);
             }
         }
 
@@ -165,9 +222,81 @@ void UDPGameServer::run()
 
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
+
+    if (_networkThread.joinable()) {
+        _networkThread.join();
+    }
 }
 
 void UDPGameServer::updateSimulation(long long nowMs, long long deltaMs)
 {
-    _world.tick(nowMs, deltaMs);
+    std::vector<std::string> emptyWorlds;
+    for (auto &kv : _worlds) {
+        kv.second.tick(nowMs, deltaMs);
+        if (_ipc && kv.second.takeBossSpawned()) {
+            _ipc->send("BOSS:" + kv.first);
+        }
+        if (_ipc && kv.second.takeBossDefeated()) {
+            _ipc->send("BOSS_DEAD:" + kv.first);
+            _running = false;
+        }
+        std::vector<int> toRemove;
+        for (const auto &p : kv.second.players()) {
+            if (p.second.hp == 0) {
+                toRemove.push_back(p.first);
+            }
+        }
+        for (int id : toRemove) {
+            if (_ipc) {
+                _ipc->send("DEAD:" + std::to_string(id));
+            }
+            kv.second.removePlayer(id);
+            _playerLobby.erase(id);
+        }
+        if (kv.second.takeNoPlayers()) {
+            emptyWorlds.push_back(kv.first);
+        }
+    }
+    for (const auto &code : emptyWorlds) {
+        _worlds.erase(code);
+        if (_ipc) {
+            _ipc->send("NO_PLAYERS:" + code);
+        }
+        if (!_expectedLobby.empty() && _expectedLobby == code) {
+            _running = false;
+        }
+    }
+    if (_expectedLobby.empty() && _worlds.empty()) {
+        _running = false;
+    }
+}
+
+void UDPGameServer::networkLoop()
+{
+    uint8_t buffer[UDP_BUFFER_SIZE]{};
+    while (_running) {
+        ssize_t n = _socket.readByte(reinterpret_cast<char *>(buffer), sizeof(buffer));
+        if (n > 0) {
+            try {
+                Packet packet = Packet::deserialize(buffer, static_cast<size_t>(n));
+                Incoming inc;
+                inc.pkt = std::move(packet);
+                inc.from = _socket.getSenderAddr();
+                std::lock_guard<std::mutex> lock(_queueMutex);
+                _incoming.push(std::move(inc));
+            } catch (const std::exception &e) {
+                std::cerr << logPrefix() << "Failed to parse packet: " << e.what() << "\n";
+            }
+        } else {
+            std::this_thread::sleep_for(std::chrono::milliseconds(1));
+        }
+    }
+}
+
+std::string UDPGameServer::logPrefix() const
+{
+    std::ostringstream oss;
+    oss << "[UDP lobby=" << (_expectedLobby.empty() ? "?" : _expectedLobby)
+        << " port=" << _port << " tid=" << std::this_thread::get_id() << "] ";
+    return oss.str();
 }

@@ -8,7 +8,8 @@
 #include "src/Network/SessionManager.hpp"
 #include "src/Network/TransportLayer/TCP/TCPServer.hpp"
 #include "src/Network/TransportLayer/UDP/UDPGameServer.hpp"
-
+#include "src/server/ChildProcessManager.hpp"
+#include "src/server/IpcChannel.hpp"
 #include <iostream>
 #include <thread>
 
@@ -21,21 +22,15 @@ int main()
         return 1;
     }
 #endif
-    try
-    {
+    try {
         SessionManager sessions;
-        TCPServer tcpServer(4243, sessions);
-        UDPGameServer udpServer(4243, sessions, 50); // ~20 snapshots/s
-
-        std::thread tcpThread([&tcpServer]() { tcpServer.run(); });
-
-        udpServer.run();
-
-        tcpThread.join();
+        ChildProcessManager childMgr;
+        TCPServer tcpServer(4243, sessions, &childMgr);
+        tcpServer.run();
     }
-    catch (const std::exception &e)
-    {
-        std::cerr << "[SERVER IOERROR] " << e.what() << std::endl;
+    catch (const std::exception &e) {
+        std::cerr << "[TCP SERVER ERROR] " << e.what() << std::endl;
+        return 1;
     }
 #ifdef _WIN32
     WSACleanup();

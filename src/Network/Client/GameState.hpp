@@ -15,6 +15,8 @@ struct PlayerState {
     int id = 0;
     uint8_t x = 0;
     uint8_t y = 0;
+    uint8_t hp = 0;
+    uint16_t score = 0;
 };
 
 struct BulletState {
@@ -35,9 +37,9 @@ struct MonsterState {
 
 class GameState {
 public:
-    void upsertPlayer(int id, uint8_t x, uint8_t y)
+    void upsertPlayer(int id, uint8_t x, uint8_t y, uint8_t hp, uint16_t score)
     {
-        _players[id] = PlayerState{id, x, y};
+        _players[id] = PlayerState{id, x, y, hp, score};
     }
 
     void upsertBullet(int id, uint8_t x, uint8_t y, int8_t vx, int8_t vy)

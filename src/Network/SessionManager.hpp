@@ -18,6 +18,7 @@
 #include <functional>
 #include <cstdint>
 #include <vector>
+#include <string>
 
 struct Session {
     int id = 0;
@@ -31,6 +32,8 @@ struct Session {
     int inputCount = 0;
     long lastShootMs = 0;
     int shootCount = 0;
+    std::string lobbyCode;
+    std::string pseudo;
 };
 
 /**
@@ -48,6 +51,10 @@ public:
     bool setUdpAddr(int id, const sockaddr_in &udpAddr);
     std::optional<Session> getSession(int id) const;
     void updatePong(int id, long nowMs);
+    void setLobbyCode(int id, const std::string &code);
+    std::optional<std::string> getLobbyCode(int id) const;
+    void setPseudo(int id, const std::string &pseudo);
+    std::optional<std::string> getPseudo(int id) const;
 
     bool allowInput(int id, long nowMs);
     bool allowShoot(int id, long nowMs);

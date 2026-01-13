@@ -10,9 +10,13 @@
 #include <array>
 #include <vector>
 #include <string>
+#include <unordered_map>
+#include <memory>
 #include "TCPSocket.hpp"
 #include "../Packet.hpp"
 #include "../../SessionManager.hpp"
+#include "server/ChildProcessManager.hpp"
+#include "server/IpcChannel.hpp"
 
 #include <vector>
 
@@ -32,7 +36,7 @@ class TCPServer {
          *
          * @param port TCP port to listen on.
          */
-        TCPServer(uint16_t port, SessionManager &sessions);
+        TCPServer(uint16_t port, SessionManager &sessions, ChildProcessManager *childMgr = nullptr);
 
         /**
          * @brief Destroy the TCPServer, closing the listening socket.
@@ -55,16 +59,15 @@ class TCPServer {
             sockaddr_in addr{};
             bool handshakeDone = false;
             long lastPongTime = 0;
+            long handshakeStart = 0;
+            std::string lobbyCode;
+            std::string pseudo;
 
             uint8_t posX = 0;
             uint8_t posY = 0;
+            uint8_t hp = 0;
             std::vector<uint8_t> recvBuffer;
         };
-
-        /**
-         * @brief Complete initial handshake and assign an id to a new client.
-         */
-        bool performHandshake(Client &client);
 
         /**
          * @brief Accept incoming connection and register a new client slot.
@@ -141,6 +144,7 @@ class TCPServer {
          * @brief Build a packet carrying a simple integer id.
          */
         Packet makeIdPacket(PacketType type, int value);
+        Packet makeLobbyPacket(PacketType type, const std::string &payload);
 
         /**
          * @brief Write raw bytes to a socket fd.
@@ -165,7 +169,7 @@ class TCPServer {
         /**
          * @brief Build the packet containing the list of connected players.
          */
-        Packet buildPlayerListPacket() const;
+        Packet buildPlayerListPacket(const std::string &lobbyCode) const;
 
         /**
          * @brief Send the current player list to a single client.
@@ -182,9 +186,54 @@ class TCPServer {
          */
         bool writeAll(socket_t fd, const uint8_t *data, std::size_t size);
 
+        /**
+         * @brief Assign a client to a lobby (public or private).
+         */
+        bool assignLobby(Client &client, const std::string &code, bool createIfMissing, bool isPublic, bool allowFull = false);
+
+        /**
+         * @brief Remove a client from its current lobby.
+         */
+        void removeFromLobby(const Client &client);
+
+        /**
+         * @brief Resend the player list to all members of a lobby.
+         */
+        void refreshLobby(const std::string &code);
+
+        /**
+         * @brief Auto-match the client into a public lobby.
+         */
+        std::string autoAssignPublic(Client &client);
+
+        /**
+         * @brief Generate a random lobby code (6 chars alnum).
+         */
+        std::string generateLobbyCode();
+
+        /**
+         * @brief Handle lobby-related packets for a client.
+         */
+        void handleLobbyPacket(Client &client, const Packet &packet);
+        void processIpcMessages();
+        void broadcastToLobby(const std::string &lobbyCode, const Packet &packet);
+
     private:
         Network::TransportLayer::TCPSocket _serverSocket;
         std::array<Client, MAX_CLIENT> _clients;
         int _nextId = 1;
         SessionManager &_sessions;
+        struct LobbyInfo {
+            bool isPublic = false;
+            std::vector<int> players;
+            uint16_t udpPort = 0;
+            std::string ipcPath;
+            std::unique_ptr<IpcChannel> ipc;
+        };
+        std::unordered_map<std::string, LobbyInfo> _lobbies;
+        std::unordered_map<int, std::string> _clientLobby;
+        ChildProcessManager *_childMgr = nullptr; // optional, not wired yet
+
+        uint16_t allocatePort();
+        void ensureLobbyProcess(const std::string &code, bool isPublic);
 };

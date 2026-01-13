@@ -72,6 +72,19 @@ public:
     }
 
     template<typename T>
+    bool hasComponent(Entity e) const {
+        auto idx = const_cast<ECS*>(this)->getComponentTypeIndex<T>();
+        if (e >= signatures.size())
+            return false;
+        return signatures[e].test(idx);
+    }
+
+    template<typename T>
+    std::vector<T>& getAllComponents() {
+        return static_cast<ComponentArray<T>*>(storages[typeid(T)].get())->data;
+    }
+
+    template<typename T>
     size_t getComponentTypeIndex() {
         static size_t index = nextComponentIndex++;
         return index;

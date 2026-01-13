@@ -18,8 +18,6 @@ namespace Network::TransportLayer
     {
         if (data == nullptr || size == 0)
             return -1; // Invalid data or size
-        // if (sockState(0, 0) != IOState::WRITE_READY)
-            // return -1; // Socket not ready for writing
         return sendto(_socketFd, data, size, 0,
                         reinterpret_cast<struct sockaddr *>(&_senderAddr),
                         sizeof(_senderAddr));
@@ -29,8 +27,6 @@ namespace Network::TransportLayer
     {
         if (data == nullptr || size == 0)
             return -1; // Invalid data or size
-        // if (sockState(0, 0) != IOState::WRITE_READY)
-        //     return -1; // Socket not ready for writing
         return sendto(_socketFd, data, size, 0,
                         reinterpret_cast<struct sockaddr *>(const_cast<struct sockaddr_in *>(&destAddr)),
                         sizeof(destAddr));

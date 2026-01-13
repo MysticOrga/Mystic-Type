@@ -23,22 +23,27 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(raylib)
 
 # Sources
-set(COMMON_SOURCES
-    src/Network/Client/NetworkClient.cpp
+
+set(SERVER_COMMON_SOURCES
     src/Network/TransportLayer/Packet.cpp
     src/Network/TransportLayer/ASocket.cpp
-    src/Network/TransportLayer/UDP/UDPSocket.cpp
     src/Network/TransportLayer/Protocol.cpp
+    src/Network/SessionManager.cpp
+    src/server/IpcChannel.cpp
 )
 
-set(SERVER_SOURCES
+set(TCP_SOURCES
     server.cpp
-    src/Network/SessionManager.cpp
-    src/Network/TransportLayer/UDP/GameWorld.cpp
-    src/Network/TransportLayer/UDP/UDPGameServer.cpp
     src/Network/TransportLayer/TCP/TCPServer.cpp
     src/Network/TransportLayer/TCP/TCPSocket.cpp
-    ${COMMON_SOURCES}
+    src/server/ChildProcessManager.cpp
+)
+
+set(UDP_SOURCES
+    game.cpp
+    src/Network/TransportLayer/UDP/UDPGameServer.cpp
+    src/Network/TransportLayer/UDP/UDPSocket.cpp
+    src/Network/TransportLayer/UDP/GameWorld.cpp
 )
 
 set(CLIENT_SOURCES
@@ -46,18 +51,31 @@ set(CLIENT_SOURCES
     src/graphical-client/GraphicClient/GraphicClient.cpp
     src/graphical-client/Raylib/Raylib.cpp
     src/graphical-client/Graphic/Graphic.cpp
-    ${COMMON_SOURCES}
+    src/Network/Client/NetworkClient.cpp
+    src/Network/TransportLayer/Packet.cpp
+    src/Network/TransportLayer/ASocket.cpp
+    src/Network/TransportLayer/UDP/UDPSocket.cpp
+    src/Network/TransportLayer/Protocol.cpp
 )
 
 # Targets
-add_executable(rtype-server ${SERVER_SOURCES})
+add_executable(rtype-tcp-server
+    ${TCP_SOURCES}
+    ${COMMON_SOURCES}
+)
+
+add_executable(rtype-udp-server
+    ${UDP_SOURCES}
+    ${COMMON_SOURCES}
+)
 add_executable(rtype-client ${CLIENT_SOURCES})
 
 target_link_libraries(rtype-client PRIVATE raylib)
 
 # Platform-specific linking
 if(WIN32)
-    target_link_libraries(rtype-server PRIVATE ws2_32)
+    target_link_libraries(rtype-tcp-server PRIVATE ws2_32)
+    target_link_libraries(rtype-udp-server PRIVATE ws2_32)
     target_link_libraries(rtype-client PRIVATE ws2_32)
 else()
     find_package(Threads REQUIRED)
@@ -65,7 +83,8 @@ else()
 endif()
 
 # Includes
-target_include_directories(rtype-server PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+target_include_directories(rtype-tcp-server PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+target_include_directories(rtype-udp-server PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_include_directories(rtype-client PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # Output

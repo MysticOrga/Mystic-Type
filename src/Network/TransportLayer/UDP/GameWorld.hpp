@@ -32,10 +32,13 @@ public:
         int id = 0;
         uint8_t x = 0;
         uint8_t y = 0;
+        uint8_t hp = 0;
+        uint16_t score = 0;
         sockaddr_in addr{};
         int8_t velX = 0;
         int8_t velY = 0;
         uint8_t dir = 0;
+        long long lastHitMs = 0;
     };
 
         struct BulletState {
@@ -47,7 +50,7 @@ public:
             int8_t velY = 0;
         };
 
-    enum class MonsterKind : uint8_t { Sine = 0, Cosine = 1 };
+        enum class MonsterKind : uint8_t { Sine = 0, ZigZag = 1, Boss = 2 };
 
     struct MonsterState {
         int id = 0;
@@ -58,8 +61,11 @@ public:
         float phase = 0;
         float freq = 0;
         float speedX = 0;
+        float speedY = 0;
         int8_t hp = 0;
         MonsterKind kind = MonsterKind::Sine;
+        long long nextPatternMs = 0;
+        long long nextShotMs = 0;
     };
 
     GameWorld() = default;
@@ -81,11 +87,21 @@ public:
     void tick(long long nowMs, long long deltaMs);
 
     Packet buildSnapshotPacket() const;
+    bool takeBossSpawned();
+    bool takeBossDefeated();
+    bool takeNoPlayers();
+    bool hasHadPlayers() const { return _hadPlayers; }
 
     const std::unordered_map<int, PlayerState> &players() const { return _players; }
+    void setLogPrefix(const std::string &prefix) { _logPrefix = prefix; }
 
 private:
     void spawnMonster(long long nowMs);
+    void spawnBoss(long long nowMs);
+    void spawnBossBullet(const MonsterState &boss, long long nowMs);
+    bool shouldSpawnBoss() const;
+    bool hasBoss() const;
+    void updateBossMovement(MonsterState &boss, long long nowMs, float dtSec);
 
     std::unordered_map<int, PlayerState> _players;
     std::vector<BulletState> _bullets;
@@ -94,5 +110,11 @@ private:
     int _nextMonsterId = 1;
     long long _lastMonsterSpawnMs = 0;
     long long _monsterSpawnIntervalMs = 1800;
-    uint8_t _monsterKilled = 0;
+    bool _bossSpawnedFlag = false;
+    bool _bossSpawnedOnce = false;
+    bool _bossDefeatedFlag = false;
+    bool _hadPlayers = false;
+    bool _noPlayersFlag = false;
+    uint16_t _lobbyScore = 0;
+    std::string _logPrefix;
 };

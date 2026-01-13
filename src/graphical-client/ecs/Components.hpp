@@ -12,6 +12,7 @@
 #include "../Graphic/Graphic.hpp"
 #include <raylib.h>
 #include <memory>
+#include <string>
 
 class Position
 {
@@ -59,6 +60,23 @@ class RectangleComponent
 
     RectangleComponent(int w = 10, int h = 10, Color c = BLACK) 
         : width(w), height(h), color(c) {}
+};
+
+struct UIButton {
+    Rectangle bounds;
+    std::string label;
+    std::string action;
+    Color bg{40, 40, 60, 255};
+    Color hoverBg{70, 70, 120, 255};
+    Color text{230, 230, 230, 255};
+    bool hovered = false;
+};
+
+struct UIText {
+    Vector2 pos;
+    std::string text;
+    int fontSize = 22;
+    Color color{230, 230, 230, 255};
 };
 
 #endif /* !COMPONENTS_HPP_ */

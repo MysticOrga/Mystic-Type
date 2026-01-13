@@ -33,6 +33,7 @@
     #include <arpa/inet.h>
     #include <unistd.h>
     #include <errno.h>
+    #include <sys/select.h>
     #include <cstdint>
     
     // Linux macros

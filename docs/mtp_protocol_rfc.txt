@@ -38,6 +38,10 @@ transmission, and heartbeat mechanisms.
 - Simple implementation and parsing
 - UDP-compatible for low-latency transmission
 - Extensible packet type system
+- Lobby-agnostic transport: lobby selection stays on TCP; the UDP
+  packets are reused as-is and the server routes them to the correct
+  lobby using the player ID ↔ lobby mapping established during TCP
+  handshake.
 
 2.2 Transport Layer
 -------------------
@@ -186,11 +190,13 @@ Common Error Codes:
 5.1 Connection Establishment
 ----------------------------
 Client                          Server
-  |                               |
+ |                               |
   |--- CONNECTION --------------->|
   |                               |
   |<-- ACK (Client ID) -----------|
   |                               |
+  | (Lobby selection is handled on TCP; the server maps this Client ID
+  |  to a lobby and routes UDP traffic accordingly.)                     |
 
 5.2 Connection Termination
 --------------------------
