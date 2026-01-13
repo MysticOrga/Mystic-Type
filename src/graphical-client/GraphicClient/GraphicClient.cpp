@@ -32,6 +32,7 @@ bool GraphicClient::init()
         _state.upsertPlayer(p.id, p.x, p.y);
     syncEntities(_state.listPlayers());
     _net.clearEvents();
+    std::cout << "Init end" << std::endl;
     return true;
 }
 
@@ -174,8 +175,11 @@ void GraphicClient::syncMonsters(const std::vector<MonsterState> &monsters)
 void GraphicClient::processNetworkEvents()
 {
     _net.pollPackets();
+    std::cout << "Event there" << std::endl;
     for (const auto &ev : _net.getEvents()) {
-        if (ev == "PLAYER_LIST" || ev == "NEW_PLAYER") {
+        std::cout << "in Event" << std::endl;
+        if (ev == "PLAYER_LIST" || ev == "NEW_PLAYER")
+        {
             _state.clearPlayers();
             for (const auto &p : _net.getLastPlayerList())
                 _state.upsertPlayer(p.id, p.x, p.y);

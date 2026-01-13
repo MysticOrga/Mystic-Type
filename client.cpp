@@ -17,5 +17,11 @@ int main()
         return 1;
     }
 #endif
-    GraphicClient client("10.49.84.89", 4243);    return client.run();
+    GraphicClient client("127.0.0.1", 4243);
+    client.run();
+
+#ifdef _WIN32
+    WSACleanup();
+#endif
+    return 0;
 }

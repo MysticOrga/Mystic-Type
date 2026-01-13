@@ -31,15 +31,18 @@ NetworkClient::~NetworkClient()
 bool NetworkClient::connectToServer()
 {
     _tcpFd = socket(AF_INET, SOCK_STREAM, 0);
+    std::cout << "TCP fd: " << _tcpFd << std::endl;
     if (_tcpFd < 0)
         return false;
     if (::connect(_tcpFd, reinterpret_cast<sockaddr*>(&_serverAddr), sizeof(_serverAddr)) < 0)
         return false;
+    std::cout << "TCP connected " << std::endl;
     _tcpConnected = true;
 
     _udpFd = socket(AF_INET, SOCK_DGRAM, 0);
     if (_udpFd < 0)
         return false;
+    std::cout << "UDP connected " << std::endl;
     _udpConnected = true;
 
     return true;
@@ -151,16 +154,20 @@ bool NetworkClient::pollPackets()
 {
     fd_set rfds, wfds, efds;
     FD_ZERO(&rfds);
-    socket_t maxFd = -1;
-    if (_tcpFd != -1) {
+    socket_t maxFd = 0;
+    std::cout << "Maxfd: " << maxFd << std::endl;
+    if (_tcpFd != INVALID_SOCKET_FD) {
         FD_SET(_tcpFd, &rfds);
         maxFd = std::max(maxFd, _tcpFd);
     }
-    if (_udpFd != -1) {
+    if (_udpFd != INVALID_SOCKET_FD) {
         FD_SET(_udpFd, &rfds);
         maxFd = std::max(maxFd, _udpFd);
     }
-    if (maxFd == -1)
+    std::cout << "UDPfd: " << _udpFd << std::endl;
+    std::cout << "tcpfd: " << _tcpFd << std::endl;
+    std::cout << "Maxfd: " << maxFd << std::endl;
+    if (maxFd == INVALID_SOCKET_FD)
         return false;
     struct timeval tv{0, 50000}; // 50ms
 
@@ -292,7 +299,7 @@ void NetworkClient::handleUdpPacket(const Packet &p)
     }
 }
 
-bool NetworkClient::writeAll(int fd, const uint8_t *data, std::size_t size)
+bool NetworkClient::writeAll(socket_t fd, const uint8_t *data, std::size_t size)
 {
     std::size_t total = 0;
     while (total < size) {

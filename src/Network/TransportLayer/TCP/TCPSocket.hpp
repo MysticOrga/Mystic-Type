@@ -6,7 +6,6 @@
 */
 
 #pragma once
-#include <unistd.h>
 #include <string>
 #include <cstdint>
 #include "../ASocket.hpp"

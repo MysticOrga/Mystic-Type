@@ -313,12 +313,12 @@ void TCPServer::run()
 
 ssize_t TCPServer::writeFd(socket_t fd, const uint8_t *data, std::size_t size)
 {
-    return ::write(fd, data, size);
+    return ::send(fd, reinterpret_cast<const char *>(data), size, 0);
 }
 
 ssize_t TCPServer::readFd(socket_t fd, uint8_t *data, std::size_t size)
 {
-    return ::read(fd, data, size);
+    return ::recv(fd, reinterpret_cast<char *>(data), size, 0);
 }
 
 int TCPServer::selectFdSet(int nfds, fd_set *readfds, fd_set *writefds, fd_set *exceptfds, struct timeval *timeout)

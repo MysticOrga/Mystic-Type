@@ -50,7 +50,7 @@ private:
     bool sendPacketUdp(const Packet &p);
     void handleTcpPacket(const Packet &p);
     void handleUdpPacket(const Packet &p);
-    bool writeAll(int fd, const uint8_t *data, std::size_t size);
+    bool writeAll(socket_t fd, const uint8_t *data, std::size_t size);
     RecvResult receiveTcpFramed(Packet &p);
 
     socket_t _tcpFd = -1;

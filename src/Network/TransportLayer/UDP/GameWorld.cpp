@@ -102,7 +102,7 @@ void GameWorld::spawnMonster(long long nowMs)
         std::uniform_int_distribution<int> ampDistCos(12, 24);
         std::uniform_real_distribution<float> freqDistCos(1.5f, 3.0f);
         m.amplitude = static_cast<float>(ampDistCos(rng));
-        m.phase = static_cast<float>(M_PI_2);
+        m.phase = static_cast<float>(HALF_PI);
         m.freq = freqDistCos(rng);
         m.speedX = -1.1f;
     }

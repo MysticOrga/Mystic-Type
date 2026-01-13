@@ -16,6 +16,7 @@
     #include <winsock2.h>
     #include <ws2tcpip.h>
     #include <cstdint>
+    #include <cstddef>
     #pragma comment(lib, "ws2_32.lib")
     
     // Windows macros
@@ -23,6 +24,7 @@
     #define SOCKET_ERROR_CODE WSAGetLastError()
     typedef SOCKET socket_t;
     #define INVALID_SOCKET_FD INVALID_SOCKET
+    using ssize_t = std::ptrdiff_t;
     
 #else
     // Linux includes

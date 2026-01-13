@@ -12,6 +12,9 @@
     #include <netinet/in.h>
 #else
     #include <winsock2.h>
+    constexpr double PI = 3.14159265358979323846;
+    constexpr double HALF_PI = PI / 2.0;
+
 #endif
 #include <unordered_map>
 #include <vector>

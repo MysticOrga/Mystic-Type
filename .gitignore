@@ -43,3 +43,4 @@ rtype
 # debug information files
 *.dwo
 .vscode/
+.vs
