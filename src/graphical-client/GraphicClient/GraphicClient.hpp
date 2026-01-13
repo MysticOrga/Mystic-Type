@@ -64,9 +64,13 @@ private:
     bool _chatActive = false;
     std::string _localPseudo;
     std::string _lastChatSent;
+    std::unordered_map<int, int> _playerPingMs;
     std::chrono::steady_clock::time_point _lastKeepAlive{};
     std::chrono::steady_clock::time_point _lastHello{};
     bool _udpReady = false;
     float _gameAnimTimer = 0.0f;
     bool _forceExit = false;
+    bool _restartToMenu = false;
+    bool _hasPseudo = false;
+    std::string _lastInitError;
 };

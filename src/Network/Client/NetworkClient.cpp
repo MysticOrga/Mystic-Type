@@ -21,9 +21,10 @@ namespace {
 
 NetworkClient::NetworkClient(const std::string &ip, uint16_t port)
 {
-    _serverAddr.sin_family = AF_INET;
-    _serverAddr.sin_port = htons(port);
-    inet_pton(AF_INET, ip.c_str(), &_serverAddr.sin_addr);
+    _tcpAddr.sin_family = AF_INET;
+    _tcpAddr.sin_port = htons(port);
+    inet_pton(AF_INET, ip.c_str(), &_tcpAddr.sin_addr);
+    _udpAddr = _tcpAddr;
 }
 
 NetworkClient::~NetworkClient()
@@ -36,7 +37,7 @@ bool NetworkClient::connectToServer()
     _tcpFd = socket(AF_INET, SOCK_STREAM, 0);
     if (_tcpFd < 0)
         return false;
-    if (::connect(_tcpFd, reinterpret_cast<sockaddr*>(&_serverAddr), sizeof(_serverAddr)) < 0)
+    if (::connect(_tcpFd, reinterpret_cast<sockaddr*>(&_tcpAddr), sizeof(_tcpAddr)) < 0)
         return false;
     int flag = 1;
     setsockopt(_tcpFd, IPPROTO_TCP, TCP_NODELAY, &flag, sizeof(flag));
@@ -182,7 +183,7 @@ bool NetworkClient::sendPacketTcp(const Packet &p)
 bool NetworkClient::sendPacketUdp(const Packet &p)
 {
     auto data = p.serialize();
-    ssize_t sent = sendto(_udpFd, data.data(), data.size(), 0, reinterpret_cast<sockaddr*>(&_serverAddr), sizeof(_serverAddr));
+    ssize_t sent = sendto(_udpFd, data.data(), data.size(), 0, reinterpret_cast<sockaddr*>(&_udpAddr), sizeof(_udpAddr));
     return sent == static_cast<ssize_t>(data.size());
 }
 
@@ -305,7 +306,7 @@ void NetworkClient::handleTcpPacket(const Packet &p)
                 std::string portStr = payloadStr.substr(sep + 1);
                 int port = std::atoi(portStr.c_str());
                 if (port > 0 && port < 65536) {
-                    _serverAddr.sin_port = htons(static_cast<uint16_t>(port));
+                    _udpAddr.sin_port = htons(static_cast<uint16_t>(port));
                 }
             }
             _events.push_back("LOBBY_OK:" + _lobbyCode);
@@ -445,4 +446,16 @@ void NetworkClient::disconnect()
     _tcpConnected = false;
     _udpConnected = false;
     _lobbyCode.clear();
+}
+
+void NetworkClient::resetForReconnect()
+{
+    _playerId = -1;
+    _lobbyCode.clear();
+    _events.clear();
+    _lastSnapshot.clear();
+    _lastSnapshotBullets.clear();
+    _lastSnapshotMonsters.clear();
+    _lastPlayerList.clear();
+    _tcpRecvBuffer.clear();
 }

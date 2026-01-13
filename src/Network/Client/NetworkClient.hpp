@@ -34,6 +34,7 @@ public:
 
     bool pollPackets();
     void disconnect();
+    void resetForReconnect();
     bool isConnected() const { return _tcpConnected; }
 
     int getPlayerId() const { return _playerId; }
@@ -61,7 +62,8 @@ private:
     int _udpFd = -1;
     bool _tcpConnected = false;
     bool _udpConnected = false;
-    sockaddr_in _serverAddr{};
+    sockaddr_in _tcpAddr{};
+    sockaddr_in _udpAddr{};
     int _playerId = -1;
     std::string _lobbyCode;
     std::string _pseudo;

@@ -379,7 +379,7 @@ void TCPServer::processIpcMessages()
         auto &ipc = kv.second.ipc;
         if (!ipc)
             continue;
-        while (true) {
+        while (ipc) {
             auto msgOpt = ipc->recv(0);
             if (!msgOpt.has_value())
                 break;
@@ -395,8 +395,19 @@ void TCPServer::processIpcMessages()
                 std::string lobbyCode = msg.substr(11);
                 if (!lobbyCode.empty()) {
                     broadcastToLobby(lobbyCode, makeStringPacket(PacketType::MESSAGE, "SYS:No players left - game over"));
+                    auto lobbyIt = _lobbies.find(lobbyCode);
+                    if (lobbyIt != _lobbies.end()) {
+                        lobbyIt->second.udpPort = 0;
+                        if (lobbyIt->second.ipc) {
+                            lobbyIt->second.ipc->close();
+                            lobbyIt->second.ipc.reset();
+                        }
+                    }
+                    if (_childMgr) {
+                        _childMgr->forget(lobbyCode);
+                    }
                 }
-                continue;
+                break;
             }
             if (msg.rfind("BOSS:", 0) == 0) {
                 std::string lobbyCode = msg.substr(5);

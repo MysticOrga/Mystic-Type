@@ -13,6 +13,7 @@
 #include <iostream>
 #include <limits>
 #include <memory>
+#include <thread>
 #include <unordered_set>
 
 GraphicClient::GraphicClient(const std::string &ip, int port) : _window(1920, 1080, "Mystic-Type"), _net(ip, port)
@@ -24,19 +25,32 @@ GraphicClient::GraphicClient(const std::string &ip, int port) : _window(1920, 10
 
 bool GraphicClient::init()
 {
+    _lastInitError.clear();
     _spriteRenderSystem.setGameAreaOffset(GAME_AREA_OFFSET_X, GAME_AREA_OFFSET_Y, GAME_AREA_SIZE);
     _rectangleRenderSystem.setGameAreaOffset(GAME_AREA_OFFSET_X, GAME_AREA_OFFSET_Y, GAME_AREA_SIZE);
 
-    if (!selectPseudo())
+    if (!_hasPseudo) {
+        if (!selectPseudo()) {
+            _lastInitError = "selectPseudo failed";
+            return false;
+        }
+        _hasPseudo = true;
+    }
+    if (!_net.connectToServer()) {
+        _lastInitError = "connectToServer failed";
+        std::cerr << "[CLIENT] " << _lastInitError << "\n";
         return false;
-    if (!_net.connectToServer())
+    }
+    if (!_net.performHandshake()) {
+        _lastInitError = "performHandshake failed";
+        std::cerr << "[CLIENT] " << _lastInitError << "\n";
         return false;
-    if (!_net.performHandshake())
-        return false;
+    }
     std::cout << "[CLIENT] Assigned ID " << _net.getPlayerId() << "\n";
     if (!selectLobby())
     {
-        std::cerr << "[CLIENT] Failed to select lobby\n";
+        _lastInitError = "selectLobby failed";
+        std::cerr << "[CLIENT] " << _lastInitError << "\n";
         return false;
     }
     _net.sendHelloUdp(0, 0);
@@ -272,8 +286,8 @@ void GraphicClient::processNetworkEvents()
                     {
                         std::cerr << "[CLIENT] Vous etes mort\n";
                         _net.disconnect();
-                        _window.close();
                         _forceExit = true;
+                        _restartToMenu = true;
                     }
                     break;
                 }
@@ -282,8 +296,8 @@ void GraphicClient::processNetworkEvents()
             {
                 std::cerr << "[CLIENT] Vous etes mort\n";
                 _net.disconnect();
-                _window.close();
                 _forceExit = true;
+                _restartToMenu = true;
             }
         }
         else if (ev.rfind("MESSAGE:", 0) == 0)
@@ -293,8 +307,8 @@ void GraphicClient::processNetworkEvents()
             {
                 std::cerr << "[CLIENT] Vous etes mort\n";
                 _net.disconnect();
-                _window.close();
                 _forceExit = true;
+                _restartToMenu = true;
             }
             else if (msg.rfind("CHAT:", 0) == 0)
             {
@@ -693,6 +707,7 @@ bool GraphicClient::selectPseudo()
         {
             _net.setPseudo(pseudo);
             _localPseudo = pseudo;
+            _hasPseudo = true;
             submitted = true;
         }
 
@@ -870,8 +885,33 @@ void GraphicClient::gameLoop()
 
 int GraphicClient::run()
 {
-    if (!init())
-        return 1;
-    gameLoop();
+    while (!_window.shouldClose())
+    {
+        if (!init()) {
+            std::cerr << "[CLIENT] init failed (" << (_lastInitError.empty() ? "unknown" : _lastInitError) << "), retrying...\n";
+            std::this_thread::sleep_for(std::chrono::milliseconds(500));
+            continue;
+        }
+        gameLoop();
+        if (_restartToMenu)
+        {
+            _restartToMenu = false;
+            _forceExit = false;
+            _udpReady = false;
+            _gameAnimTimer = 0.0f;
+            _state.clear();
+            _entities.clear();
+            _bulletEntities.clear();
+            _monsterEntities.clear();
+            _chatLog.clear();
+            _chatInput.clear();
+            _chatActive = false;
+            _playerPingMs.clear();
+            _net.disconnect();
+            _net.resetForReconnect();
+            continue;
+        }
+        break;
+    }
     return 0;
 }
