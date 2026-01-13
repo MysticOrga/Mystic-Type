@@ -24,8 +24,8 @@ namespace {
     constexpr uint8_t kDefaultPlayerHp = 5;
     constexpr long long kPlayerHitCooldownMs = 500;
     constexpr int kKillScore = 10;
-    constexpr uint16_t kBossScoreThreshold = 250;
-    constexpr int8_t kBossHp = 50;
+    constexpr uint16_t kBossScoreThreshold = 10;
+    constexpr int8_t kBossHp = 5;
     constexpr int8_t kBossBulletMinVx = -12;
     constexpr int8_t kBossBulletMaxVx = -6;
     constexpr int8_t kBossBulletMaxVy = 6;
@@ -44,6 +44,7 @@ void GameWorld::registerPlayer(int id, uint8_t x, uint8_t y, const sockaddr_in &
     state.score = _lobbyScore;
     state.lastHitMs = 0;
     _players[id] = state;
+    _hadPlayers = true;
 }
 
 void GameWorld::updateInput(int id, int8_t velX, int8_t velY, uint8_t dir, const sockaddr_in &addr)
@@ -92,6 +93,9 @@ void GameWorld::removePlayer(int id)
             ++it;
         }
     }
+    if (_hadPlayers && _players.empty()) {
+        _noPlayersFlag = true;
+    }
 }
 
 void GameWorld::spawnMonster(long long nowMs)
@@ -135,7 +139,7 @@ void GameWorld::spawnMonster(long long nowMs)
 
 bool GameWorld::shouldSpawnBoss() const
 {
-    return _lobbyScore >= kBossScoreThreshold;
+    return !_bossSpawnedOnce && _lobbyScore >= kBossScoreThreshold;
 }
 
 bool GameWorld::hasBoss() const
@@ -162,6 +166,7 @@ void GameWorld::spawnBoss(long long nowMs)
     m.nextShotMs = nowMs;
     _monsters.push_back(m);
     _bossSpawnedFlag = true;
+    _bossSpawnedOnce = true;
 
     const std::string prefix = _logPrefix.empty() ? "[UDP] " : _logPrefix;
     std::cout << prefix << "Spawned BOSS " << m.id << "\n";
@@ -172,6 +177,20 @@ bool GameWorld::takeBossSpawned()
     bool wasSpawned = _bossSpawnedFlag;
     _bossSpawnedFlag = false;
     return wasSpawned;
+}
+
+bool GameWorld::takeBossDefeated()
+{
+    bool wasDefeated = _bossDefeatedFlag;
+    _bossDefeatedFlag = false;
+    return wasDefeated;
+}
+
+bool GameWorld::takeNoPlayers()
+{
+    bool wasEmpty = _noPlayersFlag;
+    _noPlayersFlag = false;
+    return wasEmpty;
 }
 
 void GameWorld::spawnBossBullet(const MonsterState &boss, long long nowMs)
@@ -347,6 +366,9 @@ void GameWorld::tick(long long nowMs, long long deltaMs)
     auto mIt = _monsters.begin();
     while (mIt != _monsters.end()) {
         if (mIt->hp <= 0) {
+            if (mIt->kind == MonsterKind::Boss) {
+                _bossDefeatedFlag = true;
+            }
             mIt = _monsters.erase(mIt);
         } else {
             ++mIt;

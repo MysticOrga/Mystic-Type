@@ -384,6 +384,20 @@ void TCPServer::processIpcMessages()
             if (!msgOpt.has_value())
                 break;
             const std::string &msg = *msgOpt;
+            if (msg.rfind("BOSS_DEAD:", 0) == 0) {
+                std::string lobbyCode = msg.substr(10);
+                if (!lobbyCode.empty()) {
+                    broadcastToLobby(lobbyCode, makeStringPacket(PacketType::MESSAGE, "SYS:Boss defeated - win"));
+                }
+                continue;
+            }
+            if (msg.rfind("NO_PLAYERS:", 0) == 0) {
+                std::string lobbyCode = msg.substr(11);
+                if (!lobbyCode.empty()) {
+                    broadcastToLobby(lobbyCode, makeStringPacket(PacketType::MESSAGE, "SYS:No players left - game over"));
+                }
+                continue;
+            }
             if (msg.rfind("BOSS:", 0) == 0) {
                 std::string lobbyCode = msg.substr(5);
                 if (!lobbyCode.empty()) {

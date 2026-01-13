@@ -81,6 +81,9 @@ public:
 
     Packet buildSnapshotPacket() const;
     bool takeBossSpawned();
+    bool takeBossDefeated();
+    bool takeNoPlayers();
+    bool hasHadPlayers() const { return _hadPlayers; }
 
     const std::unordered_map<int, PlayerState> &players() const { return _players; }
     void setLogPrefix(const std::string &prefix) { _logPrefix = prefix; }
@@ -101,6 +104,10 @@ private:
     long long _lastMonsterSpawnMs = 0;
     long long _monsterSpawnIntervalMs = 1800;
     bool _bossSpawnedFlag = false;
+    bool _bossSpawnedOnce = false;
+    bool _bossDefeatedFlag = false;
+    bool _hadPlayers = false;
+    bool _noPlayersFlag = false;
     uint16_t _lobbyScore = 0;
     std::string _logPrefix;
 };

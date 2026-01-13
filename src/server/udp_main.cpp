@@ -19,7 +19,7 @@
 namespace {
     struct Args {
         std::string lobby = "PUBLIC";
-        uint16_t port = 4244;
+        uint16_t port = 0;
         std::string ipcSock;
     };
 

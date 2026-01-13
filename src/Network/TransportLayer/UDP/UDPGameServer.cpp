@@ -225,10 +225,15 @@ void UDPGameServer::run()
 
 void UDPGameServer::updateSimulation(long long nowMs, long long deltaMs)
 {
+    std::vector<std::string> emptyWorlds;
     for (auto &kv : _worlds) {
         kv.second.tick(nowMs, deltaMs);
         if (_ipc && kv.second.takeBossSpawned()) {
             _ipc->send("BOSS:" + kv.first);
+        }
+        if (_ipc && kv.second.takeBossDefeated()) {
+            _ipc->send("BOSS_DEAD:" + kv.first);
+            _running = false;
         }
         std::vector<int> toRemove;
         for (const auto &p : kv.second.players()) {
@@ -243,6 +248,21 @@ void UDPGameServer::updateSimulation(long long nowMs, long long deltaMs)
             kv.second.removePlayer(id);
             _playerLobby.erase(id);
         }
+        if (kv.second.takeNoPlayers()) {
+            emptyWorlds.push_back(kv.first);
+        }
+    }
+    for (const auto &code : emptyWorlds) {
+        _worlds.erase(code);
+        if (_ipc) {
+            _ipc->send("NO_PLAYERS:" + code);
+        }
+        if (!_expectedLobby.empty() && _expectedLobby == code) {
+            _running = false;
+        }
+    }
+    if (_expectedLobby.empty() && _worlds.empty()) {
+        _running = false;
     }
 }
 
