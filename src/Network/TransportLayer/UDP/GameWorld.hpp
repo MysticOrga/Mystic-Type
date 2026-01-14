@@ -106,6 +106,7 @@ private:
     std::unordered_map<int, PlayerState> _players;
     std::vector<BulletState> _bullets;
     std::vector<MonsterState> _monsters;
+    size_t _monsterKilled = 0;
     int _nextBulletId = 1;
     int _nextMonsterId = 1;
     long long _lastMonsterSpawnMs = 0;

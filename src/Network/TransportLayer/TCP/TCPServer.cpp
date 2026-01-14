@@ -13,6 +13,7 @@
 #include <string>
 #include <random>
 #include <thread>
+#include <netinet/tcp.h>
 #include "../Protocol.hpp"
 
 namespace {

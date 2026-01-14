@@ -10,6 +10,7 @@
 #include <iostream>
 #include <algorithm>
 #include <cstdint>
+#include <netinet/tcp.h>
 #include "../TransportLayer/Protocol.hpp"
 
 namespace {

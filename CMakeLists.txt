@@ -61,12 +61,12 @@ set(CLIENT_SOURCES
 # Targets
 add_executable(rtype-tcp-server
     ${TCP_SOURCES}
-    ${COMMON_SOURCES}
+    ${SERVER_COMMON_SOURCES}
 )
 
 add_executable(rtype-udp-server
     ${UDP_SOURCES}
-    ${COMMON_SOURCES}
+    ${SERVER_COMMON_SOURCES}
 )
 add_executable(rtype-client ${CLIENT_SOURCES})
 
@@ -79,7 +79,9 @@ if(WIN32)
     target_link_libraries(rtype-client PRIVATE ws2_32)
 else()
     find_package(Threads REQUIRED)
-    target_link_libraries(rtype-server PRIVATE Threads::Threads)
+    target_link_libraries(rtype-tcp-server PRIVATE Threads::Threads)
+    target_link_libraries(rtype-udp-server PRIVATE Threads::Threads)
+
 endif()
 
 # Includes
