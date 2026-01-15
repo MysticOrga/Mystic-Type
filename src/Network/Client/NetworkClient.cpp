@@ -467,3 +467,12 @@ void NetworkClient::resetForReconnect()
     _lastPlayerList.clear();
     _tcpRecvBuffer.clear();
 }
+
+void NetworkClient::updateServerAddress(const std::string &ip, uint16_t port)
+{
+    _tcpAddr.sin_family = AF_INET;
+    _tcpAddr.sin_port = htons(port);
+    inet_pton(AF_INET, ip.c_str(), &_tcpAddr.sin_addr);
+    _udpAddr = _tcpAddr;
+}
+

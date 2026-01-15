@@ -17,7 +17,7 @@ int main()
         return 1;
     }
 #endif
-    GraphicClient client("127.0.0.1", 4243);
+    GraphicClient client;
     client.run();
 
 #ifdef _WIN32

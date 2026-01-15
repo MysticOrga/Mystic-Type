@@ -19,7 +19,7 @@
 
 class GraphicClient {
 public:
-    GraphicClient(const std::string& ip, int port);
+    GraphicClient();
     ~GraphicClient() = default;
 
     int run();
@@ -44,6 +44,8 @@ private:
     void syncMonsters(const std::vector<MonsterState> &monsters);
     bool selectLobby();
     bool selectPseudo();
+    bool selectMainMenu();
+    bool selectSettings();
 
     Raylib::Window _window;
     NetworkClient _net;
@@ -73,4 +75,7 @@ private:
     bool _restartToMenu = false;
     bool _hasPseudo = false;
     std::string _lastInitError;
+    std::string _serverIp = "127.0.0.1";
+    int _serverPort = 4243;
+    bool _hasServerConfig = false;
 };

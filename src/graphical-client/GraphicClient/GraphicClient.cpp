@@ -16,7 +16,7 @@
 #include <thread>
 #include <unordered_set>
 
-GraphicClient::GraphicClient(const std::string &ip, int port) : _window(1920, 1080, "Mystic-Type"), _net(ip, port)
+GraphicClient::GraphicClient() : _window(1920, 1080, "Mystic-Type"), _net("127.0.0.1", 4243)
 {
     _window.setTargetFPS(60);
     _lastKeepAlive = std::chrono::steady_clock::now();
@@ -28,6 +28,13 @@ bool GraphicClient::init()
     _lastInitError.clear();
     _spriteRenderSystem.setGameAreaOffset(GAME_AREA_OFFSET_X, GAME_AREA_OFFSET_Y, GAME_AREA_SIZE);
     _rectangleRenderSystem.setGameAreaOffset(GAME_AREA_OFFSET_X, GAME_AREA_OFFSET_Y, GAME_AREA_SIZE);
+
+    if (!_hasServerConfig) {
+        if (!selectMainMenu()) {
+            _lastInitError = "selectMainMenu failed";
+            return false;
+        }
+    }
 
     if (!_hasPseudo) {
         if (!selectPseudo()) {
@@ -923,3 +930,308 @@ int GraphicClient::run()
     }
     return 0;
 }
+
+bool GraphicClient::selectMainMenu()
+{
+    std::string ipInput = "127.0.0.1";
+    std::string portInput = "4243";
+    bool submitted = false;
+    bool ipFocused = true;
+    bool portFocused = false;
+    bool settingsOpen = false;
+    float blinkTimer = 0.0f;
+    const float screenWidth = 1920.0f;
+    const float screenHeight = 1080.0f;
+
+    while (!submitted && !_window.shouldClose())
+    {
+        float dt = _window.getFrameTime();
+        blinkTimer += dt;
+        _window.beginDrawing();
+        _window.clearBackground({15, 25, 50, 255});
+
+        // Title
+        const char *title = "MYSTIC-TYPE";
+        int titleSize = 60;
+        int titleWidth = MeasureText(title, titleSize);
+        Raylib::Draw::text(title, static_cast<int>((screenWidth - titleWidth) / 2.0f), 80, titleSize,
+                           {100, 200, 255, 255});
+
+        // Subtitle
+        const char *subtitle = "Connect to Server";
+        int subtitleSize = 28;
+        int subtitleWidth = MeasureText(subtitle, subtitleSize);
+        Raylib::Draw::text(subtitle, static_cast<int>((screenWidth - subtitleWidth) / 2.0f), 160, subtitleSize,
+                           {150, 200, 255, 200});
+
+        // IP Input Box
+        const float inputWidth = 380.0f;
+        const float inputHeight = 60.0f;
+        const float spacing = 30.0f;
+        const float inputX = (screenWidth - inputWidth * 2 - spacing) / 2.0f;
+        const float inputY = 280.0f;
+
+        // IP Label
+        Raylib::Draw::text("SERVER IP", static_cast<int>(inputX), static_cast<int>(inputY - 40), 20,
+                           {200, 220, 255, 255});
+
+        Rectangle ipBox{inputX, inputY, inputWidth, inputHeight};
+        Color ipBorderColor = ipFocused ? Color{150, 220, 255, 255} : Color{100, 150, 200, 200};
+        Color ipBgColor = ipFocused ? Color{20, 50, 100, 220} : Color{15, 40, 80, 200};
+        
+        Raylib::Draw::rectangleLines(static_cast<int>(ipBox.x) - 2, static_cast<int>(ipBox.y) - 2,
+                                     static_cast<int>(ipBox.width) + 4, static_cast<int>(ipBox.height) + 4,
+                                     ipBorderColor);
+        Raylib::Draw::rectangle(static_cast<int>(ipBox.x), static_cast<int>(ipBox.y),
+                                static_cast<int>(ipBox.width), static_cast<int>(ipBox.height),
+                                ipBgColor);
+
+        // Port Input Box
+        const float portX = inputX + inputWidth + spacing;
+        Rectangle portBox{portX, inputY, inputWidth, inputHeight};
+
+        // Port Label
+        Raylib::Draw::text("PORT", static_cast<int>(portX), static_cast<int>(inputY - 40), 20,
+                           {200, 220, 255, 255});
+
+        Color portBorderColor = portFocused ? Color{150, 220, 255, 255} : Color{100, 150, 200, 200};
+        Color portBgColor = portFocused ? Color{20, 50, 100, 220} : Color{15, 40, 80, 200};
+
+        Raylib::Draw::rectangleLines(static_cast<int>(portBox.x) - 2, static_cast<int>(portBox.y) - 2,
+                                     static_cast<int>(portBox.width) + 4, static_cast<int>(portBox.height) + 4,
+                                     portBorderColor);
+        Raylib::Draw::rectangle(static_cast<int>(portBox.x), static_cast<int>(portBox.y),
+                                static_cast<int>(portBox.width), static_cast<int>(portBox.height),
+                                portBgColor);
+
+        // Handle mouse clicks on input boxes
+        Vector2 mousePos = GetMousePosition();
+        if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        {
+            if (CheckCollisionPointRec(mousePos, ipBox))
+            {
+                ipFocused = true;
+                portFocused = false;
+            }
+            else if (CheckCollisionPointRec(mousePos, portBox))
+            {
+                ipFocused = false;
+                portFocused = true;
+            }
+        }
+
+        // Handle input
+        if (ipFocused)
+        {
+            int key = GetCharPressed();
+            while (key > 0)
+            {
+                if ((key >= 48 && key <= 57) || key == 46) // 0-9 or .
+                {
+                    if (ipInput.size() < 15)
+                        ipInput.push_back(static_cast<char>(key));
+                }
+                key = GetCharPressed();
+            }
+            if (Raylib::Input::isKeyPressed(KEY_BACKSPACE) && !ipInput.empty())
+                ipInput.pop_back();
+            if (Raylib::Input::isKeyPressed(KEY_TAB))
+            {
+                ipFocused = false;
+                portFocused = true;
+            }
+        }
+
+        if (portFocused)
+        {
+            int key = GetCharPressed();
+            while (key > 0)
+            {
+                if (key >= 48 && key <= 57) // 0-9
+                {
+                    if (portInput.size() < 5)
+                        portInput.push_back(static_cast<char>(key));
+                }
+                key = GetCharPressed();
+            }
+            if (Raylib::Input::isKeyPressed(KEY_BACKSPACE) && !portInput.empty())
+                portInput.pop_back();
+            if (Raylib::Input::isKeyPressed(KEY_TAB))
+            {
+                ipFocused = true;
+                portFocused = false;
+            }
+        }
+
+        // Display IP input with blinking cursor
+        std::string ipDisplay = ipInput;
+        if (ipFocused && static_cast<int>(blinkTimer * 2.0f) % 2 == 0)
+            ipDisplay.push_back('_');
+        int ipTextW = MeasureText(ipDisplay.c_str(), 28);
+        Raylib::Draw::text(ipDisplay.c_str(), static_cast<int>(inputX + (inputWidth - ipTextW) / 2.0f),
+                           static_cast<int>(inputY + 16), 28, {220, 240, 255, 255});
+
+        // Display Port input with blinking cursor
+        std::string portDisplay = portInput;
+        if (portFocused && static_cast<int>(blinkTimer * 2.0f) % 2 == 0)
+            portDisplay.push_back('_');
+        int portTextW = MeasureText(portDisplay.c_str(), 28);
+        Raylib::Draw::text(portDisplay.c_str(), static_cast<int>(portX + (inputWidth - portTextW) / 2.0f),
+                           static_cast<int>(inputY + 16), 28, {220, 240, 255, 255});
+
+        // Buttons
+        const float buttonWidth = 200.0f;
+        const float buttonHeight = 50.0f;
+        const float buttonSpacing = 40.0f;
+        const float buttonY = inputY + 120.0f;
+        const float playButtonX = (screenWidth / 2.0f) - buttonWidth - (buttonSpacing / 2.0f);
+        const float settingsButtonX = (screenWidth / 2.0f) + (buttonSpacing / 2.0f);
+
+        Rectangle playButton{playButtonX, buttonY, buttonWidth, buttonHeight};
+        Rectangle settingsButton{settingsButtonX, buttonY, buttonWidth, buttonHeight};
+
+        // Check if inputs are hovered
+        bool playHovered = CheckCollisionPointRec(mousePos, playButton);
+        bool settingsHovered = CheckCollisionPointRec(mousePos, settingsButton);
+
+        // Draw Play Button
+        Color playBgColor = playHovered ? Color{100, 220, 255, 200} : Color{50, 150, 200, 150};
+        Color playBorderColor = playHovered ? Color{150, 240, 255, 255} : Color{100, 200, 255, 200};
+        Raylib::Draw::rectangle(static_cast<int>(playButton.x), static_cast<int>(playButton.y),
+                                static_cast<int>(playButton.width), static_cast<int>(playButton.height),
+                                playBgColor);
+        Raylib::Draw::rectangleLines(static_cast<int>(playButton.x) - 1, static_cast<int>(playButton.y) - 1,
+                                     static_cast<int>(playButton.width) + 2, static_cast<int>(playButton.height) + 2,
+                                     playBorderColor);
+        int playTextW = MeasureText("PLAY", 24);
+        Raylib::Draw::text("PLAY", static_cast<int>(playButtonX + (buttonWidth - playTextW) / 2.0f),
+                           static_cast<int>(buttonY + 12), 24,
+                           playHovered ? Color{255, 255, 255, 255} : Color{220, 240, 255, 255});
+
+        // Draw Settings Button
+        Color settingsBgColor = settingsHovered ? Color{100, 220, 255, 200} : Color{50, 150, 200, 150};
+        Color settingsBorderColor = settingsHovered ? Color{150, 240, 255, 255} : Color{100, 200, 255, 200};
+        Raylib::Draw::rectangle(static_cast<int>(settingsButton.x), static_cast<int>(settingsButton.y),
+                                static_cast<int>(settingsButton.width), static_cast<int>(settingsButton.height),
+                                settingsBgColor);
+        Raylib::Draw::rectangleLines(static_cast<int>(settingsButton.x) - 1, static_cast<int>(settingsButton.y) - 1,
+                                     static_cast<int>(settingsButton.width) + 2, static_cast<int>(settingsButton.height) + 2,
+                                     settingsBorderColor);
+        int settingsTextW = MeasureText("SETTINGS", 24);
+        Raylib::Draw::text("SETTINGS", static_cast<int>(settingsButtonX + (buttonWidth - settingsTextW) / 2.0f),
+                           static_cast<int>(buttonY + 12), 24,
+                           settingsHovered ? Color{255, 255, 255, 255} : Color{220, 240, 255, 255});
+
+        // Handle button clicks
+        if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        {
+            if (playHovered)
+            {
+                // Validate inputs
+                if (!ipInput.empty() && !portInput.empty())
+                {
+                    _serverIp = ipInput;
+                    _serverPort = std::stoi(portInput);
+                    _hasServerConfig = true;
+                    _net.updateServerAddress(_serverIp, _serverPort);
+                    submitted = true;
+                }
+            }
+            else if (settingsHovered)
+            {
+                settingsOpen = true;
+            }
+        }
+
+        // Settings Window
+        if (settingsOpen)
+        {
+            selectSettings();
+            settingsOpen = false;
+        }
+
+        _window.endDrawing();
+    }
+
+    return submitted;
+}
+
+bool GraphicClient::selectSettings()
+{
+    bool closed = false;
+    const float screenWidth = 1920.0f;
+    const float screenHeight = 1080.0f;
+    const float windowWidth = 600.0f;
+    const float windowHeight = 400.0f;
+    const float windowX = (screenWidth - windowWidth) / 2.0f;
+    const float windowY = (screenHeight - windowHeight) / 2.0f;
+
+    while (!closed && !_window.shouldClose())
+    {
+        float dt = _window.getFrameTime();
+        _window.beginDrawing();
+        _window.clearBackground({15, 25, 50, 255});
+
+        // Draw semi-transparent overlay
+        Raylib::Draw::rectangle(0, 0, static_cast<int>(screenWidth), static_cast<int>(screenHeight),
+                                Color{0, 0, 0, 120});
+
+        // Draw settings window
+        Raylib::Draw::rectangle(static_cast<int>(windowX), static_cast<int>(windowY),
+                                static_cast<int>(windowWidth), static_cast<int>(windowHeight),
+                                Color{15, 40, 80, 255});
+        Raylib::Draw::rectangleLines(static_cast<int>(windowX) - 2, static_cast<int>(windowY) - 2,
+                                     static_cast<int>(windowWidth) + 4, static_cast<int>(windowHeight) + 4,
+                                     Color{100, 200, 255, 255});
+
+        // Settings title
+        const char *title = "SETTINGS";
+        int titleWidth = MeasureText(title, 32);
+        Raylib::Draw::text(title, static_cast<int>(windowX + (windowWidth - titleWidth) / 2.0f),
+                           static_cast<int>(windowY + 20), 32, {100, 200, 255, 255});
+
+        // Settings content (empty for now)
+        Raylib::Draw::text("No settings available yet", static_cast<int>(windowX + 30),
+                           static_cast<int>(windowY + 100), 20, {150, 180, 220, 200});
+
+        // Close button
+        const float buttonWidth = 150.0f;
+        const float buttonHeight = 40.0f;
+        const float closeButtonX = windowX + (windowWidth - buttonWidth) / 2.0f;
+        const float closeButtonY = windowY + windowHeight - 60.0f;
+        Rectangle closeButton{closeButtonX, closeButtonY, buttonWidth, buttonHeight};
+
+        Vector2 mousePos = GetMousePosition();
+        bool closeHovered = CheckCollisionPointRec(mousePos, closeButton);
+
+        Color closeBgColor = closeHovered ? Color{100, 220, 255, 200} : Color{50, 150, 200, 150};
+        Color closeBorderColor = closeHovered ? Color{150, 240, 255, 255} : Color{100, 200, 255, 200};
+
+        Raylib::Draw::rectangle(static_cast<int>(closeButton.x), static_cast<int>(closeButton.y),
+                                static_cast<int>(closeButton.width), static_cast<int>(closeButton.height),
+                                closeBgColor);
+        Raylib::Draw::rectangleLines(static_cast<int>(closeButton.x) - 1, static_cast<int>(closeButton.y) - 1,
+                                     static_cast<int>(closeButton.width) + 2, static_cast<int>(closeButton.height) + 2,
+                                     closeBorderColor);
+
+        int closeTextW = MeasureText("CLOSE", 18);
+        Raylib::Draw::text("CLOSE", static_cast<int>(closeButtonX + (buttonWidth - closeTextW) / 2.0f),
+                           static_cast<int>(closeButtonY + 10), 18,
+                           closeHovered ? Color{255, 255, 255, 255} : Color{220, 240, 255, 255});
+
+        // Handle input
+        if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && closeHovered)
+        {
+            closed = true;
+        }
+        if (Raylib::Input::isKeyPressed(KEY_ESCAPE))
+        {
+            closed = true;
+        }
+
+        _window.endDrawing();
+    }
+
+    return true;
+}
+

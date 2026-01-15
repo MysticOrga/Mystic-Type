@@ -38,6 +38,7 @@ public:
     void disconnect();
     void resetForReconnect();
     bool isConnected() const { return _tcpConnected; }
+    void updateServerAddress(const std::string &ip, uint16_t port);
 
     int getPlayerId() const { return _playerId; }
     const std::string &getLobbyCode() const { return _lobbyCode; }
