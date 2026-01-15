@@ -9,7 +9,7 @@
 
 #include <string>
 #include <optional>
-
+#include "../Network/TransportLayer/UNIX/UnixSocket.hpp"
 /**
  * @brief Small IPC helper based on a UNIX datagram socket (SOCK_DGRAM).
  *
@@ -54,10 +54,10 @@ public:
      * @brief Close the socket and unlink the path when in server mode.
      */
     void close();
-    int fd() const { return _fd; }
+    int fd() const { return _socket.getSocketFd(); }
 
 private:
-    int _fd = -1;
+    Network::TransportLayer::UnixSocket _socket;
     bool _isServer = false;
     std::string _path;
 };

@@ -29,6 +29,7 @@ set(SERVER_COMMON_SOURCES
     src/Network/TransportLayer/ASocket.cpp
     src/Network/TransportLayer/Protocol.cpp
     src/Network/SessionManager.cpp
+    src/Network/TransportLayer/UNIX/UnixSocket.cpp
     src/server/IpcChannel.cpp
 )
 
