@@ -33,6 +33,7 @@ public:
     bool sendCreateLobby();
     bool sendJoinLobby(const std::string &code);
     void setPseudo(const std::string &pseudo) { _pseudo = pseudo; }
+    bool sendUdpPing();
 
     bool pollPackets();
     void disconnect();
@@ -52,6 +53,10 @@ public:
     const std::vector<PlayerState> &getLastPlayerList() const { return _lastPlayerList; }
     const std::vector<std::string> &getEvents() const { return _events; }
     void clearEvents() { _events.clear(); }
+    int getUdpPingMs() const { return _udpPingMs; }
+    float getUdpLossPct() const;
+    float getUdpRxKbps();
+    float getUdpTxKbps();
 
 private:
     enum class RecvResult { Disconnected, Incomplete, Ok };
@@ -80,4 +85,18 @@ private:
     std::vector<PlayerState> _lastPlayerList;
     std::vector<std::string> _events;
     std::vector<uint8_t> _tcpRecvBuffer;
+    uint16_t _lastSnapshotSeq = 0;
+    bool _hasSnapshotSeq = false;
+    uint64_t _snapshotReceived = 0;
+    uint64_t _snapshotLost = 0;
+    int _udpPingMs = -1;
+    uint32_t _udpLastPingSentMs = 0;
+    uint64_t _udpBytesInWindow = 0;
+    uint64_t _udpBytesOutWindow = 0;
+    long long _udpRateWindowStartMs = 0;
+    float _udpRxKbps = 0.0f;
+    float _udpTxKbps = 0.0f;
+
+    long long nowMs() const;
+    void updateUdpRates(long long nowMs);
 };

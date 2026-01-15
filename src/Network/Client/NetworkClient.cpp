@@ -11,6 +11,7 @@
 #include <algorithm>
 #include <cstdint>
 #include <netinet/tcp.h>
+#include <chrono>
 #include "../TransportLayer/Protocol.hpp"
 
 namespace {
@@ -103,6 +104,20 @@ bool NetworkClient::sendHelloUdp(uint8_t x, uint8_t y)
     return sendPacketUdp(helloUdp);
 }
 
+bool NetworkClient::sendUdpPing()
+{
+    long long now = nowMs();
+    uint32_t ts = static_cast<uint32_t>(now & 0xFFFFFFFFu);
+    _udpLastPingSentMs = ts;
+    Packet ping(PacketType::PING_UDP, {
+        static_cast<uint8_t>((ts >> 24) & 0xFF),
+        static_cast<uint8_t>((ts >> 16) & 0xFF),
+        static_cast<uint8_t>((ts >> 8) & 0xFF),
+        static_cast<uint8_t>(ts & 0xFF)
+    });
+    return sendPacketUdp(ping);
+}
+
 bool NetworkClient::sendInput(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY, MoveCmd cmd)
 {
     Packet input(PacketType::INPUT, {
@@ -181,6 +196,10 @@ bool NetworkClient::sendPacketUdp(const Packet &p)
 {
     auto data = p.serialize();
     ssize_t sent = sendto(_udpFd, reinterpret_cast<const char *>(data.data()), data.size(), 0, reinterpret_cast<sockaddr*>(&_udpAddr), sizeof(_udpAddr));
+    if (sent > 0) {
+        _udpBytesOutWindow += static_cast<uint64_t>(sent);
+        updateUdpRates(nowMs());
+    }
     return sent == static_cast<ssize_t>(data.size());
 }
 
@@ -202,6 +221,8 @@ bool NetworkClient::readUdpPacket(Packet &p)
     ssize_t n = recvfrom(_udpFd, reinterpret_cast<char *>(buffer), sizeof(buffer), 0, reinterpret_cast<sockaddr*>(&from), &len);
     if (n <= 0)
         return false;
+    _udpBytesInWindow += static_cast<uint64_t>(n);
+    updateUdpRates(nowMs());
     p = Packet::deserialize(buffer, static_cast<size_t>(n));
     return true;
 }
@@ -327,7 +348,9 @@ void NetworkClient::handleUdpPacket(const Packet &p)
         auto parseSnapshot = [&](size_t perPlayer, bool hasScore,
                                  std::vector<PlayerState> &players,
                                  std::vector<BulletState> &bullets,
-                                 std::vector<MonsterState> &monsters) -> bool {
+                                 std::vector<MonsterState> &monsters,
+                                 uint16_t &seq,
+                                 bool &hasSeq) -> bool {
             uint8_t count = p.payload[0];
             size_t off = 1;
             size_t expectedPlayers = off + count * perPlayer;
@@ -380,26 +403,53 @@ void NetworkClient::handleUdpPacket(const Packet &p)
                     uint8_t type = p.payload[idx + 5];
                     monsters.push_back({id, x, y, hp, type});
                 }
+                off = expectedMonsters;
             }
 
+            if (p.payload.size() >= off + 2) {
+                seq = (p.payload[off] << 8) | p.payload[off + 1];
+                hasSeq = true;
+            }
             return true;
         };
 
         std::vector<PlayerState> players;
         std::vector<BulletState> bullets;
         std::vector<MonsterState> monsters;
-        if (!parseSnapshot(7, true, players, bullets, monsters)) {
+        uint16_t seq = 0;
+        bool hasSeq = false;
+        if (!parseSnapshot(7, true, players, bullets, monsters, seq, hasSeq)) {
             players.clear();
             bullets.clear();
             monsters.clear();
-            if (!parseSnapshot(5, false, players, bullets, monsters))
+            hasSeq = false;
+            if (!parseSnapshot(5, false, players, bullets, monsters, seq, hasSeq))
                 return;
         }
 
         _lastSnapshot = std::move(players);
         _lastSnapshotBullets = std::move(bullets);
         _lastSnapshotMonsters = std::move(monsters);
+        if (hasSeq) {
+            if (_hasSnapshotSeq) {
+                uint16_t expected = static_cast<uint16_t>(_lastSnapshotSeq + 1);
+                uint16_t diff = static_cast<uint16_t>(seq - expected);
+                if (diff > 0) {
+                    _snapshotLost += diff;
+                }
+            }
+            _snapshotReceived += 1;
+            _lastSnapshotSeq = seq;
+            _hasSnapshotSeq = true;
+        }
         _events.push_back("SNAPSHOT");
+    } else if (p.type == PacketType::PONG_UDP && p.payload.size() >= 4) {
+        uint32_t ts = (static_cast<uint32_t>(p.payload[0]) << 24)
+                    | (static_cast<uint32_t>(p.payload[1]) << 16)
+                    | (static_cast<uint32_t>(p.payload[2]) << 8)
+                    | static_cast<uint32_t>(p.payload[3]);
+        uint32_t now = static_cast<uint32_t>(nowMs() & 0xFFFFFFFFu);
+        _udpPingMs = static_cast<int>(now - ts);
     }
 }
 
@@ -476,6 +526,15 @@ void NetworkClient::resetForLobby()
     _lastSnapshotMonsters.clear();
     _lastPlayerList.clear();
     _tcpRecvBuffer.clear();
+    _hasSnapshotSeq = false;
+    _snapshotReceived = 0;
+    _snapshotLost = 0;
+    _udpPingMs = -1;
+    _udpBytesInWindow = 0;
+    _udpBytesOutWindow = 0;
+    _udpRateWindowStartMs = 0;
+    _udpRxKbps = 0.0f;
+    _udpTxKbps = 0.0f;
     ensureUdp();
 }
 
@@ -489,6 +548,58 @@ void NetworkClient::resetForReconnect()
     _lastSnapshotMonsters.clear();
     _lastPlayerList.clear();
     _tcpRecvBuffer.clear();
+    _hasSnapshotSeq = false;
+    _snapshotReceived = 0;
+    _snapshotLost = 0;
+    _udpPingMs = -1;
+    _udpBytesInWindow = 0;
+    _udpBytesOutWindow = 0;
+    _udpRateWindowStartMs = 0;
+    _udpRxKbps = 0.0f;
+    _udpTxKbps = 0.0f;
+}
+
+long long NetworkClient::nowMs() const
+{
+    using namespace std::chrono;
+    return duration_cast<milliseconds>(steady_clock::now().time_since_epoch()).count();
+}
+
+void NetworkClient::updateUdpRates(long long now)
+{
+    if (_udpRateWindowStartMs == 0) {
+        _udpRateWindowStartMs = now;
+        return;
+    }
+    long long elapsed = now - _udpRateWindowStartMs;
+    if (elapsed < 1000)
+        return;
+    double seconds = static_cast<double>(elapsed) / 1000.0;
+    _udpRxKbps = static_cast<float>((_udpBytesInWindow * 8.0) / 1000.0 / seconds);
+    _udpTxKbps = static_cast<float>((_udpBytesOutWindow * 8.0) / 1000.0 / seconds);
+    _udpBytesInWindow = 0;
+    _udpBytesOutWindow = 0;
+    _udpRateWindowStartMs = now;
+}
+
+float NetworkClient::getUdpLossPct() const
+{
+    uint64_t total = _snapshotReceived + _snapshotLost;
+    if (total == 0)
+        return 0.0f;
+    return static_cast<float>((_snapshotLost * 100.0) / static_cast<double>(total));
+}
+
+float NetworkClient::getUdpRxKbps()
+{
+    updateUdpRates(nowMs());
+    return _udpRxKbps;
+}
+
+float NetworkClient::getUdpTxKbps()
+{
+    updateUdpRates(nowMs());
+    return _udpTxKbps;
 }
 
 void NetworkClient::updateServerAddress(const std::string &ip, uint16_t port)

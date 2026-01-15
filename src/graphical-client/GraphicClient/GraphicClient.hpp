@@ -69,6 +69,7 @@ private:
     std::unordered_map<int, int> _playerPingMs;
     std::chrono::steady_clock::time_point _lastKeepAlive{};
     std::chrono::steady_clock::time_point _lastHello{};
+    std::chrono::steady_clock::time_point _lastUdpPing{};
     bool _udpReady = false;
     float _gameAnimTimer = 0.0f;
     bool _forceExit = false;

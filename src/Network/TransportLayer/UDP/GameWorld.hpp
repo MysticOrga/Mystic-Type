@@ -86,7 +86,7 @@ public:
          */
     void tick(long long nowMs, long long deltaMs);
 
-    Packet buildSnapshotPacket() const;
+    Packet buildSnapshotPacket();
     bool takeBossSpawned();
     bool takeBossDefeated();
     bool takeNoPlayers();
@@ -117,5 +117,6 @@ private:
     bool _hadPlayers = false;
     bool _noPlayersFlag = false;
     uint16_t _lobbyScore = 0;
+    uint16_t _snapshotSeq = 0;
     std::string _logPrefix;
 };

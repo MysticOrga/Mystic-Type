@@ -800,6 +800,19 @@ void GraphicClient::render(float dt)
     std::string scoreText = hasScore ? ("SCORE: " + std::to_string(myScore)) : "SCORE: --";
     Raylib::Draw::text(scoreText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
                        static_cast<int>(GAME_AREA_OFFSET_Y) + 40, 22, {255, 255, 255, 210});
+    int pingMs = _net.getUdpPingMs();
+    std::string pingText = pingMs >= 0 ? ("PING: " + std::to_string(pingMs) + " ms") : "PING: --";
+    Raylib::Draw::text(pingText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
+                       static_cast<int>(GAME_AREA_OFFSET_Y) + 66, 20, {200, 220, 255, 220});
+    int lossPct = static_cast<int>(_net.getUdpLossPct() + 0.5f);
+    std::string lossText = "LOSS: " + std::to_string(lossPct) + "%";
+    Raylib::Draw::text(lossText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
+                       static_cast<int>(GAME_AREA_OFFSET_Y) + 88, 20, {200, 220, 255, 220});
+    int rxBps = static_cast<int>(_net.getUdpRxKbps() * 1000.0f + 0.5f);
+    int txBps = static_cast<int>(_net.getUdpTxKbps() * 1000.0f + 0.5f);
+    std::string bwText = "UDP: " + std::to_string(rxBps) + " bps RX / " + std::to_string(txBps) + " bps TX";
+    Raylib::Draw::text(bwText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
+                       static_cast<int>(GAME_AREA_OFFSET_Y) + 110, 18, {180, 210, 240, 210});
 
     float chatX = GAME_AREA_OFFSET_X + 12;
     float chatY = GAME_AREA_OFFSET_Y + GAME_AREA_SIZE - 140.0f;
@@ -879,6 +892,15 @@ void GraphicClient::gameLoop()
             {
                 _net.sendHelloUdp(0, 0);
                 _lastHello = nowHello;
+            }
+        }
+        else
+        {
+            auto nowPing = std::chrono::steady_clock::now();
+            if (std::chrono::duration_cast<std::chrono::seconds>(nowPing - _lastUdpPing).count() >= 1)
+            {
+                _net.sendUdpPing();
+                _lastUdpPing = nowPing;
             }
         }
 
