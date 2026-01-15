@@ -78,4 +78,7 @@ private:
     std::string _serverIp = "127.0.0.1";
     int _serverPort = 4243;
     bool _hasServerConfig = false;
+    bool _pendingReturnToLobby = false;
+    std::chrono::steady_clock::time_point _returnToLobbyAt{};
+    std::string _pendingReturnReason;
 };

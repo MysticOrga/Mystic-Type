@@ -42,11 +42,8 @@ bool NetworkClient::connectToServer()
     setsockopt(_tcpFd, IPPROTO_TCP, TCP_NODELAY, &flag, sizeof(flag));
     _tcpConnected = true;
 
-    _udpFd = socket(AF_INET, SOCK_DGRAM, 0);
-    if (_udpFd < 0)
+    if (!ensureUdp())
         return false;
-    std::cout << "UDP connected " << std::endl;
-    _udpConnected = true;
 
     return true;
 }
@@ -214,7 +211,6 @@ bool NetworkClient::pollPackets()
     fd_set rfds, wfds, efds;
     FD_ZERO(&rfds);
     socket_t maxFd = 0;
-    std::cout << "Maxfd: " << maxFd << std::endl;
     if (_tcpFd != INVALID_SOCKET_FD) {
         FD_SET(_tcpFd, &rfds);
         maxFd = std::max(maxFd, _tcpFd);
@@ -223,9 +219,6 @@ bool NetworkClient::pollPackets()
         FD_SET(_udpFd, &rfds);
         maxFd = std::max(maxFd, _udpFd);
     }
-    std::cout << "UDPfd: " << _udpFd << std::endl;
-    std::cout << "tcpfd: " << _tcpFd << std::endl;
-    std::cout << "Maxfd: " << maxFd << std::endl;
     if (maxFd == INVALID_SOCKET_FD)
         return false;
     struct timeval tv{0, 0}; // non-blocking
@@ -427,9 +420,7 @@ bool NetworkClient::writeAll(socket_t fd, const uint8_t *data, std::size_t size)
 NetworkClient::RecvResult NetworkClient::receiveTcpFramed(Packet &p)
 {
     uint8_t tmp[BUFFER_SIZE]{};
-    std::cout << "before tcp receive" << std::endl;
     ssize_t n = recv(_tcpFd, reinterpret_cast<char *>(tmp), sizeof(tmp), 0);
-    std::cout << "after tcp receive" << std::endl;
     if (n <= 0)
         return RecvResult::Disconnected;
 
@@ -456,6 +447,38 @@ void NetworkClient::disconnect()
     _lobbyCode.clear();
 }
 
+void NetworkClient::disconnectUdp()
+{
+    if (_udpFd != -1) {
+        CLOSE(_udpFd);
+        _udpFd = -1;
+    }
+    _udpConnected = false;
+}
+
+bool NetworkClient::ensureUdp()
+{
+    if (_udpFd != -1)
+        return true;
+    _udpFd = socket(AF_INET, SOCK_DGRAM, 0);
+    if (_udpFd < 0)
+        return false;
+    _udpConnected = true;
+    return true;
+}
+
+void NetworkClient::resetForLobby()
+{
+    _lobbyCode.clear();
+    _events.clear();
+    _lastSnapshot.clear();
+    _lastSnapshotBullets.clear();
+    _lastSnapshotMonsters.clear();
+    _lastPlayerList.clear();
+    _tcpRecvBuffer.clear();
+    ensureUdp();
+}
+
 void NetworkClient::resetForReconnect()
 {
     _playerId = -1;
@@ -475,4 +498,3 @@ void NetworkClient::updateServerAddress(const std::string &ip, uint16_t port)
     inet_pton(AF_INET, ip.c_str(), &_tcpAddr.sin_addr);
     _udpAddr = _tcpAddr;
 }
-

@@ -35,6 +35,7 @@
     #include <errno.h>
     #include <sys/select.h>
     #include <cstdint>
+    #include <cstddef>
     
     // Linux macros
     #define CLOSE(s) close(s)

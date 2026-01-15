@@ -18,6 +18,10 @@
 int ChildProcessManager::spawn(const std::string &lobby, uint16_t udpPort, const std::string &ipcSock)
 {
 #ifdef _WIN32
+    (void)lobby;
+    (void)udpPort;
+    (void)ipcSock;
+    return -1;
 #else
   pid_t pid = ::fork();
     if (pid < 0) {

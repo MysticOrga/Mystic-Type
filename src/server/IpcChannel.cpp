@@ -7,12 +7,16 @@
 
 #include "IpcChannel.hpp"
 
+#include <cstddef>
+#include <cstring>
+#include <iostream>
+
+#ifndef _WIN32
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <unistd.h>
 #include <poll.h>
-#include <cstring>
-#include <iostream>
+#endif
 
 namespace {
     constexpr std::size_t MAX_MSG = 1024;
@@ -25,6 +29,10 @@ IpcChannel::~IpcChannel()
 
 bool IpcChannel::bindServer(const std::string &path)
 {
+#ifdef _WIN32
+    (void)path;
+    return false;
+#else
     close();
     _fd = ::socket(AF_UNIX, SOCK_DGRAM, 0);
     if (_fd == -1)
@@ -48,10 +56,15 @@ bool IpcChannel::bindServer(const std::string &path)
     _isServer = true;
     _path = path;
     return true;
+#endif
 }
 
 bool IpcChannel::connectClient(const std::string &path)
 {
+#ifdef _WIN32
+    (void)path;
+    return false;
+#else
     close();
     _fd = ::socket(AF_UNIX, SOCK_DGRAM, 0);
     if (_fd == -1)
@@ -74,20 +87,30 @@ bool IpcChannel::connectClient(const std::string &path)
     _isServer = false;
     _path.clear();
     return true;
+#endif
 }
 
 bool IpcChannel::send(const std::string &msg)
 {
+#ifdef _WIN32
+    (void)msg;
+    return false;
+#else
     if (_fd == -1)
         return false;
     if (msg.size() > MAX_MSG)
         return false;
     ssize_t sent = ::send(_fd, msg.data(), msg.size(), 0);
     return sent == static_cast<ssize_t>(msg.size());
+#endif
 }
 
 std::optional<std::string> IpcChannel::recv(int timeoutMs)
 {
+#ifdef _WIN32
+    (void)timeoutMs;
+    return std::nullopt;
+#else
     if (_fd == -1)
         return std::nullopt;
 
@@ -103,10 +126,16 @@ std::optional<std::string> IpcChannel::recv(int timeoutMs)
     if (n <= 0)
         return std::nullopt;
     return std::string(buf, buf + n);
+#endif
 }
 
 void IpcChannel::close()
 {
+#ifdef _WIN32
+    _fd = -1;
+    _isServer = false;
+    _path.clear();
+#else
     if (_fd != -1) {
         ::close(_fd);
         _fd = -1;
@@ -116,4 +145,5 @@ void IpcChannel::close()
     }
     _isServer = false;
     _path.clear();
+#endif
 }

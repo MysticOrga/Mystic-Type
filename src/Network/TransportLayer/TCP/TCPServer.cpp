@@ -431,7 +431,7 @@ void TCPServer::processIpcMessages()
                             broadcastToLobby(c.lobbyCode, makeStringPacket(PacketType::MESSAGE, sys));
                         }
                         sendPacket(c.fd, makeStringPacket(PacketType::MESSAGE, "DEAD"));
-                        resetClient(c);
+                        removeFromLobby(c);
                         break;
                     }
                 }

@@ -36,6 +36,9 @@ public:
 
     bool pollPackets();
     void disconnect();
+    void disconnectUdp();
+    bool ensureUdp();
+    void resetForLobby();
     void resetForReconnect();
     bool isConnected() const { return _tcpConnected; }
     void updateServerAddress(const std::string &ip, uint16_t port);
