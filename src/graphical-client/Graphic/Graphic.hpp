@@ -1,0 +1,92 @@
+/*
+** EPITECH PROJECT, 2025
+** Mystic-Type
+** File description:
+** Graphic
+*/
+
+#pragma once
+#include "../Raylib/Raylib.hpp"
+#include <memory>
+#include <string>
+
+namespace Rtype
+{
+namespace Graphic
+{
+
+class AnimatedSprite
+{
+  private:
+    std::shared_ptr<Raylib::Texture> _texture;
+
+    Vector2 _size;
+    Vector2 _positionInSpritesheet;
+    int _maxFrames;
+    float _frameTime;
+    float _timer;
+    int _currentFrame;
+
+    Rectangle _sourceRect;
+    Vector2 _position;
+    Vector2 _scale{1.0f, 1.0f};
+
+  public:
+    AnimatedSprite(const std::string &path, Vector2 size, Vector2 posInSheet, int maxFrames,
+                   float frameTime = 0.1f, Vector2 pos = {0, 0})
+        : _size(size), _positionInSpritesheet(posInSheet), _maxFrames(maxFrames), _frameTime(frameTime),
+          _position(pos), _timer(0.0f), _currentFrame(0)
+    {
+        _texture = std::make_shared<Raylib::Texture>(path);
+
+        _sourceRect = {
+            posInSheet.x * size.x, 
+            posInSheet.y * size.y, 
+            size.x, 
+            size.y
+        };
+    }
+
+    void setPosition(const Vector2 &pos)
+    {
+        _position = pos;
+    }
+
+    void setScale(float sx, float sy)
+    {
+        _scale = {sx, sy};
+    }
+
+    void update(float dt)
+    {
+        _timer += dt;
+
+        if (_timer >= _frameTime)
+        {
+            _timer = 0.0f;
+            _currentFrame++;
+
+            if (_currentFrame >= _maxFrames)
+                _currentFrame = 0;
+
+            _sourceRect.x = (_positionInSpritesheet.x + _currentFrame) * _size.x;
+        }
+    }
+
+    void draw()
+    {
+        if (_texture) {
+            float w = _sourceRect.width * _scale.x;
+            float h = _sourceRect.height * _scale.y;
+            Vector2 centeredPos = _position;
+            centeredPos.x -= w / 2.0f;
+            centeredPos.y -= h / 2.0f;
+
+            Rectangle dest{centeredPos.x, centeredPos.y, w, h};
+            _texture->draw(_sourceRect, dest, WHITE);
+        }
+    }
+};
+
+} // namespace Graphic
+} // namespace Rtype
