@@ -17,6 +17,7 @@
     #include <ws2tcpip.h>
     #include <cstdint>
     #include <cstddef>
+    #include <afunix.h>
     #pragma comment(lib, "ws2_32.lib")
     
     // Windows macros

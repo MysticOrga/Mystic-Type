@@ -8,7 +8,6 @@
 #pragma once
 #include <string>
 #include <cstdint>
-#include <netinet/tcp.h>
 #include "../ASocket.hpp"
 
 namespace Network::TransportLayer

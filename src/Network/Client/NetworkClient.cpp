@@ -10,7 +10,9 @@
 #include <iostream>
 #include <algorithm>
 #include <cstdint>
+#ifndef _WIN32
 #include <netinet/tcp.h>
+#endif // !_WIN32
 #include "../TransportLayer/Protocol.hpp"
 
 namespace {

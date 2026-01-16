@@ -8,6 +8,12 @@
 #ifndef UNIXSOCKET_HPP_
 #define UNIXSOCKET_HPP_
 #include "../ASocket.hpp"
+#include <iostream>
+#ifdef _WIN32
+    #define SOCK_TYPE SOCK_STREAM
+#else
+    #define SOCK_TYPE SOCK_DGRAM
+#endif
 #include <string>
 
 namespace Network::TransportLayer
@@ -19,7 +25,10 @@ class UnixSocket : public ASocket
      * @brief Construct a new Unix Socket object
      *
      */
-    UnixSocket() : ASocket(AF_UNIX, SOCK_DGRAM, 0) {};
+    UnixSocket() : ASocket(AF_UNIX, SOCK_TYPE, 0)
+    {
+        std::cout << "Je suis ici" << std::endl;
+    };
 
     /**
      * @brief Construct a new Unix Socket object

@@ -9,11 +9,6 @@
 
 #include <cstring>
 #include <iostream>
-#include <poll.h>
-#include <sys/socket.h>
-#include <sys/un.h>
-#include <unistd.h>
-#include <iostream>
 namespace
 {
 constexpr std::size_t MAX_MSG = 1024;
@@ -66,13 +61,16 @@ bool IpcChannel::send(const std::string &msg)
 
 std::optional<std::string> IpcChannel::recv(int timeoutMs)
 {
+    fd_set rfds = {0};
+    timeval tv = {0};
     if (_socket.getSocketFd() == INVALID_SOCKET_FD)
         return std::nullopt;
 
-    struct pollfd pfd{};
-    pfd.fd = _socket.getSocketFd();
-    pfd.events = POLLIN;
-    int ret = ::poll(&pfd, 1, timeoutMs);
+    FD_ZERO(&rfds);
+    FD_SET(_socket.getSocketFd(), &rfds);
+    tv.tv_usec = timeoutMs;
+    tv.tv_sec = 0;
+    int ret = select(_socket.getSocketFd() + 1, &rfds, NULL, NULL, &tv);
     if (ret <= 0)
         return std::nullopt;
 

@@ -11,6 +11,7 @@
 #ifndef _WIN32
     #include <netinet/in.h>
 #else
+#define NOMINMAX
     #include <winsock2.h>
     constexpr double PI = 3.14159265358979323846;
     constexpr double HALF_PI = PI / 2.0;

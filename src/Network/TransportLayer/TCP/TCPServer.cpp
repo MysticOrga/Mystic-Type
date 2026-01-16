@@ -9,11 +9,13 @@
 #include <algorithm>
 #include <chrono>
 #include <cstdint>
+#include <filesystem>
 #include <iostream>
 #include <string>
 #include <random>
 #include <thread>
-#include <netinet/tcp.h>
+#include <filesystem>
+#include <fstream>
 #include "../Protocol.hpp"
 
 namespace {
@@ -651,7 +653,9 @@ void TCPServer::ensureLobbyProcess(const std::string &code, bool isPublic)
     }
     if (_childMgr) {
         if (it->second.ipcPath.empty()) {
-            it->second.ipcPath = "/tmp/rtype_" + code + ".sock";
+            std::string appendix = "rtype_" + code + ".sock";
+            std::filesystem::path temp = std::filesystem::temp_directory_path() / appendix;
+            it->second.ipcPath = temp.string();
         }
         if (!it->second.ipc) {
             it->second.ipc = std::make_unique<IpcChannel>();
