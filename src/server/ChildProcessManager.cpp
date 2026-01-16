@@ -12,6 +12,7 @@
     #include <unistd.h>
     #include <sys/types.h>
     #include <sys/wait.h>
+    #include <netinet/in.h>
 #endif
 #include <vector>
 #include <cstring>
@@ -21,11 +22,12 @@ int ChildProcessManager::spawn(const std::string &lobby, uint16_t udpPort, const
 {
     std::string portStr = std::to_string(udpPort);
     std::vector<char *> args;
-    STARTUPINFO si = {sizeof(si)};
-    PROCESS_INFORMATION pi = {0};
+
     ChildInfo info;
 #ifdef _WIN32
     std::string exePath = "./rtype-udp-server.exe";
+    STARTUPINFO si = {sizeof(si)};
+    PROCESS_INFORMATION pi = {0};
 #else
     std::string exePath = "./rtype-udp-server";
 #endif // _WIN32
