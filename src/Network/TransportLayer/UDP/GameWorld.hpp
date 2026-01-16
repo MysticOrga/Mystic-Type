@@ -28,6 +28,9 @@
  */
 class GameWorld {
 public:
+    /**
+     * @brief Server-side player state with last known UDP address.
+     */
     struct PlayerState {
         int id = 0;
         uint8_t x = 0;
@@ -41,7 +44,10 @@ public:
         long long lastHitMs = 0;
     };
 
-        struct BulletState {
+    /**
+     * @brief Bullet state owned by a player.
+     */
+    struct BulletState {
             int id = 0;
             int ownerId = 0;
             uint8_t x = 0;
@@ -50,8 +56,14 @@ public:
             int8_t velY = 0;
         };
 
-        enum class MonsterKind : uint8_t { Sine = 0, ZigZag = 1, Boss = 2 };
+    /**
+     * @brief Monster movement/behavior type.
+     */
+    enum class MonsterKind : uint8_t { Sine = 0, ZigZag = 1, Boss = 2 };
 
+    /**
+     * @brief Monster state tracked by the authoritative server.
+     */
     struct MonsterState {
         int id = 0;
         float x = 0;
@@ -70,9 +82,18 @@ public:
 
     GameWorld() = default;
 
+    /**
+     * @brief Register a player on HELLO_UDP.
+     */
     void registerPlayer(int id, uint8_t x, uint8_t y, const sockaddr_in &addr);
-        void updateInput(int id, int8_t velX, int8_t velY, uint8_t dir, const sockaddr_in &addr);
-        void addShot(int id, uint8_t posX, uint8_t posY, int8_t velX, int8_t velY);
+    /**
+     * @brief Update input state and refresh the sender address.
+     */
+    void updateInput(int id, int8_t velX, int8_t velY, uint8_t dir, const sockaddr_in &addr);
+    /**
+     * @brief Register a player shot in the world.
+     */
+    void addShot(int id, uint8_t posX, uint8_t posY, int8_t velX, int8_t velY);
 
         /**
          * @brief Remove a player and any references to it.
@@ -86,13 +107,34 @@ public:
          */
     void tick(long long nowMs, long long deltaMs);
 
+    /**
+     * @brief Build a UDP snapshot packet of current world state.
+     */
     Packet buildSnapshotPacket();
+    /**
+     * @brief Consume boss-spawned flag (one-shot).
+     */
     bool takeBossSpawned();
+    /**
+     * @brief Consume boss-defeated flag (one-shot).
+     */
     bool takeBossDefeated();
+    /**
+     * @brief Consume no-players flag (one-shot).
+     */
     bool takeNoPlayers();
+    /**
+     * @brief True after at least one player has joined.
+     */
     bool hasHadPlayers() const { return _hadPlayers; }
 
+    /**
+     * @brief Access player map (read-only).
+     */
     const std::unordered_map<int, PlayerState> &players() const { return _players; }
+    /**
+     * @brief Prefix used in log output.
+     */
     void setLogPrefix(const std::string &prefix) { _logPrefix = prefix; }
 
 private:

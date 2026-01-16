@@ -11,6 +11,9 @@
 #include <vector>
 #include <cstdint>
 
+/**
+ * @brief Lightweight snapshot of a player for client-side rendering.
+ */
 struct PlayerState {
     int id = 0;
     uint8_t x = 0;
@@ -19,6 +22,9 @@ struct PlayerState {
     uint16_t score = 0;
 };
 
+/**
+ * @brief Lightweight snapshot of a bullet for client-side rendering.
+ */
 struct BulletState {
     int id = 0;
     uint8_t x = 0;
@@ -27,6 +33,9 @@ struct BulletState {
     int8_t vy = 0;
 };
 
+/**
+ * @brief Lightweight snapshot of a monster for client-side rendering.
+ */
 struct MonsterState {
     int id = 0;
     uint8_t x = 0;
@@ -35,23 +44,38 @@ struct MonsterState {
     uint8_t type = 0; // 0 = sin, 1 = cos
 };
 
+/**
+ * @brief Client-side container for the latest world state.
+ */
 class GameState {
 public:
+    /**
+     * @brief Insert or update a player entry.
+     */
     void upsertPlayer(int id, uint8_t x, uint8_t y, uint8_t hp, uint16_t score)
     {
         _players[id] = PlayerState{id, x, y, hp, score};
     }
 
+    /**
+     * @brief Insert or update a bullet entry.
+     */
     void upsertBullet(int id, uint8_t x, uint8_t y, int8_t vx, int8_t vy)
     {
         _bullets[id] = BulletState{id, x, y, vx, vy};
     }
 
+    /**
+     * @brief Insert or update a monster entry.
+     */
     void upsertMonster(int id, uint8_t x, uint8_t y, uint8_t hp, uint8_t type)
     {
         _monsters[id] = MonsterState{id, x, y, hp, type};
     }
 
+    /**
+     * @brief Clear all cached entities.
+     */
     void clear()
     {
         _players.clear();
@@ -59,11 +83,17 @@ public:
         _monsters.clear();
     }
 
+    /**
+     * @brief Clear only player entries.
+     */
     void clearPlayers()
     {
         _players.clear();
     }
 
+    /**
+     * @brief Return a snapshot list of current players.
+     */
     std::vector<PlayerState> listPlayers() const
     {
         std::vector<PlayerState> res;
@@ -73,6 +103,9 @@ public:
         return res;
     }
 
+    /**
+     * @brief Return a snapshot list of current bullets.
+     */
     std::vector<BulletState> listBullets() const
     {
         std::vector<BulletState> res;
@@ -82,6 +115,9 @@ public:
         return res;
     }
 
+    /**
+     * @brief Return a snapshot list of current monsters.
+     */
     std::vector<MonsterState> listMonsters() const
     {
         std::vector<MonsterState> res;

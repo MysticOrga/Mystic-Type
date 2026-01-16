@@ -14,7 +14,10 @@ RECURSIVE              = YES
 INPUT                  = README.md \
                          docs/mtp_protocol_rfc.txt \
                          docs/tcp_protocol_rfc.txt \
-                         src
+                         src \
+                         server.cpp \
+                         client.cpp \
+                         game.cpp
 FILE_PATTERNS          = *.hpp *.cpp *.md *.txt
 EXCLUDE_PATTERNS       = */build/* */docs/doxygen/* */sprites/*
 USE_MDFILE_AS_MAINPAGE = README.md
