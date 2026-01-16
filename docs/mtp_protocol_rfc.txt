@@ -1,9 +1,9 @@
-RFC - MysticType Protocol (MTP)
+RFC - Mystic-Type Protocol (MTP) - UDP
 
-Author: Quentin Hivanhoe, Loic Rabearivelo, Nicolas Samy, Emma Frederic
+Author: Mystic-Type Networking Team
 Contact: mysticType@epitech.eu
-Version: 1.0
-Date: 20 November 2025
+Version: 2.0
+Date: 2026
 
 ================================================================================
 1. Introduction
@@ -11,43 +11,34 @@ Date: 20 November 2025
 
 1.1 Purpose
 -----------
-This document specifies the MysticType Protocol (MTP), a lightweight 
-application-layer protocol designed for real-time multiplayer game 
-communication over UDP.
+This document specifies the Mystic-Type Protocol (MTP), a lightweight
+application-layer protocol used for real-time multiplayer game data over UDP.
 
 1.2 Scope
 ---------
-MTP provides a simple, efficient packet structure for client-server and 
-peer-to-peer game networking, with support for connection management, data 
-transmission, and heartbeat mechanisms.
+MTP handles gameplay messages only (hello, input, snapshots, pings). Lobby
+selection and player ID assignment are done over TCP (see TCP RFC).
 
 1.3 Terminology
 ---------------
-- Magic Number: A fixed 2-byte identifier used to validate protocol compliance
-- Payload: Variable-length data carried by a packet (0-255 bytes)
-- Header: Fixed 4-byte structure containing packet metadata
-- Packet: Complete transmission unit consisting of header and optional payload
+- Magic Number: fixed 2-byte identifier (0x5254)
+- Payload: variable-length data (0..255 bytes)
+- Header: fixed 4-byte structure (magic + type + size)
+- Packet: header + payload
 
 ================================================================================
 2. Protocol Overview
 ================================================================================
 
-2.1 Design Goals
-----------------
-- Minimal overhead for real-time applications
-- Simple implementation and parsing
-- UDP-compatible for low-latency transmission
-- Extensible packet type system
-- Lobby-agnostic transport: lobby selection stays on TCP; the UDP
-  packets are reused as-is and the server routes them to the correct
-  lobby using the player ID ↔ lobby mapping established during TCP
-  handshake.
-
-2.2 Transport Layer
+2.1 Transport Layer
 -------------------
-MTP operates over UDP (User Datagram Protocol) on the transport layer. The 
-protocol does not provide reliability guarantees; applications requiring 
-reliable delivery must implement acknowledgment and retransmission mechanisms.
+MTP operates over UDP and does not provide reliability. The application must
+handle loss, ordering, and retransmission if needed.
+
+2.2 Lobby Routing
+-----------------
+The server routes UDP packets to the correct lobby using the player ID obtained
+from the TCP handshake. The client MUST use the UDP port returned in LOBBY_OK.
 
 ================================================================================
 3. Packet Structure
@@ -55,270 +46,93 @@ reliable delivery must implement acknowledgment and retransmission mechanisms.
 
 3.1 General Format
 ------------------
-All MTP packets consist of a fixed-size header followed by an optional 
-variable-size payload:
+All MTP packets use the same layout as the TCP packet body (no TCP length prefix):
 
- 0                   1                   2                   3
- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|         Magic Number          | Packet Type  |  Payload Size  |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|                                                               |
-|                        Payload (0-255 bytes)                  |
-|                                                               |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+  [0-1] : magic (uint16, 0x5254 = "RT")
+  [2]   : type  (uint8)
+  [3]   : size  (uint8, payload length 0..255)
+  [4..] : payload (size bytes)
 
-3.2 Header Fields
------------------
-
-3.2.1 Magic Number (16 bits)
-- Offset: 0
-- Length: 2 bytes
-- Value: 0xCAFE (fixed constant)
-- Byte Order: Network byte order (big-endian)
-- Purpose: Protocol identification and validation
-
-3.2.2 Packet Type (8 bits)
-- Offset: 3
-- Length: 1 byte
-- Purpose: Identifies the packet type (see Section 4)
-
-3.2.3 Payload Size (8 bits)
-- Offset: 2
-- Length: 1 byte
-- Purpose: Specifies payload length in bytes
-
-3.3 Payload
------------
-- Length: Variable (0 to 255 bytes)
-- Format: Type-specific binary data
-- Position: Immediately following the header
+All integers are big-endian.
 
 ================================================================================
-4. Packet Types
+4. Packet Types (UDP)
 ================================================================================
 
-4.1 Type Registry
------------------
+Value | Type Name  | Description
+------|------------|---------------------------------------------
+0x0A  | HELLO_UDP  | Client hello for UDP registration
+0x0B  | INPUT      | Player input
+0x0C  | SNAPSHOT   | Server snapshot (world state)
+0x0D  | SHOOT      | Player shoot command
+0x12  | PING_UDP   | Client ping for RTT
+0x13  | PONG_UDP   | Server pong (echo payload)
 
-Value | Type Name      | Description
-------|----------------|--------------------------------------
-0x01  | CONNECTION     | Client connection request
-0x02  | DISCONNECTION  | Client disconnection notification
-0x03  | MOVE           | Player movement data transmission
-0xFF  | IOERROR          | Error notification
+Note: PacketType 0x0E (LEVELING) exists in code but is unused on UDP.
 
-4.2 Type Definitions
+================================================================================
+5. Payload Formats
+================================================================================
+
+5.1 HELLO_UDP (0x0A)
 --------------------
+Payload (min 2 bytes):
+  [id_hi][id_lo][posX][posY]
+- id: 16-bit player ID (from TCP OK) is required
+- posX/posY are optional; server accepts 2-byte payload and defaults to 0,0
 
-4.2.1 CONNECTION (0x01)
-Purpose: Initiates a connection between client and server
+5.2 INPUT (0x0B)
+----------------
+Payload (7 bytes):
+  [id_hi][id_lo][posX][posY][velX][velY][dir]
+- posX/posY: client-reported position (uint8, ignored by server)
+- velX/velY: velocity (int8)
+- dir: movement direction / command (uint8)
 
-Payload Format:
- 0                   1
- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|          Client ID            |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+5.3 SHOOT (0x0D)
+----------------
+Payload (6 bytes):
+  [id_hi][id_lo][posX][posY][velX][velY]
+- velX/velY: bullet velocity (int8)
 
-Payload Fields:
-- Client ID (optional, 1 byte): Unique client identifier
+5.4 PING_UDP (0x12) / PONG_UDP (0x13)
+-------------------------------------
+Payload (commonly 4 bytes):
+  [ts3][ts2][ts1][ts0] (uint32 timestamp, big-endian)
+Server echoes the same payload for RTT measurement.
 
-Expected Response: ACK packet with assigned client ID
+5.5 SNAPSHOT (0x0C)
+-------------------
+Payload layout (variable):
 
-4.2.2 DISCONNECTION (0x02)
-Purpose: Graceful connection termination
+  [0] : player_count (uint8)
+  players[] (either 5 or 7 bytes each)
+  [..] : bullet_count (uint8)
+  bullets[] (6 bytes each)
+  [..] : monster_count (uint8)
+  monsters[] (6 bytes each)
+  [optional] : seq_hi seq_lo (uint16)
 
-Payload Format:
- 0                   1
- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|          Client ID            |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+Player entry (5 bytes):
+  [id_hi][id_lo][posX][posY][hp]
 
-Payload Fields:
-- Client ID (1 byte): ID of disconnecting client
+Player entry with score (7 bytes):
+  [id_hi][id_lo][posX][posY][hp][score_hi][score_lo]
 
-Expected Response: None
+Bullet entry (6 bytes):
+  [id_hi][id_lo][posX][posY][velX][velY]
 
-4.2.3 MOVE (0x03)
-Purpose: Player movement data transmission
+Monster entry (6 bytes):
+  [id_hi][id_lo][posX][posY][hp][type]
 
-Payload Format:
- 0                   1                   2
- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-| Player ID    | Position X    | Position Y   |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-| Velocity X   | Velocity Y    | Direction    |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-
-Payload Fields:
-- Player ID (1 byte): ID of the moving player
-- Position X (1 byte): X coordinate
-- Position Y (1 byte): Y coordinate
-- Velocity X (1 byte): X velocity component
-- Velocity Y (1 byte): Y velocity component
-- Direction (1 byte): Facing direction (0-255 = 0-360°)
-
-Usage: Sent by clients to update their position, broadcasted by server to 
-other clients
-
-4.2.4 IOERROR (0xFF)
-Purpose: Error condition notification
-
-Payload Format:
- 0                   1
- 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|         Error Code            |
-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-
-Payload Fields:
-- Error Code (1 byte): Application-defined error identifier
-
-Common Error Codes:
-- 0x00: Generic error
-- 0x01: Invalid packet format
-- 0x02: Authentication failure
-- 0xFF: Server full
-
-================================================================================
-5. Protocol Operations
-================================================================================
-
-5.1 Connection Establishment
-----------------------------
-Client                          Server
- |                               |
-  |--- CONNECTION --------------->|
-  |                               |
-  |<-- ACK (Client ID) -----------|
-  |                               |
-  | (Lobby selection is handled on TCP; the server maps this Client ID
-  |  to a lobby and routes UDP traffic accordingly.)                     |
-
-5.2 Connection Termination
---------------------------
-Client                          Server
-  |                               |
-  |--- DISCONNECTION ------------>|
-  |                               |
-  [Connection closed]             |
-
-5.3 Movement Data Exchange
---------------------------
-Client                          Server
-  |                               |
-  |--- MOVE --------------------->|
-  |                               |
-  |<-- MOVE (broadcast) ----------|
-  |                               |
+Notes:
+- The server may include per-player score (7-byte format) or omit it (5-byte).
+- The current implementation always appends a 2-byte sequence number at the end.
 
 ================================================================================
 6. Implementation Considerations
 ================================================================================
 
-6.1 Byte Order
---------------
-All multi-byte fields MUST be transmitted in network byte order (big-endian). 
-Implementations MUST use appropriate conversion functions (htons/ntohs).
-
-6.2 Validation
---------------
-Receivers MUST validate:
-1. Packet length (minimum 4 bytes)
-2. Magic number (0xCAFE)
-3. Payload size matches received data
-4. Packet type is recognized
-
-Invalid packets MUST be silently discarded.
-
-6.3 Maximum Transmission Unit
-------------------------------
-The maximum packet size is 259 bytes (4-byte header + 255-byte payload). 
-Implementations SHOULD ensure this fits within the network MTU to avoid 
-fragmentation.
-
-6.4 Timeout Handling
---------------------
-Implementations SHOULD implement timeouts for:
-- Connection establishment (recommended: 5 seconds)
-- Heartbeat response (recommended: 30 seconds)
-- Idle connection cleanup (recommended: 60 seconds)
-
-6.5 Security Considerations
----------------------------
-This protocol does NOT provide:
-- Authentication
-- Encryption
-- Message integrity verification
-
-Implementations requiring security MUST implement these at a higher layer 
-(e.g., DTLS over UDP).
-
-================================================================================
-7. Extensibility
-================================================================================
-
-7.1 Reserved Packet Types
--------------------------
-Types 0x06-0xFE are reserved for future protocol extensions.
-
-7.2 Custom Packet Types
------------------------
-Applications MAY define custom packet types in the reserved range for 
-experimental features, but MUST NOT expect interoperability with other 
-implementations.
-
-================================================================================
-8. Example Packets
-================================================================================
-
-8.1 CONNECTION Packet
----------------------
-Hexadecimal: CA FE 01 01 2A
-Breakdown:
-  CA FE      - Magic number (0xCAFE)
-  01         - Payload size (1 byte)
-  01         - Packet type (CONNECTION)
-  2A         - Payload: Client ID = 42
-
-8.2 MOVE Packet
----------------
-Hexadecimal: CA FE 08 03 01 0A 14 1E 02 01 FF B4
-Breakdown:
-  CA FE      - Magic number (0xCAFE)
-  08         - Payload size (8 bytes)
-  03         - Packet type (MOVE)
-  01         - Player ID = 1
-  0A         - Position X = 10
-  14         - Position Y = 20
-  1E         - Position Z = 30
-  02         - Velocity X = 2
-  01         - Velocity Y = 1
-  FF         - Velocity Z = -1 (255 in unsigned)
-  B4         - Direction = 180° (180 * 255/360 ≈ 180)
-
-================================================================================
-9. References
-================================================================================
-
-- RFC 768: User Datagram Protocol
-- RFC 791: Internet Protocol
-- POSIX Socket API Documentation
-
-================================================================================
-Appendix A: Implementation Checklist
-================================================================================
-
-- [ ] Packet header serialization (network byte order)
-- [ ] Packet header deserialization (network byte order)
-- [ ] Magic number validation
-- [ ] Packet type enumeration
-- [ ] Payload size validation
-- [ ] Connection state management
-- [ ] Heartbeat mechanism
-- [ ] Error handling
-- [ ] Timeout implementation
-- [ ] Unit tests for packet parsing
+- Payload size must match the header "size" field.
+- Magic must be 0x5254; otherwise the packet is invalid.
+- UDP is lossy; snapshots may be dropped without retransmission.

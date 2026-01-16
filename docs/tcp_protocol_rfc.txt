@@ -1,28 +1,24 @@
 Mystic-Type TCP Protocol (Informal RFC)
 ======================================
 
-Version: 1.1 (Lobby extension)
-Status: Draft
 Author: Mystic-Type Networking Team
-Date: 2025
+Contact: mysticType@epitech.eu
+Version: 2.0
+Date: 2026
 
 --------------------------------------
 1. Introduction
 --------------------------------------
 
-This document defines the Mystic-Type TCP Protocol, a lightweight
-binary protocol used exclusively for:
+This document defines the Mystic-Type TCP protocol. TCP is used for:
 
-- Client connection
-- Handshake validation
-- Assignment of player ID
-- Heartbeat / keepalive (PING/PONG)
-- Lobby creation / join signaling
-- Lobby-scoped player list updates
+- Connection + handshake
+- Player ID assignment
+- Lobby creation/join
+- Lobby-scoped chat and player list
+- Heartbeat / keepalive
 
-All gameplay data is transmitted over UDP, not TCP.
-
-This protocol ensures reliable connection negotiation only.
+Gameplay state and inputs are sent over UDP (see MTP RFC).
 
 --------------------------------------
 2. Transport and Framing
@@ -30,231 +26,142 @@ This protocol ensures reliable connection negotiation only.
 
 Transport layer: TCP stream.
 
-Each message sent over TCP is a framed binary packet defined as:
+Each TCP message is framed as:
 
-  [0-1] : header_magic  (uint16, always 0x5254 = "RT")
-  [2]   : type          (uint8)
-  [3]   : size          (uint8, payload length 0..255)
-  [4..] : payload       (0..255 bytes)
+  [0-1] : frame_len (uint16, big-endian)
+  [2..] : MTP packet (size = frame_len bytes)
+
+The MTP packet format is:
+
+  [0-1] : magic (uint16, 0x5254 = "RT")
+  [2]   : type  (uint8)
+  [3]   : size  (uint8, payload length 0..255)
+  [4..] : payload (size bytes)
 
 All integers use big-endian (network byte order).
 
-Maximum payload = 255 bytes.
-
+Constraints:
+- payload size is limited to 255 bytes
+- frame_len MUST equal (4 + payload size)
 
 --------------------------------------
-3. Packet Types
+3. Packet Types (TCP)
 --------------------------------------
 
-PacketType enumeration:
+PacketType enumeration on TCP:
 
-  1 : SERVER_HELLO
-  2 : CLIENT_HELLO
-  3 : OK
-  4 : REFUSED
-  5 : PING
-  6 : PONG
-  7 : MESSAGE
-  8 : PLAYER_LIST
-  9 : NEW_PLAYER
- 14 : CREATE_LOBBY
- 15 : JOIN_LOBBY
- 16 : LOBBY_OK
- 17 : LOBBY_ERROR
+  1  : SERVER_HELLO
+  2  : CLIENT_HELLO
+  3  : OK
+  4  : REFUSED
+  5  : PING
+  6  : PONG
+  7  : MESSAGE
+  8  : PLAYER_LIST
+  9  : NEW_PLAYER
+  14 : CREATE_LOBBY
+  15 : JOIN_LOBBY
+  16 : LOBBY_OK
+  17 : LOBBY_ERROR
 
-Details:
+Note: PacketType values are shared across TCP/UDP. Interpret by transport.
+
+--------------------------------------
+4. Packet Formats
+--------------------------------------
 
 SERVER_HELLO (1)
-  Payload: ASCII text, typically "R-Type Server"
+  Payload: ASCII string (default "R-Type Server")
+
 CLIENT_HELLO (2)
-  Payload must begin with "toto"
+  Payload: ASCII string "toto" with optional pseudo
+  Format: "toto" or "toto|<pseudo>"
+  Pseudo rules: [A-Za-z0-9_-], max 12 chars (others stripped)
+
 OK (3)
-  Payload: 2 bytes (big-endian player ID)
+  Payload: 2 bytes, player ID (big-endian)
+
 REFUSED (4)
-  Payload: ASCII reason (e.g., "FULL", "TIMEOUT", ...)
+  Payload: ASCII reason string
+  Known reasons: "FULL", "TIMEOUT", "BAD_HANDSHAKE"
+
 PING (5)
-  No payload
+  Payload: empty
+
 PONG (6)
-  No payload
+  Payload: empty
+
 MESSAGE (7)
-  Free-form application-defined payload
+  Payload: ASCII text (server uses "CHAT:" / "SYS:" prefixes)
+  Notes: client/server sanitize to ASCII 32..126 and truncate to 120 chars
+
 PLAYER_LIST (8)
   Payload:
     [0]     : count (uint8)
-    Then for each player:
-      [id_hi][id_lo][posX][posY]
-  Lists only players inside the same lobby as the recipient.
+    For each player (5 bytes):
+      [id_hi][id_lo][posX][posY][hp]
+
 NEW_PLAYER (9)
-  Payload: [id_hi][id_lo][posX][posY]
-  Broadcast to lobby members when a new player joins their lobby.
+  Payload: [id_hi][id_lo][posX][posY][hp]
+  Broadcast to lobby members when a new player joins.
+
 CREATE_LOBBY (14)
-  Sent by client after OK to create a private lobby with a join code.
   Payload: empty
+
 JOIN_LOBBY (15)
-  Sent by client after OK to join a friend's lobby.
-  Payload: ASCII code (exactly the code returned by LOBBY_OK)
+  Payload: ASCII lobby code
+  Special: "PUBLIC" means auto public lobby.
+
 LOBBY_OK (16)
-  Payload: ASCII lobby code (6 chars recommended)
-  Returned after CREATE_LOBBY or JOIN_LOBBY; also used for auto-match.
+  Payload: ASCII "CODE|UDPPORT"
+  Example: "AB12CD|50001"
+
 LOBBY_ERROR (17)
   Payload: ASCII reason: "UNKNOWN_CODE", "FULL", "INVALID_STATE"
 
-
 --------------------------------------
-4. Connection Handshake
---------------------------------------
-
-Handshake sequence:
-
-1) Server → SERVER_HELLO("R-Type Server")
-2) Client → CLIENT_HELLO("toto...")
-
-If valid:
-3) Server → OK(player_id)
-4) Lobby selection (Section 4.1)
-
-Else:
-3) Server → REFUSED(reason)
-4) Server closes connection.
-
-Refusal reasons:
-
-- "TIMEOUT"     → no data from client within 3 seconds
-- "NO_DATA"     → client closed the socket
-- "BAD_PACKET"  → deserialize error, bad magic or truncated
-- "BAD_HANDSHAKE" → wrong type or payload not starting with "toto"
-- "FULL"        → server capacity = 4 clients
-
-
---------------------------------------
-4.1 Lobby Selection (post-handshake)
+5. Connection Handshake
 --------------------------------------
 
-After receiving OK(player_id), the client must choose one of:
+1) Server -> SERVER_HELLO
+2) Client -> CLIENT_HELLO (must begin with "toto")
+3) Server -> OK(player_id)
+4) Client -> CREATE_LOBBY or JOIN_LOBBY
+5) Server -> LOBBY_OK or LOBBY_ERROR
 
-- Auto-match public lobby (default): send nothing. Server assigns the
-  player to a non-full public lobby (or creates one) and replies
-  LOBBY_OK(code).
-- Create private lobby: Client → CREATE_LOBBY. Server creates a private
-  lobby, reserves a slot for the player, and replies LOBBY_OK(code).
-- Join friend: Client → JOIN_LOBBY(code). Server replies LOBBY_OK(code)
-  on success or LOBBY_ERROR(reason) otherwise.
-
-The lobby code is ASCII (6 chars recommended, alnum). All subsequent TCP
-signals (PLAYER_LIST, NEW_PLAYER) are scoped to the player's lobby.
-
-Server-side limits:
-- Max 4 players per lobby (same as server capacity).
-- JOIN_LOBBY is rejected with LOBBY_ERROR("UNKNOWN_CODE") if the code
-  does not exist, or "FULL" if the target lobby already has 4 players.
-
+Handshake timeout: if CLIENT_HELLO is not received within ~3 seconds,
+server replies REFUSED("TIMEOUT") and disconnects.
 
 --------------------------------------
-5. Heartbeat / Keepalive
+6. Heartbeat / Keepalive
 --------------------------------------
 
 Server:
-  - Sends PING every 5 seconds to each client that completed handshake
+  - Sends PING every 5 seconds to each client with handshake done.
 Client:
-  - MUST respond with PONG immediately
+  - MUST respond with PONG immediately.
 
-Server drop conditions:
-  - No PONG for > 10 seconds
-  - TCP read() <= 0
-  - Invalid packet formats
-
+Disconnect if no PONG for > 10 seconds.
 
 --------------------------------------
-6. Server Behavior
+7. Lobby Behavior
 --------------------------------------
 
-Maximum of 4 simultaneous clients per lobby (and overall).
-
-On disconnect, timeout, or invalid packet:
-  - Close TCP socket
-  - Reset client slot
-  - Free slot for next player
-
-REFUSED is advisory: server may close immediately after sending it.
-
-Lobby-scoped broadcasts:
-  - PLAYER_LIST is sent only to players in the same lobby as the target.
-  - NEW_PLAYER is broadcast only to players in the same lobby as the new
-    entrant.
-
+- Lobbies are identified by ASCII codes (6 chars recommended).
+- JOIN_LOBBY("PUBLIC") triggers auto public matchmaking.
+- Player lists and NEW_PLAYER broadcasts are lobby-scoped.
+- LOBBY_OK includes the UDP port to use for gameplay packets.
 
 --------------------------------------
-7. Error Handling
+8. Error Handling
 --------------------------------------
 
-Serialization must fail if:
-  - payload size > 255
-
-Deserialization must fail if:
-  - length < 4 bytes
-  - magic != 0x5254
-  - declared size > actual bytes
-
-On deserialization error, server sends REFUSED("BAD_PACKET")
-and closes the connection.
-
-
---------------------------------------
-8. Extensibility
---------------------------------------
-
-New PacketType values may be added.
-
-Clients should:
-  - ignore unrecognized packet types,
-  - or treat them as MESSAGE.
-
-Changing packet format or payload >255 requires protocol version bump.
-
+- Payload size > 255 is invalid.
+- Packets with wrong magic are rejected during parsing.
+- Invalid handshake => REFUSED("BAD_HANDSHAKE").
 
 --------------------------------------
 9. Security Considerations
 --------------------------------------
 
-This protocol has no encryption.
-
-Risks:
-  - Handshake forgery
-  - Packet replay
-  - Man-in-the-middle
-  - No authentication
-
-For production usage, TLS or shared-key MAC recommended.
-
-
---------------------------------------
-10. Examples (hex)
---------------------------------------
-
-SERVER_HELLO Payload "R-Type Server"
-  52 54 01 0C 52 2D 54 79 70 65 20 53 65 72 76 65 72
-
-CLIENT_HELLO "toto123"
-  52 54 02 07 74 6F 74 6F 31 32 33
-
-OK (player id = 10)
-  52 54 03 02 00 0A
-
-REFUSED "FULL"
-  52 54 04 04 46 55 4C 4C
-
-PING
-  52 54 05 00
-
-PONG
-  52 54 06 00
-
-CREATE_LOBBY (client → server)
-  52 54 0E 00
-
-LOBBY_OK "AB12CD"
-  52 54 10 06 41 42 31 32 43 44
-
---------------------------------------
-End of Document
---------------------------------------
+This protocol has no encryption or authentication.
