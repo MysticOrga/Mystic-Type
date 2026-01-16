@@ -46,6 +46,7 @@ private:
     bool selectPseudo();
     bool selectMainMenu();
     bool selectSettings();
+    std::string keyboardKeyToString(KeyboardKey key);
 
     Raylib::Window _window;
     NetworkClient _net;

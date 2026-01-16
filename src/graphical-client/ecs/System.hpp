@@ -30,8 +30,8 @@ class InputSystem
   public:
     InputSystem()
     {
-        _keyMap[RIGHT] = KEY_D;
-        _keyMap[LEFT] = KEY_A;
+        _keyMap[RIGHT] = KEY_Q;
+        _keyMap[LEFT] = KEY_D;
         _keyMap[UP] = KEY_W;
         _keyMap[DOWN] = KEY_S;
         _keyMap[SHOOT] = KEY_SPACE;
@@ -40,6 +40,12 @@ class InputSystem
     inline void setKey(KeyEvent event, KeyboardKey key)
     {
         _keyMap[event] = key;
+    };
+
+    inline KeyboardKey getKey(KeyEvent event) const
+    {
+        auto it = _keyMap.find(event);
+        return it != _keyMap.end() ? it->second : KEY_NULL;
     };
 
     // [MODIFICATION] On prend maintenant "Velocity &vel" en paramètre pour la modifier directement
