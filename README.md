@@ -63,10 +63,12 @@ Graphical client:
 - Client UI: lobby/pseudo selection, in-game chat, and return-to-lobby flow.
 
 ## Documentation
-- Doxygen: `https://mysticorga.github.io/Mystic-Type/`
-- Protocol RFCs: 
-    mtp: `https://mysticorga.github.io/Mystic-Type/rfc/mtp_protocol_rfc.txt` 
-    tcp: `https://mysticorga.github.io/Mystic-Type/rfc/tcp_protocol_rfc.txt`
+- [Doxygen](https://mysticorga.github.io/Mystic-Type/)
+- Protocol RFCs:
+
+    - [mtp protocol](https://mysticorga.github.io/Mystic-Type/rfc/mtp_protocol_rfc.txt)
+
+    - [tcp protocol](https://mysticorga.github.io/Mystic-Type/rfc/tcp_protocol_rfc.txt)
 
 ## Authors
 - Quentin Hivanhoe: `quentin.hivanhoe@epitech.eu`
