@@ -5,3 +5,10 @@
 ** Graphic
 */
 
+/**
+ * @file Graphic.cpp
+ * @brief Implementation of graphic classes.
+ *
+ * Currently contains only header implementations for template classes.
+ */
+

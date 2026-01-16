@@ -5,6 +5,11 @@
 ** Raylib Implementation
 */
 
+/**
+ * @file Raylib.cpp
+ * @brief Implementation of Raylib wrapper classes.
+ */
+
 #include "Raylib.hpp"
 
 namespace Raylib
@@ -59,7 +64,6 @@ namespace Raylib
         ::DrawRectangle(posX, posY, width, height, color);
     }
 
-    // [AJOUT] Implémentation
     void Draw::rectangleLines(int posX, int posY, int width, int height, Color color)
     {
         ::DrawRectangleLines(posX, posY, width, height, color);
