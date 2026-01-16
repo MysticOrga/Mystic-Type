@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['label_0',['label',['../struct_u_i_button.html#aff3ad68c65cc6e580040a95de90fc212',1,'UIButton']]],
-  ['lasthitms_1',['lastHitMs',['../struct_game_world_1_1_player_state.html#a4c7530290e5261df356c40bf8e6bc3f7',1,'GameWorld::PlayerState']]],
-  ['lastinputms_2',['lastInputMs',['../struct_session.html#a75334035d7b9b2a2c77755975563089a',1,'Session']]],
-  ['lastpong_3',['lastPong',['../struct_session.html#a82593a4e6ef0e6f9f1ef1bdacb2ec4df',1,'Session']]],
-  ['lastshootms_4',['lastShootMs',['../struct_session.html#a04b8c23754d16de9469a2f5c7aeb266c',1,'Session']]],
-  ['lobbycode_5',['lobbyCode',['../struct_session.html#a0831d2d53f42052f7b48fd07393d4c0c',1,'Session::lobbyCode'],['../struct_child_info.html#adc556c5d7e00a21c99fc48c2b715c33c',1,'ChildInfo::lobbyCode']]],
-  ['lossy_6',['lossy',['../mtp__protocol__rfc_8txt.html#a7feb53b17c1b2743c49933a05a6ffbe0',1,'mtp_protocol_rfc.txt']]]
+  ['label_0',['label',['../structUIButton.html#aff3ad68c65cc6e580040a95de90fc212',1,'UIButton']]],
+  ['lasthitms_1',['lastHitMs',['../structGameWorld_1_1PlayerState.html#a4c7530290e5261df356c40bf8e6bc3f7',1,'GameWorld::PlayerState']]],
+  ['lastinputms_2',['lastInputMs',['../structSession.html#a75334035d7b9b2a2c77755975563089a',1,'Session']]],
+  ['lastpong_3',['lastPong',['../structSession.html#a82593a4e6ef0e6f9f1ef1bdacb2ec4df',1,'Session']]],
+  ['lastshootms_4',['lastShootMs',['../structSession.html#a04b8c23754d16de9469a2f5c7aeb266c',1,'Session']]],
+  ['lobbycode_5',['lobbycode',['../structSession.html#a0831d2d53f42052f7b48fd07393d4c0c',1,'Session::lobbyCode'],['../structChildInfo.html#adc556c5d7e00a21c99fc48c2b715c33c',1,'ChildInfo::lobbyCode']]]
 ];

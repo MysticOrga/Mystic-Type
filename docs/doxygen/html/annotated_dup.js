@@ -1,52 +1,52 @@
 var annotated_dup =
 [
-    [ "Network", "namespace_network.html", [
-      [ "TransportLayer", "namespace_network_1_1_transport_layer.html", [
-        [ "ASocket", "class_network_1_1_transport_layer_1_1_a_socket.html", "class_network_1_1_transport_layer_1_1_a_socket" ],
-        [ "ISocket", "class_network_1_1_transport_layer_1_1_i_socket.html", "class_network_1_1_transport_layer_1_1_i_socket" ],
-        [ "TCPSocket", "class_network_1_1_transport_layer_1_1_t_c_p_socket.html", "class_network_1_1_transport_layer_1_1_t_c_p_socket" ],
-        [ "UDPSocket", "class_network_1_1_transport_layer_1_1_u_d_p_socket.html", "class_network_1_1_transport_layer_1_1_u_d_p_socket" ]
+    [ "Network", "namespaceNetwork.html", [
+      [ "TransportLayer", "namespaceNetwork_1_1TransportLayer.html", [
+        [ "ASocket", "classNetwork_1_1TransportLayer_1_1ASocket.html", "classNetwork_1_1TransportLayer_1_1ASocket" ],
+        [ "ISocket", "classNetwork_1_1TransportLayer_1_1ISocket.html", "classNetwork_1_1TransportLayer_1_1ISocket" ],
+        [ "TCPSocket", "classNetwork_1_1TransportLayer_1_1TCPSocket.html", "classNetwork_1_1TransportLayer_1_1TCPSocket" ],
+        [ "UDPSocket", "classNetwork_1_1TransportLayer_1_1UDPSocket.html", "classNetwork_1_1TransportLayer_1_1UDPSocket" ]
       ] ]
     ] ],
-    [ "Raylib", "namespace_raylib.html", [
-      [ "Window", "class_raylib_1_1_window.html", "class_raylib_1_1_window" ],
-      [ "Texture", "class_raylib_1_1_texture.html", "class_raylib_1_1_texture" ],
-      [ "Draw", "class_raylib_1_1_draw.html", null ],
-      [ "Input", "class_raylib_1_1_input.html", null ]
+    [ "Raylib", "namespaceRaylib.html", [
+      [ "Draw", "classRaylib_1_1Draw.html", null ],
+      [ "Input", "classRaylib_1_1Input.html", null ],
+      [ "Texture", "classRaylib_1_1Texture.html", "classRaylib_1_1Texture" ],
+      [ "Window", "classRaylib_1_1Window.html", "classRaylib_1_1Window" ]
     ] ],
-    [ "Rtype", "namespace_rtype.html", [
-      [ "Graphic", "namespace_rtype_1_1_graphic.html", [
-        [ "AnimatedSprite", "class_rtype_1_1_graphic_1_1_animated_sprite.html", "class_rtype_1_1_graphic_1_1_animated_sprite" ]
+    [ "Rtype", "namespaceRtype.html", [
+      [ "Graphic", "namespaceRtype_1_1Graphic.html", [
+        [ "AnimatedSprite", "classRtype_1_1Graphic_1_1AnimatedSprite.html", "classRtype_1_1Graphic_1_1AnimatedSprite" ]
       ] ]
     ] ],
-    [ "BulletState", "struct_bullet_state.html", "struct_bullet_state" ],
-    [ "ChildInfo", "struct_child_info.html", "struct_child_info" ],
-    [ "ChildProcessManager", "class_child_process_manager.html", "class_child_process_manager" ],
-    [ "CircleComponent", "class_circle_component.html", "class_circle_component" ],
-    [ "CircleRenderSystem", "class_circle_render_system.html", "class_circle_render_system" ],
-    [ "ComponentArray", "class_component_array.html", "class_component_array" ],
-    [ "ECS", "class_e_c_s.html", "class_e_c_s" ],
-    [ "GameState", "class_game_state.html", "class_game_state" ],
-    [ "GameWorld", "class_game_world.html", "class_game_world" ],
-    [ "GraphicClient", "class_graphic_client.html", "class_graphic_client" ],
-    [ "IComponentArray", "class_i_component_array.html", "class_i_component_array" ],
-    [ "InputSystem", "class_input_system.html", "class_input_system" ],
-    [ "IpcChannel", "class_ipc_channel.html", "class_ipc_channel" ],
-    [ "MonsterState", "struct_monster_state.html", "struct_monster_state" ],
-    [ "MovementSystem", "class_movement_system.html", "class_movement_system" ],
-    [ "NetworkClient", "class_network_client.html", "class_network_client" ],
-    [ "Packet", "class_packet.html", "class_packet" ],
-    [ "PlayerState", "struct_player_state.html", "struct_player_state" ],
-    [ "Position", "class_position.html", "class_position" ],
-    [ "RectangleComponent", "class_rectangle_component.html", "class_rectangle_component" ],
-    [ "RectangleRenderSystem", "class_rectangle_render_system.html", "class_rectangle_render_system" ],
-    [ "Session", "struct_session.html", "struct_session" ],
-    [ "SessionManager", "class_session_manager.html", "class_session_manager" ],
-    [ "Sprite", "class_sprite.html", "class_sprite" ],
-    [ "SpriteRenderSystem", "class_sprite_render_system.html", "class_sprite_render_system" ],
-    [ "TCPServer", "class_t_c_p_server.html", "class_t_c_p_server" ],
-    [ "UDPGameServer", "class_u_d_p_game_server.html", "class_u_d_p_game_server" ],
-    [ "UIButton", "struct_u_i_button.html", "struct_u_i_button" ],
-    [ "UIText", "struct_u_i_text.html", "struct_u_i_text" ],
-    [ "Velocity", "class_velocity.html", "class_velocity" ]
+    [ "BulletState", "structBulletState.html", "structBulletState" ],
+    [ "ChildInfo", "structChildInfo.html", "structChildInfo" ],
+    [ "ChildProcessManager", "classChildProcessManager.html", "classChildProcessManager" ],
+    [ "CircleComponent", "classCircleComponent.html", "classCircleComponent" ],
+    [ "CircleRenderSystem", "classCircleRenderSystem.html", "classCircleRenderSystem" ],
+    [ "ComponentArray", "classComponentArray.html", "classComponentArray" ],
+    [ "ECS", "classECS.html", "classECS" ],
+    [ "GameState", "classGameState.html", "classGameState" ],
+    [ "GameWorld", "classGameWorld.html", "classGameWorld" ],
+    [ "GraphicClient", "classGraphicClient.html", "classGraphicClient" ],
+    [ "IComponentArray", "classIComponentArray.html", "classIComponentArray" ],
+    [ "InputSystem", "classInputSystem.html", "classInputSystem" ],
+    [ "IpcChannel", "classIpcChannel.html", "classIpcChannel" ],
+    [ "MonsterState", "structMonsterState.html", "structMonsterState" ],
+    [ "MovementSystem", "classMovementSystem.html", "classMovementSystem" ],
+    [ "NetworkClient", "classNetworkClient.html", "classNetworkClient" ],
+    [ "Packet", "classPacket.html", "classPacket" ],
+    [ "PlayerState", "structPlayerState.html", "structPlayerState" ],
+    [ "Position", "classPosition.html", "classPosition" ],
+    [ "RectangleComponent", "classRectangleComponent.html", "classRectangleComponent" ],
+    [ "RectangleRenderSystem", "classRectangleRenderSystem.html", "classRectangleRenderSystem" ],
+    [ "Session", "structSession.html", "structSession" ],
+    [ "SessionManager", "classSessionManager.html", "classSessionManager" ],
+    [ "Sprite", "classSprite.html", "classSprite" ],
+    [ "SpriteRenderSystem", "classSpriteRenderSystem.html", "classSpriteRenderSystem" ],
+    [ "TCPServer", "classTCPServer.html", "classTCPServer" ],
+    [ "UDPGameServer", "classUDPGameServer.html", "classUDPGameServer" ],
+    [ "UIButton", "structUIButton.html", "structUIButton" ],
+    [ "UIText", "structUIText.html", "structUIText" ],
+    [ "Velocity", "classVelocity.html", "classVelocity" ]
 ];

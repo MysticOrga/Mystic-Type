@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['mtp_5fprotocol_5frfc_2etxt_0',['mtp_protocol_rfc.txt',['../mtp__protocol__rfc_8txt.html',1,'']]]
+  ['networkclient_2ecpp_0',['NetworkClient.cpp',['../NetworkClient_8cpp.html',1,'']]],
+  ['networkclient_2ehpp_1',['NetworkClient.hpp',['../NetworkClient_8hpp.html',1,'']]]
 ];

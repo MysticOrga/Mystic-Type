@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['velocity_0',['Velocity',['../class_velocity.html',1,'']]]
+  ['velocity_0',['Velocity',['../classVelocity.html',1,'']]]
 ];

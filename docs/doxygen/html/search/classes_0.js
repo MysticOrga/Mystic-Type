@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['animatedsprite_0',['AnimatedSprite',['../class_rtype_1_1_graphic_1_1_animated_sprite.html',1,'Rtype::Graphic']]],
-  ['asocket_1',['ASocket',['../class_network_1_1_transport_layer_1_1_a_socket.html',1,'Network::TransportLayer']]]
+  ['animatedsprite_0',['AnimatedSprite',['../classRtype_1_1Graphic_1_1AnimatedSprite.html',1,'Rtype::Graphic']]],
+  ['asocket_1',['ASocket',['../classNetwork_1_1TransportLayer_1_1ASocket.html',1,'Network::TransportLayer']]]
 ];

@@ -1,0 +1,14 @@
+<map id="Network/Client/NetworkClient.hpp" name="Network/Client/NetworkClient.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="163,5,407,31"/>
+<area shape="rect" id="Node000002" href="$NetworkClient_8cpp.html" title=" " alt="" coords="5,86,248,111"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="251,39,151,88,149,84,249,34"/>
+<area shape="rect" id="Node000003" href="$GraphicClient_8hpp.html" title=" " alt="" coords="251,167,431,207"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="293,44,313,118,334,165,329,168,308,120,288,45"/>
+<area shape="rect" id="Node000006" href="$System_8hpp.html" title=" " alt="" coords="323,79,472,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="315,36,372,76,369,81,312,41"/>
+<area shape="rect" id="Node000004" href="$client_8cpp.html" title=" " alt="" coords="129,255,337,295"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="308,217,259,257,256,252,305,213"/>
+<area shape="rect" id="Node000005" href="$GraphicClient_8cpp.html" title=" " alt="" coords="361,255,540,295"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="378,213,428,252,425,257,375,217"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="380,132,356,168,351,165,375,129"/>
+</map>

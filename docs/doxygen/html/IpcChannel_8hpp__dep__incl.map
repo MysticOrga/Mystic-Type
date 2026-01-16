@@ -1,0 +1,20 @@
+<map id="server/IpcChannel.hpp" name="server/IpcChannel.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="387,5,553,31"/>
+<area shape="rect" id="Node000002" href="$game_8cpp.html" title=" " alt="" coords="5,167,215,207"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="374,34,300,52,263,65,227,81,197,101,169,124,127,168,123,165,166,120,194,96,225,76,261,60,298,47,372,29"/>
+<area shape="rect" id="Node000003" href="$server_8cpp.html" title=" " alt="" coords="456,167,668,207"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="475,44,483,80,498,117,517,143,539,164,535,168,513,147,493,120,478,82,470,45"/>
+<area shape="rect" id="Node000004" href="$TCPServer_8hpp.html" title=" " alt="" coords="508,79,685,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="502,36,568,76,565,81,499,40"/>
+<area shape="rect" id="Node000006" href="$UDPGameServer_8hpp.html" title=" " alt="" coords="238,79,433,119"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="440,40,369,81,366,76,437,35"/>
+<area shape="rect" id="Node000008" href="$IpcChannel_8cpp.html" title=" " alt="" coords="709,86,876,111"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="531,31,746,83,745,89,529,36"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="586,132,572,167,567,165,581,130"/>
+<area shape="rect" id="Node000005" href="$TCPServer_8cpp.html" title=" " alt="" coords="692,167,869,207"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="651,122,742,164,739,169,648,127"/>
+<area shape="poly" id="edge7_Node000006_Node000002" title=" " alt="" coords="274,126,160,169,158,164,272,121"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="399,121,513,164,511,169,397,126"/>
+<area shape="rect" id="Node000007" href="$UDPGameServer_8cpp.html" title=" " alt="" coords="239,167,432,207"/>
+<area shape="poly" id="edge9_Node000006_Node000007" title=" " alt="" coords="338,133,338,166,333,166,333,133"/>
+</map>

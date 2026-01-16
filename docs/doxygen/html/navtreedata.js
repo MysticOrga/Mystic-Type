@@ -25,6 +25,15 @@
 var NAVTREE =
 [
   [ "Mystic-Type", "index.html", [
+    [ "Prerequisites", "index.html#autotoc_md1", null ],
+    [ "Build", "index.html#autotoc_md2", null ],
+    [ "Run", "index.html#autotoc_md3", null ],
+    [ "Architecture", "index.html#autotoc_md4", null ],
+    [ "Network protocol (summary)", "index.html#autotoc_md5", null ],
+    [ "Controls by default (client)", "index.html#autotoc_md6", null ],
+    [ "Key features", "index.html#autotoc_md7", null ],
+    [ "Documentation", "index.html#autotoc_md8", null ],
+    [ "Authors", "index.html#autotoc_md9", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -62,11 +71,10 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_a_socket_8cpp.html",
-"class_network_client.html#a8d887ba6e7708446cee34eebc70a2b7d",
-"struct_game_world_1_1_player_state.html"
+"ASocket_8cpp.html",
+"classNetwork_1_1TransportLayer_1_1ISocket.html#a0a30278de50c785952d77ac03db3700f",
+"structChildInfo.html#adc556c5d7e00a21c99fc48c2b715c33c"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronization';
-var SYNCOFFMSG = 'click to enable panel synchronization';
-var LISTOFALLMEMBERS = 'List of all members';
+var SYNCONMSG = 'click to disable panel synchronisation';
+var SYNCOFFMSG = 'click to enable panel synchronisation';

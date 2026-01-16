@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['networkclient_0',['NetworkClient',['../class_network_client.html',1,'']]]
+  ['networkclient_0',['NetworkClient',['../classNetworkClient.html',1,'']]]
 ];
