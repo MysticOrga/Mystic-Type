@@ -814,6 +814,15 @@ void GraphicClient::render(float dt)
     std::string bwText = "UDP: " + std::to_string(rxBps) + " bps RX / " + std::to_string(txBps) + " bps TX";
     Raylib::Draw::text(bwText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
                        static_cast<int>(GAME_AREA_OFFSET_Y) + 110, 18, {180, 210, 240, 210});
+    
+    // Display lobby code
+    std::string lobbyCode = _net.getLobbyCode();
+    if (!lobbyCode.empty())
+    {
+        std::string lobbyText = "LOBBY: " + lobbyCode;
+        Raylib::Draw::text(lobbyText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
+                           static_cast<int>(GAME_AREA_OFFSET_Y) + 136, 20, {100, 200, 100, 255});
+    }
 
     float chatX = GAME_AREA_OFFSET_X + 12;
     float chatY = GAME_AREA_OFFSET_Y + GAME_AREA_SIZE - 140.0f;

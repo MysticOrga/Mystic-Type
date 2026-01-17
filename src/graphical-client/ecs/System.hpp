@@ -49,10 +49,10 @@ class InputSystem
     */
     InputSystem()
     {
-        _keyMap[RIGHT] = KEY_Q;
-        _keyMap[LEFT] = KEY_D;
-        _keyMap[UP] = KEY_W;
-        _keyMap[DOWN] = KEY_S;
+        _keyMap[RIGHT] = KEY_RIGHT;
+        _keyMap[LEFT] = KEY_LEFT;
+        _keyMap[UP] = KEY_UP;
+        _keyMap[DOWN] = KEY_DOWN;
         _keyMap[SHOOT] = KEY_SPACE;
     };
 
