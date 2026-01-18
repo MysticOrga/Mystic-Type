@@ -32,7 +32,6 @@ bool Network::TransportLayer::UnixSocket::bind()
 {
     if (::bind(_socketFd, reinterpret_cast<sockaddr *>(&_addr), sizeof(_addr)) == -1)
     {
-        perror("IPC: ");
         this->closeSocket();
         return false;
     }
@@ -43,7 +42,6 @@ bool Network::TransportLayer::UnixSocket::connect()
 {
     if (::connect(_socketFd, reinterpret_cast<sockaddr *>(&_addr), sizeof(_addr)) == -1)
     {
-        std::cout << WSAGetLastError() << std::endl;
         this->closeSocket();
         return false;
     }

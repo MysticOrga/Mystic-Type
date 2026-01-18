@@ -61,14 +61,15 @@ set(CLIENT_SOURCES
 
 # Targets
 add_executable(rtype-tcp-server
-    ${TCP_SOURCES}
     ${SERVER_COMMON_SOURCES}
+    ${TCP_SOURCES}
 )
 
 add_executable(rtype-udp-server
-    ${UDP_SOURCES}
     ${SERVER_COMMON_SOURCES}
+    ${UDP_SOURCES}
 )
+
 add_executable(rtype-client ${CLIENT_SOURCES})
 
 target_link_libraries(rtype-client PRIVATE raylib)
