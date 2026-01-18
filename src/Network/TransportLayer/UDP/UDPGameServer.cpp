@@ -184,6 +184,9 @@ void UDPGameServer::handlePacket(const Packet &packet, const sockaddr_in &from)
     case PacketType::SHOOT:
         handleShoot(packet);
         break;
+    case PacketType::PING_UDP:
+        sendPacketTo(Packet(PacketType::PONG_UDP, packet.payload), from);
+        break;
     default:
         break;
     }

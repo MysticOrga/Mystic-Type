@@ -30,11 +30,11 @@ class InputSystem
   public:
     InputSystem()
     {
-        _keyMap[RIGHT] = KEY_RIGHT;
-        _keyMap[LEFT] = KEY_LEFT;
-        _keyMap[UP] = KEY_UP;
-        _keyMap[DOWN] = KEY_DOWN;
-        _keyMap[SHOOT] = KEY_A;
+        _keyMap[RIGHT] = KEY_D;
+        _keyMap[LEFT] = KEY_A;
+        _keyMap[UP] = KEY_W;
+        _keyMap[DOWN] = KEY_S;
+        _keyMap[SHOOT] = KEY_SPACE;
     };
 
     inline void setKey(KeyEvent event, KeyboardKey key)

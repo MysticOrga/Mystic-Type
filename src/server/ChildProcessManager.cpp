@@ -7,16 +7,16 @@
 
 #include "ChildProcessManager.hpp"
 #ifdef _WIN32
-    #include <Windows.h>
+#include <Windows.h>
 #else
-    #include <unistd.h>
-    #include <sys/types.h>
-    #include <sys/wait.h>
-    #include <netinet/in.h>
+#include <netinet/in.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
 #endif
-#include <vector>
 #include <cstring>
 #include <iostream>
+#include <vector>
 
 int ChildProcessManager::spawn(const std::string &lobby, uint16_t udpPort, const std::string &ipcSock)
 {
@@ -67,9 +67,7 @@ int ChildProcessManager::spawn(const std::string &lobby, uint16_t udpPort, const
     std::cout << "COMMAND LINE: " << commandLine << std::endl;
     std::vector<char> cmdBuffer(commandLine.begin(), commandLine.end());
     cmdBuffer.push_back('\0');
-    BOOL ok = CreateProcessA(NULL,             
-                             cmdBuffer.data(), 
-                             NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
+    BOOL ok = CreateProcessA(NULL, cmdBuffer.data(), NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 
     if (!ok)
     {
@@ -80,15 +78,21 @@ int ChildProcessManager::spawn(const std::string &lobby, uint16_t udpPort, const
     info.pid = pi.dwProcessId;
     CloseHandle(pi.hProcess);
     CloseHandle(pi.hThread);
+    (void)lobby;
+    (void)udpPort;
+    (void)ipcSock;
 #else
-  pid_t pid = ::fork();
-    if (pid < 0) {
+    pid_t pid = ::fork();
+    if (pid < 0)
+    {
         std::cerr << "[PARENT] fork failed\n";
         return -1;
     }
-    if (pid == 0) {
+    if (pid == 0)
+    {
         // Child: exec the UDP server binary
-        if (::access(exePath.c_str(), X_OK) != 0) {
+        if (::access(exePath.c_str(), X_OK) != 0)
+        {
             exePath = "rtype-udp-server";
         }
         args.push_back(nullptr);
@@ -105,10 +109,8 @@ int ChildProcessManager::spawn(const std::string &lobby, uint16_t udpPort, const
     info.udpPort = udpPort;
     info.ipcSock = ipcSock;
     _children[lobby] = info;
-    std::cout << "[PARENT] Spawned UDP server lobby=" << lobby
-              << " port=" << udpPort << " pid=" << info.pid << "\n";
+    std::cout << "[PARENT] Spawned UDP server lobby=" << lobby << " port=" << udpPort << " pid=" << info.pid << "\n";
     return info.pid;
-
 }
 
 std::optional<ChildInfo> ChildProcessManager::get(const std::string &lobby) const

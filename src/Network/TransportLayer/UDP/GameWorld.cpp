@@ -421,7 +421,7 @@ void GameWorld::tick(long long nowMs, long long deltaMs)
     }
 }
 
-Packet GameWorld::buildSnapshotPacket() const
+Packet GameWorld::buildSnapshotPacket()
 {
     std::vector<uint8_t> payload;
     payload.reserve(2 + _players.size() * 7 + _bullets.size() * 6 + _monsters.size() * 6);
@@ -457,5 +457,8 @@ Packet GameWorld::buildSnapshotPacket() const
         payload.push_back(static_cast<uint8_t>(std::clamp<int>(m.hp, 0, 127)));
         payload.push_back(static_cast<uint8_t>(m.kind));
     }
+    _snapshotSeq = static_cast<uint16_t>(_snapshotSeq + 1);
+    payload.push_back(static_cast<uint8_t>((_snapshotSeq >> 8) & 0xFF));
+    payload.push_back(static_cast<uint8_t>(_snapshotSeq & 0xFF));
     return Packet(PacketType::SNAPSHOT, payload);
 }

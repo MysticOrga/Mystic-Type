@@ -20,7 +20,7 @@
 
 #include <vector>
 
-#define MAX_CLIENT 4
+#define MAX_CLIENT 500
 #define BUFFER_SIZE 1024
 
 /**

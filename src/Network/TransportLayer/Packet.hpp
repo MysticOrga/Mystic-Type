@@ -36,7 +36,9 @@ enum class PacketType : uint8_t {
     INPUT       = 11,   ///< Player input payload.
     SNAPSHOT    = 12,   ///< World state snapshot.
     SHOOT       = 13,   ///< Player shoot command.
-    LEVELING    = 14    ///< Go to next level
+    LEVELING    = 14,   ///< Go to next level
+    PING_UDP    = 18,   ///< UDP ping for RTT measurement.
+    PONG_UDP    = 19    ///< UDP pong response.
 };
 
 /**

@@ -26,6 +26,7 @@ GraphicClient::GraphicClient() : _window(1920, 1080, "Mystic-Type"), _net("127.0
 bool GraphicClient::init()
 {
     _lastInitError.clear();
+    SetExitKey(KEY_NULL);
     _spriteRenderSystem.setGameAreaOffset(GAME_AREA_OFFSET_X, GAME_AREA_OFFSET_Y, GAME_AREA_SIZE);
     _rectangleRenderSystem.setGameAreaOffset(GAME_AREA_OFFSET_X, GAME_AREA_OFFSET_Y, GAME_AREA_SIZE);
 
@@ -43,17 +44,23 @@ bool GraphicClient::init()
         }
         _hasPseudo = true;
     }
-    if (!_net.connectToServer()) {
-        _lastInitError = "connectToServer failed";
+    if (!_net.isConnected()) {
+        if (!_net.connectToServer()) {
+            _lastInitError = "connectToServer failed";
+            std::cerr << "[CLIENT] " << _lastInitError << "\n";
+            return false;
+        }
+        if (!_net.performHandshake()) {
+            _lastInitError = "performHandshake failed";
+            std::cerr << "[CLIENT] " << _lastInitError << "\n";
+            return false;
+        }
+        std::cout << "[CLIENT] Assigned ID " << _net.getPlayerId() << "\n";
+    } else if (!_net.ensureUdp()) {
+        _lastInitError = "ensureUdp failed";
         std::cerr << "[CLIENT] " << _lastInitError << "\n";
         return false;
     }
-    if (!_net.performHandshake()) {
-        _lastInitError = "performHandshake failed";
-        std::cerr << "[CLIENT] " << _lastInitError << "\n";
-        return false;
-    }
-    std::cout << "[CLIENT] Assigned ID " << _net.getPlayerId() << "\n";
     if (!selectLobby())
     {
         _lastInitError = "selectLobby failed";
@@ -88,7 +95,7 @@ Entity GraphicClient::createBulletEntity(float x, float y, float vx, float vy)
     Entity ent = _ecs.createEntity();
     _ecs.addComponent(ent, Position{x, y});
     _ecs.addComponent(ent, Velocity{vx, vy});
-    _ecs.addComponent(ent, RectangleComponent{6, 6, BLACK});
+    _ecs.addComponent(ent, RectangleComponent{6, 6, RED});
     return ent;
 }
 
@@ -264,6 +271,20 @@ void GraphicClient::syncMonsters(const std::vector<MonsterState> &monsters)
 
 void GraphicClient::processNetworkEvents()
 {
+    auto requestReturnToLobby = [&](const std::string &reason) {
+        std::cerr << "[CLIENT] " << reason << "\n";
+        _net.disconnectUdp();
+        _forceExit = true;
+        _restartToMenu = true;
+        _pendingReturnToLobby = false;
+        _pendingReturnReason.clear();
+    };
+    auto scheduleReturnToLobby = [&](const std::string &reason, int delaySeconds) {
+        _pendingReturnToLobby = true;
+        _pendingReturnReason = reason;
+        _returnToLobbyAt = std::chrono::steady_clock::now() + std::chrono::seconds(delaySeconds);
+    };
+
     for (int i = 0; i < 64; ++i) {
         if (!_net.pollPackets())
             break;
@@ -314,10 +335,7 @@ void GraphicClient::processNetworkEvents()
             std::string msg = ev.substr(std::string("MESSAGE:").size());
             if (msg == "DEAD")
             {
-                std::cerr << "[CLIENT] Vous etes mort\n";
-                _net.disconnect();
-                _forceExit = true;
-                _restartToMenu = true;
+                requestReturnToLobby("Vous etes mort");
             }
             else if (msg.rfind("CHAT:", 0) == 0)
             {
@@ -335,9 +353,15 @@ void GraphicClient::processNetworkEvents()
             }
             else if (msg.rfind("SYS:", 0) == 0)
             {
-                _chatLog.push_back("[SYS] " + msg.substr(4));
+                std::string sysMsg = msg.substr(4);
+                _chatLog.push_back("[SYS] " + sysMsg);
                 if (_chatLog.size() > 8)
                     _chatLog.erase(_chatLog.begin());
+                if (sysMsg == "Boss defeated - win") {
+                    scheduleReturnToLobby("Victoire: boss vaincu", 5);
+                } else if (sysMsg == "No players left - game over") {
+                    requestReturnToLobby("Defaite: boss gagne");
+                }
             }
         }
     }
@@ -776,6 +800,19 @@ void GraphicClient::render(float dt)
     std::string scoreText = hasScore ? ("SCORE: " + std::to_string(myScore)) : "SCORE: --";
     Raylib::Draw::text(scoreText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
                        static_cast<int>(GAME_AREA_OFFSET_Y) + 40, 22, {255, 255, 255, 210});
+    int pingMs = _net.getUdpPingMs();
+    std::string pingText = pingMs >= 0 ? ("PING: " + std::to_string(pingMs) + " ms") : "PING: --";
+    Raylib::Draw::text(pingText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
+                       static_cast<int>(GAME_AREA_OFFSET_Y) + 66, 20, {200, 220, 255, 220});
+    int lossPct = static_cast<int>(_net.getUdpLossPct() + 0.5f);
+    std::string lossText = "LOSS: " + std::to_string(lossPct) + "%";
+    Raylib::Draw::text(lossText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
+                       static_cast<int>(GAME_AREA_OFFSET_Y) + 88, 20, {200, 220, 255, 220});
+    int rxBps = static_cast<int>(_net.getUdpRxKbps() * 1000.0f + 0.5f);
+    int txBps = static_cast<int>(_net.getUdpTxKbps() * 1000.0f + 0.5f);
+    std::string bwText = "UDP: " + std::to_string(rxBps) + " bps RX / " + std::to_string(txBps) + " bps TX";
+    Raylib::Draw::text(bwText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
+                       static_cast<int>(GAME_AREA_OFFSET_Y) + 110, 18, {180, 210, 240, 210});
 
     float chatX = GAME_AREA_OFFSET_X + 12;
     float chatY = GAME_AREA_OFFSET_Y + GAME_AREA_SIZE - 140.0f;
@@ -816,6 +853,16 @@ void GraphicClient::gameLoop()
         float dt = _window.getFrameTime();
         // std::cerr << "before processing network event" << i << std::endl;
         processNetworkEvents();
+        if (_pendingReturnToLobby) {
+            if (std::chrono::steady_clock::now() >= _returnToLobbyAt) {
+                std::cerr << "[CLIENT] " << _pendingReturnReason << "\n";
+                _net.disconnectUdp();
+                _forceExit = true;
+                _restartToMenu = true;
+                _pendingReturnToLobby = false;
+                _pendingReturnReason.clear();
+            }
+        }
         if (_forceExit)
             return;
         // If PING send failed, drop to avoid server timeout
@@ -847,8 +894,23 @@ void GraphicClient::gameLoop()
                 _lastHello = nowHello;
             }
         }
+        else
+        {
+            auto nowPing = std::chrono::steady_clock::now();
+            if (std::chrono::duration_cast<std::chrono::seconds>(nowPing - _lastUdpPing).count() >= 1)
+            {
+                _net.sendUdpPing();
+                _lastUdpPing = nowPing;
+            }
+        }
 
-        if (!_chatActive && Raylib::Input::isKeyPressed(KEY_ENTER))
+        if (!_chatActive && Raylib::Input::isKeyPressed(KEY_ESCAPE))
+        {
+            _net.disconnectUdp();
+            _forceExit = true;
+            _restartToMenu = true;
+        }
+        else if (!_chatActive && Raylib::Input::isKeyPressed(KEY_ENTER))
         {
             _chatActive = true;
             _chatInput.clear();
@@ -922,8 +984,9 @@ int GraphicClient::run()
             _chatInput.clear();
             _chatActive = false;
             _playerPingMs.clear();
-            _net.disconnect();
-            _net.resetForReconnect();
+            _pendingReturnToLobby = false;
+            _pendingReturnReason.clear();
+            _net.resetForLobby();
             continue;
         }
         break;
@@ -1234,4 +1297,3 @@ bool GraphicClient::selectSettings()
 
     return true;
 }
-
