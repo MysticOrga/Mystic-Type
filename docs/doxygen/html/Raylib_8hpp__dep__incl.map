@@ -1,0 +1,20 @@
+<map id="graphical&#45;client/Raylib/Raylib.hpp" name="graphical&#45;client/Raylib/Raylib.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="209,5,377,45"/>
+<area shape="rect" id="Node000002" href="$Graphic_8hpp.html" title=" " alt="" coords="53,93,230,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="249,54,176,96,173,91,247,50"/>
+<area shape="rect" id="Node000005" href="$System_8hpp.html" title=" " alt="" coords="132,269,281,309"/>
+<area shape="poly" id="edge10_Node000001_Node000005" title=" " alt="" coords="285,59,215,270,210,268,280,58"/>
+<area shape="rect" id="Node000006" href="$GraphicClient_8hpp.html" title=" " alt="" coords="177,357,357,397"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="300,59,307,170,305,240,296,310,279,358,274,356,291,309,299,240,301,170,295,59"/>
+<area shape="rect" id="Node000008" href="$Raylib_8cpp.html" title=" " alt="" coords="356,93,524,133"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="339,50,409,91,407,96,336,55"/>
+<area shape="rect" id="Node000003" href="$Components_8hpp.html" title=" " alt="" coords="67,181,216,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="144,147,144,181,139,181,139,147"/>
+<area shape="rect" id="Node000004" href="$GraphicClient_8cpp.html" title=" " alt="" coords="5,445,184,485"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="132,235,123,270,106,368,99,445,93,445,101,368,117,269,127,234"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="166,231,194,267,190,271,162,234"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="230,319,256,356,251,359,226,322"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="218,406,134,448,131,443,215,401"/>
+<area shape="rect" id="Node000007" href="$client_8cpp.html" title=" " alt="" coords="208,445,416,485"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="285,408,304,444,300,446,281,411"/>
+</map>

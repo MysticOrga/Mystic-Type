@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <cctype>
 #include <cmath>
+#include <cstring>
 #include <iostream>
 #include <limits>
 #include <memory>
@@ -813,6 +814,15 @@ void GraphicClient::render(float dt)
     std::string bwText = "UDP: " + std::to_string(rxBps) + " bps RX / " + std::to_string(txBps) + " bps TX";
     Raylib::Draw::text(bwText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
                        static_cast<int>(GAME_AREA_OFFSET_Y) + 110, 18, {180, 210, 240, 210});
+    
+    // Display lobby code
+    std::string lobbyCode = _net.getLobbyCode();
+    if (!lobbyCode.empty())
+    {
+        std::string lobbyText = "LOBBY: " + lobbyCode;
+        Raylib::Draw::text(lobbyText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
+                           static_cast<int>(GAME_AREA_OFFSET_Y) + 136, 20, {100, 200, 100, 255});
+    }
 
     float chatX = GAME_AREA_OFFSET_X + 12;
     float chatY = GAME_AREA_OFFSET_Y + GAME_AREA_SIZE - 140.0f;
@@ -1219,19 +1229,127 @@ bool GraphicClient::selectMainMenu()
     return submitted;
 }
 
+std::string GraphicClient::keyboardKeyToString(KeyboardKey key)
+{
+    switch (key)
+    {
+    case KEY_NULL: return "NULL";
+    case KEY_APOSTROPHE: return "'";
+    case KEY_COMMA: return ",";
+    case KEY_MINUS: return "-";
+    case KEY_PERIOD: return ".";
+    case KEY_SLASH: return "/";
+    case KEY_ZERO: return "0";
+    case KEY_ONE: return "1";
+    case KEY_TWO: return "2";
+    case KEY_THREE: return "3";
+    case KEY_FOUR: return "4";
+    case KEY_FIVE: return "5";
+    case KEY_SIX: return "6";
+    case KEY_SEVEN: return "7";
+    case KEY_EIGHT: return "8";
+    case KEY_NINE: return "9";
+    case KEY_SEMICOLON: return ";";
+    case KEY_EQUAL: return "=";
+    case KEY_A: return "A";
+    case KEY_B: return "B";
+    case KEY_C: return "C";
+    case KEY_D: return "D";
+    case KEY_E: return "E";
+    case KEY_F: return "F";
+    case KEY_G: return "G";
+    case KEY_H: return "H";
+    case KEY_I: return "I";
+    case KEY_J: return "J";
+    case KEY_K: return "K";
+    case KEY_L: return "L";
+    case KEY_M: return "M";
+    case KEY_N: return "N";
+    case KEY_O: return "O";
+    case KEY_P: return "P";
+    case KEY_Q: return "Q";
+    case KEY_R: return "R";
+    case KEY_S: return "S";
+    case KEY_T: return "T";
+    case KEY_U: return "U";
+    case KEY_V: return "V";
+    case KEY_W: return "W";
+    case KEY_X: return "X";
+    case KEY_Y: return "Y";
+    case KEY_Z: return "Z";
+    case KEY_LEFT_BRACKET: return "[";
+    case KEY_BACKSLASH: return "\\";
+    case KEY_RIGHT_BRACKET: return "]";
+    case KEY_GRAVE: return "`";
+    case KEY_SPACE: return "SPACE";
+    case KEY_ESCAPE: return "ESC";
+    case KEY_ENTER: return "ENTER";
+    case KEY_TAB: return "TAB";
+    case KEY_BACKSPACE: return "BACKSPACE";
+    case KEY_INSERT: return "INSERT";
+    case KEY_DELETE: return "DELETE";
+    case KEY_RIGHT: return "RIGHT";
+    case KEY_LEFT: return "LEFT";
+    case KEY_DOWN: return "DOWN";
+    case KEY_UP: return "UP";
+    case KEY_PAGE_UP: return "PAGEUP";
+    case KEY_PAGE_DOWN: return "PAGEDOWN";
+    case KEY_HOME: return "HOME";
+    case KEY_END: return "END";
+    case KEY_CAPS_LOCK: return "CAPSLOCK";
+    case KEY_SCROLL_LOCK: return "SCROLLLOCK";
+    case KEY_NUM_LOCK: return "NUMLOCK";
+    case KEY_PRINT_SCREEN: return "PRINTSCREEN";
+    case KEY_PAUSE: return "PAUSE";
+    case KEY_F1: return "F1";
+    case KEY_F2: return "F2";
+    case KEY_F3: return "F3";
+    case KEY_F4: return "F4";
+    case KEY_F5: return "F5";
+    case KEY_F6: return "F6";
+    case KEY_F7: return "F7";
+    case KEY_F8: return "F8";
+    case KEY_F9: return "F9";
+    case KEY_F10: return "F10";
+    case KEY_F11: return "F11";
+    case KEY_F12: return "F12";
+    case KEY_LEFT_SHIFT: return "LSHIFT";
+    case KEY_LEFT_CONTROL: return "LCTRL";
+    case KEY_LEFT_ALT: return "LALT";
+    case KEY_LEFT_SUPER: return "LSUPER";
+    case KEY_RIGHT_SHIFT: return "RSHIFT";
+    case KEY_RIGHT_CONTROL: return "RCTRL";
+    case KEY_RIGHT_ALT: return "RALT";
+    case KEY_RIGHT_SUPER: return "RSUPER";
+    default: return "UNKNOWN";
+    }
+}
+
 bool GraphicClient::selectSettings()
 {
     bool closed = false;
     const float screenWidth = 1920.0f;
     const float screenHeight = 1080.0f;
-    const float windowWidth = 600.0f;
-    const float windowHeight = 400.0f;
+    const float windowWidth = 900.0f;
+    const float windowHeight = 700.0f;
     const float windowX = (screenWidth - windowWidth) / 2.0f;
     const float windowY = (screenHeight - windowHeight) / 2.0f;
+
+    // Create a copy of current key bindings for modification
+    KeyboardKey upKey = _inputSystem.getKey(UP);
+    KeyboardKey downKey = _inputSystem.getKey(DOWN);
+    KeyboardKey leftKey = _inputSystem.getKey(LEFT);
+    KeyboardKey rightKey = _inputSystem.getKey(RIGHT);
+    KeyboardKey shootKey = _inputSystem.getKey(SHOOT);
+
+    int selectedButton = -1; // -1 = none, 0 = UP, 1 = DOWN, 2 = LEFT, 3 = RIGHT, 4 = SHOOT
+    bool waitingForKey = false;
+    float hoverAnimTimer = 0.0f;
 
     while (!closed && !_window.shouldClose())
     {
         float dt = _window.getFrameTime();
+        hoverAnimTimer += dt;
         _window.beginDrawing();
         _window.clearBackground({15, 25, 50, 255});
 
@@ -1239,7 +1357,16 @@ bool GraphicClient::selectSettings()
         Raylib::Draw::rectangle(0, 0, static_cast<int>(screenWidth), static_cast<int>(screenHeight),
                                 Color{0, 0, 0, 120});
 
-        // Draw settings window
+        // Draw settings window with glow effect
+        for (int i = 3; i > 0; i--)
+        {
+            Color glowColor = {100, 150, 255, static_cast<unsigned char>(30 - i * 10)};
+            Raylib::Draw::rectangleLines(
+                static_cast<int>(windowX - i), static_cast<int>(windowY - i),
+                static_cast<int>(windowWidth + i * 2), static_cast<int>(windowHeight + i * 2),
+                glowColor);
+        }
+
         Raylib::Draw::rectangle(static_cast<int>(windowX), static_cast<int>(windowY),
                                 static_cast<int>(windowWidth), static_cast<int>(windowHeight),
                                 Color{15, 40, 80, 255});
@@ -1247,49 +1374,197 @@ bool GraphicClient::selectSettings()
                                      static_cast<int>(windowWidth) + 4, static_cast<int>(windowHeight) + 4,
                                      Color{100, 200, 255, 255});
 
-        // Settings title
-        const char *title = "SETTINGS";
-        int titleWidth = MeasureText(title, 32);
+        // Settings title with glow
+        const char *title = "CONTROLS";
+        int titleWidth = MeasureText(title, 40);
+        for (int i = 2; i > 0; i--)
+        {
+            Color glowColor = {100, 150, 255, static_cast<unsigned char>(50 - i * 25)};
+            Raylib::Draw::text(title, static_cast<int>(windowX + (windowWidth - titleWidth) / 2.0f - i),
+                               static_cast<int>(windowY + 20 - i), 40, glowColor);
+        }
         Raylib::Draw::text(title, static_cast<int>(windowX + (windowWidth - titleWidth) / 2.0f),
-                           static_cast<int>(windowY + 20), 32, {100, 200, 255, 255});
+                           static_cast<int>(windowY + 20), 40, {100, 200, 255, 255});
 
-        // Settings content (empty for now)
-        Raylib::Draw::text("No settings available yet", static_cast<int>(windowX + 30),
-                           static_cast<int>(windowY + 100), 20, {150, 180, 220, 200});
-
-        // Close button
-        const float buttonWidth = 150.0f;
-        const float buttonHeight = 40.0f;
-        const float closeButtonX = windowX + (windowWidth - buttonWidth) / 2.0f;
-        const float closeButtonY = windowY + windowHeight - 60.0f;
-        Rectangle closeButton{closeButtonX, closeButtonY, buttonWidth, buttonHeight};
+        // Instruction text
+        if (waitingForKey)
+        {
+            const char *instruction = "PRESS A KEY...";
+            int instructionWidth = MeasureText(instruction, 20);
+            Raylib::Draw::text(instruction, static_cast<int>(windowX + (windowWidth - instructionWidth) / 2.0f),
+                               static_cast<int>(windowY + 75), 20, {150, 220, 100, 255});
+        }
 
         Vector2 mousePos = GetMousePosition();
+
+        // Key binding buttons
+        const float buttonWidth = 350.0f;
+        const float buttonHeight = 45.0f;
+        const float startX = windowX + (windowWidth - buttonWidth) / 2.0f;
+        const float startY = windowY + 130.0f;
+        const float spacing = 55.0f;
+
+        struct KeyBinding
+        {
+            const char *label;
+            KeyboardKey *key;
+            int index;
+        };
+
+        KeyBinding bindings[] = {
+            {"Up", &upKey, 0},
+            {"Down", &downKey, 1},
+            {"Left", &leftKey, 2},
+            {"Right", &rightKey, 3},
+            {"Shoot", &shootKey, 4}};
+
+        for (int i = 0; i < 5; i++)
+        {
+            float buttonY = startY + i * spacing;
+            Rectangle button{startX, buttonY, buttonWidth, buttonHeight};
+
+            bool isHovered = CheckCollisionPointRec(mousePos, button);
+            bool isSelected = (selectedButton == i && waitingForKey);
+
+            Color bgColor = isSelected ? Color{150, 100, 255, 220}
+                          : isHovered ? Color{100, 220, 255, 200}
+                          : Color{50, 150, 200, 150};
+            Color borderColor = isSelected ? Color{200, 150, 255, 255}
+                              : isHovered ? Color{150, 240, 255, 255}
+                              : Color{100, 200, 255, 200};
+
+            // Draw button background
+            Raylib::Draw::rectangle(static_cast<int>(button.x), static_cast<int>(button.y),
+                                    static_cast<int>(button.width), static_cast<int>(button.height), bgColor);
+
+            // Draw animated hover border
+            if (isHovered)
+            {
+                float phase = std::sin(hoverAnimTimer * 3.0f) * 2.0f + 3.0f;
+                Raylib::Draw::rectangleLines(
+                    static_cast<int>(button.x) - static_cast<int>(phase),
+                    static_cast<int>(button.y) - static_cast<int>(phase),
+                    static_cast<int>(button.width) + static_cast<int>(phase) * 2,
+                    static_cast<int>(button.height) + static_cast<int>(phase) * 2,
+                    Color{100, 200, 255, static_cast<unsigned char>(100 + 55.0f * std::sin(hoverAnimTimer * 4.0f))});
+            }
+
+            Raylib::Draw::rectangleLines(static_cast<int>(button.x) - 1, static_cast<int>(button.y) - 1,
+                                         static_cast<int>(button.width) + 2,
+                                         static_cast<int>(button.height) + 2, borderColor);
+
+            // Label
+            const char *label = bindings[i].label;
+            int labelWidth = MeasureText(label, 18);
+            Color textColor = isSelected ? Color{255, 200, 100, 255}
+                            : isHovered ? Color{255, 255, 255, 255}
+                            : Color{220, 240, 255, 255};
+            Raylib::Draw::text(label, static_cast<int>(startX + 20), static_cast<int>(buttonY + 10), 18,
+                               textColor);
+
+            // Key name - convert KeyboardKey to string representation
+            std::string keyDisplay;
+            if (isSelected)
+            {
+                keyDisplay = "[ Waiting... ]";
+            }
+            else
+            {
+                std::string keyName = keyboardKeyToString(*bindings[i].key);
+                keyDisplay = std::string("[ ") + keyName + " ]";
+            }
+
+            int keyWidth = MeasureText(keyDisplay.c_str(), 18);
+            Raylib::Draw::text(keyDisplay.c_str(), static_cast<int>(startX + buttonWidth - keyWidth - 20),
+                               static_cast<int>(buttonY + 10), 18,
+                               isSelected ? Color{255, 200, 100, 255} : Color{150, 200, 255, 255});
+
+            // Handle click
+            if (!waitingForKey && IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && isHovered)
+            {
+                selectedButton = i;
+                waitingForKey = true;
+            }
+        }
+
+        // Handle key input
+        if (waitingForKey)
+        {
+            int key = GetKeyPressed();
+            if (key != 0 && key != KEY_ESCAPE)
+            {
+                *bindings[selectedButton].key = static_cast<KeyboardKey>(key);
+                waitingForKey = false;
+                selectedButton = -1;
+            }
+            else if (Raylib::Input::isKeyPressed(KEY_ESCAPE))
+            {
+                waitingForKey = false;
+                selectedButton = -1;
+            }
+        }
+
+        // Close button
+        const float closeButtonWidth = 200.0f;
+        const float closeButtonHeight = 45.0f;
+        const float closeButtonX = windowX + (windowWidth - closeButtonWidth) / 2.0f;
+        const float closeButtonY = windowY + windowHeight - 60.0f;
+        Rectangle closeButton{closeButtonX, closeButtonY, closeButtonWidth, closeButtonHeight};
+
         bool closeHovered = CheckCollisionPointRec(mousePos, closeButton);
 
         Color closeBgColor = closeHovered ? Color{100, 220, 255, 200} : Color{50, 150, 200, 150};
         Color closeBorderColor = closeHovered ? Color{150, 240, 255, 255} : Color{100, 200, 255, 200};
 
+        // Draw button background
         Raylib::Draw::rectangle(static_cast<int>(closeButton.x), static_cast<int>(closeButton.y),
                                 static_cast<int>(closeButton.width), static_cast<int>(closeButton.height),
                                 closeBgColor);
-        Raylib::Draw::rectangleLines(static_cast<int>(closeButton.x) - 1, static_cast<int>(closeButton.y) - 1,
-                                     static_cast<int>(closeButton.width) + 2, static_cast<int>(closeButton.height) + 2,
-                                     closeBorderColor);
 
-        int closeTextW = MeasureText("CLOSE", 18);
-        Raylib::Draw::text("CLOSE", static_cast<int>(closeButtonX + (buttonWidth - closeTextW) / 2.0f),
-                           static_cast<int>(closeButtonY + 10), 18,
+        // Draw animated hover border for close button
+        if (closeHovered)
+        {
+            float phase = std::sin(hoverAnimTimer * 3.0f) * 2.0f + 3.0f;
+            Raylib::Draw::rectangleLines(
+                static_cast<int>(closeButton.x) - static_cast<int>(phase),
+                static_cast<int>(closeButton.y) - static_cast<int>(phase),
+                static_cast<int>(closeButton.width) + static_cast<int>(phase) * 2,
+                static_cast<int>(closeButton.height) + static_cast<int>(phase) * 2,
+                Color{100, 200, 255, static_cast<unsigned char>(100 + 55.0f * std::sin(hoverAnimTimer * 4.0f))});
+        }
+
+        Raylib::Draw::rectangleLines(static_cast<int>(closeButton.x) - 1, static_cast<int>(closeButton.y) - 1,
+                                     static_cast<int>(closeButton.width) + 2,
+                                     static_cast<int>(closeButton.height) + 2, closeBorderColor);
+
+        int closeTextW = MeasureText("CLOSE", 20);
+        Raylib::Draw::text("CLOSE", static_cast<int>(closeButtonX + (closeButtonWidth - closeTextW) / 2.0f),
+                           static_cast<int>(closeButtonY + 10), 20,
                            closeHovered ? Color{255, 255, 255, 255} : Color{220, 240, 255, 255});
 
         // Handle input
-        if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && closeHovered)
+        if (!waitingForKey)
         {
-            closed = true;
-        }
-        if (Raylib::Input::isKeyPressed(KEY_ESCAPE))
-        {
-            closed = true;
+            if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT) && closeHovered)
+            {
+                // Apply changes to InputSystem
+                _inputSystem.setKey(UP, upKey);
+                _inputSystem.setKey(DOWN, downKey);
+                _inputSystem.setKey(LEFT, leftKey);
+                _inputSystem.setKey(RIGHT, rightKey);
+                _inputSystem.setKey(SHOOT, shootKey);
+                closed = true;
+            }
+            if (Raylib::Input::isKeyPressed(KEY_ESCAPE))
+            {
+                // Apply changes to InputSystem before closing
+                _inputSystem.setKey(UP, upKey);
+                _inputSystem.setKey(DOWN, downKey);
+                _inputSystem.setKey(LEFT, leftKey);
+                _inputSystem.setKey(RIGHT, rightKey);
+                _inputSystem.setKey(SHOOT, shootKey);
+                closed = true;
+            }
         }
 
         _window.endDrawing();
@@ -1297,3 +1572,4 @@ bool GraphicClient::selectSettings()
 
     return true;
 }
+

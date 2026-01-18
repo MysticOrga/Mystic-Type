@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['radius_0',['radius',['../classCircleComponent.html#a9fa07a9c87953c90e06d5cb153e45842',1,'CircleComponent']]],
+  ['raylib_1',['Raylib',['../namespaceRaylib.html',1,'']]],
+  ['raylib_2ecpp_2',['Raylib.cpp',['../Raylib_8cpp.html',1,'']]],
+  ['raylib_2ehpp_3',['Raylib.hpp',['../Raylib_8hpp.html',1,'']]],
+  ['read_5fready_4',['READ_READY',['../namespaceNetwork_1_1TransportLayer.html#a6d26a09ee731d25bab8b11b909ca73e7a27be65353a27abba0a6da38c5b55fdfa',1,'Network::TransportLayer']]],
+  ['readbyte_5',['readbyte',['../classNetwork_1_1TransportLayer_1_1ASocket.html#a34da0184468795bb34afb8e7008a1ed3',1,'Network::TransportLayer::ASocket::readByte()'],['../classNetwork_1_1TransportLayer_1_1ISocket.html#aee85921c834ee1274dc377023e25cbd6',1,'Network::TransportLayer::ISocket::readByte()'],['../classNetwork_1_1TransportLayer_1_1UDPSocket.html#a34b53ce1224f81fc6809a24412854294',1,'Network::TransportLayer::UDPSocket::readByte()']]],
+  ['readme_2emd_6',['README.md',['../README_8md.html',1,'']]],
+  ['rectangle_7',['rectangle',['../classRaylib_1_1Draw.html#ac711ababd202454476d1127d61f8a837',1,'Raylib::Draw']]],
+  ['rectanglecomponent_8',['rectanglecomponent',['../classRectangleComponent.html',1,'RectangleComponent'],['../classRectangleComponent.html#adf53aeb10ac51bee957123fe52ee8f14',1,'RectangleComponent::RectangleComponent()']]],
+  ['rectanglelines_9',['rectangleLines',['../classRaylib_1_1Draw.html#a1a91623bcea0592d00ae0264d81acd52',1,'Raylib::Draw']]],
+  ['rectanglerendersystem_10',['RectangleRenderSystem',['../classRectangleRenderSystem.html',1,'']]],
+  ['recv_11',['recv',['../classIpcChannel.html#a733bd7b22e1828b0c48609a832f24181',1,'IpcChannel']]],
+  ['refused_12',['REFUSED',['../Packet_8hpp.html#a0628f13bcd4685c7a4b4a9f1aad83b56a392253eaea22aafdb199bc238bafc082',1,'Packet.hpp']]],
+  ['registerplayer_13',['registerPlayer',['../classGameWorld.html#aaebb0cdb6bcf4382893ce438832db63e',1,'GameWorld']]],
+  ['removebyfd_14',['removeByFd',['../classSessionManager.html#ae44030d05e51a85f73a32f6bb6b053cb',1,'SessionManager']]],
+  ['removebyid_15',['removeById',['../classSessionManager.html#a8916c4ee701635dd8b2ee525331efb0b',1,'SessionManager']]],
+  ['removeplayer_16',['removePlayer',['../classGameWorld.html#ab9bdf76c054d7fd1d08241a954315b46',1,'GameWorld']]],
+  ['resetforlobby_17',['resetForLobby',['../classNetworkClient.html#a92915cb59bb0f4e98f30c1a36964d989',1,'NetworkClient']]],
+  ['resetforreconnect_18',['resetForReconnect',['../classNetworkClient.html#a8d887ba6e7708446cee34eebc70a2b7d',1,'NetworkClient']]],
+  ['right_19',['right',['../classNetworkClient.html#af897ec3417cf4dc121accb155d7320eea92b09c7c48c520c3c55e497875da437c',1,'NetworkClient::Right'],['../System_8hpp.html#adade54da2b207529e678a25e6389d494aec8379af7490bb9eaaf579cf17876f38',1,'RIGHT:&#160;System.hpp']]],
+  ['rtype_20',['Rtype',['../namespaceRtype.html',1,'']]],
+  ['rtype_3a_3agraphic_21',['Graphic',['../namespaceRtype_1_1Graphic.html',1,'Rtype']]],
+  ['run_22',['run',['../classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109',1,'GraphicClient::run()'],['../classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3',1,'TCPServer::run()'],['../classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b',1,'UDPGameServer::run()'],['../index.html#autotoc_md3',1,'Run']]]
+];

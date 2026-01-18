@@ -1,0 +1,9 @@
+<map id="Network/Client/GameState.hpp" name="Network/Client/GameState.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="73,5,297,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,129,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="167,33,100,74,97,69,164,28"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="153,79,216,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="187,31,187,65,182,65,182,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="241,79,307,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="201,29,250,68,247,72,197,33"/>
+</map>

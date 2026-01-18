@@ -1,0 +1,21 @@
+<map id="Network/TransportLayer/ASocket.hpp" name="Network/TransportLayer/ASocket.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="367,5,544,45"/>
+<area shape="rect" id="Node000002" href="$ISocket_8hpp.html" title=" " alt="" coords="407,93,504,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="458,46,458,79,453,79,453,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,108,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="407,119,122,169,121,164,406,113"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="133,167,229,192"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="412,121,239,166,238,161,411,116"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="253,167,345,192"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="431,121,338,163,336,158,429,116"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="370,167,445,192"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="450,121,425,157,420,154,445,118"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="469,167,537,192"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="465,118,490,154,486,157,461,121"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="562,167,661,192"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="481,116,574,158,572,163,479,121"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="685,167,751,192"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="498,116,672,163,671,168,497,121"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="776,167,847,192"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="505,113,763,164,762,169,503,119"/>
+</map>

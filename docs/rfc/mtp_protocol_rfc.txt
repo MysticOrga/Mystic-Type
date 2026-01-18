@@ -1,0 +1,138 @@
+RFC - Mystic-Type Protocol (MTP) - UDP
+
+Author: Mystic-Type Networking Team
+Contact: mysticType@epitech.eu
+Version: 2.0
+Date: 2026
+
+================================================================================
+1. Introduction
+================================================================================
+
+1.1 Purpose
+-----------
+This document specifies the Mystic-Type Protocol (MTP), a lightweight
+application-layer protocol used for real-time multiplayer game data over UDP.
+
+1.2 Scope
+---------
+MTP handles gameplay messages only (hello, input, snapshots, pings). Lobby
+selection and player ID assignment are done over TCP (see TCP RFC).
+
+1.3 Terminology
+---------------
+- Magic Number: fixed 2-byte identifier (0x5254)
+- Payload: variable-length data (0..255 bytes)
+- Header: fixed 4-byte structure (magic + type + size)
+- Packet: header + payload
+
+================================================================================
+2. Protocol Overview
+================================================================================
+
+2.1 Transport Layer
+-------------------
+MTP operates over UDP and does not provide reliability. The application must
+handle loss, ordering, and retransmission if needed.
+
+2.2 Lobby Routing
+-----------------
+The server routes UDP packets to the correct lobby using the player ID obtained
+from the TCP handshake. The client MUST use the UDP port returned in LOBBY_OK.
+
+================================================================================
+3. Packet Structure
+================================================================================
+
+3.1 General Format
+------------------
+All MTP packets use the same layout as the TCP packet body (no TCP length prefix):
+
+  [0-1] : magic (uint16, 0x5254 = "RT")
+  [2]   : type  (uint8)
+  [3]   : size  (uint8, payload length 0..255)
+  [4..] : payload (size bytes)
+
+All integers are big-endian.
+
+================================================================================
+4. Packet Types (UDP)
+================================================================================
+
+Value | Type Name  | Description
+------|------------|---------------------------------------------
+0x0A  | HELLO_UDP  | Client hello for UDP registration
+0x0B  | INPUT      | Player input
+0x0C  | SNAPSHOT   | Server snapshot (world state)
+0x0D  | SHOOT      | Player shoot command
+0x12  | PING_UDP   | Client ping for RTT
+0x13  | PONG_UDP   | Server pong (echo payload)
+
+Note: PacketType 0x0E (LEVELING) exists in code but is unused on UDP.
+
+================================================================================
+5. Payload Formats
+================================================================================
+
+5.1 HELLO_UDP (0x0A)
+--------------------
+Payload (min 2 bytes):
+  [id_hi][id_lo][posX][posY]
+- id: 16-bit player ID (from TCP OK) is required
+- posX/posY are optional; server accepts 2-byte payload and defaults to 0,0
+
+5.2 INPUT (0x0B)
+----------------
+Payload (7 bytes):
+  [id_hi][id_lo][posX][posY][velX][velY][dir]
+- posX/posY: client-reported position (uint8, ignored by server)
+- velX/velY: velocity (int8)
+- dir: movement direction / command (uint8)
+
+5.3 SHOOT (0x0D)
+----------------
+Payload (6 bytes):
+  [id_hi][id_lo][posX][posY][velX][velY]
+- velX/velY: bullet velocity (int8)
+
+5.4 PING_UDP (0x12) / PONG_UDP (0x13)
+-------------------------------------
+Payload (commonly 4 bytes):
+  [ts3][ts2][ts1][ts0] (uint32 timestamp, big-endian)
+Server echoes the same payload for RTT measurement.
+
+5.5 SNAPSHOT (0x0C)
+-------------------
+Payload layout (variable):
+
+  [0] : player_count (uint8)
+  players[] (either 5 or 7 bytes each)
+  [..] : bullet_count (uint8)
+  bullets[] (6 bytes each)
+  [..] : monster_count (uint8)
+  monsters[] (6 bytes each)
+  [optional] : seq_hi seq_lo (uint16)
+
+Player entry (5 bytes):
+  [id_hi][id_lo][posX][posY][hp]
+
+Player entry with score (7 bytes):
+  [id_hi][id_lo][posX][posY][hp][score_hi][score_lo]
+
+Bullet entry (6 bytes):
+  [id_hi][id_lo][posX][posY][velX][velY]
+
+Monster entry (6 bytes):
+  [id_hi][id_lo][posX][posY][hp][type]
+
+Notes:
+- The server may include per-player score (7-byte format) or omit it (5-byte).
+- The current implementation always appends a 2-byte sequence number at the end.
+
+================================================================================
+6. Implementation Considerations
+================================================================================
+
+- Payload size must match the header "size" field.
+- Magic must be 0x5254; otherwise the packet is invalid.
+- UDP is lossy; snapshots may be dropped without retransmission.

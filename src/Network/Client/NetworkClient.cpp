@@ -348,11 +348,11 @@ void NetworkClient::handleUdpPacket(const Packet &p)
 {
     if (p.type == PacketType::SNAPSHOT && !p.payload.empty()) {
         auto parseSnapshot = [&](size_t perPlayer, bool hasScore,
-                                 std::vector<PlayerState> &players,
-                                 std::vector<BulletState> &bullets,
-                                 std::vector<MonsterState> &monsters,
-                                 uint16_t &seq,
-                                 bool &hasSeq) -> bool {
+                                std::vector<PlayerState> &players,
+                                std::vector<BulletState> &bullets,
+                                std::vector<MonsterState> &monsters,
+                                uint16_t &seq,
+                                bool &hasSeq) -> bool {
             uint8_t count = p.payload[0];
             size_t off = 1;
             size_t expectedPlayers = off + count * perPlayer;

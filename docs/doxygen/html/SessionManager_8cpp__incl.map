@@ -1,0 +1,21 @@
+<map id="Network/SessionManager.cpp" name="Network/SessionManager.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="345,5,559,31"/>
+<area shape="rect" id="Node000002" href="$SessionManager_8hpp.html" title=" " alt="" coords="374,79,530,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="455,31,455,65,449,65,449,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,101,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="386,107,116,154,115,149,385,101"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="126,152,250,177"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="410,107,245,151,243,146,409,101"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="275,152,339,177"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="430,106,344,148,341,144,427,102"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="363,152,437,177"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="446,106,419,142,414,139,441,103"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="462,152,549,177"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="463,103,491,140,486,143,459,106"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="573,152,640,177"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="478,102,570,144,568,149,476,106"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="665,152,727,177"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="492,101,652,148,651,153,490,107"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="752,152,811,177"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="513,101,739,149,738,154,512,107"/>
+</map>

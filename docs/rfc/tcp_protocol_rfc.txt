@@ -1,0 +1,167 @@
+Mystic-Type TCP Protocol (Informal RFC)
+======================================
+
+Author: Mystic-Type Networking Team
+Contact: mysticType@epitech.eu
+Version: 2.0
+Date: 2026
+
+--------------------------------------
+1. Introduction
+--------------------------------------
+
+This document defines the Mystic-Type TCP protocol. TCP is used for:
+
+- Connection + handshake
+- Player ID assignment
+- Lobby creation/join
+- Lobby-scoped chat and player list
+- Heartbeat / keepalive
+
+Gameplay state and inputs are sent over UDP (see MTP RFC).
+
+--------------------------------------
+2. Transport and Framing
+--------------------------------------
+
+Transport layer: TCP stream.
+
+Each TCP message is framed as:
+
+  [0-1] : frame_len (uint16, big-endian)
+  [2..] : MTP packet (size = frame_len bytes)
+
+The MTP packet format is:
+
+  [0-1] : magic (uint16, 0x5254 = "RT")
+  [2]   : type  (uint8)
+  [3]   : size  (uint8, payload length 0..255)
+  [4..] : payload (size bytes)
+
+All integers use big-endian (network byte order).
+
+Constraints:
+- payload size is limited to 255 bytes
+- frame_len MUST equal (4 + payload size)
+
+--------------------------------------
+3. Packet Types (TCP)
+--------------------------------------
+
+PacketType enumeration on TCP:
+
+  1  : SERVER_HELLO
+  2  : CLIENT_HELLO
+  3  : OK
+  4  : REFUSED
+  5  : PING
+  6  : PONG
+  7  : MESSAGE
+  8  : PLAYER_LIST
+  9  : NEW_PLAYER
+  14 : CREATE_LOBBY
+  15 : JOIN_LOBBY
+  16 : LOBBY_OK
+  17 : LOBBY_ERROR
+
+Note: PacketType values are shared across TCP/UDP. Interpret by transport.
+
+--------------------------------------
+4. Packet Formats
+--------------------------------------
+
+SERVER_HELLO (1)
+  Payload: ASCII string (default "R-Type Server")
+
+CLIENT_HELLO (2)
+  Payload: ASCII string "toto" with optional pseudo
+  Format: "toto" or "toto|<pseudo>"
+  Pseudo rules: [A-Za-z0-9_-], max 12 chars (others stripped)
+
+OK (3)
+  Payload: 2 bytes, player ID (big-endian)
+
+REFUSED (4)
+  Payload: ASCII reason string
+  Known reasons: "FULL", "TIMEOUT", "BAD_HANDSHAKE"
+
+PING (5)
+  Payload: empty
+
+PONG (6)
+  Payload: empty
+
+MESSAGE (7)
+  Payload: ASCII text (server uses "CHAT:" / "SYS:" prefixes)
+  Notes: client/server sanitize to ASCII 32..126 and truncate to 120 chars
+
+PLAYER_LIST (8)
+  Payload:
+    [0]     : count (uint8)
+    For each player (5 bytes):
+      [id_hi][id_lo][posX][posY][hp]
+
+NEW_PLAYER (9)
+  Payload: [id_hi][id_lo][posX][posY][hp]
+  Broadcast to lobby members when a new player joins.
+
+CREATE_LOBBY (14)
+  Payload: empty
+
+JOIN_LOBBY (15)
+  Payload: ASCII lobby code
+  Special: "PUBLIC" means auto public lobby.
+
+LOBBY_OK (16)
+  Payload: ASCII "CODE|UDPPORT"
+  Example: "AB12CD|50001"
+
+LOBBY_ERROR (17)
+  Payload: ASCII reason: "UNKNOWN_CODE", "FULL", "INVALID_STATE"
+
+--------------------------------------
+5. Connection Handshake
+--------------------------------------
+
+1) Server -> SERVER_HELLO
+2) Client -> CLIENT_HELLO (must begin with "toto")
+3) Server -> OK(player_id)
+4) Client -> CREATE_LOBBY or JOIN_LOBBY
+5) Server -> LOBBY_OK or LOBBY_ERROR
+
+Handshake timeout: if CLIENT_HELLO is not received within ~3 seconds,
+server replies REFUSED("TIMEOUT") and disconnects.
+
+--------------------------------------
+6. Heartbeat / Keepalive
+--------------------------------------
+
+Server:
+  - Sends PING every 5 seconds to each client with handshake done.
+Client:
+  - MUST respond with PONG immediately.
+
+Disconnect if no PONG for > 10 seconds.
+
+--------------------------------------
+7. Lobby Behavior
+--------------------------------------
+
+- Lobbies are identified by ASCII codes (6 chars recommended).
+- JOIN_LOBBY("PUBLIC") triggers auto public matchmaking.
+- Player lists and NEW_PLAYER broadcasts are lobby-scoped.
+- LOBBY_OK includes the UDP port to use for gameplay packets.
+
+--------------------------------------
+8. Error Handling
+--------------------------------------
+
+- Payload size > 255 is invalid.
+- Packets with wrong magic are rejected during parsing.
+- Invalid handshake => REFUSED("BAD_HANDSHAKE").
+
+--------------------------------------
+9. Security Considerations
+--------------------------------------
+
+This protocol has no encryption or authentication.

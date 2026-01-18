@@ -1,0 +1,11 @@
+<map id="Network/TransportLayer/TCP/TCPSocket.hpp" name="Network/TransportLayer/TCP/TCPSocket.hpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="232,5,409,45"/>
+<area shape="rect" id="Node000002" href="$TCPServer_8hpp.html" title=" " alt="" coords="132,93,309,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="290,56,245,95,241,91,286,52"/>
+<area shape="rect" id="Node000005" href="$TCPSocket_8cpp.html" title=" " alt="" coords="333,93,511,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="355,52,401,91,398,95,352,56"/>
+<area shape="rect" id="Node000003" href="$server_8cpp.html" title=" " alt="" coords="5,181,217,221"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="187,144,137,183,134,179,184,140"/>
+<area shape="rect" id="Node000004" href="$TCPServer_8cpp.html" title=" " alt="" coords="241,181,419,221"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="257,140,307,179,304,183,254,144"/>
+</map>

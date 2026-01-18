@@ -1,0 +1,13 @@
+<map id="graphical&#45;client/GraphicClient" name="graphical&#45;client/GraphicClient">
+<area shape="rect" id="node1" href="dir_a77af5e100df803ce29cdf5c84f97a20.html" title="Raylib" alt="" coords="27,125,90,151"/>
+<area shape="rect" id="node2" href="dir_f8129dbd3ae2d3b72ab062d666ff244a.html" title="ecs" alt="" coords="114,125,158,151"/>
+<area shape="rect" id="node3" href="dir_d7b089d80e197b7173c130d051c7dd95.html" title="GraphicClient" alt="" coords="47,52,158,77"/>
+<area shape="poly" id="edge2" href="dir_000004_000006.html" alt="" coords="98,79,75,115,71,112,93,76"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000004_000006.html" title="1" alt="" coords="78,107,87,122"/>
+<area shape="poly" id="edge3" href="dir_000004_000001.html" alt="" coords="111,77,127,112,122,114,106,79"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000004_000001.html" title="3" alt="" coords="126,98,135,113"/>
+<area shape="rect" id="node4" href="dir_356d85c7fe3a31f6238a1e4b453e8aed.html" title="Network" alt="" coords="183,125,260,151"/>
+<area shape="poly" id="edge1" href="dir_000004_000005.html" alt="" coords="123,75,191,116,189,120,120,80"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000004_000005.html" title="2" alt="" coords="186,101,195,116"/>
+<area shape="rect" id="clust1" href="dir_e7958bc4a951510a578029734ca89fee.html" title="graphical&#45;client" alt="" coords="16,16,169,161"/>
+</map>
