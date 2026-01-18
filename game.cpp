@@ -39,7 +39,7 @@ namespace {
                 args.lobby = argv[++i];
             } else if (a == "--udp-port" && i + 1 < argc) {
                 args.port = static_cast<uint16_t>(std::atoi(argv[++i]));
-            } else if (a == "--ipc-sock" && i + 1 < argc) {
+            } else if (a == "--ipc-port" && i + 1 < argc) {
                 args.ipcSock = argv[++i];
             }
         }
@@ -49,13 +49,19 @@ namespace {
 
 int main(int argc, char **argv)
 {
+#ifdef _WIN32
+    WSADATA wsaData;
+    if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0)
+    {
+        return 1;
+    }
+#endif
     auto argsOpt = parseArgs(argc, argv);
     if (!argsOpt.has_value()) {
         std::cerr << "[UDP SERVER ERROR] Failed to parse args\n";
         return 1;
     }
     Args args = *argsOpt;
-
     IpcChannel ipc;
     if (!args.ipcSock.empty()) {
         if (!ipc.connectClient(args.ipcSock)) {
@@ -78,5 +84,8 @@ int main(int argc, char **argv)
         std::cerr << "[UDP SERVER ERROR] " << e.what() << std::endl;
         return 1;
     }
+#ifdef _WIN32
+    WSACleanup();
+#endif
     return 0;
 }

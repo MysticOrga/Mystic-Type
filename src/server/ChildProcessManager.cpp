@@ -21,10 +21,10 @@ int ChildProcessManager::spawn(const std::string &lobby, uint16_t udpPort, const
 {
     std::string portStr = std::to_string(udpPort);
     std::vector<char *> args;
-    STARTUPINFO si = {sizeof(si)};
-    PROCESS_INFORMATION pi = {0};
     ChildInfo info;
 #ifdef _WIN32
+    STARTUPINFO si = {sizeof(si)};
+    PROCESS_INFORMATION pi = {0};
     std::string exePath = "./rtype-udp-server.exe";
 #else
     std::string exePath = "./rtype-udp-server";
@@ -37,7 +37,7 @@ int ChildProcessManager::spawn(const std::string &lobby, uint16_t udpPort, const
     args.push_back(const_cast<char *>(portStr.c_str()));
     if (!ipcSock.empty())
     {
-        args.push_back(const_cast<char *>("--ipc-sock"));
+        args.push_back(const_cast<char *>("--ipc-port"));
         args.push_back(const_cast<char *>(ipcSock.c_str()));
     }
     args.push_back(nullptr);
@@ -49,7 +49,6 @@ int ChildProcessManager::spawn(const std::string &lobby, uint16_t udpPort, const
         if (!args[i])
             continue;
 
-        // Quote arguments containing spaces
         if (std::strchr(args[i], ' '))
         {
             commandLine += "\"";
@@ -60,17 +59,15 @@ int ChildProcessManager::spawn(const std::string &lobby, uint16_t udpPort, const
         {
             commandLine += args[i];
         }
-
         if (i + 1 < args.size())
             commandLine += " ";
     }
 
-    // CreateProcess requires writable buffer
+    std::cout << "COMMAND LINE: " << commandLine << std::endl;
     std::vector<char> cmdBuffer(commandLine.begin(), commandLine.end());
     cmdBuffer.push_back('\0');
-
-    BOOL ok = CreateProcessA(NULL,             // Application name
-                             cmdBuffer.data(), // Command line (modifiable)
+    BOOL ok = CreateProcessA(NULL,             
+                             cmdBuffer.data(), 
                              NULL, NULL, FALSE, 0, NULL, NULL, &si, &pi);
 
     if (!ok)
@@ -80,8 +77,6 @@ int ChildProcessManager::spawn(const std::string &lobby, uint16_t udpPort, const
     }
 
     info.pid = pi.dwProcessId;
-
-    // Close handles (Windows does not auto-clean)
     CloseHandle(pi.hProcess);
     CloseHandle(pi.hThread);
 #else
@@ -92,20 +87,8 @@ int ChildProcessManager::spawn(const std::string &lobby, uint16_t udpPort, const
     }
     if (pid == 0) {
         // Child: exec the UDP server binary
-        std::string portStr = std::to_string(udpPort);
-        std::string exePath = "./rtype-udp-server";
         if (::access(exePath.c_str(), X_OK) != 0) {
             exePath = "rtype-udp-server";
-        }
-        std::vector<char*> args;
-        args.push_back(const_cast<char*>(exePath.c_str()));
-        args.push_back(const_cast<char*>("--lobby"));
-        args.push_back(const_cast<char*>(lobby.c_str()));
-        args.push_back(const_cast<char*>("--udp-port"));
-        args.push_back(const_cast<char*>(portStr.c_str()));
-        if (!ipcSock.empty()) {
-            args.push_back(const_cast<char*>("--ipc-sock"));
-            args.push_back(const_cast<char*>(ipcSock.c_str()));
         }
         args.push_back(nullptr);
         ::execv(args[0], args.data());

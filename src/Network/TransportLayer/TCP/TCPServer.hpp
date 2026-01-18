@@ -227,7 +227,7 @@ class TCPServer {
             bool isPublic = false;
             std::vector<int> players;
             uint16_t udpPort = 0;
-            std::string ipcPath;
+            uint16_t ipcPort = 0;
             std::unique_ptr<IpcChannel> ipc;
         };
         std::unordered_map<std::string, LobbyInfo> _lobbies;

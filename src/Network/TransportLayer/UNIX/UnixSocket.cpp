@@ -24,7 +24,6 @@ bool Network::TransportLayer::UnixSocket::setPath(const std::string &path)
         return false;
     strncpy(_addr.sun_path, path.c_str(), path.size());
     _addr.sun_path[path.size()] = 0;
-    std::cout << "Unix path: " << _addr.sun_path << std::endl;
     _linked = true;
     return true;
 }
@@ -44,6 +43,7 @@ bool Network::TransportLayer::UnixSocket::connect()
 {
     if (::connect(_socketFd, reinterpret_cast<sockaddr *>(&_addr), sizeof(_addr)) == -1)
     {
+        std::cout << WSAGetLastError() << std::endl;
         this->closeSocket();
         return false;
     }

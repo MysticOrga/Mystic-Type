@@ -7,7 +7,7 @@
 
 #include "ASocket.hpp"
 #include <stdexcept>
-
+#include <iostream>
 // Implementation of ASocket methods
 namespace Network::TransportLayer
 {

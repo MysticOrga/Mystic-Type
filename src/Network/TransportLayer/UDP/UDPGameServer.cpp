@@ -219,7 +219,7 @@ void UDPGameServer::run()
             broadcastSnapshot();
             _lastSnapshotMs = now;
         }
-
+        _ipc->send("RUNNING");
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
     }
 

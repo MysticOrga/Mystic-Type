@@ -43,6 +43,7 @@ class UnixSocket : public ASocket
      */
     inline ~UnixSocket()
     {
+        std::cout << "unlink: " << _addr.sun_path << std::endl; 
         ::unlink(_addr.sun_path);
     };
 
@@ -68,7 +69,10 @@ class UnixSocket : public ASocket
     inline bool unink(void)
     {
         if (_linked)
+        {
+            std::cout << "unlink: " << _addr.sun_path << std::endl;
             return ::unlink(_addr.sun_path) == 0 ? true : false;
+        }
         return false;
     }
 

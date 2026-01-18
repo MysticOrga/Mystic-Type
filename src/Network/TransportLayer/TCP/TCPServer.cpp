@@ -40,7 +40,7 @@ TCPServer::TCPServer(uint16_t port, SessionManager &sessions, ChildProcessManage
     : _sessions(sessions), _childMgr(childMgr)
 {
     for (auto &c : _clients) {
-        c.fd = -1;
+        c.fd = INVALID_SOCKET_FD;
     }
     if (!_serverSocket.bindAndListen(port, INADDR_ANY, MAX_CLIENT)) {
         throw std::runtime_error("Failed to start TCP server");
@@ -79,7 +79,7 @@ Packet TCPServer::makeLobbyPacket(PacketType type, const std::string &payload)
 void TCPServer::broadcastToLobby(const std::string &lobbyCode, const Packet &packet)
 {
     for (auto &c : _clients) {
-        if (c.fd == -1 || !c.handshakeDone || c.lobbyCode != lobbyCode)
+        if (c.fd == INVALID_SOCKET_FD || !c.handshakeDone || c.lobbyCode != lobbyCode)
             continue;
         sendPacket(c.fd, packet);
     }
@@ -172,15 +172,15 @@ void TCPServer::acceptNewClient()
     char flag = 1;
     setsockopt(clientFd, IPPROTO_TCP, TCP_NODELAY, &flag, sizeof(flag));
 
-    int slot = -1;
+    int slot = INVALID_SOCKET_FD;
     for (size_t i = 0; i < _clients.size(); i++) {
-        if (_clients[i].fd == -1) {
+        if (_clients[i].fd == INVALID_SOCKET_FD) {
             slot = i;
             break;
         }
     }
 
-    if (slot == -1) {
+    if (slot == INVALID_SOCKET_FD) {
         sendPacket(clientFd, makeStringPacket(PacketType::REFUSED, "FULL"));
         closeFd(clientFd);
         std::cout << "[SERVER] refused new client (FULL)\n";
@@ -380,7 +380,8 @@ void TCPServer::processIpcMessages()
         auto &ipc = kv.second.ipc;
         if (!ipc)
             continue;
-        while (ipc) {
+        while (ipc)
+        {
             auto msgOpt = ipc->recv(0);
             if (!msgOpt.has_value())
                 break;
@@ -652,18 +653,13 @@ void TCPServer::ensureLobbyProcess(const std::string &code, bool isPublic)
         it->second.udpPort = allocatePort();
     }
     if (_childMgr) {
-        if (it->second.ipcPath.empty()) {
-            std::string appendix = "rtype_" + code + ".sock";
-            std::filesystem::path temp = std::filesystem::temp_directory_path() / appendix;
-            it->second.ipcPath = temp.string();
-        }
         if (!it->second.ipc) {
             it->second.ipc = std::make_unique<IpcChannel>();
-            if (!it->second.ipc->bindServer(it->second.ipcPath)) {
-                std::cerr << "[PARENT] Failed to bind IPC at " << it->second.ipcPath << "\n";
+            if (!it->second.ipc->bindServer()) {
+                std::cerr << "[PARENT] Failed to bind IPC" << std::endl;
             }
         }
-        _childMgr->spawn(code, it->second.udpPort, it->second.ipcPath);
+        _childMgr->spawn(code, it->second.udpPort, it->second.ipc->getport());
         std::cout << "[PARENT] UDP servers active " << _childMgr->activeCount()
                   << "/" << _childMgr->maxCount() << "\n";
     }

@@ -19,43 +19,63 @@ IpcChannel::~IpcChannel()
     close();
 }
 
-bool IpcChannel::bindServer(const std::string &path)
+bool IpcChannel::bindServer(void)
 {
-    std::cout << "Bind this paths" << path << std::endl;
-    _socket.setPath(path);
-    if (_socket.bind() == false)
+    if (_sockfd != INVALID_SOCKET_FD)
+        CLOSE(_sockfd);
+
+    _sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+    if (_sockfd == INVALID_SOCKET_FD)
+        return false;
+
+    memset(&_addr, 0, sizeof(_addr));
+    _addr.sin_family = AF_INET;
+    _addr.sin_port = htons(0);
+    _addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+    if (::bind(_sockfd, reinterpret_cast<sockaddr*>(&_addr), sizeof(_addr)) == -1)
     {
-        _socket.closeSocket();
-        _socket.unink();
+        std::cerr << "Bind failed" << std::endl;
+        CLOSE(_sockfd);
         return false;
     }
+
+    socklen_t addrLen = sizeof(_addr);
+    if (getsockname(_sockfd, reinterpret_cast<sockaddr*>(&_addr), &addrLen) == -1)
+    {
+        std::cerr << "getsockname failed" << std::endl;
+        CLOSE(_sockfd);
+        return false;
+    }
+
     _isServer = true;
-    _path = path;
     return true;
 }
 
-bool IpcChannel::connectClient(const std::string &path)
+bool IpcChannel::connectClient(const std::string &port)
 {
-    _socket.setPath(path);
-    if (!_socket.connect())
-    {
-        perror("CONNECT: ");
-        _socket.closeSocket();
-        _socket.unink();
+    if (_sockfd != INVALID_SOCKET_FD)
+        CLOSE(_sockfd);
+
+    _sockfd = socket(AF_INET, SOCK_DGRAM, 0);
+    if (_sockfd == INVALID_SOCKET_FD)
         return false;
-    }
+
+    memset(&_addr, 0, sizeof(_addr));
+    _addr.sin_family = AF_INET;
+    _addr.sin_port = htons(std::stoi(port));
+    _addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
     _isServer = false;
-    _path.clear();
     return true;
 }
 
 bool IpcChannel::send(const std::string &msg)
 {
-    if (_socket.getSocketFd() == INVALID_SOCKET_FD)
+    if (_sockfd == INVALID_SOCKET_FD)
         return false;
     if (msg.size() > MAX_MSG)
         return false;
-    ssize_t sent = ::send(_socket.getSocketFd(), msg.data(), msg.size(), 0);
+    ssize_t sent =
+        ::sendto(_sockfd, msg.c_str(), msg.size(), 0, reinterpret_cast<const sockaddr *>(&_addr), sizeof(_addr));
     return sent == static_cast<ssize_t>(msg.size());
 }
 
@@ -63,19 +83,19 @@ std::optional<std::string> IpcChannel::recv(int timeoutMs)
 {
     fd_set rfds = {0};
     timeval tv = {0};
-    if (_socket.getSocketFd() == INVALID_SOCKET_FD)
+    if (_sockfd == INVALID_SOCKET_FD)
         return std::nullopt;
 
     FD_ZERO(&rfds);
-    FD_SET(_socket.getSocketFd(), &rfds);
+    FD_SET(_sockfd, &rfds);
     tv.tv_usec = timeoutMs;
     tv.tv_sec = 0;
-    int ret = select(_socket.getSocketFd() + 1, &rfds, NULL, NULL, &tv);
+    int ret = select(_sockfd + 1, &rfds, NULL, NULL, &tv);
     if (ret <= 0)
         return std::nullopt;
 
     char buf[MAX_MSG + 1]{};
-    ssize_t n = ::recv(_socket.getSocketFd(), buf, MAX_MSG, 0);
+    ssize_t n = ::recv(_sockfd, buf, MAX_MSG, 0);
     if (n <= 0)
         return std::nullopt;
     return std::string(buf, buf + n);
@@ -83,14 +103,10 @@ std::optional<std::string> IpcChannel::recv(int timeoutMs)
 
 void IpcChannel::close()
 {
-    if (_socket.getSocketFd() != -INVALID_SOCKET_FD)
+    if (_sockfd != -INVALID_SOCKET_FD)
     {
-        _socket.closeSocket();
-    }
-    if (_isServer && !_path.empty())
-    {
-        _socket.unink();
+        CLOSE(_sockfd);
     }
     _isServer = false;
-    _path.clear();
+    memset(&_addr, 0, sizeof(_addr));
 }
