@@ -37,6 +37,7 @@
     #include <sys/select.h>
     #include <cstdint>
     #include <sys/un.h>
+    #include <netinet/tcp.h>
     
     // Linux macros
     #define CLOSE(s) close(s)
