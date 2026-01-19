@@ -16,7 +16,7 @@ jobs:
       - name: build
         run: |
             ./build.sh
-            if [ ! -f "/build/bin/rtype-client" ]
+            if [ ! -f "/build/bin/rtype-client" ] then
                 echo "ca marche"
                 exit 1
             fi
