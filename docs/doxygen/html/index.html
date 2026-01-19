@@ -114,9 +114,8 @@ Linux</h2>
 </ul>
 <h2><a class="anchor" id="autotoc_md4"></a>
 macOS</h2>
-<div class="fragment"><div class="line">cmake -S . -B build -G &quot;Unix Makefiles&quot;</div>
-<div class="line">cmake --build build</div>
-</div><!-- fragment --><p> Executables are in <code>build/</code>:</p><ul>
+<div class="fragment"><div class="line">./build.sh</div>
+</div><!-- fragment --><p> Executables are in <code>build/linux/</code>:</p><ul>
 <li><code>rtype-tcp-server</code></li>
 <li><code>rtype-udp-server</code></li>
 <li><code>rtype-client</code></li>
@@ -124,7 +123,6 @@ macOS</h2>
 <h2><a class="anchor" id="autotoc_md5"></a>
 Windows</h2>
 <div class="fragment"><div class="line">cmake -S . -B build -G &quot;Visual Studio 17 2022&quot;</div>
-<div class="line">cmake --build build --config Release</div>
 </div><!-- fragment --><p> Executables are in <code>build/Release/</code>:</p><ul>
 <li><code>rtype-tcp-server.exe</code></li>
 <li><code>rtype-udp-server.exe</code></li>
@@ -134,19 +132,19 @@ Windows</h2>
 Run</h1>
 <h2><a class="anchor" id="autotoc_md7"></a>
 Linux</h2>
-<div class="fragment"><div class="line">./build/linux/rtype-tcp-server</div>
-<div class="line">./build/linux/rtype-udp-server</div>
-<div class="line">./build/linux/rtype-client</div>
+<div class="fragment"><div class="line">cd ./build/linux/</div>
+<div class="line">./rtype-tcp-server</div>
+<div class="line">./rtype-client</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
 macOS</h2>
-<div class="fragment"><div class="line">./build/rtype-tcp-server</div>
-<div class="line">./build/rtype-udp-server</div>
-<div class="line">./build/rtype-client</div>
+<div class="fragment"><div class="line">cd ./build/linux/</div>
+<div class="line">./rtype-tcp-server</div>
+<div class="line">./rtype-client</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
 Windows</h2>
-<div class="fragment"><div class="line">.\build\Release\rtype-tcp-server.exe</div>
-<div class="line">.\build\Release\rtype-udp-server.exe</div>
-<div class="line">.\build\Release\rtype-client.exe</div>
+<div class="fragment"><div class="line">cd .\build/Release</div>
+<div class="line">.\rtype-tcp-server.exe</div>
+<div class="line">.\rtype-client.exe</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md10"></a>
 Architecture</h1>
 <ul>
@@ -199,7 +197,7 @@ Key features</h1>
 <h1><a class="anchor" id="autotoc_md14"></a>
 Documentation</h1>
 <ul>
-<li><a href="https://mysticorga.github.io/Mystic-Type/">Doxygen</a></li>
+<li><a href="https://mysticorga.github.io/Mystic-Type/doxygen/html/index.html">Doxygen</a></li>
 <li><a class="el" href="namespaceProtocol.html">Protocol</a> RFCs:<ul>
 <li><a href="https://mysticorga.github.io/Mystic-Type/rfc/mtp_protocol_rfc.txt">mtp protocol</a></li>
 <li><a href="https://mysticorga.github.io/Mystic-Type/rfc/tcp_protocol_rfc.txt">tcp protocol</a></li>
@@ -212,9 +210,33 @@ Authors</h1>
 <li>Quentin Hivanhoe: <code>quentin.hivanhoe@epitech.eu</code></li>
 <li>Loic Rabearivelo: <code>loic.rabearivelo@epitech.eu</code></li>
 <li>Emma Hoarau: <code>emma-frederique.hoarau@epitech.eu</code></li>
-<li>Nicolas Samy: <code>nicolas.samy@epitech.eu</code> </li>
+<li>Nicolas Samy: <code>nicolas.samy@epitech.eu</code></li>
 </ul>
-</div></div><!-- PageDoc -->
+<h1><a class="anchor" id="autotoc_md16"></a>
+License</h1>
+<p>This project is licensed under the MIT License - see below for details.</p>
+<div class="fragment"><div class="line">MIT License</div>
+<div class="line"> </div>
+<div class="line">Copyright (c) 2026 Mystic-Type Contributors</div>
+<div class="line"> </div>
+<div class="line">Permission is hereby granted, free of charge, to any person obtaining a copy</div>
+<div class="line">of this software and associated documentation files (the &quot;Software&quot;), to deal</div>
+<div class="line">in the Software without restriction, including without limitation the rights</div>
+<div class="line">to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</div>
+<div class="line">copies of the Software, and to permit persons to whom the Software is</div>
+<div class="line">furnished to do so, subject to the following conditions:</div>
+<div class="line"> </div>
+<div class="line">The above copyright notice and this permission notice shall be included in all</div>
+<div class="line">copies or substantial portions of the Software.</div>
+<div class="line"> </div>
+<div class="line">THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</div>
+<div class="line">IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</div>
+<div class="line">FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</div>
+<div class="line">AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</div>
+<div class="line">LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</div>
+<div class="line">OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</div>
+<div class="line">SOFTWARE.</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -31,9 +31,8 @@
 </sect2>
 <sect2 id="index_1autotoc_md4">
 <title>macOS</title>
-<para><programlisting filename=".bash"><codeline><highlight class="normal">cmake<sp/>-S<sp/>.<sp/>-B<sp/>build<sp/>-G<sp/>&quot;Unix<sp/>Makefiles&quot;</highlight></codeline>
-<codeline><highlight class="normal">cmake<sp/>--build<sp/>build</highlight></codeline>
-</programlisting> Executables are in <computeroutput>build/</computeroutput>:<itemizedlist>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">./build.sh</highlight></codeline>
+</programlisting> Executables are in <computeroutput>build/linux/</computeroutput>:<itemizedlist>
 <listitem><para><computeroutput>rtype-tcp-server</computeroutput></para>
 </listitem><listitem><para><computeroutput>rtype-udp-server</computeroutput></para>
 </listitem><listitem><para><computeroutput>rtype-client</computeroutput></para>
@@ -43,7 +42,6 @@
 <sect2 id="index_1autotoc_md5">
 <title>Windows</title>
 <para><programlisting filename=".bash"><codeline><highlight class="normal">cmake<sp/>-S<sp/>.<sp/>-B<sp/>build<sp/>-G<sp/>&quot;Visual<sp/>Studio<sp/>17<sp/>2022&quot;</highlight></codeline>
-<codeline><highlight class="normal">cmake<sp/>--build<sp/>build<sp/>--config<sp/>Release</highlight></codeline>
 </programlisting> Executables are in <computeroutput>build/Release/</computeroutput>:<itemizedlist>
 <listitem><para><computeroutput>rtype-tcp-server.exe</computeroutput></para>
 </listitem><listitem><para><computeroutput>rtype-udp-server.exe</computeroutput></para>
@@ -56,23 +54,23 @@
 <title>Run</title>
 <sect2 id="index_1autotoc_md7">
 <title>Linux</title>
-<para><programlisting filename=".bash"><codeline><highlight class="normal">./build/linux/rtype-tcp-server</highlight></codeline>
-<codeline><highlight class="normal">./build/linux/rtype-udp-server</highlight></codeline>
-<codeline><highlight class="normal">./build/linux/rtype-client</highlight></codeline>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">cd<sp/>./build/linux/</highlight></codeline>
+<codeline><highlight class="normal">./rtype-tcp-server</highlight></codeline>
+<codeline><highlight class="normal">./rtype-client</highlight></codeline>
 </programlisting></para>
 </sect2>
 <sect2 id="index_1autotoc_md8">
 <title>macOS</title>
-<para><programlisting filename=".bash"><codeline><highlight class="normal">./build/rtype-tcp-server</highlight></codeline>
-<codeline><highlight class="normal">./build/rtype-udp-server</highlight></codeline>
-<codeline><highlight class="normal">./build/rtype-client</highlight></codeline>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">cd<sp/>./build/linux/</highlight></codeline>
+<codeline><highlight class="normal">./rtype-tcp-server</highlight></codeline>
+<codeline><highlight class="normal">./rtype-client</highlight></codeline>
 </programlisting></para>
 </sect2>
 <sect2 id="index_1autotoc_md9">
 <title>Windows</title>
-<para><programlisting filename=".bash"><codeline><highlight class="normal">.\build\Release\rtype-tcp-server.exe</highlight></codeline>
-<codeline><highlight class="normal">.\build\Release\rtype-udp-server.exe</highlight></codeline>
-<codeline><highlight class="normal">.\build\Release\rtype-client.exe</highlight></codeline>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">cd<sp/>.\build/Release</highlight></codeline>
+<codeline><highlight class="normal">.\rtype-tcp-server.exe</highlight></codeline>
+<codeline><highlight class="normal">.\rtype-client.exe</highlight></codeline>
 </programlisting></para>
 </sect2>
 </sect1>
@@ -136,7 +134,7 @@
 <sect1 id="index_1autotoc_md14">
 <title>Documentation</title>
 <para><itemizedlist>
-<listitem><para><ulink url="https://mysticorga.github.io/Mystic-Type/">Doxygen</ulink></para>
+<listitem><para><ulink url="https://mysticorga.github.io/Mystic-Type/doxygen/html/index.html">Doxygen</ulink></para>
 </listitem><listitem><para><ref refid="namespaceProtocol" kindref="compound">Protocol</ref> RFCs:<itemizedlist>
 <listitem><para><ulink url="https://mysticorga.github.io/Mystic-Type/rfc/mtp_protocol_rfc.txt">mtp protocol</ulink></para>
 </listitem><listitem><para><ulink url="https://mysticorga.github.io/Mystic-Type/rfc/tcp_protocol_rfc.txt">tcp protocol</ulink></para>
@@ -151,9 +149,35 @@
 <listitem><para>Quentin Hivanhoe: <computeroutput>quentin.hivanhoe@epitech.eu</computeroutput></para>
 </listitem><listitem><para>Loic Rabearivelo: <computeroutput>loic.rabearivelo@epitech.eu</computeroutput></para>
 </listitem><listitem><para>Emma Hoarau: <computeroutput>emma-frederique.hoarau@epitech.eu</computeroutput></para>
-</listitem><listitem><para>Nicolas Samy: <computeroutput>nicolas.samy@epitech.eu</computeroutput> </para>
+</listitem><listitem><para>Nicolas Samy: <computeroutput>nicolas.samy@epitech.eu</computeroutput></para>
 </listitem></itemizedlist>
 </para>
+</sect1>
+<sect1 id="index_1autotoc_md16">
+<title>License</title>
+<para>This project is licensed under the MIT License - see below for details.</para>
+<para><programlisting><codeline><highlight class="normal">MIT<sp/>License</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Copyright<sp/>(c)<sp/>2026<sp/>Mystic-Type<sp/>Contributors</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline><highlight class="normal">of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline><highlight class="normal">in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline><highlight class="normal">copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in<sp/>all</highlight></codeline>
+<codeline><highlight class="normal">copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline><highlight class="normal">IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline><highlight class="normal">FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline><highlight class="normal">AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline><highlight class="normal">LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline><highlight class="normal">OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE</highlight></codeline>
+<codeline><highlight class="normal">SOFTWARE.</highlight></codeline>
+</programlisting> </para>
 </sect1>
     </detaileddescription>
     <location file="/home/loic/EPITECH/rtype/Mystic-Type/README.md"/>

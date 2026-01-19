@@ -30,10 +30,9 @@
 <codeline></codeline>
 <codeline><highlight class="normal">###<sp/>macOS</highlight></codeline>
 <codeline><highlight class="normal">```bash</highlight></codeline>
-<codeline><highlight class="normal">cmake<sp/>-S<sp/>.<sp/>-B<sp/>build<sp/>-G<sp/>&quot;Unix<sp/>Makefiles&quot;</highlight></codeline>
-<codeline><highlight class="normal">cmake<sp/>--build<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">./build.sh</highlight></codeline>
 <codeline><highlight class="normal">```</highlight></codeline>
-<codeline><highlight class="normal">Executables<sp/>are<sp/>in<sp/>`build/`:</highlight></codeline>
+<codeline><highlight class="normal">Executables<sp/>are<sp/>in<sp/>`build/linux/`:</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`rtype-tcp-server`</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`rtype-udp-server`</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`rtype-client`</highlight></codeline>
@@ -41,7 +40,6 @@
 <codeline><highlight class="normal">###<sp/>Windows</highlight></codeline>
 <codeline><highlight class="normal">```bash</highlight></codeline>
 <codeline><highlight class="normal">cmake<sp/>-S<sp/>.<sp/>-B<sp/>build<sp/>-G<sp/>&quot;Visual<sp/>Studio<sp/>17<sp/>2022&quot;</highlight></codeline>
-<codeline><highlight class="normal">cmake<sp/>--build<sp/>build<sp/>--config<sp/>Release</highlight></codeline>
 <codeline><highlight class="normal">```</highlight></codeline>
 <codeline><highlight class="normal">Executables<sp/>are<sp/>in<sp/>`build/Release/`:</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`rtype-tcp-server.exe`</highlight></codeline>
@@ -52,23 +50,23 @@
 <codeline></codeline>
 <codeline><highlight class="normal">###<sp/>Linux</highlight></codeline>
 <codeline><highlight class="normal">```bash</highlight></codeline>
-<codeline><highlight class="normal">./build/linux/rtype-tcp-server</highlight></codeline>
-<codeline><highlight class="normal">./build/linux/rtype-udp-server</highlight></codeline>
-<codeline><highlight class="normal">./build/linux/rtype-client</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>./build/linux/</highlight></codeline>
+<codeline><highlight class="normal">./rtype-tcp-server</highlight></codeline>
+<codeline><highlight class="normal">./rtype-client</highlight></codeline>
 <codeline><highlight class="normal">```</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">###<sp/>macOS</highlight></codeline>
 <codeline><highlight class="normal">```bash</highlight></codeline>
-<codeline><highlight class="normal">./build/rtype-tcp-server</highlight></codeline>
-<codeline><highlight class="normal">./build/rtype-udp-server</highlight></codeline>
-<codeline><highlight class="normal">./build/rtype-client</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>./build/linux/</highlight></codeline>
+<codeline><highlight class="normal">./rtype-tcp-server</highlight></codeline>
+<codeline><highlight class="normal">./rtype-client</highlight></codeline>
 <codeline><highlight class="normal">```</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">###<sp/>Windows</highlight></codeline>
 <codeline><highlight class="normal">```bash</highlight></codeline>
-<codeline><highlight class="normal">.\build\Release\rtype-tcp-server.exe</highlight></codeline>
-<codeline><highlight class="normal">.\build\Release\rtype-udp-server.exe</highlight></codeline>
-<codeline><highlight class="normal">.\build\Release\rtype-client.exe</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>.\build/Release</highlight></codeline>
+<codeline><highlight class="normal">.\rtype-tcp-server.exe</highlight></codeline>
+<codeline><highlight class="normal">.\rtype-client.exe</highlight></codeline>
 <codeline><highlight class="normal">```</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Architecture</highlight></codeline>
@@ -107,7 +105,7 @@
 <codeline><highlight class="normal">-<sp/>Client<sp/>UI:<sp/>lobby/pseudo<sp/>selection,<sp/>in-game<sp/>chat,<sp/>and<sp/>return-to-lobby<sp/>flow.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Documentation</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>[Doxygen](https://mysticorga.github.io/Mystic-Type/)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[Doxygen](https://mysticorga.github.io/Mystic-Type/doxygen/html/index.html)</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Protocol<sp/>RFCs:</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>[mtp<sp/>protocol](https://mysticorga.github.io/Mystic-Type/rfc/mtp_protocol_rfc.txt)</highlight></codeline>
@@ -119,6 +117,34 @@
 <codeline><highlight class="normal">-<sp/>Loic<sp/>Rabearivelo:<sp/>`loic.rabearivelo@epitech.eu`</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Emma<sp/>Hoarau:<sp/>`emma-frederique.hoarau@epitech.eu`</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>Nicolas<sp/>Samy:<sp/>`nicolas.samy@epitech.eu`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>License</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>project<sp/>is<sp/>licensed<sp/>under<sp/>the<sp/>MIT<sp/>License<sp/>-<sp/>see<sp/>below<sp/>for<sp/>details.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">MIT<sp/>License</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Copyright<sp/>(c)<sp/>2026<sp/>Mystic-Type<sp/>Contributors</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Permission<sp/>is<sp/>hereby<sp/>granted,<sp/>free<sp/>of<sp/>charge,<sp/>to<sp/>any<sp/>person<sp/>obtaining<sp/>a<sp/>copy</highlight></codeline>
+<codeline><highlight class="normal">of<sp/>this<sp/>software<sp/>and<sp/>associated<sp/>documentation<sp/>files<sp/>(the<sp/>&quot;Software&quot;),<sp/>to<sp/>deal</highlight></codeline>
+<codeline><highlight class="normal">in<sp/>the<sp/>Software<sp/>without<sp/>restriction,<sp/>including<sp/>without<sp/>limitation<sp/>the<sp/>rights</highlight></codeline>
+<codeline><highlight class="normal">to<sp/>use,<sp/>copy,<sp/>modify,<sp/>merge,<sp/>publish,<sp/>distribute,<sp/>sublicense,<sp/>and/or<sp/>sell</highlight></codeline>
+<codeline><highlight class="normal">copies<sp/>of<sp/>the<sp/>Software,<sp/>and<sp/>to<sp/>permit<sp/>persons<sp/>to<sp/>whom<sp/>the<sp/>Software<sp/>is</highlight></codeline>
+<codeline><highlight class="normal">furnished<sp/>to<sp/>do<sp/>so,<sp/>subject<sp/>to<sp/>the<sp/>following<sp/>conditions:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>above<sp/>copyright<sp/>notice<sp/>and<sp/>this<sp/>permission<sp/>notice<sp/>shall<sp/>be<sp/>included<sp/>in<sp/>all</highlight></codeline>
+<codeline><highlight class="normal">copies<sp/>or<sp/>substantial<sp/>portions<sp/>of<sp/>the<sp/>Software.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">THE<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>&quot;AS<sp/>IS&quot;,<sp/>WITHOUT<sp/>WARRANTY<sp/>OF<sp/>ANY<sp/>KIND,<sp/>EXPRESS<sp/>OR</highlight></codeline>
+<codeline><highlight class="normal">IMPLIED,<sp/>INCLUDING<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO<sp/>THE<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY,</highlight></codeline>
+<codeline><highlight class="normal">FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE<sp/>AND<sp/>NONINFRINGEMENT.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE</highlight></codeline>
+<codeline><highlight class="normal">AUTHORS<sp/>OR<sp/>COPYRIGHT<sp/>HOLDERS<sp/>BE<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>CLAIM,<sp/>DAMAGES<sp/>OR<sp/>OTHER</highlight></codeline>
+<codeline><highlight class="normal">LIABILITY,<sp/>WHETHER<sp/>IN<sp/>AN<sp/>ACTION<sp/>OF<sp/>CONTRACT,<sp/>TORT<sp/>OR<sp/>OTHERWISE,<sp/>ARISING<sp/>FROM,</highlight></codeline>
+<codeline><highlight class="normal">OUT<sp/>OF<sp/>OR<sp/>IN<sp/>CONNECTION<sp/>WITH<sp/>THE<sp/>SOFTWARE<sp/>OR<sp/>THE<sp/>USE<sp/>OR<sp/>OTHER<sp/>DEALINGS<sp/>IN<sp/>THE</highlight></codeline>
+<codeline><highlight class="normal">SOFTWARE.</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
     </programlisting>
     <location file="/home/loic/EPITECH/rtype/Mystic-Type/README.md"/>
   </compounddef>

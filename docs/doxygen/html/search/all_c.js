@@ -8,13 +8,14 @@ var searchData=
   ['lastshootms_5',['lastShootMs',['../structSession.html#a04b8c23754d16de9469a2f5c7aeb266c',1,'Session']]],
   ['left_6',['left',['../classNetworkClient.html#af897ec3417cf4dc121accb155d7320eea945d5e233cf7d6240f6b783b36a374ff',1,'NetworkClient::Left'],['../System_8hpp.html#adade54da2b207529e678a25e6389d494adb45120aafd37a973140edee24708065',1,'LEFT:&#160;System.hpp']]],
   ['leveling_7',['LEVELING',['../Packet_8hpp.html#a0628f13bcd4685c7a4b4a9f1aad83b56a256b68b36c17e1c85641d281b39500bb',1,'Packet.hpp']]],
-  ['linux_8',['linux',['../index.html#autotoc_md7',1,'Linux'],['../index.html#autotoc_md3',1,'Linux']]],
-  ['listbullets_9',['listBullets',['../classGameState.html#a65f539f1657ebd717fe5d48683144c82',1,'GameState']]],
-  ['listmonsters_10',['listMonsters',['../classGameState.html#a8fd239e201dacc3cc9d19dc34d67f301',1,'GameState']]],
-  ['listplayers_11',['listPlayers',['../classGameState.html#adbedaec4367fbf2705065e66a8909ce5',1,'GameState']]],
-  ['lobby_5ferror_12',['LOBBY_ERROR',['../Packet_8hpp.html#a0628f13bcd4685c7a4b4a9f1aad83b56a641d4a02e984224028338d5c33936ce9',1,'Packet.hpp']]],
-  ['lobby_5fok_13',['LOBBY_OK',['../Packet_8hpp.html#a0628f13bcd4685c7a4b4a9f1aad83b56ad516ccad8300c04495db993fcec70efc',1,'Packet.hpp']]],
-  ['lobbycode_14',['lobbycode',['../structSession.html#a0831d2d53f42052f7b48fd07393d4c0c',1,'Session::lobbyCode'],['../structTCPServer_1_1Client.html#a0ca2062e591d1682792cec104afe8478',1,'TCPServer::Client::lobbyCode'],['../structChildInfo.html#adc556c5d7e00a21c99fc48c2b715c33c',1,'ChildInfo::lobbyCode']]],
-  ['lobbyinfo_15',['LobbyInfo',['../structTCPServer_1_1LobbyInfo.html',1,'TCPServer']]],
-  ['logprefix_16',['logPrefix',['../classUDPGameServer.html#ae610b7c128c3b70e06f3fc1b5a3ecdc5',1,'UDPGameServer']]]
+  ['license_8',['License',['../index.html#autotoc_md16',1,'']]],
+  ['linux_9',['linux',['../index.html#autotoc_md3',1,'Linux'],['../index.html#autotoc_md7',1,'Linux']]],
+  ['listbullets_10',['listBullets',['../classGameState.html#a65f539f1657ebd717fe5d48683144c82',1,'GameState']]],
+  ['listmonsters_11',['listMonsters',['../classGameState.html#a8fd239e201dacc3cc9d19dc34d67f301',1,'GameState']]],
+  ['listplayers_12',['listPlayers',['../classGameState.html#adbedaec4367fbf2705065e66a8909ce5',1,'GameState']]],
+  ['lobby_5ferror_13',['LOBBY_ERROR',['../Packet_8hpp.html#a0628f13bcd4685c7a4b4a9f1aad83b56a641d4a02e984224028338d5c33936ce9',1,'Packet.hpp']]],
+  ['lobby_5fok_14',['LOBBY_OK',['../Packet_8hpp.html#a0628f13bcd4685c7a4b4a9f1aad83b56ad516ccad8300c04495db993fcec70efc',1,'Packet.hpp']]],
+  ['lobbycode_15',['lobbycode',['../structSession.html#a0831d2d53f42052f7b48fd07393d4c0c',1,'Session::lobbyCode'],['../structTCPServer_1_1Client.html#a0ca2062e591d1682792cec104afe8478',1,'TCPServer::Client::lobbyCode'],['../structChildInfo.html#adc556c5d7e00a21c99fc48c2b715c33c',1,'ChildInfo::lobbyCode']]],
+  ['lobbyinfo_16',['LobbyInfo',['../structTCPServer_1_1LobbyInfo.html',1,'TCPServer']]],
+  ['logprefix_17',['logPrefix',['../classUDPGameServer.html#ae610b7c128c3b70e06f3fc1b5a3ecdc5',1,'UDPGameServer']]]
 ];
