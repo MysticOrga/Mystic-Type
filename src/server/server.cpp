@@ -5,11 +5,11 @@
 ** main
 */
 
-#include "src/Network/SessionManager.hpp"
-#include "src/Network/TransportLayer/TCP/TCPServer.hpp"
-#include "src/Network/TransportLayer/UDP/UDPGameServer.hpp"
-#include "src/server/ChildProcessManager.hpp"
-#include "src/server/IpcChannel.hpp"
+#include "../Network/SessionManager.hpp"
+#include "../Network/TransportLayer/TCP/TCPServer.hpp"
+#include "../Network/TransportLayer/UDP/UDPGameServer.hpp"
+#include "ChildProcessManager.hpp"
+#include "IpcChannel.hpp"
 #include <iostream>
 #include <thread>
 

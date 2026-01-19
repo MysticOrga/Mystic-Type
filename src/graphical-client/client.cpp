@@ -5,7 +5,7 @@
 ** main
 */
 
-#include "src/graphical-client/GraphicClient/GraphicClient.hpp"
+#include "GraphicClient/GraphicClient.hpp"
 #include <iostream>
 
 int main()
