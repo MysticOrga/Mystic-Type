@@ -16,8 +16,16 @@ jobs:
       - name: build
         run: |
             ./build.sh
-            if [ ! -f "/build/bin/rtype-client" ] then
-                echo "ca marche"
+            if [ ! -f "/build/bin/rtype-client" ]; then
+                echo "rtype-client n'est pas présent"
+                exit 1
+            fi
+            if [ ! -f "/build/bin/rtype-tcp-server" ]; then
+                echo "rtype-tcp-server n'est pas présent"
+                exit 1
+            fi
+            if [ ! -f "/build/bin/rtype-udp-server" ]; then
+                echo "rtype-udp-server n'est pas présent"
                 exit 1
             fi
         shell: bash
