@@ -3,10 +3,24 @@
 Multiplayer R-Type-like with an authoritative TCP/UDP server and a raylib graphical client.
 
 ## Prerequisites
+
+### All Platforms
 - CMake ≥ 3.14
 - C++17 compiler
 - raylib (fetched automatically via FetchContent)
-- Works on macOS, Linux, and Windows (WSA init handled in entry points).
+
+### Windows-Specific Prerequisites
+- **CMake** ≥ 3.14
+  - Download: https://cmake.org/download/
+  - Add CMake to PATH during installation
+- **Visual Studio 2022** (recommended) or **MinGW**
+  - Visual Studio 2022 Community (free): https://visualstudio.microsoft.com/downloads/
+  - Required workload: "Desktop development with C++"
+  - Alternative: MinGW-w64 (https://www.mingw-w64.org/)
+- **Git for Windows** (optional, for cloning)
+  - Download: https://git-scm.com/download/win
+
+**Note:** The build script will attempt Visual Studio 17 2022 or Visual Studio 16 2019 generators first, then fall back to MinGW Makefiles if Visual Studio is not installed.
 
 ## Build
 
@@ -14,7 +28,7 @@ Multiplayer R-Type-like with an authoritative TCP/UDP server and a raylib graphi
 ```bash
 ./build.sh              # build client + servers
 ```
-Executables are in `build/linux/`:
+Executables are in `build/bin/`:
 - `rtype-tcp-server`
 - `rtype-udp-server`
 - `rtype-client`
@@ -23,16 +37,16 @@ Executables are in `build/linux/`:
 ```bash
 ./build.sh
 ```
-Executables are in `build/linux/`:
+Executables are in `build/bin/`:
 - `rtype-tcp-server`
 - `rtype-udp-server`
 - `rtype-client`
 
 ### Windows
 ```bash
-cmake -S . -B build -G "Visual Studio 17 2022"
+.\build.bat
 ```
-Executables are in `build/Release/`:
+Executables are in `build/bin/`:
 - `rtype-tcp-server.exe`
 - `rtype-udp-server.exe`
 - `rtype-client.exe`
@@ -41,21 +55,21 @@ Executables are in `build/Release/`:
 
 ### Linux
 ```bash
-cd ./build/linux/
+cd ./build/bin/
 ./rtype-tcp-server
 ./rtype-client
 ```
 
 ### macOS
 ```bash
-cd ./build/linux/
+cd ./build/bin/
 ./rtype-tcp-server
 ./rtype-client
 ```
 
 ### Windows
 ```bash
-cd .\build/Release
+cd .\build\bin
 .\rtype-tcp-server.exe
 .\rtype-client.exe
 ```
