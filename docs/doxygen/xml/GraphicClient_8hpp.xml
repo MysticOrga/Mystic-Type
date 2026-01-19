@@ -11,8 +11,8 @@
     <includes local="no">string</includes>
     <includes local="no">chrono</includes>
     <includes local="no">vector</includes>
-    <includedby refid="client_8cpp" local="yes">/home/loic/EPITECH/rtype/Mystic-Type/client.cpp</includedby>
     <includedby refid="GraphicClient_8cpp" local="yes">graphical-client/GraphicClient/GraphicClient.cpp</includedby>
+    <includedby refid="client_8cpp" local="yes">graphical-client/client.cpp</includedby>
     <incdepgraph>
       <node id="27">
         <label>GameState.hpp</label>
@@ -228,10 +228,6 @@
     </incdepgraph>
     <invincdepgraph>
       <node id="2">
-        <label>/home/loic/EPITECH/rtype/Mystic-Type/client.cpp</label>
-        <link refid="client_8cpp"/>
-      </node>
-      <node id="3">
         <label>graphical-client/GraphicClient/GraphicClient.cpp</label>
         <link refid="GraphicClient_8cpp"/>
       </node>
@@ -242,6 +238,10 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
+      </node>
+      <node id="3">
+        <label>graphical-client/client.cpp</label>
+        <link refid="client_8cpp"/>
       </node>
     </invincdepgraph>
     <innerclass refid="classGraphicClient" prot="public">GraphicClient</innerclass>

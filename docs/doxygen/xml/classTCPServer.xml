@@ -217,7 +217,7 @@
         <references refid="classTCPServer_1a84e56cbbeeab8d9e7569444fa657a239" compoundref="TCPServer_8hpp" startline="223">_clients</references>
         <references refid="classTCPServer_1a935d20653ad5ba5269b00c0fb8977e60" compoundref="TCPServer_8hpp" startline="222">_serverSocket</references>
         <references refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1a1101a573328f3e3763b5cc0fed67f0ae" compoundref="TCPSocket_8cpp" startline="27" endline="39">Network::TransportLayer::TCPSocket::bindAndListen</references>
-        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="45">INVALID_SOCKET_FD</references>
         <references refid="TCPServer_8hpp_1ab8ba2d8f79af5ca38005742bbc29a927" compoundref="TCPServer_8hpp" startline="23">MAX_CLIENT</references>
       </memberdef>
       <memberdef kind="function" id="classTCPServer_1abc497ac52355e53986a6a1bd1acb9581" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -260,7 +260,7 @@
         <references refid="classTCPServer_1a867c0e233f62e2d8f181ae99dbcca0a0" compoundref="TCPServer_8cpp" startline="351" endline="375">checkHeartbeat</references>
         <references refid="classTCPServer_1a6d824f4302f15bbd2c7c8b754d1a51dd" compoundref="TCPServer_8cpp" startline="334" endline="338">getCurrentTime</references>
         <references refid="classNetwork_1_1TransportLayer_1_1ASocket_1a65e51ed926d1ef000bf854a8e7fcd474" compoundref="ASocket_8hpp" startline="37" endline="40">Network::TransportLayer::ASocket::getSocketFd</references>
-        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="45">INVALID_SOCKET_FD</references>
         <references refid="classTCPServer_1a5e77543739e5b801384f9fe3e63c2bf8" compoundref="TCPServer_8cpp" startline="160" endline="163">pollSockets</references>
         <references refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" compoundref="TCPServer_8cpp" startline="203" endline="331">processClientData</references>
         <references refid="classTCPServer_1a2a03b7479e884f287b5a88df03eeb17b" compoundref="TCPServer_8cpp" startline="377" endline="444">processIpcMessages</references>
@@ -291,7 +291,7 @@
         <references refid="classSessionManager_1af8d1197fa1236d0295e3d31170639f6e" compoundref="SessionManager_8cpp" startline="10" endline="20">SessionManager::addSession</references>
         <references refid="classTCPServer_1aa6089a11e438f73bfc614c44f86e5d75" compoundref="TCPServer_8cpp" startline="134" endline="140">closeFd</references>
         <references refid="classTCPServer_1a6d824f4302f15bbd2c7c8b754d1a51dd" compoundref="TCPServer_8cpp" startline="334" endline="338">getCurrentTime</references>
-        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="45">INVALID_SOCKET_FD</references>
         <references refid="classTCPServer_1a35b89efbda16dd8af6b7ff45b6da036d" compoundref="TCPServer_8cpp" startline="60" endline="63">makeStringPacket</references>
         <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a392253eaea22aafdb199bc238bafc082">REFUSED</references>
         <references refid="classTCPServer_1a9a65a3923e77e48c5f0019b45af8fcb5" compoundref="TCPServer_8cpp" startline="88" endline="100">sendPacket</references>
@@ -460,7 +460,7 @@
         </inbodydescription>
         <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="105" column="14" bodyfile="Network/TransportLayer/TCP/TCPServer.cpp" bodystart="134" bodyend="140"/>
         <references refid="classTCPServer_1a2595c03eed6bf37e098e619e6751a3d4" compoundref="TCPServer_8cpp" startline="532" endline="535">closeFdRaw</references>
-        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="45">INVALID_SOCKET_FD</references>
         <referencedby refid="classTCPServer_1ae0e94f8d712b3c9028fe674100d649b9" compoundref="TCPServer_8cpp" startline="165" endline="201">acceptNewClient</referencedby>
         <referencedby refid="classTCPServer_1a435ec8dcd340e15f964ce3c0748c7305" compoundref="TCPServer_8cpp" startline="142" endline="158">resetClient</referencedby>
       </memberdef>
@@ -557,7 +557,7 @@
         </inbodydescription>
         <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="122" column="14" bodyfile="Network/TransportLayer/TCP/TCPServer.cpp" bodystart="88" bodyend="100"/>
         <references refid="namespaceProtocol_1a668bdeed219432868fca095e1b2f2667" compoundref="Protocol_8cpp" startline="11" endline="24">Protocol::frameTcp</references>
-        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="45">INVALID_SOCKET_FD</references>
         <references refid="classTCPServer_1a79e20e1d2821e399fe47dd1055341d5e" compoundref="TCPServer_8cpp" startline="537" endline="548">writeAll</references>
         <referencedby refid="classTCPServer_1ae0e94f8d712b3c9028fe674100d649b9" compoundref="TCPServer_8cpp" startline="165" endline="201">acceptNewClient</referencedby>
         <referencedby refid="classTCPServer_1aee3fb51b52375d68f548f60cc7005ef0" compoundref="TCPServer_8cpp" startline="578" endline="594">broadcastNewPlayer</referencedby>
@@ -626,7 +626,7 @@
         <references refid="classTCPServer_1a71488db7399ea324f5efe8064e24581caef70e46fd3bbc21e3e1f0b6815e750c0">Disconnected</references>
         <references refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780a4307e7e7986aa21a4b7c3ef2b5e948f6">Protocol::Incomplete</references>
         <references refid="classTCPServer_1a71488db7399ea324f5efe8064e24581ca4307e7e7986aa21a4b7c3ef2b5e948f6">Incomplete</references>
-        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="45">INVALID_SOCKET_FD</references>
         <references refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780aa60852f204ed8028c1c58808b746d115">Protocol::Ok</references>
         <references refid="classTCPServer_1a71488db7399ea324f5efe8064e24581caa60852f204ed8028c1c58808b746d115">Ok</references>
         <references refid="classTCPServer_1a00011973e407cab03dde7c74a4c65949" compoundref="TCPServer_8cpp" startline="522" endline="525">readFd</references>
@@ -817,7 +817,7 @@
         <inbodydescription>
         </inbodydescription>
         <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="167" column="13" bodyfile="Network/TransportLayer/TCP/TCPServer.cpp" bodystart="532" bodyend="535"/>
-        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="43">CLOSE</references>
+        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="42">CLOSE</references>
         <referencedby refid="classTCPServer_1aa6089a11e438f73bfc614c44f86e5d75" compoundref="TCPServer_8cpp" startline="134" endline="140">closeFd</referencedby>
       </memberdef>
       <memberdef kind="function" id="classTCPServer_1a196ba30f88f890e9acf0ef1a21a74c71" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
@@ -1148,7 +1148,7 @@
         </inbodydescription>
         <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="219" column="14" bodyfile="Network/TransportLayer/TCP/TCPServer.cpp" bodystart="79" bodyend="86"/>
         <references refid="classTCPServer_1a84e56cbbeeab8d9e7569444fa657a239" compoundref="TCPServer_8hpp" startline="223">_clients</references>
-        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="45">INVALID_SOCKET_FD</references>
         <references refid="classTCPServer_1a9a65a3923e77e48c5f0019b45af8fcb5" compoundref="TCPServer_8cpp" startline="88" endline="100">sendPacket</references>
         <referencedby refid="classTCPServer_1a867c0e233f62e2d8f181ae99dbcca0a0" compoundref="TCPServer_8cpp" startline="351" endline="375">checkHeartbeat</referencedby>
         <referencedby refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" compoundref="TCPServer_8cpp" startline="203" endline="331">processClientData</referencedby>

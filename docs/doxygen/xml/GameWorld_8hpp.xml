@@ -51,14 +51,6 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="4">
-        <label>/home/loic/EPITECH/rtype/Mystic-Type/game.cpp</label>
-        <link refid="game_8cpp"/>
-      </node>
-      <node id="5">
-        <label>/home/loic/EPITECH/rtype/Mystic-Type/server.cpp</label>
-        <link refid="server_8cpp"/>
-      </node>
       <node id="2">
         <label>Network/TransportLayer/UDP/GameWorld.cpp</label>
         <link refid="GameWorld_8cpp"/>
@@ -71,7 +63,7 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="6">
+      <node id="4">
         <label>Network/TransportLayer/UDP/UDPGameServer.cpp</label>
         <link refid="UDPGameServer_8cpp"/>
       </node>
@@ -84,6 +76,14 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
+      </node>
+      <node id="5">
+        <label>server/game.cpp</label>
+        <link refid="game_8cpp"/>
+      </node>
+      <node id="6">
+        <label>server/server.cpp</label>
+        <link refid="server_8cpp"/>
       </node>
     </invincdepgraph>
     <innerclass refid="classGameWorld" prot="public">GameWorld</innerclass>

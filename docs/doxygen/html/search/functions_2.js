@@ -12,7 +12,7 @@ var searchData=
   ['closefd_9',['closeFd',['../classTCPServer.html#aa6089a11e438f73bfc614c44f86e5d75',1,'TCPServer']]],
   ['closefdraw_10',['closeFdRaw',['../classTCPServer.html#a2595c03eed6bf37e098e619e6751a3d4',1,'TCPServer']]],
   ['closesocket_11',['closesocket',['../classNetwork_1_1TransportLayer_1_1ASocket.html#afb543d4b49e71b180cfe2259c8c5093b',1,'Network::TransportLayer::ASocket::closeSocket()'],['../classNetwork_1_1TransportLayer_1_1ISocket.html#a0a30278de50c785952d77ac03db3700f',1,'Network::TransportLayer::ISocket::closeSocket()']]],
-  ['connect_12',['connect',['../classNetwork_1_1TransportLayer_1_1UnixSocket.html#a22f15bf78074a9acd4a3016e0e7aab6d',1,'Network::TransportLayer::UnixSocket']]],
+  ['cmake_5fminimum_5frequired_12',['cmake_minimum_required',['../server_2CMakeLists_8txt.html#a232067545de05fa0bdd887c03d5071e1',1,'CMakeLists.txt']]],
   ['connectclient_13',['connectClient',['../classIpcChannel.html#afa8b95326afd4d66bb573f333e124d33',1,'IpcChannel']]],
   ['connectto_14',['connectTo',['../classNetwork_1_1TransportLayer_1_1TCPSocket.html#a9391d4bdcddb942f43210cc17ace7013',1,'Network::TransportLayer::TCPSocket']]],
   ['connecttoserver_15',['connectToServer',['../classNetworkClient.html#aaeedfac221d22aa5df4135b1680c4c99',1,'NetworkClient']]],

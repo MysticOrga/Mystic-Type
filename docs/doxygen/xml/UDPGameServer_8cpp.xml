@@ -132,7 +132,7 @@
         </childnode>
       </node>
       <node id="30">
-        <label>server/IpcChannel.hpp</label>
+        <label>IpcChannel.hpp</label>
         <link refid="IpcChannel_8hpp"/>
         <childnode refid="6" relation="include">
         </childnode>

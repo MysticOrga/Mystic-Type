@@ -6,7 +6,6 @@
     <innerclass refid="classNetwork_1_1TransportLayer_1_1ISocket" prot="public">Network::TransportLayer::ISocket</innerclass>
     <innerclass refid="classNetwork_1_1TransportLayer_1_1TCPSocket" prot="public">Network::TransportLayer::TCPSocket</innerclass>
     <innerclass refid="classNetwork_1_1TransportLayer_1_1UDPSocket" prot="public">Network::TransportLayer::UDPSocket</innerclass>
-    <innerclass refid="classNetwork_1_1TransportLayer_1_1UnixSocket" prot="public">Network::TransportLayer::UnixSocket</innerclass>
     <sectiondef kind="enum">
       <memberdef kind="enum" id="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7" prot="public" static="no" strong="no">
         <type></type>
@@ -54,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Network/TransportLayer/ISocket.hpp" line="56" column="1" bodyfile="Network/TransportLayer/ISocket.hpp" bodystart="57" bodyend="63"/>
+        <location file="Network/TransportLayer/ISocket.hpp" line="55" column="1" bodyfile="Network/TransportLayer/ISocket.hpp" bodystart="56" bodyend="62"/>
       </memberdef>
     </sectiondef>
     <briefdescription>

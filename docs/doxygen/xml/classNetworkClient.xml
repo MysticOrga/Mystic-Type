@@ -923,7 +923,7 @@
         <references refid="namespaceProtocol_1a10005c44787f8de2a0e42d395aff8baa" compoundref="Protocol_8cpp" startline="26" endline="44">Protocol::extractFromBuffer</references>
         <references refid="classNetworkClient_1a5bc6fcb253ac9f9d74c649cb4b30d546" compoundref="NetworkClient_8cpp" startline="275" endline="345">handleTcpPacket</references>
         <references refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" compoundref="NetworkClient_8cpp" startline="347" endline="456">handleUdpPacket</references>
-        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="45">INVALID_SOCKET_FD</references>
         <references refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780aa60852f204ed8028c1c58808b746d115">Protocol::Ok</references>
         <references refid="classNetworkClient_1ac0dca5641be17084ead40825063b944e" compoundref="NetworkClient_8cpp" startline="208" endline="216">readTcpPacket</references>
         <references refid="classNetworkClient_1a101f6ab85ee02ddb9d45a40dad603e29" compoundref="NetworkClient_8cpp" startline="218" endline="230">readUdpPacket</references>
@@ -950,7 +950,7 @@
         <references refid="classNetworkClient_1a18dce692aa54fd1e006744d59d097e5f" compoundref="NetworkClient_8hpp" startline="185">_tcpFd</references>
         <references refid="classNetworkClient_1afc9f1111f98037b27d3033e8d9118556" compoundref="NetworkClient_8hpp" startline="188">_udpConnected</references>
         <references refid="classNetworkClient_1afec94b5ac7dda0fc2b434261108f43ad" compoundref="NetworkClient_8hpp" startline="186">_udpFd</references>
-        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="43">CLOSE</references>
+        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="42">CLOSE</references>
         <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">GraphicClient::gameLoop</referencedby>
         <referencedby refid="classNetworkClient_1a5bc6fcb253ac9f9d74c649cb4b30d546" compoundref="NetworkClient_8cpp" startline="275" endline="345">handleTcpPacket</referencedby>
         <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">GraphicClient::processNetworkEvents</referencedby>
@@ -973,7 +973,7 @@
         <location file="Network/Client/NetworkClient.hpp" line="96" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="502" bodyend="509"/>
         <references refid="classNetworkClient_1afc9f1111f98037b27d3033e8d9118556" compoundref="NetworkClient_8hpp" startline="188">_udpConnected</references>
         <references refid="classNetworkClient_1afec94b5ac7dda0fc2b434261108f43ad" compoundref="NetworkClient_8hpp" startline="186">_udpFd</references>
-        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="43">CLOSE</references>
+        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="42">CLOSE</references>
         <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">GraphicClient::gameLoop</referencedby>
         <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">GraphicClient::processNetworkEvents</referencedby>
       </memberdef>

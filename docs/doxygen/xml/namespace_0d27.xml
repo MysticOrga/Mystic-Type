@@ -6,6 +6,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="Network/TransportLayer/UDP/UDPGameServer.cpp" line="13" column="1"/>
+    <location file="Network/TransportLayer/UDP/GameWorld.cpp" line="16" column="1"/>
   </compounddef>
 </doxygen>

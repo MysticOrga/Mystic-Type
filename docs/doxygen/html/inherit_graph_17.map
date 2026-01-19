@@ -1,11 +1,9 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="Node000000" href="$classNetwork_1_1TransportLayer_1_1ISocket.html" title="Interface for socket operations." alt="" coords="5,69,187,109"/>
-<area shape="rect" id="Node000001" href="$classNetwork_1_1TransportLayer_1_1ASocket.html" title=" " alt="" coords="235,69,416,109"/>
-<area shape="poly" id="edge2_Node000000_Node000001" title=" " alt="" coords="201,87,234,87,234,92,201,92"/>
+<area shape="rect" id="Node000000" href="$classNetwork_1_1TransportLayer_1_1ISocket.html" title="Interface for socket operations." alt="" coords="5,37,187,77"/>
+<area shape="rect" id="Node000001" href="$classNetwork_1_1TransportLayer_1_1ASocket.html" title=" " alt="" coords="235,37,416,77"/>
+<area shape="poly" id="edge2_Node000000_Node000001" title=" " alt="" coords="201,55,234,55,234,60,201,60"/>
 <area shape="rect" id="Node000002" href="$classNetwork_1_1TransportLayer_1_1TCPSocket.html" title="TCP socket wrapper providing connect/accept helpers." alt="" coords="464,5,645,45"/>
-<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="410,63,482,43,483,48,411,68"/>
+<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="429,40,463,35,464,41,430,45"/>
 <area shape="rect" id="Node000003" href="$classNetwork_1_1TransportLayer_1_1UDPSocket.html" title="UDP Socket class inheriting from ASocket." alt="" coords="464,69,645,109"/>
-<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="430,87,464,87,464,92,430,92"/>
-<area shape="rect" id="Node000004" href="$classNetwork_1_1TransportLayer_1_1UnixSocket.html" title=" " alt="" coords="464,133,645,173"/>
-<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="411,110,483,131,482,136,410,116"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="430,69,464,74,463,79,429,74"/>
 </map>

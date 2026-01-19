@@ -151,7 +151,7 @@
         </childnode>
       </node>
       <node id="26">
-        <label>server/ChildProcessManager.hpp</label>
+        <label>ChildProcessManager.hpp</label>
         <link refid="ChildProcessManager_8hpp"/>
         <childnode refid="5" relation="include">
         </childnode>
@@ -163,7 +163,7 @@
         </childnode>
       </node>
       <node id="27">
-        <label>server/IpcChannel.hpp</label>
+        <label>IpcChannel.hpp</label>
         <link refid="IpcChannel_8hpp"/>
         <childnode refid="5" relation="include">
         </childnode>

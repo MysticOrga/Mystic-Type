@@ -1,11 +1,9 @@
 <map id="Network::TransportLayer::ISocket" name="Network::TransportLayer::ISocket">
-<area shape="rect" id="Node000001" title="Interface for socket operations." alt="" coords="203,5,376,185"/>
-<area shape="rect" id="Node000002" href="$classNetwork_1_1TransportLayer_1_1ASocket.html" title=" " alt="" coords="203,233,376,473"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="292,199,292,233,287,233,287,199"/>
-<area shape="rect" id="Node000003" href="$classNetwork_1_1TransportLayer_1_1TCPSocket.html" title="TCP socket wrapper providing connect/accept helpers." alt="" coords="5,561,179,721"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="202,486,149,563,144,560,197,483"/>
-<area shape="rect" id="Node000004" href="$classNetwork_1_1TransportLayer_1_1UDPSocket.html" title="UDP Socket class inheriting from ASocket." alt="" coords="203,541,376,741"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="292,487,292,541,287,541,287,487"/>
-<area shape="rect" id="Node000005" href="$classNetwork_1_1TransportLayer_1_1UnixSocket.html" title=" " alt="" coords="400,521,573,761"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="381,483,407,520,402,523,377,486"/>
+<area shape="rect" id="Node000001" title="Interface for socket operations." alt="" coords="104,5,277,185"/>
+<area shape="rect" id="Node000002" href="$classNetwork_1_1TransportLayer_1_1ASocket.html" title=" " alt="" coords="104,233,277,473"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,199,193,233,188,233,188,199"/>
+<area shape="rect" id="Node000003" href="$classNetwork_1_1TransportLayer_1_1TCPSocket.html" title="TCP socket wrapper providing connect/accept helpers." alt="" coords="5,541,179,701"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="144,487,124,542,119,540,139,485"/>
+<area shape="rect" id="Node000004" href="$classNetwork_1_1TransportLayer_1_1UDPSocket.html" title="UDP Socket class inheriting from ASocket." alt="" coords="203,521,376,721"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="242,485,255,520,250,522,237,487"/>
 </map>

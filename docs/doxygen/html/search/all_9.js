@@ -12,7 +12,7 @@ var searchData=
   ['ioerror_9',['IOERROR',['../namespaceNetwork_1_1TransportLayer.html#a6d26a09ee731d25bab8b11b909ca73e7abb13e459f18172f849fcb2c733a538fc',1,'Network::TransportLayer']]],
   ['iostate_10',['IOState',['../namespaceNetwork_1_1TransportLayer.html#a6d26a09ee731d25bab8b11b909ca73e7',1,'Network::TransportLayer']]],
   ['ipc_11',['ipc',['../structTCPServer_1_1LobbyInfo.html#a1f7fa98ba4cc99221634f99ec6a576a4',1,'TCPServer::LobbyInfo']]],
-  ['ipcchannel_12',['ipcchannel',['../classIpcChannel.html',1,'IpcChannel'],['../classIpcChannel.html#accdef665be5b8cc831aa12cc9fe64959',1,'IpcChannel::IpcChannel()=default'],['../classIpcChannel.html#a4cfe558307ce2aa78a5d7856588aeafb',1,'IpcChannel::IpcChannel(const IpcChannel &amp;)=delete']]],
+  ['ipcchannel_12',['ipcchannel',['../classIpcChannel.html#a4cfe558307ce2aa78a5d7856588aeafb',1,'IpcChannel::IpcChannel(const IpcChannel &amp;)=delete'],['../classIpcChannel.html#accdef665be5b8cc831aa12cc9fe64959',1,'IpcChannel::IpcChannel()=default'],['../classIpcChannel.html',1,'IpcChannel']]],
   ['ipcchannel_2ecpp_13',['IpcChannel.cpp',['../IpcChannel_8cpp.html',1,'']]],
   ['ipcchannel_2ehpp_14',['IpcChannel.hpp',['../IpcChannel_8hpp.html',1,'']]],
   ['ipcport_15',['ipcPort',['../structTCPServer_1_1LobbyInfo.html#a6c62899f0b9d0876bfd082bdbe5932d6',1,'TCPServer::LobbyInfo']]],
@@ -20,8 +20,7 @@ var searchData=
   ['isconnected_17',['isConnected',['../classNetworkClient.html#a08e45bde82ce1fbc60128fd538b58078',1,'NetworkClient']]],
   ['iskeydown_18',['isKeyDown',['../classRaylib_1_1Input.html#a4cd5c6122b4771997efbb9ef2d3c4771',1,'Raylib::Input']]],
   ['iskeypressed_19',['isKeyPressed',['../classRaylib_1_1Input.html#a77b20ab7de1540d7cc5c18f71b137a12',1,'Raylib::Input']]],
-  ['islink_20',['isLink',['../classNetwork_1_1TransportLayer_1_1UnixSocket.html#a6cc9059163c78f09be4a57fe0ac7a8c6',1,'Network::TransportLayer::UnixSocket']]],
-  ['isocket_21',['ISocket',['../classNetwork_1_1TransportLayer_1_1ISocket.html',1,'Network::TransportLayer']]],
-  ['isocket_2ehpp_22',['ISocket.hpp',['../ISocket_8hpp.html',1,'']]],
-  ['ispublic_23',['isPublic',['../structTCPServer_1_1LobbyInfo.html#a152296683519bb731ad8583bf8a13314',1,'TCPServer::LobbyInfo']]]
+  ['isocket_20',['ISocket',['../classNetwork_1_1TransportLayer_1_1ISocket.html',1,'Network::TransportLayer']]],
+  ['isocket_2ehpp_21',['ISocket.hpp',['../ISocket_8hpp.html',1,'']]],
+  ['ispublic_22',['isPublic',['../structTCPServer_1_1LobbyInfo.html#a152296683519bb731ad8583bf8a13314',1,'TCPServer::LobbyInfo']]]
 ];

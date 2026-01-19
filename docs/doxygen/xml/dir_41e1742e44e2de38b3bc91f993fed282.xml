@@ -4,8 +4,10 @@
     <compoundname>server</compoundname>
     <innerfile refid="ChildProcessManager_8cpp">ChildProcessManager.cpp</innerfile>
     <innerfile refid="ChildProcessManager_8hpp">ChildProcessManager.hpp</innerfile>
+    <innerfile refid="game_8cpp">game.cpp</innerfile>
     <innerfile refid="IpcChannel_8cpp">IpcChannel.cpp</innerfile>
     <innerfile refid="IpcChannel_8hpp">IpcChannel.hpp</innerfile>
+    <innerfile refid="server_8cpp">server.cpp</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

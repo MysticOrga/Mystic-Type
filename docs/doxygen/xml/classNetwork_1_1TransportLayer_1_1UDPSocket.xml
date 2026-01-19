@@ -201,7 +201,7 @@
         <location file="Network/TransportLayer/UDP/UDPSocket.hpp" line="64" column="17" bodyfile="Network/TransportLayer/UDP/UDPSocket.cpp" bodystart="35" bodyend="45"/>
         <references refid="classNetwork_1_1TransportLayer_1_1UDPSocket_1a8cb227a0a16480a39a6dfe532e5d2d5f" compoundref="UDPSocket_8hpp" startline="84">_senderAddr</references>
         <references refid="classNetwork_1_1TransportLayer_1_1ASocket_1a98cc1b369dd9afea0f122e6f07c41caa" compoundref="ASocket_8hpp" startline="86">Network::TransportLayer::ASocket::_socketFd</references>
-        <references refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a27be65353a27abba0a6da38c5b55fdfa" compoundref="ISocket_8hpp" startline="58">Network::TransportLayer::READ_READY</references>
+        <references refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a27be65353a27abba0a6da38c5b55fdfa" compoundref="ISocket_8hpp" startline="57">Network::TransportLayer::READ_READY</references>
         <references refid="classNetwork_1_1TransportLayer_1_1ASocket_1a50cace88b622aa442d901434ecc33bd8" compoundref="ASocket_8cpp" startline="39" endline="76">Network::TransportLayer::ASocket::sockState</references>
         <referencedby refid="classUDPGameServer_1a7f3a37004641222f4d30d55614f05029" compoundref="UDPGameServer_8cpp" startline="277" endline="297">UDPGameServer::networkLoop</referencedby>
       </memberdef>

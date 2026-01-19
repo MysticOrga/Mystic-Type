@@ -10,11 +10,11 @@
     <includes local="no">cstdint</includes>
     <includes local="no">vector</includes>
     <includes local="no">string</includes>
-    <includedby refid="game_8cpp" local="yes">/home/loic/EPITECH/rtype/Mystic-Type/game.cpp</includedby>
-    <includedby refid="server_8cpp" local="yes">/home/loic/EPITECH/rtype/Mystic-Type/server.cpp</includedby>
     <includedby refid="SessionManager_8cpp" local="yes">Network/SessionManager.cpp</includedby>
     <includedby refid="TCPServer_8hpp" local="yes">Network/TransportLayer/TCP/TCPServer.hpp</includedby>
     <includedby refid="UDPGameServer_8hpp" local="yes">Network/TransportLayer/UDP/UDPGameServer.hpp</includedby>
+    <includedby refid="game_8cpp" local="yes">server/game.cpp</includedby>
+    <includedby refid="server_8cpp" local="yes">server/server.cpp</includedby>
     <incdepgraph>
       <node id="1">
         <label>Network/SessionManager.hpp</label>
@@ -63,14 +63,6 @@
     </incdepgraph>
     <invincdepgraph>
       <node id="2">
-        <label>/home/loic/EPITECH/rtype/Mystic-Type/game.cpp</label>
-        <link refid="game_8cpp"/>
-      </node>
-      <node id="3">
-        <label>/home/loic/EPITECH/rtype/Mystic-Type/server.cpp</label>
-        <link refid="server_8cpp"/>
-      </node>
-      <node id="4">
         <label>Network/SessionManager.cpp</label>
         <link refid="SessionManager_8cpp"/>
       </node>
@@ -81,38 +73,46 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Network/TransportLayer/TCP/TCPServer.cpp</label>
+        <link refid="TCPServer_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Network/TransportLayer/TCP/TCPServer.hpp</label>
+        <link refid="TCPServer_8hpp"/>
         <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
       </node>
-      <node id="6">
-        <label>Network/TransportLayer/TCP/TCPServer.cpp</label>
-        <link refid="TCPServer_8cpp"/>
-      </node>
-      <node id="5">
-        <label>Network/TransportLayer/TCP/TCPServer.hpp</label>
-        <link refid="TCPServer_8hpp"/>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
+      <node id="7">
         <label>Network/TransportLayer/UDP/UDPGameServer.cpp</label>
         <link refid="UDPGameServer_8cpp"/>
       </node>
-      <node id="7">
+      <node id="6">
         <label>Network/TransportLayer/UDP/UDPGameServer.hpp</label>
         <link refid="UDPGameServer_8hpp"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>server/game.cpp</label>
+        <link refid="game_8cpp"/>
+      </node>
+      <node id="5">
+        <label>server/server.cpp</label>
+        <link refid="server_8cpp"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structSession" prot="public">Session</innerclass>

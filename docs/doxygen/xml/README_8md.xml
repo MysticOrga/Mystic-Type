@@ -12,10 +12,24 @@
 <codeline><highlight class="normal">Multiplayer<sp/>R-Type-like<sp/>with<sp/>an<sp/>authoritative<sp/>TCP/UDP<sp/>server<sp/>and<sp/>a<sp/>raylib<sp/>graphical<sp/>client.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Prerequisites</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>All<sp/>Platforms</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>CMake<sp/>≥<sp/>3.14</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>C++17<sp/>compiler</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>raylib<sp/>(fetched<sp/>automatically<sp/>via<sp/>FetchContent)</highlight></codeline>
-<codeline><highlight class="normal">-<sp/>Works<sp/>on<sp/>macOS,<sp/>Linux,<sp/>and<sp/>Windows<sp/>(WSA<sp/>init<sp/>handled<sp/>in<sp/>entry<sp/>points).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Windows-Specific<sp/>Prerequisites</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**CMake**<sp/>≥<sp/>3.14</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Download:<sp/>https://cmake.org/download/</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Add<sp/>CMake<sp/>to<sp/>PATH<sp/>during<sp/>installation</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Visual<sp/>Studio<sp/>2022**<sp/>(recommended)<sp/>or<sp/>**MinGW**</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Visual<sp/>Studio<sp/>2022<sp/>Community<sp/>(free):<sp/>https://visualstudio.microsoft.com/downloads/</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Required<sp/>workload:<sp/>&quot;Desktop<sp/>development<sp/>with<sp/>C++&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Alternative:<sp/>MinGW-w64<sp/>(https://www.mingw-w64.org/)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>**Git<sp/>for<sp/>Windows**<sp/>(optional,<sp/>for<sp/>cloning)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Download:<sp/>https://git-scm.com/download/win</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**Note:**<sp/>The<sp/>build<sp/>script<sp/>will<sp/>attempt<sp/>Visual<sp/>Studio<sp/>17<sp/>2022<sp/>or<sp/>Visual<sp/>Studio<sp/>16<sp/>2019<sp/>generators<sp/>first,<sp/>then<sp/>fall<sp/>back<sp/>to<sp/>MinGW<sp/>Makefiles<sp/>if<sp/>Visual<sp/>Studio<sp/>is<sp/>not<sp/>installed.</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">##<sp/>Build</highlight></codeline>
 <codeline></codeline>
@@ -23,7 +37,7 @@
 <codeline><highlight class="normal">```bash</highlight></codeline>
 <codeline><highlight class="normal">./build.sh<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>build<sp/>client<sp/>+<sp/>servers</highlight></codeline>
 <codeline><highlight class="normal">```</highlight></codeline>
-<codeline><highlight class="normal">Executables<sp/>are<sp/>in<sp/>`build/linux/`:</highlight></codeline>
+<codeline><highlight class="normal">Executables<sp/>are<sp/>in<sp/>`build/bin/`:</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`rtype-tcp-server`</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`rtype-udp-server`</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`rtype-client`</highlight></codeline>
@@ -32,16 +46,16 @@
 <codeline><highlight class="normal">```bash</highlight></codeline>
 <codeline><highlight class="normal">./build.sh</highlight></codeline>
 <codeline><highlight class="normal">```</highlight></codeline>
-<codeline><highlight class="normal">Executables<sp/>are<sp/>in<sp/>`build/linux/`:</highlight></codeline>
+<codeline><highlight class="normal">Executables<sp/>are<sp/>in<sp/>`build/bin/`:</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`rtype-tcp-server`</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`rtype-udp-server`</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`rtype-client`</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">###<sp/>Windows</highlight></codeline>
 <codeline><highlight class="normal">```bash</highlight></codeline>
-<codeline><highlight class="normal">cmake<sp/>-S<sp/>.<sp/>-B<sp/>build<sp/>-G<sp/>&quot;Visual<sp/>Studio<sp/>17<sp/>2022&quot;</highlight></codeline>
+<codeline><highlight class="normal">.\build.bat</highlight></codeline>
 <codeline><highlight class="normal">```</highlight></codeline>
-<codeline><highlight class="normal">Executables<sp/>are<sp/>in<sp/>`build/Release/`:</highlight></codeline>
+<codeline><highlight class="normal">Executables<sp/>are<sp/>in<sp/>`build/bin/`:</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`rtype-tcp-server.exe`</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`rtype-udp-server.exe`</highlight></codeline>
 <codeline><highlight class="normal">-<sp/>`rtype-client.exe`</highlight></codeline>
@@ -50,21 +64,21 @@
 <codeline></codeline>
 <codeline><highlight class="normal">###<sp/>Linux</highlight></codeline>
 <codeline><highlight class="normal">```bash</highlight></codeline>
-<codeline><highlight class="normal">cd<sp/>./build/linux/</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>./build/bin/</highlight></codeline>
 <codeline><highlight class="normal">./rtype-tcp-server</highlight></codeline>
 <codeline><highlight class="normal">./rtype-client</highlight></codeline>
 <codeline><highlight class="normal">```</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">###<sp/>macOS</highlight></codeline>
 <codeline><highlight class="normal">```bash</highlight></codeline>
-<codeline><highlight class="normal">cd<sp/>./build/linux/</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>./build/bin/</highlight></codeline>
 <codeline><highlight class="normal">./rtype-tcp-server</highlight></codeline>
 <codeline><highlight class="normal">./rtype-client</highlight></codeline>
 <codeline><highlight class="normal">```</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">###<sp/>Windows</highlight></codeline>
 <codeline><highlight class="normal">```bash</highlight></codeline>
-<codeline><highlight class="normal">cd<sp/>.\build/Release</highlight></codeline>
+<codeline><highlight class="normal">cd<sp/>.\build\bin</highlight></codeline>
 <codeline><highlight class="normal">.\rtype-tcp-server.exe</highlight></codeline>
 <codeline><highlight class="normal">.\rtype-client.exe</highlight></codeline>
 <codeline><highlight class="normal">```</highlight></codeline>

@@ -150,8 +150,8 @@
         <references refid="classIpcChannel_1ad220948425e93fed642979014de89e15" compoundref="IpcChannel_8hpp" startline="73">_addr</references>
         <references refid="classIpcChannel_1afbe5a59d97124b64e1dba4d8a84189fc" compoundref="IpcChannel_8hpp" startline="74">_isServer</references>
         <references refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" compoundref="IpcChannel_8hpp" startline="72">_sockfd</references>
-        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="43">CLOSE</references>
-        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="42">CLOSE</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="45">INVALID_SOCKET_FD</references>
       </memberdef>
       <memberdef kind="function" id="classIpcChannel_1afa8b95326afd4d66bb573f333e124d33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -177,8 +177,8 @@
         <references refid="classIpcChannel_1ad220948425e93fed642979014de89e15" compoundref="IpcChannel_8hpp" startline="73">_addr</references>
         <references refid="classIpcChannel_1afbe5a59d97124b64e1dba4d8a84189fc" compoundref="IpcChannel_8hpp" startline="74">_isServer</references>
         <references refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" compoundref="IpcChannel_8hpp" startline="72">_sockfd</references>
-        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="43">CLOSE</references>
-        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="42">CLOSE</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="45">INVALID_SOCKET_FD</references>
         <referencedby refid="game_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" compoundref="game_8cpp" startline="50" endline="91">main</referencedby>
       </memberdef>
       <memberdef kind="function" id="classIpcChannel_1a35498032e830b79724747de4e7b6ca1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -201,7 +201,7 @@
         <location file="server/IpcChannel.hpp" line="45" column="10" bodyfile="server/IpcChannel.cpp" bodystart="71" bodyend="80"/>
         <references refid="classIpcChannel_1ad220948425e93fed642979014de89e15" compoundref="IpcChannel_8hpp" startline="73">_addr</references>
         <references refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" compoundref="IpcChannel_8hpp" startline="72">_sockfd</references>
-        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="45">INVALID_SOCKET_FD</references>
         <referencedby refid="game_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" compoundref="game_8cpp" startline="50" endline="91">main</referencedby>
         <referencedby refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" compoundref="UDPGameServer_8cpp" startline="195" endline="232">UDPGameServer::run</referencedby>
         <referencedby refid="classUDPGameServer_1aa1c969e983f12d8e36bfb2465f7fe5d6" compoundref="UDPGameServer_8cpp" startline="234" endline="275">UDPGameServer::updateSimulation</referencedby>
@@ -226,7 +226,7 @@
         </inbodydescription>
         <location file="server/IpcChannel.hpp" line="51" column="19" bodyfile="server/IpcChannel.cpp" bodystart="82" bodyend="102"/>
         <references refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" compoundref="IpcChannel_8hpp" startline="72">_sockfd</references>
-        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="45">INVALID_SOCKET_FD</references>
         <references refid="classIpcChannel_1a733bd7b22e1828b0c48609a832f24181" compoundref="IpcChannel_8cpp" startline="82" endline="102">recv</references>
         <referencedby refid="classIpcChannel_1a733bd7b22e1828b0c48609a832f24181" compoundref="IpcChannel_8cpp" startline="82" endline="102">recv</referencedby>
       </memberdef>
@@ -266,8 +266,8 @@
         <references refid="classIpcChannel_1ad220948425e93fed642979014de89e15" compoundref="IpcChannel_8hpp" startline="73">_addr</references>
         <references refid="classIpcChannel_1afbe5a59d97124b64e1dba4d8a84189fc" compoundref="IpcChannel_8hpp" startline="74">_isServer</references>
         <references refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" compoundref="IpcChannel_8hpp" startline="72">_sockfd</references>
-        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="43">CLOSE</references>
-        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="42">CLOSE</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="45">INVALID_SOCKET_FD</references>
         <referencedby refid="classIpcChannel_1ad63c52abbe46734379d53197c042813a" compoundref="IpcChannel_8cpp" startline="17" endline="20">~IpcChannel</referencedby>
       </memberdef>
       <memberdef kind="function" id="classIpcChannel_1aadf27650ff534770bd014398c27d1438" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">

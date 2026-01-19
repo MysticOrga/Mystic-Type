@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['macos_0',['macos',['../index.html#autotoc_md8',1,'macOS'],['../index.html#autotoc_md4',1,'macOS']]],
-  ['main_1',['main',['../server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;server.cpp'],['../game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;game.cpp'],['../client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;client.cpp']]],
+  ['macos_0',['macos',['../index.html#autotoc_md10',1,'macOS'],['../index.html#autotoc_md6',1,'macOS']]],
+  ['main_1',['main',['../client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;client.cpp'],['../server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;server.cpp'],['../game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;game.cpp']]],
   ['makeidpacket_2',['makeIdPacket',['../classTCPServer.html#a13efa1ebda8d0f4c99eae65d6b012b75',1,'TCPServer']]],
   ['makelobbypacket_3',['makeLobbyPacket',['../classTCPServer.html#ae45d63761257c84a68a96c24541c13e4',1,'TCPServer']]],
   ['makestringpacket_4',['makeStringPacket',['../classTCPServer.html#a35b89efbda16dd8af6b7ff45b6da036d',1,'TCPServer']]],

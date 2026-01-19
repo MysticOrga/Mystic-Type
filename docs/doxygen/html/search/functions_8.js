@@ -5,6 +5,5 @@ var searchData=
   ['ipcchannel_2',['ipcchannel',['../classIpcChannel.html#accdef665be5b8cc831aa12cc9fe64959',1,'IpcChannel::IpcChannel()=default'],['../classIpcChannel.html#a4cfe558307ce2aa78a5d7856588aeafb',1,'IpcChannel::IpcChannel(const IpcChannel &amp;)=delete']]],
   ['isconnected_3',['isConnected',['../classNetworkClient.html#a08e45bde82ce1fbc60128fd538b58078',1,'NetworkClient']]],
   ['iskeydown_4',['isKeyDown',['../classRaylib_1_1Input.html#a4cd5c6122b4771997efbb9ef2d3c4771',1,'Raylib::Input']]],
-  ['iskeypressed_5',['isKeyPressed',['../classRaylib_1_1Input.html#a77b20ab7de1540d7cc5c18f71b137a12',1,'Raylib::Input']]],
-  ['islink_6',['isLink',['../classNetwork_1_1TransportLayer_1_1UnixSocket.html#a6cc9059163c78f09be4a57fe0ac7a8c6',1,'Network::TransportLayer::UnixSocket']]]
+  ['iskeypressed_5',['isKeyPressed',['../classRaylib_1_1Input.html#a77b20ab7de1540d7cc5c18f71b137a12',1,'Raylib::Input']]]
 ];

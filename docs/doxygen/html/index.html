@@ -96,56 +96,77 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <div class="textblock"><p><a class="anchor" id="md__2home_2loic_2EPITECH_2rtype_2Mystic-Type_2README"></a> Multiplayer R-Type-like with an authoritative TCP/UDP server and a raylib graphical client.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Prerequisites</h1>
+<h2><a class="anchor" id="autotoc_md2"></a>
+All Platforms</h2>
 <ul>
 <li>CMake ≥ 3.14</li>
 <li>C++17 compiler</li>
 <li>raylib (fetched automatically via FetchContent)</li>
-<li>Works on macOS, Linux, and Windows (WSA init handled in entry points).</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md2"></a>
-Build</h1>
 <h2><a class="anchor" id="autotoc_md3"></a>
+Windows-Specific Prerequisites</h2>
+<ul>
+<li><b>CMake</b> ≥ 3.14<ul>
+<li>Download: <a href="https://cmake.org/download/">https://cmake.org/download/</a></li>
+<li>Add CMake to PATH during installation</li>
+</ul>
+</li>
+<li><b>Visual Studio 2022</b> (recommended) or <b>MinGW</b><ul>
+<li>Visual Studio 2022 Community (free): <a href="https://visualstudio.microsoft.com/downloads/">https://visualstudio.microsoft.com/downloads/</a></li>
+<li>Required workload: "Desktop development with C++"</li>
+<li>Alternative: MinGW-w64 (<a href="https://www.mingw-w64.org/">https://www.mingw-w64.org/</a>)</li>
+</ul>
+</li>
+<li><b>Git for Windows</b> (optional, for cloning)<ul>
+<li>Download: <a href="https://git-scm.com/download/win">https://git-scm.com/download/win</a></li>
+</ul>
+</li>
+</ul>
+<p><b>Note:</b> The build script will attempt Visual Studio 17 2022 or Visual Studio 16 2019 generators first, then fall back to MinGW Makefiles if Visual Studio is not installed.</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Build</h1>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Linux</h2>
 <div class="fragment"><div class="line">./build.sh              # build client + servers</div>
-</div><!-- fragment --><p> Executables are in <code>build/linux/</code>:</p><ul>
+</div><!-- fragment --><p> Executables are in <code>build/bin/</code>:</p><ul>
 <li><code>rtype-tcp-server</code></li>
 <li><code>rtype-udp-server</code></li>
 <li><code>rtype-client</code></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 macOS</h2>
 <div class="fragment"><div class="line">./build.sh</div>
-</div><!-- fragment --><p> Executables are in <code>build/linux/</code>:</p><ul>
+</div><!-- fragment --><p> Executables are in <code>build/bin/</code>:</p><ul>
 <li><code>rtype-tcp-server</code></li>
 <li><code>rtype-udp-server</code></li>
 <li><code>rtype-client</code></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
 Windows</h2>
-<div class="fragment"><div class="line">cmake -S . -B build -G &quot;Visual Studio 17 2022&quot;</div>
-</div><!-- fragment --><p> Executables are in <code>build/Release/</code>:</p><ul>
+<div class="fragment"><div class="line">.\build.bat</div>
+</div><!-- fragment --><p> Executables are in <code>build/bin/</code>:</p><ul>
 <li><code>rtype-tcp-server.exe</code></li>
 <li><code>rtype-udp-server.exe</code></li>
 <li><code>rtype-client.exe</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md8"></a>
 Run</h1>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md9"></a>
 Linux</h2>
-<div class="fragment"><div class="line">cd ./build/linux/</div>
+<div class="fragment"><div class="line">cd ./build/bin/</div>
 <div class="line">./rtype-tcp-server</div>
 <div class="line">./rtype-client</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md10"></a>
 macOS</h2>
-<div class="fragment"><div class="line">cd ./build/linux/</div>
+<div class="fragment"><div class="line">cd ./build/bin/</div>
 <div class="line">./rtype-tcp-server</div>
 <div class="line">./rtype-client</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md11"></a>
 Windows</h2>
-<div class="fragment"><div class="line">cd .\build/Release</div>
+<div class="fragment"><div class="line">cd .\build\bin</div>
 <div class="line">.\rtype-tcp-server.exe</div>
 <div class="line">.\rtype-client.exe</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md10"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md12"></a>
 Architecture</h1>
 <ul>
 <li><code>src/server/</code>: server entry point, TCP loop (handshake + heartbeat) and UDP loop (simulation).</li>
@@ -160,7 +181,7 @@ Architecture</h1>
 <li><code>src/Network/Client/</code>: <code><a class="el" href="classNetworkClient.html" title="TCP+UDP client responsible for handshake, lobby, and gameplay packets.">NetworkClient</a></code> manages TCP (handshake/heartbeat) and UDP (inputs, snapshots).</li>
 <li><code>src/Network/SessionManager</code>: tracks sessions, rate-limits INPUT/SHOOT, purges game state on disconnect.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md11"></a>
+<h1><a class="anchor" id="autotoc_md13"></a>
 Network protocol (summary)</h1>
 <ul>
 <li>TCP (reliable):<ul>
@@ -178,13 +199,13 @@ Network protocol (summary)</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md12"></a>
+<h1><a class="anchor" id="autotoc_md14"></a>
 Controls by default (client)</h1>
 <ul>
 <li>Move: W/A/S/D</li>
 <li>Shoot: Space</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h1><a class="anchor" id="autotoc_md15"></a>
 Key features</h1>
 <ul>
 <li>TCP protocol with framing and handshake (SERVER_HELLO/CLIENT_HELLO/OK/REFUSED).</li>
@@ -194,7 +215,7 @@ Key features</h1>
 <li>Player input, shooting, bullets, monsters (sine/zigzag), boss logic, and collisions.</li>
 <li>Client UI: lobby/pseudo selection, in-game chat, and return-to-lobby flow.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md14"></a>
+<h1><a class="anchor" id="autotoc_md16"></a>
 Documentation</h1>
 <ul>
 <li><a href="https://mysticorga.github.io/Mystic-Type/doxygen/html/index.html">Doxygen</a></li>
@@ -204,7 +225,7 @@ Documentation</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md15"></a>
+<h1><a class="anchor" id="autotoc_md17"></a>
 Authors</h1>
 <ul>
 <li>Quentin Hivanhoe: <code>quentin.hivanhoe@epitech.eu</code></li>
@@ -212,7 +233,7 @@ Authors</h1>
 <li>Emma Hoarau: <code>emma-frederique.hoarau@epitech.eu</code></li>
 <li>Nicolas Samy: <code>nicolas.samy@epitech.eu</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md16"></a>
+<h1><a class="anchor" id="autotoc_md18"></a>
 License</h1>
 <p>This project is licensed under the MIT License - see below for details.</p>
 <div class="fragment"><div class="line">MIT License</div>

@@ -6,6 +6,7 @@
     <innerdir refid="dir_b872c0e105a2fc8b4ed88fdf8fe97baa">graphical-client/Graphic</innerdir>
     <innerdir refid="dir_d7b089d80e197b7173c130d051c7dd95">graphical-client/GraphicClient</innerdir>
     <innerdir refid="dir_a77af5e100df803ce29cdf5c84f97a20">graphical-client/Raylib</innerdir>
+    <innerfile refid="client_8cpp">client.cpp</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

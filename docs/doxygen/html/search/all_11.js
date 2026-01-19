@@ -34,5 +34,5 @@ var searchData=
   ['right_31',['right',['../classNetworkClient.html#af897ec3417cf4dc121accb155d7320eea92b09c7c48c520c3c55e497875da437c',1,'NetworkClient::Right'],['../System_8hpp.html#adade54da2b207529e678a25e6389d494aec8379af7490bb9eaaf579cf17876f38',1,'RIGHT:&#160;System.hpp']]],
   ['rtype_32',['Rtype',['../namespaceRtype.html',1,'']]],
   ['rtype_3a_3agraphic_33',['Graphic',['../namespaceRtype_1_1Graphic.html',1,'Rtype']]],
-  ['run_34',['run',['../classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109',1,'GraphicClient::run()'],['../classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3',1,'TCPServer::run()'],['../classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b',1,'UDPGameServer::run()'],['../index.html#autotoc_md6',1,'Run']]]
+  ['run_34',['run',['../classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109',1,'GraphicClient::run()'],['../classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3',1,'TCPServer::run()'],['../classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b',1,'UDPGameServer::run()'],['../index.html#autotoc_md8',1,'Run']]]
 ];

@@ -595,18 +595,6 @@
     <member refid="structUIText_1a3849157cea759042062b3fb1c5c1b8f8" kind="variable"><name>fontSize</name></member>
     <member refid="structUIText_1a1c285eda38720ce4f2354c85eceec54a" kind="variable"><name>color</name></member>
   </compound>
-  <compound refid="classNetwork_1_1TransportLayer_1_1UnixSocket" kind="class"><name>Network::TransportLayer::UnixSocket</name>
-    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a5ce10aa23c1a06d3ca8787c5d6db7f26" kind="variable"><name>_addr</name></member>
-    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a557ad717853e93ea0206baf7efe657f4" kind="variable"><name>_linked</name></member>
-    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1ab78710f79a24f6c32b71f65af4e8f908" kind="function"><name>UnixSocket</name></member>
-    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a1af981b253cbec410b4700f45d16f860" kind="function"><name>UnixSocket</name></member>
-    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1afa61938db07dee4b7bcd4f76e2fea0f0" kind="function"><name>~UnixSocket</name></member>
-    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a207cfb6db259da409456e6c4dce13692" kind="function"><name>setPath</name></member>
-    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a6cc9059163c78f09be4a57fe0ac7a8c6" kind="function"><name>isLink</name></member>
-    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1aa0af0c2c6d70855370ea6742e50e41b5" kind="function"><name>unink</name></member>
-    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a43306c350ec2b76dcdbce1d1391f7677" kind="function"><name>bind</name></member>
-    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a22f15bf78074a9acd4a3016e0e7aab6d" kind="function"><name>connect</name></member>
-  </compound>
   <compound refid="classVelocity" kind="class"><name>Velocity</name>
     <member refid="classVelocity_1a2592d4678c041df7b39ae7663ec0ed5d" kind="variable"><name>vx</name></member>
     <member refid="classVelocity_1ae2a7111ea8910254dce8882f3ab760a3" kind="variable"><name>vy</name></member>
@@ -625,17 +613,17 @@
     <member refid="classRaylib_1_1Window_1a8a6eedeecb648b4c1527681a42727e15" kind="function"><name>getFrameTime</name></member>
     <member refid="classRaylib_1_1Window_1a3cc1b124c027948c7b0928a13ee065b2" kind="function"><name>setTargetFPS</name></member>
   </compound>
-  <compound refid="namespace_0d10" kind="namespace"><name>@10</name>
+  <compound refid="namespace_0d12" kind="namespace"><name>@12</name>
   </compound>
-  <compound refid="namespace_0d21" kind="namespace"><name>@21</name>
-  </compound>
-  <compound refid="namespace_0d25" kind="namespace"><name>@25</name>
+  <compound refid="namespace_0d23" kind="namespace"><name>@23</name>
   </compound>
   <compound refid="namespace_0d27" kind="namespace"><name>@27</name>
   </compound>
-  <compound refid="namespace_0d35" kind="namespace"><name>@35</name>
+  <compound refid="namespace_0d29" kind="namespace"><name>@29</name>
   </compound>
-  <compound refid="namespace_0d39" kind="namespace"><name>@39</name>
+  <compound refid="namespace_0d36" kind="namespace"><name>@36</name>
+  </compound>
+  <compound refid="namespace_0d37" kind="namespace"><name>@37</name>
   </compound>
   <compound refid="namespaceGraphic" kind="namespace"><name>Graphic</name>
   </compound>
@@ -664,16 +652,10 @@
   </compound>
   <compound refid="namespaceRtype_1_1Graphic" kind="namespace"><name>Rtype::Graphic</name>
   </compound>
-  <compound refid="client_8cpp" kind="file"><name>client.cpp</name>
-    <member refid="client_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
-  </compound>
-  <compound refid="game_8cpp" kind="file"><name>game.cpp</name>
-    <member refid="game_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
-  </compound>
   <compound refid="README_8md" kind="file"><name>README.md</name>
   </compound>
-  <compound refid="server_8cpp" kind="file"><name>server.cpp</name>
-    <member refid="server_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  <compound refid="client_8cpp" kind="file"><name>client.cpp</name>
+    <member refid="client_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
   </compound>
   <compound refid="Components_8hpp" kind="file"><name>Components.hpp</name>
   </compound>
@@ -775,18 +757,24 @@
   </compound>
   <compound refid="UDPSocket_8hpp" kind="file"><name>UDPSocket.hpp</name>
   </compound>
-  <compound refid="UnixSocket_8cpp" kind="file"><name>UnixSocket.cpp</name>
-  </compound>
-  <compound refid="UnixSocket_8hpp" kind="file"><name>UnixSocket.hpp</name>
-    <member refid="UnixSocket_8hpp_1a7d4a60fc5793e4d75a2fc9297f41942b" kind="define"><name>SOCK_TYPE</name></member>
-  </compound>
   <compound refid="ChildProcessManager_8cpp" kind="file"><name>ChildProcessManager.cpp</name>
   </compound>
   <compound refid="ChildProcessManager_8hpp" kind="file"><name>ChildProcessManager.hpp</name>
   </compound>
+  <compound refid="graphical-client_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
+  </compound>
+  <compound refid="server_2CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
+    <member refid="server_2CMakeLists_8txt_1a232067545de05fa0bdd887c03d5071e1" kind="function"><name>cmake_minimum_required</name></member>
+  </compound>
+  <compound refid="game_8cpp" kind="file"><name>game.cpp</name>
+    <member refid="game_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
   <compound refid="IpcChannel_8cpp" kind="file"><name>IpcChannel.cpp</name>
   </compound>
   <compound refid="IpcChannel_8hpp" kind="file"><name>IpcChannel.hpp</name>
+  </compound>
+  <compound refid="server_8cpp" kind="file"><name>server.cpp</name>
+    <member refid="server_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
   </compound>
   <compound refid="dir_d60dc096aec6cde32ff3e3dc1cdf78ea" kind="dir"><name>Network/Client</name>
   </compound>
@@ -809,8 +797,6 @@
   <compound refid="dir_8caf3a053e0342ebb07dad232101334b" kind="dir"><name>Network/TransportLayer</name>
   </compound>
   <compound refid="dir_631dafc6a1249c23d7cf438c9d57fdf2" kind="dir"><name>Network/TransportLayer/UDP</name>
-  </compound>
-  <compound refid="dir_e676f1162f2a00557a6a29e0186a2919" kind="dir"><name>Network/TransportLayer/UNIX</name>
   </compound>
   <compound refid="indexpage" kind="page"><name>index</name>
   </compound>

@@ -25,24 +25,27 @@
 var NAVTREE =
 [
   [ "Mystic-Type", "index.html", [
-    [ "Prerequisites", "index.html#autotoc_md1", null ],
-    [ "Build", "index.html#autotoc_md2", [
-      [ "Linux", "index.html#autotoc_md3", null ],
-      [ "macOS", "index.html#autotoc_md4", null ],
-      [ "Windows", "index.html#autotoc_md5", null ]
+    [ "Prerequisites", "index.html#autotoc_md1", [
+      [ "All Platforms", "index.html#autotoc_md2", null ],
+      [ "Windows-Specific Prerequisites", "index.html#autotoc_md3", null ]
     ] ],
-    [ "Run", "index.html#autotoc_md6", [
-      [ "Linux", "index.html#autotoc_md7", null ],
-      [ "macOS", "index.html#autotoc_md8", null ],
-      [ "Windows", "index.html#autotoc_md9", null ]
+    [ "Build", "index.html#autotoc_md4", [
+      [ "Linux", "index.html#autotoc_md5", null ],
+      [ "macOS", "index.html#autotoc_md6", null ],
+      [ "Windows", "index.html#autotoc_md7", null ]
     ] ],
-    [ "Architecture", "index.html#autotoc_md10", null ],
-    [ "Network protocol (summary)", "index.html#autotoc_md11", null ],
-    [ "Controls by default (client)", "index.html#autotoc_md12", null ],
-    [ "Key features", "index.html#autotoc_md13", null ],
-    [ "Documentation", "index.html#autotoc_md14", null ],
-    [ "Authors", "index.html#autotoc_md15", null ],
-    [ "License", "index.html#autotoc_md16", null ],
+    [ "Run", "index.html#autotoc_md8", [
+      [ "Linux", "index.html#autotoc_md9", null ],
+      [ "macOS", "index.html#autotoc_md10", null ],
+      [ "Windows", "index.html#autotoc_md11", null ]
+    ] ],
+    [ "Architecture", "index.html#autotoc_md12", null ],
+    [ "Network protocol (summary)", "index.html#autotoc_md13", null ],
+    [ "Controls by default (client)", "index.html#autotoc_md14", null ],
+    [ "Key features", "index.html#autotoc_md15", null ],
+    [ "Documentation", "index.html#autotoc_md16", null ],
+    [ "Authors", "index.html#autotoc_md17", null ],
+    [ "License", "index.html#autotoc_md18", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -81,9 +84,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "ASocket_8cpp.html",
-"classGraphicClient.html#aa1b6f7632112637217ee65be6a6dcbae",
-"classRaylib_1_1Texture.html#a987d1de99a6326ced5d62d890610b078",
-"functions_s.html"
+"classGraphicClient.html#aa997b1f0089b31169851aa8c3f60f3fe",
+"classRaylib_1_1Window.html#ab5db70ee0a095180020beaa8f134247d",
+"functions_w.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

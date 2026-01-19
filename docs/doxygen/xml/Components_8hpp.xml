@@ -50,10 +50,6 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="5">
-        <label>/home/loic/EPITECH/rtype/Mystic-Type/client.cpp</label>
-        <link refid="client_8cpp"/>
-      </node>
       <node id="2">
         <label>graphical-client/GraphicClient/GraphicClient.cpp</label>
         <link refid="GraphicClient_8cpp"/>
@@ -61,10 +57,14 @@
       <node id="4">
         <label>graphical-client/GraphicClient/GraphicClient.hpp</label>
         <link refid="GraphicClient_8hpp"/>
-        <childnode refid="5" relation="include">
-        </childnode>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>graphical-client/client.cpp</label>
+        <link refid="client_8cpp"/>
       </node>
       <node id="1">
         <label>graphical-client/ecs/Components.hpp</label>

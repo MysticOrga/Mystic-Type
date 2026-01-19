@@ -5,7 +5,6 @@
     <basecompoundref refid="classNetwork_1_1TransportLayer_1_1ISocket" prot="public" virt="non-virtual">Network::TransportLayer::ISocket</basecompoundref>
     <derivedcompoundref refid="classNetwork_1_1TransportLayer_1_1TCPSocket" prot="public" virt="non-virtual">Network::TransportLayer::TCPSocket</derivedcompoundref>
     <derivedcompoundref refid="classNetwork_1_1TransportLayer_1_1UDPSocket" prot="public" virt="non-virtual">Network::TransportLayer::UDPSocket</derivedcompoundref>
-    <derivedcompoundref refid="classNetwork_1_1TransportLayer_1_1UnixSocket" prot="public" virt="non-virtual">Network::TransportLayer::UnixSocket</derivedcompoundref>
     <includes refid="ASocket_8hpp" local="no">Network/TransportLayer/ASocket.hpp</includes>
     <sectiondef kind="protected-attrib">
       <memberdef kind="variable" id="classNetwork_1_1TransportLayer_1_1ASocket_1a98cc1b369dd9afea0f122e6f07c41caa" prot="protected" static="no" mutable="no">
@@ -104,7 +103,7 @@
         </inbodydescription>
         <location file="Network/TransportLayer/ASocket.hpp" line="24" column="9" bodyfile="Network/TransportLayer/ASocket.cpp" bodystart="14" bodyend="21"/>
         <references refid="classNetwork_1_1TransportLayer_1_1ASocket_1a98cc1b369dd9afea0f122e6f07c41caa" compoundref="ASocket_8hpp" startline="86">_socketFd</references>
-        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="45">INVALID_SOCKET_FD</references>
       </memberdef>
       <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1ASocket_1ae7ed622b5397311c5fa1126d2bab57d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -159,8 +158,8 @@
         </inbodydescription>
         <location file="Network/TransportLayer/ASocket.hpp" line="46" column="13" bodyfile="Network/TransportLayer/ASocket.cpp" bodystart="28" bodyend="37"/>
         <references refid="classNetwork_1_1TransportLayer_1_1ASocket_1a98cc1b369dd9afea0f122e6f07c41caa" compoundref="ASocket_8hpp" startline="86">_socketFd</references>
-        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="43">CLOSE</references>
-        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="42">CLOSE</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="45">INVALID_SOCKET_FD</references>
         <referencedby refid="classNetwork_1_1TransportLayer_1_1ASocket_1ae7ed622b5397311c5fa1126d2bab57d8" compoundref="ASocket_8cpp" startline="23" endline="26">~ASocket</referencedby>
         <referencedby refid="classTCPServer_1abc497ac52355e53986a6a1bd1acb9581" compoundref="TCPServer_8cpp" startline="52" endline="58">TCPServer::~TCPServer</referencedby>
       </memberdef>
@@ -268,7 +267,7 @@
         </inbodydescription>
         <location file="Network/TransportLayer/ASocket.hpp" line="65" column="25" bodyfile="Network/TransportLayer/ASocket.cpp" bodystart="96" bodyend="103"/>
         <references refid="classNetwork_1_1TransportLayer_1_1ASocket_1a98cc1b369dd9afea0f122e6f07c41caa" compoundref="ASocket_8hpp" startline="86">_socketFd</references>
-        <references refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a27be65353a27abba0a6da38c5b55fdfa" compoundref="ISocket_8hpp" startline="58">Network::TransportLayer::READ_READY</references>
+        <references refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a27be65353a27abba0a6da38c5b55fdfa" compoundref="ISocket_8hpp" startline="57">Network::TransportLayer::READ_READY</references>
         <references refid="classNetwork_1_1TransportLayer_1_1ASocket_1a50cace88b622aa442d901434ecc33bd8" compoundref="ASocket_8cpp" startline="39" endline="76">sockState</references>
       </memberdef>
       <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1ASocket_1ab5fcc3d62999cde65373dc40a1592943" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
@@ -317,7 +316,7 @@
         <location file="Network/TransportLayer/ASocket.hpp" line="74" column="25" bodyfile="Network/TransportLayer/ASocket.cpp" bodystart="87" bodyend="94"/>
         <references refid="classNetwork_1_1TransportLayer_1_1ASocket_1a98cc1b369dd9afea0f122e6f07c41caa" compoundref="ASocket_8hpp" startline="86">_socketFd</references>
         <references refid="classNetwork_1_1TransportLayer_1_1ASocket_1a50cace88b622aa442d901434ecc33bd8" compoundref="ASocket_8cpp" startline="39" endline="76">sockState</references>
-        <references refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a87ff53b60baedce247f2c2a00e99a2fe" compoundref="ISocket_8hpp" startline="59">Network::TransportLayer::WRITE_READY</references>
+        <references refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a87ff53b60baedce247f2c2a00e99a2fe" compoundref="ISocket_8hpp" startline="58">Network::TransportLayer::WRITE_READY</references>
       </memberdef>
       <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1ASocket_1a50cace88b622aa442d901434ecc33bd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7" kindref="member">IOState</ref></type>
@@ -363,11 +362,11 @@
         </inbodydescription>
         <location file="Network/TransportLayer/ASocket.hpp" line="83" column="17" bodyfile="Network/TransportLayer/ASocket.cpp" bodystart="39" bodyend="76"/>
         <references refid="classNetwork_1_1TransportLayer_1_1ASocket_1a98cc1b369dd9afea0f122e6f07c41caa" compoundref="ASocket_8hpp" startline="86">_socketFd</references>
-        <references refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a8d3837e0e73b39e89137cf22ccd4280b" compoundref="ISocket_8hpp" startline="60">Network::TransportLayer::EXCEPTION</references>
-        <references refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7abb13e459f18172f849fcb2c733a538fc" compoundref="ISocket_8hpp" startline="62">Network::TransportLayer::IOERROR</references>
-        <references refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a27be65353a27abba0a6da38c5b55fdfa" compoundref="ISocket_8hpp" startline="58">Network::TransportLayer::READ_READY</references>
-        <references refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a5147a57e64bc0949dd8c51a36b01029c" compoundref="ISocket_8hpp" startline="61">Network::TransportLayer::TIMEOUT</references>
-        <references refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a87ff53b60baedce247f2c2a00e99a2fe" compoundref="ISocket_8hpp" startline="59">Network::TransportLayer::WRITE_READY</references>
+        <references refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a8d3837e0e73b39e89137cf22ccd4280b" compoundref="ISocket_8hpp" startline="59">Network::TransportLayer::EXCEPTION</references>
+        <references refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7abb13e459f18172f849fcb2c733a538fc" compoundref="ISocket_8hpp" startline="61">Network::TransportLayer::IOERROR</references>
+        <references refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a27be65353a27abba0a6da38c5b55fdfa" compoundref="ISocket_8hpp" startline="57">Network::TransportLayer::READ_READY</references>
+        <references refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a5147a57e64bc0949dd8c51a36b01029c" compoundref="ISocket_8hpp" startline="60">Network::TransportLayer::TIMEOUT</references>
+        <references refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a87ff53b60baedce247f2c2a00e99a2fe" compoundref="ISocket_8hpp" startline="58">Network::TransportLayer::WRITE_READY</references>
         <referencedby refid="classNetwork_1_1TransportLayer_1_1ASocket_1a34da0184468795bb34afb8e7008a1ed3" compoundref="ASocket_8cpp" startline="96" endline="103">readByte</referencedby>
         <referencedby refid="classNetwork_1_1TransportLayer_1_1UDPSocket_1a34b53ce1224f81fc6809a24412854294" compoundref="UDPSocket_8cpp" startline="35" endline="45">Network::TransportLayer::UDPSocket::readByte</referencedby>
         <referencedby refid="classNetwork_1_1TransportLayer_1_1ASocket_1ab5fcc3d62999cde65373dc40a1592943" compoundref="ASocket_8cpp" startline="87" endline="94">writeByte</referencedby>
@@ -397,12 +396,6 @@
       <node id="4">
         <label>Network::TransportLayer::UDPSocket</label>
         <link refid="classNetwork_1_1TransportLayer_1_1UDPSocket"/>
-        <childnode refid="1" relation="public-inheritance">
-        </childnode>
-      </node>
-      <node id="5">
-        <label>Network::TransportLayer::UnixSocket</label>
-        <link refid="classNetwork_1_1TransportLayer_1_1UnixSocket"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>

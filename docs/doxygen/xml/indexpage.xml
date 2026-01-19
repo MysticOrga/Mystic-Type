@@ -9,40 +9,64 @@
 <para><anchor id="index_1md__2home_2loic_2EPITECH_2rtype_2Mystic-Type_2README"/> Multiplayer R-Type-like with an authoritative TCP/UDP server and a raylib graphical client.</para>
 <sect1 id="index_1autotoc_md1">
 <title>Prerequisites</title>
+<sect2 id="index_1autotoc_md2">
+<title>All Platforms</title>
 <para><itemizedlist>
 <listitem><para>CMake ≥ 3.14</para>
 </listitem><listitem><para>C++17 compiler</para>
 </listitem><listitem><para>raylib (fetched automatically via FetchContent)</para>
-</listitem><listitem><para>Works on macOS, Linux, and Windows (WSA init handled in entry points).</para>
 </listitem></itemizedlist>
 </para>
-</sect1>
-<sect1 id="index_1autotoc_md2">
-<title>Build</title>
+</sect2>
 <sect2 id="index_1autotoc_md3">
+<title>Windows-Specific Prerequisites</title>
+<para><itemizedlist>
+<listitem><para><bold>CMake</bold> ≥ 3.14<itemizedlist>
+<listitem><para>Download: <ulink url="https://cmake.org/download/">https://cmake.org/download/</ulink></para>
+</listitem><listitem><para>Add CMake to PATH during installation</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><bold>Visual Studio 2022</bold> (recommended) or <bold>MinGW</bold><itemizedlist>
+<listitem><para>Visual Studio 2022 Community (free): <ulink url="https://visualstudio.microsoft.com/downloads/">https://visualstudio.microsoft.com/downloads/</ulink></para>
+</listitem><listitem><para>Required workload: &quot;Desktop development with C++&quot;</para>
+</listitem><listitem><para>Alternative: MinGW-w64 (<ulink url="https://www.mingw-w64.org/">https://www.mingw-w64.org/</ulink>)</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><bold>Git for Windows</bold> (optional, for cloning)<itemizedlist>
+<listitem><para>Download: <ulink url="https://git-scm.com/download/win">https://git-scm.com/download/win</ulink></para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+<para><bold>Note:</bold> The build script will attempt Visual Studio 17 2022 or Visual Studio 16 2019 generators first, then fall back to MinGW Makefiles if Visual Studio is not installed.</para>
+</sect2>
+</sect1>
+<sect1 id="index_1autotoc_md4">
+<title>Build</title>
+<sect2 id="index_1autotoc_md5">
 <title>Linux</title>
 <para><programlisting filename=".bash"><codeline><highlight class="normal">./build.sh<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>build<sp/>client<sp/>+<sp/>servers</highlight></codeline>
-</programlisting> Executables are in <computeroutput>build/linux/</computeroutput>:<itemizedlist>
+</programlisting> Executables are in <computeroutput>build/bin/</computeroutput>:<itemizedlist>
 <listitem><para><computeroutput>rtype-tcp-server</computeroutput></para>
 </listitem><listitem><para><computeroutput>rtype-udp-server</computeroutput></para>
 </listitem><listitem><para><computeroutput>rtype-client</computeroutput></para>
 </listitem></itemizedlist>
 </para>
 </sect2>
-<sect2 id="index_1autotoc_md4">
+<sect2 id="index_1autotoc_md6">
 <title>macOS</title>
 <para><programlisting filename=".bash"><codeline><highlight class="normal">./build.sh</highlight></codeline>
-</programlisting> Executables are in <computeroutput>build/linux/</computeroutput>:<itemizedlist>
+</programlisting> Executables are in <computeroutput>build/bin/</computeroutput>:<itemizedlist>
 <listitem><para><computeroutput>rtype-tcp-server</computeroutput></para>
 </listitem><listitem><para><computeroutput>rtype-udp-server</computeroutput></para>
 </listitem><listitem><para><computeroutput>rtype-client</computeroutput></para>
 </listitem></itemizedlist>
 </para>
 </sect2>
-<sect2 id="index_1autotoc_md5">
+<sect2 id="index_1autotoc_md7">
 <title>Windows</title>
-<para><programlisting filename=".bash"><codeline><highlight class="normal">cmake<sp/>-S<sp/>.<sp/>-B<sp/>build<sp/>-G<sp/>&quot;Visual<sp/>Studio<sp/>17<sp/>2022&quot;</highlight></codeline>
-</programlisting> Executables are in <computeroutput>build/Release/</computeroutput>:<itemizedlist>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">.\build.bat</highlight></codeline>
+</programlisting> Executables are in <computeroutput>build/bin/</computeroutput>:<itemizedlist>
 <listitem><para><computeroutput>rtype-tcp-server.exe</computeroutput></para>
 </listitem><listitem><para><computeroutput>rtype-udp-server.exe</computeroutput></para>
 </listitem><listitem><para><computeroutput>rtype-client.exe</computeroutput></para>
@@ -50,31 +74,31 @@
 </para>
 </sect2>
 </sect1>
-<sect1 id="index_1autotoc_md6">
+<sect1 id="index_1autotoc_md8">
 <title>Run</title>
-<sect2 id="index_1autotoc_md7">
-<title>Linux</title>
-<para><programlisting filename=".bash"><codeline><highlight class="normal">cd<sp/>./build/linux/</highlight></codeline>
-<codeline><highlight class="normal">./rtype-tcp-server</highlight></codeline>
-<codeline><highlight class="normal">./rtype-client</highlight></codeline>
-</programlisting></para>
-</sect2>
-<sect2 id="index_1autotoc_md8">
-<title>macOS</title>
-<para><programlisting filename=".bash"><codeline><highlight class="normal">cd<sp/>./build/linux/</highlight></codeline>
-<codeline><highlight class="normal">./rtype-tcp-server</highlight></codeline>
-<codeline><highlight class="normal">./rtype-client</highlight></codeline>
-</programlisting></para>
-</sect2>
 <sect2 id="index_1autotoc_md9">
+<title>Linux</title>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">cd<sp/>./build/bin/</highlight></codeline>
+<codeline><highlight class="normal">./rtype-tcp-server</highlight></codeline>
+<codeline><highlight class="normal">./rtype-client</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="index_1autotoc_md10">
+<title>macOS</title>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">cd<sp/>./build/bin/</highlight></codeline>
+<codeline><highlight class="normal">./rtype-tcp-server</highlight></codeline>
+<codeline><highlight class="normal">./rtype-client</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="index_1autotoc_md11">
 <title>Windows</title>
-<para><programlisting filename=".bash"><codeline><highlight class="normal">cd<sp/>.\build/Release</highlight></codeline>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">cd<sp/>.\build\bin</highlight></codeline>
 <codeline><highlight class="normal">.\rtype-tcp-server.exe</highlight></codeline>
 <codeline><highlight class="normal">.\rtype-client.exe</highlight></codeline>
 </programlisting></para>
 </sect2>
 </sect1>
-<sect1 id="index_1autotoc_md10">
+<sect1 id="index_1autotoc_md12">
 <title>Architecture</title>
 <para><itemizedlist>
 <listitem><para><computeroutput>src/server/</computeroutput>: server entry point, TCP loop (handshake + heartbeat) and UDP loop (simulation).</para>
@@ -91,7 +115,7 @@
 </listitem></itemizedlist>
 </para>
 </sect1>
-<sect1 id="index_1autotoc_md11">
+<sect1 id="index_1autotoc_md13">
 <title>Network protocol (summary)</title>
 <para><itemizedlist>
 <listitem><para>TCP (reliable):<itemizedlist>
@@ -111,7 +135,7 @@
 </listitem></itemizedlist>
 </para>
 </sect1>
-<sect1 id="index_1autotoc_md12">
+<sect1 id="index_1autotoc_md14">
 <title>Controls by default (client)</title>
 <para><itemizedlist>
 <listitem><para>Move: W/A/S/D</para>
@@ -119,7 +143,7 @@
 </listitem></itemizedlist>
 </para>
 </sect1>
-<sect1 id="index_1autotoc_md13">
+<sect1 id="index_1autotoc_md15">
 <title>Key features</title>
 <para><itemizedlist>
 <listitem><para>TCP protocol with framing and handshake (SERVER_HELLO/CLIENT_HELLO/OK/REFUSED).</para>
@@ -131,7 +155,7 @@
 </listitem></itemizedlist>
 </para>
 </sect1>
-<sect1 id="index_1autotoc_md14">
+<sect1 id="index_1autotoc_md16">
 <title>Documentation</title>
 <para><itemizedlist>
 <listitem><para><ulink url="https://mysticorga.github.io/Mystic-Type/doxygen/html/index.html">Doxygen</ulink></para>
@@ -143,7 +167,7 @@
 </listitem></itemizedlist>
 </para>
 </sect1>
-<sect1 id="index_1autotoc_md15">
+<sect1 id="index_1autotoc_md17">
 <title>Authors</title>
 <para><itemizedlist>
 <listitem><para>Quentin Hivanhoe: <computeroutput>quentin.hivanhoe@epitech.eu</computeroutput></para>
@@ -153,7 +177,7 @@
 </listitem></itemizedlist>
 </para>
 </sect1>
-<sect1 id="index_1autotoc_md16">
+<sect1 id="index_1autotoc_md18">
 <title>License</title>
 <para>This project is licensed under the MIT License - see below for details.</para>
 <para><programlisting><codeline><highlight class="normal">MIT<sp/>License</highlight></codeline>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mystic-Type: /home/loic/EPITECH/rtype/Mystic-Type/game.cpp Source File</title>
+<title>Mystic-Type: server/game.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('game_8cpp_source.html',''); initResiza
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">/home/loic/EPITECH/rtype/Mystic-Type/game.cpp</div></div>
+  <div class="headertitle"><div class="title">game.cpp</div></div>
 </div><!--header-->
 <div class="contents">
 <a href="game_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
@@ -105,9 +105,9 @@ $(document).ready(function(){initNavTree('game_8cpp_source.html',''); initResiza
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">** UDP game server entry point (process enfant)</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="UDPGameServer_8hpp.html">src/Network/TransportLayer/UDP/UDPGameServer.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="SessionManager_8hpp.html">src/Network/SessionManager.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="IpcChannel_8hpp.html">src/server/IpcChannel.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;../Network/TransportLayer/UDP/UDPGameServer.hpp&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;../Network/SessionManager.hpp&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="IpcChannel_8hpp.html">IpcChannel.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;string&gt;</span></div>
@@ -148,7 +148,7 @@ $(document).ready(function(){initNavTree('game_8cpp_source.html',''); initResiza
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
 <div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">   50</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627">   50</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv)</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>{</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#ifdef _WIN32</span></div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    WSADATA wsaData;</div>
@@ -192,8 +192,6 @@ $(document).ready(function(){initNavTree('game_8cpp_source.html',''); initResiza
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
 </div>
 <div class="ttc" id="aIpcChannel_8hpp_html"><div class="ttname"><a href="IpcChannel_8hpp.html">IpcChannel.hpp</a></div></div>
-<div class="ttc" id="aSessionManager_8hpp_html"><div class="ttname"><a href="SessionManager_8hpp.html">SessionManager.hpp</a></div></div>
-<div class="ttc" id="aUDPGameServer_8hpp_html"><div class="ttname"><a href="UDPGameServer_8hpp.html">UDPGameServer.hpp</a></div></div>
 <div class="ttc" id="aclassIpcChannel_html"><div class="ttname"><a href="classIpcChannel.html">IpcChannel</a></div><div class="ttdoc">Small IPC helper based on a UNIX datagram socket (SOCK_DGRAM).</div><div class="ttdef"><b>Definition</b> <a href="IpcChannel_8hpp_source.html#l00022">IpcChannel.hpp:22</a></div></div>
 <div class="ttc" id="aclassIpcChannel_html_a35498032e830b79724747de4e7b6ca1b"><div class="ttname"><a href="classIpcChannel.html#a35498032e830b79724747de4e7b6ca1b">IpcChannel::send</a></div><div class="ttdeci">bool send(const std::string &amp;msg)</div><div class="ttdoc">Send a text message (limited to 1024 bytes).</div><div class="ttdef"><b>Definition</b> <a href="IpcChannel_8cpp_source.html#l00071">IpcChannel.cpp:71</a></div></div>
 <div class="ttc" id="aclassIpcChannel_html_afa8b95326afd4d66bb573f333e124d33"><div class="ttname"><a href="classIpcChannel.html#afa8b95326afd4d66bb573f333e124d33">IpcChannel::connectClient</a></div><div class="ttdeci">bool connectClient(const std::string &amp;port)</div><div class="ttdoc">Create a socket and connect to a path (client side).</div><div class="ttdef"><b>Definition</b> <a href="IpcChannel_8cpp_source.html#l00054">IpcChannel.cpp:54</a></div></div>
@@ -201,13 +199,13 @@ $(document).ready(function(){initNavTree('game_8cpp_source.html',''); initResiza
 <div class="ttc" id="aclassUDPGameServer_html"><div class="ttname"><a href="classUDPGameServer.html">UDPGameServer</a></div><div class="ttdoc">Simple UDP authoritative game server that manages players and snapshots.</div><div class="ttdef"><b>Definition</b> <a href="UDPGameServer_8hpp_source.html#l00032">UDPGameServer.hpp:32</a></div></div>
 <div class="ttc" id="aclassUDPGameServer_html_a33e8d20721c5a01eafc5f466ecd9e1b7"><div class="ttname"><a href="classUDPGameServer.html#a33e8d20721c5a01eafc5f466ecd9e1b7">UDPGameServer::setIpc</a></div><div class="ttdeci">void setIpc(IpcChannel *ipc)</div><div class="ttdef"><b>Definition</b> <a href="UDPGameServer_8hpp_source.html#l00041">UDPGameServer.hpp:41</a></div></div>
 <div class="ttc" id="aclassUDPGameServer_html_a476a4f2e8bb0833c788761298eb4a72b"><div class="ttname"><a href="classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b">UDPGameServer::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Start the main server loop (blocking).</div><div class="ttdef"><b>Definition</b> <a href="UDPGameServer_8cpp_source.html#l00195">UDPGameServer.cpp:195</a></div></div>
-<div class="ttc" id="aserver_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition</b> <a href="server_8cpp_source.html#l00016">server.cpp:16</a></div></div>
+<div class="ttc" id="aclient_8cpp_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition</b> <a href="client_8cpp_source.html#l00011">client.cpp:11</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="game_8cpp.html">game.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_41e1742e44e2de38b3bc91f993fed282.html">server</a></li><li class="navelem"><a class="el" href="game_8cpp.html">game.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>

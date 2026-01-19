@@ -64,18 +64,6 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="13">
-        <label>/home/loic/EPITECH/rtype/Mystic-Type/client.cpp</label>
-        <link refid="client_8cpp"/>
-      </node>
-      <node id="17">
-        <label>/home/loic/EPITECH/rtype/Mystic-Type/game.cpp</label>
-        <link refid="game_8cpp"/>
-      </node>
-      <node id="6">
-        <label>/home/loic/EPITECH/rtype/Mystic-Type/server.cpp</label>
-        <link refid="server_8cpp"/>
-      </node>
       <node id="11">
         <label>Network/Client/NetworkClient.cpp</label>
         <link refid="NetworkClient_8cpp"/>
@@ -103,8 +91,6 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
       </node>
       <node id="1">
         <label>Network/TransportLayer/ISocket.hpp</label>
@@ -112,7 +98,7 @@
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="7">
+      <node id="6">
         <label>Network/TransportLayer/TCP/TCPServer.cpp</label>
         <link refid="TCPServer_8cpp"/>
       </node>
@@ -136,7 +122,7 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="18">
+      <node id="17">
         <label>Network/TransportLayer/UDP/UDPGameServer.cpp</label>
         <link refid="UDPGameServer_8cpp"/>
       </node>
@@ -145,9 +131,9 @@
         <link refid="UDPGameServer_8hpp"/>
         <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
         <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
         </childnode>
       </node>
       <node id="19">
@@ -166,17 +152,7 @@
         <childnode refid="20" relation="include">
         </childnode>
       </node>
-      <node id="23">
-        <label>Network/TransportLayer/UNIX/UnixSocket.cpp</label>
-        <link refid="UnixSocket_8cpp"/>
-      </node>
-      <node id="22">
-        <label>Network/TransportLayer/UNIX/UnixSocket.hpp</label>
-        <link refid="UnixSocket_8hpp"/>
-        <childnode refid="23" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
+      <node id="13">
         <label>graphical-client/GraphicClient/GraphicClient.cpp</label>
         <link refid="GraphicClient_8cpp"/>
       </node>
@@ -187,6 +163,10 @@
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
+      </node>
+      <node id="14">
+        <label>graphical-client/client.cpp</label>
+        <link refid="client_8cpp"/>
       </node>
       <node id="15">
         <label>graphical-client/ecs/System.hpp</label>
@@ -201,16 +181,24 @@
       <node id="20">
         <label>server/IpcChannel.hpp</label>
         <link refid="IpcChannel_8hpp"/>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="16" relation="include">
         </childnode>
         <childnode refid="21" relation="include">
         </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>server/game.cpp</label>
+        <link refid="game_8cpp"/>
+      </node>
+      <node id="7">
+        <label>server/server.cpp</label>
+        <link refid="server_8cpp"/>
       </node>
     </invincdepgraph>
     <innerclass refid="classNetwork_1_1TransportLayer_1_1ISocket" prot="public">Network::TransportLayer::ISocket</innerclass>
@@ -227,7 +215,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Network/TransportLayer/ISocket.hpp" line="43" column="9" bodyfile="Network/TransportLayer/ISocket.hpp" bodystart="43" bodyend="-1"/>
+        <location file="Network/TransportLayer/ISocket.hpp" line="42" column="9" bodyfile="Network/TransportLayer/ISocket.hpp" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="ISocket_8hpp_1ae9900189a578f5075caadbead1ef5a25" prot="public" static="no">
         <name>SOCKET_ERROR_CODE</name>
@@ -238,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Network/TransportLayer/ISocket.hpp" line="44" column="9" bodyfile="Network/TransportLayer/ISocket.hpp" bodystart="44" bodyend="-1"/>
+        <location file="Network/TransportLayer/ISocket.hpp" line="43" column="9" bodyfile="Network/TransportLayer/ISocket.hpp" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" prot="public" static="no">
         <name>INVALID_SOCKET_FD</name>
@@ -249,7 +237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Network/TransportLayer/ISocket.hpp" line="46" column="9" bodyfile="Network/TransportLayer/ISocket.hpp" bodystart="46" bodyend="-1"/>
+        <location file="Network/TransportLayer/ISocket.hpp" line="45" column="9" bodyfile="Network/TransportLayer/ISocket.hpp" bodystart="45" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <sectiondef kind="typedef">
@@ -264,7 +252,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Network/TransportLayer/ISocket.hpp" line="45" column="13" bodyfile="Network/TransportLayer/ISocket.hpp" bodystart="45" bodyend="-1"/>
+        <location file="Network/TransportLayer/ISocket.hpp" line="44" column="13" bodyfile="Network/TransportLayer/ISocket.hpp" bodystart="44" bodyend="-1"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -287,114 +275,113 @@
 <codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NOGDI</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NOUSER</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="15"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Windows<sp/>includes</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;afunix.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstddef&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;winsock2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ws2tcpip.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>comment(lib,<sp/>&quot;ws2_32.lib&quot;)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Windows<sp/>macros</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CLOSE(s)<sp/>closesocket(s)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SOCKET_ERROR_CODE<sp/>WSAGetLastError()</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>SOCKET<sp/><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref>;</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INVALID_SOCKET_FD<sp/>INVALID_SOCKET</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">ssize_t<sp/>=<sp/>std::ptrdiff_t;</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Linux<sp/>includes</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;arpa/inet.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;errno.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;netinet/in.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;netinet/tcp.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/select.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/socket.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/un.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Linux<sp/>macros</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="43" refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CLOSE(s)<sp/>::close(s)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="44" refid="ISocket_8hpp_1ae9900189a578f5075caadbead1ef5a25" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SOCKET_ERROR_CODE<sp/>errno</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45" refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref>;</highlight></codeline>
-<codeline lineno="46" refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INVALID_SOCKET_FD<sp/>-1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceNetwork_1_1TransportLayer" kindref="compound">Network::TransportLayer</ref></highlight></codeline>
-<codeline lineno="51"><highlight class="normal">{</highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="52"><highlight class="comment">/**</highlight></codeline>
-<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>@enum<sp/>IOState</highlight></codeline>
-<codeline lineno="54"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Represents<sp/>the<sp/>state<sp/>of<sp/>I/O<sp/>operations<sp/>on<sp/>a<sp/>socket.</highlight></codeline>
-<codeline lineno="55"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="56" refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7" kindref="member">IOState</ref></highlight></codeline>
-<codeline lineno="57"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="58" refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a27be65353a27abba0a6da38c5b55fdfa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a27be65353a27abba0a6da38c5b55fdfa" kindref="member">READ_READY</ref>,<sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>socket<sp/>is<sp/>ready<sp/>for<sp/>reading</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="59" refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a87ff53b60baedce247f2c2a00e99a2fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a87ff53b60baedce247f2c2a00e99a2fe" kindref="member">WRITE_READY</ref>,<sp/></highlight><highlight class="comment">//<sp/>the<sp/>socket<sp/>is<sp/>ready<sp/>for<sp/>writing</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="60" refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a8d3837e0e73b39e89137cf22ccd4280b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a8d3837e0e73b39e89137cf22ccd4280b" kindref="member">EXCEPTION</ref>,<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>an<sp/>exception<sp/>occurred<sp/>on<sp/>the<sp/>socket</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="61" refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a5147a57e64bc0949dd8c51a36b01029c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a5147a57e64bc0949dd8c51a36b01029c" kindref="member">TIMEOUT</ref>,<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>operation<sp/>timed<sp/>out</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7abb13e459f18172f849fcb2c733a538fc" kindref="member">IOERROR</ref><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>an<sp/>error<sp/>occurred</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="63" refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7abb13e459f18172f849fcb2c733a538fc" refkind="member"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="65"><highlight class="comment">/**</highlight></codeline>
-<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>@class<sp/>ISocket</highlight></codeline>
-<codeline lineno="67"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Interface<sp/>for<sp/>socket<sp/>operations.</highlight></codeline>
-<codeline lineno="68"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="69" refid="classNetwork_1_1TransportLayer_1_1ISocket" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classNetwork_1_1TransportLayer_1_1ISocket" kindref="compound">ISocket</ref></highlight></codeline>
-<codeline lineno="70"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="72"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
-<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Destroy<sp/>the<sp/>ISocket<sp/>object</highlight></codeline>
-<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="76" refid="classNetwork_1_1TransportLayer_1_1ISocket_1a1bdb2519d4962eee6952af2d561ecaed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ISocket_1a1bdb2519d4962eee6952af2d561ecaed" kindref="member">~ISocket</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
-<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Get<sp/>the<sp/>underlying<sp/>socket<sp/>file<sp/>descriptor</highlight></codeline>
-<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="81"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>int<sp/>The<sp/>socket<sp/>file<sp/>descriptor</highlight></codeline>
-<codeline lineno="82"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="83" refid="classNetwork_1_1TransportLayer_1_1ISocket_1a41f6223f6c3ef123633d4015d54cacb4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ISocket_1a41f6223f6c3ef123633d4015d54cacb4" kindref="member">getSocketFd</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="85"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
-<codeline lineno="86"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Close<sp/>the<sp/>socket</highlight></codeline>
-<codeline lineno="87"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="88"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="89" refid="classNetwork_1_1TransportLayer_1_1ISocket_1a0a30278de50c785952d77ac03db3700f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ISocket_1a0a30278de50c785952d77ac03db3700f" kindref="member">closeSocket</ref>()<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
-<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Read<sp/>bytes<sp/>from<sp/>the<sp/>socket</highlight></codeline>
-<codeline lineno="93"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>buffer<sp/>Buffer<sp/>to<sp/>store<sp/>the<sp/>read<sp/>data</highlight></codeline>
-<codeline lineno="95"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>size<sp/>Number<sp/>of<sp/>bytes<sp/>to<sp/>read</highlight></codeline>
-<codeline lineno="96"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>ssize_t<sp/>Number<sp/>of<sp/>bytes<sp/>read,<sp/>or<sp/>-1<sp/>on<sp/>error</highlight></codeline>
-<codeline lineno="97"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="98" refid="classNetwork_1_1TransportLayer_1_1ISocket_1aee85921c834ee1274dc377023e25cbd6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ssize_t<sp/><ref refid="classNetwork_1_1TransportLayer_1_1ISocket_1aee85921c834ee1274dc377023e25cbd6" kindref="member">readByte</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*buffer,<sp/>std::size_t<sp/>size)<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
-<codeline lineno="101"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Write<sp/>bytes<sp/>to<sp/>the<sp/>socket</highlight></codeline>
-<codeline lineno="102"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>data<sp/>Data<sp/>to<sp/>write</highlight></codeline>
-<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>size<sp/>Number<sp/>of<sp/>bytes<sp/>to<sp/>write</highlight></codeline>
-<codeline lineno="105"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>ssize_t<sp/>Number<sp/>of<sp/>bytes<sp/>written,<sp/>or<sp/>-1<sp/>on<sp/>error</highlight></codeline>
-<codeline lineno="106"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="107" refid="classNetwork_1_1TransportLayer_1_1ISocket_1a5c5c1f736f6e1ce3910b8eb7383351fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ssize_t<sp/><ref refid="classNetwork_1_1TransportLayer_1_1ISocket_1a5c5c1f736f6e1ce3910b8eb7383351fe" kindref="member">writeByte</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*data,<sp/>std::size_t<sp/>size)<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
-<codeline lineno="109"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
-<codeline lineno="110"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Check<sp/>the<sp/>socket<sp/>state<sp/>for<sp/>read,<sp/>write,<sp/>or<sp/>exception</highlight></codeline>
-<codeline lineno="111"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="112"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>timeoutSec<sp/>Timeout<sp/>in<sp/>seconds</highlight></codeline>
-<codeline lineno="113"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>timeoutUsec<sp/>Timeout<sp/>in<sp/>microseconds</highlight></codeline>
-<codeline lineno="114"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>IOState<sp/>The<sp/>state<sp/>of<sp/>the<sp/>socket</highlight></codeline>
-<codeline lineno="115"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="116" refid="classNetwork_1_1TransportLayer_1_1ISocket_1a3bc7abee67be5b72149c67a1e990d14b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7" kindref="member">IOState</ref><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ISocket_1a3bc7abee67be5b72149c67a1e990d14b" kindref="member">sockState</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>timeoutSec,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>timeoutUsec)<sp/>=<sp/>0;</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"></highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="120"><highlight class="normal">};</highlight></codeline>
-<codeline lineno="121"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>Network::TransportLayer</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!ISOCKET_HPP_<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstddef&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;winsock2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ws2tcpip.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>comment(lib,<sp/>&quot;ws2_32.lib&quot;)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Windows<sp/>macros</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CLOSE(s)<sp/>closesocket(s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SOCKET_ERROR_CODE<sp/>WSAGetLastError()</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>SOCKET<sp/><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INVALID_SOCKET_FD<sp/>INVALID_SOCKET</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">ssize_t<sp/>=<sp/>std::ptrdiff_t;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Linux<sp/>includes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;arpa/inet.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;errno.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;netinet/in.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;netinet/tcp.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/select.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/socket.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/un.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Linux<sp/>macros</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CLOSE(s)<sp/>::close(s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="ISocket_8hpp_1ae9900189a578f5075caadbead1ef5a25" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SOCKET_ERROR_CODE<sp/>errno</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref>;</highlight></codeline>
+<codeline lineno="45" refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>INVALID_SOCKET_FD<sp/>-1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceNetwork_1_1TransportLayer" kindref="compound">Network::TransportLayer</ref></highlight></codeline>
+<codeline lineno="50"><highlight class="normal">{</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="51"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>@enum<sp/>IOState</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Represents<sp/>the<sp/>state<sp/>of<sp/>I/O<sp/>operations<sp/>on<sp/>a<sp/>socket.</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7" kindref="member">IOState</ref></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57" refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a27be65353a27abba0a6da38c5b55fdfa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a27be65353a27abba0a6da38c5b55fdfa" kindref="member">READ_READY</ref>,<sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>socket<sp/>is<sp/>ready<sp/>for<sp/>reading</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a87ff53b60baedce247f2c2a00e99a2fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a87ff53b60baedce247f2c2a00e99a2fe" kindref="member">WRITE_READY</ref>,<sp/></highlight><highlight class="comment">//<sp/>the<sp/>socket<sp/>is<sp/>ready<sp/>for<sp/>writing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a8d3837e0e73b39e89137cf22ccd4280b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a8d3837e0e73b39e89137cf22ccd4280b" kindref="member">EXCEPTION</ref>,<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>an<sp/>exception<sp/>occurred<sp/>on<sp/>the<sp/>socket</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60" refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a5147a57e64bc0949dd8c51a36b01029c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a5147a57e64bc0949dd8c51a36b01029c" kindref="member">TIMEOUT</ref>,<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>the<sp/>operation<sp/>timed<sp/>out</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7abb13e459f18172f849fcb2c733a538fc" kindref="member">IOERROR</ref><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>an<sp/>error<sp/>occurred</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7abb13e459f18172f849fcb2c733a538fc" refkind="member"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="64"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/>*<sp/>@class<sp/>ISocket</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Interface<sp/>for<sp/>socket<sp/>operations.</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="classNetwork_1_1TransportLayer_1_1ISocket" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classNetwork_1_1TransportLayer_1_1ISocket" kindref="compound">ISocket</ref></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Destroy<sp/>the<sp/>ISocket<sp/>object</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="classNetwork_1_1TransportLayer_1_1ISocket_1a1bdb2519d4962eee6952af2d561ecaed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ISocket_1a1bdb2519d4962eee6952af2d561ecaed" kindref="member">~ISocket</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Get<sp/>the<sp/>underlying<sp/>socket<sp/>file<sp/>descriptor</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>int<sp/>The<sp/>socket<sp/>file<sp/>descriptor</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="classNetwork_1_1TransportLayer_1_1ISocket_1a41f6223f6c3ef123633d4015d54cacb4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ISocket_1a41f6223f6c3ef123633d4015d54cacb4" kindref="member">getSocketFd</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Close<sp/>the<sp/>socket</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="classNetwork_1_1TransportLayer_1_1ISocket_1a0a30278de50c785952d77ac03db3700f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ISocket_1a0a30278de50c785952d77ac03db3700f" kindref="member">closeSocket</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Read<sp/>bytes<sp/>from<sp/>the<sp/>socket</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>buffer<sp/>Buffer<sp/>to<sp/>store<sp/>the<sp/>read<sp/>data</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>size<sp/>Number<sp/>of<sp/>bytes<sp/>to<sp/>read</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>ssize_t<sp/>Number<sp/>of<sp/>bytes<sp/>read,<sp/>or<sp/>-1<sp/>on<sp/>error</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="classNetwork_1_1TransportLayer_1_1ISocket_1aee85921c834ee1274dc377023e25cbd6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ssize_t<sp/><ref refid="classNetwork_1_1TransportLayer_1_1ISocket_1aee85921c834ee1274dc377023e25cbd6" kindref="member">readByte</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*buffer,<sp/>std::size_t<sp/>size)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Write<sp/>bytes<sp/>to<sp/>the<sp/>socket</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>data<sp/>Data<sp/>to<sp/>write</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>size<sp/>Number<sp/>of<sp/>bytes<sp/>to<sp/>write</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>ssize_t<sp/>Number<sp/>of<sp/>bytes<sp/>written,<sp/>or<sp/>-1<sp/>on<sp/>error</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="classNetwork_1_1TransportLayer_1_1ISocket_1a5c5c1f736f6e1ce3910b8eb7383351fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ssize_t<sp/><ref refid="classNetwork_1_1TransportLayer_1_1ISocket_1a5c5c1f736f6e1ce3910b8eb7383351fe" kindref="member">writeByte</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*data,<sp/>std::size_t<sp/>size)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Check<sp/>the<sp/>socket<sp/>state<sp/>for<sp/>read,<sp/>write,<sp/>or<sp/>exception</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>timeoutSec<sp/>Timeout<sp/>in<sp/>seconds</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>timeoutUsec<sp/>Timeout<sp/>in<sp/>microseconds</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>IOState<sp/>The<sp/>state<sp/>of<sp/>the<sp/>socket</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115" refid="classNetwork_1_1TransportLayer_1_1ISocket_1a3bc7abee67be5b72149c67a1e990d14b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7" kindref="member">IOState</ref><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ISocket_1a3bc7abee67be5b72149c67a1e990d14b" kindref="member">sockState</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>timeoutSec,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>timeoutUsec)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="119"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>Network::TransportLayer</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!ISOCKET_HPP_<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
     </programlisting>
     <location file="Network/TransportLayer/ISocket.hpp"/>
   </compounddef>

@@ -2,8 +2,8 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
   <compounddef id="GraphicClient_8cpp" kind="file" language="C++">
     <compoundname>GraphicClient.cpp</compoundname>
-    <includes refid="GraphicClient_8hpp" local="yes">graphical-client/GraphicClient/GraphicClient.hpp</includes>
-    <includes refid="Components_8hpp" local="yes">graphical-client/ecs/Components.hpp</includes>
+    <includes refid="GraphicClient_8hpp" local="yes">GraphicClient/GraphicClient.hpp</includes>
+    <includes refid="Components_8hpp" local="yes">ecs/Components.hpp</includes>
     <includes local="no">algorithm</includes>
     <includes local="no">cctype</includes>
     <includes local="no">cmath</includes>
@@ -123,7 +123,7 @@
         </childnode>
       </node>
       <node id="2">
-        <label>graphical-client/GraphicClient/GraphicClient.hpp</label>
+        <label>GraphicClient/GraphicClient.hpp</label>
         <link refid="GraphicClient_8hpp"/>
         <childnode refid="3" relation="include">
         </childnode>
@@ -285,8 +285,8 @@
 <codeline lineno="5"><highlight class="comment">**<sp/>GraphicClient</highlight></codeline>
 <codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="GraphicClient_8hpp" kindref="compound">graphical-client/GraphicClient/GraphicClient.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Components_8hpp" kindref="compound">graphical-client/ecs/Components.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="GraphicClient_8hpp" kindref="compound">GraphicClient/GraphicClient.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Components_8hpp" kindref="compound">ecs/Components.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cctype&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>

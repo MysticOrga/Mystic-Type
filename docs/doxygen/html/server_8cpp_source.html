@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mystic-Type: /home/loic/EPITECH/rtype/Mystic-Type/server.cpp Source File</title>
+<title>Mystic-Type: server/server.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,7 +95,7 @@ $(document).ready(function(){initNavTree('server_8cpp_source.html',''); initResi
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">/home/loic/EPITECH/rtype/Mystic-Type/server.cpp</div></div>
+  <div class="headertitle"><div class="title">server.cpp</div></div>
 </div><!--header-->
 <div class="contents">
 <a href="server_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
@@ -105,11 +105,11 @@ $(document).ready(function(){initNavTree('server_8cpp_source.html',''); initResi
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">** main</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="SessionManager_8hpp.html">src/Network/SessionManager.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="TCPServer_8hpp.html">src/Network/TransportLayer/TCP/TCPServer.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="UDPGameServer_8hpp.html">src/Network/TransportLayer/UDP/UDPGameServer.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="ChildProcessManager_8hpp.html">src/server/ChildProcessManager.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="IpcChannel_8hpp.html">src/server/IpcChannel.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;../Network/SessionManager.hpp&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;../Network/TransportLayer/TCP/TCPServer.hpp&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;../Network/TransportLayer/UDP/UDPGameServer.hpp&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="ChildProcessManager_8hpp.html">ChildProcessManager.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="IpcChannel_8hpp.html">IpcChannel.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;thread&gt;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
@@ -141,9 +141,6 @@ $(document).ready(function(){initNavTree('server_8cpp_source.html',''); initResi
 </div>
 <div class="ttc" id="aChildProcessManager_8hpp_html"><div class="ttname"><a href="ChildProcessManager_8hpp.html">ChildProcessManager.hpp</a></div></div>
 <div class="ttc" id="aIpcChannel_8hpp_html"><div class="ttname"><a href="IpcChannel_8hpp.html">IpcChannel.hpp</a></div></div>
-<div class="ttc" id="aSessionManager_8hpp_html"><div class="ttname"><a href="SessionManager_8hpp.html">SessionManager.hpp</a></div></div>
-<div class="ttc" id="aTCPServer_8hpp_html"><div class="ttname"><a href="TCPServer_8hpp.html">TCPServer.hpp</a></div></div>
-<div class="ttc" id="aUDPGameServer_8hpp_html"><div class="ttname"><a href="UDPGameServer_8hpp.html">UDPGameServer.hpp</a></div></div>
 <div class="ttc" id="aclassChildProcessManager_html"><div class="ttname"><a href="classChildProcessManager.html">ChildProcessManager</a></div><div class="ttdoc">Minimal child process manager to spawn UDP game servers.</div><div class="ttdef"><b>Definition</b> <a href="ChildProcessManager_8hpp_source.html#l00027">ChildProcessManager.hpp:27</a></div></div>
 <div class="ttc" id="aclassSessionManager_html"><div class="ttname"><a href="classSessionManager.html">SessionManager</a></div><div class="ttdoc">Tracks client sessions across TCP and UDP, and enforces simple rate limits.</div><div class="ttdef"><b>Definition</b> <a href="SessionManager_8hpp_source.html#l00045">SessionManager.hpp:45</a></div></div>
 <div class="ttc" id="aclassTCPServer_html"><div class="ttname"><a href="classTCPServer.html">TCPServer</a></div><div class="ttdoc">Simple TCP server handling client connections and lobby state.</div><div class="ttdef"><b>Definition</b> <a href="TCPServer_8hpp_source.html#l00032">TCPServer.hpp:32</a></div></div>
@@ -154,7 +151,7 @@ $(document).ready(function(){initNavTree('server_8cpp_source.html',''); initResi
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="server_8cpp.html">server.cpp</a></li>
+    <li class="navelem"><a class="el" href="dir_41e1742e44e2de38b3bc91f993fed282.html">server</a></li><li class="navelem"><a class="el" href="server_8cpp.html">server.cpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>

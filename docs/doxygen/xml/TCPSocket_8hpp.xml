@@ -79,10 +79,6 @@
     </incdepgraph>
     <invincdepgraph>
       <node id="3">
-        <label>/home/loic/EPITECH/rtype/Mystic-Type/server.cpp</label>
-        <link refid="server_8cpp"/>
-      </node>
-      <node id="4">
         <label>Network/TransportLayer/TCP/TCPServer.cpp</label>
         <link refid="TCPServer_8cpp"/>
       </node>
@@ -105,6 +101,10 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
+      </node>
+      <node id="4">
+        <label>server/server.cpp</label>
+        <link refid="server_8cpp"/>
       </node>
     </invincdepgraph>
     <innerclass refid="classNetwork_1_1TransportLayer_1_1TCPSocket" prot="public">Network::TransportLayer::TCPSocket</innerclass>

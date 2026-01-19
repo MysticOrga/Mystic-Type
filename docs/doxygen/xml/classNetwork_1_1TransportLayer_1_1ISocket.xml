@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Network/TransportLayer/ISocket.hpp" line="76" column="13"/>
+        <location file="Network/TransportLayer/ISocket.hpp" line="75" column="13"/>
       </memberdef>
       <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1ISocket_1a41f6223f6c3ef123633d4015d54cacb4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="pure-virtual">
         <type><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref></type>
@@ -37,7 +37,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Network/TransportLayer/ISocket.hpp" line="83" column="29"/>
+        <location file="Network/TransportLayer/ISocket.hpp" line="82" column="29"/>
       </memberdef>
       <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1ISocket_1a0a30278de50c785952d77ac03db3700f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="pure-virtual">
         <type>int</type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Network/TransportLayer/ISocket.hpp" line="89" column="24"/>
+        <location file="Network/TransportLayer/ISocket.hpp" line="88" column="24"/>
       </memberdef>
       <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1ISocket_1aee85921c834ee1274dc377023e25cbd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>ssize_t</type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Network/TransportLayer/ISocket.hpp" line="98" column="21"/>
+        <location file="Network/TransportLayer/ISocket.hpp" line="97" column="21"/>
       </memberdef>
       <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1ISocket_1a5c5c1f736f6e1ce3910b8eb7383351fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>ssize_t</type>
@@ -143,7 +143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Network/TransportLayer/ISocket.hpp" line="107" column="21"/>
+        <location file="Network/TransportLayer/ISocket.hpp" line="106" column="21"/>
       </memberdef>
       <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1ISocket_1a3bc7abee67be5b72149c67a1e990d14b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7" kindref="member">IOState</ref></type>
@@ -187,7 +187,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="Network/TransportLayer/ISocket.hpp" line="116" column="21"/>
+        <location file="Network/TransportLayer/ISocket.hpp" line="115" column="21"/>
       </memberdef>
     </sectiondef>
     <briefdescription>
@@ -218,12 +218,6 @@
         <childnode refid="2" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="5">
-        <label>Network::TransportLayer::UnixSocket</label>
-        <link refid="classNetwork_1_1TransportLayer_1_1UnixSocket"/>
-        <childnode refid="2" relation="public-inheritance">
-        </childnode>
-      </node>
     </inheritancegraph>
     <collaborationgraph>
       <node id="1">
@@ -231,7 +225,7 @@
         <link refid="classNetwork_1_1TransportLayer_1_1ISocket"/>
       </node>
     </collaborationgraph>
-    <location file="Network/TransportLayer/ISocket.hpp" line="69" column="1" bodyfile="Network/TransportLayer/ISocket.hpp" bodystart="70" bodyend="120"/>
+    <location file="Network/TransportLayer/ISocket.hpp" line="68" column="1" bodyfile="Network/TransportLayer/ISocket.hpp" bodystart="69" bodyend="119"/>
     <listofallmembers>
       <member refid="classNetwork_1_1TransportLayer_1_1ISocket_1a0a30278de50c785952d77ac03db3700f" prot="public" virt="pure-virtual"><scope>Network::TransportLayer::ISocket</scope><name>closeSocket</name></member>
       <member refid="classNetwork_1_1TransportLayer_1_1ISocket_1a41f6223f6c3ef123633d4015d54cacb4" prot="public" virt="pure-virtual"><scope>Network::TransportLayer::ISocket</scope><name>getSocketFd</name></member>

@@ -23,8 +23,7 @@ var hierarchy =
     [ "Network::TransportLayer::ISocket", "classNetwork_1_1TransportLayer_1_1ISocket.html", [
       [ "Network::TransportLayer::ASocket", "classNetwork_1_1TransportLayer_1_1ASocket.html", [
         [ "Network::TransportLayer::TCPSocket", "classNetwork_1_1TransportLayer_1_1TCPSocket.html", null ],
-        [ "Network::TransportLayer::UDPSocket", "classNetwork_1_1TransportLayer_1_1UDPSocket.html", null ],
-        [ "Network::TransportLayer::UnixSocket", "classNetwork_1_1TransportLayer_1_1UnixSocket.html", null ]
+        [ "Network::TransportLayer::UDPSocket", "classNetwork_1_1TransportLayer_1_1UDPSocket.html", null ]
       ] ]
     ] ],
     [ "TCPServer::LobbyInfo", "structTCPServer_1_1LobbyInfo.html", null ],

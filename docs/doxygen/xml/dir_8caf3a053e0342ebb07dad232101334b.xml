@@ -4,7 +4,6 @@
     <compoundname>Network/TransportLayer</compoundname>
     <innerdir refid="dir_d861678bcbc44ffd8ef6a1bdec10e3b5">Network/TransportLayer/TCP</innerdir>
     <innerdir refid="dir_631dafc6a1249c23d7cf438c9d57fdf2">Network/TransportLayer/UDP</innerdir>
-    <innerdir refid="dir_e676f1162f2a00557a6a29e0186a2919">Network/TransportLayer/UNIX</innerdir>
     <innerfile refid="ASocket_8cpp">ASocket.cpp</innerfile>
     <innerfile refid="ASocket_8hpp">ASocket.hpp</innerfile>
     <innerfile refid="ISocket_8hpp">ISocket.hpp</innerfile>

@@ -11,6 +11,5 @@ var searchData=
   ['_7etexture_8',['~Texture',['../classRaylib_1_1Texture.html#ab744510744bcc4ebf00e913640233514',1,'Raylib::Texture']]],
   ['_7eudpgameserver_9',['~UDPGameServer',['../classUDPGameServer.html#ac43ecfc8705a619accf685658472e529',1,'UDPGameServer']]],
   ['_7eudpsocket_10',['~UDPSocket',['../classNetwork_1_1TransportLayer_1_1UDPSocket.html#a9f6597ae59850819906da42dfae01173',1,'Network::TransportLayer::UDPSocket']]],
-  ['_7eunixsocket_11',['~UnixSocket',['../classNetwork_1_1TransportLayer_1_1UnixSocket.html#afa61938db07dee4b7bcd4f76e2fea0f0',1,'Network::TransportLayer::UnixSocket']]],
-  ['_7ewindow_12',['~Window',['../classRaylib_1_1Window.html#aa168b688c5ae5030e8a9320eb3b80c5f',1,'Raylib::Window']]]
+  ['_7ewindow_11',['~Window',['../classRaylib_1_1Window.html#aa168b688c5ae5030e8a9320eb3b80c5f',1,'Raylib::Window']]]
 ];
