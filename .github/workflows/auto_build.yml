@@ -1,0 +1,22 @@
+name: build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: install deps
+        run: sudo apt-get update && sudo apt-get install -y build-essential cmake
+
+      - name: build
+        run: |
+            ./build.sh
+            if [ ! -f "rtype-client" ]
+                echo "ca marche"
+                exit 1
+            fi
