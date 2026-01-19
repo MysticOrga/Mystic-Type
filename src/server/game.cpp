@@ -5,9 +5,9 @@
 ** UDP game server entry point (process enfant)
 */
 
-#include "src/Network/TransportLayer/UDP/UDPGameServer.hpp"
-#include "src/Network/SessionManager.hpp"
-#include "src/server/IpcChannel.hpp"
+#include "../Network/TransportLayer/UDP/UDPGameServer.hpp"
+#include "../Network/SessionManager.hpp"
+#include "IpcChannel.hpp"
 
 #include <iostream>
 #include <string>

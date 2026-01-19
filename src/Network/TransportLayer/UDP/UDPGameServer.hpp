@@ -20,7 +20,7 @@
 #include "../Packet.hpp"
 #include "GameWorld.hpp"
 #include "../../SessionManager.hpp"
-#include "server/IpcChannel.hpp"
+#include "IpcChannel.hpp"
 
 /**
  * @brief Simple UDP authoritative game server that manages players and snapshots.

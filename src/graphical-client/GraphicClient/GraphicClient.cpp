@@ -5,8 +5,8 @@
 ** GraphicClient
 */
 
-#include "graphical-client/GraphicClient/GraphicClient.hpp"
-#include "graphical-client/ecs/Components.hpp"
+#include "GraphicClient/GraphicClient.hpp"
+#include "ecs/Components.hpp"
 #include <algorithm>
 #include <cctype>
 #include <cmath>

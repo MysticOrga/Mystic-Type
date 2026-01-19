@@ -15,8 +15,8 @@
 #include "TCPSocket.hpp"
 #include "../Packet.hpp"
 #include "../../SessionManager.hpp"
-#include "server/ChildProcessManager.hpp"
-#include "server/IpcChannel.hpp"
+#include "ChildProcessManager.hpp"
+#include "IpcChannel.hpp"
 
 #include <vector>
 
