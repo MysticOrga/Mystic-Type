@@ -44,6 +44,8 @@ add_executable(rtype-udp-server
 
 # Platform-specific linking for TCP server
 if(WIN32)
+    set_target_properties(rtype-tcp-server PROPERTIES SUFFIX ".exe")
+    set_target_properties(rtype-udp-server PROPERTIES SUFFIX ".exe")
     target_link_libraries(rtype-tcp-server PRIVATE ws2_32)
     target_link_libraries(rtype-udp-server PRIVATE ws2_32)
 else()

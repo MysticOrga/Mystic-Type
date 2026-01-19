@@ -14,7 +14,7 @@ cd build
 
 REM Générer les fichiers de build avec CMake
 echo Running CMake...
-cmake .. -G "Visual Studio 17 2026" || cmake .. -G "Visual Studio 16 2019" || cmake .. -G "MinGW Makefiles"
+cmake .. -G "Visual Studio 18 2026" || cmake .. -G "Visual Studio 18 2026" || cmake .. -G "MinGW Makefiles"
 
 if errorlevel 1 (
     echo ERROR: CMake configuration failed

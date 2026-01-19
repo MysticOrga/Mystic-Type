@@ -45,6 +45,7 @@ target_link_libraries(rtype-client PRIVATE raylib)
 
 # Platform-specific
 if(WIN32)
+    set_target_properties(rtype-client PROPERTIES SUFFIX ".exe")
     target_link_libraries(rtype-client PRIVATE ws2_32)
 endif()
 
