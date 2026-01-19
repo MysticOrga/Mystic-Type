@@ -13,7 +13,6 @@
 #define NOGDI
 #define NOUSER
 // Windows includes
-#include <afunix.h>
 #include <cstddef>
 #include <cstdint>
 #include <winsock2.h>
