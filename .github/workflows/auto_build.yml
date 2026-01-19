@@ -1,0 +1,31 @@
+name: build
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: install deps
+        run: sudo apt-get update && sudo apt-get install -y build-essential cmake libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libgl1-mesa-dev
+
+      - name: build
+        run: |
+            ./build.sh
+            if [ ! -f "./build/linux/rtype-client" ]; then
+                echo "rtype-client is not here"
+                exit 1
+            fi
+            if [ ! -f "./build/linux/rtype-tcp-server" ]; then
+                echo "rtype-tcp-server is not here"
+                exit 1
+            fi
+            if [ ! -f "./build/linux/rtype-udp-server" ]; then
+                echo "rtype-udp-server is not here"
+                exit 1
+            fi
+        shell: bash
