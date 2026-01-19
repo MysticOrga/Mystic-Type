@@ -22,13 +22,15 @@ int main()
         return 1;
     }
 #endif
-    try {
+    try
+    {
         SessionManager sessions;
         ChildProcessManager childMgr;
         TCPServer tcpServer(4243, sessions, &childMgr);
         tcpServer.run();
     }
-    catch (const std::exception &e) {
+    catch (const std::exception &e)
+    {
         std::cerr << "[TCP SERVER ERROR] " << e.what() << std::endl;
         return 1;
     }

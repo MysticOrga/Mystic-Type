@@ -8,22 +8,23 @@
 #pragma once
 
 #ifndef _WIN32
-    #include <netinet/in.h>
+#include <netinet/in.h>
 #else
-    #include <winsock2.h>
+#include <winsock2.h>
 #endif
-#include <unordered_map>
+#include <cstdint>
+#include <functional>
 #include <mutex>
 #include <optional>
-#include <functional>
-#include <cstdint>
-#include <vector>
 #include <string>
+#include <unordered_map>
+#include <vector>
 
 /**
  * @brief In-memory session record shared between TCP and UDP servers.
  */
-struct Session {
+struct Session
+{
     int id = 0;
     int tcpFd = -1;
     sockaddr_in tcpAddr{};
@@ -42,18 +43,24 @@ struct Session {
 /**
  * @brief Tracks client sessions across TCP and UDP, and enforces simple rate limits.
  */
-class SessionManager {
-public:
+class SessionManager
+{
+  public:
     /**
      * @brief Construct a manager with simple per-second rate limits.
      */
     SessionManager(int maxInputsPerSec = 30, int maxShootsPerSec = 10)
-    : _maxInputsPerSec(maxInputsPerSec), _maxShootsPerSec(maxShootsPerSec) {}
+        : _maxInputsPerSec(maxInputsPerSec), _maxShootsPerSec(maxShootsPerSec)
+    {
+    }
 
     /**
      * @brief Set callback invoked when a session is removed.
      */
-    void setOnRemove(std::function<void(int)> cb) { _onRemove = std::move(cb); }
+    void setOnRemove(std::function<void(int)> cb)
+    {
+        _onRemove = std::move(cb);
+    }
     /**
      * @brief Add a TCP session entry.
      */
@@ -104,7 +111,7 @@ public:
      */
     bool allowShoot(int id, long nowMs);
 
-private:
+  private:
     void resetCounter(long nowMs, long &lastMs, int &count, int limit);
 
     mutable std::mutex _mutex;

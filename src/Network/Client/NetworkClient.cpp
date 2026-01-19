@@ -7,17 +7,18 @@
 
 #include "NetworkClient.hpp"
 #include "GameState.hpp"
-#include <iostream>
 #include <algorithm>
 #include <cstdint>
+#include <iostream>
 #ifndef _WIN32
 #include <netinet/tcp.h>
 #endif // !_WIN32
-#include <chrono>
 #include "../TransportLayer/Protocol.hpp"
+#include <chrono>
 
-namespace {
-    constexpr size_t BUFFER_SIZE = 1024;
+namespace
+{
+constexpr size_t BUFFER_SIZE = 1024;
 }
 
 NetworkClient::NetworkClient(const std::string &ip, uint16_t port)
@@ -39,7 +40,7 @@ bool NetworkClient::connectToServer()
     std::cout << "TCP fd: " << _tcpFd << std::endl;
     if (_tcpFd < 0)
         return false;
-    if (::connect(_tcpFd, reinterpret_cast<sockaddr*>(&_tcpAddr), sizeof(_tcpAddr)) < 0)
+    if (::connect(_tcpFd, reinterpret_cast<sockaddr *>(&_tcpAddr), sizeof(_tcpAddr)) < 0)
         return false;
     char flag = 1;
     setsockopt(_tcpFd, IPPROTO_TCP, TCP_NODELAY, &flag, sizeof(flag));
@@ -60,9 +61,10 @@ bool NetworkClient::performHandshake()
     auto sanitizePseudo = [](const std::string &raw) {
         std::string out;
         out.reserve(raw.size());
-        for (char c : raw) {
-            if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
-                || (c >= '0' && c <= '9') || c == '_' || c == '-') {
+        for (char c : raw)
+        {
+            if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '_' || c == '-')
+            {
                 out.push_back(c);
             }
             if (out.size() >= 12)
@@ -72,9 +74,12 @@ bool NetworkClient::performHandshake()
     };
     std::string cleanPseudo = sanitizePseudo(_pseudo);
     std::string helloPayload = "toto";
-    if (!cleanPseudo.empty()) {
+    if (!cleanPseudo.empty())
+    {
         helloPayload += "|" + cleanPseudo;
-    } else {
+    }
+    else
+    {
         helloPayload += "|";
     }
     Packet clientHello(PacketType::CLIENT_HELLO, std::vector<uint8_t>(helloPayload.begin(), helloPayload.end()));
@@ -98,11 +103,8 @@ bool NetworkClient::sendPong()
 
 bool NetworkClient::sendHelloUdp(uint8_t x, uint8_t y)
 {
-    Packet helloUdp(PacketType::HELLO_UDP, {
-        static_cast<uint8_t>((_playerId >> 8) & 0xFF),
-        static_cast<uint8_t>(_playerId & 0xFF),
-        x, y
-    });
+    Packet helloUdp(PacketType::HELLO_UDP,
+                    {static_cast<uint8_t>((_playerId >> 8) & 0xFF), static_cast<uint8_t>(_playerId & 0xFF), x, y});
     return sendPacketUdp(helloUdp);
 }
 
@@ -111,39 +113,24 @@ bool NetworkClient::sendUdpPing()
     long long now = nowMs();
     uint32_t ts = static_cast<uint32_t>(now & 0xFFFFFFFFu);
     _udpLastPingSentMs = ts;
-    Packet ping(PacketType::PING_UDP, {
-        static_cast<uint8_t>((ts >> 24) & 0xFF),
-        static_cast<uint8_t>((ts >> 16) & 0xFF),
-        static_cast<uint8_t>((ts >> 8) & 0xFF),
-        static_cast<uint8_t>(ts & 0xFF)
-    });
+    Packet ping(PacketType::PING_UDP, {static_cast<uint8_t>((ts >> 24) & 0xFF), static_cast<uint8_t>((ts >> 16) & 0xFF),
+                                       static_cast<uint8_t>((ts >> 8) & 0xFF), static_cast<uint8_t>(ts & 0xFF)});
     return sendPacketUdp(ping);
 }
 
 bool NetworkClient::sendInput(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY, MoveCmd cmd)
 {
-    Packet input(PacketType::INPUT, {
-        static_cast<uint8_t>((_playerId >> 8) & 0xFF),
-        static_cast<uint8_t>(_playerId & 0xFF),
-        posX,
-        posY,
-        static_cast<uint8_t>(velX),
-        static_cast<uint8_t>(velY),
-        static_cast<uint8_t>(cmd)
-    });
+    Packet input(PacketType::INPUT,
+                 {static_cast<uint8_t>((_playerId >> 8) & 0xFF), static_cast<uint8_t>(_playerId & 0xFF), posX, posY,
+                  static_cast<uint8_t>(velX), static_cast<uint8_t>(velY), static_cast<uint8_t>(cmd)});
     return sendPacketUdp(input);
 }
 
 bool NetworkClient::sendShoot(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY)
 {
-    Packet shoot(PacketType::SHOOT, {
-        static_cast<uint8_t>((_playerId >> 8) & 0xFF),
-        static_cast<uint8_t>(_playerId & 0xFF),
-        posX,
-        posY,
-        static_cast<uint8_t>(velX),
-        static_cast<uint8_t>(velY)
-    });
+    Packet shoot(PacketType::SHOOT,
+                 {static_cast<uint8_t>((_playerId >> 8) & 0xFF), static_cast<uint8_t>(_playerId & 0xFF), posX, posY,
+                  static_cast<uint8_t>(velX), static_cast<uint8_t>(velY)});
     return sendPacketUdp(shoot);
 }
 
@@ -151,8 +138,10 @@ bool NetworkClient::sendChat(const std::string &text)
 {
     std::string clean;
     clean.reserve(text.size());
-    for (char c : text) {
-        if (c >= 32 && c <= 126) {
+    for (char c : text)
+    {
+        if (c >= 32 && c <= 126)
+        {
             clean.push_back(c);
         }
         if (clean.size() >= 120)
@@ -163,7 +152,8 @@ bool NetworkClient::sendChat(const std::string &text)
     std::cout << "[CLIENT] sendChat \"" << clean << "\"\n";
     Packet msg(PacketType::MESSAGE, std::vector<uint8_t>(clean.begin(), clean.end()));
     bool ok = sendPacketTcp(msg);
-    if (!ok) {
+    if (!ok)
+    {
         std::cout << "[CLIENT] sendChat failed\n";
     }
     return ok;
@@ -186,9 +176,12 @@ bool NetworkClient::sendJoinLobby(const std::string &code)
 bool NetworkClient::sendPacketTcp(const Packet &p)
 {
     std::vector<uint8_t> framed;
-    try {
+    try
+    {
         framed = Protocol::frameTcp(p);
-    } catch (const std::exception &) {
+    }
+    catch (const std::exception &)
+    {
         return false;
     }
     return writeAll(_tcpFd, framed.data(), framed.size());
@@ -197,8 +190,10 @@ bool NetworkClient::sendPacketTcp(const Packet &p)
 bool NetworkClient::sendPacketUdp(const Packet &p)
 {
     auto data = p.serialize();
-    ssize_t sent = sendto(_udpFd, reinterpret_cast<const char *>(data.data()), data.size(), 0, reinterpret_cast<sockaddr*>(&_udpAddr), sizeof(_udpAddr));
-    if (sent > 0) {
+    ssize_t sent = sendto(_udpFd, reinterpret_cast<const char *>(data.data()), data.size(), 0,
+                          reinterpret_cast<sockaddr *>(&_udpAddr), sizeof(_udpAddr));
+    if (sent > 0)
+    {
         _udpBytesOutWindow += static_cast<uint64_t>(sent);
         updateUdpRates(nowMs());
     }
@@ -208,7 +203,8 @@ bool NetworkClient::sendPacketUdp(const Packet &p)
 bool NetworkClient::readTcpPacket(Packet &p)
 {
     auto res = receiveTcpFramed(p);
-    if (res == RecvResult::Disconnected) {
+    if (res == RecvResult::Disconnected)
+    {
         _events.push_back("TIMEOUT");
         disconnect();
     }
@@ -220,7 +216,8 @@ bool NetworkClient::readUdpPacket(Packet &p)
     uint8_t buffer[BUFFER_SIZE]{};
     sockaddr_in from{};
     socklen_t len = sizeof(from);
-    ssize_t n = recvfrom(_udpFd, reinterpret_cast<char *>(buffer), sizeof(buffer), 0, reinterpret_cast<sockaddr*>(&from), &len);
+    ssize_t n = recvfrom(_udpFd, reinterpret_cast<char *>(buffer), sizeof(buffer), 0,
+                         reinterpret_cast<sockaddr *>(&from), &len);
     if (n <= 0)
         return false;
     _udpBytesInWindow += static_cast<uint64_t>(n);
@@ -234,37 +231,47 @@ bool NetworkClient::pollPackets()
     fd_set rfds, wfds, efds;
     FD_ZERO(&rfds);
     socket_t maxFd = 0;
-    if (_tcpFd != INVALID_SOCKET_FD) {
+    if (_tcpFd != INVALID_SOCKET_FD)
+    {
         FD_SET(_tcpFd, &rfds);
         maxFd = std::max(maxFd, _tcpFd);
     }
-    if (_udpFd != INVALID_SOCKET_FD) {
+    if (_udpFd != INVALID_SOCKET_FD)
+    {
         FD_SET(_udpFd, &rfds);
         maxFd = std::max(maxFd, _udpFd);
     }
     if (maxFd == INVALID_SOCKET_FD)
         return false;
-    struct timeval tv{0, 0}; // non-blocking
+    struct timeval tv
+    {
+        0, 0
+    }; // non-blocking
 
     int activity = select(maxFd + 1, &rfds, nullptr, nullptr, &tv);
     if (activity < 0)
         return false;
 
     bool handled = false;
-    if (_tcpFd != INVALID_SOCKET_FD && FD_ISSET(_tcpFd, &rfds)) {
+    if (_tcpFd != INVALID_SOCKET_FD && FD_ISSET(_tcpFd, &rfds))
+    {
         Packet p;
-        if (readTcpPacket(p)) {
+        if (readTcpPacket(p))
+        {
             handleTcpPacket(p);
             Packet extra;
-            while (Protocol::extractFromBuffer(_tcpRecvBuffer, extra) == Protocol::StreamStatus::Ok) {
+            while (Protocol::extractFromBuffer(_tcpRecvBuffer, extra) == Protocol::StreamStatus::Ok)
+            {
                 handleTcpPacket(extra);
             }
             handled = true;
         }
     }
-    if (_udpFd != INVALID_SOCKET_FD && FD_ISSET(_udpFd, &rfds)) {
+    if (_udpFd != INVALID_SOCKET_FD && FD_ISSET(_udpFd, &rfds))
+    {
         Packet p;
-        if (readUdpPacket(p)) {
+        if (readUdpPacket(p))
+        {
             handleUdpPacket(p);
             handled = true;
         }
@@ -274,99 +281,110 @@ bool NetworkClient::pollPackets()
 
 void NetworkClient::handleTcpPacket(const Packet &p)
 {
-    switch (p.type) {
-        case PacketType::PING:
-            if (sendPong()) {
-                _events.push_back("PING");
-            } else {
-                _events.push_back("PING_SEND_FAIL");
-            }
-            break;
-        case PacketType::REFUSED:
-            _events.push_back("REFUSED:" + std::string(p.payload.begin(), p.payload.end()));
-            disconnect();
-            break;
-        case PacketType::PLAYER_LIST:
-            _lastPlayerList.clear();
-            if (!p.payload.empty()) {
-                uint8_t count = p.payload[0];
-                size_t expected = 1 + count * 5;
-                if (p.payload.size() >= expected) {
-                    for (size_t i = 0; i < count; ++i) {
-                        size_t off = 1 + i * 5;
-                        int id = (p.payload[off] << 8) | p.payload[off + 1];
-                        uint8_t x = p.payload[off + 2];
-                        uint8_t y = p.payload[off + 3];
-                        uint8_t hp = p.payload[off + 4];
-                        _lastPlayerList.push_back({id, x, y, hp, 0});
-                    }
-                    _events.push_back("PLAYER_LIST");
-                }
-            }
-            break;
-        case PacketType::NEW_PLAYER:
-            if (p.payload.size() >= 5) {
-                int id = (p.payload[0] << 8) | p.payload[1];
-                uint8_t x = p.payload[2];
-                uint8_t y = p.payload[3];
-                uint8_t hp = p.payload[4];
-                _lastPlayerList.push_back({id, x, y, hp, 0});
-                _events.push_back("NEW_PLAYER");
-            }
-            break;
-        case PacketType::LOBBY_OK:
+    switch (p.type)
+    {
+    case PacketType::PING:
+        if (sendPong())
         {
-            // Payload format: CODE|PORT (simple ASCII) for now.
-            std::string payloadStr(p.payload.begin(), p.payload.end());
-            auto sep = payloadStr.find('|');
-            if (sep == std::string::npos) {
-                _lobbyCode = payloadStr;
-            } else {
-                _lobbyCode = payloadStr.substr(0, sep);
-                std::string portStr = payloadStr.substr(sep + 1);
-                int port = std::atoi(portStr.c_str());
-                if (port > 0 && port < 65536) {
-                    _udpAddr.sin_port = htons(static_cast<uint16_t>(port));
-                }
-            }
-            _events.push_back("LOBBY_OK:" + _lobbyCode);
-            break;
+            _events.push_back("PING");
         }
-        case PacketType::LOBBY_ERROR:
-            _events.push_back("LOBBY_ERROR:" + std::string(p.payload.begin(), p.payload.end()));
-            break;
-        case PacketType::MESSAGE:
-            std::cout << "[CLIENT] recv MESSAGE \"" << std::string(p.payload.begin(), p.payload.end()) << "\"\n";
-            _events.push_back("MESSAGE:" + std::string(p.payload.begin(), p.payload.end()));
-            break;
-        default:
-            break;
+        else
+        {
+            _events.push_back("PING_SEND_FAIL");
+        }
+        break;
+    case PacketType::REFUSED:
+        _events.push_back("REFUSED:" + std::string(p.payload.begin(), p.payload.end()));
+        disconnect();
+        break;
+    case PacketType::PLAYER_LIST:
+        _lastPlayerList.clear();
+        if (!p.payload.empty())
+        {
+            uint8_t count = p.payload[0];
+            size_t expected = 1 + count * 5;
+            if (p.payload.size() >= expected)
+            {
+                for (size_t i = 0; i < count; ++i)
+                {
+                    size_t off = 1 + i * 5;
+                    int id = (p.payload[off] << 8) | p.payload[off + 1];
+                    uint8_t x = p.payload[off + 2];
+                    uint8_t y = p.payload[off + 3];
+                    uint8_t hp = p.payload[off + 4];
+                    _lastPlayerList.push_back({id, x, y, hp, 0});
+                }
+                _events.push_back("PLAYER_LIST");
+            }
+        }
+        break;
+    case PacketType::NEW_PLAYER:
+        if (p.payload.size() >= 5)
+        {
+            int id = (p.payload[0] << 8) | p.payload[1];
+            uint8_t x = p.payload[2];
+            uint8_t y = p.payload[3];
+            uint8_t hp = p.payload[4];
+            _lastPlayerList.push_back({id, x, y, hp, 0});
+            _events.push_back("NEW_PLAYER");
+        }
+        break;
+    case PacketType::LOBBY_OK: {
+        // Payload format: CODE|PORT (simple ASCII) for now.
+        std::string payloadStr(p.payload.begin(), p.payload.end());
+        auto sep = payloadStr.find('|');
+        if (sep == std::string::npos)
+        {
+            _lobbyCode = payloadStr;
+        }
+        else
+        {
+            _lobbyCode = payloadStr.substr(0, sep);
+            std::string portStr = payloadStr.substr(sep + 1);
+            int port = std::atoi(portStr.c_str());
+            if (port > 0 && port < 65536)
+            {
+                _udpAddr.sin_port = htons(static_cast<uint16_t>(port));
+            }
+        }
+        _events.push_back("LOBBY_OK:" + _lobbyCode);
+        break;
+    }
+    case PacketType::LOBBY_ERROR:
+        _events.push_back("LOBBY_ERROR:" + std::string(p.payload.begin(), p.payload.end()));
+        break;
+    case PacketType::MESSAGE:
+        std::cout << "[CLIENT] recv MESSAGE \"" << std::string(p.payload.begin(), p.payload.end()) << "\"\n";
+        _events.push_back("MESSAGE:" + std::string(p.payload.begin(), p.payload.end()));
+        break;
+    default:
+        break;
     }
 }
 
 void NetworkClient::handleUdpPacket(const Packet &p)
 {
-    if (p.type == PacketType::SNAPSHOT && !p.payload.empty()) {
-        auto parseSnapshot = [&](size_t perPlayer, bool hasScore,
-                                std::vector<PlayerState> &players,
-                                std::vector<BulletState> &bullets,
-                                std::vector<MonsterState> &monsters,
-                                uint16_t &seq,
-                                bool &hasSeq) -> bool {
+    if (p.type == PacketType::SNAPSHOT && !p.payload.empty())
+    {
+        auto parseSnapshot = [&](size_t perPlayer, bool hasScore, std::vector<PlayerState> &players,
+                                 std::vector<BulletState> &bullets, std::vector<MonsterState> &monsters, uint16_t &seq,
+                                 bool &hasSeq) -> bool {
             uint8_t count = p.payload[0];
             size_t off = 1;
             size_t expectedPlayers = off + count * perPlayer;
             if (p.payload.size() < expectedPlayers)
                 return false;
 
-            for (size_t i = 0; i < count; ++i) {
+            for (size_t i = 0; i < count; ++i)
+            {
                 size_t idx = off + i * perPlayer;
                 int id = (p.payload[idx] << 8) | p.payload[idx + 1];
                 uint8_t x = p.payload[idx + 2];
                 uint8_t y = p.payload[idx + 3];
                 uint8_t hp = p.payload[idx + 4];
                 uint16_t score = 0;
-                if (hasScore) {
+                if (hasScore)
+                {
                     score = (p.payload[idx + 5] << 8) | p.payload[idx + 6];
                 }
                 players.push_back({id, x, y, hp, score});
@@ -380,7 +398,8 @@ void NetworkClient::handleUdpPacket(const Packet &p)
             size_t expectedBullets = off + bulletCount * 6;
             if (p.payload.size() < expectedBullets)
                 return false;
-            for (size_t i = 0; i < bulletCount; ++i) {
+            for (size_t i = 0; i < bulletCount; ++i)
+            {
                 size_t idx = off + i * 6;
                 int id = (p.payload[idx] << 8) | p.payload[idx + 1];
                 uint8_t x = p.payload[idx + 2];
@@ -391,12 +410,14 @@ void NetworkClient::handleUdpPacket(const Packet &p)
             }
 
             off = expectedBullets;
-            if (off < p.payload.size()) {
+            if (off < p.payload.size())
+            {
                 uint8_t monsterCount = p.payload[off++];
                 size_t expectedMonsters = off + monsterCount * 6;
                 if (p.payload.size() < expectedMonsters)
                     return false;
-                for (size_t i = 0; i < monsterCount; ++i) {
+                for (size_t i = 0; i < monsterCount; ++i)
+                {
                     size_t idx = off + i * 6;
                     int id = (p.payload[idx] << 8) | p.payload[idx + 1];
                     uint8_t x = p.payload[idx + 2];
@@ -408,7 +429,8 @@ void NetworkClient::handleUdpPacket(const Packet &p)
                 off = expectedMonsters;
             }
 
-            if (p.payload.size() >= off + 2) {
+            if (p.payload.size() >= off + 2)
+            {
                 seq = (p.payload[off] << 8) | p.payload[off + 1];
                 hasSeq = true;
             }
@@ -420,7 +442,8 @@ void NetworkClient::handleUdpPacket(const Packet &p)
         std::vector<MonsterState> monsters;
         uint16_t seq = 0;
         bool hasSeq = false;
-        if (!parseSnapshot(7, true, players, bullets, monsters, seq, hasSeq)) {
+        if (!parseSnapshot(7, true, players, bullets, monsters, seq, hasSeq))
+        {
             players.clear();
             bullets.clear();
             monsters.clear();
@@ -432,11 +455,14 @@ void NetworkClient::handleUdpPacket(const Packet &p)
         _lastSnapshot = std::move(players);
         _lastSnapshotBullets = std::move(bullets);
         _lastSnapshotMonsters = std::move(monsters);
-        if (hasSeq) {
-            if (_hasSnapshotSeq) {
+        if (hasSeq)
+        {
+            if (_hasSnapshotSeq)
+            {
                 uint16_t expected = static_cast<uint16_t>(_lastSnapshotSeq + 1);
                 uint16_t diff = static_cast<uint16_t>(seq - expected);
-                if (diff > 0) {
+                if (diff > 0)
+                {
                     _snapshotLost += diff;
                 }
             }
@@ -445,11 +471,11 @@ void NetworkClient::handleUdpPacket(const Packet &p)
             _hasSnapshotSeq = true;
         }
         _events.push_back("SNAPSHOT");
-    } else if (p.type == PacketType::PONG_UDP && p.payload.size() >= 4) {
-        uint32_t ts = (static_cast<uint32_t>(p.payload[0]) << 24)
-                    | (static_cast<uint32_t>(p.payload[1]) << 16)
-                    | (static_cast<uint32_t>(p.payload[2]) << 8)
-                    | static_cast<uint32_t>(p.payload[3]);
+    }
+    else if (p.type == PacketType::PONG_UDP && p.payload.size() >= 4)
+    {
+        uint32_t ts = (static_cast<uint32_t>(p.payload[0]) << 24) | (static_cast<uint32_t>(p.payload[1]) << 16) |
+                      (static_cast<uint32_t>(p.payload[2]) << 8) | static_cast<uint32_t>(p.payload[3]);
         uint32_t now = static_cast<uint32_t>(nowMs() & 0xFFFFFFFFu);
         _udpPingMs = static_cast<int>(now - ts);
     }
@@ -458,9 +484,11 @@ void NetworkClient::handleUdpPacket(const Packet &p)
 bool NetworkClient::writeAll(socket_t fd, const uint8_t *data, std::size_t size)
 {
     std::size_t total = 0;
-    while (total < size) {
+    while (total < size)
+    {
         ssize_t n = send(fd, reinterpret_cast<const char *>(data + total), size - total, 0);
-        if (n <= 0) {
+        if (n <= 0)
+        {
             std::cerr << "FALSE" << std::endl;
             return false;
         }
@@ -486,11 +514,13 @@ NetworkClient::RecvResult NetworkClient::receiveTcpFramed(Packet &p)
 
 void NetworkClient::disconnect()
 {
-    if (_tcpFd != -1) {
+    if (_tcpFd != -1)
+    {
         CLOSE(_tcpFd);
         _tcpFd = -1;
     }
-    if (_udpFd != -1) {
+    if (_udpFd != -1)
+    {
         CLOSE(_udpFd);
         _udpFd = -1;
     }
@@ -501,7 +531,8 @@ void NetworkClient::disconnect()
 
 void NetworkClient::disconnectUdp()
 {
-    if (_udpFd != -1) {
+    if (_udpFd != -1)
+    {
         CLOSE(_udpFd);
         _udpFd = -1;
     }
@@ -569,7 +600,8 @@ long long NetworkClient::nowMs() const
 
 void NetworkClient::updateUdpRates(long long now)
 {
-    if (_udpRateWindowStartMs == 0) {
+    if (_udpRateWindowStartMs == 0)
+    {
         _udpRateWindowStartMs = now;
         return;
     }

@@ -13,23 +13,24 @@
 #include <limits>
 #include <random>
 
-namespace {
-    constexpr float monsterHalf = 9.0f;  // ~18x18 in client
-    constexpr float bossHalf = 22.0f;
-    constexpr float bulletHalf = 3.0f;   // ~6x6 in client
-    constexpr float playerHalfX = 16.5f; // ~33x17 in client
-    constexpr float playerHalfY = 8.5f;
-    constexpr bool kLogSpawn = false;
-    constexpr bool kLogBullets = false;
-    constexpr uint8_t kDefaultPlayerHp = 5;
-    constexpr long long kPlayerHitCooldownMs = 500;
-    constexpr int kKillScore = 10;
-    constexpr uint16_t kBossScoreThreshold = 10;
-    constexpr int8_t kBossHp = 5;
-    constexpr int8_t kBossBulletMinVx = -12;
-    constexpr int8_t kBossBulletMaxVx = -6;
-    constexpr int8_t kBossBulletMaxVy = 6;
-}
+namespace
+{
+constexpr float monsterHalf = 9.0f; // ~18x18 in client
+constexpr float bossHalf = 22.0f;
+constexpr float bulletHalf = 3.0f;   // ~6x6 in client
+constexpr float playerHalfX = 16.5f; // ~33x17 in client
+constexpr float playerHalfY = 8.5f;
+constexpr bool kLogSpawn = false;
+constexpr bool kLogBullets = false;
+constexpr uint8_t kDefaultPlayerHp = 5;
+constexpr long long kPlayerHitCooldownMs = 500;
+constexpr int kKillScore = 10;
+constexpr uint16_t kBossScoreThreshold = 10;
+constexpr int8_t kBossHp = 5;
+constexpr int8_t kBossBulletMinVx = -12;
+constexpr int8_t kBossBulletMaxVx = -6;
+constexpr int8_t kBossBulletMaxVy = 6;
+} // namespace
 
 void GameWorld::registerPlayer(int id, uint8_t x, uint8_t y, const sockaddr_in &addr)
 {
@@ -77,23 +78,27 @@ void GameWorld::addShot(int id, uint8_t posX, uint8_t posY, int8_t velX, int8_t 
     _bullets.push_back(b);
 
     const std::string prefix = _logPrefix.empty() ? "[UDP] " : _logPrefix;
-    std::cout << prefix << "Player " << id << " fired bullet " << b.id
-              << " from " << static_cast<int>(posX) << "," << static_cast<int>(posY)
-              << " vel " << static_cast<int>(velX) << "," << static_cast<int>(velY) << "\n";
+    std::cout << prefix << "Player " << id << " fired bullet " << b.id << " from " << static_cast<int>(posX) << ","
+              << static_cast<int>(posY) << " vel " << static_cast<int>(velX) << "," << static_cast<int>(velY) << "\n";
 }
 
 void GameWorld::removePlayer(int id)
 {
     _players.erase(id);
     auto it = _bullets.begin();
-    while (it != _bullets.end()) {
-        if (it->ownerId == id) {
+    while (it != _bullets.end())
+    {
+        if (it->ownerId == id)
+        {
             it = _bullets.erase(it);
-        } else {
+        }
+        else
+        {
             ++it;
         }
     }
-    if (_hadPlayers && _players.empty()) {
+    if (_hadPlayers && _players.empty())
+    {
         _noPlayersFlag = true;
     }
 }
@@ -116,12 +121,15 @@ void GameWorld::spawnMonster(long long nowMs)
     int t = typeDist(rng);
     m.kind = t == 0 ? MonsterKind::Sine : MonsterKind::ZigZag;
 
-    if (m.kind == MonsterKind::Sine) {
+    if (m.kind == MonsterKind::Sine)
+    {
         m.amplitude = static_cast<float>(ampDist(rng));
         m.phase = 0.0f;
         m.freq = freqDist(rng);
         m.speedX = -1.3f;
-    } else { // ZigZag
+    }
+    else
+    { // ZigZag
         m.amplitude = 22.0f;
         m.phase = 0.0f;
         m.freq = 0.0f;
@@ -131,9 +139,11 @@ void GameWorld::spawnMonster(long long nowMs)
 
     _monsterSpawnIntervalMs = intervalDist(rng);
     _lastMonsterSpawnMs = nowMs;
-    if (kLogSpawn) {
+    if (kLogSpawn)
+    {
         const std::string prefix = _logPrefix.empty() ? "[UDP] " : _logPrefix;
-        std::cout << prefix << "Spawned monster " << m.id << " at y=" << m.baseY << " kind=" << static_cast<int>(m.kind) << "\n";
+        std::cout << prefix << "Spawned monster " << m.id << " at y=" << m.baseY << " kind=" << static_cast<int>(m.kind)
+                  << "\n";
     }
 }
 
@@ -144,7 +154,8 @@ bool GameWorld::shouldSpawnBoss() const
 
 bool GameWorld::hasBoss() const
 {
-    for (const auto &m : _monsters) {
+    for (const auto &m : _monsters)
+    {
         if (m.kind == MonsterKind::Boss)
             return true;
     }
@@ -216,7 +227,8 @@ void GameWorld::updateBossMovement(MonsterState &boss, long long nowMs, float dt
     std::uniform_real_distribution<float> speedDist(-2.2f, 2.2f);
     std::uniform_int_distribution<int> intervalDist(800, 1600);
 
-    if (nowMs >= boss.nextPatternMs) {
+    if (nowMs >= boss.nextPatternMs)
+    {
         boss.speedX = speedDist(rng);
         boss.speedY = speedDist(rng) * 0.7f;
         boss.nextPatternMs = nowMs + intervalDist(rng);
@@ -229,17 +241,23 @@ void GameWorld::updateBossMovement(MonsterState &boss, long long nowMs, float dt
     constexpr float maxX = 245.0f;
     constexpr float minY = 20.0f;
     constexpr float maxY = 235.0f;
-    if (boss.x < minX) {
+    if (boss.x < minX)
+    {
         boss.x = minX;
         boss.speedX = std::fabs(boss.speedX);
-    } else if (boss.x > maxX) {
+    }
+    else if (boss.x > maxX)
+    {
         boss.x = maxX;
         boss.speedX = -std::fabs(boss.speedX);
     }
-    if (boss.y < minY) {
+    if (boss.y < minY)
+    {
         boss.y = minY;
         boss.speedY = std::fabs(boss.speedY);
-    } else if (boss.y > maxY) {
+    }
+    else if (boss.y > maxY)
+    {
         boss.y = maxY;
         boss.speedY = -std::fabs(boss.speedY);
     }
@@ -249,16 +267,19 @@ void GameWorld::tick(long long nowMs, long long deltaMs)
 {
     bool bossActive = hasBoss();
     bool bossWanted = shouldSpawnBoss();
-    if (bossWanted && !bossActive) {
+    if (bossWanted && !bossActive)
+    {
         spawnBoss(nowMs);
         bossActive = true;
     }
 
-    if (!bossActive && nowMs - _lastMonsterSpawnMs >= _monsterSpawnIntervalMs) {
+    if (!bossActive && nowMs - _lastMonsterSpawnMs >= _monsterSpawnIntervalMs)
+    {
         spawnMonster(nowMs);
     }
 
-    for (auto &kv : _players) {
+    for (auto &kv : _players)
+    {
         auto &p = kv.second;
         int nx = static_cast<int>(p.x) + p.velX;
         int ny = static_cast<int>(p.y) + p.velY;
@@ -270,16 +291,20 @@ void GameWorld::tick(long long nowMs, long long deltaMs)
         p.velY = 0;
     }
 
-    for (auto &kv : _players) {
+    for (auto &kv : _players)
+    {
         auto &p = kv.second;
         if (p.hp == 0)
             continue;
-        for (const auto &m : _monsters) {
+        for (const auto &m : _monsters)
+        {
             float half = (m.kind == MonsterKind::Boss) ? bossHalf : monsterHalf;
             float dx = std::fabs(m.x - static_cast<float>(p.x));
             float dy = std::fabs(m.y - static_cast<float>(p.y));
-            if (dx <= half + playerHalfX && dy <= half + playerHalfY) {
-                if (nowMs - p.lastHitMs >= kPlayerHitCooldownMs) {
+            if (dx <= half + playerHalfX && dy <= half + playerHalfY)
+            {
+                if (nowMs - p.lastHitMs >= kPlayerHitCooldownMs)
+                {
                     int newHp = std::max(0, static_cast<int>(p.hp) - 1);
                     p.hp = static_cast<uint8_t>(newHp);
                     p.lastHitMs = nowMs;
@@ -290,10 +315,12 @@ void GameWorld::tick(long long nowMs, long long deltaMs)
     }
 
     auto it = _bullets.begin();
-    while (it != _bullets.end()) {
+    while (it != _bullets.end())
+    {
         int nx = static_cast<int>(it->x) + it->velX;
         int ny = static_cast<int>(it->y) + it->velY;
-        if (nx < 0 || nx > 255 || ny < 0 || ny > 255) {
+        if (nx < 0 || nx > 255 || ny < 0 || ny > 255)
+        {
             it = _bullets.erase(it);
             continue;
         }
@@ -303,18 +330,22 @@ void GameWorld::tick(long long nowMs, long long deltaMs)
     }
 
     std::vector<bool> eraseBullet(_bullets.size(), false);
-    for (std::size_t bi = 0; bi < _bullets.size(); ++bi) {
+    for (std::size_t bi = 0; bi < _bullets.size(); ++bi)
+    {
         const auto &b = _bullets[bi];
         if (b.ownerId >= 0)
             continue;
-        for (auto &kv : _players) {
+        for (auto &kv : _players)
+        {
             auto &p = kv.second;
             if (p.hp == 0)
                 continue;
             float dx = std::fabs(static_cast<float>(b.x) - static_cast<float>(p.x));
             float dy = std::fabs(static_cast<float>(b.y) - static_cast<float>(p.y));
-            if (dx <= bulletHalf + playerHalfX && dy <= bulletHalf + playerHalfY) {
-                if (nowMs - p.lastHitMs >= kPlayerHitCooldownMs) {
+            if (dx <= bulletHalf + playerHalfX && dy <= bulletHalf + playerHalfY)
+            {
+                if (nowMs - p.lastHitMs >= kPlayerHitCooldownMs)
+                {
                     int newHp = std::max(0, static_cast<int>(p.hp) - 1);
                     p.hp = static_cast<uint8_t>(newHp);
                     p.lastHitMs = nowMs;
@@ -326,22 +357,26 @@ void GameWorld::tick(long long nowMs, long long deltaMs)
     }
 
     std::vector<int> bulletsToErase;
-    for (std::size_t bi = 0; bi < _bullets.size(); ++bi) {
+    for (std::size_t bi = 0; bi < _bullets.size(); ++bi)
+    {
         if (eraseBullet[bi])
             continue;
         const auto &b = _bullets[bi];
         if (b.ownerId < 0)
             continue;
         bool hit = false;
-        for (auto &m : _monsters) {
+        for (auto &m : _monsters)
+        {
             if (m.hp <= 0)
                 continue;
             float half = (m.kind == MonsterKind::Boss) ? bossHalf : monsterHalf;
             float dx = std::fabs(m.x - static_cast<float>(b.x));
             float dy = std::fabs(m.y - static_cast<float>(b.y));
-            if (dx <= half + bulletHalf && dy <= half + bulletHalf) {
+            if (dx <= half + bulletHalf && dy <= half + bulletHalf)
+            {
                 m.hp = static_cast<int8_t>(m.hp - 1);
-                if (m.hp <= 0) {
+                if (m.hp <= 0)
+                {
                     int maxScore = std::numeric_limits<uint16_t>::max();
                     int newScore = std::min<int>(_lobbyScore + kKillScore, maxScore);
                     _lobbyScore = static_cast<uint16_t>(newScore);
@@ -350,41 +385,53 @@ void GameWorld::tick(long long nowMs, long long deltaMs)
                 break;
             }
         }
-        if (hit) {
+        if (hit)
+        {
             bulletsToErase.push_back(static_cast<int>(bi));
             _monsterKilled += 1;
             std::cerr << "Monster killed: " << (int)_monsterKilled << std::endl;
         }
     }
-    for (std::size_t bi = 0; bi < eraseBullet.size(); ++bi) {
+    for (std::size_t bi = 0; bi < eraseBullet.size(); ++bi)
+    {
         if (eraseBullet[bi])
             bulletsToErase.push_back(static_cast<int>(bi));
     }
     std::sort(bulletsToErase.rbegin(), bulletsToErase.rend());
-    for (int idx : bulletsToErase) {
+    for (int idx : bulletsToErase)
+    {
         if (idx >= 0 && static_cast<std::size_t>(idx) < _bullets.size())
             _bullets.erase(_bullets.begin() + idx);
     }
 
     auto mIt = _monsters.begin();
-    while (mIt != _monsters.end()) {
-        if (mIt->hp <= 0) {
-            if (mIt->kind == MonsterKind::Boss) {
+    while (mIt != _monsters.end())
+    {
+        if (mIt->hp <= 0)
+        {
+            if (mIt->kind == MonsterKind::Boss)
+            {
                 _bossDefeatedFlag = true;
             }
             mIt = _monsters.erase(mIt);
-        } else {
+        }
+        else
+        {
             ++mIt;
         }
     }
 
     float dtSec = static_cast<float>(deltaMs) / 1000.0f;
     auto mit = _monsters.begin();
-    while (mit != _monsters.end()) {
-        if (mit->kind == MonsterKind::Boss) {
+    while (mit != _monsters.end())
+    {
+        if (mit->kind == MonsterKind::Boss)
+        {
             updateBossMovement(*mit, nowMs, dtSec);
-            if (nowMs >= mit->nextShotMs) {
-                static std::mt19937 rng(static_cast<unsigned long>(std::chrono::steady_clock::now().time_since_epoch().count()));
+            if (nowMs >= mit->nextShotMs)
+            {
+                static std::mt19937 rng(
+                    static_cast<unsigned long>(std::chrono::steady_clock::now().time_since_epoch().count()));
                 std::uniform_int_distribution<int> intervalDist(350, 700);
                 spawnBossBullet(*mit, nowMs);
                 mit->nextShotMs = nowMs + intervalDist(rng);
@@ -396,25 +443,33 @@ void GameWorld::tick(long long nowMs, long long deltaMs)
         mit->phase += mit->freq * dtSec;
         mit->x += mit->speedX * dtSec * 32.0f;
         float oscillation = 0.0f;
-        if (mit->kind == MonsterKind::Sine) {
+        if (mit->kind == MonsterKind::Sine)
+        {
             oscillation = std::sin(mit->phase);
-        } else { // ZigZag: alternate up/down every ~0.4s
+        }
+        else
+        { // ZigZag: alternate up/down every ~0.4s
             float period = 0.4f;
             float phaseT = std::fmod(static_cast<float>(nowMs) / 1000.0f, period * 2.0f);
             oscillation = (phaseT < period) ? 1.0f : -1.0f;
         }
         mit->y = mit->baseY + mit->amplitude * oscillation;
-        if (mit->x < -5.0f || mit->y < -5.0f || mit->y > 260.0f) {
+        if (mit->x < -5.0f || mit->y < -5.0f || mit->y > 260.0f)
+        {
             mit = _monsters.erase(mit);
-        } else {
+        }
+        else
+        {
             ++mit;
         }
     }
 
-    if (kLogBullets && !_bullets.empty()) {
+    if (kLogBullets && !_bullets.empty())
+    {
         const std::string prefix = _logPrefix.empty() ? "[UDP] " : _logPrefix;
         std::cout << prefix << "Bullets: ";
-        for (const auto &b : _bullets) {
+        for (const auto &b : _bullets)
+        {
             std::cout << b.id << "(" << static_cast<int>(b.x) << "," << static_cast<int>(b.y) << ") ";
         }
         std::cout << "\n";
@@ -427,7 +482,8 @@ Packet GameWorld::buildSnapshotPacket()
     payload.reserve(2 + _players.size() * 7 + _bullets.size() * 6 + _monsters.size() * 6);
 
     payload.push_back(static_cast<uint8_t>(_players.size()));
-    for (const auto &kv : _players) {
+    for (const auto &kv : _players)
+    {
         const auto &p = kv.second;
         payload.push_back(static_cast<uint8_t>((p.id >> 8) & 0xFF));
         payload.push_back(static_cast<uint8_t>(p.id & 0xFF));
@@ -439,7 +495,8 @@ Packet GameWorld::buildSnapshotPacket()
     }
 
     payload.push_back(static_cast<uint8_t>(_bullets.size()));
-    for (const auto &b : _bullets) {
+    for (const auto &b : _bullets)
+    {
         payload.push_back(static_cast<uint8_t>((b.id >> 8) & 0xFF));
         payload.push_back(static_cast<uint8_t>(b.id & 0xFF));
         payload.push_back(b.x);
@@ -449,7 +506,8 @@ Packet GameWorld::buildSnapshotPacket()
     }
 
     payload.push_back(static_cast<uint8_t>(_monsters.size()));
-    for (const auto &m : _monsters) {
+    for (const auto &m : _monsters)
+    {
         payload.push_back(static_cast<uint8_t>((m.id >> 8) & 0xFF));
         payload.push_back(static_cast<uint8_t>(m.id & 0xFF));
         payload.push_back(static_cast<uint8_t>(std::clamp<int>(static_cast<int>(m.x), 0, 255)));

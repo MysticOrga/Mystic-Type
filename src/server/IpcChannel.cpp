@@ -32,7 +32,7 @@ bool IpcChannel::bindServer(void)
     _addr.sin_family = AF_INET;
     _addr.sin_port = htons(0);
     _addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
-    if (::bind(_sockfd, reinterpret_cast<sockaddr*>(&_addr), sizeof(_addr)) == -1)
+    if (::bind(_sockfd, reinterpret_cast<sockaddr *>(&_addr), sizeof(_addr)) == -1)
     {
         std::cerr << "Bind failed" << std::endl;
         CLOSE(_sockfd);
@@ -40,7 +40,7 @@ bool IpcChannel::bindServer(void)
     }
 
     socklen_t addrLen = sizeof(_addr);
-    if (getsockname(_sockfd, reinterpret_cast<sockaddr*>(&_addr), &addrLen) == -1)
+    if (getsockname(_sockfd, reinterpret_cast<sockaddr *>(&_addr), &addrLen) == -1)
     {
         std::cerr << "getsockname failed" << std::endl;
         CLOSE(_sockfd);

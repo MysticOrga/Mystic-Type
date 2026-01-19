@@ -23,9 +23,11 @@ void SessionManager::removeById(int id)
 {
     std::lock_guard<std::mutex> lock(_mutex);
     auto it = _sessions.find(id);
-    if (it != _sessions.end()) {
+    if (it != _sessions.end())
+    {
         _sessions.erase(it);
-        if (_onRemove) {
+        if (_onRemove)
+        {
             _onRemove(id);
         }
     }
@@ -34,14 +36,19 @@ void SessionManager::removeById(int id)
 void SessionManager::removeByFd(int fd)
 {
     std::lock_guard<std::mutex> lock(_mutex);
-    for (auto it = _sessions.begin(); it != _sessions.end(); ) {
-        if (it->second.tcpFd == fd) {
+    for (auto it = _sessions.begin(); it != _sessions.end();)
+    {
+        if (it->second.tcpFd == fd)
+        {
             int id = it->second.id;
             it = _sessions.erase(it);
-            if (_onRemove) {
+            if (_onRemove)
+            {
                 _onRemove(id);
             }
-        } else {
+        }
+        else
+        {
             ++it;
         }
     }
@@ -114,7 +121,8 @@ std::optional<std::string> SessionManager::getPseudo(int id) const
 
 void SessionManager::resetCounter(long nowMs, long &lastMs, int &count, int limit)
 {
-    if (nowMs - lastMs >= 1000) {
+    if (nowMs - lastMs >= 1000)
+    {
         lastMs = nowMs;
         count = 0;
     }

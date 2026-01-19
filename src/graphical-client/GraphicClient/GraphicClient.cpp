@@ -31,33 +31,42 @@ bool GraphicClient::init()
     _spriteRenderSystem.setGameAreaOffset(GAME_AREA_OFFSET_X, GAME_AREA_OFFSET_Y, GAME_AREA_SIZE);
     _rectangleRenderSystem.setGameAreaOffset(GAME_AREA_OFFSET_X, GAME_AREA_OFFSET_Y, GAME_AREA_SIZE);
 
-    if (!_hasServerConfig) {
-        if (!selectMainMenu()) {
+    if (!_hasServerConfig)
+    {
+        if (!selectMainMenu())
+        {
             _lastInitError = "selectMainMenu failed";
             return false;
         }
     }
 
-    if (!_hasPseudo) {
-        if (!selectPseudo()) {
+    if (!_hasPseudo)
+    {
+        if (!selectPseudo())
+        {
             _lastInitError = "selectPseudo failed";
             return false;
         }
         _hasPseudo = true;
     }
-    if (!_net.isConnected()) {
-        if (!_net.connectToServer()) {
+    if (!_net.isConnected())
+    {
+        if (!_net.connectToServer())
+        {
             _lastInitError = "connectToServer failed";
             std::cerr << "[CLIENT] " << _lastInitError << "\n";
             return false;
         }
-        if (!_net.performHandshake()) {
+        if (!_net.performHandshake())
+        {
             _lastInitError = "performHandshake failed";
             std::cerr << "[CLIENT] " << _lastInitError << "\n";
             return false;
         }
         std::cout << "[CLIENT] Assigned ID " << _net.getPlayerId() << "\n";
-    } else if (!_net.ensureUdp()) {
+    }
+    else if (!_net.ensureUdp())
+    {
         _lastInitError = "ensureUdp failed";
         std::cerr << "[CLIENT] " << _lastInitError << "\n";
         return false;
@@ -85,8 +94,8 @@ Entity GraphicClient::createPlayerEntity(float x, float y)
     Entity ent = _ecs.createEntity();
     _ecs.addComponent(ent, Position{x, y});
     _ecs.addComponent(ent, Velocity{0, 0});
-    auto sprite = std::make_shared<Rtype::Graphic::AnimatedSprite>(
-        "../../sprites/r-typesheet42.gif", Vector2{33, 17}, Vector2{0, 0}, 4, 0.15f, Vector2{x, y});
+    auto sprite = std::make_shared<Rtype::Graphic::AnimatedSprite>("../../sprites/r-typesheet42.gif", Vector2{33, 17},
+                                                                   Vector2{0, 0}, 4, 0.15f, Vector2{x, y});
     _ecs.addComponent(ent, Sprite{sprite});
     return ent;
 }
@@ -105,25 +114,23 @@ Entity GraphicClient::createMonsterEntity(float x, float y, uint8_t type)
     Entity ent = _ecs.createEntity();
     _ecs.addComponent(ent, Position{x, y});
     _ecs.addComponent(ent, Velocity{0, 0});
-    
+
     // Create animated sprite for monster
     // Spritesheet: 205x18, 17 sprites, so each sprite is ~12x18
     // Type 1 = Blue (row 0), Type 2 = Red (row 1)
     Vector2 spriteSize{17, 18};
     Vector2 posInSheet{0, static_cast<float>(type - 1)}; // Row based on type
-    auto sprite = std::make_shared<Rtype::Graphic::AnimatedSprite>(
-        "../../sprites/r-typesheet3.gif", 
-        spriteSize, 
-        posInSheet, 
-        12,  // 17 sprites in the sheet
-        0.15f,  // Frame time
-        Vector2{x, y}
-    );
-    if (type == 2) {
+    auto sprite =
+        std::make_shared<Rtype::Graphic::AnimatedSprite>("../../sprites/r-typesheet3.gif", spriteSize, posInSheet,
+                                                         12,    // 17 sprites in the sheet
+                                                         0.15f, // Frame time
+                                                         Vector2{x, y});
+    if (type == 2)
+    {
         sprite->setScale(2.0f, 2.0f);
     }
     _ecs.addComponent(ent, Sprite{sprite});
-    
+
     return ent;
 }
 
@@ -286,7 +293,8 @@ void GraphicClient::processNetworkEvents()
         _returnToLobbyAt = std::chrono::steady_clock::now() + std::chrono::seconds(delaySeconds);
     };
 
-    for (int i = 0; i < 64; ++i) {
+    for (int i = 0; i < 64; ++i)
+    {
         if (!_net.pollPackets())
             break;
     }
@@ -341,9 +349,11 @@ void GraphicClient::processNetworkEvents()
             else if (msg.rfind("CHAT:", 0) == 0)
             {
                 std::string line = msg.substr(5);
-                if (!_localPseudo.empty() && !_lastChatSent.empty()) {
+                if (!_localPseudo.empty() && !_lastChatSent.empty())
+                {
                     std::string expected = _localPseudo + ": " + _lastChatSent;
-                    if (line == expected) {
+                    if (line == expected)
+                    {
                         _lastChatSent.clear();
                         continue;
                     }
@@ -358,9 +368,12 @@ void GraphicClient::processNetworkEvents()
                 _chatLog.push_back("[SYS] " + sysMsg);
                 if (_chatLog.size() > 8)
                     _chatLog.erase(_chatLog.begin());
-                if (sysMsg == "Boss defeated - win") {
+                if (sysMsg == "Boss defeated - win")
+                {
                     scheduleReturnToLobby("Victoire: boss vaincu", 5);
-                } else if (sysMsg == "No players left - game over") {
+                }
+                else if (sysMsg == "No players left - game over")
+                {
                     requestReturnToLobby("Defaite: boss gagne");
                 }
             }
@@ -734,8 +747,8 @@ bool GraphicClient::selectPseudo()
         Raylib::Draw::text(display.c_str(), static_cast<int>(inputX + (inputWidth - textW) / 2.0f),
                            static_cast<int>(inputY + 18), 32, {220, 240, 255, 255});
 
-        Raylib::Draw::text("Press Enter to continue", static_cast<int>(inputX),
-                           static_cast<int>(inputY + 90), 18, {150, 200, 255, 200});
+        Raylib::Draw::text("Press Enter to continue", static_cast<int>(inputX), static_cast<int>(inputY + 90), 18,
+                           {150, 200, 255, 200});
 
         if (submitNow || Raylib::Input::isKeyPressed(KEY_ENTER) || Raylib::Input::isKeyPressed(KEY_KP_ENTER))
         {
@@ -796,25 +809,25 @@ void GraphicClient::render(float dt)
         }
     }
     std::string hpText = hasHp ? ("HP: " + std::to_string(myHp)) : "HP: --";
-    Raylib::Draw::text(hpText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
-                       static_cast<int>(GAME_AREA_OFFSET_Y) + 12, 24, {255, 255, 255, 230});
+    Raylib::Draw::text(hpText, static_cast<int>(GAME_AREA_OFFSET_X) + 12, static_cast<int>(GAME_AREA_OFFSET_Y) + 12, 24,
+                       {255, 255, 255, 230});
     std::string scoreText = hasScore ? ("SCORE: " + std::to_string(myScore)) : "SCORE: --";
-    Raylib::Draw::text(scoreText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
-                       static_cast<int>(GAME_AREA_OFFSET_Y) + 40, 22, {255, 255, 255, 210});
+    Raylib::Draw::text(scoreText, static_cast<int>(GAME_AREA_OFFSET_X) + 12, static_cast<int>(GAME_AREA_OFFSET_Y) + 40,
+                       22, {255, 255, 255, 210});
     int pingMs = _net.getUdpPingMs();
     std::string pingText = pingMs >= 0 ? ("PING: " + std::to_string(pingMs) + " ms") : "PING: --";
-    Raylib::Draw::text(pingText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
-                       static_cast<int>(GAME_AREA_OFFSET_Y) + 66, 20, {200, 220, 255, 220});
+    Raylib::Draw::text(pingText, static_cast<int>(GAME_AREA_OFFSET_X) + 12, static_cast<int>(GAME_AREA_OFFSET_Y) + 66,
+                       20, {200, 220, 255, 220});
     int lossPct = static_cast<int>(_net.getUdpLossPct() + 0.5f);
     std::string lossText = "LOSS: " + std::to_string(lossPct) + "%";
-    Raylib::Draw::text(lossText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
-                       static_cast<int>(GAME_AREA_OFFSET_Y) + 88, 20, {200, 220, 255, 220});
+    Raylib::Draw::text(lossText, static_cast<int>(GAME_AREA_OFFSET_X) + 12, static_cast<int>(GAME_AREA_OFFSET_Y) + 88,
+                       20, {200, 220, 255, 220});
     int rxBps = static_cast<int>(_net.getUdpRxKbps() * 1000.0f + 0.5f);
     int txBps = static_cast<int>(_net.getUdpTxKbps() * 1000.0f + 0.5f);
     std::string bwText = "UDP: " + std::to_string(rxBps) + " bps RX / " + std::to_string(txBps) + " bps TX";
-    Raylib::Draw::text(bwText, static_cast<int>(GAME_AREA_OFFSET_X) + 12,
-                       static_cast<int>(GAME_AREA_OFFSET_Y) + 110, 18, {180, 210, 240, 210});
-    
+    Raylib::Draw::text(bwText, static_cast<int>(GAME_AREA_OFFSET_X) + 12, static_cast<int>(GAME_AREA_OFFSET_Y) + 110,
+                       18, {180, 210, 240, 210});
+
     // Display lobby code
     std::string lobbyCode = _net.getLobbyCode();
     if (!lobbyCode.empty())
@@ -863,8 +876,10 @@ void GraphicClient::gameLoop()
         float dt = _window.getFrameTime();
         // std::cerr << "before processing network event" << i << std::endl;
         processNetworkEvents();
-        if (_pendingReturnToLobby) {
-            if (std::chrono::steady_clock::now() >= _returnToLobbyAt) {
+        if (_pendingReturnToLobby)
+        {
+            if (std::chrono::steady_clock::now() >= _returnToLobbyAt)
+            {
                 std::cerr << "[CLIENT] " << _pendingReturnReason << "\n";
                 _net.disconnectUdp();
                 _forceExit = true;
@@ -944,13 +959,15 @@ void GraphicClient::gameLoop()
             }
             else if (Raylib::Input::isKeyPressed(KEY_ENTER))
             {
-                if (!_chatInput.empty()) {
+                if (!_chatInput.empty())
+                {
                     std::string name = _localPseudo.empty() ? "Me" : _localPseudo;
                     _chatLog.push_back(name + ": " + _chatInput);
                     if (_chatLog.size() > 8)
                         _chatLog.erase(_chatLog.begin());
                     _lastChatSent = _chatInput;
-                    if (!_net.sendChat(_chatInput)) {
+                    if (!_net.sendChat(_chatInput))
+                    {
                         _chatLog.push_back("[SYS] sendChat failed");
                         if (_chatLog.size() > 8)
                             _chatLog.erase(_chatLog.begin());
@@ -967,15 +984,16 @@ void GraphicClient::gameLoop()
         // std::cerr << "after render" << i << std::endl;
         // i++;
     }
-
 }
 
 int GraphicClient::run()
 {
     while (!_window.shouldClose())
     {
-        if (!init()) {
-            std::cerr << "[CLIENT] init failed (" << (_lastInitError.empty() ? "unknown" : _lastInitError) << "), retrying...\n";
+        if (!init())
+        {
+            std::cerr << "[CLIENT] init failed (" << (_lastInitError.empty() ? "unknown" : _lastInitError)
+                      << "), retrying...\n";
             std::this_thread::sleep_for(std::chrono::milliseconds(500));
             continue;
         }
@@ -1051,21 +1069,19 @@ bool GraphicClient::selectMainMenu()
         Rectangle ipBox{inputX, inputY, inputWidth, inputHeight};
         Color ipBorderColor = ipFocused ? Color{150, 220, 255, 255} : Color{100, 150, 200, 200};
         Color ipBgColor = ipFocused ? Color{20, 50, 100, 220} : Color{15, 40, 80, 200};
-        
+
         Raylib::Draw::rectangleLines(static_cast<int>(ipBox.x) - 2, static_cast<int>(ipBox.y) - 2,
                                      static_cast<int>(ipBox.width) + 4, static_cast<int>(ipBox.height) + 4,
                                      ipBorderColor);
-        Raylib::Draw::rectangle(static_cast<int>(ipBox.x), static_cast<int>(ipBox.y),
-                                static_cast<int>(ipBox.width), static_cast<int>(ipBox.height),
-                                ipBgColor);
+        Raylib::Draw::rectangle(static_cast<int>(ipBox.x), static_cast<int>(ipBox.y), static_cast<int>(ipBox.width),
+                                static_cast<int>(ipBox.height), ipBgColor);
 
         // Port Input Box
         const float portX = inputX + inputWidth + spacing;
         Rectangle portBox{portX, inputY, inputWidth, inputHeight};
 
         // Port Label
-        Raylib::Draw::text("PORT", static_cast<int>(portX), static_cast<int>(inputY - 40), 20,
-                           {200, 220, 255, 255});
+        Raylib::Draw::text("PORT", static_cast<int>(portX), static_cast<int>(inputY - 40), 20, {200, 220, 255, 255});
 
         Color portBorderColor = portFocused ? Color{150, 220, 255, 255} : Color{100, 150, 200, 200};
         Color portBgColor = portFocused ? Color{20, 50, 100, 220} : Color{15, 40, 80, 200};
@@ -1074,8 +1090,7 @@ bool GraphicClient::selectMainMenu()
                                      static_cast<int>(portBox.width) + 4, static_cast<int>(portBox.height) + 4,
                                      portBorderColor);
         Raylib::Draw::rectangle(static_cast<int>(portBox.x), static_cast<int>(portBox.y),
-                                static_cast<int>(portBox.width), static_cast<int>(portBox.height),
-                                portBgColor);
+                                static_cast<int>(portBox.width), static_cast<int>(portBox.height), portBgColor);
 
         // Handle mouse clicks on input boxes
         Vector2 mousePos = GetMousePosition();
@@ -1171,8 +1186,7 @@ bool GraphicClient::selectMainMenu()
         Color playBgColor = playHovered ? Color{100, 220, 255, 200} : Color{50, 150, 200, 150};
         Color playBorderColor = playHovered ? Color{150, 240, 255, 255} : Color{100, 200, 255, 200};
         Raylib::Draw::rectangle(static_cast<int>(playButton.x), static_cast<int>(playButton.y),
-                                static_cast<int>(playButton.width), static_cast<int>(playButton.height),
-                                playBgColor);
+                                static_cast<int>(playButton.width), static_cast<int>(playButton.height), playBgColor);
         Raylib::Draw::rectangleLines(static_cast<int>(playButton.x) - 1, static_cast<int>(playButton.y) - 1,
                                      static_cast<int>(playButton.width) + 2, static_cast<int>(playButton.height) + 2,
                                      playBorderColor);
@@ -1188,8 +1202,8 @@ bool GraphicClient::selectMainMenu()
                                 static_cast<int>(settingsButton.width), static_cast<int>(settingsButton.height),
                                 settingsBgColor);
         Raylib::Draw::rectangleLines(static_cast<int>(settingsButton.x) - 1, static_cast<int>(settingsButton.y) - 1,
-                                     static_cast<int>(settingsButton.width) + 2, static_cast<int>(settingsButton.height) + 2,
-                                     settingsBorderColor);
+                                     static_cast<int>(settingsButton.width) + 2,
+                                     static_cast<int>(settingsButton.height) + 2, settingsBorderColor);
         int settingsTextW = MeasureText("SETTINGS", 24);
         Raylib::Draw::text("SETTINGS", static_cast<int>(settingsButtonX + (buttonWidth - settingsTextW) / 2.0f),
                            static_cast<int>(buttonY + 12), 24,
@@ -1233,95 +1247,184 @@ std::string GraphicClient::keyboardKeyToString(KeyboardKey key)
 {
     switch (key)
     {
-    case KEY_NULL: return "NULL";
-    case KEY_APOSTROPHE: return "'";
-    case KEY_COMMA: return ",";
-    case KEY_MINUS: return "-";
-    case KEY_PERIOD: return ".";
-    case KEY_SLASH: return "/";
-    case KEY_ZERO: return "0";
-    case KEY_ONE: return "1";
-    case KEY_TWO: return "2";
-    case KEY_THREE: return "3";
-    case KEY_FOUR: return "4";
-    case KEY_FIVE: return "5";
-    case KEY_SIX: return "6";
-    case KEY_SEVEN: return "7";
-    case KEY_EIGHT: return "8";
-    case KEY_NINE: return "9";
-    case KEY_SEMICOLON: return ";";
-    case KEY_EQUAL: return "=";
-    case KEY_A: return "A";
-    case KEY_B: return "B";
-    case KEY_C: return "C";
-    case KEY_D: return "D";
-    case KEY_E: return "E";
-    case KEY_F: return "F";
-    case KEY_G: return "G";
-    case KEY_H: return "H";
-    case KEY_I: return "I";
-    case KEY_J: return "J";
-    case KEY_K: return "K";
-    case KEY_L: return "L";
-    case KEY_M: return "M";
-    case KEY_N: return "N";
-    case KEY_O: return "O";
-    case KEY_P: return "P";
-    case KEY_Q: return "Q";
-    case KEY_R: return "R";
-    case KEY_S: return "S";
-    case KEY_T: return "T";
-    case KEY_U: return "U";
-    case KEY_V: return "V";
-    case KEY_W: return "W";
-    case KEY_X: return "X";
-    case KEY_Y: return "Y";
-    case KEY_Z: return "Z";
-    case KEY_LEFT_BRACKET: return "[";
-    case KEY_BACKSLASH: return "\\";
-    case KEY_RIGHT_BRACKET: return "]";
-    case KEY_GRAVE: return "`";
-    case KEY_SPACE: return "SPACE";
-    case KEY_ESCAPE: return "ESC";
-    case KEY_ENTER: return "ENTER";
-    case KEY_TAB: return "TAB";
-    case KEY_BACKSPACE: return "BACKSPACE";
-    case KEY_INSERT: return "INSERT";
-    case KEY_DELETE: return "DELETE";
-    case KEY_RIGHT: return "RIGHT";
-    case KEY_LEFT: return "LEFT";
-    case KEY_DOWN: return "DOWN";
-    case KEY_UP: return "UP";
-    case KEY_PAGE_UP: return "PAGEUP";
-    case KEY_PAGE_DOWN: return "PAGEDOWN";
-    case KEY_HOME: return "HOME";
-    case KEY_END: return "END";
-    case KEY_CAPS_LOCK: return "CAPSLOCK";
-    case KEY_SCROLL_LOCK: return "SCROLLLOCK";
-    case KEY_NUM_LOCK: return "NUMLOCK";
-    case KEY_PRINT_SCREEN: return "PRINTSCREEN";
-    case KEY_PAUSE: return "PAUSE";
-    case KEY_F1: return "F1";
-    case KEY_F2: return "F2";
-    case KEY_F3: return "F3";
-    case KEY_F4: return "F4";
-    case KEY_F5: return "F5";
-    case KEY_F6: return "F6";
-    case KEY_F7: return "F7";
-    case KEY_F8: return "F8";
-    case KEY_F9: return "F9";
-    case KEY_F10: return "F10";
-    case KEY_F11: return "F11";
-    case KEY_F12: return "F12";
-    case KEY_LEFT_SHIFT: return "LSHIFT";
-    case KEY_LEFT_CONTROL: return "LCTRL";
-    case KEY_LEFT_ALT: return "LALT";
-    case KEY_LEFT_SUPER: return "LSUPER";
-    case KEY_RIGHT_SHIFT: return "RSHIFT";
-    case KEY_RIGHT_CONTROL: return "RCTRL";
-    case KEY_RIGHT_ALT: return "RALT";
-    case KEY_RIGHT_SUPER: return "RSUPER";
-    default: return "UNKNOWN";
+    case KEY_NULL:
+        return "NULL";
+    case KEY_APOSTROPHE:
+        return "'";
+    case KEY_COMMA:
+        return ",";
+    case KEY_MINUS:
+        return "-";
+    case KEY_PERIOD:
+        return ".";
+    case KEY_SLASH:
+        return "/";
+    case KEY_ZERO:
+        return "0";
+    case KEY_ONE:
+        return "1";
+    case KEY_TWO:
+        return "2";
+    case KEY_THREE:
+        return "3";
+    case KEY_FOUR:
+        return "4";
+    case KEY_FIVE:
+        return "5";
+    case KEY_SIX:
+        return "6";
+    case KEY_SEVEN:
+        return "7";
+    case KEY_EIGHT:
+        return "8";
+    case KEY_NINE:
+        return "9";
+    case KEY_SEMICOLON:
+        return ";";
+    case KEY_EQUAL:
+        return "=";
+    case KEY_A:
+        return "A";
+    case KEY_B:
+        return "B";
+    case KEY_C:
+        return "C";
+    case KEY_D:
+        return "D";
+    case KEY_E:
+        return "E";
+    case KEY_F:
+        return "F";
+    case KEY_G:
+        return "G";
+    case KEY_H:
+        return "H";
+    case KEY_I:
+        return "I";
+    case KEY_J:
+        return "J";
+    case KEY_K:
+        return "K";
+    case KEY_L:
+        return "L";
+    case KEY_M:
+        return "M";
+    case KEY_N:
+        return "N";
+    case KEY_O:
+        return "O";
+    case KEY_P:
+        return "P";
+    case KEY_Q:
+        return "Q";
+    case KEY_R:
+        return "R";
+    case KEY_S:
+        return "S";
+    case KEY_T:
+        return "T";
+    case KEY_U:
+        return "U";
+    case KEY_V:
+        return "V";
+    case KEY_W:
+        return "W";
+    case KEY_X:
+        return "X";
+    case KEY_Y:
+        return "Y";
+    case KEY_Z:
+        return "Z";
+    case KEY_LEFT_BRACKET:
+        return "[";
+    case KEY_BACKSLASH:
+        return "\\";
+    case KEY_RIGHT_BRACKET:
+        return "]";
+    case KEY_GRAVE:
+        return "`";
+    case KEY_SPACE:
+        return "SPACE";
+    case KEY_ESCAPE:
+        return "ESC";
+    case KEY_ENTER:
+        return "ENTER";
+    case KEY_TAB:
+        return "TAB";
+    case KEY_BACKSPACE:
+        return "BACKSPACE";
+    case KEY_INSERT:
+        return "INSERT";
+    case KEY_DELETE:
+        return "DELETE";
+    case KEY_RIGHT:
+        return "RIGHT";
+    case KEY_LEFT:
+        return "LEFT";
+    case KEY_DOWN:
+        return "DOWN";
+    case KEY_UP:
+        return "UP";
+    case KEY_PAGE_UP:
+        return "PAGEUP";
+    case KEY_PAGE_DOWN:
+        return "PAGEDOWN";
+    case KEY_HOME:
+        return "HOME";
+    case KEY_END:
+        return "END";
+    case KEY_CAPS_LOCK:
+        return "CAPSLOCK";
+    case KEY_SCROLL_LOCK:
+        return "SCROLLLOCK";
+    case KEY_NUM_LOCK:
+        return "NUMLOCK";
+    case KEY_PRINT_SCREEN:
+        return "PRINTSCREEN";
+    case KEY_PAUSE:
+        return "PAUSE";
+    case KEY_F1:
+        return "F1";
+    case KEY_F2:
+        return "F2";
+    case KEY_F3:
+        return "F3";
+    case KEY_F4:
+        return "F4";
+    case KEY_F5:
+        return "F5";
+    case KEY_F6:
+        return "F6";
+    case KEY_F7:
+        return "F7";
+    case KEY_F8:
+        return "F8";
+    case KEY_F9:
+        return "F9";
+    case KEY_F10:
+        return "F10";
+    case KEY_F11:
+        return "F11";
+    case KEY_F12:
+        return "F12";
+    case KEY_LEFT_SHIFT:
+        return "LSHIFT";
+    case KEY_LEFT_CONTROL:
+        return "LCTRL";
+    case KEY_LEFT_ALT:
+        return "LALT";
+    case KEY_LEFT_SUPER:
+        return "LSUPER";
+    case KEY_RIGHT_SHIFT:
+        return "RSHIFT";
+    case KEY_RIGHT_CONTROL:
+        return "RCTRL";
+    case KEY_RIGHT_ALT:
+        return "RALT";
+    case KEY_RIGHT_SUPER:
+        return "RSUPER";
+    default:
+        return "UNKNOWN";
     }
 }
 
@@ -1361,15 +1464,13 @@ bool GraphicClient::selectSettings()
         for (int i = 3; i > 0; i--)
         {
             Color glowColor = {100, 150, 255, static_cast<unsigned char>(30 - i * 10)};
-            Raylib::Draw::rectangleLines(
-                static_cast<int>(windowX - i), static_cast<int>(windowY - i),
-                static_cast<int>(windowWidth + i * 2), static_cast<int>(windowHeight + i * 2),
-                glowColor);
+            Raylib::Draw::rectangleLines(static_cast<int>(windowX - i), static_cast<int>(windowY - i),
+                                         static_cast<int>(windowWidth + i * 2), static_cast<int>(windowHeight + i * 2),
+                                         glowColor);
         }
 
-        Raylib::Draw::rectangle(static_cast<int>(windowX), static_cast<int>(windowY),
-                                static_cast<int>(windowWidth), static_cast<int>(windowHeight),
-                                Color{15, 40, 80, 255});
+        Raylib::Draw::rectangle(static_cast<int>(windowX), static_cast<int>(windowY), static_cast<int>(windowWidth),
+                                static_cast<int>(windowHeight), Color{15, 40, 80, 255});
         Raylib::Draw::rectangleLines(static_cast<int>(windowX) - 2, static_cast<int>(windowY) - 2,
                                      static_cast<int>(windowWidth) + 4, static_cast<int>(windowHeight) + 4,
                                      Color{100, 200, 255, 255});
@@ -1411,12 +1512,11 @@ bool GraphicClient::selectSettings()
             int index;
         };
 
-        KeyBinding bindings[] = {
-            {"Up", &upKey, 0},
-            {"Down", &downKey, 1},
-            {"Left", &leftKey, 2},
-            {"Right", &rightKey, 3},
-            {"Shoot", &shootKey, 4}};
+        KeyBinding bindings[] = {{"Up", &upKey, 0},
+                                 {"Down", &downKey, 1},
+                                 {"Left", &leftKey, 2},
+                                 {"Right", &rightKey, 3},
+                                 {"Shoot", &shootKey, 4}};
 
         for (int i = 0; i < 5; i++)
         {
@@ -1426,12 +1526,12 @@ bool GraphicClient::selectSettings()
             bool isHovered = CheckCollisionPointRec(mousePos, button);
             bool isSelected = (selectedButton == i && waitingForKey);
 
-            Color bgColor = isSelected ? Color{150, 100, 255, 220}
-                          : isHovered ? Color{100, 220, 255, 200}
-                          : Color{50, 150, 200, 150};
-            Color borderColor = isSelected ? Color{200, 150, 255, 255}
-                              : isHovered ? Color{150, 240, 255, 255}
-                              : Color{100, 200, 255, 200};
+            Color bgColor = isSelected  ? Color{150, 100, 255, 220}
+                            : isHovered ? Color{100, 220, 255, 200}
+                                        : Color{50, 150, 200, 150};
+            Color borderColor = isSelected  ? Color{200, 150, 255, 255}
+                                : isHovered ? Color{150, 240, 255, 255}
+                                            : Color{100, 200, 255, 200};
 
             // Draw button background
             Raylib::Draw::rectangle(static_cast<int>(button.x), static_cast<int>(button.y),
@@ -1450,17 +1550,16 @@ bool GraphicClient::selectSettings()
             }
 
             Raylib::Draw::rectangleLines(static_cast<int>(button.x) - 1, static_cast<int>(button.y) - 1,
-                                         static_cast<int>(button.width) + 2,
-                                         static_cast<int>(button.height) + 2, borderColor);
+                                         static_cast<int>(button.width) + 2, static_cast<int>(button.height) + 2,
+                                         borderColor);
 
             // Label
             const char *label = bindings[i].label;
             int labelWidth = MeasureText(label, 18);
-            Color textColor = isSelected ? Color{255, 200, 100, 255}
-                            : isHovered ? Color{255, 255, 255, 255}
-                            : Color{220, 240, 255, 255};
-            Raylib::Draw::text(label, static_cast<int>(startX + 20), static_cast<int>(buttonY + 10), 18,
-                               textColor);
+            Color textColor = isSelected  ? Color{255, 200, 100, 255}
+                              : isHovered ? Color{255, 255, 255, 255}
+                                          : Color{220, 240, 255, 255};
+            Raylib::Draw::text(label, static_cast<int>(startX + 20), static_cast<int>(buttonY + 10), 18, textColor);
 
             // Key name - convert KeyboardKey to string representation
             std::string keyDisplay;
@@ -1534,8 +1633,8 @@ bool GraphicClient::selectSettings()
         }
 
         Raylib::Draw::rectangleLines(static_cast<int>(closeButton.x) - 1, static_cast<int>(closeButton.y) - 1,
-                                     static_cast<int>(closeButton.width) + 2,
-                                     static_cast<int>(closeButton.height) + 2, closeBorderColor);
+                                     static_cast<int>(closeButton.width) + 2, static_cast<int>(closeButton.height) + 2,
+                                     closeBorderColor);
 
         int closeTextW = MeasureText("CLOSE", 20);
         Raylib::Draw::text("CLOSE", static_cast<int>(closeButtonX + (closeButtonWidth - closeTextW) / 2.0f),
@@ -1572,4 +1671,3 @@ bool GraphicClient::selectSettings()
 
     return true;
 }
-

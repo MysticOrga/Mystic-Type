@@ -7,12 +7,13 @@
 
 #pragma once
 
+#include <cstdint>
+#include <optional>
 #include <string>
 #include <unordered_map>
-#include <optional>
-#include <cstdint>
 
-struct ChildInfo {
+struct ChildInfo
+{
     int pid = -1;
     std::string lobbyCode;
     uint16_t udpPort = 0;
@@ -24,9 +25,12 @@ struct ChildInfo {
  *
  * This is a stub: no restart logic, no signal handling, just spawn and track.
  */
-class ChildProcessManager {
-public:
-    explicit ChildProcessManager(std::size_t maxChildren = 64) : _maxChildren(maxChildren) {}
+class ChildProcessManager
+{
+  public:
+    explicit ChildProcessManager(std::size_t maxChildren = 64) : _maxChildren(maxChildren)
+    {
+    }
 
     /**
      * @brief Spawn a UDP game server process.
@@ -47,10 +51,16 @@ public:
      */
     void forget(const std::string &lobby);
 
-    std::size_t activeCount() const { return _children.size(); }
-    std::size_t maxCount() const { return _maxChildren; }
+    std::size_t activeCount() const
+    {
+        return _children.size();
+    }
+    std::size_t maxCount() const
+    {
+        return _maxChildren;
+    }
 
-private:
+  private:
     std::unordered_map<std::string, ChildInfo> _children;
     std::size_t _maxChildren;
 };

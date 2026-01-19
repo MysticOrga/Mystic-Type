@@ -11,7 +11,7 @@
 #include <string>
 // #include <netinet/in.h>
 #ifndef _WIN32
-    #include <sys/select.h>
+#include <sys/select.h>
 #endif
 #include "../TransportLayer/Packet.hpp"
 #include "../TransportLayer/UDP/UDPSocket.hpp"
@@ -20,8 +20,9 @@
 /**
  * @brief TCP+UDP client responsible for handshake, lobby, and gameplay packets.
  */
-class NetworkClient {
-public:
+class NetworkClient
+{
+  public:
     /**
      * @brief Build a client targeting a server address.
      * @param ip IPv4 address as string.
@@ -52,7 +53,13 @@ public:
     /**
      * @brief Input directions for UDP INPUT packets.
      */
-    enum class MoveCmd : uint8_t { Up = 0, Down = 1, Left = 2, Right = 3 };
+    enum class MoveCmd : uint8_t
+    {
+        Up = 0,
+        Down = 1,
+        Left = 2,
+        Right = 3
+    };
     /**
      * @brief Send player input over UDP.
      */
@@ -76,7 +83,10 @@ public:
     /**
      * @brief Set the preferred pseudo for the handshake payload.
      */
-    void setPseudo(const std::string &pseudo) { _pseudo = pseudo; }
+    void setPseudo(const std::string &pseudo)
+    {
+        _pseudo = pseudo;
+    }
     /**
      * @brief Send a UDP ping with client timestamp.
      */
@@ -109,7 +119,10 @@ public:
     /**
      * @brief Return true when TCP is connected.
      */
-    bool isConnected() const { return _tcpConnected; }
+    bool isConnected() const
+    {
+        return _tcpConnected;
+    }
     /**
      * @brief Update remote server address for TCP and UDP.
      */
@@ -118,43 +131,73 @@ public:
     /**
      * @brief Get server-assigned player id.
      */
-    int getPlayerId() const { return _playerId; }
+    int getPlayerId() const
+    {
+        return _playerId;
+    }
     /**
      * @brief Get current lobby code.
      */
-    const std::string &getLobbyCode() const { return _lobbyCode; }
+    const std::string &getLobbyCode() const
+    {
+        return _lobbyCode;
+    }
     /**
      * @brief Get current pseudo.
      */
-    const std::string &getPseudo() const { return _pseudo; }
+    const std::string &getPseudo() const
+    {
+        return _pseudo;
+    }
     /**
      * @brief Get last received player snapshots.
      */
-    const std::vector<PlayerState> &getLastSnapshot() const { return _lastSnapshot; }
+    const std::vector<PlayerState> &getLastSnapshot() const
+    {
+        return _lastSnapshot;
+    }
     /**
      * @brief Get last received bullet snapshots.
      */
-    const std::vector<BulletState> &getLastSnapshotBullets() const { return _lastSnapshotBullets; }
+    const std::vector<BulletState> &getLastSnapshotBullets() const
+    {
+        return _lastSnapshotBullets;
+    }
     /**
      * @brief Get last received monster snapshots.
      */
-    const std::vector<MonsterState> &getLastSnapshotMonsters() const { return _lastSnapshotMonsters; }
+    const std::vector<MonsterState> &getLastSnapshotMonsters() const
+    {
+        return _lastSnapshotMonsters;
+    }
     /**
      * @brief Get last received player list from TCP.
      */
-    const std::vector<PlayerState> &getLastPlayerList() const { return _lastPlayerList; }
+    const std::vector<PlayerState> &getLastPlayerList() const
+    {
+        return _lastPlayerList;
+    }
     /**
      * @brief Get pending network events.
      */
-    const std::vector<std::string> &getEvents() const { return _events; }
+    const std::vector<std::string> &getEvents() const
+    {
+        return _events;
+    }
     /**
      * @brief Clear queued events.
      */
-    void clearEvents() { _events.clear(); }
+    void clearEvents()
+    {
+        _events.clear();
+    }
     /**
      * @brief Last measured UDP RTT in ms.
      */
-    int getUdpPingMs() const { return _udpPingMs; }
+    int getUdpPingMs() const
+    {
+        return _udpPingMs;
+    }
     /**
      * @brief Estimated snapshot loss percentage.
      */
@@ -168,11 +211,16 @@ public:
      */
     float getUdpTxKbps();
 
-private:
+  private:
     /**
      * @brief Result of a framed TCP receive attempt.
      */
-    enum class RecvResult { Disconnected, Incomplete, Ok };
+    enum class RecvResult
+    {
+        Disconnected,
+        Incomplete,
+        Ok
+    };
     bool readTcpPacket(Packet &p);
     bool readUdpPacket(Packet &p);
     bool sendPacketTcp(const Packet &p);

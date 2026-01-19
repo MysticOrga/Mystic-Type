@@ -9,17 +9,17 @@
 
 #include "../Packet.hpp"
 #ifndef _WIN32
-    #include <netinet/in.h>
+#include <netinet/in.h>
 #else
 #define NOMINMAX
-    #include <winsock2.h>
-    constexpr double PI = 3.14159265358979323846;
-    constexpr double HALF_PI = PI / 2.0;
+#include <winsock2.h>
+constexpr double PI = 3.14159265358979323846;
+constexpr double HALF_PI = PI / 2.0;
 
 #endif
+#include <cstdint>
 #include <unordered_map>
 #include <vector>
-#include <cstdint>
 
 /**
  * @brief Server-side authoritative simulation for players, bullets and monsters.
@@ -27,12 +27,14 @@
  * Keeps track of entity states and performs time-based updates (movement, spawn, collisions).
  * All networking code stays in UDPGameServer; this class only handles game logic/state.
  */
-class GameWorld {
-public:
+class GameWorld
+{
+  public:
     /**
      * @brief Server-side player state with last known UDP address.
      */
-    struct PlayerState {
+    struct PlayerState
+    {
         int id = 0;
         uint8_t x = 0;
         uint8_t y = 0;
@@ -48,24 +50,31 @@ public:
     /**
      * @brief Bullet state owned by a player.
      */
-    struct BulletState {
-            int id = 0;
-            int ownerId = 0;
-            uint8_t x = 0;
-            uint8_t y = 0;
-            int8_t velX = 0;
-            int8_t velY = 0;
-        };
+    struct BulletState
+    {
+        int id = 0;
+        int ownerId = 0;
+        uint8_t x = 0;
+        uint8_t y = 0;
+        int8_t velX = 0;
+        int8_t velY = 0;
+    };
 
     /**
      * @brief Monster movement/behavior type.
      */
-    enum class MonsterKind : uint8_t { Sine = 0, ZigZag = 1, Boss = 2 };
+    enum class MonsterKind : uint8_t
+    {
+        Sine = 0,
+        ZigZag = 1,
+        Boss = 2
+    };
 
     /**
      * @brief Monster state tracked by the authoritative server.
      */
-    struct MonsterState {
+    struct MonsterState
+    {
         int id = 0;
         float x = 0;
         float y = 0;
@@ -96,16 +105,16 @@ public:
      */
     void addShot(int id, uint8_t posX, uint8_t posY, int8_t velX, int8_t velY);
 
-        /**
-         * @brief Remove a player and any references to it.
-         */
-        void removePlayer(int id);
+    /**
+     * @brief Remove a player and any references to it.
+     */
+    void removePlayer(int id);
 
-        /**
-         * @brief Advance simulation.
-         * @param nowMs Current time in ms.
-         * @param deltaMs Time since last tick in ms.
-         */
+    /**
+     * @brief Advance simulation.
+     * @param nowMs Current time in ms.
+     * @param deltaMs Time since last tick in ms.
+     */
     void tick(long long nowMs, long long deltaMs);
 
     /**
@@ -127,18 +136,27 @@ public:
     /**
      * @brief True after at least one player has joined.
      */
-    bool hasHadPlayers() const { return _hadPlayers; }
+    bool hasHadPlayers() const
+    {
+        return _hadPlayers;
+    }
 
     /**
      * @brief Access player map (read-only).
      */
-    const std::unordered_map<int, PlayerState> &players() const { return _players; }
+    const std::unordered_map<int, PlayerState> &players() const
+    {
+        return _players;
+    }
     /**
      * @brief Prefix used in log output.
      */
-    void setLogPrefix(const std::string &prefix) { _logPrefix = prefix; }
+    void setLogPrefix(const std::string &prefix)
+    {
+        _logPrefix = prefix;
+    }
 
-private:
+  private:
     void spawnMonster(long long nowMs);
     void spawnBoss(long long nowMs);
     void spawnBossBullet(const MonsterState &boss, long long nowMs);

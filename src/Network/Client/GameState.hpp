@@ -7,14 +7,15 @@
 
 #pragma once
 
+#include <cstdint>
 #include <unordered_map>
 #include <vector>
-#include <cstdint>
 
 /**
  * @brief Lightweight snapshot of a player for client-side rendering.
  */
-struct PlayerState {
+struct PlayerState
+{
     int id = 0;
     uint8_t x = 0;
     uint8_t y = 0;
@@ -25,7 +26,8 @@ struct PlayerState {
 /**
  * @brief Lightweight snapshot of a bullet for client-side rendering.
  */
-struct BulletState {
+struct BulletState
+{
     int id = 0;
     uint8_t x = 0;
     uint8_t y = 0;
@@ -36,7 +38,8 @@ struct BulletState {
 /**
  * @brief Lightweight snapshot of a monster for client-side rendering.
  */
-struct MonsterState {
+struct MonsterState
+{
     int id = 0;
     uint8_t x = 0;
     uint8_t y = 0;
@@ -47,8 +50,9 @@ struct MonsterState {
 /**
  * @brief Client-side container for the latest world state.
  */
-class GameState {
-public:
+class GameState
+{
+  public:
     /**
      * @brief Insert or update a player entry.
      */
@@ -127,7 +131,7 @@ public:
         return res;
     }
 
-private:
+  private:
     std::unordered_map<int, PlayerState> _players;
     std::unordered_map<int, BulletState> _bullets;
     std::unordered_map<int, MonsterState> _monsters;

@@ -7,9 +7,9 @@
 
 #pragma once
 
-#include <string>
-#include <optional>
 #include "../Network/TransportLayer/UDP/UDPSocket.hpp"
+#include <optional>
+#include <string>
 /**
  * @brief Small IPC helper based on a UNIX datagram socket (SOCK_DGRAM).
  *
@@ -19,13 +19,14 @@
  * Messages are short ASCII strings (<= 1024 bytes); this is not a reliable stream
  * protocol but sufficient for READY/ALLOW/etc control signals.
  */
-class IpcChannel {
-public:
+class IpcChannel
+{
+  public:
     IpcChannel() = default;
     ~IpcChannel();
 
-    IpcChannel(const IpcChannel&) = delete;
-    IpcChannel& operator=(const IpcChannel&) = delete;
+    IpcChannel(const IpcChannel &) = delete;
+    IpcChannel &operator=(const IpcChannel &) = delete;
 
     /**
      * @brief Create a socket and bind to a path (server side).
@@ -51,9 +52,9 @@ public:
     std::optional<std::string> recv(int timeoutMs = 0);
 
     /**
-    * @brief get ipc port in string format
-    */
-    inline std::string getport(void) const 
+     * @brief get ipc port in string format
+     */
+    inline std::string getport(void) const
     {
         return std::to_string(ntohs(_addr.sin_port));
     }
@@ -64,11 +65,14 @@ public:
     void close();
 
     /**
-    * @brief return internal sock fd
-    */
-    socket_t fd() const { return _sockfd; }
+     * @brief return internal sock fd
+     */
+    socket_t fd() const
+    {
+        return _sockfd;
+    }
 
-private:
+  private:
     socket_t _sockfd = INVALID_SOCKET_FD;
     sockaddr_in _addr;
     bool _isServer = false;

@@ -11,7 +11,8 @@
 std::vector<uint8_t> Protocol::frameTcp(const Packet &packet)
 {
     std::vector<uint8_t> payload = packet.serialize();
-    if (payload.size() > UINT16_MAX) {
+    if (payload.size() > UINT16_MAX)
+    {
         throw std::runtime_error("Payload too large for framing");
     }
     uint16_t len = static_cast<uint16_t>(payload.size());
@@ -25,17 +26,21 @@ std::vector<uint8_t> Protocol::frameTcp(const Packet &packet)
 
 Protocol::StreamStatus Protocol::extractFromBuffer(std::vector<uint8_t> &recvBuffer, Packet &out)
 {
-    while (recvBuffer.size() >= 2) {
+    while (recvBuffer.size() >= 2)
+    {
         uint16_t len = (static_cast<uint16_t>(recvBuffer[0]) << 8) | recvBuffer[1];
         if (recvBuffer.size() < 2 + len)
             return StreamStatus::Incomplete;
 
         std::vector<uint8_t> pktData(recvBuffer.begin() + 2, recvBuffer.begin() + 2 + len);
         recvBuffer.erase(recvBuffer.begin(), recvBuffer.begin() + 2 + len);
-        try {
+        try
+        {
             out = Packet::deserialize(pktData.data(), pktData.size());
             return StreamStatus::Ok;
-        } catch (const std::exception &) {
+        }
+        catch (const std::exception &)
+        {
             // malformed packet, skip and continue parsing
             continue;
         }
@@ -43,7 +48,8 @@ Protocol::StreamStatus Protocol::extractFromBuffer(std::vector<uint8_t> &recvBuf
     return StreamStatus::Incomplete;
 }
 
-Protocol::StreamStatus Protocol::consumeChunk(const uint8_t *data, std::size_t len, std::vector<uint8_t> &recvBuffer, Packet &out)
+Protocol::StreamStatus Protocol::consumeChunk(const uint8_t *data, std::size_t len, std::vector<uint8_t> &recvBuffer,
+                                              Packet &out)
 {
     if (len == 0)
         return StreamStatus::Incomplete;

@@ -26,7 +26,7 @@ std::vector<uint8_t> Packet::serialize() const
     return buffer;
 }
 
-Packet Packet::deserialize(const uint8_t* data, size_t len)
+Packet Packet::deserialize(const uint8_t *data, size_t len)
 {
     if (len < 4)
         throw std::runtime_error("Packet too small");

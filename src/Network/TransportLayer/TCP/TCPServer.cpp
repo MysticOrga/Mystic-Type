@@ -6,43 +6,46 @@
 */
 
 #include "TCPServer.hpp"
+#include "../Protocol.hpp"
 #include <algorithm>
 #include <chrono>
 #include <cstdint>
 #include <filesystem>
-#include <iostream>
-#include <string>
-#include <random>
-#include <thread>
-#include <filesystem>
 #include <fstream>
-#include "../Protocol.hpp"
+#include <iostream>
+#include <random>
+#include <string>
+#include <thread>
 
-namespace {
-    constexpr uint8_t kDefaultPlayerHp = 5;
-    std::string sanitizePseudo(const std::string &raw)
+namespace
+{
+constexpr uint8_t kDefaultPlayerHp = 5;
+std::string sanitizePseudo(const std::string &raw)
+{
+    std::string out;
+    out.reserve(raw.size());
+    for (char c : raw)
     {
-        std::string out;
-        out.reserve(raw.size());
-        for (char c : raw) {
-            if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
-                || (c >= '0' && c <= '9') || c == '_' || c == '-') {
-                out.push_back(c);
-            }
-            if (out.size() >= 12)
-                break;
+        if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || c == '_' || c == '-')
+        {
+            out.push_back(c);
         }
-        return out;
+        if (out.size() >= 12)
+            break;
     }
+    return out;
 }
+} // namespace
 
 TCPServer::TCPServer(uint16_t port, SessionManager &sessions, ChildProcessManager *childMgr)
     : _sessions(sessions), _childMgr(childMgr)
 {
-    for (auto &c : _clients) {
+    for (auto &c : _clients)
+    {
         c.fd = INVALID_SOCKET_FD;
     }
-    if (!_serverSocket.bindAndListen(port, INADDR_ANY, MAX_CLIENT)) {
+    if (!_serverSocket.bindAndListen(port, INADDR_ANY, MAX_CLIENT))
+    {
         throw std::runtime_error("Failed to start TCP server");
     }
 
@@ -51,7 +54,8 @@ TCPServer::TCPServer(uint16_t port, SessionManager &sessions, ChildProcessManage
 
 TCPServer::~TCPServer()
 {
-    for (auto &c : _clients) {
+    for (auto &c : _clients)
+    {
         resetClient(c);
     }
     _serverSocket.closeSocket();
@@ -64,10 +68,7 @@ Packet TCPServer::makeStringPacket(PacketType type, const std::string &payload)
 
 Packet TCPServer::makeIdPacket(PacketType type, int value)
 {
-    std::vector<uint8_t> payload{
-        static_cast<uint8_t>((value >> 8) & 0xFF),
-        static_cast<uint8_t>(value & 0xFF)
-    };
+    std::vector<uint8_t> payload{static_cast<uint8_t>((value >> 8) & 0xFF), static_cast<uint8_t>(value & 0xFF)};
     return Packet{type, payload};
 }
 
@@ -78,7 +79,8 @@ Packet TCPServer::makeLobbyPacket(PacketType type, const std::string &payload)
 
 void TCPServer::broadcastToLobby(const std::string &lobbyCode, const Packet &packet)
 {
-    for (auto &c : _clients) {
+    for (auto &c : _clients)
+    {
         if (c.fd == INVALID_SOCKET_FD || !c.handshakeDone || c.lobbyCode != lobbyCode)
             continue;
         sendPacket(c.fd, packet);
@@ -87,13 +89,17 @@ void TCPServer::broadcastToLobby(const std::string &lobbyCode, const Packet &pac
 
 bool TCPServer::sendPacket(socket_t fd, const Packet &packet)
 {
-    if (fd == INVALID_SOCKET_FD) {
+    if (fd == INVALID_SOCKET_FD)
+    {
         return false;
     }
     std::vector<uint8_t> framed;
-    try {
+    try
+    {
         framed = Protocol::frameTcp(packet);
-    } catch (const std::exception &) {
+    }
+    catch (const std::exception &)
+    {
         return false;
     }
     return this->writeAll(fd, framed.data(), framed.size());
@@ -101,13 +107,15 @@ bool TCPServer::sendPacket(socket_t fd, const Packet &packet)
 
 TCPServer::RecvResult TCPServer::receivePacket(socket_t fd, Packet &packet, std::vector<uint8_t> &recvBuffer)
 {
-    if (fd == INVALID_SOCKET_FD) {
+    if (fd == INVALID_SOCKET_FD)
+    {
         return RecvResult::Disconnected;
     }
 
     uint8_t tmp[BUFFER_SIZE]{};
     ssize_t n = readFd(fd, tmp, sizeof(tmp));
-    if (n <= 0) {
+    if (n <= 0)
+    {
         return RecvResult::Disconnected;
     }
 
@@ -125,7 +133,10 @@ bool TCPServer::waitForReadable(socket_t fd, int timeoutSec, int timeoutUsec)
     FD_ZERO(&rfds);
     FD_SET(fd, &rfds);
 
-    struct timeval timeout{timeoutSec, timeoutUsec};
+    struct timeval timeout
+    {
+        timeoutSec, timeoutUsec
+    };
 
     int ret = selectFdSet(fd + 1, &rfds, nullptr, nullptr, &timeout);
     return ret > 0 && FD_ISSET(fd, &rfds);
@@ -133,7 +144,8 @@ bool TCPServer::waitForReadable(socket_t fd, int timeoutSec, int timeoutUsec)
 
 void TCPServer::closeFd(socket_t &fd)
 {
-    if (fd != INVALID_SOCKET_FD) {
+    if (fd != INVALID_SOCKET_FD)
+    {
         closeFdRaw(fd);
         fd = INVALID_SOCKET_FD;
     }
@@ -173,14 +185,17 @@ void TCPServer::acceptNewClient()
     setsockopt(clientFd, IPPROTO_TCP, TCP_NODELAY, &flag, sizeof(flag));
 
     int slot = INVALID_SOCKET_FD;
-    for (size_t i = 0; i < _clients.size(); i++) {
-        if (_clients[i].fd == INVALID_SOCKET_FD) {
+    for (size_t i = 0; i < _clients.size(); i++)
+    {
+        if (_clients[i].fd == INVALID_SOCKET_FD)
+        {
             slot = i;
             break;
         }
     }
 
-    if (slot == INVALID_SOCKET_FD) {
+    if (slot == INVALID_SOCKET_FD)
+    {
         sendPacket(clientFd, makeStringPacket(PacketType::REFUSED, "FULL"));
         closeFd(clientFd);
         std::cout << "[SERVER] refused new client (FULL)\n";
@@ -204,9 +219,11 @@ void TCPServer::processClientData(Client &client)
 {
     Packet packet;
     auto res = receivePacket(client.fd, packet, client.recvBuffer);
-    if (res == RecvResult::Disconnected) {
+    if (res == RecvResult::Disconnected)
+    {
         std::cout << "[SERVER] client " << client.id << " disconnected\n";
-        if (client.handshakeDone && !client.lobbyCode.empty()) {
+        if (client.handshakeDone && !client.lobbyCode.empty())
+        {
             std::string sys = "SYS:" + client.pseudo + " disconnected";
             broadcastToLobby(client.lobbyCode, makeStringPacket(PacketType::MESSAGE, sys));
         }
@@ -214,24 +231,29 @@ void TCPServer::processClientData(Client &client)
         return;
     }
 
-    if (res == RecvResult::Incomplete) {
+    if (res == RecvResult::Incomplete)
+    {
         return;
     }
 
-    if (!client.handshakeDone) {
+    if (!client.handshakeDone)
+    {
         std::string payloadStr(packet.payload.begin(), packet.payload.end());
-        if (packet.type != PacketType::CLIENT_HELLO || payloadStr.rfind("toto", 0) != 0) {
+        if (packet.type != PacketType::CLIENT_HELLO || payloadStr.rfind("toto", 0) != 0)
+        {
             sendPacket(client.fd, makeStringPacket(PacketType::REFUSED, "BAD_HANDSHAKE"));
             resetClient(client);
             return;
         }
         std::string pseudo;
         auto sep = payloadStr.find('|');
-        if (sep != std::string::npos && sep + 1 < payloadStr.size()) {
+        if (sep != std::string::npos && sep + 1 < payloadStr.size())
+        {
             pseudo = payloadStr.substr(sep + 1);
         }
         pseudo = sanitizePseudo(pseudo);
-        if (pseudo.empty()) {
+        if (pseudo.empty())
+        {
             pseudo = "Player" + std::to_string(client.id);
         }
         sendPacket(client.fd, makeIdPacket(PacketType::OK, client.id));
@@ -243,80 +265,98 @@ void TCPServer::processClientData(Client &client)
         return;
     }
 
-    if (packet.type == PacketType::PONG) {
+    if (packet.type == PacketType::PONG)
+    {
         client.lastPongTime = getCurrentTime();
         _sessions.updatePong(client.id, client.lastPongTime);
         std::cout << "[SERVER] Received PONG from client " << client.id << std::endl;
         return;
     }
 
-    if (packet.type == PacketType::CREATE_LOBBY || packet.type == PacketType::JOIN_LOBBY) {
+    if (packet.type == PacketType::CREATE_LOBBY || packet.type == PacketType::JOIN_LOBBY)
+    {
         handleLobbyPacket(client, packet);
         return;
     }
 
-    if (packet.type == PacketType::MESSAGE) {
+    if (packet.type == PacketType::MESSAGE)
+    {
         std::cerr << "message\n";
         std::string lobbyCode = client.lobbyCode;
-        if (lobbyCode.empty()) {
+        if (lobbyCode.empty())
+        {
             auto lobbyOpt = _sessions.getLobbyCode(client.id);
             if (lobbyOpt.has_value())
                 lobbyCode = *lobbyOpt;
         }
-        std::cout << "[SERVER] CHAT from id=" << client.id
-                << " lobby=" << (lobbyCode.empty() ? "?" : lobbyCode) << "\n";
-        if (!lobbyCode.empty()) {
+        std::cout << "[SERVER] CHAT from id=" << client.id << " lobby=" << (lobbyCode.empty() ? "?" : lobbyCode)
+                  << "\n";
+        if (!lobbyCode.empty())
+        {
             std::string text(packet.payload.begin(), packet.payload.end());
             std::string clean;
             clean.reserve(text.size());
-            for (char c : text) {
-                if (c >= 32 && c <= 126) {
+            for (char c : text)
+            {
+                if (c >= 32 && c <= 126)
+                {
                     clean.push_back(c);
                 }
                 if (clean.size() >= 120)
                     break;
             }
-            if (!clean.empty()) {
+            if (!clean.empty())
+            {
                 std::string name = client.pseudo;
-                if (name.empty()) {
+                if (name.empty())
+                {
                     auto pseudoOpt = _sessions.getPseudo(client.id);
                     if (pseudoOpt.has_value())
                         name = *pseudoOpt;
                 }
-                if (name.empty()) {
+                if (name.empty())
+                {
                     name = "Player" + std::to_string(client.id);
                 }
                 std::string msg = "CHAT:" + name + ": " + clean;
                 int recipients = 0;
-                for (auto &c : _clients) {
+                for (auto &c : _clients)
+                {
                     if (c.fd != -1 && c.handshakeDone && c.lobbyCode == lobbyCode)
                         recipients++;
                 }
-                std::cout << "[SERVER] Broadcast lobby=" << lobbyCode << " recipients=" << recipients
-                          << " msg=\"" << msg << "\"\n";
+                std::cout << "[SERVER] Broadcast lobby=" << lobbyCode << " recipients=" << recipients << " msg=\""
+                          << msg << "\"\n";
                 broadcastToLobby(lobbyCode, makeStringPacket(PacketType::MESSAGE, msg));
             }
-        } else {
+        }
+        else
+        {
             std::string text(packet.payload.begin(), packet.payload.end());
             std::string clean;
             clean.reserve(text.size());
-            for (char c : text) {
-                if (c >= 32 && c <= 126) {
+            for (char c : text)
+            {
+                if (c >= 32 && c <= 126)
+                {
                     clean.push_back(c);
                 }
                 if (clean.size() >= 120)
                     break;
             }
-            if (!clean.empty()) {
+            if (!clean.empty())
+            {
                 std::string name = client.pseudo.empty() ? ("Player" + std::to_string(client.id)) : client.pseudo;
                 std::string msg = "CHAT:" + name + ": " + clean;
                 int recipients = 0;
-                for (auto &c : _clients) {
+                for (auto &c : _clients)
+                {
                     if (c.fd != -1 && c.handshakeDone)
                         recipients++;
                 }
                 std::cout << "[SERVER] Broadcast ALL recipients=" << recipients << " msg=\"" << msg << "\"\n";
-                for (auto &c : _clients) {
+                for (auto &c : _clients)
+                {
                     if (c.fd != -1 && c.handshakeDone)
                         sendPacket(c.fd, makeStringPacket(PacketType::MESSAGE, msg));
                 }
@@ -327,9 +367,8 @@ void TCPServer::processClientData(Client &client)
 
     std::string payloadStr(packet.payload.begin(), packet.payload.end());
     std::cout << "[SERVER] (" << client.id << ") packet type " << static_cast<int>(packet.type)
-            << " payload: " << payloadStr << std::endl;
+              << " payload: " << payloadStr << std::endl;
 }
-
 
 long TCPServer::getCurrentTime()
 {
@@ -337,11 +376,12 @@ long TCPServer::getCurrentTime()
     return duration_cast<seconds>(steady_clock::now().time_since_epoch()).count();
 }
 
-
 void TCPServer::sendPingToAll()
 {
-    for (auto &c : _clients) {
-        if (c.fd != -1 && c.handshakeDone) {
+    for (auto &c : _clients)
+    {
+        if (c.fd != -1 && c.handshakeDone)
+        {
             std::cout << "[SERVER] Sending PING to client " << c.id << std::endl;
             sendPacket(c.fd, Packet(PacketType::PING, {}));
         }
@@ -352,20 +392,26 @@ void TCPServer::checkHeartbeat()
 {
     long now = getCurrentTime();
 
-    for (auto &c : _clients) {
+    for (auto &c : _clients)
+    {
         if (c.fd == -1)
             continue;
 
-        if (!c.handshakeDone) {
-            if (now - c.handshakeStart > 3) {
+        if (!c.handshakeDone)
+        {
+            if (now - c.handshakeStart > 3)
+            {
                 sendPacket(c.fd, makeStringPacket(PacketType::REFUSED, "TIMEOUT"));
                 resetClient(c);
             }
             continue;
         }
-        if (now - c.lastPongTime > 10) {
-            std::cout << "[SERVER] Client " << c.id << " timed out (no PONG for " << (now - c.lastPongTime) << "s)" << std::endl;
-            if (c.handshakeDone && !c.lobbyCode.empty()) {
+        if (now - c.lastPongTime > 10)
+        {
+            std::cout << "[SERVER] Client " << c.id << " timed out (no PONG for " << (now - c.lastPongTime) << "s)"
+                      << std::endl;
+            if (c.handshakeDone && !c.lobbyCode.empty())
+            {
                 std::string sys = "SYS:" + c.pseudo + " disconnected";
                 broadcastToLobby(c.lobbyCode, makeStringPacket(PacketType::MESSAGE, sys));
             }
@@ -376,7 +422,8 @@ void TCPServer::checkHeartbeat()
 
 void TCPServer::processIpcMessages()
 {
-    for (auto &kv : _lobbies) {
+    for (auto &kv : _lobbies)
+    {
         auto &ipc = kv.second.ipc;
         if (!ipc)
             continue;
@@ -386,50 +433,67 @@ void TCPServer::processIpcMessages()
             if (!msgOpt.has_value())
                 break;
             const std::string &msg = *msgOpt;
-            if (msg.rfind("BOSS_DEAD:", 0) == 0) {
+            if (msg.rfind("BOSS_DEAD:", 0) == 0)
+            {
                 std::string lobbyCode = msg.substr(10);
-                if (!lobbyCode.empty()) {
+                if (!lobbyCode.empty())
+                {
                     broadcastToLobby(lobbyCode, makeStringPacket(PacketType::MESSAGE, "SYS:Boss defeated - win"));
                 }
                 continue;
             }
-            if (msg.rfind("NO_PLAYERS:", 0) == 0) {
+            if (msg.rfind("NO_PLAYERS:", 0) == 0)
+            {
                 std::string lobbyCode = msg.substr(11);
-                if (!lobbyCode.empty()) {
-                    broadcastToLobby(lobbyCode, makeStringPacket(PacketType::MESSAGE, "SYS:No players left - game over"));
+                if (!lobbyCode.empty())
+                {
+                    broadcastToLobby(lobbyCode,
+                                     makeStringPacket(PacketType::MESSAGE, "SYS:No players left - game over"));
                     auto lobbyIt = _lobbies.find(lobbyCode);
-                    if (lobbyIt != _lobbies.end()) {
+                    if (lobbyIt != _lobbies.end())
+                    {
                         lobbyIt->second.udpPort = 0;
-                        if (lobbyIt->second.ipc) {
+                        if (lobbyIt->second.ipc)
+                        {
                             lobbyIt->second.ipc->close();
                             lobbyIt->second.ipc.reset();
                         }
                     }
-                    if (_childMgr) {
+                    if (_childMgr)
+                    {
                         _childMgr->forget(lobbyCode);
                     }
                 }
                 break;
             }
-            if (msg.rfind("BOSS:", 0) == 0) {
+            if (msg.rfind("BOSS:", 0) == 0)
+            {
                 std::string lobbyCode = msg.substr(5);
-                if (!lobbyCode.empty()) {
+                if (!lobbyCode.empty())
+                {
                     broadcastToLobby(lobbyCode, makeStringPacket(PacketType::MESSAGE, "SYS:Boss spawned"));
                 }
                 continue;
             }
-            if (msg.rfind("DEAD:", 0) == 0) {
+            if (msg.rfind("DEAD:", 0) == 0)
+            {
                 int id = 0;
-                try {
+                try
+                {
                     id = std::stoi(msg.substr(5));
-                } catch (const std::exception &) {
+                }
+                catch (const std::exception &)
+                {
                     continue;
                 }
                 if (id <= 0)
                     continue;
-                for (auto &c : _clients) {
-                    if (c.fd != -1 && c.id == id) {
-                        if (!c.lobbyCode.empty()) {
+                for (auto &c : _clients)
+                {
+                    if (c.fd != -1 && c.id == id)
+                    {
+                        if (!c.lobbyCode.empty())
+                        {
                             std::string sys = "SYS:" + c.pseudo + " died";
                             broadcastToLobby(c.lobbyCode, makeStringPacket(PacketType::MESSAGE, sys));
                         }
@@ -447,10 +511,12 @@ void TCPServer::run()
 {
     long lastPing = getCurrentTime();
 
-    while (true) {
+    while (true)
+    {
         processIpcMessages();
         long now = getCurrentTime();
-        if (now - lastPing >= 5) {
+        if (now - lastPing >= 5)
+        {
             sendPingToAll();
             checkHeartbeat();
             lastPing = now;
@@ -462,17 +528,21 @@ void TCPServer::run()
         int maxFd = _serverSocket.getSocketFd();
         FD_SET(_serverSocket.getSocketFd(), &readfds);
 
-        for (auto &c : _clients) {
-            if (c.fd != -1) {
+        for (auto &c : _clients)
+        {
+            if (c.fd != -1)
+            {
                 FD_SET(c.fd, &readfds);
                 maxFd = maxFd > c.fd ? maxFd : c.fd;
             }
         }
-        for (const auto &kv : _lobbies) {
+        for (const auto &kv : _lobbies)
+        {
             if (!kv.second.ipc)
                 continue;
             int ipcFd = kv.second.ipc->fd();
-            if (ipcFd != -1) {
+            if (ipcFd != -1)
+            {
                 FD_SET(ipcFd, &readfds);
                 maxFd = std::max(maxFd, ipcFd);
             }
@@ -483,31 +553,38 @@ void TCPServer::run()
         tv.tv_usec = 1000;
 
         int activity = pollSockets(readfds, maxFd, tv);
-        if (activity < 0) {
+        if (activity < 0)
+        {
             continue;
         }
 
-        if (activity == 0) {
+        if (activity == 0)
+        {
             std::this_thread::sleep_for(std::chrono::milliseconds(1));
             continue;
         }
 
-        for (const auto &kv : _lobbies) {
+        for (const auto &kv : _lobbies)
+        {
             if (!kv.second.ipc)
                 continue;
             int ipcFd = kv.second.ipc->fd();
-            if (ipcFd != -1 && FD_ISSET(ipcFd, &readfds)) {
+            if (ipcFd != -1 && FD_ISSET(ipcFd, &readfds))
+            {
                 processIpcMessages();
                 break;
             }
         }
 
-        if (FD_ISSET(_serverSocket.getSocketFd(), &readfds)) {
+        if (FD_ISSET(_serverSocket.getSocketFd(), &readfds))
+        {
             acceptNewClient();
         }
 
-        for (auto &c : _clients) {
-            if (c.fd != -INVALID_SOCKET_FD && FD_ISSET(c.fd, &readfds)) {
+        for (auto &c : _clients)
+        {
+            if (c.fd != -INVALID_SOCKET_FD && FD_ISSET(c.fd, &readfds))
+            {
                 processClientData(c);
             }
         }
@@ -537,9 +614,11 @@ int TCPServer::closeFdRaw(socket_t fd)
 bool TCPServer::writeAll(socket_t fd, const uint8_t *data, std::size_t size)
 {
     std::size_t total = 0;
-    while (total < size) {
+    while (total < size)
+    {
         ssize_t n = writeFd(fd, data + total, size - total);
-        if (n <= 0) {
+        if (n <= 0)
+        {
             return false;
         }
         total += static_cast<std::size_t>(n);
@@ -554,7 +633,8 @@ Packet TCPServer::buildPlayerListPacket(const std::string &lobbyCode) const
     payload.push_back(0); // placeholder for count
     uint8_t count = 0;
 
-    for (const auto &c : _clients) {
+    for (const auto &c : _clients)
+    {
         if (c.fd == -1 || !c.handshakeDone || c.lobbyCode != lobbyCode)
             continue;
         ++count;
@@ -577,16 +657,13 @@ void TCPServer::sendPlayerListToClient(const Client &client)
 
 void TCPServer::broadcastNewPlayer(const Client &newClient)
 {
-    std::vector<uint8_t> payload{
-        static_cast<uint8_t>((newClient.id >> 8) & 0xFF),
-        static_cast<uint8_t>(newClient.id & 0xFF),
-        newClient.posX,
-        newClient.posY,
-        newClient.hp
-    };
+    std::vector<uint8_t> payload{static_cast<uint8_t>((newClient.id >> 8) & 0xFF),
+                                 static_cast<uint8_t>(newClient.id & 0xFF), newClient.posX, newClient.posY,
+                                 newClient.hp};
     Packet pkt(PacketType::NEW_PLAYER, payload);
 
-    for (auto &c : _clients) {
+    for (auto &c : _clients)
+    {
         if (c.fd == -1 || !c.handshakeDone || c.id == newClient.id || c.lobbyCode != newClient.lobbyCode)
             continue;
         sendPacket(c.fd, pkt);
@@ -595,7 +672,8 @@ void TCPServer::broadcastNewPlayer(const Client &newClient)
 
 void TCPServer::refreshLobby(const std::string &code)
 {
-    for (auto &c : _clients) {
+    for (auto &c : _clients)
+    {
         if (c.fd == -1 || !c.handshakeDone || c.lobbyCode != code)
             continue;
         sendPlayerListToClient(c);
@@ -609,8 +687,10 @@ std::string TCPServer::generateLobbyCode()
     std::uniform_int_distribution<int> dist(0, static_cast<int>(sizeof(chars) - 2));
 
     std::string code(6, 'A');
-    do {
-        for (auto &ch : code) {
+    do
+    {
+        for (auto &ch : code)
+        {
             ch = chars[dist(rng)];
         }
     } while (_lobbies.find(code) != _lobbies.end());
@@ -627,7 +707,8 @@ void TCPServer::removeFromLobby(const Client &client)
         return;
 
     auto it = _lobbies.find(code);
-    if (it != _lobbies.end()) {
+    if (it != _lobbies.end())
+    {
         auto &vec = it->second.players;
         vec.erase(std::remove(vec.begin(), vec.end(), client.id), vec.end());
     }
@@ -649,29 +730,34 @@ void TCPServer::ensureLobbyProcess(const std::string &code, bool isPublic)
     auto it = _lobbies.find(code);
     if (it == _lobbies.end())
         return;
-    if (it->second.udpPort == 0) {
+    if (it->second.udpPort == 0)
+    {
         it->second.udpPort = allocatePort();
     }
-    if (_childMgr) {
-        if (!it->second.ipc) {
+    if (_childMgr)
+    {
+        if (!it->second.ipc)
+        {
             it->second.ipc = std::make_unique<IpcChannel>();
-            if (!it->second.ipc->bindServer()) {
+            if (!it->second.ipc->bindServer())
+            {
                 std::cerr << "[PARENT] Failed to bind IPC" << std::endl;
             }
         }
         _childMgr->spawn(code, it->second.udpPort, it->second.ipc->getport());
-        std::cout << "[PARENT] UDP servers active " << _childMgr->activeCount()
-                  << "/" << _childMgr->maxCount() << "\n";
+        std::cout << "[PARENT] UDP servers active " << _childMgr->activeCount() << "/" << _childMgr->maxCount() << "\n";
     }
     (void)isPublic;
 }
 
-bool TCPServer::assignLobby(Client &client, const std::string &code, bool createIfMissing, bool isPublic, bool allowFull)
+bool TCPServer::assignLobby(Client &client, const std::string &code, bool createIfMissing, bool isPublic,
+                            bool allowFull)
 {
     removeFromLobby(client);
 
     auto it = _lobbies.find(code);
-    if (it == _lobbies.end()) {
+    if (it == _lobbies.end())
+    {
         if (!createIfMissing)
             return false;
         _lobbies[code] = LobbyInfo{isPublic, {}, 0};
@@ -686,7 +772,8 @@ bool TCPServer::assignLobby(Client &client, const std::string &code, bool create
     client.lobbyCode = code;
     _clientLobby[client.id] = code;
     _sessions.setLobbyCode(client.id, code);
-    if (it->second.udpPort == 0) {
+    if (it->second.udpPort == 0)
+    {
         ensureLobbyProcess(code, isPublic);
     }
     return true;
@@ -704,10 +791,12 @@ void TCPServer::handleLobbyPacket(Client &client, const Packet &packet)
     if (!client.handshakeDone)
         return;
 
-    if (packet.type == PacketType::CREATE_LOBBY) {
+    if (packet.type == PacketType::CREATE_LOBBY)
+    {
         std::cout << "[SERVER] client " << client.id << " requested CREATE_LOBBY\n";
         std::string code = generateLobbyCode();
-        if (!assignLobby(client, code, true, false, true)) {
+        if (!assignLobby(client, code, true, false, true))
+        {
             sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_ERROR, "INVALID_STATE"));
             return;
         }
@@ -722,29 +811,37 @@ void TCPServer::handleLobbyPacket(Client &client, const Packet &packet)
         return;
     }
 
-    if (packet.type == PacketType::JOIN_LOBBY) {
+    if (packet.type == PacketType::JOIN_LOBBY)
+    {
         std::string code(packet.payload.begin(), packet.payload.end());
         bool isAutoPublic = (code == "PUBLIC");
         if (code.empty())
             code = "PUBLIC";
 
         std::cout << "[SERVER] client " << client.id << " requested JOIN_LOBBY " << code << "\n";
-        if (!isAutoPublic) {
+        if (!isAutoPublic)
+        {
             auto it = _lobbies.find(code);
-            if (it == _lobbies.end()) {
+            if (it == _lobbies.end())
+            {
                 sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_ERROR, "UNKNOWN_CODE"));
                 return;
             }
-            if (it->second.players.size() >= MAX_CLIENT) {
+            if (it->second.players.size() >= MAX_CLIENT)
+            {
                 sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_ERROR, "FULL"));
                 return;
             }
-            if (!assignLobby(client, code, false, it->second.isPublic)) {
+            if (!assignLobby(client, code, false, it->second.isPublic))
+            {
                 sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_ERROR, "INVALID_STATE"));
                 return;
             }
-        } else {
-            if (!assignLobby(client, code, true, true, false)) {
+        }
+        else
+        {
+            if (!assignLobby(client, code, true, true, false))
+            {
                 sendPacket(client.fd, makeLobbyPacket(PacketType::LOBBY_ERROR, "INVALID_STATE"));
                 return;
             }
