@@ -1,0 +1,266 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="GameWorld_8hpp" kind="file" language="C++">
+    <compoundname>GameWorld.hpp</compoundname>
+    <includes refid="Packet_8hpp" local="yes">../Packet.hpp</includes>
+    <includes local="no">netinet/in.h</includes>
+    <includes local="no">unordered_map</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">cstdint</includes>
+    <includedby refid="GameWorld_8cpp" local="yes">Network/TransportLayer/UDP/GameWorld.cpp</includedby>
+    <includedby refid="UDPGameServer_8hpp" local="yes">Network/TransportLayer/UDP/UDPGameServer.hpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>../Packet.hpp</label>
+        <link refid="Packet_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Network/TransportLayer/UDP/GameWorld.hpp</label>
+        <link refid="GameWorld_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>cstdint</label>
+      </node>
+      <node id="6">
+        <label>netinet/in.h</label>
+      </node>
+      <node id="4">
+        <label>stdexcept</label>
+      </node>
+      <node id="7">
+        <label>unordered_map</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/game.cpp</label>
+        <link refid="game_8cpp"/>
+      </node>
+      <node id="5">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/server.cpp</label>
+        <link refid="server_8cpp"/>
+      </node>
+      <node id="2">
+        <label>Network/TransportLayer/UDP/GameWorld.cpp</label>
+        <link refid="GameWorld_8cpp"/>
+      </node>
+      <node id="1">
+        <label>Network/TransportLayer/UDP/GameWorld.hpp</label>
+        <link refid="GameWorld_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Network/TransportLayer/UDP/UDPGameServer.cpp</label>
+        <link refid="UDPGameServer_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Network/TransportLayer/UDP/UDPGameServer.hpp</label>
+        <link refid="UDPGameServer_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classGameWorld" prot="public">GameWorld</innerclass>
+    <innerclass refid="structGameWorld_1_1PlayerState" prot="public">GameWorld::PlayerState</innerclass>
+    <innerclass refid="structGameWorld_1_1BulletState" prot="public">GameWorld::BulletState</innerclass>
+    <innerclass refid="structGameWorld_1_1MonsterState" prot="public">GameWorld::MonsterState</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">**<sp/>EPITECH<sp/>PROJECT,<sp/>2025</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">**<sp/>Mystic-Type</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">**<sp/>File<sp/>description:</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">**<sp/>Game<sp/>world<sp/>state<sp/>and<sp/>simulation<sp/>(server<sp/>authoritative)</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Packet.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;netinet/in.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>NOMINMAX</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;winsock2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>PI<sp/>=<sp/>3.14159265358979323846;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>HALF_PI<sp/>=<sp/>PI<sp/>/<sp/>2.0;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="24"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Server-side<sp/>authoritative<sp/>simulation<sp/>for<sp/>players,<sp/>bullets<sp/>and<sp/>monsters.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>Keeps<sp/>track<sp/>of<sp/>entity<sp/>states<sp/>and<sp/>performs<sp/>time-based<sp/>updates<sp/>(movement,<sp/>spawn,<sp/>collisions).</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>All<sp/>networking<sp/>code<sp/>stays<sp/>in<sp/>UDPGameServer;<sp/>this<sp/>class<sp/>only<sp/>handles<sp/>game<sp/>logic/state.</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="classGameWorld" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classGameWorld" kindref="compound">GameWorld</ref><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Server-side<sp/>player<sp/>state<sp/>with<sp/>last<sp/>known<sp/>UDP<sp/>address.</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="structGameWorld_1_1PlayerState" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structGameWorld_1_1PlayerState" kindref="compound">PlayerState</ref><sp/>{</highlight></codeline>
+<codeline lineno="36" refid="structGameWorld_1_1PlayerState_1aec2879faa08a3a7ddfddb8339f2fc494" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="37" refid="structGameWorld_1_1PlayerState_1a1a76d0194ace7a4a8a8b8bd36487e556" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structGameWorld_1_1PlayerState_1a1a76d0194ace7a4a8a8b8bd36487e556" kindref="member">x</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="38" refid="structGameWorld_1_1PlayerState_1aef36112dadc8e7b63888208fa84b2738" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structGameWorld_1_1PlayerState_1aef36112dadc8e7b63888208fa84b2738" kindref="member">y</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="39" refid="structGameWorld_1_1PlayerState_1aa513e1a6e2ccfaf1cb46850b982ba310" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structGameWorld_1_1PlayerState_1aa513e1a6e2ccfaf1cb46850b982ba310" kindref="member">hp</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="40" refid="structGameWorld_1_1PlayerState_1ab0dfb20c2c7c738a5e77d9936d2cb99a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="structGameWorld_1_1PlayerState_1ab0dfb20c2c7c738a5e77d9936d2cb99a" kindref="member">score</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="41" refid="structGameWorld_1_1PlayerState_1ae037aca79756ec39ca8a8f9d0b5c96ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sockaddr_in<sp/><ref refid="structGameWorld_1_1PlayerState_1ae037aca79756ec39ca8a8f9d0b5c96ee" kindref="member">addr</ref>{};</highlight></codeline>
+<codeline lineno="42" refid="structGameWorld_1_1PlayerState_1a9243d734cd29f931679507d04df0c31f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="structGameWorld_1_1PlayerState_1a9243d734cd29f931679507d04df0c31f" kindref="member">velX</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="43" refid="structGameWorld_1_1PlayerState_1afc62fd3b940e4d338fc8fe244da64b95" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="structGameWorld_1_1PlayerState_1afc62fd3b940e4d338fc8fe244da64b95" kindref="member">velY</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="44" refid="structGameWorld_1_1PlayerState_1ad952ea319d0c625f7575a3de26dc6ca5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structGameWorld_1_1PlayerState_1ad952ea319d0c625f7575a3de26dc6ca5" kindref="member">dir</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="45" refid="structGameWorld_1_1PlayerState_1a4c7530290e5261df356c40bf8e6bc3f7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structGameWorld_1_1PlayerState_1a4c7530290e5261df356c40bf8e6bc3f7" kindref="member">lastHitMs</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Bullet<sp/>state<sp/>owned<sp/>by<sp/>a<sp/>player.</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="structGameWorld_1_1BulletState" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structGameWorld_1_1BulletState" kindref="compound">BulletState</ref><sp/>{</highlight></codeline>
+<codeline lineno="52" refid="structGameWorld_1_1BulletState_1a2bc50892ec2a967004048edc4ab6c3df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="53" refid="structGameWorld_1_1BulletState_1a581630a26c822b00bba7831e2806fb99" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structGameWorld_1_1BulletState_1a581630a26c822b00bba7831e2806fb99" kindref="member">ownerId</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="54" refid="structGameWorld_1_1BulletState_1a9c8c28ef5f7f7e6e4f2a80c5c64aa9d6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structGameWorld_1_1BulletState_1a9c8c28ef5f7f7e6e4f2a80c5c64aa9d6" kindref="member">x</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="55" refid="structGameWorld_1_1BulletState_1a5ff6d6b5fbc73ba2ba04470e8d2e76aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structGameWorld_1_1BulletState_1a5ff6d6b5fbc73ba2ba04470e8d2e76aa" kindref="member">y</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="56" refid="structGameWorld_1_1BulletState_1a5bf24a4019810bc3b785b33c05568bca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="structGameWorld_1_1BulletState_1a5bf24a4019810bc3b785b33c05568bca" kindref="member">velX</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="57" refid="structGameWorld_1_1BulletState_1a1224ba46be5190ddef69bbfa755d9d61" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="structGameWorld_1_1BulletState_1a1224ba46be5190ddef69bbfa755d9d61" kindref="member">velY</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Monster<sp/>movement/behavior<sp/>type.</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="classGameWorld_1af3c04dc6f6e4211cd6007390bee1d9a7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1af3c04dc6f6e4211cd6007390bee1d9a7" kindref="member">MonsterKind</ref><sp/>:<sp/>uint8_t<sp/>{<sp/><ref refid="classGameWorld_1af3c04dc6f6e4211cd6007390bee1d9a7a6ca9e2d793f678aba7c1b19526592a46" kindref="member">Sine</ref><sp/>=<sp/>0,<sp/><ref refid="classGameWorld_1af3c04dc6f6e4211cd6007390bee1d9a7aeacf3a101066b77f05938928385bd8d9" kindref="member">ZigZag</ref><sp/>=<sp/>1,<sp/><ref refid="classGameWorld_1af3c04dc6f6e4211cd6007390bee1d9a7a5859831e2b3db23528c710b1451e13fc" kindref="member">Boss</ref><sp/>=<sp/>2<sp/>};</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Monster<sp/>state<sp/>tracked<sp/>by<sp/>the<sp/>authoritative<sp/>server.</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="structGameWorld_1_1MonsterState" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structGameWorld_1_1MonsterState" kindref="compound">MonsterState</ref><sp/>{</highlight></codeline>
+<codeline lineno="69" refid="structGameWorld_1_1MonsterState_1ae22dac3d57e25d9b86a0a4845fdfee26" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="70" refid="structGameWorld_1_1MonsterState_1a6617c3280d1b0440b57cb30178739fca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structGameWorld_1_1MonsterState_1a6617c3280d1b0440b57cb30178739fca" kindref="member">x</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="71" refid="structGameWorld_1_1MonsterState_1ace6861d5fb54001fedd1fa0b053d225f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structGameWorld_1_1MonsterState_1ace6861d5fb54001fedd1fa0b053d225f" kindref="member">y</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="72" refid="structGameWorld_1_1MonsterState_1a37f746e4dc5df65a93c31107097110c4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structGameWorld_1_1MonsterState_1a37f746e4dc5df65a93c31107097110c4" kindref="member">baseY</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="73" refid="structGameWorld_1_1MonsterState_1a4fb30943cf1d5a76583972d92caa325b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structGameWorld_1_1MonsterState_1a4fb30943cf1d5a76583972d92caa325b" kindref="member">amplitude</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="74" refid="structGameWorld_1_1MonsterState_1a0f6baa4107c0898313fc3bf3348f6127" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structGameWorld_1_1MonsterState_1a0f6baa4107c0898313fc3bf3348f6127" kindref="member">phase</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="75" refid="structGameWorld_1_1MonsterState_1a414729d64b907002169772ba2a1dbcc3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structGameWorld_1_1MonsterState_1a414729d64b907002169772ba2a1dbcc3" kindref="member">freq</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="76" refid="structGameWorld_1_1MonsterState_1aae0e2baffbd9342713d1e24bd2f2dfeb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structGameWorld_1_1MonsterState_1aae0e2baffbd9342713d1e24bd2f2dfeb" kindref="member">speedX</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="77" refid="structGameWorld_1_1MonsterState_1a757841176bc040ae9ff9a0234f862fc1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structGameWorld_1_1MonsterState_1a757841176bc040ae9ff9a0234f862fc1" kindref="member">speedY</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="78" refid="structGameWorld_1_1MonsterState_1a60efd1c141ca0076b9de281cea9efa61" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="structGameWorld_1_1MonsterState_1a60efd1c141ca0076b9de281cea9efa61" kindref="member">hp</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="79" refid="structGameWorld_1_1MonsterState_1a8472fb9f9ee4ff3a58d6d11744f43491" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGameWorld_1af3c04dc6f6e4211cd6007390bee1d9a7" kindref="member">MonsterKind</ref><sp/><ref refid="structGameWorld_1_1MonsterState_1a8472fb9f9ee4ff3a58d6d11744f43491" kindref="member">kind</ref><sp/>=<sp/><ref refid="classGameWorld_1af3c04dc6f6e4211cd6007390bee1d9a7a6ca9e2d793f678aba7c1b19526592a46" kindref="member">MonsterKind::Sine</ref>;</highlight></codeline>
+<codeline lineno="80" refid="structGameWorld_1_1MonsterState_1a5b42bf1cd6bb78a55099646765aa775f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structGameWorld_1_1MonsterState_1a5b42bf1cd6bb78a55099646765aa775f" kindref="member">nextPatternMs</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="81" refid="structGameWorld_1_1MonsterState_1a210c2f8a7a247cd9a11694b3fa4b2212" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structGameWorld_1_1MonsterState_1a210c2f8a7a247cd9a11694b3fa4b2212" kindref="member">nextShotMs</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84" refid="classGameWorld_1ad315664f50c7327f02ef2b4634953499" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGameWorld_1ad315664f50c7327f02ef2b4634953499" kindref="member">GameWorld</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Register<sp/>a<sp/>player<sp/>on<sp/>HELLO_UDP.</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1aaebb0cdb6bcf4382893ce438832db63e" kindref="member">registerPlayer</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>uint8_t<sp/>x,<sp/>uint8_t<sp/>y,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>sockaddr_in<sp/>&amp;addr);</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Update<sp/>input<sp/>state<sp/>and<sp/>refresh<sp/>the<sp/>sender<sp/>address.</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1ae1686bb695784eed35eb8b48713f7727" kindref="member">updateInput</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>int8_t<sp/>velX,<sp/>int8_t<sp/>velY,<sp/>uint8_t<sp/>dir,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>sockaddr_in<sp/>&amp;addr);</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Register<sp/>a<sp/>player<sp/>shot<sp/>in<sp/>the<sp/>world.</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1a62bb0ece1a3e4cdc6cc15910bb8f6706" kindref="member">addShot</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>uint8_t<sp/>posX,<sp/>uint8_t<sp/>posY,<sp/>int8_t<sp/>velX,<sp/>int8_t<sp/>velY);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Remove<sp/>a<sp/>player<sp/>and<sp/>any<sp/>references<sp/>to<sp/>it.</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1ab9bdf76c054d7fd1d08241a954315b46" kindref="member">removePlayer</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Advance<sp/>simulation.</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>nowMs<sp/>Current<sp/>time<sp/>in<sp/>ms.</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>deltaMs<sp/>Time<sp/>since<sp/>last<sp/>tick<sp/>in<sp/>ms.</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1a88c3b380a238a69dc05b5a9df07621dd" kindref="member">tick</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nowMs,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>deltaMs);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Build<sp/>a<sp/>UDP<sp/>snapshot<sp/>packet<sp/>of<sp/>current<sp/>world<sp/>state.</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/><ref refid="classGameWorld_1a9a877bcf4eed6527b0896242463a3dfa" kindref="member">buildSnapshotPacket</ref>();</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Consume<sp/>boss-spawned<sp/>flag<sp/>(one-shot).</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1a6b1d4741dc5a2b5a12b844c95408390f" kindref="member">takeBossSpawned</ref>();</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Consume<sp/>boss-defeated<sp/>flag<sp/>(one-shot).</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1a7729f2448efdc4dd6f5e77e67c20c5af" kindref="member">takeBossDefeated</ref>();</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Consume<sp/>no-players<sp/>flag<sp/>(one-shot).</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1ae1abffc0a60f2c06c647e30ea89baddd" kindref="member">takeNoPlayers</ref>();</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>True<sp/>after<sp/>at<sp/>least<sp/>one<sp/>player<sp/>has<sp/>joined.</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130" refid="classGameWorld_1a2374ad4de824406d9e1b970e7ab95dfb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1a2374ad4de824406d9e1b970e7ab95dfb" kindref="member">hasHadPlayers</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1aa78b4bb4f31d3d10a37ce43a1a446bae" kindref="member">_hadPlayers</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Access<sp/>player<sp/>map<sp/>(read-only).</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="classGameWorld_1a4655740f12ec6ebd9d9374b229c6323a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::unordered_map&lt;int,<sp/>PlayerState&gt;<sp/>&amp;<ref refid="classGameWorld_1a4655740f12ec6ebd9d9374b229c6323a" kindref="member">players</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1a46a68b140b6bcd93c8ea4d145142d536" kindref="member">_players</ref>;<sp/>}</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Prefix<sp/>used<sp/>in<sp/>log<sp/>output.</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139" refid="classGameWorld_1a163fb2fed54650ebba995df1e64c39db" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1a163fb2fed54650ebba995df1e64c39db" kindref="member">setLogPrefix</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;prefix)<sp/>{<sp/><ref refid="classGameWorld_1a025e4ab2ae1b20af78178303ce541ae9" kindref="member">_logPrefix</ref><sp/>=<sp/>prefix;<sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1a3bf3aa2e665bed5c7e5c87f6f482ae97" kindref="member">spawnMonster</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nowMs);</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1a98daebdd5931cf333037bc3891b16794" kindref="member">spawnBoss</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nowMs);</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1ac1835fdf3232458197a2c81a1a0c5e02" kindref="member">spawnBossBullet</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structMonsterState" kindref="compound">MonsterState</ref><sp/>&amp;boss,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nowMs);</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1a6af008239b30629fad73ae657465d37e" kindref="member">shouldSpawnBoss</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1acbdde5eb929528699e8176ec57779ec7" kindref="member">hasBoss</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1a0bb6ed054b809cc92573fd87850ac468" kindref="member">updateBossMovement</ref>(<ref refid="structMonsterState" kindref="compound">MonsterState</ref><sp/>&amp;boss,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nowMs,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dtSec);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight></codeline>
+<codeline lineno="149" refid="classGameWorld_1a46a68b140b6bcd93c8ea4d145142d536" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;int,<sp/>PlayerState&gt;<sp/><ref refid="classGameWorld_1a46a68b140b6bcd93c8ea4d145142d536" kindref="member">_players</ref>;</highlight></codeline>
+<codeline lineno="150" refid="classGameWorld_1ac911c03e487bf4e2d77c8ede28babf03" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;BulletState&gt;<sp/><ref refid="classGameWorld_1ac911c03e487bf4e2d77c8ede28babf03" kindref="member">_bullets</ref>;</highlight></codeline>
+<codeline lineno="151" refid="classGameWorld_1a67b9e4b2ad25ed6fd3e5ca8e3b238b8d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;MonsterState&gt;<sp/><ref refid="classGameWorld_1a67b9e4b2ad25ed6fd3e5ca8e3b238b8d" kindref="member">_monsters</ref>;</highlight></codeline>
+<codeline lineno="152" refid="classGameWorld_1aae566a13c392531f47667bd5f6af1f25" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1aae566a13c392531f47667bd5f6af1f25" kindref="member">_monsterKilled</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="153" refid="classGameWorld_1ad17902d7af7e1d778daff68c08d8076a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1ad17902d7af7e1d778daff68c08d8076a" kindref="member">_nextBulletId</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="154" refid="classGameWorld_1ad74e5cf7fea12c00759a2521d76931d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1ad74e5cf7fea12c00759a2521d76931d9" kindref="member">_nextMonsterId</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="155" refid="classGameWorld_1ab8ac13c233c40d9e8f9f6a0b4afb8ef8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1ab8ac13c233c40d9e8f9f6a0b4afb8ef8" kindref="member">_lastMonsterSpawnMs</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="156" refid="classGameWorld_1a99254eafbade5a1bad114a9477e62071" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1a99254eafbade5a1bad114a9477e62071" kindref="member">_monsterSpawnIntervalMs</ref><sp/>=<sp/>1800;</highlight></codeline>
+<codeline lineno="157" refid="classGameWorld_1a5c9f70e5ed7cba792fde805088741b7a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1a5c9f70e5ed7cba792fde805088741b7a" kindref="member">_bossSpawnedFlag</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="158" refid="classGameWorld_1a56582971b46ddc377a513090e46662d3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1a56582971b46ddc377a513090e46662d3" kindref="member">_bossSpawnedOnce</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="159" refid="classGameWorld_1acb755ee97dd7f8632eef630319f2b3e2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1acb755ee97dd7f8632eef630319f2b3e2" kindref="member">_bossDefeatedFlag</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="160" refid="classGameWorld_1aa78b4bb4f31d3d10a37ce43a1a446bae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1aa78b4bb4f31d3d10a37ce43a1a446bae" kindref="member">_hadPlayers</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="161" refid="classGameWorld_1ab50b19c51863e1a304ab2e22833a4e0d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGameWorld_1ab50b19c51863e1a304ab2e22833a4e0d" kindref="member">_noPlayersFlag</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="162" refid="classGameWorld_1ade346ceb17e4fe79c3030b7cec924a7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="classGameWorld_1ade346ceb17e4fe79c3030b7cec924a7f" kindref="member">_lobbyScore</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="163" refid="classGameWorld_1aa84b4174d2f8fd9c1f313687b1ee4850" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="classGameWorld_1aa84b4174d2f8fd9c1f313687b1ee4850" kindref="member">_snapshotSeq</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="164" refid="classGameWorld_1a025e4ab2ae1b20af78178303ce541ae9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classGameWorld_1a025e4ab2ae1b20af78178303ce541ae9" kindref="member">_logPrefix</ref>;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="Network/TransportLayer/UDP/GameWorld.hpp"/>
+  </compounddef>
+</doxygen>

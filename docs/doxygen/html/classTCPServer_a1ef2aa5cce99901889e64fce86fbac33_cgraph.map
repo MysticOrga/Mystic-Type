@@ -1,0 +1,13 @@
+<map id="TCPServer::sendPingToAll" name="TCPServer::sendPingToAll">
+<area shape="rect" id="Node000001" title="Send a ping packet to every connected client." alt="" coords="5,31,192,56"/>
+<area shape="rect" id="Node000002" href="$classTCPServer.html#a9a65a3923e77e48c5f0019b45af8fcb5" title="Send a packet to a specific client fd." alt="" coords="240,31,409,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,41,226,41,226,46,192,46"/>
+<area shape="rect" id="Node000003" href="$namespaceProtocol.html#a668bdeed219432868fca095e1b2f2667" title="Build a TCP framed buffer (2 bytes length + serialized packet)." alt="" coords="459,5,602,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="410,30,446,26,446,31,410,36"/>
+<area shape="rect" id="Node000005" href="$classTCPServer.html#a79e20e1d2821e399fe47dd1055341d5e" title="Ensure the full buffer is written to the socket." alt="" coords="457,55,604,80"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="410,51,444,55,443,60,410,56"/>
+<area shape="rect" id="Node000004" href="$classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="661,5,788,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="602,15,647,15,647,21,602,21"/>
+<area shape="rect" id="Node000006" href="$classTCPServer.html#a5b1988f8a542c2d39f3d3556264e71b2" title="Write raw bytes to a socket fd." alt="" coords="652,55,797,80"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="604,65,638,65,638,70,604,70"/>
+</map>

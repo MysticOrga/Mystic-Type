@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_d7b089d80e197b7173c130d051c7dd95" kind="dir">
+    <compoundname>graphical-client/GraphicClient</compoundname>
+    <innerfile refid="GraphicClient_8cpp">GraphicClient.cpp</innerfile>
+    <innerfile refid="GraphicClient_8hpp">GraphicClient.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="graphical-client/GraphicClient/"/>
+  </compounddef>
+</doxygen>

@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -109,7 +110,10 @@ $(document).ready(function(){initNavTree('GameState_8hpp_source.html',''); initR
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"></span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * @brief Lightweight snapshot of a player for client-side rendering.</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structPlayerState.html">   17</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structPlayerState.html">PlayerState</a> {</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structPlayerState.html#a1d13670f7d332ebb4edab0cdd84c9bcb">   18</a></span>    <span class="keywordtype">int</span> <span class="keywordtype">id</span> = 0;</div>
@@ -119,7 +123,10 @@ $(document).ready(function(){initNavTree('GameState_8hpp_source.html',''); initR
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structPlayerState.html#a239b365ad0ad982f928dd77b8b3d121f">   22</a></span>    uint16_t <a class="code hl_variable" href="structPlayerState.html#a239b365ad0ad982f928dd77b8b3d121f">score</a> = 0;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
 </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"></span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * @brief Lightweight snapshot of a bullet for client-side rendering.</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structBulletState.html">   28</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structBulletState.html">BulletState</a> {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="structBulletState.html#afc3da02363e84dcd9524b62d4125eb48">   29</a></span>    <span class="keywordtype">int</span> <span class="keywordtype">id</span> = 0;</div>
@@ -129,7 +136,10 @@ $(document).ready(function(){initNavTree('GameState_8hpp_source.html',''); initR
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structBulletState.html#a64b346c59c2bbb5a112908d78fe92bf7">   33</a></span>    int8_t <a class="code hl_variable" href="structBulletState.html#a64b346c59c2bbb5a112908d78fe92bf7">vy</a> = 0;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>};</div>
 </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"></span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> * @brief Lightweight snapshot of a monster for client-side rendering.</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structMonsterState.html">   39</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structMonsterState.html">MonsterState</a> {</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structMonsterState.html#a3db09a581fbc727ca5943c52b95dabce">   40</a></span>    <span class="keywordtype">int</span> <span class="keywordtype">id</span> = 0;</div>
@@ -139,110 +149,140 @@ $(document).ready(function(){initNavTree('GameState_8hpp_source.html',''); initR
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="structMonsterState.html#a26ad229c9a3b5ceef052c357c11e2472">   44</a></span>    uint8_t <a class="code hl_variable" href="structMonsterState.html#a26ad229c9a3b5ceef052c357c11e2472">type</a> = 0; <span class="comment">// 0 = sin, 1 = cos</span></div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
 </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"></span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * @brief Client-side container for the latest world state.</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00050" data-start="{" data-end="};">
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classGameState.html">   50</a></span><span class="keyword">class </span><a class="code hl_class" href="classGameState.html">GameState</a> {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">     * @brief Insert or update a player entry.</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">     */</span></div>
 <div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classGameState.html#a9f034439dd565e62cb83be4ac56baba1">   55</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameState.html#a9f034439dd565e62cb83be4ac56baba1">upsertPlayer</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, uint8_t x, uint8_t y, uint8_t hp, uint16_t score)</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        _players[id] = <a class="code hl_struct" href="structPlayerState.html">PlayerState</a>{id, x, y, hp, score};</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <a class="code hl_variable" href="classGameState.html#a61038ea129759cc4631044201305b10e">_players</a>[id] = <a class="code hl_struct" href="structPlayerState.html">PlayerState</a>{id, x, y, hp, score};</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
 </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"></span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">     * @brief Insert or update a bullet entry.</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">     */</span></div>
 <div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classGameState.html#a23099e9050e7a20e6d1349384591b3b5">   63</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameState.html#a23099e9050e7a20e6d1349384591b3b5">upsertBullet</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, uint8_t x, uint8_t y, int8_t vx, int8_t vy)</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        _bullets[id] = <a class="code hl_struct" href="structBulletState.html">BulletState</a>{id, x, y, vx, vy};</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <a class="code hl_variable" href="classGameState.html#a6ebd00bef3ebc816d2796634953b7615">_bullets</a>[id] = <a class="code hl_struct" href="structBulletState.html">BulletState</a>{id, x, y, vx, vy};</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
 </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"></span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">     * @brief Insert or update a monster entry.</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">     */</span></div>
 <div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classGameState.html#a72d25f3760e72101b6c3ddc990da3d04">   71</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameState.html#a72d25f3760e72101b6c3ddc990da3d04">upsertMonster</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, uint8_t x, uint8_t y, uint8_t hp, uint8_t type)</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        _monsters[id] = <a class="code hl_struct" href="structMonsterState.html">MonsterState</a>{id, x, y, hp, type};</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <a class="code hl_variable" href="classGameState.html#a684212aeb845a80b274f98de6e46214a">_monsters</a>[id] = <a class="code hl_struct" href="structMonsterState.html">MonsterState</a>{id, x, y, hp, type};</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    }</div>
 </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"></span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">     * @brief Clear all cached entities.</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">     */</span></div>
 <div class="foldopen" id="foldopen00079" data-start="{" data-end="}">
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classGameState.html#aa19f7b265ddcdf1c490b1c43556d07e1">   79</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameState.html#aa19f7b265ddcdf1c490b1c43556d07e1">clear</a>()</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    {</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        _players.clear();</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        _bullets.clear();</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        _monsters.clear();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <a class="code hl_variable" href="classGameState.html#a61038ea129759cc4631044201305b10e">_players</a>.clear();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <a class="code hl_variable" href="classGameState.html#a6ebd00bef3ebc816d2796634953b7615">_bullets</a>.clear();</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <a class="code hl_variable" href="classGameState.html#a684212aeb845a80b274f98de6e46214a">_monsters</a>.clear();</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    }</div>
 </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment"></span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">     * @brief Clear only player entries.</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">     */</span></div>
 <div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classGameState.html#a59e8f64ec95841389e7bdbc1a07f718a">   89</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classGameState.html#a59e8f64ec95841389e7bdbc1a07f718a">clearPlayers</a>()</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    {</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        _players.clear();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <a class="code hl_variable" href="classGameState.html#a61038ea129759cc4631044201305b10e">_players</a>.clear();</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    }</div>
 </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"></span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">     * @brief Return a snapshot list of current players.</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">     */</span></div>
 <div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classGameState.html#adbedaec4367fbf2705065e66a8909ce5">   97</a></span>    std::vector&lt;PlayerState&gt; <a class="code hl_function" href="classGameState.html#adbedaec4367fbf2705065e66a8909ce5">listPlayers</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        std::vector&lt;PlayerState&gt; res;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        res.reserve(_players.size());</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;kv : _players)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        res.reserve(<a class="code hl_variable" href="classGameState.html#a61038ea129759cc4631044201305b10e">_players</a>.size());</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;kv : <a class="code hl_variable" href="classGameState.html#a61038ea129759cc4631044201305b10e">_players</a>)</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            res.push_back(kv.second);</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">return</span> res;</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    }</div>
 </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"></span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">     * @brief Return a snapshot list of current bullets.</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">     */</span></div>
 <div class="foldopen" id="foldopen00109" data-start="{" data-end="}">
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="classGameState.html#a65f539f1657ebd717fe5d48683144c82">  109</a></span>    std::vector&lt;BulletState&gt; <a class="code hl_function" href="classGameState.html#a65f539f1657ebd717fe5d48683144c82">listBullets</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        std::vector&lt;BulletState&gt; res;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        res.reserve(_bullets.size());</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;kv : _bullets)</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        res.reserve(<a class="code hl_variable" href="classGameState.html#a6ebd00bef3ebc816d2796634953b7615">_bullets</a>.size());</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;kv : <a class="code hl_variable" href="classGameState.html#a6ebd00bef3ebc816d2796634953b7615">_bullets</a>)</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            res.push_back(kv.second);</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">return</span> res;</div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
 </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment"></span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment">     * @brief Return a snapshot list of current monsters.</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment">     */</span></div>
 <div class="foldopen" id="foldopen00121" data-start="{" data-end="}">
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="classGameState.html#a8fd239e201dacc3cc9d19dc34d67f301">  121</a></span>    std::vector&lt;MonsterState&gt; <a class="code hl_function" href="classGameState.html#a8fd239e201dacc3cc9d19dc34d67f301">listMonsters</a>()<span class="keyword"> const</span></div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="keyword">    </span>{</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        std::vector&lt;MonsterState&gt; res;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        res.reserve(_monsters.size());</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;kv : _monsters)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        res.reserve(<a class="code hl_variable" href="classGameState.html#a684212aeb845a80b274f98de6e46214a">_monsters</a>.size());</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;kv : <a class="code hl_variable" href="classGameState.html#a684212aeb845a80b274f98de6e46214a">_monsters</a>)</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            res.push_back(kv.second);</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordflow">return</span> res;</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    }</div>
 </div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    std::unordered_map&lt;int, PlayerState&gt; _players;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    std::unordered_map&lt;int, BulletState&gt; _bullets;</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    std::unordered_map&lt;int, MonsterState&gt; _monsters;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="classGameState.html#a61038ea129759cc4631044201305b10e">  131</a></span>    std::unordered_map&lt;int, PlayerState&gt; <a class="code hl_variable" href="classGameState.html#a61038ea129759cc4631044201305b10e">_players</a>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classGameState.html#a6ebd00bef3ebc816d2796634953b7615">  132</a></span>    std::unordered_map&lt;int, BulletState&gt; <a class="code hl_variable" href="classGameState.html#a6ebd00bef3ebc816d2796634953b7615">_bullets</a>;</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="classGameState.html#a684212aeb845a80b274f98de6e46214a">  133</a></span>    std::unordered_map&lt;int, MonsterState&gt; <a class="code hl_variable" href="classGameState.html#a684212aeb845a80b274f98de6e46214a">_monsters</a>;</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>};</div>
 </div>
-<div class="ttc" id="aclassGameState_html"><div class="ttname"><a href="classGameState.html">GameState</a></div><div class="ttdoc">Client-side container for the latest world state.</div><div class="ttdef"><b>Definition</b> GameState.hpp:50</div></div>
-<div class="ttc" id="aclassGameState_html_a23099e9050e7a20e6d1349384591b3b5"><div class="ttname"><a href="classGameState.html#a23099e9050e7a20e6d1349384591b3b5">GameState::upsertBullet</a></div><div class="ttdeci">void upsertBullet(int id, uint8_t x, uint8_t y, int8_t vx, int8_t vy)</div><div class="ttdoc">Insert or update a bullet entry.</div><div class="ttdef"><b>Definition</b> GameState.hpp:63</div></div>
-<div class="ttc" id="aclassGameState_html_a59e8f64ec95841389e7bdbc1a07f718a"><div class="ttname"><a href="classGameState.html#a59e8f64ec95841389e7bdbc1a07f718a">GameState::clearPlayers</a></div><div class="ttdeci">void clearPlayers()</div><div class="ttdoc">Clear only player entries.</div><div class="ttdef"><b>Definition</b> GameState.hpp:89</div></div>
-<div class="ttc" id="aclassGameState_html_a65f539f1657ebd717fe5d48683144c82"><div class="ttname"><a href="classGameState.html#a65f539f1657ebd717fe5d48683144c82">GameState::listBullets</a></div><div class="ttdeci">std::vector&lt; BulletState &gt; listBullets() const</div><div class="ttdoc">Return a snapshot list of current bullets.</div><div class="ttdef"><b>Definition</b> GameState.hpp:109</div></div>
-<div class="ttc" id="aclassGameState_html_a72d25f3760e72101b6c3ddc990da3d04"><div class="ttname"><a href="classGameState.html#a72d25f3760e72101b6c3ddc990da3d04">GameState::upsertMonster</a></div><div class="ttdeci">void upsertMonster(int id, uint8_t x, uint8_t y, uint8_t hp, uint8_t type)</div><div class="ttdoc">Insert or update a monster entry.</div><div class="ttdef"><b>Definition</b> GameState.hpp:71</div></div>
-<div class="ttc" id="aclassGameState_html_a8fd239e201dacc3cc9d19dc34d67f301"><div class="ttname"><a href="classGameState.html#a8fd239e201dacc3cc9d19dc34d67f301">GameState::listMonsters</a></div><div class="ttdeci">std::vector&lt; MonsterState &gt; listMonsters() const</div><div class="ttdoc">Return a snapshot list of current monsters.</div><div class="ttdef"><b>Definition</b> GameState.hpp:121</div></div>
-<div class="ttc" id="aclassGameState_html_a9f034439dd565e62cb83be4ac56baba1"><div class="ttname"><a href="classGameState.html#a9f034439dd565e62cb83be4ac56baba1">GameState::upsertPlayer</a></div><div class="ttdeci">void upsertPlayer(int id, uint8_t x, uint8_t y, uint8_t hp, uint16_t score)</div><div class="ttdoc">Insert or update a player entry.</div><div class="ttdef"><b>Definition</b> GameState.hpp:55</div></div>
-<div class="ttc" id="aclassGameState_html_aa19f7b265ddcdf1c490b1c43556d07e1"><div class="ttname"><a href="classGameState.html#aa19f7b265ddcdf1c490b1c43556d07e1">GameState::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clear all cached entities.</div><div class="ttdef"><b>Definition</b> GameState.hpp:79</div></div>
-<div class="ttc" id="aclassGameState_html_adbedaec4367fbf2705065e66a8909ce5"><div class="ttname"><a href="classGameState.html#adbedaec4367fbf2705065e66a8909ce5">GameState::listPlayers</a></div><div class="ttdeci">std::vector&lt; PlayerState &gt; listPlayers() const</div><div class="ttdoc">Return a snapshot list of current players.</div><div class="ttdef"><b>Definition</b> GameState.hpp:97</div></div>
-<div class="ttc" id="astructBulletState_html"><div class="ttname"><a href="structBulletState.html">BulletState</a></div><div class="ttdoc">Lightweight snapshot of a bullet for client-side rendering.</div><div class="ttdef"><b>Definition</b> GameState.hpp:28</div></div>
-<div class="ttc" id="astructBulletState_html_a46bfd93072fd5ed96e00366e47315202"><div class="ttname"><a href="structBulletState.html#a46bfd93072fd5ed96e00366e47315202">BulletState::y</a></div><div class="ttdeci">uint8_t y</div><div class="ttdef"><b>Definition</b> GameState.hpp:31</div></div>
-<div class="ttc" id="astructBulletState_html_a52e263cd18ea7729984530807bb8e139"><div class="ttname"><a href="structBulletState.html#a52e263cd18ea7729984530807bb8e139">BulletState::vx</a></div><div class="ttdeci">int8_t vx</div><div class="ttdef"><b>Definition</b> GameState.hpp:32</div></div>
-<div class="ttc" id="astructBulletState_html_a64b346c59c2bbb5a112908d78fe92bf7"><div class="ttname"><a href="structBulletState.html#a64b346c59c2bbb5a112908d78fe92bf7">BulletState::vy</a></div><div class="ttdeci">int8_t vy</div><div class="ttdef"><b>Definition</b> GameState.hpp:33</div></div>
-<div class="ttc" id="astructBulletState_html_ae58c567afd2735b48696ce42494416b6"><div class="ttname"><a href="structBulletState.html#ae58c567afd2735b48696ce42494416b6">BulletState::x</a></div><div class="ttdeci">uint8_t x</div><div class="ttdef"><b>Definition</b> GameState.hpp:30</div></div>
-<div class="ttc" id="astructMonsterState_html"><div class="ttname"><a href="structMonsterState.html">MonsterState</a></div><div class="ttdoc">Lightweight snapshot of a monster for client-side rendering.</div><div class="ttdef"><b>Definition</b> GameState.hpp:39</div></div>
-<div class="ttc" id="astructMonsterState_html_a26ad229c9a3b5ceef052c357c11e2472"><div class="ttname"><a href="structMonsterState.html#a26ad229c9a3b5ceef052c357c11e2472">MonsterState::type</a></div><div class="ttdeci">uint8_t type</div><div class="ttdef"><b>Definition</b> GameState.hpp:44</div></div>
-<div class="ttc" id="astructMonsterState_html_a7defca59db78cded4e5d6526e7569adc"><div class="ttname"><a href="structMonsterState.html#a7defca59db78cded4e5d6526e7569adc">MonsterState::x</a></div><div class="ttdeci">uint8_t x</div><div class="ttdef"><b>Definition</b> GameState.hpp:41</div></div>
-<div class="ttc" id="astructMonsterState_html_ab8eb152bf072fc02d85636f18963e95b"><div class="ttname"><a href="structMonsterState.html#ab8eb152bf072fc02d85636f18963e95b">MonsterState::hp</a></div><div class="ttdeci">uint8_t hp</div><div class="ttdef"><b>Definition</b> GameState.hpp:43</div></div>
-<div class="ttc" id="astructMonsterState_html_ad65a95979ad3a2747b0fcce97cb4762c"><div class="ttname"><a href="structMonsterState.html#ad65a95979ad3a2747b0fcce97cb4762c">MonsterState::y</a></div><div class="ttdeci">uint8_t y</div><div class="ttdef"><b>Definition</b> GameState.hpp:42</div></div>
-<div class="ttc" id="astructPlayerState_html"><div class="ttname"><a href="structPlayerState.html">PlayerState</a></div><div class="ttdoc">Lightweight snapshot of a player for client-side rendering.</div><div class="ttdef"><b>Definition</b> GameState.hpp:17</div></div>
-<div class="ttc" id="astructPlayerState_html_a12ddc6ce91f2180e81363a3863edbacf"><div class="ttname"><a href="structPlayerState.html#a12ddc6ce91f2180e81363a3863edbacf">PlayerState::hp</a></div><div class="ttdeci">uint8_t hp</div><div class="ttdef"><b>Definition</b> GameState.hpp:21</div></div>
-<div class="ttc" id="astructPlayerState_html_a239b365ad0ad982f928dd77b8b3d121f"><div class="ttname"><a href="structPlayerState.html#a239b365ad0ad982f928dd77b8b3d121f">PlayerState::score</a></div><div class="ttdeci">uint16_t score</div><div class="ttdef"><b>Definition</b> GameState.hpp:22</div></div>
-<div class="ttc" id="astructPlayerState_html_a50f07cd4be8eb68af2a3cf73b843e757"><div class="ttname"><a href="structPlayerState.html#a50f07cd4be8eb68af2a3cf73b843e757">PlayerState::y</a></div><div class="ttdeci">uint8_t y</div><div class="ttdef"><b>Definition</b> GameState.hpp:20</div></div>
-<div class="ttc" id="astructPlayerState_html_a511d57ac4a0a817233868d7a87441b1a"><div class="ttname"><a href="structPlayerState.html#a511d57ac4a0a817233868d7a87441b1a">PlayerState::x</a></div><div class="ttdeci">uint8_t x</div><div class="ttdef"><b>Definition</b> GameState.hpp:19</div></div>
+<div class="ttc" id="aclassGameState_html"><div class="ttname"><a href="classGameState.html">GameState</a></div><div class="ttdoc">Client-side container for the latest world state.</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00050">GameState.hpp:50</a></div></div>
+<div class="ttc" id="aclassGameState_html_a23099e9050e7a20e6d1349384591b3b5"><div class="ttname"><a href="classGameState.html#a23099e9050e7a20e6d1349384591b3b5">GameState::upsertBullet</a></div><div class="ttdeci">void upsertBullet(int id, uint8_t x, uint8_t y, int8_t vx, int8_t vy)</div><div class="ttdoc">Insert or update a bullet entry.</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00063">GameState.hpp:63</a></div></div>
+<div class="ttc" id="aclassGameState_html_a59e8f64ec95841389e7bdbc1a07f718a"><div class="ttname"><a href="classGameState.html#a59e8f64ec95841389e7bdbc1a07f718a">GameState::clearPlayers</a></div><div class="ttdeci">void clearPlayers()</div><div class="ttdoc">Clear only player entries.</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00089">GameState.hpp:89</a></div></div>
+<div class="ttc" id="aclassGameState_html_a61038ea129759cc4631044201305b10e"><div class="ttname"><a href="classGameState.html#a61038ea129759cc4631044201305b10e">GameState::_players</a></div><div class="ttdeci">std::unordered_map&lt; int, PlayerState &gt; _players</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00131">GameState.hpp:131</a></div></div>
+<div class="ttc" id="aclassGameState_html_a65f539f1657ebd717fe5d48683144c82"><div class="ttname"><a href="classGameState.html#a65f539f1657ebd717fe5d48683144c82">GameState::listBullets</a></div><div class="ttdeci">std::vector&lt; BulletState &gt; listBullets() const</div><div class="ttdoc">Return a snapshot list of current bullets.</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00109">GameState.hpp:109</a></div></div>
+<div class="ttc" id="aclassGameState_html_a684212aeb845a80b274f98de6e46214a"><div class="ttname"><a href="classGameState.html#a684212aeb845a80b274f98de6e46214a">GameState::_monsters</a></div><div class="ttdeci">std::unordered_map&lt; int, MonsterState &gt; _monsters</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00133">GameState.hpp:133</a></div></div>
+<div class="ttc" id="aclassGameState_html_a6ebd00bef3ebc816d2796634953b7615"><div class="ttname"><a href="classGameState.html#a6ebd00bef3ebc816d2796634953b7615">GameState::_bullets</a></div><div class="ttdeci">std::unordered_map&lt; int, BulletState &gt; _bullets</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00132">GameState.hpp:132</a></div></div>
+<div class="ttc" id="aclassGameState_html_a72d25f3760e72101b6c3ddc990da3d04"><div class="ttname"><a href="classGameState.html#a72d25f3760e72101b6c3ddc990da3d04">GameState::upsertMonster</a></div><div class="ttdeci">void upsertMonster(int id, uint8_t x, uint8_t y, uint8_t hp, uint8_t type)</div><div class="ttdoc">Insert or update a monster entry.</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00071">GameState.hpp:71</a></div></div>
+<div class="ttc" id="aclassGameState_html_a8fd239e201dacc3cc9d19dc34d67f301"><div class="ttname"><a href="classGameState.html#a8fd239e201dacc3cc9d19dc34d67f301">GameState::listMonsters</a></div><div class="ttdeci">std::vector&lt; MonsterState &gt; listMonsters() const</div><div class="ttdoc">Return a snapshot list of current monsters.</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00121">GameState.hpp:121</a></div></div>
+<div class="ttc" id="aclassGameState_html_a9f034439dd565e62cb83be4ac56baba1"><div class="ttname"><a href="classGameState.html#a9f034439dd565e62cb83be4ac56baba1">GameState::upsertPlayer</a></div><div class="ttdeci">void upsertPlayer(int id, uint8_t x, uint8_t y, uint8_t hp, uint16_t score)</div><div class="ttdoc">Insert or update a player entry.</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00055">GameState.hpp:55</a></div></div>
+<div class="ttc" id="aclassGameState_html_aa19f7b265ddcdf1c490b1c43556d07e1"><div class="ttname"><a href="classGameState.html#aa19f7b265ddcdf1c490b1c43556d07e1">GameState::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clear all cached entities.</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00079">GameState.hpp:79</a></div></div>
+<div class="ttc" id="aclassGameState_html_adbedaec4367fbf2705065e66a8909ce5"><div class="ttname"><a href="classGameState.html#adbedaec4367fbf2705065e66a8909ce5">GameState::listPlayers</a></div><div class="ttdeci">std::vector&lt; PlayerState &gt; listPlayers() const</div><div class="ttdoc">Return a snapshot list of current players.</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00097">GameState.hpp:97</a></div></div>
+<div class="ttc" id="astructBulletState_html"><div class="ttname"><a href="structBulletState.html">BulletState</a></div><div class="ttdoc">Lightweight snapshot of a bullet for client-side rendering.</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00028">GameState.hpp:28</a></div></div>
+<div class="ttc" id="astructBulletState_html_a46bfd93072fd5ed96e00366e47315202"><div class="ttname"><a href="structBulletState.html#a46bfd93072fd5ed96e00366e47315202">BulletState::y</a></div><div class="ttdeci">uint8_t y</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00031">GameState.hpp:31</a></div></div>
+<div class="ttc" id="astructBulletState_html_a52e263cd18ea7729984530807bb8e139"><div class="ttname"><a href="structBulletState.html#a52e263cd18ea7729984530807bb8e139">BulletState::vx</a></div><div class="ttdeci">int8_t vx</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00032">GameState.hpp:32</a></div></div>
+<div class="ttc" id="astructBulletState_html_a64b346c59c2bbb5a112908d78fe92bf7"><div class="ttname"><a href="structBulletState.html#a64b346c59c2bbb5a112908d78fe92bf7">BulletState::vy</a></div><div class="ttdeci">int8_t vy</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00033">GameState.hpp:33</a></div></div>
+<div class="ttc" id="astructBulletState_html_ae58c567afd2735b48696ce42494416b6"><div class="ttname"><a href="structBulletState.html#ae58c567afd2735b48696ce42494416b6">BulletState::x</a></div><div class="ttdeci">uint8_t x</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00030">GameState.hpp:30</a></div></div>
+<div class="ttc" id="astructMonsterState_html"><div class="ttname"><a href="structMonsterState.html">MonsterState</a></div><div class="ttdoc">Lightweight snapshot of a monster for client-side rendering.</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00039">GameState.hpp:39</a></div></div>
+<div class="ttc" id="astructMonsterState_html_a26ad229c9a3b5ceef052c357c11e2472"><div class="ttname"><a href="structMonsterState.html#a26ad229c9a3b5ceef052c357c11e2472">MonsterState::type</a></div><div class="ttdeci">uint8_t type</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00044">GameState.hpp:44</a></div></div>
+<div class="ttc" id="astructMonsterState_html_a7defca59db78cded4e5d6526e7569adc"><div class="ttname"><a href="structMonsterState.html#a7defca59db78cded4e5d6526e7569adc">MonsterState::x</a></div><div class="ttdeci">uint8_t x</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00041">GameState.hpp:41</a></div></div>
+<div class="ttc" id="astructMonsterState_html_ab8eb152bf072fc02d85636f18963e95b"><div class="ttname"><a href="structMonsterState.html#ab8eb152bf072fc02d85636f18963e95b">MonsterState::hp</a></div><div class="ttdeci">uint8_t hp</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00043">GameState.hpp:43</a></div></div>
+<div class="ttc" id="astructMonsterState_html_ad65a95979ad3a2747b0fcce97cb4762c"><div class="ttname"><a href="structMonsterState.html#ad65a95979ad3a2747b0fcce97cb4762c">MonsterState::y</a></div><div class="ttdeci">uint8_t y</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00042">GameState.hpp:42</a></div></div>
+<div class="ttc" id="astructPlayerState_html"><div class="ttname"><a href="structPlayerState.html">PlayerState</a></div><div class="ttdoc">Lightweight snapshot of a player for client-side rendering.</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00017">GameState.hpp:17</a></div></div>
+<div class="ttc" id="astructPlayerState_html_a12ddc6ce91f2180e81363a3863edbacf"><div class="ttname"><a href="structPlayerState.html#a12ddc6ce91f2180e81363a3863edbacf">PlayerState::hp</a></div><div class="ttdeci">uint8_t hp</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00021">GameState.hpp:21</a></div></div>
+<div class="ttc" id="astructPlayerState_html_a239b365ad0ad982f928dd77b8b3d121f"><div class="ttname"><a href="structPlayerState.html#a239b365ad0ad982f928dd77b8b3d121f">PlayerState::score</a></div><div class="ttdeci">uint16_t score</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00022">GameState.hpp:22</a></div></div>
+<div class="ttc" id="astructPlayerState_html_a50f07cd4be8eb68af2a3cf73b843e757"><div class="ttname"><a href="structPlayerState.html#a50f07cd4be8eb68af2a3cf73b843e757">PlayerState::y</a></div><div class="ttdeci">uint8_t y</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00020">GameState.hpp:20</a></div></div>
+<div class="ttc" id="astructPlayerState_html_a511d57ac4a0a817233868d7a87441b1a"><div class="ttname"><a href="structPlayerState.html#a511d57ac4a0a817233868d7a87441b1a">PlayerState::x</a></div><div class="ttdeci">uint8_t x</div><div class="ttdef"><b>Definition</b> <a href="GameState_8hpp_source.html#l00019">GameState.hpp:19</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,0 +1,25 @@
+<map id="TCPServer::acceptNewClient" name="TCPServer::acceptNewClient">
+<area shape="rect" id="Node000001" title="Accept incoming connection and register a new client slot." alt="" coords="5,145,212,170"/>
+<area shape="rect" id="Node000002" href="$classNetwork_1_1TransportLayer_1_1TCPSocket.html#aab30f88e654d44503b85368f4af43e8d" title="Accept an incoming client connection." alt="" coords="273,5,459,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,142,182,100,259,55,276,48,278,53,261,60,184,105,127,147"/>
+<area shape="rect" id="Node000003" href="$classSessionManager.html#af8d1197fa1236d0295e3d31170639f6e" title="Add a TCP session entry." alt="" coords="261,70,471,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="144,142,259,104,291,96,292,101,261,109,146,147"/>
+<area shape="rect" id="Node000004" href="$classTCPServer.html#aa6089a11e438f73bfc614c44f86e5d75" title="Close and invalidate a file descriptor." alt="" coords="293,119,439,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="212,145,278,138,279,143,212,150"/>
+<area shape="rect" id="Node000006" href="$classTCPServer.html#a6d824f4302f15bbd2c7c8b754d1a51dd" title="Get current time in milliseconds." alt="" coords="267,169,465,194"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="212,164,253,168,253,173,212,170"/>
+<area shape="rect" id="Node000007" href="$classTCPServer.html#a35b89efbda16dd8af6b7ff45b6da036d" title="Build a packet carrying a string payload." alt="" coords="260,218,472,243"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="148,168,261,203,296,212,295,217,259,208,147,173"/>
+<area shape="rect" id="Node000008" href="$classTCPServer.html#a9a65a3923e77e48c5f0019b45af8fcb5" title="Send a packet to a specific client fd." alt="" coords="281,267,451,293"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="127,168,184,209,222,232,261,252,285,261,283,266,259,257,219,237,181,214,124,172"/>
+<area shape="rect" id="Node000005" href="$classTCPServer.html#a2595c03eed6bf37e098e619e6751a3d4" title="Close a raw fd without resetting the caller&#39;s variable." alt="" coords="520,119,695,145"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="440,129,506,129,506,135,440,135"/>
+<area shape="rect" id="Node000009" href="$namespaceProtocol.html#a668bdeed219432868fca095e1b2f2667" title="Build a TCP framed buffer (2 bytes length + serialized packet)." alt="" coords="536,242,679,267"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="451,268,522,261,523,266,451,274"/>
+<area shape="rect" id="Node000011" href="$classTCPServer.html#a79e20e1d2821e399fe47dd1055341d5e" title="Ensure the full buffer is written to the socket." alt="" coords="534,291,681,317"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="451,286,520,293,520,298,451,291"/>
+<area shape="rect" id="Node000010" href="$classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="752,242,879,267"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="679,252,738,252,738,257,679,257"/>
+<area shape="rect" id="Node000012" href="$classTCPServer.html#a5b1988f8a542c2d39f3d3556264e71b2" title="Write raw bytes to a socket fd." alt="" coords="743,291,888,317"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="681,301,729,301,729,307,681,307"/>
+</map>

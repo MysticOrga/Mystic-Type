@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_41e1742e44e2de38b3bc91f993fed282" kind="dir">
+    <compoundname>server</compoundname>
+    <innerfile refid="ChildProcessManager_8cpp">ChildProcessManager.cpp</innerfile>
+    <innerfile refid="ChildProcessManager_8hpp">ChildProcessManager.hpp</innerfile>
+    <innerfile refid="IpcChannel_8cpp">IpcChannel.cpp</innerfile>
+    <innerfile refid="IpcChannel_8hpp">IpcChannel.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="server/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,7 @@
+<map id="Protocol::consumeChunk" name="Protocol::consumeChunk">
+<area shape="rect" id="Node000001" title="Append newly read bytes then attempt extraction." alt="" coords="5,5,188,31"/>
+<area shape="rect" id="Node000002" href="$namespaceProtocol.html#a10005c44787f8de2a0e42d395aff8baa" title="Try to extract a complete packet from an accumulated stream buffer." alt="" coords="236,5,437,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,15,222,15,222,21,188,21"/>
+<area shape="rect" id="Node000003" href="$classPacket.html#abfcd427a2ca434ac71592334517638fb" title="Deserialize a packet from a raw byte buffer." alt="" coords="485,5,628,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="438,15,471,15,471,21,438,21"/>
+</map>

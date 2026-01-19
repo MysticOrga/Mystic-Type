@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -108,37 +109,63 @@ $(document).ready(function(){initNavTree('Graphic_8hpp_source.html',''); initRes
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;../Raylib/Raylib.hpp&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"></span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespaceRtype.html">   14</a></span><span class="comment">* @namespace Rtype</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">* @brief Main namespace for R-Type game.</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">*/</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceRtype.html">Rtype</a></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{<span class="comment"></span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespaceGraphic.html">   20</a></span><span class="comment">* @namespace Graphic</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">* @brief Graphics-related classes and utilities.</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">*/</span></div>
 <div class="foldopen" id="foldopen00023" data-start="{" data-end="}">
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespaceRtype_1_1Graphic.html">   23</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceGraphic.html">Graphic</a></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>{</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"></span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">* @class AnimatedSprite</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">* @brief Manages animated sprite rendering with frame-based animation.</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">*</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">* Handles sprite sheet loading, animation frame updates, positioning, and rendering.</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">*/</span></div>
 <div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classRtype_1_1Graphic_1_1AnimatedSprite.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="classRtype_1_1Graphic_1_1AnimatedSprite.html">AnimatedSprite</a></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    std::shared_ptr&lt;Raylib::Texture&gt; _texture; </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    Vector2 _size;                  </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    Vector2 _positionInSpritesheet; </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">int</span> _maxFrames;                 </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">float</span> _frameTime;               </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">float</span> _timer;                   </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">int</span> _currentFrame;              </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    Rectangle _sourceRect;  </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    Vector2 _position;      </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    Vector2 _scale{1.0f, 1.0f}; </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#acc6026ccd104477fc636205013674568">   35</a></span>    std::shared_ptr&lt;Raylib::Texture&gt; <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#acc6026ccd104477fc636205013674568">_texture</a>; <span class="comment">/**&lt; Loaded sprite sheet texture */</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#aad9657c6ba086ca797a8714e18d283ea">   37</a></span>    Vector2 <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#aad9657c6ba086ca797a8714e18d283ea">_size</a>;                  <span class="comment">/**&lt; Size of each individual frame */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac497bb551d49b7234cfe7087d91f52bc">   38</a></span>    Vector2 <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac497bb551d49b7234cfe7087d91f52bc">_positionInSpritesheet</a>; <span class="comment">/**&lt; Starting position in sprite sheet */</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac99408e6df78edff7a6b5bfcb470f119">   39</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac99408e6df78edff7a6b5bfcb470f119">_maxFrames</a>;                 <span class="comment">/**&lt; Total number of animation frames */</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#af13d2e9637dce59a579c923fdaa888d7">   40</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#af13d2e9637dce59a579c923fdaa888d7">_frameTime</a>;               <span class="comment">/**&lt; Time each frame is displayed */</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#afeed552cf17a6135da0f2bbfc567e6cb">   41</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#afeed552cf17a6135da0f2bbfc567e6cb">_timer</a>;                   <span class="comment">/**&lt; Current frame timer */</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a0d84c74ead5552710bfad214ae3a63b3">   42</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a0d84c74ead5552710bfad214ae3a63b3">_currentFrame</a>;              <span class="comment">/**&lt; Currently displayed frame index */</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae09ae8b36b9ab3e12ebdc4d1798799b4">   44</a></span>    Rectangle <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae09ae8b36b9ab3e12ebdc4d1798799b4">_sourceRect</a>;  <span class="comment">/**&lt; Source rectangle in sprite sheet */</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a9ead5e3f0b95f79971d2de88fe47b94d">   45</a></span>    Vector2 <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a9ead5e3f0b95f79971d2de88fe47b94d">_position</a>;      <span class="comment">/**&lt; Current screen position */</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac2ef4cb259da3fc514d0090d5dbb1afb">   46</a></span>    Vector2 <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac2ef4cb259da3fc514d0090d5dbb1afb">_scale</a>{1.0f, 1.0f}; <span class="comment">/**&lt; Sprite scale factors */</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">    * @brief Constructor for AnimatedSprite.</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">    * @param path Path to sprite sheet image file.</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">    * @param size Size of each frame (width, height).</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">    * @param posInSheet Position of first frame in sprite sheet grid.</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">    * @param maxFrames Total number of animation frames.</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">    * @param frameTime Time in seconds each frame is displayed (default: 0.1).</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">    * @param pos Initial screen position (default: 0, 0).</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">    */</span></div>
 <div class="foldopen" id="foldopen00058" data-start="{" data-end="}">
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae284bb557cb2c7261d888df9ac1a94af">   58</a></span>    <a class="code hl_function" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae284bb557cb2c7261d888df9ac1a94af">AnimatedSprite</a>(<span class="keyword">const</span> std::string &amp;path, Vector2 size, Vector2 posInSheet, <span class="keywordtype">int</span> maxFrames,</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                   <span class="keywordtype">float</span> frameTime = 0.1f, Vector2 pos = {0, 0})</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        : _size(size), _positionInSpritesheet(posInSheet), _maxFrames(maxFrames), _frameTime(frameTime),</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>          _position(pos), _timer(0.0f), _currentFrame(0)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        : <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#aad9657c6ba086ca797a8714e18d283ea">_size</a>(size), <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac497bb551d49b7234cfe7087d91f52bc">_positionInSpritesheet</a>(posInSheet), <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac99408e6df78edff7a6b5bfcb470f119">_maxFrames</a>(maxFrames), <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#af13d2e9637dce59a579c923fdaa888d7">_frameTime</a>(frameTime),</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>          <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a9ead5e3f0b95f79971d2de88fe47b94d">_position</a>(pos), <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#afeed552cf17a6135da0f2bbfc567e6cb">_timer</a>(0.0f), <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a0d84c74ead5552710bfad214ae3a63b3">_currentFrame</a>(0)</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        _texture = std::make_shared&lt;Raylib::Texture&gt;(path);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#acc6026ccd104477fc636205013674568">_texture</a> = std::make_shared&lt;Raylib::Texture&gt;(path);</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        _sourceRect = {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae09ae8b36b9ab3e12ebdc4d1798799b4">_sourceRect</a> = {</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            posInSheet.x * size.x, </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            posInSheet.y * size.y, </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            size.x, </div>
@@ -146,51 +173,69 @@ $(document).ready(function(){initNavTree('Graphic_8hpp_source.html',''); initRes
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        };</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
 </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"></span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">    * @brief Sets the sprite&#39;s screen position.</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">    * @param pos New position coordinates.</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">    */</span></div>
 <div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a1f7c6aceeed5f9ec40d5140203bf844b">   77</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a1f7c6aceeed5f9ec40d5140203bf844b">setPosition</a>(<span class="keyword">const</span> Vector2 &amp;pos)</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    {</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        _position = pos;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a9ead5e3f0b95f79971d2de88fe47b94d">_position</a> = pos;</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    }</div>
 </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"></span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">    * @brief Sets the sprite&#39;s scale factors.</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">    * @param sx Horizontal scale.</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">    * @param sy Vertical scale.</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">    */</span></div>
 <div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a656054e8c3f7380066422d10a7584c44">   87</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a656054e8c3f7380066422d10a7584c44">setScale</a>(<span class="keywordtype">float</span> sx, <span class="keywordtype">float</span> sy)</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    {</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        _scale = {sx, sy};</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac2ef4cb259da3fc514d0090d5dbb1afb">_scale</a> = {sx, sy};</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    }</div>
 </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"></span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">    * @brief Updates animation frame based on elapsed time.</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">    * @param dt Delta time since last update.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">    */</span></div>
 <div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae93338c214b783b3b9c3549c0fab7f08">   96</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae93338c214b783b3b9c3549c0fab7f08">update</a>(<span class="keywordtype">float</span> dt)</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    {</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        _timer += dt;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#afeed552cf17a6135da0f2bbfc567e6cb">_timer</a> += dt;</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">if</span> (_timer &gt;= _frameTime)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#afeed552cf17a6135da0f2bbfc567e6cb">_timer</a> &gt;= <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#af13d2e9637dce59a579c923fdaa888d7">_frameTime</a>)</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        {</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            _timer = 0.0f;</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            _currentFrame++;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#afeed552cf17a6135da0f2bbfc567e6cb">_timer</a> = 0.0f;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a0d84c74ead5552710bfad214ae3a63b3">_currentFrame</a>++;</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordflow">if</span> (_currentFrame &gt;= _maxFrames)</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                _currentFrame = 0;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a0d84c74ead5552710bfad214ae3a63b3">_currentFrame</a> &gt;= <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac99408e6df78edff7a6b5bfcb470f119">_maxFrames</a>)</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a0d84c74ead5552710bfad214ae3a63b3">_currentFrame</a> = 0;</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            _sourceRect.x = (_positionInSpritesheet.x + _currentFrame) * _size.x;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae09ae8b36b9ab3e12ebdc4d1798799b4">_sourceRect</a>.x = (<a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac497bb551d49b7234cfe7087d91f52bc">_positionInSpritesheet</a>.x + <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a0d84c74ead5552710bfad214ae3a63b3">_currentFrame</a>) * <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#aad9657c6ba086ca797a8714e18d283ea">_size</a>.x;</div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        }</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
 </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment"></span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">    * @brief Renders the sprite to the screen.</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">    *</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">    * Draws the current animation frame centered at the sprite position.</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">    */</span></div>
 <div class="foldopen" id="foldopen00117" data-start="{" data-end="}">
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a963c826ca2ecb849b9b8839559916012">  117</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a963c826ca2ecb849b9b8839559916012">draw</a>()</div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    {</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordflow">if</span> (_texture) {</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordtype">float</span> w = _sourceRect.width * _scale.x;</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            <span class="keywordtype">float</span> h = _sourceRect.height * _scale.y;</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            Vector2 centeredPos = _position;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#acc6026ccd104477fc636205013674568">_texture</a>) {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keywordtype">float</span> w = <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae09ae8b36b9ab3e12ebdc4d1798799b4">_sourceRect</a>.width * <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac2ef4cb259da3fc514d0090d5dbb1afb">_scale</a>.x;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            <span class="keywordtype">float</span> h = <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae09ae8b36b9ab3e12ebdc4d1798799b4">_sourceRect</a>.height * <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac2ef4cb259da3fc514d0090d5dbb1afb">_scale</a>.y;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            Vector2 centeredPos = <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a9ead5e3f0b95f79971d2de88fe47b94d">_position</a>;</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            centeredPos.x -= w / 2.0f;</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            centeredPos.y -= h / 2.0f;</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            Rectangle dest{centeredPos.x, centeredPos.y, w, h};</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            _texture-&gt;draw(_sourceRect, dest, WHITE);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            <a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#acc6026ccd104477fc636205013674568">_texture</a>-&gt;draw(<a class="code hl_variable" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae09ae8b36b9ab3e12ebdc4d1798799b4">_sourceRect</a>, dest, WHITE);</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        }</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    }</div>
 </div>
@@ -200,12 +245,22 @@ $(document).ready(function(){initNavTree('Graphic_8hpp_source.html',''); initRes
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>} <span class="comment">// namespace Graphic</span></div>
 </div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>} <span class="comment">// namespace Rtype</span></div>
-<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html">Rtype::Graphic::AnimatedSprite</a></div><div class="ttdoc">Manages animated sprite rendering with frame-based animation.</div><div class="ttdef"><b>Definition</b> Graphic.hpp:33</div></div>
-<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_a1f7c6aceeed5f9ec40d5140203bf844b"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a1f7c6aceeed5f9ec40d5140203bf844b">Rtype::Graphic::AnimatedSprite::setPosition</a></div><div class="ttdeci">void setPosition(const Vector2 &amp;pos)</div><div class="ttdoc">Sets the sprite's screen position.</div><div class="ttdef"><b>Definition</b> Graphic.hpp:77</div></div>
-<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_a656054e8c3f7380066422d10a7584c44"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a656054e8c3f7380066422d10a7584c44">Rtype::Graphic::AnimatedSprite::setScale</a></div><div class="ttdeci">void setScale(float sx, float sy)</div><div class="ttdoc">Sets the sprite's scale factors.</div><div class="ttdef"><b>Definition</b> Graphic.hpp:87</div></div>
-<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_a963c826ca2ecb849b9b8839559916012"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a963c826ca2ecb849b9b8839559916012">Rtype::Graphic::AnimatedSprite::draw</a></div><div class="ttdeci">void draw()</div><div class="ttdoc">Renders the sprite to the screen.</div><div class="ttdef"><b>Definition</b> Graphic.hpp:117</div></div>
-<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_ae284bb557cb2c7261d888df9ac1a94af"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae284bb557cb2c7261d888df9ac1a94af">Rtype::Graphic::AnimatedSprite::AnimatedSprite</a></div><div class="ttdeci">AnimatedSprite(const std::string &amp;path, Vector2 size, Vector2 posInSheet, int maxFrames, float frameTime=0.1f, Vector2 pos={0, 0})</div><div class="ttdoc">Constructor for AnimatedSprite.</div><div class="ttdef"><b>Definition</b> Graphic.hpp:58</div></div>
-<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_ae93338c214b783b3b9c3549c0fab7f08"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae93338c214b783b3b9c3549c0fab7f08">Rtype::Graphic::AnimatedSprite::update</a></div><div class="ttdeci">void update(float dt)</div><div class="ttdoc">Updates animation frame based on elapsed time.</div><div class="ttdef"><b>Definition</b> Graphic.hpp:96</div></div>
+<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html">Rtype::Graphic::AnimatedSprite</a></div><div class="ttdoc">Manages animated sprite rendering with frame-based animation.</div><div class="ttdef"><b>Definition</b> <a href="Graphic_8hpp_source.html#l00032">Graphic.hpp:33</a></div></div>
+<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_a0d84c74ead5552710bfad214ae3a63b3"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a0d84c74ead5552710bfad214ae3a63b3">Rtype::Graphic::AnimatedSprite::_currentFrame</a></div><div class="ttdeci">int _currentFrame</div><div class="ttdef"><b>Definition</b> <a href="Graphic_8hpp_source.html#l00042">Graphic.hpp:42</a></div></div>
+<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_a1f7c6aceeed5f9ec40d5140203bf844b"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a1f7c6aceeed5f9ec40d5140203bf844b">Rtype::Graphic::AnimatedSprite::setPosition</a></div><div class="ttdeci">void setPosition(const Vector2 &amp;pos)</div><div class="ttdoc">Sets the sprite's screen position.</div><div class="ttdef"><b>Definition</b> <a href="Graphic_8hpp_source.html#l00077">Graphic.hpp:77</a></div></div>
+<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_a656054e8c3f7380066422d10a7584c44"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a656054e8c3f7380066422d10a7584c44">Rtype::Graphic::AnimatedSprite::setScale</a></div><div class="ttdeci">void setScale(float sx, float sy)</div><div class="ttdoc">Sets the sprite's scale factors.</div><div class="ttdef"><b>Definition</b> <a href="Graphic_8hpp_source.html#l00087">Graphic.hpp:87</a></div></div>
+<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_a963c826ca2ecb849b9b8839559916012"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a963c826ca2ecb849b9b8839559916012">Rtype::Graphic::AnimatedSprite::draw</a></div><div class="ttdeci">void draw()</div><div class="ttdoc">Renders the sprite to the screen.</div><div class="ttdef"><b>Definition</b> <a href="Graphic_8hpp_source.html#l00117">Graphic.hpp:117</a></div></div>
+<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_a9ead5e3f0b95f79971d2de88fe47b94d"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a9ead5e3f0b95f79971d2de88fe47b94d">Rtype::Graphic::AnimatedSprite::_position</a></div><div class="ttdeci">Vector2 _position</div><div class="ttdef"><b>Definition</b> <a href="Graphic_8hpp_source.html#l00045">Graphic.hpp:45</a></div></div>
+<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_aad9657c6ba086ca797a8714e18d283ea"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#aad9657c6ba086ca797a8714e18d283ea">Rtype::Graphic::AnimatedSprite::_size</a></div><div class="ttdeci">Vector2 _size</div><div class="ttdef"><b>Definition</b> <a href="Graphic_8hpp_source.html#l00037">Graphic.hpp:37</a></div></div>
+<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_ac2ef4cb259da3fc514d0090d5dbb1afb"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac2ef4cb259da3fc514d0090d5dbb1afb">Rtype::Graphic::AnimatedSprite::_scale</a></div><div class="ttdeci">Vector2 _scale</div><div class="ttdef"><b>Definition</b> <a href="Graphic_8hpp_source.html#l00046">Graphic.hpp:46</a></div></div>
+<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_ac497bb551d49b7234cfe7087d91f52bc"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac497bb551d49b7234cfe7087d91f52bc">Rtype::Graphic::AnimatedSprite::_positionInSpritesheet</a></div><div class="ttdeci">Vector2 _positionInSpritesheet</div><div class="ttdef"><b>Definition</b> <a href="Graphic_8hpp_source.html#l00038">Graphic.hpp:38</a></div></div>
+<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_ac99408e6df78edff7a6b5bfcb470f119"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac99408e6df78edff7a6b5bfcb470f119">Rtype::Graphic::AnimatedSprite::_maxFrames</a></div><div class="ttdeci">int _maxFrames</div><div class="ttdef"><b>Definition</b> <a href="Graphic_8hpp_source.html#l00039">Graphic.hpp:39</a></div></div>
+<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_acc6026ccd104477fc636205013674568"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#acc6026ccd104477fc636205013674568">Rtype::Graphic::AnimatedSprite::_texture</a></div><div class="ttdeci">std::shared_ptr&lt; Raylib::Texture &gt; _texture</div><div class="ttdef"><b>Definition</b> <a href="Graphic_8hpp_source.html#l00035">Graphic.hpp:35</a></div></div>
+<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_ae09ae8b36b9ab3e12ebdc4d1798799b4"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae09ae8b36b9ab3e12ebdc4d1798799b4">Rtype::Graphic::AnimatedSprite::_sourceRect</a></div><div class="ttdeci">Rectangle _sourceRect</div><div class="ttdef"><b>Definition</b> <a href="Graphic_8hpp_source.html#l00044">Graphic.hpp:44</a></div></div>
+<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_ae284bb557cb2c7261d888df9ac1a94af"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae284bb557cb2c7261d888df9ac1a94af">Rtype::Graphic::AnimatedSprite::AnimatedSprite</a></div><div class="ttdeci">AnimatedSprite(const std::string &amp;path, Vector2 size, Vector2 posInSheet, int maxFrames, float frameTime=0.1f, Vector2 pos={0, 0})</div><div class="ttdoc">Constructor for AnimatedSprite.</div><div class="ttdef"><b>Definition</b> <a href="Graphic_8hpp_source.html#l00058">Graphic.hpp:58</a></div></div>
+<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_ae93338c214b783b3b9c3549c0fab7f08"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae93338c214b783b3b9c3549c0fab7f08">Rtype::Graphic::AnimatedSprite::update</a></div><div class="ttdeci">void update(float dt)</div><div class="ttdoc">Updates animation frame based on elapsed time.</div><div class="ttdef"><b>Definition</b> <a href="Graphic_8hpp_source.html#l00096">Graphic.hpp:96</a></div></div>
+<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_af13d2e9637dce59a579c923fdaa888d7"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#af13d2e9637dce59a579c923fdaa888d7">Rtype::Graphic::AnimatedSprite::_frameTime</a></div><div class="ttdeci">float _frameTime</div><div class="ttdef"><b>Definition</b> <a href="Graphic_8hpp_source.html#l00040">Graphic.hpp:40</a></div></div>
+<div class="ttc" id="aclassRtype_1_1Graphic_1_1AnimatedSprite_html_afeed552cf17a6135da0f2bbfc567e6cb"><div class="ttname"><a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#afeed552cf17a6135da0f2bbfc567e6cb">Rtype::Graphic::AnimatedSprite::_timer</a></div><div class="ttdeci">float _timer</div><div class="ttdef"><b>Definition</b> <a href="Graphic_8hpp_source.html#l00041">Graphic.hpp:41</a></div></div>
 <div class="ttc" id="anamespaceGraphic_html"><div class="ttname"><a href="namespaceGraphic.html">Graphic</a></div><div class="ttdoc">Graphics-related classes and utilities.</div></div>
 <div class="ttc" id="anamespaceRtype_html"><div class="ttname"><a href="namespaceRtype.html">Rtype</a></div><div class="ttdoc">Main namespace for R-Type game.</div></div>
 </div><!-- fragment --></div><!-- contents -->

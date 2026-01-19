@@ -1,0 +1,9 @@
+<map id="GraphicClient::selectPseudo" name="GraphicClient::selectPseudo">
+<area shape="rect" id="Node000001" title="Shows pseudo/username input menu." alt="" coords="481,5,685,31"/>
+<area shape="rect" id="Node000002" href="$classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="295,5,433,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="468,21,434,21,434,15,468,15"/>
+<area shape="rect" id="Node000003" href="$classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,5,247,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="281,21,247,21,247,15,281,15"/>
+<area shape="rect" id="Node000004" href="$client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>

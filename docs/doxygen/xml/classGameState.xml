@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classGameState" kind="class" language="C++" prot="public">
+    <compoundname>GameState</compoundname>
+    <includes refid="GameState_8hpp" local="no">Network/Client/GameState.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classGameState_1a61038ea129759cc4631044201305b10e" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; int, <ref refid="structPlayerState" kindref="compound">PlayerState</ref> &gt;</type>
+        <definition>std::unordered_map&lt;int, PlayerState&gt; GameState::_players</definition>
+        <argsstring></argsstring>
+        <name>_players</name>
+        <qualifiedname>GameState::_players</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="131" column="24" bodyfile="Network/Client/GameState.hpp" bodystart="131" bodyend="-1"/>
+        <referencedby refid="classGameState_1aa19f7b265ddcdf1c490b1c43556d07e1" compoundref="GameState_8hpp" startline="79" endline="84">clear</referencedby>
+        <referencedby refid="classGameState_1a59e8f64ec95841389e7bdbc1a07f718a" compoundref="GameState_8hpp" startline="89" endline="92">clearPlayers</referencedby>
+        <referencedby refid="classGameState_1adbedaec4367fbf2705065e66a8909ce5" compoundref="GameState_8hpp" startline="97" endline="104">listPlayers</referencedby>
+        <referencedby refid="classGameState_1a9f034439dd565e62cb83be4ac56baba1" compoundref="GameState_8hpp" startline="55" endline="58">upsertPlayer</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGameState_1a6ebd00bef3ebc816d2796634953b7615" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; int, <ref refid="structBulletState" kindref="compound">BulletState</ref> &gt;</type>
+        <definition>std::unordered_map&lt;int, BulletState&gt; GameState::_bullets</definition>
+        <argsstring></argsstring>
+        <name>_bullets</name>
+        <qualifiedname>GameState::_bullets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="132" column="24" bodyfile="Network/Client/GameState.hpp" bodystart="132" bodyend="-1"/>
+        <referencedby refid="classGameState_1aa19f7b265ddcdf1c490b1c43556d07e1" compoundref="GameState_8hpp" startline="79" endline="84">clear</referencedby>
+        <referencedby refid="classGameState_1a65f539f1657ebd717fe5d48683144c82" compoundref="GameState_8hpp" startline="109" endline="116">listBullets</referencedby>
+        <referencedby refid="classGameState_1a23099e9050e7a20e6d1349384591b3b5" compoundref="GameState_8hpp" startline="63" endline="66">upsertBullet</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGameState_1a684212aeb845a80b274f98de6e46214a" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; int, <ref refid="structMonsterState" kindref="compound">MonsterState</ref> &gt;</type>
+        <definition>std::unordered_map&lt;int, MonsterState&gt; GameState::_monsters</definition>
+        <argsstring></argsstring>
+        <name>_monsters</name>
+        <qualifiedname>GameState::_monsters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="133" column="24" bodyfile="Network/Client/GameState.hpp" bodystart="133" bodyend="-1"/>
+        <referencedby refid="classGameState_1aa19f7b265ddcdf1c490b1c43556d07e1" compoundref="GameState_8hpp" startline="79" endline="84">clear</referencedby>
+        <referencedby refid="classGameState_1a8fd239e201dacc3cc9d19dc34d67f301" compoundref="GameState_8hpp" startline="121" endline="128">listMonsters</referencedby>
+        <referencedby refid="classGameState_1a72d25f3760e72101b6c3ddc990da3d04" compoundref="GameState_8hpp" startline="71" endline="74">upsertMonster</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classGameState_1a9f034439dd565e62cb83be4ac56baba1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameState::upsertPlayer</definition>
+        <argsstring>(int id, uint8_t x, uint8_t y, uint8_t hp, uint16_t score)</argsstring>
+        <name>upsertPlayer</name>
+        <qualifiedname>GameState::upsertPlayer</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>hp</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>score</declname>
+        </param>
+        <briefdescription>
+<para>Insert or update a player entry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="55" column="10" bodyfile="Network/Client/GameState.hpp" bodystart="55" bodyend="58"/>
+        <references refid="classGameState_1a61038ea129759cc4631044201305b10e" compoundref="GameState_8hpp" startline="131">_players</references>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">GraphicClient::init</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">GraphicClient::processNetworkEvents</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGameState_1a23099e9050e7a20e6d1349384591b3b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameState::upsertBullet</definition>
+        <argsstring>(int id, uint8_t x, uint8_t y, int8_t vx, int8_t vy)</argsstring>
+        <name>upsertBullet</name>
+        <qualifiedname>GameState::upsertBullet</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int8_t</type>
+          <declname>vx</declname>
+        </param>
+        <param>
+          <type>int8_t</type>
+          <declname>vy</declname>
+        </param>
+        <briefdescription>
+<para>Insert or update a bullet entry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="63" column="10" bodyfile="Network/Client/GameState.hpp" bodystart="63" bodyend="66"/>
+        <references refid="classGameState_1a6ebd00bef3ebc816d2796634953b7615" compoundref="GameState_8hpp" startline="132">_bullets</references>
+      </memberdef>
+      <memberdef kind="function" id="classGameState_1a72d25f3760e72101b6c3ddc990da3d04" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameState::upsertMonster</definition>
+        <argsstring>(int id, uint8_t x, uint8_t y, uint8_t hp, uint8_t type)</argsstring>
+        <name>upsertMonster</name>
+        <qualifiedname>GameState::upsertMonster</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>hp</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Insert or update a monster entry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="71" column="10" bodyfile="Network/Client/GameState.hpp" bodystart="71" bodyend="74"/>
+        <references refid="classGameState_1a684212aeb845a80b274f98de6e46214a" compoundref="GameState_8hpp" startline="133">_monsters</references>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">GraphicClient::processNetworkEvents</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGameState_1aa19f7b265ddcdf1c490b1c43556d07e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameState::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
+        <qualifiedname>GameState::clear</qualifiedname>
+        <briefdescription>
+<para>Clear all cached entities. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="79" column="10" bodyfile="Network/Client/GameState.hpp" bodystart="79" bodyend="84"/>
+        <references refid="classGameState_1a6ebd00bef3ebc816d2796634953b7615" compoundref="GameState_8hpp" startline="132">_bullets</references>
+        <references refid="classGameState_1a684212aeb845a80b274f98de6e46214a" compoundref="GameState_8hpp" startline="133">_monsters</references>
+        <references refid="classGameState_1a61038ea129759cc4631044201305b10e" compoundref="GameState_8hpp" startline="131">_players</references>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">GraphicClient::processNetworkEvents</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">GraphicClient::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGameState_1a59e8f64ec95841389e7bdbc1a07f718a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void GameState::clearPlayers</definition>
+        <argsstring>()</argsstring>
+        <name>clearPlayers</name>
+        <qualifiedname>GameState::clearPlayers</qualifiedname>
+        <briefdescription>
+<para>Clear only player entries. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="89" column="10" bodyfile="Network/Client/GameState.hpp" bodystart="89" bodyend="92"/>
+        <references refid="classGameState_1a61038ea129759cc4631044201305b10e" compoundref="GameState_8hpp" startline="131">_players</references>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">GraphicClient::processNetworkEvents</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGameState_1adbedaec4367fbf2705065e66a8909ce5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structPlayerState" kindref="compound">PlayerState</ref> &gt;</type>
+        <definition>std::vector&lt; PlayerState &gt; GameState::listPlayers</definition>
+        <argsstring>() const</argsstring>
+        <name>listPlayers</name>
+        <qualifiedname>GameState::listPlayers</qualifiedname>
+        <briefdescription>
+<para>Return a snapshot list of current players. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="97" column="17" bodyfile="Network/Client/GameState.hpp" bodystart="97" bodyend="104"/>
+        <references refid="classGameState_1a61038ea129759cc4631044201305b10e" compoundref="GameState_8hpp" startline="131">_players</references>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">GraphicClient::init</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">GraphicClient::processNetworkEvents</referencedby>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">GraphicClient::render</referencedby>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">GraphicClient::updateEntities</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGameState_1a65f539f1657ebd717fe5d48683144c82" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structBulletState" kindref="compound">BulletState</ref> &gt;</type>
+        <definition>std::vector&lt; BulletState &gt; GameState::listBullets</definition>
+        <argsstring>() const</argsstring>
+        <name>listBullets</name>
+        <qualifiedname>GameState::listBullets</qualifiedname>
+        <briefdescription>
+<para>Return a snapshot list of current bullets. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="109" column="17" bodyfile="Network/Client/GameState.hpp" bodystart="109" bodyend="116"/>
+        <references refid="classGameState_1a6ebd00bef3ebc816d2796634953b7615" compoundref="GameState_8hpp" startline="132">_bullets</references>
+      </memberdef>
+      <memberdef kind="function" id="classGameState_1a8fd239e201dacc3cc9d19dc34d67f301" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structMonsterState" kindref="compound">MonsterState</ref> &gt;</type>
+        <definition>std::vector&lt; MonsterState &gt; GameState::listMonsters</definition>
+        <argsstring>() const</argsstring>
+        <name>listMonsters</name>
+        <qualifiedname>GameState::listMonsters</qualifiedname>
+        <briefdescription>
+<para>Return a snapshot list of current monsters. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="121" column="17" bodyfile="Network/Client/GameState.hpp" bodystart="121" bodyend="128"/>
+        <references refid="classGameState_1a684212aeb845a80b274f98de6e46214a" compoundref="GameState_8hpp" startline="133">_monsters</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Client-side container for the latest world state. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GameState</label>
+        <link refid="classGameState"/>
+      </node>
+    </collaborationgraph>
+    <location file="Network/Client/GameState.hpp" line="50" column="1" bodyfile="Network/Client/GameState.hpp" bodystart="50" bodyend="134"/>
+    <listofallmembers>
+      <member refid="classGameState_1a6ebd00bef3ebc816d2796634953b7615" prot="private" virt="non-virtual"><scope>GameState</scope><name>_bullets</name></member>
+      <member refid="classGameState_1a684212aeb845a80b274f98de6e46214a" prot="private" virt="non-virtual"><scope>GameState</scope><name>_monsters</name></member>
+      <member refid="classGameState_1a61038ea129759cc4631044201305b10e" prot="private" virt="non-virtual"><scope>GameState</scope><name>_players</name></member>
+      <member refid="classGameState_1aa19f7b265ddcdf1c490b1c43556d07e1" prot="public" virt="non-virtual"><scope>GameState</scope><name>clear</name></member>
+      <member refid="classGameState_1a59e8f64ec95841389e7bdbc1a07f718a" prot="public" virt="non-virtual"><scope>GameState</scope><name>clearPlayers</name></member>
+      <member refid="classGameState_1a65f539f1657ebd717fe5d48683144c82" prot="public" virt="non-virtual"><scope>GameState</scope><name>listBullets</name></member>
+      <member refid="classGameState_1a8fd239e201dacc3cc9d19dc34d67f301" prot="public" virt="non-virtual"><scope>GameState</scope><name>listMonsters</name></member>
+      <member refid="classGameState_1adbedaec4367fbf2705065e66a8909ce5" prot="public" virt="non-virtual"><scope>GameState</scope><name>listPlayers</name></member>
+      <member refid="classGameState_1a23099e9050e7a20e6d1349384591b3b5" prot="public" virt="non-virtual"><scope>GameState</scope><name>upsertBullet</name></member>
+      <member refid="classGameState_1a72d25f3760e72101b6c3ddc990da3d04" prot="public" virt="non-virtual"><scope>GameState</scope><name>upsertMonster</name></member>
+      <member refid="classGameState_1a9f034439dd565e62cb83be4ac56baba1" prot="public" virt="non-virtual"><scope>GameState</scope><name>upsertPlayer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

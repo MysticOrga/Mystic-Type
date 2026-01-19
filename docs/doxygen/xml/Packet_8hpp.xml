@@ -1,0 +1,453 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="Packet_8hpp" kind="file" language="C++">
+    <compoundname>Packet.hpp</compoundname>
+    <includes local="no">cstdint</includes>
+    <includes local="no">stdexcept</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="NetworkClient_8hpp" local="yes">Network/Client/NetworkClient.hpp</includedby>
+    <includedby refid="Packet_8cpp" local="yes">Network/TransportLayer/Packet.cpp</includedby>
+    <includedby refid="Protocol_8hpp" local="yes">Network/TransportLayer/Protocol.hpp</includedby>
+    <includedby refid="TCPServer_8hpp" local="yes">Network/TransportLayer/TCP/TCPServer.hpp</includedby>
+    <includedby refid="GameWorld_8hpp" local="yes">Network/TransportLayer/UDP/GameWorld.hpp</includedby>
+    <includedby refid="UDPGameServer_8hpp" local="yes">Network/TransportLayer/UDP/UDPGameServer.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Network/TransportLayer/Packet.hpp</label>
+        <link refid="Packet_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>cstdint</label>
+      </node>
+      <node id="3">
+        <label>stdexcept</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/client.cpp</label>
+        <link refid="client_8cpp"/>
+      </node>
+      <node id="17">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/game.cpp</label>
+        <link refid="game_8cpp"/>
+      </node>
+      <node id="13">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/server.cpp</label>
+        <link refid="server_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Network/Client/NetworkClient.cpp</label>
+        <link refid="NetworkClient_8cpp"/>
+      </node>
+      <node id="2">
+        <label>Network/Client/NetworkClient.hpp</label>
+        <link refid="NetworkClient_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Network/TransportLayer/Packet.cpp</label>
+        <link refid="Packet_8cpp"/>
+      </node>
+      <node id="1">
+        <label>Network/TransportLayer/Packet.hpp</label>
+        <link refid="Packet_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>Network/TransportLayer/Protocol.cpp</label>
+        <link refid="Protocol_8cpp"/>
+      </node>
+      <node id="9">
+        <label>Network/TransportLayer/Protocol.hpp</label>
+        <link refid="Protocol_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>Network/TransportLayer/TCP/TCPServer.cpp</label>
+        <link refid="TCPServer_8cpp"/>
+      </node>
+      <node id="12">
+        <label>Network/TransportLayer/TCP/TCPServer.hpp</label>
+        <link refid="TCPServer_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Network/TransportLayer/UDP/GameWorld.cpp</label>
+        <link refid="GameWorld_8cpp"/>
+      </node>
+      <node id="14">
+        <label>Network/TransportLayer/UDP/GameWorld.hpp</label>
+        <link refid="GameWorld_8hpp"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>Network/TransportLayer/UDP/UDPGameServer.cpp</label>
+        <link refid="UDPGameServer_8cpp"/>
+      </node>
+      <node id="16">
+        <label>Network/TransportLayer/UDP/UDPGameServer.hpp</label>
+        <link refid="UDPGameServer_8hpp"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>graphical-client/GraphicClient/GraphicClient.cpp</label>
+        <link refid="GraphicClient_8cpp"/>
+      </node>
+      <node id="4">
+        <label>graphical-client/GraphicClient/GraphicClient.hpp</label>
+        <link refid="GraphicClient_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>graphical-client/ecs/System.hpp</label>
+        <link refid="System_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classPacket" prot="public">Packet</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>PacketType</name>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a2d5adf374790a99688888f051f235cf0" prot="public">
+          <name>SERVER_HELLO</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+<para>Server greeting with assigned id. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a68f215961d3807b1f3e363ab9dc3b9fd" prot="public">
+          <name>CLIENT_HELLO</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+<para>Client greeting when connecting. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ae0aa021e21dddbd6d8cecec71e9cf564" prot="public">
+          <name>OK</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+<para>Generic acknowledgement. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a392253eaea22aafdb199bc238bafc082" prot="public">
+          <name>REFUSED</name>
+          <initializer>= 4</initializer>
+          <briefdescription>
+<para>Connection refused or invalid request. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ae07ff41a486c27c095a15898dcca34d1" prot="public">
+          <name>PING</name>
+          <initializer>= 5</initializer>
+          <briefdescription>
+<para>Heartbeat ping. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a15c94917c8795679ecb650ed760c27f0" prot="public">
+          <name>PONG</name>
+          <initializer>= 6</initializer>
+          <briefdescription>
+<para>Heartbeat response. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a90791ed805bd5b00d78527d39d9ef7e4" prot="public">
+          <name>MESSAGE</name>
+          <initializer>= 7</initializer>
+          <briefdescription>
+<para>Text or generic payload message. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56aa933b4eab2f8c05c250a78452a4475ef" prot="public">
+          <name>PLAYER_LIST</name>
+          <initializer>= 8</initializer>
+          <briefdescription>
+<para>Broadcast of currently connected players. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ad4f5148ace6252399e4d60ce75602ae8" prot="public">
+          <name>NEW_PLAYER</name>
+          <initializer>= 9</initializer>
+          <briefdescription>
+<para>Notification of a newly connected player. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a262dd3836d38576837418316684d57fa" prot="public">
+          <name>CREATE_LOBBY</name>
+          <initializer>= 14</initializer>
+          <briefdescription>
+<para>Request to create a private lobby. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a3888a668dd55727dbed1a4d11ad839db" prot="public">
+          <name>JOIN_LOBBY</name>
+          <initializer>= 15</initializer>
+          <briefdescription>
+<para>Request to join a lobby by code. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ad516ccad8300c04495db993fcec70efc" prot="public">
+          <name>LOBBY_OK</name>
+          <initializer>= 16</initializer>
+          <briefdescription>
+<para>Lobby join/create success with code. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a641d4a02e984224028338d5c33936ce9" prot="public">
+          <name>LOBBY_ERROR</name>
+          <initializer>= 17</initializer>
+          <briefdescription>
+<para>Lobby join/create failure reason. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a96a4de9c97bf5686278b38d16e7658ea" prot="public">
+          <name>HELLO_UDP</name>
+          <initializer>= 10</initializer>
+          <briefdescription>
+<para>UDP hello used for NAT hole punching. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56aa84cc046d48610b05c21fd3670d0c829" prot="public">
+          <name>INPUT</name>
+          <initializer>= 11</initializer>
+          <briefdescription>
+<para>Player input payload. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a46b8744c6bc840d2cb241fa165f3e204" prot="public">
+          <name>SNAPSHOT</name>
+          <initializer>= 12</initializer>
+          <briefdescription>
+<para>World state snapshot. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a0504ea30baff7b670a10cb44f8e5cca2" prot="public">
+          <name>SHOOT</name>
+          <initializer>= 13</initializer>
+          <briefdescription>
+<para>Player shoot command. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a256b68b36c17e1c85641d281b39500bb" prot="public">
+          <name>LEVELING</name>
+          <initializer>= 14</initializer>
+          <briefdescription>
+<para>Go to next level. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a600e36d8f89903f17192c68b6ff1e6eb" prot="public">
+          <name>PING_UDP</name>
+          <initializer>= 18</initializer>
+          <briefdescription>
+<para>UDP ping for RTT measurement. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56adc6c95d7a7387379cf7fd130bbf3f77d" prot="public">
+          <name>PONG_UDP</name>
+          <initializer>= 19</initializer>
+          <briefdescription>
+<para>UDP pong response. </para>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Supported packet types exchanged between server and clients. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/Packet.hpp" line="18" column="1" bodyfile="Network/TransportLayer/Packet.hpp" bodystart="18" bodyend="42"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="Packet_8hpp_1ab8c5cddb2e1593369ad6517eb7fca5b6" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t PACKET_MAGIC</definition>
+        <argsstring></argsstring>
+        <name>PACKET_MAGIC</name>
+        <initializer>= 0x5254</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/Packet.hpp" line="13" column="20" bodyfile="Network/TransportLayer/Packet.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">**<sp/>EPITECH<sp/>PROJECT,<sp/>2025</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">**<sp/>`</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">**<sp/>File<sp/>description:</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">**<sp/>Protocol</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdexcept&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="Packet_8hpp_1ab8c5cddb2e1593369ad6517eb7fca5b6" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>uint16_t<sp/><ref refid="Packet_8hpp_1ab8c5cddb2e1593369ad6517eb7fca5b6" kindref="member">PACKET_MAGIC</ref><sp/>=<sp/>0x5254;<sp/></highlight><highlight class="comment">//<sp/>&quot;RT&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="15"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Supported<sp/>packet<sp/>types<sp/>exchanged<sp/>between<sp/>server<sp/>and<sp/>clients.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56" kindref="member">PacketType</ref><sp/>:<sp/>uint8_t<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//TCP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a2d5adf374790a99688888f051f235cf0" kindref="member">SERVER_HELLO</ref><sp/>=<sp/>1,<sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Server<sp/>greeting<sp/>with<sp/>assigned<sp/>id.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a68f215961d3807b1f3e363ab9dc3b9fd" kindref="member">CLIENT_HELLO</ref><sp/>=<sp/>2,<sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Client<sp/>greeting<sp/>when<sp/>connecting.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ae0aa021e21dddbd6d8cecec71e9cf564" kindref="member">OK</ref><sp/>=<sp/>3,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Generic<sp/>acknowledgement.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a392253eaea22aafdb199bc238bafc082" kindref="member">REFUSED</ref><sp/>=<sp/>4,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Connection<sp/>refused<sp/>or<sp/>invalid<sp/>request.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ae07ff41a486c27c095a15898dcca34d1" kindref="member">PING</ref><sp/>=<sp/>5,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Heartbeat<sp/>ping.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a15c94917c8795679ecb650ed760c27f0" kindref="member">PONG</ref><sp/>=<sp/>6,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Heartbeat<sp/>response.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a90791ed805bd5b00d78527d39d9ef7e4" kindref="member">MESSAGE</ref><sp/>=<sp/>7,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Text<sp/>or<sp/>generic<sp/>payload<sp/>message.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56aa933b4eab2f8c05c250a78452a4475ef" kindref="member">PLAYER_LIST</ref><sp/>=<sp/>8,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Broadcast<sp/>of<sp/>currently<sp/>connected<sp/>players.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ad4f5148ace6252399e4d60ce75602ae8" kindref="member">NEW_PLAYER</ref><sp/><sp/>=<sp/>9,<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Notification<sp/>of<sp/>a<sp/>newly<sp/>connected<sp/>player.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a262dd3836d38576837418316684d57fa" kindref="member">CREATE_LOBBY</ref><sp/>=<sp/>14,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Request<sp/>to<sp/>create<sp/>a<sp/>private<sp/>lobby.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a3888a668dd55727dbed1a4d11ad839db" kindref="member">JOIN_LOBBY</ref><sp/><sp/><sp/>=<sp/>15,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Request<sp/>to<sp/>join<sp/>a<sp/>lobby<sp/>by<sp/>code.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ad516ccad8300c04495db993fcec70efc" kindref="member">LOBBY_OK</ref><sp/><sp/><sp/><sp/><sp/>=<sp/>16,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Lobby<sp/>join/create<sp/>success<sp/>with<sp/>code.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a641d4a02e984224028338d5c33936ce9" kindref="member">LOBBY_ERROR</ref><sp/><sp/>=<sp/>17,<sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Lobby<sp/>join/create<sp/>failure<sp/>reason.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//UDP</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a96a4de9c97bf5686278b38d16e7658ea" kindref="member">HELLO_UDP</ref><sp/><sp/><sp/>=<sp/>10,<sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>UDP<sp/>hello<sp/>used<sp/>for<sp/>NAT<sp/>hole<sp/>punching.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56aa84cc046d48610b05c21fd3670d0c829" kindref="member">INPUT</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>11,<sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Player<sp/>input<sp/>payload.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a46b8744c6bc840d2cb241fa165f3e204" kindref="member">SNAPSHOT</ref><sp/><sp/><sp/><sp/>=<sp/>12,<sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>World<sp/>state<sp/>snapshot.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a0504ea30baff7b670a10cb44f8e5cca2" kindref="member">SHOOT</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/>13,<sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Player<sp/>shoot<sp/>command.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a256b68b36c17e1c85641d281b39500bb" kindref="member">LEVELING</ref><sp/><sp/><sp/><sp/>=<sp/>14,<sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>Go<sp/>to<sp/>next<sp/>level</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a600e36d8f89903f17192c68b6ff1e6eb" kindref="member">PING_UDP</ref><sp/><sp/><sp/><sp/>=<sp/>18,<sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>UDP<sp/>ping<sp/>for<sp/>RTT<sp/>measurement.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56adc6c95d7a7387379cf7fd130bbf3f77d" kindref="member">PONG_UDP</ref><sp/><sp/><sp/><sp/>=<sp/>19<sp/><sp/><sp/><sp/></highlight><highlight class="comment">///&lt;<sp/>UDP<sp/>pong<sp/>response.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Light<sp/>container<sp/>for<sp/>game<sp/>protocol<sp/>packets<sp/>with<sp/>(de)serialization<sp/>helpers.</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="classPacket" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classPacket" kindref="compound">Packet</ref><sp/>{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="49" refid="classPacket_1a7e86ba3319a45d5cbfe6f4cc792594b1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="classPacket_1a7e86ba3319a45d5cbfe6f4cc792594b1" kindref="member">header</ref><sp/>=<sp/><ref refid="Packet_8hpp_1ab8c5cddb2e1593369ad6517eb7fca5b6" kindref="member">PACKET_MAGIC</ref>;<sp/></highlight><highlight class="comment">///&lt;<sp/>Magic<sp/>number<sp/>to<sp/>validate<sp/>packets.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classPacket_1aebbae2cef32f967d0bbcabbe41dae6bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56" kindref="member">PacketType</ref><sp/><ref refid="classPacket_1aebbae2cef32f967d0bbcabbe41dae6bf" kindref="member">type</ref><sp/>=<sp/><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a90791ed805bd5b00d78527d39d9ef7e4" kindref="member">PacketType::MESSAGE</ref>;<sp/></highlight><highlight class="comment">///&lt;<sp/>Packet<sp/>category.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="classPacket_1af702242beb44d7ee757716717fd629df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="classPacket_1af702242beb44d7ee757716717fd629df" kindref="member">size</ref><sp/>=<sp/>0;<sp/></highlight><highlight class="comment">///&lt;<sp/>Payload<sp/>size<sp/>in<sp/>bytes.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52" refid="classPacket_1a3f718725cfd763776d87841235986095" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;uint8_t&gt;<sp/><ref refid="classPacket_1a3f718725cfd763776d87841235986095" kindref="member">payload</ref>;<sp/></highlight><highlight class="comment">///&lt;<sp/>Raw<sp/>payload<sp/>bytes.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="classPacket_1ab1ec7232eac75450a4392bb9c10921fb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classPacket_1ab1ec7232eac75450a4392bb9c10921fb" kindref="member">Packet</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Construct<sp/>a<sp/>packet<sp/>with<sp/>a<sp/>given<sp/>type<sp/>and<sp/>payload.</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>t<sp/>Packet<sp/>type.</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>data<sp/>Payload<sp/>bytes.</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="classPacket_1aab0404b1c09020e8e4b3ab676135c2e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classPacket_1aab0404b1c09020e8e4b3ab676135c2e3" kindref="member">Packet</ref>(<ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56" kindref="member">PacketType</ref><sp/>t,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;uint8_t&gt;&amp;<sp/>data)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="classPacket_1aebbae2cef32f967d0bbcabbe41dae6bf" kindref="member">type</ref>(t),<sp/><ref refid="classPacket_1af702242beb44d7ee757716717fd629df" kindref="member">size</ref>(static_cast&lt;uint8_t&gt;(data.<ref refid="classPacket_1af702242beb44d7ee757716717fd629df" kindref="member">size</ref>())),<sp/><ref refid="classPacket_1a3f718725cfd763776d87841235986095" kindref="member">payload</ref>(data)<sp/>{}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Serialize<sp/>the<sp/>packet<sp/>to<sp/>a<sp/>byte<sp/>buffer<sp/>ready<sp/>to<sp/>send.</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>Byte<sp/>vector<sp/>containing<sp/>header,<sp/>type,<sp/>size,<sp/>and<sp/>payload.</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;uint8_t&gt;<sp/><ref refid="classPacket_1aa88c2d28796644c8a1d6137996502ca8" kindref="member">serialize</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Deserialize<sp/>a<sp/>packet<sp/>from<sp/>a<sp/>raw<sp/>byte<sp/>buffer.</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>data<sp/>Pointer<sp/>to<sp/>the<sp/>raw<sp/>buffer.</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>len<sp/>Length<sp/>of<sp/>the<sp/>buffer.</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>Parsed<sp/>Packet<sp/>instance.</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@throws<sp/>std::runtime_error<sp/>if<sp/>the<sp/>buffer<sp/>is<sp/>invalid.</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/><ref refid="classPacket_1abfcd427a2ca434ac71592334517638fb" kindref="member">deserialize</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t*<sp/>data,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>len);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="Network/TransportLayer/Packet.hpp"/>
+  </compounddef>
+</doxygen>

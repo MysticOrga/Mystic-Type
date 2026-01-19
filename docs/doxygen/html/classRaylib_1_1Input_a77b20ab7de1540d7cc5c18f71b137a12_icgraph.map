@@ -1,0 +1,28 @@
+<map id="Raylib::Input::isKeyPressed" name="Raylib::Input::isKeyPressed">
+<area shape="rect" id="Node000001" title="Checks if a key was just pressed this frame." alt="" coords="1061,132,1260,157"/>
+<area shape="rect" id="Node000002" href="$classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,56,481,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1117,129,1068,111,1013,97,869,76,724,67,590,65,482,67,482,61,590,59,724,62,869,71,1014,91,1069,106,1119,124"/>
+<area shape="rect" id="Node000005" href="$classGraphicClient.html#a70229e3e019e7b315f06c9ad74f23be5" title="Shows lobby selection menu." alt="" coords="544,157,740,183"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1047,153,740,168,740,163,1047,148"/>
+<area shape="rect" id="Node000007" href="$classGraphicClient.html#a2d663515d7165fbe3533e038b5b2e916" title="Shows main menu with server connection options." alt="" coords="529,208,755,233"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="1065,162,1014,170,734,211,733,205,1013,165,1065,157"/>
+<area shape="rect" id="Node000008" href="$classGraphicClient.html#a14824911dd4c90d0f459ed532aec0dd7" title="Shows pseudo/username input menu." alt="" coords="806,107,1010,132"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="1047,136,1010,132,1010,127,1048,131"/>
+<area shape="rect" id="Node000009" href="$classGraphicClient.html#a349a93e6b861365d4aaa7d7cea0d9ccf" title="Shows controls settings menu for key remapping." alt="" coords="803,259,1013,284"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="1134,168,1080,205,1014,242,962,261,960,256,1012,237,1077,200,1131,163"/>
+<area shape="rect" id="Node000010" href="$classInputSystem.html#af7ed09c6bfd5fba6af86af16de00d706" title="Updates input state and sends player commands to the server." alt="" coords="829,5,987,31"/>
+<area shape="poly" id="edge13_Node000001_Node000010" title=" " alt="" coords="1131,126,1077,89,1012,52,960,33,962,28,1014,48,1080,84,1134,122"/>
+<area shape="rect" id="Node000003" href="$classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,107,247,132"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="322,87,231,109,230,104,321,82"/>
+<area shape="rect" id="Node000004" href="$client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,107,60,132"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,122,60,122,60,117,94,117"/>
+<area shape="rect" id="Node000006" href="$classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="319,132,457,157"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="530,162,457,154,458,149,531,156"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="305,137,247,130,247,125,305,132"/>
+<area shape="poly" id="edge8_Node000007_Node000006" title=" " alt="" coords="565,207,529,198,420,160,422,155,530,193,566,202"/>
+<area shape="poly" id="edge10_Node000008_Node000006" title=" " alt="" coords="792,128,458,144,457,139,792,122"/>
+<area shape="poly" id="edge12_Node000009_Node000007" title=" " alt="" coords="827,259,709,236,710,231,828,253"/>
+<area shape="rect" id="Node000011" href="$classGraphicClient.html#a50072266faf2e76ace99e16c4c7b208a" title="Updates all game entities based on delta time." alt="" coords="536,5,748,31"/>
+<area shape="poly" id="edge14_Node000010_Node000011" title=" " alt="" coords="815,21,748,21,748,15,815,15"/>
+<area shape="poly" id="edge15_Node000011_Node000002" title=" " alt="" coords="564,36,453,59,452,53,563,31"/>
+</map>

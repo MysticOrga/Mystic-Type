@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classRectangleRenderSystem" kind="class" language="C++" prot="public">
+    <compoundname>RectangleRenderSystem</compoundname>
+    <includes refid="System_8hpp" local="no">graphical-client/ecs/System.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRectangleRenderSystem_1ae46bcea7d3acaf9af00e0f78d33b31d4" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RectangleRenderSystem::_offsetX</definition>
+        <argsstring></argsstring>
+        <name>_offsetX</name>
+        <qualifiedname>RectangleRenderSystem::_offsetX</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/System.hpp" line="244" column="11" bodyfile="graphical-client/ecs/System.hpp" bodystart="244" bodyend="-1"/>
+        <referencedby refid="classRectangleRenderSystem_1a084776cc697d899483b31ec00a99e9b3" compoundref="System_8hpp" startline="221" endline="226">setGameAreaOffset</referencedby>
+        <referencedby refid="classRectangleRenderSystem_1a92f6643f7bbedda7d15c6ea55f7407d1" compoundref="System_8hpp" startline="233" endline="242">update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classRectangleRenderSystem_1ab8f08ab9bd2a18bd1ca44f18caa8012d" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RectangleRenderSystem::_offsetY</definition>
+        <argsstring></argsstring>
+        <name>_offsetY</name>
+        <qualifiedname>RectangleRenderSystem::_offsetY</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/System.hpp" line="245" column="11" bodyfile="graphical-client/ecs/System.hpp" bodystart="245" bodyend="-1"/>
+        <referencedby refid="classRectangleRenderSystem_1a084776cc697d899483b31ec00a99e9b3" compoundref="System_8hpp" startline="221" endline="226">setGameAreaOffset</referencedby>
+        <referencedby refid="classRectangleRenderSystem_1a92f6643f7bbedda7d15c6ea55f7407d1" compoundref="System_8hpp" startline="233" endline="242">update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classRectangleRenderSystem_1a00c54f80d65ee74fc5a06370b0b997e5" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float RectangleRenderSystem::_areaSize</definition>
+        <argsstring></argsstring>
+        <name>_areaSize</name>
+        <qualifiedname>RectangleRenderSystem::_areaSize</qualifiedname>
+        <initializer>= 1280.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/System.hpp" line="246" column="11" bodyfile="graphical-client/ecs/System.hpp" bodystart="246" bodyend="-1"/>
+        <referencedby refid="classRectangleRenderSystem_1a084776cc697d899483b31ec00a99e9b3" compoundref="System_8hpp" startline="221" endline="226">setGameAreaOffset</referencedby>
+        <referencedby refid="classRectangleRenderSystem_1a92f6643f7bbedda7d15c6ea55f7407d1" compoundref="System_8hpp" startline="233" endline="242">update</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRectangleRenderSystem_1a084776cc697d899483b31ec00a99e9b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RectangleRenderSystem::setGameAreaOffset</definition>
+        <argsstring>(float offsetX, float offsetY, float areaSize)</argsstring>
+        <name>setGameAreaOffset</name>
+        <qualifiedname>RectangleRenderSystem::setGameAreaOffset</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>offsetX</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>offsetY</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>areaSize</declname>
+        </param>
+        <briefdescription>
+<para>Sets the game area offset and size for coordinate transformation. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>offsetX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>X offset of the game area on screen. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>offsetY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Y offset of the game area on screen. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>areaSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of the game area in pixels. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/System.hpp" line="221" column="10" bodyfile="graphical-client/ecs/System.hpp" bodystart="221" bodyend="226"/>
+        <references refid="classRectangleRenderSystem_1a00c54f80d65ee74fc5a06370b0b997e5" compoundref="System_8hpp" startline="246">_areaSize</references>
+        <references refid="classRectangleRenderSystem_1ae46bcea7d3acaf9af00e0f78d33b31d4" compoundref="System_8hpp" startline="244">_offsetX</references>
+        <references refid="classRectangleRenderSystem_1ab8f08ab9bd2a18bd1ca44f18caa8012d" compoundref="System_8hpp" startline="245">_offsetY</references>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">GraphicClient::init</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classRectangleRenderSystem_1a92f6643f7bbedda7d15c6ea55f7407d1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void RectangleRenderSystem::update</definition>
+        <argsstring>(ECS &amp;ecs, Entity e)</argsstring>
+        <name>update</name>
+        <qualifiedname>RectangleRenderSystem::update</qualifiedname>
+        <param>
+          <type><ref refid="classECS" kindref="compound">ECS</ref> &amp;</type>
+          <declname>ecs</declname>
+        </param>
+        <param>
+          <type><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Renders a rectangle entity to the screen. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ecs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference to the <ref refid="classECS" kindref="compound">ECS</ref> system. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entity to render. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/System.hpp" line="233" column="10" bodyfile="graphical-client/ecs/System.hpp" bodystart="233" bodyend="242"/>
+        <references refid="classRectangleRenderSystem_1a00c54f80d65ee74fc5a06370b0b997e5" compoundref="System_8hpp" startline="246">_areaSize</references>
+        <references refid="classRectangleRenderSystem_1ae46bcea7d3acaf9af00e0f78d33b31d4" compoundref="System_8hpp" startline="244">_offsetX</references>
+        <references refid="classRectangleRenderSystem_1ab8f08ab9bd2a18bd1ca44f18caa8012d" compoundref="System_8hpp" startline="245">_offsetY</references>
+        <references refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" compoundref="Core_8hpp" startline="131" endline="133">ECS::getComponent</references>
+        <references refid="classRaylib_1_1Draw_1ac711ababd202454476d1127d61f8a837" compoundref="Raylib_8cpp" startline="57" endline="60">Raylib::Draw::rectangle</references>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">GraphicClient::render</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Renders rectangle-based entities with proper coordinate transformation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Transforms game coordinates (0-255) to screen coordinates based on game area offset and size. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>RectangleRenderSystem</label>
+        <link refid="classRectangleRenderSystem"/>
+      </node>
+    </collaborationgraph>
+    <location file="graphical-client/ecs/System.hpp" line="212" column="1" bodyfile="graphical-client/ecs/System.hpp" bodystart="213" bodyend="247"/>
+    <listofallmembers>
+      <member refid="classRectangleRenderSystem_1a00c54f80d65ee74fc5a06370b0b997e5" prot="private" virt="non-virtual"><scope>RectangleRenderSystem</scope><name>_areaSize</name></member>
+      <member refid="classRectangleRenderSystem_1ae46bcea7d3acaf9af00e0f78d33b31d4" prot="private" virt="non-virtual"><scope>RectangleRenderSystem</scope><name>_offsetX</name></member>
+      <member refid="classRectangleRenderSystem_1ab8f08ab9bd2a18bd1ca44f18caa8012d" prot="private" virt="non-virtual"><scope>RectangleRenderSystem</scope><name>_offsetY</name></member>
+      <member refid="classRectangleRenderSystem_1a084776cc697d899483b31ec00a99e9b3" prot="public" virt="non-virtual"><scope>RectangleRenderSystem</scope><name>setGameAreaOffset</name></member>
+      <member refid="classRectangleRenderSystem_1a92f6643f7bbedda7d15c6ea55f7407d1" prot="public" virt="non-virtual"><scope>RectangleRenderSystem</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

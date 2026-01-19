@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -184,13 +185,15 @@ $(document).ready(function(){initNavTree('hierarchy.html',''); initResizable(); 
 </td></tr>
 <tr><td><img src="inherit_graph_17.png" border="0" usemap="#aNetwork_1_1TransportLayer_1_1ISocket" alt=""/>
 <map name="aNetwork_1_1TransportLayer_1_1ISocket" id="aNetwork_1_1TransportLayer_1_1ISocket">
-<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ISocket.html" title="Interface for socket operations." alt="" coords="5,37,187,77"/>
-<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html" title=" " alt="" coords="235,37,416,77"/>
-<area shape="poly" title=" " alt="" coords="201,55,234,55,234,60,201,60"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ISocket.html" title="Interface for socket operations." alt="" coords="5,69,187,109"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html" title=" " alt="" coords="235,69,416,109"/>
+<area shape="poly" title=" " alt="" coords="201,87,234,87,234,92,201,92"/>
 <area shape="rect" href="classNetwork_1_1TransportLayer_1_1TCPSocket.html" title="TCP socket wrapper providing connect/accept helpers." alt="" coords="464,5,645,45"/>
-<area shape="poly" title=" " alt="" coords="429,40,463,35,464,41,430,45"/>
+<area shape="poly" title=" " alt="" coords="410,63,482,43,483,48,411,68"/>
 <area shape="rect" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html" title="UDP Socket class inheriting from ASocket." alt="" coords="464,69,645,109"/>
-<area shape="poly" title=" " alt="" coords="430,69,464,74,463,79,429,74"/>
+<area shape="poly" title=" " alt="" coords="430,87,464,87,464,92,430,92"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UnixSocket.html" title=" " alt="" coords="464,133,645,173"/>
+<area shape="poly" title=" " alt="" coords="411,110,483,131,482,136,410,116"/>
 </map>
 </td></tr>
 <tr><td><img src="inherit_graph_18.png" border="0" usemap="#aNetworkClient" alt=""/>
@@ -273,22 +276,37 @@ $(document).ready(function(){initNavTree('hierarchy.html',''); initResizable(); 
 <area shape="rect" href="classTCPServer.html" title="Simple TCP server handling client connections and lobby state." alt="" coords="5,5,93,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_34.png" border="0" usemap="#aUDPGameServer" alt=""/>
+<tr><td><img src="inherit_graph_34.png" border="0" usemap="#aTCPServer_1_1Client" alt=""/>
+<map name="aTCPServer_1_1Client" id="aTCPServer_1_1Client">
+<area shape="rect" href="structTCPServer_1_1Client.html" title="Lightweight representation of a connected client." alt="" coords="5,5,140,31"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_35.png" border="0" usemap="#aTCPServer_1_1LobbyInfo" alt=""/>
+<map name="aTCPServer_1_1LobbyInfo" id="aTCPServer_1_1LobbyInfo">
+<area shape="rect" href="structTCPServer_1_1LobbyInfo.html" title=" " alt="" coords="5,5,165,31"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_36.png" border="0" usemap="#aUDPGameServer" alt=""/>
 <map name="aUDPGameServer" id="aUDPGameServer">
 <area shape="rect" href="classUDPGameServer.html" title="Simple UDP authoritative game server that manages players and snapshots." alt="" coords="5,5,136,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_35.png" border="0" usemap="#aUIButton" alt=""/>
+<tr><td><img src="inherit_graph_37.png" border="0" usemap="#aUDPGameServer_1_1Incoming" alt=""/>
+<map name="aUDPGameServer_1_1Incoming" id="aUDPGameServer_1_1Incoming">
+<area shape="rect" href="structUDPGameServer_1_1Incoming.html" title=" " alt="" coords="5,5,204,31"/>
+</map>
+</td></tr>
+<tr><td><img src="inherit_graph_38.png" border="0" usemap="#aUIButton" alt=""/>
 <map name="aUIButton" id="aUIButton">
 <area shape="rect" href="structUIButton.html" title="Component for UI button elements." alt="" coords="5,5,84,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_36.png" border="0" usemap="#aUIText" alt=""/>
+<tr><td><img src="inherit_graph_39.png" border="0" usemap="#aUIText" alt=""/>
 <map name="aUIText" id="aUIText">
 <area shape="rect" href="structUIText.html" title="Component for UI text elements." alt="" coords="5,5,68,31"/>
 </map>
 </td></tr>
-<tr><td><img src="inherit_graph_37.png" border="0" usemap="#aVelocity" alt=""/>
+<tr><td><img src="inherit_graph_40.png" border="0" usemap="#aVelocity" alt=""/>
 <map name="aVelocity" id="aVelocity">
 <area shape="rect" href="classVelocity.html" title="Represents the velocity of an entity." alt="" coords="5,5,80,31"/>
 </map>

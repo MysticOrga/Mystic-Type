@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNetwork_1_1TransportLayer_1_1TCPSocket" kind="class" language="C++" prot="public">
+    <compoundname>Network::TransportLayer::TCPSocket</compoundname>
+    <basecompoundref refid="classNetwork_1_1TransportLayer_1_1ASocket" prot="public" virt="non-virtual">Network::TransportLayer::ASocket</basecompoundref>
+    <includes refid="TCPSocket_8hpp" local="no">Network/TransportLayer/TCP/TCPSocket.hpp</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1TCPSocket_1ad12c80bc63624bdee7d22050a0ec812a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Network::TransportLayer::TCPSocket::TCPSocket</definition>
+        <argsstring>()</argsstring>
+        <name>TCPSocket</name>
+        <qualifiedname>Network::TransportLayer::TCPSocket::TCPSocket</qualifiedname>
+        <briefdescription>
+<para>Create a TCP socket (AF_INET / SOCK_STREAM). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPSocket.hpp" line="27" column="9" bodyfile="Network/TransportLayer/TCP/TCPSocket.hpp" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1TCPSocket_1a9327f3eee17e4cbec8b81e920e346523" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Network::TransportLayer::TCPSocket::~TCPSocket</definition>
+        <argsstring>()=default</argsstring>
+        <name>~TCPSocket</name>
+        <qualifiedname>Network::TransportLayer::TCPSocket::~TCPSocket</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPSocket.hpp" line="29" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1TCPSocket_1a9391d4bdcddb942f43210cc17ace7013" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Network::TransportLayer::TCPSocket::connectTo</definition>
+        <argsstring>(const std::string &amp;ip, std::uint16_t port)</argsstring>
+        <name>connectTo</name>
+        <qualifiedname>Network::TransportLayer::TCPSocket::connectTo</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>ip</declname>
+        </param>
+        <param>
+          <type>std::uint16_t</type>
+          <declname>port</declname>
+        </param>
+        <briefdescription>
+<para>Connect to a remote TCP endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ip</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination IPv4 address (string form). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination port. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true on success, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPSocket.hpp" line="38" column="14" bodyfile="Network/TransportLayer/TCP/TCPSocket.cpp" bodystart="12" bodyend="25"/>
+        <references refid="classNetwork_1_1TransportLayer_1_1ASocket_1a98cc1b369dd9afea0f122e6f07c41caa" compoundref="ASocket_8hpp" startline="86">Network::TransportLayer::ASocket::_socketFd</references>
+      </memberdef>
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1TCPSocket_1a1101a573328f3e3763b5cc0fed67f0ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Network::TransportLayer::TCPSocket::bindAndListen</definition>
+        <argsstring>(std::uint16_t port, std::uint32_t address=INADDR_ANY, int backlog=4)</argsstring>
+        <name>bindAndListen</name>
+        <qualifiedname>Network::TransportLayer::TCPSocket::bindAndListen</qualifiedname>
+        <param>
+          <type>std::uint16_t</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type>std::uint32_t</type>
+          <declname>address</declname>
+          <defval>INADDR_ANY</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>backlog</declname>
+          <defval>4</defval>
+        </param>
+        <briefdescription>
+<para>Bind to an address and start listening. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Local port to bind. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>address</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Local IPv4 address (default: INADDR_ANY). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>backlog</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>listen backlog size. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true on success, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPSocket.hpp" line="48" column="14" bodyfile="Network/TransportLayer/TCP/TCPSocket.cpp" bodystart="27" bodyend="39"/>
+        <references refid="classNetwork_1_1TransportLayer_1_1ASocket_1a98cc1b369dd9afea0f122e6f07c41caa" compoundref="ASocket_8hpp" startline="86">Network::TransportLayer::ASocket::_socketFd</references>
+        <references refid="classNetwork_1_1TransportLayer_1_1ASocket_1a65fa2f6ba45358b7a7776d14b0111756" compoundref="ASocket_8cpp" startline="78" endline="85">Network::TransportLayer::ASocket::bindSock</references>
+        <referencedby refid="classTCPServer_1ad8f4ffce8b9317fc30a7cfa9e5c5442a" compoundref="TCPServer_8cpp" startline="39" endline="50">TCPServer::TCPServer</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1TCPSocket_1aab30f88e654d44503b85368f4af43e8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Network::TransportLayer::TCPSocket::acceptClient</definition>
+        <argsstring>(struct sockaddr_in &amp;clientAddr)</argsstring>
+        <name>acceptClient</name>
+        <qualifiedname>Network::TransportLayer::TCPSocket::acceptClient</qualifiedname>
+        <param>
+          <type>struct sockaddr_in &amp;</type>
+          <declname>clientAddr</declname>
+        </param>
+        <briefdescription>
+<para>Accept an incoming client connection. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>clientAddr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Filled with the connecting client&apos;s address. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>int Accepted client socket fd, or -1 on error. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPSocket.hpp" line="56" column="13" bodyfile="Network/TransportLayer/TCP/TCPSocket.cpp" bodystart="41" bodyend="46"/>
+        <references refid="classNetwork_1_1TransportLayer_1_1ASocket_1a98cc1b369dd9afea0f122e6f07c41caa" compoundref="ASocket_8hpp" startline="86">Network::TransportLayer::ASocket::_socketFd</references>
+        <referencedby refid="classTCPServer_1ae0e94f8d712b3c9028fe674100d649b9" compoundref="TCPServer_8cpp" startline="165" endline="201">TCPServer::acceptNewClient</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>TCP socket wrapper providing connect/accept helpers. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Inherits the basic file descriptor management from <ref refid="classNetwork_1_1TransportLayer_1_1ASocket" kindref="compound">ASocket</ref> and adds convenience methods for client connections and server listen/accept. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Network::TransportLayer::ASocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1ASocket"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Network::TransportLayer::ISocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1ISocket"/>
+      </node>
+      <node id="1">
+        <label>Network::TransportLayer::TCPSocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1TCPSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Network::TransportLayer::ASocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1ASocket"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Network::TransportLayer::ISocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1ISocket"/>
+      </node>
+      <node id="1">
+        <label>Network::TransportLayer::TCPSocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1TCPSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Network/TransportLayer/TCP/TCPSocket.hpp" line="21" column="5" bodyfile="Network/TransportLayer/TCP/TCPSocket.hpp" bodystart="22" bodyend="57"/>
+    <listofallmembers>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a4438e961d347a409c9e19efdb030bae5" prot="protected" virt="non-virtual"><scope>Network::TransportLayer::TCPSocket</scope><name>_addr</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a98cc1b369dd9afea0f122e6f07c41caa" prot="protected" virt="non-virtual"><scope>Network::TransportLayer::TCPSocket</scope><name>_socketFd</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1aab30f88e654d44503b85368f4af43e8d" prot="public" virt="non-virtual"><scope>Network::TransportLayer::TCPSocket</scope><name>acceptClient</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1ae23454a39eaa82b8acf04d3e2b864e8d" prot="public" virt="non-virtual"><scope>Network::TransportLayer::TCPSocket</scope><name>ASocket</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1a1101a573328f3e3763b5cc0fed67f0ae" prot="public" virt="non-virtual"><scope>Network::TransportLayer::TCPSocket</scope><name>bindAndListen</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a65fa2f6ba45358b7a7776d14b0111756" prot="public" virt="non-virtual"><scope>Network::TransportLayer::TCPSocket</scope><name>bindSock</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1afb543d4b49e71b180cfe2259c8c5093b" prot="public" virt="virtual"><scope>Network::TransportLayer::TCPSocket</scope><name>closeSocket</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1a9391d4bdcddb942f43210cc17ace7013" prot="public" virt="non-virtual"><scope>Network::TransportLayer::TCPSocket</scope><name>connectTo</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a65e51ed926d1ef000bf854a8e7fcd474" prot="public" virt="virtual"><scope>Network::TransportLayer::TCPSocket</scope><name>getSocketFd</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a34da0184468795bb34afb8e7008a1ed3" prot="public" virt="virtual"><scope>Network::TransportLayer::TCPSocket</scope><name>readByte</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a50cace88b622aa442d901434ecc33bd8" prot="public" virt="virtual"><scope>Network::TransportLayer::TCPSocket</scope><name>sockState</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1ad12c80bc63624bdee7d22050a0ec812a" prot="public" virt="non-virtual"><scope>Network::TransportLayer::TCPSocket</scope><name>TCPSocket</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1ab5fcc3d62999cde65373dc40a1592943" prot="public" virt="virtual"><scope>Network::TransportLayer::TCPSocket</scope><name>writeByte</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1ae7ed622b5397311c5fa1126d2bab57d8" prot="public" virt="non-virtual"><scope>Network::TransportLayer::TCPSocket</scope><name>~ASocket</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ISocket_1a1bdb2519d4962eee6952af2d561ecaed" prot="public" virt="virtual"><scope>Network::TransportLayer::TCPSocket</scope><name>~ISocket</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1a9327f3eee17e4cbec8b81e920e346523" prot="public" virt="non-virtual"><scope>Network::TransportLayer::TCPSocket</scope><name>~TCPSocket</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

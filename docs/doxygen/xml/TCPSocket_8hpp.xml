@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TCPSocket_8hpp" kind="file" language="C++">
+    <compoundname>TCPSocket.hpp</compoundname>
+    <includes local="no">string</includes>
+    <includes local="no">cstdint</includes>
+    <includes refid="ASocket_8hpp" local="yes">../ASocket.hpp</includes>
+    <includedby refid="TCPServer_8hpp" local="yes">Network/TransportLayer/TCP/TCPServer.hpp</includedby>
+    <includedby refid="TCPSocket_8cpp" local="yes">Network/TransportLayer/TCP/TCPSocket.cpp</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>../ASocket.hpp</label>
+        <link refid="ASocket_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>ISocket.hpp</label>
+        <link refid="ISocket_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Network/TransportLayer/TCP/TCPSocket.hpp</label>
+        <link refid="TCPSocket_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>arpa/inet.h</label>
+      </node>
+      <node id="3">
+        <label>cstdint</label>
+      </node>
+      <node id="7">
+        <label>errno.h</label>
+      </node>
+      <node id="8">
+        <label>netinet/in.h</label>
+      </node>
+      <node id="9">
+        <label>netinet/tcp.h</label>
+      </node>
+      <node id="2">
+        <label>string</label>
+      </node>
+      <node id="10">
+        <label>sys/select.h</label>
+      </node>
+      <node id="11">
+        <label>sys/socket.h</label>
+      </node>
+      <node id="12">
+        <label>sys/un.h</label>
+      </node>
+      <node id="13">
+        <label>unistd.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/server.cpp</label>
+        <link refid="server_8cpp"/>
+      </node>
+      <node id="4">
+        <label>Network/TransportLayer/TCP/TCPServer.cpp</label>
+        <link refid="TCPServer_8cpp"/>
+      </node>
+      <node id="2">
+        <label>Network/TransportLayer/TCP/TCPServer.hpp</label>
+        <link refid="TCPServer_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Network/TransportLayer/TCP/TCPSocket.cpp</label>
+        <link refid="TCPSocket_8cpp"/>
+      </node>
+      <node id="1">
+        <label>Network/TransportLayer/TCP/TCPSocket.hpp</label>
+        <link refid="TCPSocket_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classNetwork_1_1TransportLayer_1_1TCPSocket" prot="public">Network::TransportLayer::TCPSocket</innerclass>
+    <innernamespace refid="namespaceNetwork">Network</innernamespace>
+    <innernamespace refid="namespaceNetwork_1_1TransportLayer">Network::TransportLayer</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">**<sp/>EPITECH<sp/>PROJECT,<sp/>2025</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">**<sp/>Mystic-Type</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">**<sp/>File<sp/>description:</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">**<sp/>TCPSocket</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../ASocket.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceNetwork_1_1TransportLayer" kindref="compound">Network::TransportLayer</ref></highlight></codeline>
+<codeline lineno="14"><highlight class="normal">{</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>TCP<sp/>socket<sp/>wrapper<sp/>providing<sp/>connect/accept<sp/>helpers.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>Inherits<sp/>the<sp/>basic<sp/>file<sp/>descriptor<sp/>management<sp/>from<sp/>ASocket<sp/>and<sp/>adds</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>convenience<sp/>methods<sp/>for<sp/>client<sp/>connections<sp/>and<sp/>server<sp/>listen/accept.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="classNetwork_1_1TransportLayer_1_1TCPSocket" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classNetwork_1_1TransportLayer_1_1TCPSocket" kindref="compound">TCPSocket</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ASocket" kindref="compound">ASocket</ref></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Create<sp/>a<sp/>TCP<sp/>socket<sp/>(AF_INET<sp/>/<sp/>SOCK_STREAM).</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1ad12c80bc63624bdee7d22050a0ec812a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1ad12c80bc63624bdee7d22050a0ec812a" kindref="member">TCPSocket</ref>()<sp/>:<sp/><ref refid="classNetwork_1_1TransportLayer_1_1ASocket" kindref="compound">ASocket</ref>(AF_INET,<sp/>SOCK_STREAM,<sp/>IPPROTO_TCP)<sp/>{}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1a9327f3eee17e4cbec8b81e920e346523" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1a9327f3eee17e4cbec8b81e920e346523" kindref="member">~TCPSocket</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Connect<sp/>to<sp/>a<sp/>remote<sp/>TCP<sp/>endpoint.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>ip<sp/>Destination<sp/>IPv4<sp/>address<sp/>(string<sp/>form).</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>port<sp/>Destination<sp/>port.</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>true<sp/>on<sp/>success,<sp/>false<sp/>otherwise.</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1a9391d4bdcddb942f43210cc17ace7013" kindref="member">connectTo</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;ip,<sp/>std::uint16_t<sp/>port);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Bind<sp/>to<sp/>an<sp/>address<sp/>and<sp/>start<sp/>listening.</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>port<sp/>Local<sp/>port<sp/>to<sp/>bind.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>address<sp/>Local<sp/>IPv4<sp/>address<sp/>(default:<sp/>INADDR_ANY).</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>backlog<sp/>listen<sp/>backlog<sp/>size.</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>true<sp/>on<sp/>success,<sp/>false<sp/>otherwise.</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1a1101a573328f3e3763b5cc0fed67f0ae" kindref="member">bindAndListen</ref>(std::uint16_t<sp/>port,<sp/>std::uint32_t<sp/>address<sp/>=<sp/>INADDR_ANY,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>backlog<sp/>=<sp/>4);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Accept<sp/>an<sp/>incoming<sp/>client<sp/>connection.</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>clientAddr<sp/>Filled<sp/>with<sp/>the<sp/>connecting<sp/>client&apos;s<sp/>address.</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>int<sp/>Accepted<sp/>client<sp/>socket<sp/>fd,<sp/>or<sp/>-1<sp/>on<sp/>error.</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1aab30f88e654d44503b85368f4af43e8d" kindref="member">acceptClient</ref>(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>sockaddr_in<sp/>&amp;clientAddr);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Network/TransportLayer/TCP/TCPSocket.hpp"/>
+  </compounddef>
+</doxygen>

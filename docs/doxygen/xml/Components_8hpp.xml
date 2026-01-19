@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="Components_8hpp" kind="file" language="C++">
+    <compoundname>Components.hpp</compoundname>
+    <includes refid="Graphic_8hpp" local="yes">../Graphic/Graphic.hpp</includes>
+    <includes local="no">raylib.h</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">string</includes>
+    <includedby refid="GraphicClient_8cpp" local="yes">graphical-client/GraphicClient/GraphicClient.cpp</includedby>
+    <includedby refid="System_8hpp" local="yes">graphical-client/ecs/System.hpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>../Graphic/Graphic.hpp</label>
+        <link refid="Graphic_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../Raylib/Raylib.hpp</label>
+        <link refid="Raylib_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>graphical-client/ecs/Components.hpp</label>
+        <link refid="Components_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>memory</label>
+      </node>
+      <node id="4">
+        <label>raylib.h</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/client.cpp</label>
+        <link refid="client_8cpp"/>
+      </node>
+      <node id="2">
+        <label>graphical-client/GraphicClient/GraphicClient.cpp</label>
+        <link refid="GraphicClient_8cpp"/>
+      </node>
+      <node id="4">
+        <label>graphical-client/GraphicClient/GraphicClient.hpp</label>
+        <link refid="GraphicClient_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>graphical-client/ecs/Components.hpp</label>
+        <link refid="Components_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>graphical-client/ecs/System.hpp</label>
+        <link refid="System_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classPosition" prot="public">Position</innerclass>
+    <innerclass refid="classSprite" prot="public">Sprite</innerclass>
+    <innerclass refid="classVelocity" prot="public">Velocity</innerclass>
+    <innerclass refid="classCircleComponent" prot="public">CircleComponent</innerclass>
+    <innerclass refid="classRectangleComponent" prot="public">RectangleComponent</innerclass>
+    <innerclass refid="structUIButton" prot="public">UIButton</innerclass>
+    <innerclass refid="structUIText" prot="public">UIText</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">**<sp/>EPITECH<sp/>PROJECT,<sp/>2025</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">**<sp/>rtype</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">**<sp/>File<sp/>description:</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">**<sp/>Components</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>COMPONENTS_HPP_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>COMPONENTS_HPP_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Graphic/Graphic.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;raylib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="17"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">*<sp/>@class<sp/>Position</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">*<sp/>@brief<sp/>Represents<sp/>the<sp/>2D<sp/>position<sp/>of<sp/>an<sp/>entity.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">*<sp/>Stores<sp/>X<sp/>and<sp/>Y<sp/>coordinates<sp/>for<sp/>game<sp/>world<sp/>positioning.</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="classPosition" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classPosition" kindref="compound">Position</ref></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="26" refid="classPosition_1af684446cbf0f6d53386686283da6dcc6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classPosition_1af684446cbf0f6d53386686283da6dcc6" kindref="member">x</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>X<sp/>coordinate<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="classPosition_1a54a6182b5f7539295b32255808897d3f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classPosition_1a54a6182b5f7539295b32255808897d3f" kindref="member">y</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Y<sp/>coordinate<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Constructor<sp/>for<sp/>Position.</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>x<sp/>X<sp/>coordinate<sp/>(default:<sp/>0).</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>y<sp/>Y<sp/>coordinate<sp/>(default:<sp/>0).</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="classPosition_1ae9699660fab021c41818a551ab14f5b0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classPosition_1ae9699660fab021c41818a551ab14f5b0" kindref="member">Position</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classPosition_1af684446cbf0f6d53386686283da6dcc6" kindref="member">x</ref><sp/>=<sp/>0,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classPosition_1a54a6182b5f7539295b32255808897d3f" kindref="member">y</ref><sp/>=<sp/>0)<sp/>:<sp/><ref refid="classPosition_1af684446cbf0f6d53386686283da6dcc6" kindref="member">x</ref>(<ref refid="classPosition_1af684446cbf0f6d53386686283da6dcc6" kindref="member">x</ref>),<sp/><ref refid="classPosition_1a54a6182b5f7539295b32255808897d3f" kindref="member">y</ref>(<ref refid="classPosition_1a54a6182b5f7539295b32255808897d3f" kindref="member">y</ref>)<sp/>{}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="37"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="38"><highlight class="comment">*<sp/>@class<sp/>Sprite</highlight></codeline>
+<codeline lineno="39"><highlight class="comment">*<sp/>@brief<sp/>Stores<sp/>an<sp/>animated<sp/>sprite<sp/>for<sp/>rendering.</highlight></codeline>
+<codeline lineno="40"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="41"><highlight class="comment">*<sp/>Contains<sp/>a<sp/>shared<sp/>pointer<sp/>to<sp/>an<sp/>AnimatedSprite<sp/>object.</highlight></codeline>
+<codeline lineno="42"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="classSprite" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classSprite" kindref="compound">Sprite</ref></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="46" refid="classSprite_1afdaef0e77d5d077f74f920ef15f58d7f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;Rtype::Graphic::AnimatedSprite&gt;<sp/><ref refid="classSprite_1afdaef0e77d5d077f74f920ef15f58d7f" kindref="member">sprite</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Animated<sp/>sprite<sp/>pointer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Default<sp/>constructor.</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="classSprite_1a03ea660b2e77213c9ae05830bfdfbc5d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classSprite_1a03ea660b2e77213c9ae05830bfdfbc5d" kindref="member">Sprite</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Constructor<sp/>with<sp/>sprite<sp/>initialization.</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>s<sp/>Shared<sp/>pointer<sp/>to<sp/>AnimatedSprite.</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="classSprite_1a5deef1b47684b6e5b0fd856c6cd8cd49" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classSprite_1a5deef1b47684b6e5b0fd856c6cd8cd49" kindref="member">Sprite</ref>(std::shared_ptr&lt;Rtype::Graphic::AnimatedSprite&gt;<sp/>s)<sp/>:<sp/><ref refid="classSprite_1afdaef0e77d5d077f74f920ef15f58d7f" kindref="member">sprite</ref>(std::move(s))<sp/>{}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="60"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="61"><highlight class="comment">*<sp/>@class<sp/>Velocity</highlight></codeline>
+<codeline lineno="62"><highlight class="comment">*<sp/>@brief<sp/>Represents<sp/>the<sp/>velocity<sp/>of<sp/>an<sp/>entity.</highlight></codeline>
+<codeline lineno="63"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="64"><highlight class="comment">*<sp/>Stores<sp/>X<sp/>and<sp/>Y<sp/>velocity<sp/>components<sp/>for<sp/>movement.</highlight></codeline>
+<codeline lineno="65"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="classVelocity" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classVelocity" kindref="compound">Velocity</ref></highlight></codeline>
+<codeline lineno="67"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="69" refid="classVelocity_1a2592d4678c041df7b39ae7663ec0ed5d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classVelocity_1a2592d4678c041df7b39ae7663ec0ed5d" kindref="member">vx</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>X<sp/>velocity<sp/>component<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="classVelocity_1ae2a7111ea8910254dce8882f3ab760a3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classVelocity_1ae2a7111ea8910254dce8882f3ab760a3" kindref="member">vy</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Y<sp/>velocity<sp/>component<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Constructor<sp/>for<sp/>Velocity.</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>vx<sp/>X<sp/>velocity<sp/>(default:<sp/>0).</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>vy<sp/>Y<sp/>velocity<sp/>(default:<sp/>0).</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="classVelocity_1ac2e4e5b5c056fd2befa3a0d63e94f5ae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classVelocity_1ac2e4e5b5c056fd2befa3a0d63e94f5ae" kindref="member">Velocity</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classVelocity_1a2592d4678c041df7b39ae7663ec0ed5d" kindref="member">vx</ref><sp/>=<sp/>0,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classVelocity_1ae2a7111ea8910254dce8882f3ab760a3" kindref="member">vy</ref><sp/>=<sp/>0)<sp/>:<sp/><ref refid="classVelocity_1a2592d4678c041df7b39ae7663ec0ed5d" kindref="member">vx</ref>(<ref refid="classVelocity_1a2592d4678c041df7b39ae7663ec0ed5d" kindref="member">vx</ref>),<sp/><ref refid="classVelocity_1ae2a7111ea8910254dce8882f3ab760a3" kindref="member">vy</ref>(<ref refid="classVelocity_1ae2a7111ea8910254dce8882f3ab760a3" kindref="member">vy</ref>)<sp/>{}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="80"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="81"><highlight class="comment">*<sp/>@class<sp/>CircleComponent</highlight></codeline>
+<codeline lineno="82"><highlight class="comment">*<sp/>@brief<sp/>Component<sp/>for<sp/>rendering<sp/>circular<sp/>entities.</highlight></codeline>
+<codeline lineno="83"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="84"><highlight class="comment">*<sp/>Stores<sp/>visual<sp/>properties<sp/>for<sp/>circle<sp/>rendering.</highlight></codeline>
+<codeline lineno="85"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86" refid="classCircleComponent" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classCircleComponent" kindref="compound">CircleComponent</ref></highlight></codeline>
+<codeline lineno="87"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="89" refid="classCircleComponent_1a9fa07a9c87953c90e06d5cb153e45842" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classCircleComponent_1a9fa07a9c87953c90e06d5cb153e45842" kindref="member">radius</ref>;<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Circle<sp/>radius<sp/>in<sp/>pixels<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="classCircleComponent_1a2d0285da58a8198a1c3713e583e28528" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Color<sp/><ref refid="classCircleComponent_1a2d0285da58a8198a1c3713e583e28528" kindref="member">color</ref>;<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Circle<sp/>color<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Constructor<sp/>for<sp/>CircleComponent.</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>r<sp/>Radius<sp/>(default:<sp/>20).</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>c<sp/>Color<sp/>(default:<sp/>RED).</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="classCircleComponent_1a3a628c09c2fcceb5083283b7913c802c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classCircleComponent_1a3a628c09c2fcceb5083283b7913c802c" kindref="member">CircleComponent</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>r<sp/>=<sp/>20,<sp/>Color<sp/>c<sp/>=<sp/>RED)<sp/>:<sp/><ref refid="classCircleComponent_1a9fa07a9c87953c90e06d5cb153e45842" kindref="member">radius</ref>(r),<sp/><ref refid="classCircleComponent_1a2d0285da58a8198a1c3713e583e28528" kindref="member">color</ref>(c)<sp/>{}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="100"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="101"><highlight class="comment">*<sp/>@class<sp/>RectangleComponent</highlight></codeline>
+<codeline lineno="102"><highlight class="comment">*<sp/>@brief<sp/>Component<sp/>for<sp/>rendering<sp/>rectangular<sp/>entities.</highlight></codeline>
+<codeline lineno="103"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="104"><highlight class="comment">*<sp/>Stores<sp/>visual<sp/>properties<sp/>for<sp/>rectangle<sp/>rendering.</highlight></codeline>
+<codeline lineno="105"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106" refid="classRectangleComponent" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRectangleComponent" kindref="compound">RectangleComponent</ref></highlight></codeline>
+<codeline lineno="107"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="109" refid="classRectangleComponent_1a6d8450e91c1f98934035dbebdbd3e649" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classRectangleComponent_1a6d8450e91c1f98934035dbebdbd3e649" kindref="member">width</ref>;<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Rectangle<sp/>width<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110" refid="classRectangleComponent_1a43e28a5a631469e7c8196c6f18ffe7fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classRectangleComponent_1a43e28a5a631469e7c8196c6f18ffe7fe" kindref="member">height</ref>;<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Rectangle<sp/>height<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111" refid="classRectangleComponent_1ac72b22619fc3694c3fcfe4c185ec4a24" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Color<sp/><ref refid="classRectangleComponent_1ac72b22619fc3694c3fcfe4c185ec4a24" kindref="member">color</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Rectangle<sp/>color<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Constructor<sp/>for<sp/>RectangleComponent.</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>w<sp/>Width<sp/>(default:<sp/>10).</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>h<sp/>Height<sp/>(default:<sp/>10).</highlight></codeline>
+<codeline lineno="117"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>c<sp/>Color<sp/>(default:<sp/>BLACK).</highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="classRectangleComponent_1adf53aeb10ac51bee957123fe52ee8f14" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classRectangleComponent_1adf53aeb10ac51bee957123fe52ee8f14" kindref="member">RectangleComponent</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w<sp/>=<sp/>10,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>h<sp/>=<sp/>10,<sp/>Color<sp/>c<sp/>=<sp/>BLACK)<sp/></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="classRectangleComponent_1a6d8450e91c1f98934035dbebdbd3e649" kindref="member">width</ref>(w),<sp/><ref refid="classRectangleComponent_1a43e28a5a631469e7c8196c6f18ffe7fe" kindref="member">height</ref>(h),<sp/><ref refid="classRectangleComponent_1ac72b22619fc3694c3fcfe4c185ec4a24" kindref="member">color</ref>(c)<sp/>{}</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="123"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="124"><highlight class="comment">*<sp/>@struct<sp/>UIButton</highlight></codeline>
+<codeline lineno="125"><highlight class="comment">*<sp/>@brief<sp/>Component<sp/>for<sp/>UI<sp/>button<sp/>elements.</highlight></codeline>
+<codeline lineno="126"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="127"><highlight class="comment">*<sp/>Represents<sp/>a<sp/>clickable<sp/>button<sp/>in<sp/>the<sp/>user<sp/>interface.</highlight></codeline>
+<codeline lineno="128"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="structUIButton" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structUIButton" kindref="compound">UIButton</ref><sp/>{</highlight></codeline>
+<codeline lineno="130" refid="structUIButton_1a8f11fc89d4e99b6d37e184b03928d4dc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Rectangle<sp/><ref refid="structUIButton_1a8f11fc89d4e99b6d37e184b03928d4dc" kindref="member">bounds</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Button<sp/>boundaries<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131" refid="structUIButton_1aff3ad68c65cc6e580040a95de90fc212" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structUIButton_1aff3ad68c65cc6e580040a95de90fc212" kindref="member">label</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Button<sp/>label<sp/>text<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132" refid="structUIButton_1a1d512972bac6c551b1aa915071d2aea5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structUIButton_1a1d512972bac6c551b1aa915071d2aea5" kindref="member">action</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Associated<sp/>action<sp/>identifier<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133" refid="structUIButton_1a69eec7515944cfcdd394eb88dd401f0e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Color<sp/><ref refid="structUIButton_1a69eec7515944cfcdd394eb88dd401f0e" kindref="member">bg</ref>{40,<sp/>40,<sp/>60,<sp/>255};<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Background<sp/>color<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134" refid="structUIButton_1a977cd8fa8a9e24ce1dfd1d4b09942096" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Color<sp/><ref refid="structUIButton_1a977cd8fa8a9e24ce1dfd1d4b09942096" kindref="member">hoverBg</ref>{70,<sp/>70,<sp/>120,<sp/>255};<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Hover<sp/>background<sp/>color<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="structUIButton_1a264da0902741b2f70c57917e10908fcf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Color<sp/><ref refid="structUIButton_1a264da0902741b2f70c57917e10908fcf" kindref="member">text</ref>{230,<sp/>230,<sp/>230,<sp/>255};<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Text<sp/>color<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136" refid="structUIButton_1a29796662c05780b5010b18a94b189661" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structUIButton_1a29796662c05780b5010b18a94b189661" kindref="member">hovered</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Hover<sp/>state<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="139"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="140"><highlight class="comment">*<sp/>@struct<sp/>UIText</highlight></codeline>
+<codeline lineno="141"><highlight class="comment">*<sp/>@brief<sp/>Component<sp/>for<sp/>UI<sp/>text<sp/>elements.</highlight></codeline>
+<codeline lineno="142"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="143"><highlight class="comment">*<sp/>Represents<sp/>text<sp/>displayed<sp/>in<sp/>the<sp/>user<sp/>interface.</highlight></codeline>
+<codeline lineno="144"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145" refid="structUIText" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structUIText" kindref="compound">UIText</ref><sp/>{</highlight></codeline>
+<codeline lineno="146" refid="structUIText_1ab4921f36a8c049f9775257bac9fc91a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector2<sp/><ref refid="structUIText_1ab4921f36a8c049f9775257bac9fc91a0" kindref="member">pos</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Text<sp/>position<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147" refid="structUIText_1a1ae925f8a22a3f812b36b321af8c154b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structUIText_1a1ae925f8a22a3f812b36b321af8c154b" kindref="member">text</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Text<sp/>content<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="148" refid="structUIText_1a3849157cea759042062b3fb1c5c1b8f8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structUIText_1a3849157cea759042062b3fb1c5c1b8f8" kindref="member">fontSize</ref><sp/>=<sp/>22;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Font<sp/>size<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149" refid="structUIText_1a1c285eda38720ce4f2354c85eceec54a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Color<sp/><ref refid="structUIText_1a1c285eda38720ce4f2354c85eceec54a" kindref="member">color</ref>{230,<sp/>230,<sp/>230,<sp/>255};<sp/></highlight><highlight class="comment">/**&lt;<sp/>Text<sp/>color<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!COMPONENTS_HPP_<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="graphical-client/ecs/Components.hpp"/>
+  </compounddef>
+</doxygen>

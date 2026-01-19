@@ -1,0 +1,817 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="classRtype_1_1Graphic_1_1AnimatedSprite" kind="class"><name>Rtype::Graphic::AnimatedSprite</name>
+    <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1acc6026ccd104477fc636205013674568" kind="variable"><name>_texture</name></member>
+    <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1aad9657c6ba086ca797a8714e18d283ea" kind="variable"><name>_size</name></member>
+    <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac497bb551d49b7234cfe7087d91f52bc" kind="variable"><name>_positionInSpritesheet</name></member>
+    <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac99408e6df78edff7a6b5bfcb470f119" kind="variable"><name>_maxFrames</name></member>
+    <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1af13d2e9637dce59a579c923fdaa888d7" kind="variable"><name>_frameTime</name></member>
+    <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1afeed552cf17a6135da0f2bbfc567e6cb" kind="variable"><name>_timer</name></member>
+    <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a0d84c74ead5552710bfad214ae3a63b3" kind="variable"><name>_currentFrame</name></member>
+    <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae09ae8b36b9ab3e12ebdc4d1798799b4" kind="variable"><name>_sourceRect</name></member>
+    <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a9ead5e3f0b95f79971d2de88fe47b94d" kind="variable"><name>_position</name></member>
+    <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac2ef4cb259da3fc514d0090d5dbb1afb" kind="variable"><name>_scale</name></member>
+    <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae284bb557cb2c7261d888df9ac1a94af" kind="function"><name>AnimatedSprite</name></member>
+    <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a1f7c6aceeed5f9ec40d5140203bf844b" kind="function"><name>setPosition</name></member>
+    <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a656054e8c3f7380066422d10a7584c44" kind="function"><name>setScale</name></member>
+    <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae93338c214b783b3b9c3549c0fab7f08" kind="function"><name>update</name></member>
+    <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a963c826ca2ecb849b9b8839559916012" kind="function"><name>draw</name></member>
+  </compound>
+  <compound refid="classNetwork_1_1TransportLayer_1_1ASocket" kind="class"><name>Network::TransportLayer::ASocket</name>
+    <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a98cc1b369dd9afea0f122e6f07c41caa" kind="variable"><name>_socketFd</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a4438e961d347a409c9e19efdb030bae5" kind="variable"><name>_addr</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1ae23454a39eaa82b8acf04d3e2b864e8d" kind="function"><name>ASocket</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1ae7ed622b5397311c5fa1126d2bab57d8" kind="function"><name>~ASocket</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a65e51ed926d1ef000bf854a8e7fcd474" kind="function"><name>getSocketFd</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1afb543d4b49e71b180cfe2259c8c5093b" kind="function"><name>closeSocket</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a65fa2f6ba45358b7a7776d14b0111756" kind="function"><name>bindSock</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a34da0184468795bb34afb8e7008a1ed3" kind="function"><name>readByte</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1ab5fcc3d62999cde65373dc40a1592943" kind="function"><name>writeByte</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a50cace88b622aa442d901434ecc33bd8" kind="function"><name>sockState</name></member>
+  </compound>
+  <compound refid="structBulletState" kind="struct"><name>BulletState</name>
+    <member refid="structBulletState_1afc3da02363e84dcd9524b62d4125eb48" kind="variable"><name>id</name></member>
+    <member refid="structBulletState_1ae58c567afd2735b48696ce42494416b6" kind="variable"><name>x</name></member>
+    <member refid="structBulletState_1a46bfd93072fd5ed96e00366e47315202" kind="variable"><name>y</name></member>
+    <member refid="structBulletState_1a52e263cd18ea7729984530807bb8e139" kind="variable"><name>vx</name></member>
+    <member refid="structBulletState_1a64b346c59c2bbb5a112908d78fe92bf7" kind="variable"><name>vy</name></member>
+  </compound>
+  <compound refid="structGameWorld_1_1BulletState" kind="struct"><name>GameWorld::BulletState</name>
+    <member refid="structGameWorld_1_1BulletState_1a2bc50892ec2a967004048edc4ab6c3df" kind="variable"><name>id</name></member>
+    <member refid="structGameWorld_1_1BulletState_1a581630a26c822b00bba7831e2806fb99" kind="variable"><name>ownerId</name></member>
+    <member refid="structGameWorld_1_1BulletState_1a9c8c28ef5f7f7e6e4f2a80c5c64aa9d6" kind="variable"><name>x</name></member>
+    <member refid="structGameWorld_1_1BulletState_1a5ff6d6b5fbc73ba2ba04470e8d2e76aa" kind="variable"><name>y</name></member>
+    <member refid="structGameWorld_1_1BulletState_1a5bf24a4019810bc3b785b33c05568bca" kind="variable"><name>velX</name></member>
+    <member refid="structGameWorld_1_1BulletState_1a1224ba46be5190ddef69bbfa755d9d61" kind="variable"><name>velY</name></member>
+  </compound>
+  <compound refid="structChildInfo" kind="struct"><name>ChildInfo</name>
+    <member refid="structChildInfo_1a9224fac00573071274c8f35c13893047" kind="variable"><name>pid</name></member>
+    <member refid="structChildInfo_1adc556c5d7e00a21c99fc48c2b715c33c" kind="variable"><name>lobbyCode</name></member>
+    <member refid="structChildInfo_1ae87fa4d5413d350e26d0efa99cfdddf9" kind="variable"><name>udpPort</name></member>
+    <member refid="structChildInfo_1a7f7c43535724aa8cc79ffc66d3d8a9d8" kind="variable"><name>ipcSock</name></member>
+  </compound>
+  <compound refid="classChildProcessManager" kind="class"><name>ChildProcessManager</name>
+    <member refid="classChildProcessManager_1a363292f659a911dbc0407ec13e669f39" kind="variable"><name>_children</name></member>
+    <member refid="classChildProcessManager_1a42bd633a489f0883777fc0be9d10febb" kind="variable"><name>_maxChildren</name></member>
+    <member refid="classChildProcessManager_1a89d1a1a079bbfc6bdcfda0fd115b77e6" kind="function"><name>ChildProcessManager</name></member>
+    <member refid="classChildProcessManager_1a138e2d098e92a2c6d1ad7b35dadd6541" kind="function"><name>spawn</name></member>
+    <member refid="classChildProcessManager_1a5974e717ffd0b607cbf62e33c5adf0d2" kind="function"><name>get</name></member>
+    <member refid="classChildProcessManager_1ad5e9300f230cd2aa806b8b2f91c40939" kind="function"><name>forget</name></member>
+    <member refid="classChildProcessManager_1af9be1ce64da7e05952b231b22df221a0" kind="function"><name>activeCount</name></member>
+    <member refid="classChildProcessManager_1a3b7c34be0f81b8a841d4ecd28a837bf6" kind="function"><name>maxCount</name></member>
+  </compound>
+  <compound refid="classCircleComponent" kind="class"><name>CircleComponent</name>
+    <member refid="classCircleComponent_1a9fa07a9c87953c90e06d5cb153e45842" kind="variable"><name>radius</name></member>
+    <member refid="classCircleComponent_1a2d0285da58a8198a1c3713e583e28528" kind="variable"><name>color</name></member>
+    <member refid="classCircleComponent_1a3a628c09c2fcceb5083283b7913c802c" kind="function"><name>CircleComponent</name></member>
+  </compound>
+  <compound refid="classCircleRenderSystem" kind="class"><name>CircleRenderSystem</name>
+    <member refid="classCircleRenderSystem_1aead45b36f0cc7ccec0004b8a9b454d07" kind="function"><name>update</name></member>
+  </compound>
+  <compound refid="structTCPServer_1_1Client" kind="struct"><name>TCPServer::Client</name>
+    <member refid="structTCPServer_1_1Client_1a385ed81e747992c181106b429e17f47c" kind="variable"><name>id</name></member>
+    <member refid="structTCPServer_1_1Client_1a80b5bef5c073ae58027443ff40b77574" kind="variable"><name>fd</name></member>
+    <member refid="structTCPServer_1_1Client_1a8661a692a1475ba65b26c1bf68a0c6e1" kind="variable"><name>addr</name></member>
+    <member refid="structTCPServer_1_1Client_1a7cdb53bae6b61f342267e3533cfbc15d" kind="variable"><name>handshakeDone</name></member>
+    <member refid="structTCPServer_1_1Client_1a80c8ff0e99db13162ad08d4e815ed9a2" kind="variable"><name>lastPongTime</name></member>
+    <member refid="structTCPServer_1_1Client_1a9f8ac490d641d47a24750f9589975257" kind="variable"><name>handshakeStart</name></member>
+    <member refid="structTCPServer_1_1Client_1a0ca2062e591d1682792cec104afe8478" kind="variable"><name>lobbyCode</name></member>
+    <member refid="structTCPServer_1_1Client_1af501147212a29d1473e4e40892851218" kind="variable"><name>pseudo</name></member>
+    <member refid="structTCPServer_1_1Client_1a9a493b9b18fd9ddd0a1abcb190a2be7a" kind="variable"><name>posX</name></member>
+    <member refid="structTCPServer_1_1Client_1a6dce4953a90a676fe6b8cca63658bc99" kind="variable"><name>posY</name></member>
+    <member refid="structTCPServer_1_1Client_1ac76dcdb18f709112fa0b0203a0b73044" kind="variable"><name>hp</name></member>
+    <member refid="structTCPServer_1_1Client_1ad12b6292fcb16aecf58f6bb9a09df960" kind="variable"><name>recvBuffer</name></member>
+  </compound>
+  <compound refid="classComponentArray" kind="class"><name>ComponentArray</name>
+    <member refid="classComponentArray_1a0adfaa99a57603c36378543459df8823" kind="variable"><name>data</name></member>
+    <member refid="classComponentArray_1a224946b56e9b2c9b1e20efd7dd83c3d5" kind="variable"><name>entities</name></member>
+    <member refid="classComponentArray_1a37f484a9d2b6716e2facff9eabe1bb64" kind="function"><name>add</name></member>
+    <member refid="classComponentArray_1a6e65e2943bae84c59bd936fca2214635" kind="function"><name>get</name></member>
+  </compound>
+  <compound refid="classRaylib_1_1Draw" kind="class"><name>Raylib::Draw</name>
+    <member refid="classRaylib_1_1Draw_1acd88c7a4f6721ddfe38937feaa1efbb1" kind="function"><name>circle</name></member>
+    <member refid="classRaylib_1_1Draw_1ac711ababd202454476d1127d61f8a837" kind="function"><name>rectangle</name></member>
+    <member refid="classRaylib_1_1Draw_1a1a91623bcea0592d00ae0264d81acd52" kind="function"><name>rectangleLines</name></member>
+    <member refid="classRaylib_1_1Draw_1adf84c6a40cd571fbbdeacf2868ab192e" kind="function"><name>text</name></member>
+  </compound>
+  <compound refid="classECS" kind="class"><name>ECS</name>
+    <member refid="classECS_1a5cf70fd9d3ef94f40bd61beafe2de8bc" kind="variable"><name>signatures</name></member>
+    <member refid="classECS_1a6819919da90f31fea50d2b290ba724c8" kind="variable"><name>storages</name></member>
+    <member refid="classECS_1adcdcf4b06b3d85845ea113de96fd29c0" kind="variable"><name>nextComponentIndex</name></member>
+    <member refid="classECS_1a7fba8bcfbb8d238085ab7302d96a332f" kind="function"><name>ECS</name></member>
+    <member refid="classECS_1a41b876f3725cbb04aac3f2edd95522c6" kind="function"><name>createEntity</name></member>
+    <member refid="classECS_1a4fbe0d70b0934255d301ced9df6287e7" kind="function"><name>addComponent</name></member>
+    <member refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" kind="function"><name>getComponent</name></member>
+    <member refid="classECS_1a33c16853296e9784dfb558f35dffbd72" kind="function"><name>hasComponent</name></member>
+    <member refid="classECS_1ac35029e74e4944f3007c3ddcdd45b2e9" kind="function"><name>getAllComponents</name></member>
+    <member refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kind="function"><name>getComponentTypeIndex</name></member>
+    <member refid="classECS_1a11aacce5459a5ce429ea8d181bb4ddc3" kind="function"><name>getSignature</name></member>
+  </compound>
+  <compound refid="classGameState" kind="class"><name>GameState</name>
+    <member refid="classGameState_1a61038ea129759cc4631044201305b10e" kind="variable"><name>_players</name></member>
+    <member refid="classGameState_1a6ebd00bef3ebc816d2796634953b7615" kind="variable"><name>_bullets</name></member>
+    <member refid="classGameState_1a684212aeb845a80b274f98de6e46214a" kind="variable"><name>_monsters</name></member>
+    <member refid="classGameState_1a9f034439dd565e62cb83be4ac56baba1" kind="function"><name>upsertPlayer</name></member>
+    <member refid="classGameState_1a23099e9050e7a20e6d1349384591b3b5" kind="function"><name>upsertBullet</name></member>
+    <member refid="classGameState_1a72d25f3760e72101b6c3ddc990da3d04" kind="function"><name>upsertMonster</name></member>
+    <member refid="classGameState_1aa19f7b265ddcdf1c490b1c43556d07e1" kind="function"><name>clear</name></member>
+    <member refid="classGameState_1a59e8f64ec95841389e7bdbc1a07f718a" kind="function"><name>clearPlayers</name></member>
+    <member refid="classGameState_1adbedaec4367fbf2705065e66a8909ce5" kind="function"><name>listPlayers</name></member>
+    <member refid="classGameState_1a65f539f1657ebd717fe5d48683144c82" kind="function"><name>listBullets</name></member>
+    <member refid="classGameState_1a8fd239e201dacc3cc9d19dc34d67f301" kind="function"><name>listMonsters</name></member>
+  </compound>
+  <compound refid="classGameWorld" kind="class"><name>GameWorld</name>
+    <member refid="classGameWorld_1af3c04dc6f6e4211cd6007390bee1d9a7" kind="enum"><name>MonsterKind</name></member>
+    <member refid="classGameWorld_1af3c04dc6f6e4211cd6007390bee1d9a7a6ca9e2d793f678aba7c1b19526592a46" kind="enumvalue"><name>Sine</name></member>
+    <member refid="classGameWorld_1af3c04dc6f6e4211cd6007390bee1d9a7aeacf3a101066b77f05938928385bd8d9" kind="enumvalue"><name>ZigZag</name></member>
+    <member refid="classGameWorld_1af3c04dc6f6e4211cd6007390bee1d9a7a5859831e2b3db23528c710b1451e13fc" kind="enumvalue"><name>Boss</name></member>
+    <member refid="classGameWorld_1a46a68b140b6bcd93c8ea4d145142d536" kind="variable"><name>_players</name></member>
+    <member refid="classGameWorld_1ac911c03e487bf4e2d77c8ede28babf03" kind="variable"><name>_bullets</name></member>
+    <member refid="classGameWorld_1a67b9e4b2ad25ed6fd3e5ca8e3b238b8d" kind="variable"><name>_monsters</name></member>
+    <member refid="classGameWorld_1aae566a13c392531f47667bd5f6af1f25" kind="variable"><name>_monsterKilled</name></member>
+    <member refid="classGameWorld_1ad17902d7af7e1d778daff68c08d8076a" kind="variable"><name>_nextBulletId</name></member>
+    <member refid="classGameWorld_1ad74e5cf7fea12c00759a2521d76931d9" kind="variable"><name>_nextMonsterId</name></member>
+    <member refid="classGameWorld_1ab8ac13c233c40d9e8f9f6a0b4afb8ef8" kind="variable"><name>_lastMonsterSpawnMs</name></member>
+    <member refid="classGameWorld_1a99254eafbade5a1bad114a9477e62071" kind="variable"><name>_monsterSpawnIntervalMs</name></member>
+    <member refid="classGameWorld_1a5c9f70e5ed7cba792fde805088741b7a" kind="variable"><name>_bossSpawnedFlag</name></member>
+    <member refid="classGameWorld_1a56582971b46ddc377a513090e46662d3" kind="variable"><name>_bossSpawnedOnce</name></member>
+    <member refid="classGameWorld_1acb755ee97dd7f8632eef630319f2b3e2" kind="variable"><name>_bossDefeatedFlag</name></member>
+    <member refid="classGameWorld_1aa78b4bb4f31d3d10a37ce43a1a446bae" kind="variable"><name>_hadPlayers</name></member>
+    <member refid="classGameWorld_1ab50b19c51863e1a304ab2e22833a4e0d" kind="variable"><name>_noPlayersFlag</name></member>
+    <member refid="classGameWorld_1ade346ceb17e4fe79c3030b7cec924a7f" kind="variable"><name>_lobbyScore</name></member>
+    <member refid="classGameWorld_1aa84b4174d2f8fd9c1f313687b1ee4850" kind="variable"><name>_snapshotSeq</name></member>
+    <member refid="classGameWorld_1a025e4ab2ae1b20af78178303ce541ae9" kind="variable"><name>_logPrefix</name></member>
+    <member refid="classGameWorld_1ad315664f50c7327f02ef2b4634953499" kind="function"><name>GameWorld</name></member>
+    <member refid="classGameWorld_1aaebb0cdb6bcf4382893ce438832db63e" kind="function"><name>registerPlayer</name></member>
+    <member refid="classGameWorld_1ae1686bb695784eed35eb8b48713f7727" kind="function"><name>updateInput</name></member>
+    <member refid="classGameWorld_1a62bb0ece1a3e4cdc6cc15910bb8f6706" kind="function"><name>addShot</name></member>
+    <member refid="classGameWorld_1ab9bdf76c054d7fd1d08241a954315b46" kind="function"><name>removePlayer</name></member>
+    <member refid="classGameWorld_1a88c3b380a238a69dc05b5a9df07621dd" kind="function"><name>tick</name></member>
+    <member refid="classGameWorld_1a9a877bcf4eed6527b0896242463a3dfa" kind="function"><name>buildSnapshotPacket</name></member>
+    <member refid="classGameWorld_1a6b1d4741dc5a2b5a12b844c95408390f" kind="function"><name>takeBossSpawned</name></member>
+    <member refid="classGameWorld_1a7729f2448efdc4dd6f5e77e67c20c5af" kind="function"><name>takeBossDefeated</name></member>
+    <member refid="classGameWorld_1ae1abffc0a60f2c06c647e30ea89baddd" kind="function"><name>takeNoPlayers</name></member>
+    <member refid="classGameWorld_1a2374ad4de824406d9e1b970e7ab95dfb" kind="function"><name>hasHadPlayers</name></member>
+    <member refid="classGameWorld_1a4655740f12ec6ebd9d9374b229c6323a" kind="function"><name>players</name></member>
+    <member refid="classGameWorld_1a163fb2fed54650ebba995df1e64c39db" kind="function"><name>setLogPrefix</name></member>
+    <member refid="classGameWorld_1a3bf3aa2e665bed5c7e5c87f6f482ae97" kind="function"><name>spawnMonster</name></member>
+    <member refid="classGameWorld_1a98daebdd5931cf333037bc3891b16794" kind="function"><name>spawnBoss</name></member>
+    <member refid="classGameWorld_1ac1835fdf3232458197a2c81a1a0c5e02" kind="function"><name>spawnBossBullet</name></member>
+    <member refid="classGameWorld_1a6af008239b30629fad73ae657465d37e" kind="function"><name>shouldSpawnBoss</name></member>
+    <member refid="classGameWorld_1acbdde5eb929528699e8176ec57779ec7" kind="function"><name>hasBoss</name></member>
+    <member refid="classGameWorld_1a0bb6ed054b809cc92573fd87850ac468" kind="function"><name>updateBossMovement</name></member>
+  </compound>
+  <compound refid="classGraphicClient" kind="class"><name>GraphicClient</name>
+    <member refid="classGraphicClient_1a52f25216ca79230194e237a48fa12b18" kind="variable"><name>GAME_AREA_SIZE</name></member>
+    <member refid="classGraphicClient_1aa997b1f0089b31169851aa8c3f60f3fe" kind="variable"><name>GAME_AREA_OFFSET_X</name></member>
+    <member refid="classGraphicClient_1aa65b589ade4fd8ddd3d8a7115d175e2b" kind="variable"><name>GAME_AREA_OFFSET_Y</name></member>
+    <member refid="classGraphicClient_1a9267fe8ea88f600994981271461383be" kind="variable"><name>_window</name></member>
+    <member refid="classGraphicClient_1a20356ba82da3f85b4eccdef7b722f472" kind="variable"><name>_net</name></member>
+    <member refid="classGraphicClient_1acb4c98b2104cce0ec8de9051d6d53bf2" kind="variable"><name>_state</name></member>
+    <member refid="classGraphicClient_1aa2ace668a32b35b06b45e386d00ea4f1" kind="variable"><name>_ecs</name></member>
+    <member refid="classGraphicClient_1aad6444ee81ce5610e8f134c8ee002077" kind="variable"><name>_uiEcs</name></member>
+    <member refid="classGraphicClient_1a2e26499ba6df996c1ac3c980b5320c40" kind="variable"><name>_spriteRenderSystem</name></member>
+    <member refid="classGraphicClient_1a91c6a0f863c130c89d3ff55cd05741a0" kind="variable"><name>_rectangleRenderSystem</name></member>
+    <member refid="classGraphicClient_1aa1b6f7632112637217ee65be6a6dcbae" kind="variable"><name>_inputSystem</name></member>
+    <member refid="classGraphicClient_1af728873f72540cf041d42a9d7e317337" kind="variable"><name>_movementSystem</name></member>
+    <member refid="classGraphicClient_1a82245caa063f38af3a7b4ad1a7418efc" kind="variable"><name>_entities</name></member>
+    <member refid="classGraphicClient_1a88e6521fa2a326f2563bd7674c361438" kind="variable"><name>_bulletEntities</name></member>
+    <member refid="classGraphicClient_1a4e4f2c634651d79b312ce55f8bbb43d8" kind="variable"><name>_monsterEntities</name></member>
+    <member refid="classGraphicClient_1a3674d589494334b97ac301bb3a6c088f" kind="variable"><name>_chatLog</name></member>
+    <member refid="classGraphicClient_1a29003b747d7aad2476accc5b80250eef" kind="variable"><name>_chatInput</name></member>
+    <member refid="classGraphicClient_1a04a9a700edbeddcc42a63a3f8d6fe14e" kind="variable"><name>_chatActive</name></member>
+    <member refid="classGraphicClient_1a2fad4811cde141bb655df45eac5a6bae" kind="variable"><name>_localPseudo</name></member>
+    <member refid="classGraphicClient_1aa935bab23b2dadf2856fe49c9aef642a" kind="variable"><name>_lastChatSent</name></member>
+    <member refid="classGraphicClient_1a6b93f97cd4b03c881c45451ab1e60afa" kind="variable"><name>_playerPingMs</name></member>
+    <member refid="classGraphicClient_1aa769c45dded765a088aa3f2111d99124" kind="variable"><name>_lastKeepAlive</name></member>
+    <member refid="classGraphicClient_1a52dcaca28beda66bed425b6020dfc43c" kind="variable"><name>_lastHello</name></member>
+    <member refid="classGraphicClient_1a3a0eeb38f5ce4b276f311b92c65fd501" kind="variable"><name>_lastUdpPing</name></member>
+    <member refid="classGraphicClient_1a81a2e4066369786564a7d8221c8d83a0" kind="variable"><name>_udpReady</name></member>
+    <member refid="classGraphicClient_1a8e52c08b5ba630898751b895d8b9d6ba" kind="variable"><name>_gameAnimTimer</name></member>
+    <member refid="classGraphicClient_1a60cedf219d20bc0cafe62005fe9ee88a" kind="variable"><name>_forceExit</name></member>
+    <member refid="classGraphicClient_1a5490f7579a280a251ba1441af0317d4a" kind="variable"><name>_restartToMenu</name></member>
+    <member refid="classGraphicClient_1a61b58ea0f04c31a6cb4f2103f5df4f51" kind="variable"><name>_hasPseudo</name></member>
+    <member refid="classGraphicClient_1a1dbb979ad32f77bcf170c02e93d9b896" kind="variable"><name>_lastInitError</name></member>
+    <member refid="classGraphicClient_1abb4308207bbfbe4f674b28c7de9fafb7" kind="variable"><name>_serverIp</name></member>
+    <member refid="classGraphicClient_1a39d4c8c19e2ae4030687f0068cd5fa8c" kind="variable"><name>_serverPort</name></member>
+    <member refid="classGraphicClient_1a042a31cb7e92647410b8b40c54c8d074" kind="variable"><name>_hasServerConfig</name></member>
+    <member refid="classGraphicClient_1acf2b54f37edf9f394796f9b549dc9efb" kind="variable"><name>_pendingReturnToLobby</name></member>
+    <member refid="classGraphicClient_1a210f3519772cd892b489fadf1962dda6" kind="variable"><name>_returnToLobbyAt</name></member>
+    <member refid="classGraphicClient_1abe1ec0067a934ed489c6bf1bb83c5af4" kind="variable"><name>_pendingReturnReason</name></member>
+    <member refid="classGraphicClient_1aca385d0199520832fb464e03a8112dd5" kind="function"><name>GraphicClient</name></member>
+    <member refid="classGraphicClient_1a9ccf7889b329ef2a927a5522814d930a" kind="function"><name>~GraphicClient</name></member>
+    <member refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" kind="function"><name>run</name></member>
+    <member refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" kind="function"><name>init</name></member>
+    <member refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" kind="function"><name>gameLoop</name></member>
+    <member refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" kind="function"><name>processNetworkEvents</name></member>
+    <member refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" kind="function"><name>updateEntities</name></member>
+    <member refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" kind="function"><name>render</name></member>
+    <member refid="classGraphicClient_1ab72f007713bd3d5074c566a425c0d9b1" kind="function"><name>drawGameBackground</name></member>
+    <member refid="classGraphicClient_1a1f97bf7f358d1d5a5d65069d641feb5b" kind="function"><name>createPlayerEntity</name></member>
+    <member refid="classGraphicClient_1a31bdd83222945e28b307b03b32135288" kind="function"><name>createBulletEntity</name></member>
+    <member refid="classGraphicClient_1a6dd918f7ac4761ab4946371df06386ec" kind="function"><name>createMonsterEntity</name></member>
+    <member refid="classGraphicClient_1aacb31035c31d741d0ae2ca5ec9228b12" kind="function"><name>syncEntities</name></member>
+    <member refid="classGraphicClient_1a61111e5d14a72f0f69344ab034a0622a" kind="function"><name>syncBullets</name></member>
+    <member refid="classGraphicClient_1afe45a37a11b23a08cce4d7c6b7efccbc" kind="function"><name>syncMonsters</name></member>
+    <member refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" kind="function"><name>selectLobby</name></member>
+    <member refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" kind="function"><name>selectPseudo</name></member>
+    <member refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" kind="function"><name>selectMainMenu</name></member>
+    <member refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" kind="function"><name>selectSettings</name></member>
+    <member refid="classGraphicClient_1a8afc36976fbd0ff4c0e8e3a3acb53989" kind="function"><name>keyboardKeyToString</name></member>
+    <member refid="classGraphicClient_1ad5fb254db602fc2a00310d5c33237a92" kind="function"><name>disconnectAndQuit</name></member>
+  </compound>
+  <compound refid="classIComponentArray" kind="class"><name>IComponentArray</name>
+    <member refid="classIComponentArray_1a62d9c4e88931d5e885aaaf0e37a73600" kind="function"><name>~IComponentArray</name></member>
+  </compound>
+  <compound refid="structUDPGameServer_1_1Incoming" kind="struct"><name>UDPGameServer::Incoming</name>
+    <member refid="structUDPGameServer_1_1Incoming_1af8787121530430cf0411a81d8b9ac498" kind="variable"><name>pkt</name></member>
+    <member refid="structUDPGameServer_1_1Incoming_1a74e2b72a9291cd52c909ba3b5f3005c1" kind="variable"><name>from</name></member>
+  </compound>
+  <compound refid="classRaylib_1_1Input" kind="class"><name>Raylib::Input</name>
+    <member refid="classRaylib_1_1Input_1a4cd5c6122b4771997efbb9ef2d3c4771" kind="function"><name>isKeyDown</name></member>
+    <member refid="classRaylib_1_1Input_1a77b20ab7de1540d7cc5c18f71b137a12" kind="function"><name>isKeyPressed</name></member>
+  </compound>
+  <compound refid="classInputSystem" kind="class"><name>InputSystem</name>
+    <member refid="classInputSystem_1af2085774ee25bb4c472b6e8a48b28773" kind="variable"><name>_lastDir</name></member>
+    <member refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" kind="variable"><name>_keyMap</name></member>
+    <member refid="classInputSystem_1a2f18d9fdb44805c63984113c1433c223" kind="function"><name>InputSystem</name></member>
+    <member refid="classInputSystem_1ab584f9708fa5b2c909a96a698980f682" kind="function"><name>setKey</name></member>
+    <member refid="classInputSystem_1ac4da6a8e14e4907b0c7882e1297fea3a" kind="function"><name>getKey</name></member>
+    <member refid="classInputSystem_1af7ed09c6bfd5fba6af86af16de00d706" kind="function"><name>update</name></member>
+  </compound>
+  <compound refid="classIpcChannel" kind="class"><name>IpcChannel</name>
+    <member refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kind="variable"><name>_sockfd</name></member>
+    <member refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kind="variable"><name>_addr</name></member>
+    <member refid="classIpcChannel_1afbe5a59d97124b64e1dba4d8a84189fc" kind="variable"><name>_isServer</name></member>
+    <member refid="classIpcChannel_1accdef665be5b8cc831aa12cc9fe64959" kind="function"><name>IpcChannel</name></member>
+    <member refid="classIpcChannel_1ad63c52abbe46734379d53197c042813a" kind="function"><name>~IpcChannel</name></member>
+    <member refid="classIpcChannel_1a4cfe558307ce2aa78a5d7856588aeafb" kind="function"><name>IpcChannel</name></member>
+    <member refid="classIpcChannel_1a45651c654efa5e19e007b17a8a90e4ab" kind="function"><name>operator=</name></member>
+    <member refid="classIpcChannel_1a08fb3b62091cf125d554b805a4e64748" kind="function"><name>bindServer</name></member>
+    <member refid="classIpcChannel_1afa8b95326afd4d66bb573f333e124d33" kind="function"><name>connectClient</name></member>
+    <member refid="classIpcChannel_1a35498032e830b79724747de4e7b6ca1b" kind="function"><name>send</name></member>
+    <member refid="classIpcChannel_1a733bd7b22e1828b0c48609a832f24181" kind="function"><name>recv</name></member>
+    <member refid="classIpcChannel_1a0f326fa25cb8a958dd5daa5ea071a2c5" kind="function"><name>getport</name></member>
+    <member refid="classIpcChannel_1aa2bbcedec629b7f3e365db5218d0bcc8" kind="function"><name>close</name></member>
+    <member refid="classIpcChannel_1aadf27650ff534770bd014398c27d1438" kind="function"><name>fd</name></member>
+  </compound>
+  <compound refid="classNetwork_1_1TransportLayer_1_1ISocket" kind="class"><name>Network::TransportLayer::ISocket</name>
+    <member refid="classNetwork_1_1TransportLayer_1_1ISocket_1a1bdb2519d4962eee6952af2d561ecaed" kind="function"><name>~ISocket</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1ISocket_1a41f6223f6c3ef123633d4015d54cacb4" kind="function"><name>getSocketFd</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1ISocket_1a0a30278de50c785952d77ac03db3700f" kind="function"><name>closeSocket</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1ISocket_1aee85921c834ee1274dc377023e25cbd6" kind="function"><name>readByte</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1ISocket_1a5c5c1f736f6e1ce3910b8eb7383351fe" kind="function"><name>writeByte</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1ISocket_1a3bc7abee67be5b72149c67a1e990d14b" kind="function"><name>sockState</name></member>
+  </compound>
+  <compound refid="structTCPServer_1_1LobbyInfo" kind="struct"><name>TCPServer::LobbyInfo</name>
+    <member refid="structTCPServer_1_1LobbyInfo_1a152296683519bb731ad8583bf8a13314" kind="variable"><name>isPublic</name></member>
+    <member refid="structTCPServer_1_1LobbyInfo_1ab819c46474e24bf8b0bd1dd5e68374aa" kind="variable"><name>players</name></member>
+    <member refid="structTCPServer_1_1LobbyInfo_1a6b6c390c5ef62c1db332074ebbbb7d31" kind="variable"><name>udpPort</name></member>
+    <member refid="structTCPServer_1_1LobbyInfo_1a6c62899f0b9d0876bfd082bdbe5932d6" kind="variable"><name>ipcPort</name></member>
+    <member refid="structTCPServer_1_1LobbyInfo_1a1f7fa98ba4cc99221634f99ec6a576a4" kind="variable"><name>ipc</name></member>
+  </compound>
+  <compound refid="structGameWorld_1_1MonsterState" kind="struct"><name>GameWorld::MonsterState</name>
+    <member refid="structGameWorld_1_1MonsterState_1ae22dac3d57e25d9b86a0a4845fdfee26" kind="variable"><name>id</name></member>
+    <member refid="structGameWorld_1_1MonsterState_1a6617c3280d1b0440b57cb30178739fca" kind="variable"><name>x</name></member>
+    <member refid="structGameWorld_1_1MonsterState_1ace6861d5fb54001fedd1fa0b053d225f" kind="variable"><name>y</name></member>
+    <member refid="structGameWorld_1_1MonsterState_1a37f746e4dc5df65a93c31107097110c4" kind="variable"><name>baseY</name></member>
+    <member refid="structGameWorld_1_1MonsterState_1a4fb30943cf1d5a76583972d92caa325b" kind="variable"><name>amplitude</name></member>
+    <member refid="structGameWorld_1_1MonsterState_1a0f6baa4107c0898313fc3bf3348f6127" kind="variable"><name>phase</name></member>
+    <member refid="structGameWorld_1_1MonsterState_1a414729d64b907002169772ba2a1dbcc3" kind="variable"><name>freq</name></member>
+    <member refid="structGameWorld_1_1MonsterState_1aae0e2baffbd9342713d1e24bd2f2dfeb" kind="variable"><name>speedX</name></member>
+    <member refid="structGameWorld_1_1MonsterState_1a757841176bc040ae9ff9a0234f862fc1" kind="variable"><name>speedY</name></member>
+    <member refid="structGameWorld_1_1MonsterState_1a60efd1c141ca0076b9de281cea9efa61" kind="variable"><name>hp</name></member>
+    <member refid="structGameWorld_1_1MonsterState_1a8472fb9f9ee4ff3a58d6d11744f43491" kind="variable"><name>kind</name></member>
+    <member refid="structGameWorld_1_1MonsterState_1a5b42bf1cd6bb78a55099646765aa775f" kind="variable"><name>nextPatternMs</name></member>
+    <member refid="structGameWorld_1_1MonsterState_1a210c2f8a7a247cd9a11694b3fa4b2212" kind="variable"><name>nextShotMs</name></member>
+  </compound>
+  <compound refid="structMonsterState" kind="struct"><name>MonsterState</name>
+    <member refid="structMonsterState_1a3db09a581fbc727ca5943c52b95dabce" kind="variable"><name>id</name></member>
+    <member refid="structMonsterState_1a7defca59db78cded4e5d6526e7569adc" kind="variable"><name>x</name></member>
+    <member refid="structMonsterState_1ad65a95979ad3a2747b0fcce97cb4762c" kind="variable"><name>y</name></member>
+    <member refid="structMonsterState_1ab8eb152bf072fc02d85636f18963e95b" kind="variable"><name>hp</name></member>
+    <member refid="structMonsterState_1a26ad229c9a3b5ceef052c357c11e2472" kind="variable"><name>type</name></member>
+  </compound>
+  <compound refid="classMovementSystem" kind="class"><name>MovementSystem</name>
+    <member refid="classMovementSystem_1ac23640cf7f551bc63f202e3ccd9aad9d" kind="variable"><name>_accumulator</name></member>
+    <member refid="classMovementSystem_1a57b0e4d3739f4b27ce15324b8a4d47bf" kind="function"><name>update</name></member>
+  </compound>
+  <compound refid="classNetworkClient" kind="class"><name>NetworkClient</name>
+    <member refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320ee" kind="enum"><name>MoveCmd</name></member>
+    <member refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea258f49887ef8d14ac268c92b02503aaa" kind="enumvalue"><name>Up</name></member>
+    <member refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea08a38277b0309070706f6652eeae9a53" kind="enumvalue"><name>Down</name></member>
+    <member refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea945d5e233cf7d6240f6b783b36a374ff" kind="enumvalue"><name>Left</name></member>
+    <member refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea92b09c7c48c520c3c55e497875da437c" kind="enumvalue"><name>Right</name></member>
+    <member refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55" kind="enum"><name>RecvResult</name></member>
+    <member refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55aef70e46fd3bbc21e3e1f0b6815e750c0" kind="enumvalue"><name>Disconnected</name></member>
+    <member refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55a4307e7e7986aa21a4b7c3ef2b5e948f6" kind="enumvalue"><name>Incomplete</name></member>
+    <member refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55aa60852f204ed8028c1c58808b746d115" kind="enumvalue"><name>Ok</name></member>
+    <member refid="classNetworkClient_1a18dce692aa54fd1e006744d59d097e5f" kind="variable"><name>_tcpFd</name></member>
+    <member refid="classNetworkClient_1afec94b5ac7dda0fc2b434261108f43ad" kind="variable"><name>_udpFd</name></member>
+    <member refid="classNetworkClient_1aeef42eb1f64d0e680941ec6583bbbd44" kind="variable"><name>_tcpConnected</name></member>
+    <member refid="classNetworkClient_1afc9f1111f98037b27d3033e8d9118556" kind="variable"><name>_udpConnected</name></member>
+    <member refid="classNetworkClient_1a11f8f91b9958ae221c08bf304fbfe31e" kind="variable"><name>_tcpAddr</name></member>
+    <member refid="classNetworkClient_1ad6b5430496083ed39dacbb31514f3849" kind="variable"><name>_udpAddr</name></member>
+    <member refid="classNetworkClient_1a8b0d8d4bb3fa98ecf345d0fc6dafd8e7" kind="variable"><name>_playerId</name></member>
+    <member refid="classNetworkClient_1a0b474e7f79f3dd26df29fb5fe39367b2" kind="variable"><name>_lobbyCode</name></member>
+    <member refid="classNetworkClient_1a040896aa0ec5206449d02e6dd264f7cd" kind="variable"><name>_pseudo</name></member>
+    <member refid="classNetworkClient_1a38aa8a71fa921d8afe01d8caaf6d1df0" kind="variable"><name>_lastSnapshot</name></member>
+    <member refid="classNetworkClient_1a8e04154250d91bbbb2cfbc0afeaed6bb" kind="variable"><name>_lastSnapshotBullets</name></member>
+    <member refid="classNetworkClient_1ae8afee744ef3cbfc90a6ae126c6a0c1b" kind="variable"><name>_lastSnapshotMonsters</name></member>
+    <member refid="classNetworkClient_1ac396fc7cda4c100ff4afca5fccf73429" kind="variable"><name>_lastPlayerList</name></member>
+    <member refid="classNetworkClient_1a71ebf3bcf361e32e24abecffca56fdec" kind="variable"><name>_events</name></member>
+    <member refid="classNetworkClient_1a70fc44c2906eb7a70b74108f34df3008" kind="variable"><name>_tcpRecvBuffer</name></member>
+    <member refid="classNetworkClient_1a7313805bd859cfc09dec94a7c8eb2fe0" kind="variable"><name>_lastSnapshotSeq</name></member>
+    <member refid="classNetworkClient_1ad35265342327777ccb894b79f81b05e6" kind="variable"><name>_hasSnapshotSeq</name></member>
+    <member refid="classNetworkClient_1a45e486f8ec98988efc9030a65dc49e09" kind="variable"><name>_snapshotReceived</name></member>
+    <member refid="classNetworkClient_1a629d27e793d46d3be1754f668932dd09" kind="variable"><name>_snapshotLost</name></member>
+    <member refid="classNetworkClient_1a2965fb9499f0868ae11cda1c07c63425" kind="variable"><name>_udpPingMs</name></member>
+    <member refid="classNetworkClient_1a60a9388fce03419f064d436e02e59a23" kind="variable"><name>_udpLastPingSentMs</name></member>
+    <member refid="classNetworkClient_1aef7a8773ff5b23399cb9aac0b3c4d7a4" kind="variable"><name>_udpBytesInWindow</name></member>
+    <member refid="classNetworkClient_1a8c4e09f4a487b00c7b4cfd6507f5d1d0" kind="variable"><name>_udpBytesOutWindow</name></member>
+    <member refid="classNetworkClient_1ac3ce12720fa24e5706d225d80bf5f1aa" kind="variable"><name>_udpRateWindowStartMs</name></member>
+    <member refid="classNetworkClient_1a633d1f57b2d80be8d61c3695115cf614" kind="variable"><name>_udpRxKbps</name></member>
+    <member refid="classNetworkClient_1a9be81688f8ada89b3b8a26144ef651bb" kind="variable"><name>_udpTxKbps</name></member>
+    <member refid="classNetworkClient_1a20f2bfa3171ebbc20722c4d8f8eb3d12" kind="function"><name>NetworkClient</name></member>
+    <member refid="classNetworkClient_1ab82fb597494c89b4a7ba9fd0d4b659c4" kind="function"><name>~NetworkClient</name></member>
+    <member refid="classNetworkClient_1aaeedfac221d22aa5df4135b1680c4c99" kind="function"><name>connectToServer</name></member>
+    <member refid="classNetworkClient_1a1773337e67c321eece590156e1a7b38a" kind="function"><name>performHandshake</name></member>
+    <member refid="classNetworkClient_1a28a515bbb5f6f75d6603a5332c217f93" kind="function"><name>sendPong</name></member>
+    <member refid="classNetworkClient_1aeb3772e8f3674783b14953ee27e1cd39" kind="function"><name>sendHelloUdp</name></member>
+    <member refid="classNetworkClient_1afdfce51c7dbb2e61f5e9280b15368915" kind="function"><name>sendInput</name></member>
+    <member refid="classNetworkClient_1a2773882369d758cbb23aa67b0dda78ed" kind="function"><name>sendShoot</name></member>
+    <member refid="classNetworkClient_1ae93ee27e05eea56b96d34c4789a01f41" kind="function"><name>sendChat</name></member>
+    <member refid="classNetworkClient_1a69d86a3b406a767d3feb704be440343a" kind="function"><name>sendCreateLobby</name></member>
+    <member refid="classNetworkClient_1ab66ff3a3c9bb96ad56e141d3713914bd" kind="function"><name>sendJoinLobby</name></member>
+    <member refid="classNetworkClient_1acfbb5b079e33b388d8df440cf29e89a1" kind="function"><name>setPseudo</name></member>
+    <member refid="classNetworkClient_1ad087f54b86ec34f0be29053415ab7a46" kind="function"><name>sendUdpPing</name></member>
+    <member refid="classNetworkClient_1a1f77ff0729755d9782b4542582cfe214" kind="function"><name>pollPackets</name></member>
+    <member refid="classNetworkClient_1a7f69f5c30fd349d670fae18598737b86" kind="function"><name>disconnect</name></member>
+    <member refid="classNetworkClient_1a632c4eeb2d8086de97cd616b2be972cf" kind="function"><name>disconnectUdp</name></member>
+    <member refid="classNetworkClient_1a0ea20f35b1cb3a917add14fc0bbc03af" kind="function"><name>ensureUdp</name></member>
+    <member refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" kind="function"><name>resetForLobby</name></member>
+    <member refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" kind="function"><name>resetForReconnect</name></member>
+    <member refid="classNetworkClient_1a08e45bde82ce1fbc60128fd538b58078" kind="function"><name>isConnected</name></member>
+    <member refid="classNetworkClient_1acb108e50dae9dda5b2cef508db1dd582" kind="function"><name>updateServerAddress</name></member>
+    <member refid="classNetworkClient_1a3a848ca2af9ba2a3008e33ecc39a3622" kind="function"><name>getPlayerId</name></member>
+    <member refid="classNetworkClient_1a9f92ea1a77f00b2867ebc37b6581d507" kind="function"><name>getLobbyCode</name></member>
+    <member refid="classNetworkClient_1af14f1f811649fc4555ea11aba8a812f2" kind="function"><name>getPseudo</name></member>
+    <member refid="classNetworkClient_1a501553ba5f6d381f43855eda057157bf" kind="function"><name>getLastSnapshot</name></member>
+    <member refid="classNetworkClient_1abfd2ef3eb235148e35fe65831187feab" kind="function"><name>getLastSnapshotBullets</name></member>
+    <member refid="classNetworkClient_1a4b6f0c20c59eeeddf98e738257c8a793" kind="function"><name>getLastSnapshotMonsters</name></member>
+    <member refid="classNetworkClient_1ac79abc81697913608e849a936eee4ada" kind="function"><name>getLastPlayerList</name></member>
+    <member refid="classNetworkClient_1aa443eee7ab598870a1028935b1b8c174" kind="function"><name>getEvents</name></member>
+    <member refid="classNetworkClient_1ad93611688c9c99aba516b5396a543cd8" kind="function"><name>clearEvents</name></member>
+    <member refid="classNetworkClient_1aa2de4fb4f6154441c96a7620ae3fb982" kind="function"><name>getUdpPingMs</name></member>
+    <member refid="classNetworkClient_1a9b4492241691163874e561440a379c3e" kind="function"><name>getUdpLossPct</name></member>
+    <member refid="classNetworkClient_1a14ed76e74eea78d36e9009129f641f79" kind="function"><name>getUdpRxKbps</name></member>
+    <member refid="classNetworkClient_1ad5c06bb19f3f5959f30bc383d89cb6e4" kind="function"><name>getUdpTxKbps</name></member>
+    <member refid="classNetworkClient_1ac0dca5641be17084ead40825063b944e" kind="function"><name>readTcpPacket</name></member>
+    <member refid="classNetworkClient_1a101f6ab85ee02ddb9d45a40dad603e29" kind="function"><name>readUdpPacket</name></member>
+    <member refid="classNetworkClient_1af150c1b7e0aa8c19cb337fb838479324" kind="function"><name>sendPacketTcp</name></member>
+    <member refid="classNetworkClient_1a6c612ab362cc3e4ea8c94ebc2cddc4e6" kind="function"><name>sendPacketUdp</name></member>
+    <member refid="classNetworkClient_1a5bc6fcb253ac9f9d74c649cb4b30d546" kind="function"><name>handleTcpPacket</name></member>
+    <member refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" kind="function"><name>handleUdpPacket</name></member>
+    <member refid="classNetworkClient_1a844f1f20acd0958f264c7bb67e18d111" kind="function"><name>writeAll</name></member>
+    <member refid="classNetworkClient_1ab8fe1bfbcfc0f363bce00cb1dc2a2f88" kind="function"><name>receiveTcpFramed</name></member>
+    <member refid="classNetworkClient_1aaf60f1216a17b46ad12539625a1022c2" kind="function"><name>nowMs</name></member>
+    <member refid="classNetworkClient_1a36892dcdc8c2523b27947a347ea16022" kind="function"><name>updateUdpRates</name></member>
+  </compound>
+  <compound refid="classPacket" kind="class"><name>Packet</name>
+    <member refid="classPacket_1a7e86ba3319a45d5cbfe6f4cc792594b1" kind="variable"><name>header</name></member>
+    <member refid="classPacket_1aebbae2cef32f967d0bbcabbe41dae6bf" kind="variable"><name>type</name></member>
+    <member refid="classPacket_1af702242beb44d7ee757716717fd629df" kind="variable"><name>size</name></member>
+    <member refid="classPacket_1a3f718725cfd763776d87841235986095" kind="variable"><name>payload</name></member>
+    <member refid="classPacket_1ab1ec7232eac75450a4392bb9c10921fb" kind="function"><name>Packet</name></member>
+    <member refid="classPacket_1aab0404b1c09020e8e4b3ab676135c2e3" kind="function"><name>Packet</name></member>
+    <member refid="classPacket_1aa88c2d28796644c8a1d6137996502ca8" kind="function"><name>serialize</name></member>
+    <member refid="classPacket_1abfcd427a2ca434ac71592334517638fb" kind="function"><name>deserialize</name></member>
+  </compound>
+  <compound refid="structGameWorld_1_1PlayerState" kind="struct"><name>GameWorld::PlayerState</name>
+    <member refid="structGameWorld_1_1PlayerState_1aec2879faa08a3a7ddfddb8339f2fc494" kind="variable"><name>id</name></member>
+    <member refid="structGameWorld_1_1PlayerState_1a1a76d0194ace7a4a8a8b8bd36487e556" kind="variable"><name>x</name></member>
+    <member refid="structGameWorld_1_1PlayerState_1aef36112dadc8e7b63888208fa84b2738" kind="variable"><name>y</name></member>
+    <member refid="structGameWorld_1_1PlayerState_1aa513e1a6e2ccfaf1cb46850b982ba310" kind="variable"><name>hp</name></member>
+    <member refid="structGameWorld_1_1PlayerState_1ab0dfb20c2c7c738a5e77d9936d2cb99a" kind="variable"><name>score</name></member>
+    <member refid="structGameWorld_1_1PlayerState_1ae037aca79756ec39ca8a8f9d0b5c96ee" kind="variable"><name>addr</name></member>
+    <member refid="structGameWorld_1_1PlayerState_1a9243d734cd29f931679507d04df0c31f" kind="variable"><name>velX</name></member>
+    <member refid="structGameWorld_1_1PlayerState_1afc62fd3b940e4d338fc8fe244da64b95" kind="variable"><name>velY</name></member>
+    <member refid="structGameWorld_1_1PlayerState_1ad952ea319d0c625f7575a3de26dc6ca5" kind="variable"><name>dir</name></member>
+    <member refid="structGameWorld_1_1PlayerState_1a4c7530290e5261df356c40bf8e6bc3f7" kind="variable"><name>lastHitMs</name></member>
+  </compound>
+  <compound refid="structPlayerState" kind="struct"><name>PlayerState</name>
+    <member refid="structPlayerState_1a1d13670f7d332ebb4edab0cdd84c9bcb" kind="variable"><name>id</name></member>
+    <member refid="structPlayerState_1a511d57ac4a0a817233868d7a87441b1a" kind="variable"><name>x</name></member>
+    <member refid="structPlayerState_1a50f07cd4be8eb68af2a3cf73b843e757" kind="variable"><name>y</name></member>
+    <member refid="structPlayerState_1a12ddc6ce91f2180e81363a3863edbacf" kind="variable"><name>hp</name></member>
+    <member refid="structPlayerState_1a239b365ad0ad982f928dd77b8b3d121f" kind="variable"><name>score</name></member>
+  </compound>
+  <compound refid="classPosition" kind="class"><name>Position</name>
+    <member refid="classPosition_1af684446cbf0f6d53386686283da6dcc6" kind="variable"><name>x</name></member>
+    <member refid="classPosition_1a54a6182b5f7539295b32255808897d3f" kind="variable"><name>y</name></member>
+    <member refid="classPosition_1ae9699660fab021c41818a551ab14f5b0" kind="function"><name>Position</name></member>
+  </compound>
+  <compound refid="classRectangleComponent" kind="class"><name>RectangleComponent</name>
+    <member refid="classRectangleComponent_1a6d8450e91c1f98934035dbebdbd3e649" kind="variable"><name>width</name></member>
+    <member refid="classRectangleComponent_1a43e28a5a631469e7c8196c6f18ffe7fe" kind="variable"><name>height</name></member>
+    <member refid="classRectangleComponent_1ac72b22619fc3694c3fcfe4c185ec4a24" kind="variable"><name>color</name></member>
+    <member refid="classRectangleComponent_1adf53aeb10ac51bee957123fe52ee8f14" kind="function"><name>RectangleComponent</name></member>
+  </compound>
+  <compound refid="classRectangleRenderSystem" kind="class"><name>RectangleRenderSystem</name>
+    <member refid="classRectangleRenderSystem_1ae46bcea7d3acaf9af00e0f78d33b31d4" kind="variable"><name>_offsetX</name></member>
+    <member refid="classRectangleRenderSystem_1ab8f08ab9bd2a18bd1ca44f18caa8012d" kind="variable"><name>_offsetY</name></member>
+    <member refid="classRectangleRenderSystem_1a00c54f80d65ee74fc5a06370b0b997e5" kind="variable"><name>_areaSize</name></member>
+    <member refid="classRectangleRenderSystem_1a084776cc697d899483b31ec00a99e9b3" kind="function"><name>setGameAreaOffset</name></member>
+    <member refid="classRectangleRenderSystem_1a92f6643f7bbedda7d15c6ea55f7407d1" kind="function"><name>update</name></member>
+  </compound>
+  <compound refid="structSession" kind="struct"><name>Session</name>
+    <member refid="structSession_1a40fe33141283136858bf8f11b6f5cc46" kind="variable"><name>id</name></member>
+    <member refid="structSession_1aabdac7621ae32d2f6cc6e3830f86e539" kind="variable"><name>tcpFd</name></member>
+    <member refid="structSession_1a855744125c995b27c5dda56aed9ef1ec" kind="variable"><name>tcpAddr</name></member>
+    <member refid="structSession_1abd8785a968fc61b4296e7f813b33e164" kind="variable"><name>udpAddr</name></member>
+    <member refid="structSession_1a801fe8001c034dc66207c2e561292d1c" kind="variable"><name>hasUdp</name></member>
+    <member refid="structSession_1a82593a4e6ef0e6f9f1ef1bdacb2ec4df" kind="variable"><name>lastPong</name></member>
+    <member refid="structSession_1a75334035d7b9b2a2c77755975563089a" kind="variable"><name>lastInputMs</name></member>
+    <member refid="structSession_1a5ae730d96911daf7a5bd0ddad6848b4a" kind="variable"><name>inputCount</name></member>
+    <member refid="structSession_1a04b8c23754d16de9469a2f5c7aeb266c" kind="variable"><name>lastShootMs</name></member>
+    <member refid="structSession_1a0a38770e87af1772c19fce6a97528056" kind="variable"><name>shootCount</name></member>
+    <member refid="structSession_1a0831d2d53f42052f7b48fd07393d4c0c" kind="variable"><name>lobbyCode</name></member>
+    <member refid="structSession_1a2235d40d78d5759a71adbefd238f5184" kind="variable"><name>pseudo</name></member>
+  </compound>
+  <compound refid="classSessionManager" kind="class"><name>SessionManager</name>
+    <member refid="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" kind="variable"><name>_mutex</name></member>
+    <member refid="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" kind="variable"><name>_sessions</name></member>
+    <member refid="classSessionManager_1a8fb480012df18cedb0dc9fd7517d1a9a" kind="variable"><name>_onRemove</name></member>
+    <member refid="classSessionManager_1ab07589dac6e7346f7eb4dbd1c871ee80" kind="variable"><name>_maxInputsPerSec</name></member>
+    <member refid="classSessionManager_1acf90d50c96347bbf4f617071b9343723" kind="variable"><name>_maxShootsPerSec</name></member>
+    <member refid="classSessionManager_1a8321c72e22b470cade42377861508d36" kind="function"><name>SessionManager</name></member>
+    <member refid="classSessionManager_1aa54fb04918bcd7d31bcdfe2ce2ee6545" kind="function"><name>setOnRemove</name></member>
+    <member refid="classSessionManager_1af8d1197fa1236d0295e3d31170639f6e" kind="function"><name>addSession</name></member>
+    <member refid="classSessionManager_1a8916c4ee701635dd8b2ee525331efb0b" kind="function"><name>removeById</name></member>
+    <member refid="classSessionManager_1ae44030d05e51a85f73a32f6bb6b053cb" kind="function"><name>removeByFd</name></member>
+    <member refid="classSessionManager_1af2596853b8042076df0c1022468eaec3" kind="function"><name>setUdpAddr</name></member>
+    <member refid="classSessionManager_1a48995915db3b90fa7228d357d6293163" kind="function"><name>getSession</name></member>
+    <member refid="classSessionManager_1ac233a47eaa6ca5e9b69e0cb8cd377358" kind="function"><name>updatePong</name></member>
+    <member refid="classSessionManager_1a8023cf136e039298b1e2ba5fe7cb224b" kind="function"><name>setLobbyCode</name></member>
+    <member refid="classSessionManager_1a0c52e8605801fc4e98c84b724ec72c09" kind="function"><name>getLobbyCode</name></member>
+    <member refid="classSessionManager_1a84b313bdbfecb70d12707d77f357bca8" kind="function"><name>setPseudo</name></member>
+    <member refid="classSessionManager_1a3d137db5b62fdb63340d7b92b8eb371f" kind="function"><name>getPseudo</name></member>
+    <member refid="classSessionManager_1a42975fcc09128c293815d29f3d72c5b7" kind="function"><name>allowInput</name></member>
+    <member refid="classSessionManager_1a3b6210717467960e603c7308ead2a23a" kind="function"><name>allowShoot</name></member>
+    <member refid="classSessionManager_1a3f16df2f2fcaa18971326cf09e8741fb" kind="function"><name>resetCounter</name></member>
+  </compound>
+  <compound refid="classSprite" kind="class"><name>Sprite</name>
+    <member refid="classSprite_1afdaef0e77d5d077f74f920ef15f58d7f" kind="variable"><name>sprite</name></member>
+    <member refid="classSprite_1a03ea660b2e77213c9ae05830bfdfbc5d" kind="function"><name>Sprite</name></member>
+    <member refid="classSprite_1a5deef1b47684b6e5b0fd856c6cd8cd49" kind="function"><name>Sprite</name></member>
+  </compound>
+  <compound refid="classSpriteRenderSystem" kind="class"><name>SpriteRenderSystem</name>
+    <member refid="classSpriteRenderSystem_1a733b0be24b57ad5533c791a6cc3d6669" kind="variable"><name>_scaleX</name></member>
+    <member refid="classSpriteRenderSystem_1a2a83c885d6559c0928e6def5ca18e5a1" kind="variable"><name>_scaleY</name></member>
+    <member refid="classSpriteRenderSystem_1a406f5de0e7d1764fb135efe5a0f6ab80" kind="variable"><name>_offsetX</name></member>
+    <member refid="classSpriteRenderSystem_1a3bf896c956a20bca32afeaeda05973fd" kind="variable"><name>_offsetY</name></member>
+    <member refid="classSpriteRenderSystem_1ae81e2dc6198204f7e0c607edff2b6a58" kind="variable"><name>_areaSize</name></member>
+    <member refid="classSpriteRenderSystem_1aaaf180675dc11ac4aab058fb44ab762a" kind="function"><name>setScale</name></member>
+    <member refid="classSpriteRenderSystem_1abb1858e6c55c336ea4e1a9e4f597946c" kind="function"><name>setGameAreaOffset</name></member>
+    <member refid="classSpriteRenderSystem_1a439243229880829d70b83b895b500495" kind="function"><name>update</name></member>
+  </compound>
+  <compound refid="classTCPServer" kind="class"><name>TCPServer</name>
+    <member refid="classTCPServer_1a71488db7399ea324f5efe8064e24581c" kind="enum"><name>RecvResult</name></member>
+    <member refid="classTCPServer_1a71488db7399ea324f5efe8064e24581caef70e46fd3bbc21e3e1f0b6815e750c0" kind="enumvalue"><name>Disconnected</name></member>
+    <member refid="classTCPServer_1a71488db7399ea324f5efe8064e24581ca4307e7e7986aa21a4b7c3ef2b5e948f6" kind="enumvalue"><name>Incomplete</name></member>
+    <member refid="classTCPServer_1a71488db7399ea324f5efe8064e24581caa60852f204ed8028c1c58808b746d115" kind="enumvalue"><name>Ok</name></member>
+    <member refid="classTCPServer_1a935d20653ad5ba5269b00c0fb8977e60" kind="variable"><name>_serverSocket</name></member>
+    <member refid="classTCPServer_1a84e56cbbeeab8d9e7569444fa657a239" kind="variable"><name>_clients</name></member>
+    <member refid="classTCPServer_1a1c70f5262f8c58c76224696746b2fe61" kind="variable"><name>_nextId</name></member>
+    <member refid="classTCPServer_1a112cedb48ad54b03fcd564d78766f763" kind="variable"><name>_sessions</name></member>
+    <member refid="classTCPServer_1a82ca8d45da7d3889d55662cb8c90022e" kind="variable"><name>_lobbies</name></member>
+    <member refid="classTCPServer_1af426291ba1ed4f4d21e8cab3c7a03bc3" kind="variable"><name>_clientLobby</name></member>
+    <member refid="classTCPServer_1af631fe23418972d040c6ffce2a1418f7" kind="variable"><name>_childMgr</name></member>
+    <member refid="classTCPServer_1ad8f4ffce8b9317fc30a7cfa9e5c5442a" kind="function"><name>TCPServer</name></member>
+    <member refid="classTCPServer_1abc497ac52355e53986a6a1bd1acb9581" kind="function"><name>~TCPServer</name></member>
+    <member refid="classTCPServer_1a4e6d2ef05b71c4ecbd0518fc7215ece3" kind="function"><name>run</name></member>
+    <member refid="classTCPServer_1ae0e94f8d712b3c9028fe674100d649b9" kind="function"><name>acceptNewClient</name></member>
+    <member refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" kind="function"><name>processClientData</name></member>
+    <member refid="classTCPServer_1a1ef2aa5cce99901889e64fce86fbac33" kind="function"><name>sendPingToAll</name></member>
+    <member refid="classTCPServer_1a867c0e233f62e2d8f181ae99dbcca0a0" kind="function"><name>checkHeartbeat</name></member>
+    <member refid="classTCPServer_1a6d824f4302f15bbd2c7c8b754d1a51dd" kind="function"><name>getCurrentTime</name></member>
+    <member refid="classTCPServer_1a75a51391de5f2f6d4d54f0ae9626d9c9" kind="function"><name>waitForReadable</name></member>
+    <member refid="classTCPServer_1aa6089a11e438f73bfc614c44f86e5d75" kind="function"><name>closeFd</name></member>
+    <member refid="classTCPServer_1a435ec8dcd340e15f964ce3c0748c7305" kind="function"><name>resetClient</name></member>
+    <member refid="classTCPServer_1a5e77543739e5b801384f9fe3e63c2bf8" kind="function"><name>pollSockets</name></member>
+    <member refid="classTCPServer_1a9a65a3923e77e48c5f0019b45af8fcb5" kind="function"><name>sendPacket</name></member>
+    <member refid="classTCPServer_1ae9543e5003c04975a7e06a9bb85c7723" kind="function"><name>receivePacket</name></member>
+    <member refid="classTCPServer_1a35b89efbda16dd8af6b7ff45b6da036d" kind="function"><name>makeStringPacket</name></member>
+    <member refid="classTCPServer_1a13efa1ebda8d0f4c99eae65d6b012b75" kind="function"><name>makeIdPacket</name></member>
+    <member refid="classTCPServer_1ae45d63761257c84a68a96c24541c13e4" kind="function"><name>makeLobbyPacket</name></member>
+    <member refid="classTCPServer_1a5b1988f8a542c2d39f3d3556264e71b2" kind="function"><name>writeFd</name></member>
+    <member refid="classTCPServer_1a00011973e407cab03dde7c74a4c65949" kind="function"><name>readFd</name></member>
+    <member refid="classTCPServer_1a3b0daca7192b0342a5694a287319ddaa" kind="function"><name>selectFdSet</name></member>
+    <member refid="classTCPServer_1a2595c03eed6bf37e098e619e6751a3d4" kind="function"><name>closeFdRaw</name></member>
+    <member refid="classTCPServer_1a196ba30f88f890e9acf0ef1a21a74c71" kind="function"><name>buildPlayerListPacket</name></member>
+    <member refid="classTCPServer_1aa87b20fb76f60c19df36f39ef3621b05" kind="function"><name>sendPlayerListToClient</name></member>
+    <member refid="classTCPServer_1aee3fb51b52375d68f548f60cc7005ef0" kind="function"><name>broadcastNewPlayer</name></member>
+    <member refid="classTCPServer_1a79e20e1d2821e399fe47dd1055341d5e" kind="function"><name>writeAll</name></member>
+    <member refid="classTCPServer_1a84035146c9257be5714850a1f46d0bfb" kind="function"><name>assignLobby</name></member>
+    <member refid="classTCPServer_1a508cc3d7023b0cfe9abed2e3166b1682" kind="function"><name>removeFromLobby</name></member>
+    <member refid="classTCPServer_1a8d2dcfc8d8337ff577a101c4aee6aac5" kind="function"><name>refreshLobby</name></member>
+    <member refid="classTCPServer_1ad6bed785945fc2f21376ff2b58090829" kind="function"><name>autoAssignPublic</name></member>
+    <member refid="classTCPServer_1a063b685012f0cd7b069ad82dbffcb95f" kind="function"><name>generateLobbyCode</name></member>
+    <member refid="classTCPServer_1afd78aa179d3b735e82868d800629b354" kind="function"><name>handleLobbyPacket</name></member>
+    <member refid="classTCPServer_1a2a03b7479e884f287b5a88df03eeb17b" kind="function"><name>processIpcMessages</name></member>
+    <member refid="classTCPServer_1afb22938cbabd280ec30b3ffab25aeb56" kind="function"><name>broadcastToLobby</name></member>
+    <member refid="classTCPServer_1a25273652d6d80037ec5bcad8725bd269" kind="function"><name>allocatePort</name></member>
+    <member refid="classTCPServer_1a30203c2836aa52676f3e6205d8730943" kind="function"><name>ensureLobbyProcess</name></member>
+  </compound>
+  <compound refid="classNetwork_1_1TransportLayer_1_1TCPSocket" kind="class"><name>Network::TransportLayer::TCPSocket</name>
+    <member refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1ad12c80bc63624bdee7d22050a0ec812a" kind="function"><name>TCPSocket</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1a9327f3eee17e4cbec8b81e920e346523" kind="function"><name>~TCPSocket</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1a9391d4bdcddb942f43210cc17ace7013" kind="function"><name>connectTo</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1a1101a573328f3e3763b5cc0fed67f0ae" kind="function"><name>bindAndListen</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1TCPSocket_1aab30f88e654d44503b85368f4af43e8d" kind="function"><name>acceptClient</name></member>
+  </compound>
+  <compound refid="classRaylib_1_1Texture" kind="class"><name>Raylib::Texture</name>
+    <member refid="classRaylib_1_1Texture_1ad69bab86fc4c589cb6b3f1aa50e1e1ae" kind="variable"><name>_texture</name></member>
+    <member refid="classRaylib_1_1Texture_1af1b708b4c5b8d20ef2ce13e6a2fa6e16" kind="function"><name>Texture</name></member>
+    <member refid="classRaylib_1_1Texture_1ab744510744bcc4ebf00e913640233514" kind="function"><name>~Texture</name></member>
+    <member refid="classRaylib_1_1Texture_1af7e50a5c7c643db3c79e4b866ce4c18d" kind="function"><name>draw</name></member>
+    <member refid="classRaylib_1_1Texture_1a16b3eef711498ee701847c91ca4ee682" kind="function"><name>draw</name></member>
+    <member refid="classRaylib_1_1Texture_1a3b009b994900e6051e58919eb3bd2860" kind="function"><name>getWidth</name></member>
+    <member refid="classRaylib_1_1Texture_1a987d1de99a6326ced5d62d890610b078" kind="function"><name>getHeight</name></member>
+  </compound>
+  <compound refid="classUDPGameServer" kind="class"><name>UDPGameServer</name>
+    <member refid="classUDPGameServer_1a25c7a0d2ae641a6c71421059bb024a60" kind="variable"><name>_socket</name></member>
+    <member refid="classUDPGameServer_1a717a4dc2095ce6aa20c6e006acf8eef4" kind="variable"><name>_worlds</name></member>
+    <member refid="classUDPGameServer_1a4c197dcedb9480e8ad9c3aa9368b34d3" kind="variable"><name>_playerLobby</name></member>
+    <member refid="classUDPGameServer_1addc03e253cc450a368fa4e17cb369bdd" kind="variable"><name>_sessions</name></member>
+    <member refid="classUDPGameServer_1a390e8fc2716ffa166d2bd6f91acb9bf2" kind="variable"><name>_lastSnapshotMs</name></member>
+    <member refid="classUDPGameServer_1a2f64e138162800e13ab68e61d273e335" kind="variable"><name>_lastTickMs</name></member>
+    <member refid="classUDPGameServer_1a8403afcff6dde0baa509124d4553b73e" kind="variable"><name>_port</name></member>
+    <member refid="classUDPGameServer_1abbeb77deb2d519708ae2c6e2df26ba54" kind="variable"><name>_snapshotIntervalMs</name></member>
+    <member refid="classUDPGameServer_1a6c3b3016f0b7493aa6d6efd7df70652d" kind="variable"><name>_expectedLobby</name></member>
+    <member refid="classUDPGameServer_1a9386af9feddd3dc985886c42ad90e44e" kind="variable"><name>_tickIntervalMs</name></member>
+    <member refid="classUDPGameServer_1afdb634c720e621ceefae4c3cdddf2070" kind="variable"><name>_incoming</name></member>
+    <member refid="classUDPGameServer_1a20cfba9fdeb64468286e7f71a19871d2" kind="variable"><name>_queueMutex</name></member>
+    <member refid="classUDPGameServer_1a03e47ae3e4629b2715c5d423f2abfc17" kind="variable"><name>_running</name></member>
+    <member refid="classUDPGameServer_1aa31422212ed9a118802d233aedf1453a" kind="variable"><name>_networkThread</name></member>
+    <member refid="classUDPGameServer_1a019dfad81daf07296be196eeea940c9e" kind="variable"><name>_ipc</name></member>
+    <member refid="classUDPGameServer_1a0272e620fa267e7a2043b5729d24cfbc" kind="function"><name>UDPGameServer</name></member>
+    <member refid="classUDPGameServer_1ac43ecfc8705a619accf685658472e529" kind="function"><name>~UDPGameServer</name></member>
+    <member refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" kind="function"><name>run</name></member>
+    <member refid="classUDPGameServer_1a33e8d20721c5a01eafc5f466ecd9e1b7" kind="function"><name>setIpc</name></member>
+    <member refid="classUDPGameServer_1a9d28a7f4a0c75aba168ea6a58633d1bb" kind="function"><name>handlePacket</name></member>
+    <member refid="classUDPGameServer_1a367b917d572ad28819003841b3be180c" kind="function"><name>handleHello</name></member>
+    <member refid="classUDPGameServer_1abe9913c5eaa12c361bdcc9ce68bdc835" kind="function"><name>handleInput</name></member>
+    <member refid="classUDPGameServer_1a0117b7531413f5b7b161675f9e9efd3d" kind="function"><name>handleShoot</name></member>
+    <member refid="classUDPGameServer_1a19fbc481d5a9467da80ef95a4e3872e5" kind="function"><name>broadcastSnapshot</name></member>
+    <member refid="classUDPGameServer_1a602889e958a3ff926bb8de325c982a62" kind="function"><name>sendPacketTo</name></member>
+    <member refid="classUDPGameServer_1a04aa4dac3d2e7571a2d092c0a37e75ef" kind="function"><name>nowMs</name></member>
+    <member refid="classUDPGameServer_1aa1c969e983f12d8e36bfb2465f7fe5d6" kind="function"><name>updateSimulation</name></member>
+    <member refid="classUDPGameServer_1a7f3a37004641222f4d30d55614f05029" kind="function"><name>networkLoop</name></member>
+    <member refid="classUDPGameServer_1ae610b7c128c3b70e06f3fc1b5a3ecdc5" kind="function"><name>logPrefix</name></member>
+  </compound>
+  <compound refid="classNetwork_1_1TransportLayer_1_1UDPSocket" kind="class"><name>Network::TransportLayer::UDPSocket</name>
+    <member refid="classNetwork_1_1TransportLayer_1_1UDPSocket_1a8cb227a0a16480a39a6dfe532e5d2d5f" kind="variable"><name>_senderAddr</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1UDPSocket_1a548052ba8e2a8caaf20a60ff8b73134d" kind="function"><name>UDPSocket</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1UDPSocket_1a9f6597ae59850819906da42dfae01173" kind="function"><name>~UDPSocket</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1UDPSocket_1a887cf24e71c890759f907c074f5b3505" kind="function"><name>writeByte</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1UDPSocket_1a1d5b406ab44c0523c8bb7db44eee59a0" kind="function"><name>writeByte</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1UDPSocket_1a34b53ce1224f81fc6809a24412854294" kind="function"><name>readByte</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1UDPSocket_1a429dc0b0e539ab051d785b7145e42bf7" kind="function"><name>getSenderAddr</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1UDPSocket_1a4972fa36f907bdcdae38d7d551f34e8b" kind="function"><name>bindTo</name></member>
+  </compound>
+  <compound refid="structUIButton" kind="struct"><name>UIButton</name>
+    <member refid="structUIButton_1a8f11fc89d4e99b6d37e184b03928d4dc" kind="variable"><name>bounds</name></member>
+    <member refid="structUIButton_1aff3ad68c65cc6e580040a95de90fc212" kind="variable"><name>label</name></member>
+    <member refid="structUIButton_1a1d512972bac6c551b1aa915071d2aea5" kind="variable"><name>action</name></member>
+    <member refid="structUIButton_1a69eec7515944cfcdd394eb88dd401f0e" kind="variable"><name>bg</name></member>
+    <member refid="structUIButton_1a977cd8fa8a9e24ce1dfd1d4b09942096" kind="variable"><name>hoverBg</name></member>
+    <member refid="structUIButton_1a264da0902741b2f70c57917e10908fcf" kind="variable"><name>text</name></member>
+    <member refid="structUIButton_1a29796662c05780b5010b18a94b189661" kind="variable"><name>hovered</name></member>
+  </compound>
+  <compound refid="structUIText" kind="struct"><name>UIText</name>
+    <member refid="structUIText_1ab4921f36a8c049f9775257bac9fc91a0" kind="variable"><name>pos</name></member>
+    <member refid="structUIText_1a1ae925f8a22a3f812b36b321af8c154b" kind="variable"><name>text</name></member>
+    <member refid="structUIText_1a3849157cea759042062b3fb1c5c1b8f8" kind="variable"><name>fontSize</name></member>
+    <member refid="structUIText_1a1c285eda38720ce4f2354c85eceec54a" kind="variable"><name>color</name></member>
+  </compound>
+  <compound refid="classNetwork_1_1TransportLayer_1_1UnixSocket" kind="class"><name>Network::TransportLayer::UnixSocket</name>
+    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a5ce10aa23c1a06d3ca8787c5d6db7f26" kind="variable"><name>_addr</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a557ad717853e93ea0206baf7efe657f4" kind="variable"><name>_linked</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1ab78710f79a24f6c32b71f65af4e8f908" kind="function"><name>UnixSocket</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a1af981b253cbec410b4700f45d16f860" kind="function"><name>UnixSocket</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1afa61938db07dee4b7bcd4f76e2fea0f0" kind="function"><name>~UnixSocket</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a207cfb6db259da409456e6c4dce13692" kind="function"><name>setPath</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a6cc9059163c78f09be4a57fe0ac7a8c6" kind="function"><name>isLink</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1aa0af0c2c6d70855370ea6742e50e41b5" kind="function"><name>unink</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a43306c350ec2b76dcdbce1d1391f7677" kind="function"><name>bind</name></member>
+    <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a22f15bf78074a9acd4a3016e0e7aab6d" kind="function"><name>connect</name></member>
+  </compound>
+  <compound refid="classVelocity" kind="class"><name>Velocity</name>
+    <member refid="classVelocity_1a2592d4678c041df7b39ae7663ec0ed5d" kind="variable"><name>vx</name></member>
+    <member refid="classVelocity_1ae2a7111ea8910254dce8882f3ab760a3" kind="variable"><name>vy</name></member>
+    <member refid="classVelocity_1ac2e4e5b5c056fd2befa3a0d63e94f5ae" kind="function"><name>Velocity</name></member>
+  </compound>
+  <compound refid="classRaylib_1_1Window" kind="class"><name>Raylib::Window</name>
+    <member refid="classRaylib_1_1Window_1af45dda5ebdfd6ff46ed81d21ab167a39" kind="function"><name>Window</name></member>
+    <member refid="classRaylib_1_1Window_1aa168b688c5ae5030e8a9320eb3b80c5f" kind="function"><name>~Window</name></member>
+    <member refid="classRaylib_1_1Window_1ac0d6cca8b53645743f06c2e453624938" kind="function"><name>shouldClose</name></member>
+    <member refid="classRaylib_1_1Window_1a5ffde9c5ef03a0b1eb1f8d8280403d43" kind="function"><name>close</name></member>
+    <member refid="classRaylib_1_1Window_1a0d93c896921575743b097baa6d66a6b4" kind="function"><name>beginDrawing</name></member>
+    <member refid="classRaylib_1_1Window_1a9692f845607bfbb28fb4e889ea0d3b37" kind="function"><name>endDrawing</name></member>
+    <member refid="classRaylib_1_1Window_1ab5db70ee0a095180020beaa8f134247d" kind="function"><name>clearBackground</name></member>
+    <member refid="classRaylib_1_1Window_1a31a4f1d19b906283532f3d904f5c8fd4" kind="function"><name>getWidth</name></member>
+    <member refid="classRaylib_1_1Window_1a23bf2cf4127671525c4fb6d4a5f4d420" kind="function"><name>getHeight</name></member>
+    <member refid="classRaylib_1_1Window_1a8a6eedeecb648b4c1527681a42727e15" kind="function"><name>getFrameTime</name></member>
+    <member refid="classRaylib_1_1Window_1a3cc1b124c027948c7b0928a13ee065b2" kind="function"><name>setTargetFPS</name></member>
+  </compound>
+  <compound refid="namespace_0d10" kind="namespace"><name>@10</name>
+  </compound>
+  <compound refid="namespace_0d21" kind="namespace"><name>@21</name>
+  </compound>
+  <compound refid="namespace_0d25" kind="namespace"><name>@25</name>
+  </compound>
+  <compound refid="namespace_0d27" kind="namespace"><name>@27</name>
+  </compound>
+  <compound refid="namespace_0d35" kind="namespace"><name>@35</name>
+  </compound>
+  <compound refid="namespace_0d39" kind="namespace"><name>@39</name>
+  </compound>
+  <compound refid="namespaceGraphic" kind="namespace"><name>Graphic</name>
+  </compound>
+  <compound refid="namespaceNetwork" kind="namespace"><name>Network</name>
+  </compound>
+  <compound refid="namespaceNetwork_1_1TransportLayer" kind="namespace"><name>Network::TransportLayer</name>
+    <member refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7" kind="enum"><name>IOState</name></member>
+    <member refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a27be65353a27abba0a6da38c5b55fdfa" kind="enumvalue"><name>READ_READY</name></member>
+    <member refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a87ff53b60baedce247f2c2a00e99a2fe" kind="enumvalue"><name>WRITE_READY</name></member>
+    <member refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a8d3837e0e73b39e89137cf22ccd4280b" kind="enumvalue"><name>EXCEPTION</name></member>
+    <member refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a5147a57e64bc0949dd8c51a36b01029c" kind="enumvalue"><name>TIMEOUT</name></member>
+    <member refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7abb13e459f18172f849fcb2c733a538fc" kind="enumvalue"><name>IOERROR</name></member>
+  </compound>
+  <compound refid="namespaceProtocol" kind="namespace"><name>Protocol</name>
+    <member refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780" kind="enum"><name>StreamStatus</name></member>
+    <member refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780aef70e46fd3bbc21e3e1f0b6815e750c0" kind="enumvalue"><name>Disconnected</name></member>
+    <member refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780a4307e7e7986aa21a4b7c3ef2b5e948f6" kind="enumvalue"><name>Incomplete</name></member>
+    <member refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780aa60852f204ed8028c1c58808b746d115" kind="enumvalue"><name>Ok</name></member>
+    <member refid="namespaceProtocol_1a668bdeed219432868fca095e1b2f2667" kind="function"><name>frameTcp</name></member>
+    <member refid="namespaceProtocol_1a10005c44787f8de2a0e42d395aff8baa" kind="function"><name>extractFromBuffer</name></member>
+    <member refid="namespaceProtocol_1ad768525ca5f0324a5f414440e67679b6" kind="function"><name>consumeChunk</name></member>
+  </compound>
+  <compound refid="namespaceRaylib" kind="namespace"><name>Raylib</name>
+  </compound>
+  <compound refid="namespaceRtype" kind="namespace"><name>Rtype</name>
+  </compound>
+  <compound refid="namespaceRtype_1_1Graphic" kind="namespace"><name>Rtype::Graphic</name>
+  </compound>
+  <compound refid="client_8cpp" kind="file"><name>client.cpp</name>
+    <member refid="client_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="game_8cpp" kind="file"><name>game.cpp</name>
+    <member refid="game_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="README_8md" kind="file"><name>README.md</name>
+  </compound>
+  <compound refid="server_8cpp" kind="file"><name>server.cpp</name>
+    <member refid="server_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="Components_8hpp" kind="file"><name>Components.hpp</name>
+  </compound>
+  <compound refid="Core_8hpp" kind="file"><name>Core.hpp</name>
+    <member refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kind="typedef"><name>Entity</name></member>
+    <member refid="Core_8hpp_1aeb9b9235190f907fe8b0994938dd2807" kind="typedef"><name>Signature</name></member>
+    <member refid="Core_8hpp_1adc1f779412b3f14b77821cb39cdbb9da" kind="variable"><name>MAX_ENTITIES</name></member>
+    <member refid="Core_8hpp_1a5b372ace64eb5b0434478550dab30091" kind="variable"><name>MAX_COMPONENTS</name></member>
+  </compound>
+  <compound refid="System_8hpp" kind="file"><name>System.hpp</name>
+    <member refid="System_8hpp_1adade54da2b207529e678a25e6389d494" kind="enum"><name>KeyEvent</name></member>
+    <member refid="System_8hpp_1adade54da2b207529e678a25e6389d494aec8379af7490bb9eaaf579cf17876f38" kind="enumvalue"><name>RIGHT</name></member>
+    <member refid="System_8hpp_1adade54da2b207529e678a25e6389d494adb45120aafd37a973140edee24708065" kind="enumvalue"><name>LEFT</name></member>
+    <member refid="System_8hpp_1adade54da2b207529e678a25e6389d494aba595d8bca8bc5e67c37c0a9d89becfa" kind="enumvalue"><name>UP</name></member>
+    <member refid="System_8hpp_1adade54da2b207529e678a25e6389d494a9b0b4a95b99523966e0e34ffdadac9da" kind="enumvalue"><name>DOWN</name></member>
+    <member refid="System_8hpp_1adade54da2b207529e678a25e6389d494a38317998d0db1f65b5a5d3f9990c02f3" kind="enumvalue"><name>SHOOT</name></member>
+  </compound>
+  <compound refid="Graphic_8cpp" kind="file"><name>Graphic.cpp</name>
+  </compound>
+  <compound refid="Graphic_8hpp" kind="file"><name>Graphic.hpp</name>
+  </compound>
+  <compound refid="GraphicClient_8cpp" kind="file"><name>GraphicClient.cpp</name>
+  </compound>
+  <compound refid="GraphicClient_8hpp" kind="file"><name>GraphicClient.hpp</name>
+  </compound>
+  <compound refid="Raylib_8cpp" kind="file"><name>Raylib.cpp</name>
+  </compound>
+  <compound refid="Raylib_8hpp" kind="file"><name>Raylib.hpp</name>
+  </compound>
+  <compound refid="GameState_8hpp" kind="file"><name>GameState.hpp</name>
+  </compound>
+  <compound refid="NetworkClient_8cpp" kind="file"><name>NetworkClient.cpp</name>
+  </compound>
+  <compound refid="NetworkClient_8hpp" kind="file"><name>NetworkClient.hpp</name>
+  </compound>
+  <compound refid="SessionManager_8cpp" kind="file"><name>SessionManager.cpp</name>
+  </compound>
+  <compound refid="SessionManager_8hpp" kind="file"><name>SessionManager.hpp</name>
+  </compound>
+  <compound refid="ASocket_8cpp" kind="file"><name>ASocket.cpp</name>
+  </compound>
+  <compound refid="ASocket_8hpp" kind="file"><name>ASocket.hpp</name>
+  </compound>
+  <compound refid="ISocket_8hpp" kind="file"><name>ISocket.hpp</name>
+    <member refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" kind="define"><name>CLOSE</name></member>
+    <member refid="ISocket_8hpp_1ae9900189a578f5075caadbead1ef5a25" kind="define"><name>SOCKET_ERROR_CODE</name></member>
+    <member refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" kind="define"><name>INVALID_SOCKET_FD</name></member>
+    <member refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kind="typedef"><name>socket_t</name></member>
+  </compound>
+  <compound refid="Packet_8cpp" kind="file"><name>Packet.cpp</name>
+  </compound>
+  <compound refid="Packet_8hpp" kind="file"><name>Packet.hpp</name>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56" kind="enum"><name>PacketType</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a2d5adf374790a99688888f051f235cf0" kind="enumvalue"><name>SERVER_HELLO</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a68f215961d3807b1f3e363ab9dc3b9fd" kind="enumvalue"><name>CLIENT_HELLO</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ae0aa021e21dddbd6d8cecec71e9cf564" kind="enumvalue"><name>OK</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a392253eaea22aafdb199bc238bafc082" kind="enumvalue"><name>REFUSED</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ae07ff41a486c27c095a15898dcca34d1" kind="enumvalue"><name>PING</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a15c94917c8795679ecb650ed760c27f0" kind="enumvalue"><name>PONG</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a90791ed805bd5b00d78527d39d9ef7e4" kind="enumvalue"><name>MESSAGE</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56aa933b4eab2f8c05c250a78452a4475ef" kind="enumvalue"><name>PLAYER_LIST</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ad4f5148ace6252399e4d60ce75602ae8" kind="enumvalue"><name>NEW_PLAYER</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a262dd3836d38576837418316684d57fa" kind="enumvalue"><name>CREATE_LOBBY</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a3888a668dd55727dbed1a4d11ad839db" kind="enumvalue"><name>JOIN_LOBBY</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ad516ccad8300c04495db993fcec70efc" kind="enumvalue"><name>LOBBY_OK</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a641d4a02e984224028338d5c33936ce9" kind="enumvalue"><name>LOBBY_ERROR</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a96a4de9c97bf5686278b38d16e7658ea" kind="enumvalue"><name>HELLO_UDP</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56aa84cc046d48610b05c21fd3670d0c829" kind="enumvalue"><name>INPUT</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a46b8744c6bc840d2cb241fa165f3e204" kind="enumvalue"><name>SNAPSHOT</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a0504ea30baff7b670a10cb44f8e5cca2" kind="enumvalue"><name>SHOOT</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a256b68b36c17e1c85641d281b39500bb" kind="enumvalue"><name>LEVELING</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a600e36d8f89903f17192c68b6ff1e6eb" kind="enumvalue"><name>PING_UDP</name></member>
+    <member refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56adc6c95d7a7387379cf7fd130bbf3f77d" kind="enumvalue"><name>PONG_UDP</name></member>
+    <member refid="Packet_8hpp_1ab8c5cddb2e1593369ad6517eb7fca5b6" kind="variable"><name>PACKET_MAGIC</name></member>
+  </compound>
+  <compound refid="Protocol_8cpp" kind="file"><name>Protocol.cpp</name>
+  </compound>
+  <compound refid="Protocol_8hpp" kind="file"><name>Protocol.hpp</name>
+  </compound>
+  <compound refid="TCPServer_8cpp" kind="file"><name>TCPServer.cpp</name>
+  </compound>
+  <compound refid="TCPServer_8hpp" kind="file"><name>TCPServer.hpp</name>
+    <member refid="TCPServer_8hpp_1ab8ba2d8f79af5ca38005742bbc29a927" kind="define"><name>MAX_CLIENT</name></member>
+    <member refid="TCPServer_8hpp_1a6b20d41d6252e9871430c242cb1a56e7" kind="define"><name>BUFFER_SIZE</name></member>
+  </compound>
+  <compound refid="TCPSocket_8cpp" kind="file"><name>TCPSocket.cpp</name>
+  </compound>
+  <compound refid="TCPSocket_8hpp" kind="file"><name>TCPSocket.hpp</name>
+  </compound>
+  <compound refid="GameWorld_8cpp" kind="file"><name>GameWorld.cpp</name>
+  </compound>
+  <compound refid="GameWorld_8hpp" kind="file"><name>GameWorld.hpp</name>
+  </compound>
+  <compound refid="UDPGameServer_8cpp" kind="file"><name>UDPGameServer.cpp</name>
+  </compound>
+  <compound refid="UDPGameServer_8hpp" kind="file"><name>UDPGameServer.hpp</name>
+  </compound>
+  <compound refid="UDPSocket_8cpp" kind="file"><name>UDPSocket.cpp</name>
+  </compound>
+  <compound refid="UDPSocket_8hpp" kind="file"><name>UDPSocket.hpp</name>
+  </compound>
+  <compound refid="UnixSocket_8cpp" kind="file"><name>UnixSocket.cpp</name>
+  </compound>
+  <compound refid="UnixSocket_8hpp" kind="file"><name>UnixSocket.hpp</name>
+    <member refid="UnixSocket_8hpp_1a7d4a60fc5793e4d75a2fc9297f41942b" kind="define"><name>SOCK_TYPE</name></member>
+  </compound>
+  <compound refid="ChildProcessManager_8cpp" kind="file"><name>ChildProcessManager.cpp</name>
+  </compound>
+  <compound refid="ChildProcessManager_8hpp" kind="file"><name>ChildProcessManager.hpp</name>
+  </compound>
+  <compound refid="IpcChannel_8cpp" kind="file"><name>IpcChannel.cpp</name>
+  </compound>
+  <compound refid="IpcChannel_8hpp" kind="file"><name>IpcChannel.hpp</name>
+  </compound>
+  <compound refid="dir_d60dc096aec6cde32ff3e3dc1cdf78ea" kind="dir"><name>Network/Client</name>
+  </compound>
+  <compound refid="dir_f8129dbd3ae2d3b72ab062d666ff244a" kind="dir"><name>graphical-client/ecs</name>
+  </compound>
+  <compound refid="dir_b872c0e105a2fc8b4ed88fdf8fe97baa" kind="dir"><name>graphical-client/Graphic</name>
+  </compound>
+  <compound refid="dir_e7958bc4a951510a578029734ca89fee" kind="dir"><name>graphical-client</name>
+  </compound>
+  <compound refid="dir_d7b089d80e197b7173c130d051c7dd95" kind="dir"><name>graphical-client/GraphicClient</name>
+  </compound>
+  <compound refid="dir_356d85c7fe3a31f6238a1e4b453e8aed" kind="dir"><name>Network</name>
+  </compound>
+  <compound refid="dir_a77af5e100df803ce29cdf5c84f97a20" kind="dir"><name>graphical-client/Raylib</name>
+  </compound>
+  <compound refid="dir_41e1742e44e2de38b3bc91f993fed282" kind="dir"><name>server</name>
+  </compound>
+  <compound refid="dir_d861678bcbc44ffd8ef6a1bdec10e3b5" kind="dir"><name>Network/TransportLayer/TCP</name>
+  </compound>
+  <compound refid="dir_8caf3a053e0342ebb07dad232101334b" kind="dir"><name>Network/TransportLayer</name>
+  </compound>
+  <compound refid="dir_631dafc6a1249c23d7cf438c9d57fdf2" kind="dir"><name>Network/TransportLayer/UDP</name>
+  </compound>
+  <compound refid="dir_e676f1162f2a00557a6a29e0186a2919" kind="dir"><name>Network/TransportLayer/UNIX</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classComponentArray" kind="class" language="C++" prot="public">
+    <compoundname>ComponentArray</compoundname>
+    <basecompoundref refid="classIComponentArray" prot="public" virt="non-virtual">IComponentArray</basecompoundref>
+    <includes refid="Core_8hpp" local="no">graphical-client/ecs/Core.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classComponentArray_1a0adfaa99a57603c36378543459df8823" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; T &gt;</type>
+        <definition>std::vector&lt;T&gt; ComponentArray&lt; T &gt;::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <qualifiedname>ComponentArray::data</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Actual component data </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="54" column="17" bodyfile="graphical-client/ecs/Core.hpp" bodystart="54" bodyend="-1"/>
+        <referencedby refid="classComponentArray_1a37f484a9d2b6716e2facff9eabe1bb64" compoundref="Core_8hpp" startline="62" endline="69">ComponentArray&lt; T &gt;::add</referencedby>
+        <referencedby refid="classComponentArray_1a6e65e2943bae84c59bd936fca2214635" compoundref="Core_8hpp" startline="76" endline="78">ComponentArray&lt; T &gt;::get</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classComponentArray_1a224946b56e9b2c9b1e20efd7dd83c3d5" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref> &gt;</type>
+        <definition>std::vector&lt;Entity&gt; ComponentArray&lt; T &gt;::entities</definition>
+        <argsstring></argsstring>
+        <name>entities</name>
+        <qualifiedname>ComponentArray::entities</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Associated entity IDs </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="55" column="17" bodyfile="graphical-client/ecs/Core.hpp" bodystart="55" bodyend="-1"/>
+        <referencedby refid="classComponentArray_1a37f484a9d2b6716e2facff9eabe1bb64" compoundref="Core_8hpp" startline="62" endline="69">ComponentArray&lt; T &gt;::add</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classComponentArray_1a37f484a9d2b6716e2facff9eabe1bb64" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ComponentArray&lt; T &gt;::add</definition>
+        <argsstring>(Entity e, const T &amp;component)</argsstring>
+        <name>add</name>
+        <qualifiedname>ComponentArray::add</qualifiedname>
+        <param>
+          <type><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref></type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+<para>Adds or updates a component for an entity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entity ID. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>component</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The component to add. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="62" column="10" bodyfile="graphical-client/ecs/Core.hpp" bodystart="62" bodyend="69"/>
+        <references refid="classComponentArray_1a0adfaa99a57603c36378543459df8823" compoundref="Core_8hpp" startline="54">ComponentArray&lt; T &gt;::data</references>
+        <references refid="classComponentArray_1a224946b56e9b2c9b1e20efd7dd83c3d5" compoundref="Core_8hpp" startline="55">ComponentArray&lt; T &gt;::entities</references>
+        <referencedby refid="classECS_1a4fbe0d70b0934255d301ced9df6287e7" compoundref="Core_8hpp" startline="112" endline="122">ECS::addComponent</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classComponentArray_1a6e65e2943bae84c59bd936fca2214635" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T &amp; ComponentArray&lt; T &gt;::get</definition>
+        <argsstring>(Entity e)</argsstring>
+        <name>get</name>
+        <qualifiedname>ComponentArray::get</qualifiedname>
+        <param>
+          <type><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves a component for an entity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entity ID. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the component. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="76" column="7" bodyfile="graphical-client/ecs/Core.hpp" bodystart="76" bodyend="78"/>
+        <references refid="classComponentArray_1a0adfaa99a57603c36378543459df8823" compoundref="Core_8hpp" startline="54">ComponentArray&lt; T &gt;::data</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Template for storing components of a specific type. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The component type to store. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>ComponentArray&lt; T &gt;</label>
+        <link refid="classComponentArray"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>IComponentArray</label>
+        <link refid="classIComponentArray"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>ComponentArray&lt; T &gt;</label>
+        <link refid="classComponentArray"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>IComponentArray</label>
+        <link refid="classIComponentArray"/>
+      </node>
+    </collaborationgraph>
+    <location file="graphical-client/ecs/Core.hpp" line="52" column="1" bodyfile="graphical-client/ecs/Core.hpp" bodystart="52" bodyend="79"/>
+    <listofallmembers>
+      <member refid="classComponentArray_1a37f484a9d2b6716e2facff9eabe1bb64" prot="public" virt="non-virtual"><scope>ComponentArray</scope><name>add</name></member>
+      <member refid="classComponentArray_1a0adfaa99a57603c36378543459df8823" prot="public" virt="non-virtual"><scope>ComponentArray</scope><name>data</name></member>
+      <member refid="classComponentArray_1a224946b56e9b2c9b1e20efd7dd83c3d5" prot="public" virt="non-virtual"><scope>ComponentArray</scope><name>entities</name></member>
+      <member refid="classComponentArray_1a6e65e2943bae84c59bd936fca2214635" prot="public" virt="non-virtual"><scope>ComponentArray</scope><name>get</name></member>
+      <member refid="classIComponentArray_1a62d9c4e88931d5e885aaaf0e37a73600" prot="public" virt="virtual"><scope>ComponentArray</scope><name>~IComponentArray</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

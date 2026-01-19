@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -95,14 +96,20 @@ $(document).ready(function(){initNavTree('classSessionManager.html',''); initRes
 
 <p>This is the complete list of members for <a class="el" href="classSessionManager.html">SessionManager</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classSessionManager.html#af8d1197fa1236d0295e3d31170639f6e">addSession</a>(int id, int tcpFd, const sockaddr_in &amp;tcpAddr, long nowMs)</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classSessionManager.html#a42975fcc09128c293815d29f3d72c5b7">allowInput</a>(int id, long nowMs)</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classSessionManager.html#a3b6210717467960e603c7308ead2a23a">allowShoot</a>(int id, long nowMs)</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classSessionManager.html#a0c52e8605801fc4e98c84b724ec72c09">getLobbyCode</a>(int id) const</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classSessionManager.html#a3d137db5b62fdb63340d7b92b8eb371f">getPseudo</a>(int id) const</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classSessionManager.html#a48995915db3b90fa7228d357d6293163">getSession</a>(int id) const</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classSessionManager.html#ae44030d05e51a85f73a32f6bb6b053cb">removeByFd</a>(int fd)</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classSessionManager.html#a8916c4ee701635dd8b2ee525331efb0b">removeById</a>(int id)</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSessionManager.html#ab07589dac6e7346f7eb4dbd1c871ee80">_maxInputsPerSec</a></td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classSessionManager.html#acf90d50c96347bbf4f617071b9343723">_maxShootsPerSec</a></td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSessionManager.html#a05d87c5c88d86aa2852d0e4778275273">_mutex</a></td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"><span class="mlabel">mutable</span><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classSessionManager.html#a8fb480012df18cedb0dc9fd7517d1a9a">_onRemove</a></td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSessionManager.html#a94817f0bdc3435c5a8c741ac024d556c">_sessions</a></td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classSessionManager.html#af8d1197fa1236d0295e3d31170639f6e">addSession</a>(int id, int tcpFd, const sockaddr_in &amp;tcpAddr, long nowMs)</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSessionManager.html#a42975fcc09128c293815d29f3d72c5b7">allowInput</a>(int id, long nowMs)</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classSessionManager.html#a3b6210717467960e603c7308ead2a23a">allowShoot</a>(int id, long nowMs)</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSessionManager.html#a0c52e8605801fc4e98c84b724ec72c09">getLobbyCode</a>(int id) const</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classSessionManager.html#a3d137db5b62fdb63340d7b92b8eb371f">getPseudo</a>(int id) const</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSessionManager.html#a48995915db3b90fa7228d357d6293163">getSession</a>(int id) const</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classSessionManager.html#ae44030d05e51a85f73a32f6bb6b053cb">removeByFd</a>(int fd)</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classSessionManager.html#a8916c4ee701635dd8b2ee525331efb0b">removeById</a>(int id)</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classSessionManager.html#a3f16df2f2fcaa18971326cf09e8741fb">resetCounter</a>(long nowMs, long &amp;lastMs, int &amp;count, int limit)</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classSessionManager.html#a8321c72e22b470cade42377861508d36">SessionManager</a>(int maxInputsPerSec=30, int maxShootsPerSec=10)</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classSessionManager.html#a8023cf136e039298b1e2ba5fe7cb224b">setLobbyCode</a>(int id, const std::string &amp;code)</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classSessionManager.html#aa54fb04918bcd7d31bcdfe2ce2ee6545">setOnRemove</a>(std::function&lt; void(int)&gt; cb)</td><td class="entry"><a class="el" href="classSessionManager.html">SessionManager</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>

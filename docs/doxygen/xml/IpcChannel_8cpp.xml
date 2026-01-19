@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="IpcChannel_8cpp" kind="file" language="C++">
+    <compoundname>IpcChannel.cpp</compoundname>
+    <includes refid="IpcChannel_8hpp" local="yes">IpcChannel.hpp</includes>
+    <includes local="no">cstring</includes>
+    <includes local="no">iostream</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>../ASocket.hpp</label>
+        <link refid="ASocket_8hpp"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>ISocket.hpp</label>
+        <link refid="ISocket_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>../Network/TransportLayer/UDP/UDPSocket.hpp</label>
+        <link refid="UDPSocket_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>server/IpcChannel.cpp</label>
+        <link refid="IpcChannel_8cpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>IpcChannel.hpp</label>
+        <link refid="IpcChannel_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>arpa/inet.h</label>
+      </node>
+      <node id="9">
+        <label>cstdint</label>
+      </node>
+      <node id="17">
+        <label>cstring</label>
+      </node>
+      <node id="10">
+        <label>errno.h</label>
+      </node>
+      <node id="18">
+        <label>iostream</label>
+      </node>
+      <node id="11">
+        <label>netinet/in.h</label>
+      </node>
+      <node id="12">
+        <label>netinet/tcp.h</label>
+      </node>
+      <node id="4">
+        <label>optional</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="13">
+        <label>sys/select.h</label>
+      </node>
+      <node id="14">
+        <label>sys/socket.h</label>
+      </node>
+      <node id="15">
+        <label>sys/un.h</label>
+      </node>
+      <node id="16">
+        <label>unistd.h</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">**<sp/>EPITECH<sp/>PROJECT,<sp/>2025</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">**<sp/>Mystic-Type</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">**<sp/>File<sp/>description:</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">**<sp/>IPC<sp/>channel<sp/>helper<sp/>(UNIX<sp/>domain<sp/>socket)</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="IpcChannel_8hpp" kindref="compound">IpcChannel.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstring&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;iostream&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">namespace</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/>std::size_t<sp/>MAX_MSG<sp/>=<sp/>1024;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="classIpcChannel_1ad63c52abbe46734379d53197c042813a" refkind="member"><highlight class="normal"><ref refid="classIpcChannel_1ad63c52abbe46734379d53197c042813a" kindref="member">IpcChannel::~IpcChannel</ref>()</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classIpcChannel_1aa2bbcedec629b7f3e365db5218d0bcc8" kindref="member">close</ref>();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="classIpcChannel_1a08fb3b62091cf125d554b805a4e64748" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIpcChannel_1a08fb3b62091cf125d554b805a4e64748" kindref="member">IpcChannel::bindServer</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref><sp/>!=<sp/><ref refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" kindref="member">INVALID_SOCKET_FD</ref>)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" kindref="member">CLOSE</ref>(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref>);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref><sp/>=<sp/>socket(AF_INET,<sp/>SOCK_DGRAM,<sp/>0);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref><sp/>==<sp/><ref refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" kindref="member">INVALID_SOCKET_FD</ref>)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(&amp;<ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>));</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>.sin_family<sp/>=<sp/>AF_INET;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>.sin_port<sp/>=<sp/>htons(0);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>.sin_addr.s_addr<sp/>=<sp/>htonl(INADDR_LOOPBACK);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(::bind(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref>,<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal">sockaddr*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(&amp;<ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>),<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>))<sp/>==<sp/>-1)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Bind<sp/>failed&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" kindref="member">CLOSE</ref>(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref>);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>socklen_t<sp/>addrLen<sp/>=<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(getsockname(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref>,<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="normal">sockaddr*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(&amp;<ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>),<sp/>&amp;addrLen)<sp/>==<sp/>-1)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;getsockname<sp/>failed&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" kindref="member">CLOSE</ref>(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref>);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classIpcChannel_1afbe5a59d97124b64e1dba4d8a84189fc" kindref="member">_isServer</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="classIpcChannel_1afa8b95326afd4d66bb573f333e124d33" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIpcChannel_1afa8b95326afd4d66bb573f333e124d33" kindref="member">IpcChannel::connectClient</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;port)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref><sp/>!=<sp/><ref refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" kindref="member">INVALID_SOCKET_FD</ref>)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" kindref="member">CLOSE</ref>(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref>);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref><sp/>=<sp/>socket(AF_INET,<sp/>SOCK_DGRAM,<sp/>0);</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref><sp/>==<sp/><ref refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" kindref="member">INVALID_SOCKET_FD</ref>)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(&amp;<ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>));</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>.sin_family<sp/>=<sp/>AF_INET;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>.sin_port<sp/>=<sp/>htons(std::stoi(port));</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>.sin_addr.s_addr<sp/>=<sp/>htonl(INADDR_LOOPBACK);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classIpcChannel_1afbe5a59d97124b64e1dba4d8a84189fc" kindref="member">_isServer</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="classIpcChannel_1a35498032e830b79724747de4e7b6ca1b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classIpcChannel_1a35498032e830b79724747de4e7b6ca1b" kindref="member">IpcChannel::send</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;msg)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref><sp/>==<sp/><ref refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" kindref="member">INVALID_SOCKET_FD</ref>)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(msg.size()<sp/>&gt;<sp/>MAX_MSG)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>ssize_t<sp/>sent<sp/>=</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>::sendto(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref>,<sp/>msg.c_str(),<sp/>msg.size(),<sp/>0,<sp/></highlight><highlight class="keyword">reinterpret_cast&lt;</highlight><highlight class="keyword">const<sp/></highlight><highlight class="normal">sockaddr<sp/>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(&amp;<ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>),<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>));</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>sent<sp/>==<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">ssize_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(msg.size());</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82" refid="classIpcChannel_1a733bd7b22e1828b0c48609a832f24181" refkind="member"><highlight class="normal">std::optional&lt;std::string&gt;<sp/><ref refid="classIpcChannel_1a733bd7b22e1828b0c48609a832f24181" kindref="member">IpcChannel::recv</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>timeoutMs)</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>fd_set<sp/>rfds<sp/>=<sp/>{0};</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>timeval<sp/>tv<sp/>=<sp/>{0};</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref><sp/>==<sp/><ref refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" kindref="member">INVALID_SOCKET_FD</ref>)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::nullopt;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>FD_ZERO(&amp;rfds);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>FD_SET(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref>,<sp/>&amp;rfds);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>tv.tv_usec<sp/>=<sp/>timeoutMs;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>tv.tv_sec<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ret<sp/>=<sp/>select(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref><sp/>+<sp/>1,<sp/>&amp;rfds,<sp/>NULL,<sp/>NULL,<sp/>&amp;tv);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(ret<sp/>&lt;=<sp/>0)</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::nullopt;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>buf[MAX_MSG<sp/>+<sp/>1]{};</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>ssize_t<sp/>n<sp/>=<sp/><ref refid="classIpcChannel_1a733bd7b22e1828b0c48609a832f24181" kindref="member">::recv</ref>(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref>,<sp/>buf,<sp/>MAX_MSG,<sp/>0);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(n<sp/>&lt;=<sp/>0)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::nullopt;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::string(buf,<sp/>buf<sp/>+<sp/>n);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104" refid="classIpcChannel_1aa2bbcedec629b7f3e365db5218d0bcc8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classIpcChannel_1aa2bbcedec629b7f3e365db5218d0bcc8" kindref="member">IpcChannel::close</ref>()</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref><sp/>!=<sp/>-<ref refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" kindref="member">INVALID_SOCKET_FD</ref>)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" kindref="member">CLOSE</ref>(<ref refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" kindref="member">_sockfd</ref>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classIpcChannel_1afbe5a59d97124b64e1dba4d8a84189fc" kindref="member">_isServer</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>memset(&amp;<ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>,<sp/>0,<sp/></highlight><highlight class="keyword">sizeof</highlight><highlight class="normal">(<ref refid="classIpcChannel_1ad220948425e93fed642979014de89e15" kindref="member">_addr</ref>));</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="server/IpcChannel.cpp"/>
+  </compounddef>
+</doxygen>

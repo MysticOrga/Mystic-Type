@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classRaylib_1_1Texture" kind="class" language="C++" prot="public">
+    <compoundname>Raylib::Texture</compoundname>
+    <includes refid="Raylib_8hpp" local="no">graphical-client/Raylib/Raylib.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRaylib_1_1Texture_1ad69bab86fc4c589cb6b3f1aa50e1e1ae" prot="private" static="no" mutable="no">
+        <type>Texture2D</type>
+        <definition>Texture2D Raylib::Texture::_texture</definition>
+        <argsstring></argsstring>
+        <name>_texture</name>
+        <qualifiedname>Raylib::Texture::_texture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="namespaceRaylib" kindref="compound">Raylib</ref> texture2D object </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="141" column="19" bodyfile="graphical-client/Raylib/Raylib.hpp" bodystart="141" bodyend="-1"/>
+        <referencedby refid="classRaylib_1_1Texture_1a16b3eef711498ee701847c91ca4ee682" compoundref="Raylib_8cpp" startline="44" endline="48">draw</referencedby>
+        <referencedby refid="classRaylib_1_1Texture_1af7e50a5c7c643db3c79e4b866ce4c18d" compoundref="Raylib_8cpp" startline="40" endline="43">draw</referencedby>
+        <referencedby refid="classRaylib_1_1Texture_1a987d1de99a6326ced5d62d890610b078" compoundref="Raylib_8cpp" startline="50" endline="50">getHeight</referencedby>
+        <referencedby refid="classRaylib_1_1Texture_1a3b009b994900e6051e58919eb3bd2860" compoundref="Raylib_8cpp" startline="49" endline="49">getWidth</referencedby>
+        <referencedby refid="classRaylib_1_1Texture_1af1b708b4c5b8d20ef2ce13e6a2fa6e16" compoundref="Raylib_8cpp" startline="32" endline="35">Texture</referencedby>
+        <referencedby refid="classRaylib_1_1Texture_1ab744510744bcc4ebf00e913640233514" compoundref="Raylib_8cpp" startline="36" endline="39">~Texture</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRaylib_1_1Texture_1af1b708b4c5b8d20ef2ce13e6a2fa6e16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Raylib::Texture::Texture</definition>
+        <argsstring>(const std::string &amp;fileName)</argsstring>
+        <name>Texture</name>
+        <qualifiedname>Raylib::Texture::Texture</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>fileName</declname>
+        </param>
+        <briefdescription>
+<para>Loads a texture from file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fileName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Path to the image file. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="109" column="9" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="32" bodyend="35"/>
+        <references refid="classRaylib_1_1Texture_1ad69bab86fc4c589cb6b3f1aa50e1e1ae" compoundref="Raylib_8hpp" startline="141">_texture</references>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Texture_1ab744510744bcc4ebf00e913640233514" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Raylib::Texture::~Texture</definition>
+        <argsstring>()</argsstring>
+        <name>~Texture</name>
+        <qualifiedname>Raylib::Texture::~Texture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="110" column="9" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="36" bodyend="39"/>
+        <references refid="classRaylib_1_1Texture_1ad69bab86fc4c589cb6b3f1aa50e1e1ae" compoundref="Raylib_8hpp" startline="141">_texture</references>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Texture_1af7e50a5c7c643db3c79e4b866ce4c18d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Raylib::Texture::draw</definition>
+        <argsstring>(Rectangle source, Vector2 position, Color tint=WHITE)</argsstring>
+        <name>draw</name>
+        <qualifiedname>Raylib::Texture::draw</qualifiedname>
+        <param>
+          <type>Rectangle</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>Vector2</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>Color</type>
+          <declname>tint</declname>
+          <defval>WHITE</defval>
+        </param>
+        <briefdescription>
+<para>Draws texture with source and destination. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source rectangle in texture. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>position</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination position on screen. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Color tint (default: WHITE). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="118" column="14" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="40" bodyend="43"/>
+        <references refid="classRaylib_1_1Texture_1ad69bab86fc4c589cb6b3f1aa50e1e1ae" compoundref="Raylib_8hpp" startline="141">_texture</references>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Texture_1a16b3eef711498ee701847c91ca4ee682" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Raylib::Texture::draw</definition>
+        <argsstring>(Rectangle source, Rectangle dest, Color tint=WHITE)</argsstring>
+        <name>draw</name>
+        <qualifiedname>Raylib::Texture::draw</qualifiedname>
+        <param>
+          <type>Rectangle</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>Rectangle</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>Color</type>
+          <declname>tint</declname>
+          <defval>WHITE</defval>
+        </param>
+        <briefdescription>
+<para>Draws texture with source and destination rectangles. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>source</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Source rectangle in texture. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination rectangle on screen. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Color tint (default: WHITE). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="126" column="14" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="44" bodyend="48"/>
+        <references refid="classRaylib_1_1Texture_1ad69bab86fc4c589cb6b3f1aa50e1e1ae" compoundref="Raylib_8hpp" startline="141">_texture</references>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Texture_1a3b009b994900e6051e58919eb3bd2860" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Raylib::Texture::getWidth</definition>
+        <argsstring>() const</argsstring>
+        <name>getWidth</name>
+        <qualifiedname>Raylib::Texture::getWidth</qualifiedname>
+        <briefdescription>
+<para>Gets texture width. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Width in pixels. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="132" column="13" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="49" bodyend="49"/>
+        <references refid="classRaylib_1_1Texture_1ad69bab86fc4c589cb6b3f1aa50e1e1ae" compoundref="Raylib_8hpp" startline="141">_texture</references>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Texture_1a987d1de99a6326ced5d62d890610b078" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Raylib::Texture::getHeight</definition>
+        <argsstring>() const</argsstring>
+        <name>getHeight</name>
+        <qualifiedname>Raylib::Texture::getHeight</qualifiedname>
+        <briefdescription>
+<para>Gets texture height. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Height in pixels. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="138" column="13" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="50" bodyend="50"/>
+        <references refid="classRaylib_1_1Texture_1ad69bab86fc4c589cb6b3f1aa50e1e1ae" compoundref="Raylib_8hpp" startline="141">_texture</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Encapsulates <ref refid="namespaceRaylib" kindref="compound">Raylib</ref> texture management. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Loads and manages 2D texture drawing. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Raylib::Texture</label>
+        <link refid="classRaylib_1_1Texture"/>
+      </node>
+    </collaborationgraph>
+    <location file="graphical-client/Raylib/Raylib.hpp" line="103" column="5" bodyfile="graphical-client/Raylib/Raylib.hpp" bodystart="103" bodyend="142"/>
+    <listofallmembers>
+      <member refid="classRaylib_1_1Texture_1ad69bab86fc4c589cb6b3f1aa50e1e1ae" prot="private" virt="non-virtual"><scope>Raylib::Texture</scope><name>_texture</name></member>
+      <member refid="classRaylib_1_1Texture_1af7e50a5c7c643db3c79e4b866ce4c18d" prot="public" virt="non-virtual"><scope>Raylib::Texture</scope><name>draw</name></member>
+      <member refid="classRaylib_1_1Texture_1a16b3eef711498ee701847c91ca4ee682" prot="public" virt="non-virtual"><scope>Raylib::Texture</scope><name>draw</name></member>
+      <member refid="classRaylib_1_1Texture_1a987d1de99a6326ced5d62d890610b078" prot="public" virt="non-virtual"><scope>Raylib::Texture</scope><name>getHeight</name></member>
+      <member refid="classRaylib_1_1Texture_1a3b009b994900e6051e58919eb3bd2860" prot="public" virt="non-virtual"><scope>Raylib::Texture</scope><name>getWidth</name></member>
+      <member refid="classRaylib_1_1Texture_1af1b708b4c5b8d20ef2ce13e6a2fa6e16" prot="public" virt="non-virtual"><scope>Raylib::Texture</scope><name>Texture</name></member>
+      <member refid="classRaylib_1_1Texture_1ab744510744bcc4ebf00e913640233514" prot="public" virt="non-virtual"><scope>Raylib::Texture</scope><name>~Texture</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

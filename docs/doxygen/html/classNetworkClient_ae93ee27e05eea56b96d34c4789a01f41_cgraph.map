@@ -1,0 +1,11 @@
+<map id="NetworkClient::sendChat" name="NetworkClient::sendChat">
+<area shape="rect" id="Node000001" title="Send a chat message over TCP." alt="" coords="5,31,189,56"/>
+<area shape="rect" id="Node000002" href="$classNetworkClient.html#af150c1b7e0aa8c19cb337fb838479324" title=" " alt="" coords="237,31,455,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,41,224,41,224,46,190,46"/>
+<area shape="rect" id="Node000003" href="$namespaceProtocol.html#a668bdeed219432868fca095e1b2f2667" title="Build a TCP framed buffer (2 bytes length + serialized packet)." alt="" coords="518,5,661,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="455,29,504,24,504,29,455,35"/>
+<area shape="rect" id="Node000005" href="$classNetworkClient.html#a844f1f20acd0958f264c7bb67e18d111" title=" " alt="" coords="503,55,676,80"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="455,51,489,55,489,60,455,57"/>
+<area shape="rect" id="Node000004" href="$classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="724,5,851,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="661,15,711,15,711,21,661,21"/>
+</map>

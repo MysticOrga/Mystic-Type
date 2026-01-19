@@ -9,9 +9,15 @@ var classSessionManager =
     [ "getSession", "classSessionManager.html#a48995915db3b90fa7228d357d6293163", null ],
     [ "removeByFd", "classSessionManager.html#ae44030d05e51a85f73a32f6bb6b053cb", null ],
     [ "removeById", "classSessionManager.html#a8916c4ee701635dd8b2ee525331efb0b", null ],
+    [ "resetCounter", "classSessionManager.html#a3f16df2f2fcaa18971326cf09e8741fb", null ],
     [ "setLobbyCode", "classSessionManager.html#a8023cf136e039298b1e2ba5fe7cb224b", null ],
     [ "setOnRemove", "classSessionManager.html#aa54fb04918bcd7d31bcdfe2ce2ee6545", null ],
     [ "setPseudo", "classSessionManager.html#a84b313bdbfecb70d12707d77f357bca8", null ],
     [ "setUdpAddr", "classSessionManager.html#af2596853b8042076df0c1022468eaec3", null ],
-    [ "updatePong", "classSessionManager.html#ac233a47eaa6ca5e9b69e0cb8cd377358", null ]
+    [ "updatePong", "classSessionManager.html#ac233a47eaa6ca5e9b69e0cb8cd377358", null ],
+    [ "_maxInputsPerSec", "classSessionManager.html#ab07589dac6e7346f7eb4dbd1c871ee80", null ],
+    [ "_maxShootsPerSec", "classSessionManager.html#acf90d50c96347bbf4f617071b9343723", null ],
+    [ "_mutex", "classSessionManager.html#a05d87c5c88d86aa2852d0e4778275273", null ],
+    [ "_onRemove", "classSessionManager.html#a8fb480012df18cedb0dc9fd7517d1a9a", null ],
+    [ "_sessions", "classSessionManager.html#a94817f0bdc3435c5a8c741ac024d556c", null ]
 ];

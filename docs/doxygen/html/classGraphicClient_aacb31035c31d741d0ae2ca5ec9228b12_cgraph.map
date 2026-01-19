@@ -1,0 +1,18 @@
+<map id="GraphicClient::syncEntities" name="GraphicClient::syncEntities">
+<area shape="rect" id="Node000001" title="Synchronizes player entities with server state." alt="" coords="5,104,203,129"/>
+<area shape="rect" id="Node000002" href="$classGraphicClient.html#a1f97bf7f358d1d5a5d65069d641feb5b" title="Creates a player entity at specified position." alt="" coords="251,39,451,79"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,101,250,80,252,85,160,107"/>
+<area shape="rect" id="Node000007" href="$classECS.html#ab25123ea5b19ee74c4e120eb6d808a48" title="Retrieves a component from an entity." alt="" coords="501,104,651,129"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="203,114,487,114,487,119,203,119"/>
+<area shape="rect" id="Node000008" href="$classNetworkClient.html#a3a848ca2af9ba2a3008e33ecc39a3622" title="Get server&#45;assigned player id." alt="" coords="252,155,449,180"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="167,127,275,149,274,154,166,132"/>
+<area shape="rect" id="Node000003" href="$classECS.html#a4fbe0d70b0934255d301ced9df6287e7" title="Adds a component to an entity." alt="" coords="499,5,653,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="450,38,492,31,493,36,451,44"/>
+<area shape="rect" id="Node000006" href="$classECS.html#a41b876f3725cbb04aac3f2edd95522c6" title="Creates a new entity." alt="" coords="509,55,643,80"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="451,60,495,62,495,67,451,66"/>
+<area shape="rect" id="Node000004" href="$classComponentArray.html#a37f484a9d2b6716e2facff9eabe1bb64" title="Adds or updates a component for an entity." alt="" coords="729,5,891,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="654,15,715,15,715,21,654,21"/>
+<area shape="rect" id="Node000005" href="$classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="701,79,919,104"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="618,28,654,39,757,72,755,77,653,45,617,33"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="652,106,687,102,688,107,652,111"/>
+</map>

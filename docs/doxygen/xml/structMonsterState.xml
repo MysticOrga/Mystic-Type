@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structMonsterState" kind="struct" language="C++" prot="public">
+    <compoundname>MonsterState</compoundname>
+    <includes refid="GameState_8hpp" local="no">Network/Client/GameState.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structMonsterState_1a3db09a581fbc727ca5943c52b95dabce" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int MonsterState::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>MonsterState::id</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="40" column="9" bodyfile="Network/Client/GameState.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMonsterState_1a7defca59db78cded4e5d6526e7569adc" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t MonsterState::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>MonsterState::x</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="41" column="13" bodyfile="Network/Client/GameState.hpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMonsterState_1ad65a95979ad3a2747b0fcce97cb4762c" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t MonsterState::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>MonsterState::y</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="42" column="13" bodyfile="Network/Client/GameState.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMonsterState_1ab8eb152bf072fc02d85636f18963e95b" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t MonsterState::hp</definition>
+        <argsstring></argsstring>
+        <name>hp</name>
+        <qualifiedname>MonsterState::hp</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="43" column="13" bodyfile="Network/Client/GameState.hpp" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structMonsterState_1a26ad229c9a3b5ceef052c357c11e2472" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t MonsterState::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>MonsterState::type</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="44" column="13" bodyfile="Network/Client/GameState.hpp" bodystart="44" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Lightweight snapshot of a monster for client-side rendering. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>MonsterState</label>
+        <link refid="structMonsterState"/>
+      </node>
+    </collaborationgraph>
+    <location file="Network/Client/GameState.hpp" line="39" column="1" bodyfile="Network/Client/GameState.hpp" bodystart="39" bodyend="45"/>
+    <listofallmembers>
+      <member refid="structMonsterState_1ab8eb152bf072fc02d85636f18963e95b" prot="public" virt="non-virtual"><scope>MonsterState</scope><name>hp</name></member>
+      <member refid="structMonsterState_1a3db09a581fbc727ca5943c52b95dabce" prot="public" virt="non-virtual"><scope>MonsterState</scope><name>id</name></member>
+      <member refid="structMonsterState_1a26ad229c9a3b5ceef052c357c11e2472" prot="public" virt="non-virtual"><scope>MonsterState</scope><name>type</name></member>
+      <member refid="structMonsterState_1a7defca59db78cded4e5d6526e7569adc" prot="public" virt="non-virtual"><scope>MonsterState</scope><name>x</name></member>
+      <member refid="structMonsterState_1ad65a95979ad3a2747b0fcce97cb4762c" prot="public" virt="non-virtual"><scope>MonsterState</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

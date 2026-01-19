@@ -26,14 +26,22 @@ var NAVTREE =
 [
   [ "Mystic-Type", "index.html", [
     [ "Prerequisites", "index.html#autotoc_md1", null ],
-    [ "Build", "index.html#autotoc_md2", null ],
-    [ "Run", "index.html#autotoc_md3", null ],
-    [ "Architecture", "index.html#autotoc_md4", null ],
-    [ "Network protocol (summary)", "index.html#autotoc_md5", null ],
-    [ "Controls by default (client)", "index.html#autotoc_md6", null ],
-    [ "Key features", "index.html#autotoc_md7", null ],
-    [ "Documentation", "index.html#autotoc_md8", null ],
-    [ "Authors", "index.html#autotoc_md9", null ],
+    [ "Build", "index.html#autotoc_md2", [
+      [ "Linux", "index.html#autotoc_md3", null ],
+      [ "macOS", "index.html#autotoc_md4", null ],
+      [ "Windows", "index.html#autotoc_md5", null ]
+    ] ],
+    [ "Run", "index.html#autotoc_md6", [
+      [ "Linux", "index.html#autotoc_md7", null ],
+      [ "macOS", "index.html#autotoc_md8", null ],
+      [ "Windows", "index.html#autotoc_md9", null ]
+    ] ],
+    [ "Architecture", "index.html#autotoc_md10", null ],
+    [ "Network protocol (summary)", "index.html#autotoc_md11", null ],
+    [ "Controls by default (client)", "index.html#autotoc_md12", null ],
+    [ "Key features", "index.html#autotoc_md13", null ],
+    [ "Documentation", "index.html#autotoc_md14", null ],
+    [ "Authors", "index.html#autotoc_md15", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -49,8 +57,8 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ],
+        [ "Functions", "functions_func.html", "functions_func" ],
+        [ "Variables", "functions_vars.html", "functions_vars" ],
         [ "Enumerations", "functions_enum.html", null ]
       ] ]
     ] ],
@@ -72,8 +80,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "ASocket_8cpp.html",
-"classNetwork_1_1TransportLayer_1_1ISocket.html#a0a30278de50c785952d77ac03db3700f",
-"structChildInfo.html#adc556c5d7e00a21c99fc48c2b715c33c"
+"classGraphicClient.html#aa1b6f7632112637217ee65be6a6dcbae",
+"classRaylib_1_1Texture.html#a987d1de99a6326ced5d62d890610b078",
+"functions_s.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

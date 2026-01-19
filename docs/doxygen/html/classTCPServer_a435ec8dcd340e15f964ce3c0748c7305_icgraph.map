@@ -1,0 +1,14 @@
+<map id="TCPServer::resetClient" name="TCPServer::resetClient">
+<area shape="rect" id="Node000001" title="Reset client fields and close its socket." alt="" coords="536,55,703,80"/>
+<area shape="rect" id="Node000002" href="$classTCPServer.html#a867c0e233f62e2d8f181ae99dbcca0a0" title="Disconnect clients whose heartbeat timed out." alt="" coords="281,5,480,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="544,54,442,33,444,28,545,49"/>
+<area shape="rect" id="Node000005" href="$classTCPServer.html#ada05a61182a782b4d3326fabd26a19bf" title="Read and handle data for a single client." alt="" coords="273,55,488,80"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="522,70,488,70,488,65,522,65"/>
+<area shape="rect" id="Node000006" href="$classTCPServer.html#abc497ac52355e53986a6a1bd1acb9581" title="Destroy the TCPServer, closing the listening socket." alt="" coords="294,104,467,129"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="545,85,444,107,442,101,544,80"/>
+<area shape="rect" id="Node000003" href="$classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3" title="Run the main accept/receive loop (blocking)." alt="" coords="108,31,225,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="268,34,226,39,225,34,267,29"/>
+<area shape="rect" id="Node000004" href="$server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,31,60,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,46,60,46,60,41,94,41"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="259,56,225,52,226,47,260,51"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="ECS::hasComponent" name="ECS::hasComponent">
+<area shape="rect" id="Node000001" title="Checks if an entity has a specific component type." alt="" coords="5,5,159,31"/>
+<area shape="rect" id="Node000002" href="$classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="207,5,424,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,15,193,15,193,21,159,21"/>
+</map>

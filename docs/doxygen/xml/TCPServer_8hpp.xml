@@ -1,0 +1,487 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="TCPServer_8hpp" kind="file" language="C++">
+    <compoundname>TCPServer.hpp</compoundname>
+    <includes local="no">array</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">string</includes>
+    <includes local="no">unordered_map</includes>
+    <includes local="no">memory</includes>
+    <includes refid="TCPSocket_8hpp" local="yes">TCPSocket.hpp</includes>
+    <includes refid="Packet_8hpp" local="yes">../Packet.hpp</includes>
+    <includes refid="SessionManager_8hpp" local="yes">../../SessionManager.hpp</includes>
+    <includes refid="ChildProcessManager_8hpp" local="yes">server/ChildProcessManager.hpp</includes>
+    <includes refid="IpcChannel_8hpp" local="yes">server/IpcChannel.hpp</includes>
+    <includedby refid="server_8cpp" local="yes">/home/loic/EPITECH/rtype/Mystic-Type/server.cpp</includedby>
+    <includedby refid="TCPServer_8cpp" local="yes">Network/TransportLayer/TCP/TCPServer.cpp</includedby>
+    <incdepgraph>
+      <node id="21">
+        <label>../../SessionManager.hpp</label>
+        <link refid="SessionManager_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>../ASocket.hpp</label>
+        <link refid="ASocket_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>ISocket.hpp</label>
+        <link refid="ISocket_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>../Packet.hpp</label>
+        <link refid="Packet_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Network/TransportLayer/TCP/TCPServer.hpp</label>
+        <link refid="TCPServer_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>TCPSocket.hpp</label>
+        <link refid="TCPSocket_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>../Network/TransportLayer/UDP/UDPSocket.hpp</label>
+        <link refid="UDPSocket_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>server/ChildProcessManager.hpp</label>
+        <link refid="ChildProcessManager_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>server/IpcChannel.hpp</label>
+        <link refid="IpcChannel_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>arpa/inet.h</label>
+      </node>
+      <node id="2">
+        <label>array</label>
+      </node>
+      <node id="8">
+        <label>cstdint</label>
+      </node>
+      <node id="12">
+        <label>errno.h</label>
+      </node>
+      <node id="24">
+        <label>functional</label>
+      </node>
+      <node id="6">
+        <label>memory</label>
+      </node>
+      <node id="22">
+        <label>mutex</label>
+      </node>
+      <node id="13">
+        <label>netinet/in.h</label>
+      </node>
+      <node id="14">
+        <label>netinet/tcp.h</label>
+      </node>
+      <node id="23">
+        <label>optional</label>
+      </node>
+      <node id="20">
+        <label>stdexcept</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="15">
+        <label>sys/select.h</label>
+      </node>
+      <node id="16">
+        <label>sys/socket.h</label>
+      </node>
+      <node id="17">
+        <label>sys/un.h</label>
+      </node>
+      <node id="18">
+        <label>unistd.h</label>
+      </node>
+      <node id="5">
+        <label>unordered_map</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/server.cpp</label>
+        <link refid="server_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Network/TransportLayer/TCP/TCPServer.cpp</label>
+        <link refid="TCPServer_8cpp"/>
+      </node>
+      <node id="1">
+        <label>Network/TransportLayer/TCP/TCPServer.hpp</label>
+        <link refid="TCPServer_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classTCPServer" prot="public">TCPServer</innerclass>
+    <innerclass refid="structTCPServer_1_1Client" prot="private">TCPServer::Client</innerclass>
+    <innerclass refid="structTCPServer_1_1LobbyInfo" prot="private">TCPServer::LobbyInfo</innerclass>
+    <sectiondef kind="define">
+      <memberdef kind="define" id="TCPServer_8hpp_1ab8ba2d8f79af5ca38005742bbc29a927" prot="public" static="no">
+        <name>MAX_CLIENT</name>
+        <initializer>500</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="23" column="9" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="TCPServer_8hpp_1a6b20d41d6252e9871430c242cb1a56e7" prot="public" static="no">
+        <name>BUFFER_SIZE</name>
+        <initializer>1024</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="24" column="9" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">**<sp/>EPITECH<sp/>PROJECT,<sp/>2025</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">**<sp/>Mystic-Type</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">**<sp/>File<sp/>description:</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">**<sp/>TCPServer</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;array&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="TCPSocket_8hpp" kindref="compound">TCPSocket.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Packet.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../../SessionManager.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ChildProcessManager_8hpp" kindref="compound">server/ChildProcessManager.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="IpcChannel_8hpp" kindref="compound">server/IpcChannel.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="TCPServer_8hpp_1ab8ba2d8f79af5ca38005742bbc29a927" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MAX_CLIENT<sp/>500</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="TCPServer_8hpp_1a6b20d41d6252e9871430c242cb1a56e7" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>BUFFER_SIZE<sp/>1024</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="26"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Simple<sp/>TCP<sp/>server<sp/>handling<sp/>client<sp/>connections<sp/>and<sp/>lobby<sp/>state.</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>The<sp/>server<sp/>accepts<sp/>new<sp/>TCP<sp/>clients,<sp/>performs<sp/>a<sp/>handshake,<sp/>keeps<sp/>a<sp/>small<sp/>list</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>of<sp/>connected<sp/>players,<sp/>and<sp/>forwards<sp/>heartbeat<sp/>and<sp/>player<sp/>list<sp/>packets<sp/>to<sp/>them.</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="classTCPServer" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classTCPServer" kindref="compound">TCPServer</ref><sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Construct<sp/>a<sp/>new<sp/>TCPServer<sp/>bound<sp/>to<sp/>the<sp/>given<sp/>port.</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>port<sp/>TCP<sp/>port<sp/>to<sp/>listen<sp/>on.</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classTCPServer" kindref="compound">TCPServer</ref>(uint16_t<sp/>port,<sp/><ref refid="classSessionManager" kindref="compound">SessionManager</ref><sp/>&amp;sessions,<sp/><ref refid="classChildProcessManager" kindref="compound">ChildProcessManager</ref><sp/>*childMgr<sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Destroy<sp/>the<sp/>TCPServer,<sp/>closing<sp/>the<sp/>listening<sp/>socket.</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classTCPServer_1abc497ac52355e53986a6a1bd1acb9581" kindref="member">~TCPServer</ref>();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Run<sp/>the<sp/>main<sp/>accept/receive<sp/>loop<sp/>(blocking).</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a4e6d2ef05b71c4ecbd0518fc7215ece3" kindref="member">run</ref>();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Lightweight<sp/>representation<sp/>of<sp/>a<sp/>connected<sp/>client.</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="structTCPServer_1_1Client" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structTCPServer_1_1Client" kindref="compound">Client</ref></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="57" refid="structTCPServer_1_1Client_1a385ed81e747992c181106b429e17f47c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="58" refid="structTCPServer_1_1Client_1a80b5bef5c073ae58027443ff40b77574" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref><sp/><ref refid="structTCPServer_1_1Client_1a80b5bef5c073ae58027443ff40b77574" kindref="member">fd</ref><sp/>=<sp/><ref refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" kindref="member">INVALID_SOCKET_FD</ref>;</highlight></codeline>
+<codeline lineno="59" refid="structTCPServer_1_1Client_1a8661a692a1475ba65b26c1bf68a0c6e1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sockaddr_in<sp/><ref refid="structTCPServer_1_1Client_1a8661a692a1475ba65b26c1bf68a0c6e1" kindref="member">addr</ref>{};</highlight></codeline>
+<codeline lineno="60" refid="structTCPServer_1_1Client_1a7cdb53bae6b61f342267e3533cfbc15d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structTCPServer_1_1Client_1a7cdb53bae6b61f342267e3533cfbc15d" kindref="member">handshakeDone</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61" refid="structTCPServer_1_1Client_1a80c8ff0e99db13162ad08d4e815ed9a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structTCPServer_1_1Client_1a80c8ff0e99db13162ad08d4e815ed9a2" kindref="member">lastPongTime</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="62" refid="structTCPServer_1_1Client_1a9f8ac490d641d47a24750f9589975257" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structTCPServer_1_1Client_1a9f8ac490d641d47a24750f9589975257" kindref="member">handshakeStart</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="63" refid="structTCPServer_1_1Client_1a0ca2062e591d1682792cec104afe8478" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structTCPServer_1_1Client_1a0ca2062e591d1682792cec104afe8478" kindref="member">lobbyCode</ref>;</highlight></codeline>
+<codeline lineno="64" refid="structTCPServer_1_1Client_1af501147212a29d1473e4e40892851218" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structTCPServer_1_1Client_1af501147212a29d1473e4e40892851218" kindref="member">pseudo</ref>;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="structTCPServer_1_1Client_1a9a493b9b18fd9ddd0a1abcb190a2be7a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structTCPServer_1_1Client_1a9a493b9b18fd9ddd0a1abcb190a2be7a" kindref="member">posX</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="67" refid="structTCPServer_1_1Client_1a6dce4953a90a676fe6b8cca63658bc99" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structTCPServer_1_1Client_1a6dce4953a90a676fe6b8cca63658bc99" kindref="member">posY</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="68" refid="structTCPServer_1_1Client_1ac76dcdb18f709112fa0b0203a0b73044" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structTCPServer_1_1Client_1ac76dcdb18f709112fa0b0203a0b73044" kindref="member">hp</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="69" refid="structTCPServer_1_1Client_1ad12b6292fcb16aecf58f6bb9a09df960" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;uint8_t&gt;<sp/><ref refid="structTCPServer_1_1Client_1ad12b6292fcb16aecf58f6bb9a09df960" kindref="member">recvBuffer</ref>;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Accept<sp/>incoming<sp/>connection<sp/>and<sp/>register<sp/>a<sp/>new<sp/>client<sp/>slot.</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1ae0e94f8d712b3c9028fe674100d649b9" kindref="member">acceptNewClient</ref>();</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Read<sp/>and<sp/>handle<sp/>data<sp/>for<sp/>a<sp/>single<sp/>client.</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" kindref="member">processClientData</ref>(<ref refid="structTCPServer_1_1Client" kindref="compound">Client</ref><sp/>&amp;client);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Send<sp/>a<sp/>ping<sp/>packet<sp/>to<sp/>every<sp/>connected<sp/>client.</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a1ef2aa5cce99901889e64fce86fbac33" kindref="member">sendPingToAll</ref>();</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Disconnect<sp/>clients<sp/>whose<sp/>heartbeat<sp/>timed<sp/>out.</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a867c0e233f62e2d8f181ae99dbcca0a0" kindref="member">checkHeartbeat</ref>();</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Get<sp/>current<sp/>time<sp/>in<sp/>milliseconds.</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a6d824f4302f15bbd2c7c8b754d1a51dd" kindref="member">getCurrentTime</ref>();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Block<sp/>until<sp/>a<sp/>file<sp/>descriptor<sp/>is<sp/>readable<sp/>or<sp/>times<sp/>out.</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a75a51391de5f2f6d4d54f0ae9626d9c9" kindref="member">waitForReadable</ref>(<ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref><sp/>fd,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>timeoutSec,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>timeoutUsec<sp/>=<sp/>0);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Close<sp/>and<sp/>invalidate<sp/>a<sp/>file<sp/>descriptor.</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1aa6089a11e438f73bfc614c44f86e5d75" kindref="member">closeFd</ref>(<ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref><sp/>&amp;fd);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Reset<sp/>client<sp/>fields<sp/>and<sp/>close<sp/>its<sp/>socket.</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a435ec8dcd340e15f964ce3c0748c7305" kindref="member">resetClient</ref>(<ref refid="structTCPServer_1_1Client" kindref="compound">Client</ref><sp/>&amp;client);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Poll<sp/>all<sp/>sockets<sp/>using<sp/>select().</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>Number<sp/>of<sp/>ready<sp/>descriptors<sp/>or<sp/>-1<sp/>on<sp/>error.</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a5e77543739e5b801384f9fe3e63c2bf8" kindref="member">pollSockets</ref>(fd_set<sp/>&amp;readfds,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxFd,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>timeval<sp/>&amp;timeout);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Send<sp/>a<sp/>packet<sp/>to<sp/>a<sp/>specific<sp/>client<sp/>fd.</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a9a65a3923e77e48c5f0019b45af8fcb5" kindref="member">sendPacket</ref>(<ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref><sp/>fd,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/>&amp;packet);</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Result<sp/>of<sp/>a<sp/>receive<sp/>attempt.</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="classTCPServer_1a71488db7399ea324f5efe8064e24581c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a71488db7399ea324f5efe8064e24581c" kindref="member">RecvResult</ref><sp/>{<sp/><ref refid="classTCPServer_1a71488db7399ea324f5efe8064e24581caef70e46fd3bbc21e3e1f0b6815e750c0" kindref="member">Disconnected</ref>,<sp/><ref refid="classTCPServer_1a71488db7399ea324f5efe8064e24581ca4307e7e7986aa21a4b7c3ef2b5e948f6" kindref="member">Incomplete</ref>,<sp/><ref refid="classTCPServer_1a71488db7399ea324f5efe8064e24581caa60852f204ed8028c1c58808b746d115" kindref="member">Ok</ref><sp/>};</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Receive<sp/>and<sp/>parse<sp/>a<sp/>packet<sp/>from<sp/>a<sp/>client<sp/>socket.</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>fd<sp/>Client<sp/>socket.</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>packet<sp/>Output<sp/>parsed<sp/>packet.</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>buffer<sp/>Receive<sp/>buffer<sp/>for<sp/>reassembly.</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classTCPServer_1a71488db7399ea324f5efe8064e24581c" kindref="member">RecvResult</ref><sp/><ref refid="classTCPServer_1ae9543e5003c04975a7e06a9bb85c7723" kindref="member">receivePacket</ref>(<ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref><sp/>fd,<sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/>&amp;packet,<sp/>std::vector&lt;uint8_t&gt;<sp/>&amp;buffer);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Build<sp/>a<sp/>packet<sp/>carrying<sp/>a<sp/>string<sp/>payload.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/><ref refid="classTCPServer_1a35b89efbda16dd8af6b7ff45b6da036d" kindref="member">makeStringPacket</ref>(<ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56" kindref="member">PacketType</ref><sp/>type,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;payload);</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="143"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Build<sp/>a<sp/>packet<sp/>carrying<sp/>a<sp/>simple<sp/>integer<sp/>id.</highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/><ref refid="classTCPServer_1a13efa1ebda8d0f4c99eae65d6b012b75" kindref="member">makeIdPacket</ref>(<ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56" kindref="member">PacketType</ref><sp/>type,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/><ref refid="classTCPServer_1ae45d63761257c84a68a96c24541c13e4" kindref="member">makeLobbyPacket</ref>(<ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56" kindref="member">PacketType</ref><sp/>type,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;payload);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Write<sp/>raw<sp/>bytes<sp/>to<sp/>a<sp/>socket<sp/>fd.</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ssize_t<sp/><ref refid="classTCPServer_1a5b1988f8a542c2d39f3d3556264e71b2" kindref="member">writeFd</ref>(<ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref><sp/>fd,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>*data,<sp/>std::size_t<sp/>size);</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="154"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Read<sp/>raw<sp/>bytes<sp/>from<sp/>a<sp/>socket<sp/>fd.</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ssize_t<sp/><ref refid="classTCPServer_1a00011973e407cab03dde7c74a4c65949" kindref="member">readFd</ref>(<ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref><sp/>fd,<sp/>uint8_t<sp/>*data,<sp/>std::size_t<sp/>size);</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Wrapper<sp/>around<sp/>select<sp/>for<sp/>testability.</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a3b0daca7192b0342a5694a287319ddaa" kindref="member">selectFdSet</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nfds,<sp/>fd_set<sp/>*readfds,<sp/>fd_set<sp/>*writefds,<sp/>fd_set<sp/>*exceptfds,<sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>timeval<sp/>*timeout);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="165"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Close<sp/>a<sp/>raw<sp/>fd<sp/>without<sp/>resetting<sp/>the<sp/>caller&apos;s<sp/>variable.</highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a2595c03eed6bf37e098e619e6751a3d4" kindref="member">closeFdRaw</ref>(<ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref><sp/>fd);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="169"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Build<sp/>the<sp/>packet<sp/>containing<sp/>the<sp/>list<sp/>of<sp/>connected<sp/>players.</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/><ref refid="classTCPServer_1a196ba30f88f890e9acf0ef1a21a74c71" kindref="member">buildPlayerListPacket</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;lobbyCode)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Send<sp/>the<sp/>current<sp/>player<sp/>list<sp/>to<sp/>a<sp/>single<sp/>client.</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1aa87b20fb76f60c19df36f39ef3621b05" kindref="member">sendPlayerListToClient</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Client<sp/>&amp;client);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Notify<sp/>all<sp/>clients<sp/>of<sp/>a<sp/>newly<sp/>connected<sp/>player.</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1aee3fb51b52375d68f548f60cc7005ef0" kindref="member">broadcastNewPlayer</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Client<sp/>&amp;newClient);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="184"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="185"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Ensure<sp/>the<sp/>full<sp/>buffer<sp/>is<sp/>written<sp/>to<sp/>the<sp/>socket.</highlight></codeline>
+<codeline lineno="186"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a79e20e1d2821e399fe47dd1055341d5e" kindref="member">writeAll</ref>(<ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref><sp/>fd,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>*data,<sp/>std::size_t<sp/>size);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="189"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="190"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Assign<sp/>a<sp/>client<sp/>to<sp/>a<sp/>lobby<sp/>(public<sp/>or<sp/>private).</highlight></codeline>
+<codeline lineno="191"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a84035146c9257be5714850a1f46d0bfb" kindref="member">assignLobby</ref>(Client<sp/>&amp;client,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;code,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>createIfMissing,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isPublic,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>allowFull<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Remove<sp/>a<sp/>client<sp/>from<sp/>its<sp/>current<sp/>lobby.</highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a508cc3d7023b0cfe9abed2e3166b1682" kindref="member">removeFromLobby</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Client<sp/>&amp;client);</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="200"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Resend<sp/>the<sp/>player<sp/>list<sp/>to<sp/>all<sp/>members<sp/>of<sp/>a<sp/>lobby.</highlight></codeline>
+<codeline lineno="201"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a8d2dcfc8d8337ff577a101c4aee6aac5" kindref="member">refreshLobby</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;code);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="204"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="205"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Auto-match<sp/>the<sp/>client<sp/>into<sp/>a<sp/>public<sp/>lobby.</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classTCPServer_1ad6bed785945fc2f21376ff2b58090829" kindref="member">autoAssignPublic</ref>(Client<sp/>&amp;client);</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="209"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="210"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Generate<sp/>a<sp/>random<sp/>lobby<sp/>code<sp/>(6<sp/>chars<sp/>alnum).</highlight></codeline>
+<codeline lineno="211"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classTCPServer_1a063b685012f0cd7b069ad82dbffcb95f" kindref="member">generateLobbyCode</ref>();</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="214"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="215"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Handle<sp/>lobby-related<sp/>packets<sp/>for<sp/>a<sp/>client.</highlight></codeline>
+<codeline lineno="216"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1afd78aa179d3b735e82868d800629b354" kindref="member">handleLobbyPacket</ref>(Client<sp/>&amp;client,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/>&amp;packet);</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a2a03b7479e884f287b5a88df03eeb17b" kindref="member">processIpcMessages</ref>();</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1afb22938cbabd280ec30b3ffab25aeb56" kindref="member">broadcastToLobby</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;lobbyCode,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/>&amp;packet);</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="222" refid="classTCPServer_1a935d20653ad5ba5269b00c0fb8977e60" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classNetwork_1_1TransportLayer_1_1TCPSocket" kindref="compound">Network::TransportLayer::TCPSocket</ref><sp/><ref refid="classTCPServer_1a935d20653ad5ba5269b00c0fb8977e60" kindref="member">_serverSocket</ref>;</highlight></codeline>
+<codeline lineno="223" refid="classTCPServer_1a84e56cbbeeab8d9e7569444fa657a239" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::array&lt;Client,<sp/>MAX_CLIENT&gt;<sp/><ref refid="classTCPServer_1a84e56cbbeeab8d9e7569444fa657a239" kindref="member">_clients</ref>;</highlight></codeline>
+<codeline lineno="224" refid="classTCPServer_1a1c70f5262f8c58c76224696746b2fe61" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a1c70f5262f8c58c76224696746b2fe61" kindref="member">_nextId</ref><sp/>=<sp/>1;</highlight></codeline>
+<codeline lineno="225" refid="classTCPServer_1a112cedb48ad54b03fcd564d78766f763" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classSessionManager" kindref="compound">SessionManager</ref><sp/>&amp;<ref refid="classTCPServer_1a112cedb48ad54b03fcd564d78766f763" kindref="member">_sessions</ref>;</highlight></codeline>
+<codeline lineno="226" refid="structTCPServer_1_1LobbyInfo" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structTCPServer_1_1LobbyInfo" kindref="compound">LobbyInfo</ref><sp/>{</highlight></codeline>
+<codeline lineno="227" refid="structTCPServer_1_1LobbyInfo_1a152296683519bb731ad8583bf8a13314" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structTCPServer_1_1LobbyInfo_1a152296683519bb731ad8583bf8a13314" kindref="member">isPublic</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="228" refid="structTCPServer_1_1LobbyInfo_1ab819c46474e24bf8b0bd1dd5e68374aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;int&gt;<sp/><ref refid="structTCPServer_1_1LobbyInfo_1ab819c46474e24bf8b0bd1dd5e68374aa" kindref="member">players</ref>;</highlight></codeline>
+<codeline lineno="229" refid="structTCPServer_1_1LobbyInfo_1a6b6c390c5ef62c1db332074ebbbb7d31" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="structTCPServer_1_1LobbyInfo_1a6b6c390c5ef62c1db332074ebbbb7d31" kindref="member">udpPort</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="230" refid="structTCPServer_1_1LobbyInfo_1a6c62899f0b9d0876bfd082bdbe5932d6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="structTCPServer_1_1LobbyInfo_1a6c62899f0b9d0876bfd082bdbe5932d6" kindref="member">ipcPort</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="231" refid="structTCPServer_1_1LobbyInfo_1a1f7fa98ba4cc99221634f99ec6a576a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::unique_ptr&lt;IpcChannel&gt;<sp/><ref refid="structTCPServer_1_1LobbyInfo_1a1f7fa98ba4cc99221634f99ec6a576a4" kindref="member">ipc</ref>;</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="233" refid="classTCPServer_1a82ca8d45da7d3889d55662cb8c90022e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::unordered_map&lt;std::string,<sp/>LobbyInfo&gt;<sp/><ref refid="classTCPServer_1a82ca8d45da7d3889d55662cb8c90022e" kindref="member">_lobbies</ref>;</highlight></codeline>
+<codeline lineno="234" refid="classTCPServer_1af426291ba1ed4f4d21e8cab3c7a03bc3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::unordered_map&lt;int,<sp/>std::string&gt;<sp/><ref refid="classTCPServer_1af426291ba1ed4f4d21e8cab3c7a03bc3" kindref="member">_clientLobby</ref>;</highlight></codeline>
+<codeline lineno="235" refid="classTCPServer_1af631fe23418972d040c6ffce2a1418f7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classChildProcessManager" kindref="compound">ChildProcessManager</ref><sp/>*<ref refid="classTCPServer_1af631fe23418972d040c6ffce2a1418f7" kindref="member">_childMgr</ref><sp/>=<sp/></highlight><highlight class="keyword">nullptr</highlight><highlight class="normal">;<sp/></highlight><highlight class="comment">//<sp/>optional,<sp/>not<sp/>wired<sp/>yet</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="classTCPServer_1a25273652d6d80037ec5bcad8725bd269" kindref="member">allocatePort</ref>();</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classTCPServer_1a30203c2836aa52676f3e6205d8730943" kindref="member">ensureLobbyProcess</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;code,<sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isPublic);</highlight></codeline>
+<codeline lineno="239"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="Network/TransportLayer/TCP/TCPServer.hpp"/>
+  </compounddef>
+</doxygen>

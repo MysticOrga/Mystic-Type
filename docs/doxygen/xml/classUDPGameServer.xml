@@ -1,0 +1,809 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classUDPGameServer" kind="class" language="C++" prot="public">
+    <compoundname>UDPGameServer</compoundname>
+    <includes refid="UDPGameServer_8hpp" local="no">Network/TransportLayer/UDP/UDPGameServer.hpp</includes>
+    <innerclass refid="structUDPGameServer_1_1Incoming" prot="private">UDPGameServer::Incoming</innerclass>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classUDPGameServer_1a25c7a0d2ae641a6c71421059bb024a60" prot="private" static="no" mutable="no">
+        <type><ref refid="classNetwork_1_1TransportLayer_1_1UDPSocket" kindref="compound">Network::TransportLayer::UDPSocket</ref></type>
+        <definition>Network::TransportLayer::UDPSocket UDPGameServer::_socket</definition>
+        <argsstring></argsstring>
+        <name>_socket</name>
+        <qualifiedname>UDPGameServer::_socket</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="105" column="44" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="105" bodyend="-1"/>
+        <referencedby refid="classUDPGameServer_1a7f3a37004641222f4d30d55614f05029" compoundref="UDPGameServer_8cpp" startline="277" endline="297">networkLoop</referencedby>
+        <referencedby refid="classUDPGameServer_1a602889e958a3ff926bb8de325c982a62" compoundref="UDPGameServer_8cpp" startline="59" endline="63">sendPacketTo</referencedby>
+        <referencedby refid="classUDPGameServer_1a0272e620fa267e7a2043b5729d24cfbc" compoundref="UDPGameServer_8cpp" startline="18" endline="43">UDPGameServer</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classUDPGameServer_1a717a4dc2095ce6aa20c6e006acf8eef4" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="classGameWorld" kindref="compound">GameWorld</ref> &gt;</type>
+        <definition>std::unordered_map&lt;std::string, GameWorld&gt; UDPGameServer::_worlds</definition>
+        <argsstring></argsstring>
+        <name>_worlds</name>
+        <qualifiedname>UDPGameServer::_worlds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="106" column="28" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="106" bodyend="-1"/>
+        <referencedby refid="classUDPGameServer_1a19fbc481d5a9467da80ef95a4e3872e5" compoundref="UDPGameServer_8cpp" startline="65" endline="73">broadcastSnapshot</referencedby>
+        <referencedby refid="classUDPGameServer_1a367b917d572ad28819003841b3be180c" compoundref="UDPGameServer_8cpp" startline="75" endline="101">handleHello</referencedby>
+        <referencedby refid="classUDPGameServer_1abe9913c5eaa12c361bdcc9ce68bdc835" compoundref="UDPGameServer_8cpp" startline="103" endline="138">handleInput</referencedby>
+        <referencedby refid="classUDPGameServer_1a0117b7531413f5b7b161675f9e9efd3d" compoundref="UDPGameServer_8cpp" startline="140" endline="172">handleShoot</referencedby>
+        <referencedby refid="classUDPGameServer_1a0272e620fa267e7a2043b5729d24cfbc" compoundref="UDPGameServer_8cpp" startline="18" endline="43">UDPGameServer</referencedby>
+        <referencedby refid="classUDPGameServer_1aa1c969e983f12d8e36bfb2465f7fe5d6" compoundref="UDPGameServer_8cpp" startline="234" endline="275">updateSimulation</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classUDPGameServer_1a4c197dcedb9480e8ad9c3aa9368b34d3" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; int, std::string &gt;</type>
+        <definition>std::unordered_map&lt;int, std::string&gt; UDPGameServer::_playerLobby</definition>
+        <argsstring></argsstring>
+        <name>_playerLobby</name>
+        <qualifiedname>UDPGameServer::_playerLobby</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="107" column="28" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="107" bodyend="-1"/>
+        <referencedby refid="classUDPGameServer_1a367b917d572ad28819003841b3be180c" compoundref="UDPGameServer_8cpp" startline="75" endline="101">handleHello</referencedby>
+        <referencedby refid="classUDPGameServer_1abe9913c5eaa12c361bdcc9ce68bdc835" compoundref="UDPGameServer_8cpp" startline="103" endline="138">handleInput</referencedby>
+        <referencedby refid="classUDPGameServer_1a0117b7531413f5b7b161675f9e9efd3d" compoundref="UDPGameServer_8cpp" startline="140" endline="172">handleShoot</referencedby>
+        <referencedby refid="classUDPGameServer_1a0272e620fa267e7a2043b5729d24cfbc" compoundref="UDPGameServer_8cpp" startline="18" endline="43">UDPGameServer</referencedby>
+        <referencedby refid="classUDPGameServer_1aa1c969e983f12d8e36bfb2465f7fe5d6" compoundref="UDPGameServer_8cpp" startline="234" endline="275">updateSimulation</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classUDPGameServer_1addc03e253cc450a368fa4e17cb369bdd" prot="private" static="no" mutable="no">
+        <type><ref refid="classSessionManager" kindref="compound">SessionManager</ref> &amp;</type>
+        <definition>SessionManager&amp; UDPGameServer::_sessions</definition>
+        <argsstring></argsstring>
+        <name>_sessions</name>
+        <qualifiedname>UDPGameServer::_sessions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="108" column="24" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="108" bodyend="-1"/>
+        <referencedby refid="classUDPGameServer_1a367b917d572ad28819003841b3be180c" compoundref="UDPGameServer_8cpp" startline="75" endline="101">handleHello</referencedby>
+        <referencedby refid="classUDPGameServer_1abe9913c5eaa12c361bdcc9ce68bdc835" compoundref="UDPGameServer_8cpp" startline="103" endline="138">handleInput</referencedby>
+        <referencedby refid="classUDPGameServer_1a0117b7531413f5b7b161675f9e9efd3d" compoundref="UDPGameServer_8cpp" startline="140" endline="172">handleShoot</referencedby>
+        <referencedby refid="classUDPGameServer_1a0272e620fa267e7a2043b5729d24cfbc" compoundref="UDPGameServer_8cpp" startline="18" endline="43">UDPGameServer</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classUDPGameServer_1a390e8fc2716ffa166d2bd6f91acb9bf2" prot="private" static="no" mutable="no">
+        <type>long long</type>
+        <definition>long long UDPGameServer::_lastSnapshotMs</definition>
+        <argsstring></argsstring>
+        <name>_lastSnapshotMs</name>
+        <qualifiedname>UDPGameServer::_lastSnapshotMs</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="109" column="19" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="109" bodyend="-1"/>
+        <referencedby refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" compoundref="UDPGameServer_8cpp" startline="195" endline="232">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classUDPGameServer_1a2f64e138162800e13ab68e61d273e335" prot="private" static="no" mutable="no">
+        <type>long long</type>
+        <definition>long long UDPGameServer::_lastTickMs</definition>
+        <argsstring></argsstring>
+        <name>_lastTickMs</name>
+        <qualifiedname>UDPGameServer::_lastTickMs</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="110" column="19" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="110" bodyend="-1"/>
+        <referencedby refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" compoundref="UDPGameServer_8cpp" startline="195" endline="232">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classUDPGameServer_1a8403afcff6dde0baa509124d4553b73e" prot="private" static="no" mutable="no">
+        <type>const uint16_t</type>
+        <definition>const uint16_t UDPGameServer::_port</definition>
+        <argsstring></argsstring>
+        <name>_port</name>
+        <qualifiedname>UDPGameServer::_port</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="111" column="24" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="111" bodyend="-1"/>
+        <referencedby refid="classUDPGameServer_1ae610b7c128c3b70e06f3fc1b5a3ecdc5" compoundref="UDPGameServer_8cpp" startline="299" endline="305">logPrefix</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classUDPGameServer_1abbeb77deb2d519708ae2c6e2df26ba54" prot="private" static="no" mutable="no">
+        <type>const long long</type>
+        <definition>const long long UDPGameServer::_snapshotIntervalMs</definition>
+        <argsstring></argsstring>
+        <name>_snapshotIntervalMs</name>
+        <qualifiedname>UDPGameServer::_snapshotIntervalMs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="112" column="25" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="112" bodyend="-1"/>
+        <referencedby refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" compoundref="UDPGameServer_8cpp" startline="195" endline="232">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classUDPGameServer_1a6c3b3016f0b7493aa6d6efd7df70652d" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string UDPGameServer::_expectedLobby</definition>
+        <argsstring></argsstring>
+        <name>_expectedLobby</name>
+        <qualifiedname>UDPGameServer::_expectedLobby</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="113" column="21" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="113" bodyend="-1"/>
+        <referencedby refid="classUDPGameServer_1a367b917d572ad28819003841b3be180c" compoundref="UDPGameServer_8cpp" startline="75" endline="101">handleHello</referencedby>
+        <referencedby refid="classUDPGameServer_1abe9913c5eaa12c361bdcc9ce68bdc835" compoundref="UDPGameServer_8cpp" startline="103" endline="138">handleInput</referencedby>
+        <referencedby refid="classUDPGameServer_1a0117b7531413f5b7b161675f9e9efd3d" compoundref="UDPGameServer_8cpp" startline="140" endline="172">handleShoot</referencedby>
+        <referencedby refid="classUDPGameServer_1ae610b7c128c3b70e06f3fc1b5a3ecdc5" compoundref="UDPGameServer_8cpp" startline="299" endline="305">logPrefix</referencedby>
+        <referencedby refid="classUDPGameServer_1a0272e620fa267e7a2043b5729d24cfbc" compoundref="UDPGameServer_8cpp" startline="18" endline="43">UDPGameServer</referencedby>
+        <referencedby refid="classUDPGameServer_1aa1c969e983f12d8e36bfb2465f7fe5d6" compoundref="UDPGameServer_8cpp" startline="234" endline="275">updateSimulation</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classUDPGameServer_1a9386af9feddd3dc985886c42ad90e44e" prot="private" static="no" mutable="no">
+        <type>const long long</type>
+        <definition>const long long UDPGameServer::_tickIntervalMs</definition>
+        <argsstring></argsstring>
+        <name>_tickIntervalMs</name>
+        <qualifiedname>UDPGameServer::_tickIntervalMs</qualifiedname>
+        <initializer>= 32</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="114" column="25" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="114" bodyend="-1"/>
+        <referencedby refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" compoundref="UDPGameServer_8cpp" startline="195" endline="232">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classUDPGameServer_1afdb634c720e621ceefae4c3cdddf2070" prot="private" static="no" mutable="no">
+        <type>std::queue&lt; <ref refid="structUDPGameServer_1_1Incoming" kindref="compound">Incoming</ref> &gt;</type>
+        <definition>std::queue&lt;Incoming&gt; UDPGameServer::_incoming</definition>
+        <argsstring></argsstring>
+        <name>_incoming</name>
+        <qualifiedname>UDPGameServer::_incoming</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="119" column="20" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="119" bodyend="-1"/>
+        <referencedby refid="classUDPGameServer_1a7f3a37004641222f4d30d55614f05029" compoundref="UDPGameServer_8cpp" startline="277" endline="297">networkLoop</referencedby>
+        <referencedby refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" compoundref="UDPGameServer_8cpp" startline="195" endline="232">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classUDPGameServer_1a20cfba9fdeb64468286e7f71a19871d2" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex UDPGameServer::_queueMutex</definition>
+        <argsstring></argsstring>
+        <name>_queueMutex</name>
+        <qualifiedname>UDPGameServer::_queueMutex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="120" column="20" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="120" bodyend="-1"/>
+        <referencedby refid="classUDPGameServer_1a7f3a37004641222f4d30d55614f05029" compoundref="UDPGameServer_8cpp" startline="277" endline="297">networkLoop</referencedby>
+        <referencedby refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" compoundref="UDPGameServer_8cpp" startline="195" endline="232">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classUDPGameServer_1a03e47ae3e4629b2715c5d423f2abfc17" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; bool &gt;</type>
+        <definition>std::atomic&lt;bool&gt; UDPGameServer::_running</definition>
+        <argsstring></argsstring>
+        <name>_running</name>
+        <qualifiedname>UDPGameServer::_running</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="121" column="21" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="121" bodyend="121"/>
+        <referencedby refid="classUDPGameServer_1a7f3a37004641222f4d30d55614f05029" compoundref="UDPGameServer_8cpp" startline="277" endline="297">networkLoop</referencedby>
+        <referencedby refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" compoundref="UDPGameServer_8cpp" startline="195" endline="232">run</referencedby>
+        <referencedby refid="classUDPGameServer_1aa1c969e983f12d8e36bfb2465f7fe5d6" compoundref="UDPGameServer_8cpp" startline="234" endline="275">updateSimulation</referencedby>
+        <referencedby refid="classUDPGameServer_1ac43ecfc8705a619accf685658472e529" compoundref="UDPGameServer_8cpp" startline="45" endline="51">~UDPGameServer</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classUDPGameServer_1aa31422212ed9a118802d233aedf1453a" prot="private" static="no" mutable="no">
+        <type>std::thread</type>
+        <definition>std::thread UDPGameServer::_networkThread</definition>
+        <argsstring></argsstring>
+        <name>_networkThread</name>
+        <qualifiedname>UDPGameServer::_networkThread</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="122" column="21" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="122" bodyend="-1"/>
+        <referencedby refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" compoundref="UDPGameServer_8cpp" startline="195" endline="232">run</referencedby>
+        <referencedby refid="classUDPGameServer_1ac43ecfc8705a619accf685658472e529" compoundref="UDPGameServer_8cpp" startline="45" endline="51">~UDPGameServer</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classUDPGameServer_1a019dfad81daf07296be196eeea940c9e" prot="private" static="no" mutable="no">
+        <type><ref refid="classIpcChannel" kindref="compound">IpcChannel</ref> *</type>
+        <definition>IpcChannel* UDPGameServer::_ipc</definition>
+        <argsstring></argsstring>
+        <name>_ipc</name>
+        <qualifiedname>UDPGameServer::_ipc</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="123" column="20" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="123" bodyend="-1"/>
+        <referencedby refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" compoundref="UDPGameServer_8cpp" startline="195" endline="232">run</referencedby>
+        <referencedby refid="classUDPGameServer_1a33e8d20721c5a01eafc5f466ecd9e1b7" compoundref="UDPGameServer_8hpp" startline="41" endline="41">setIpc</referencedby>
+        <referencedby refid="classUDPGameServer_1aa1c969e983f12d8e36bfb2465f7fe5d6" compoundref="UDPGameServer_8cpp" startline="234" endline="275">updateSimulation</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classUDPGameServer_1a0272e620fa267e7a2043b5729d24cfbc" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UDPGameServer::UDPGameServer</definition>
+        <argsstring>(uint16_t port, SessionManager &amp;sessions, long long snapshotIntervalMs=500, std::string lobbyCode=&quot;PUBLIC&quot;)</argsstring>
+        <name>UDPGameServer</name>
+        <qualifiedname>UDPGameServer::UDPGameServer</qualifiedname>
+        <param>
+          <type>uint16_t</type>
+          <declname>port</declname>
+        </param>
+        <param>
+          <type><ref refid="classSessionManager" kindref="compound">SessionManager</ref> &amp;</type>
+          <declname>sessions</declname>
+        </param>
+        <param>
+          <type>long long</type>
+          <declname>snapshotIntervalMs</declname>
+          <defval>500</defval>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>lobbyCode</declname>
+          <defval>&quot;PUBLIC&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="34" column="18" bodyfile="Network/TransportLayer/UDP/UDPGameServer.cpp" bodystart="18" bodyend="43"/>
+        <references refid="classUDPGameServer_1a6c3b3016f0b7493aa6d6efd7df70652d" compoundref="UDPGameServer_8hpp" startline="113">_expectedLobby</references>
+        <references refid="classUDPGameServer_1a4c197dcedb9480e8ad9c3aa9368b34d3" compoundref="UDPGameServer_8hpp" startline="107">_playerLobby</references>
+        <references refid="classUDPGameServer_1addc03e253cc450a368fa4e17cb369bdd" compoundref="UDPGameServer_8hpp" startline="108">_sessions</references>
+        <references refid="classUDPGameServer_1a25c7a0d2ae641a6c71421059bb024a60" compoundref="UDPGameServer_8hpp" startline="105">_socket</references>
+        <references refid="classUDPGameServer_1a717a4dc2095ce6aa20c6e006acf8eef4" compoundref="UDPGameServer_8hpp" startline="106">_worlds</references>
+        <references refid="classNetwork_1_1TransportLayer_1_1UDPSocket_1a4972fa36f907bdcdae38d7d551f34e8b" compoundref="UDPSocket_8cpp" startline="12" endline="15">Network::TransportLayer::UDPSocket::bindTo</references>
+        <references refid="classUDPGameServer_1ae610b7c128c3b70e06f3fc1b5a3ecdc5" compoundref="UDPGameServer_8cpp" startline="299" endline="305">logPrefix</references>
+        <references refid="classGameWorld_1a163fb2fed54650ebba995df1e64c39db" compoundref="GameWorld_8hpp" startline="139" endline="139">GameWorld::setLogPrefix</references>
+        <references refid="classSessionManager_1aa54fb04918bcd7d31bcdfe2ce2ee6545" compoundref="SessionManager_8hpp" startline="56" endline="56">SessionManager::setOnRemove</references>
+      </memberdef>
+      <memberdef kind="function" id="classUDPGameServer_1ac43ecfc8705a619accf685658472e529" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>UDPGameServer::~UDPGameServer</definition>
+        <argsstring>()</argsstring>
+        <name>~UDPGameServer</name>
+        <qualifiedname>UDPGameServer::~UDPGameServer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="35" column="9" bodyfile="Network/TransportLayer/UDP/UDPGameServer.cpp" bodystart="45" bodyend="51"/>
+        <references refid="classUDPGameServer_1aa31422212ed9a118802d233aedf1453a" compoundref="UDPGameServer_8hpp" startline="122">_networkThread</references>
+        <references refid="classUDPGameServer_1a03e47ae3e4629b2715c5d423f2abfc17" compoundref="UDPGameServer_8hpp" startline="121" endline="121">_running</references>
+      </memberdef>
+      <memberdef kind="function" id="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UDPGameServer::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>UDPGameServer::run</qualifiedname>
+        <briefdescription>
+<para>Start the main server loop (blocking). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="40" column="14" bodyfile="Network/TransportLayer/UDP/UDPGameServer.cpp" bodystart="195" bodyend="232"/>
+        <references refid="classUDPGameServer_1afdb634c720e621ceefae4c3cdddf2070" compoundref="UDPGameServer_8hpp" startline="119">_incoming</references>
+        <references refid="classUDPGameServer_1a019dfad81daf07296be196eeea940c9e" compoundref="UDPGameServer_8hpp" startline="123">_ipc</references>
+        <references refid="classUDPGameServer_1a390e8fc2716ffa166d2bd6f91acb9bf2" compoundref="UDPGameServer_8hpp" startline="109">_lastSnapshotMs</references>
+        <references refid="classUDPGameServer_1a2f64e138162800e13ab68e61d273e335" compoundref="UDPGameServer_8hpp" startline="110">_lastTickMs</references>
+        <references refid="classUDPGameServer_1aa31422212ed9a118802d233aedf1453a" compoundref="UDPGameServer_8hpp" startline="122">_networkThread</references>
+        <references refid="classUDPGameServer_1a20cfba9fdeb64468286e7f71a19871d2" compoundref="UDPGameServer_8hpp" startline="120">_queueMutex</references>
+        <references refid="classUDPGameServer_1a03e47ae3e4629b2715c5d423f2abfc17" compoundref="UDPGameServer_8hpp" startline="121" endline="121">_running</references>
+        <references refid="classUDPGameServer_1abbeb77deb2d519708ae2c6e2df26ba54" compoundref="UDPGameServer_8hpp" startline="112">_snapshotIntervalMs</references>
+        <references refid="classUDPGameServer_1a9386af9feddd3dc985886c42ad90e44e" compoundref="UDPGameServer_8hpp" startline="114">_tickIntervalMs</references>
+        <references refid="classUDPGameServer_1a19fbc481d5a9467da80ef95a4e3872e5" compoundref="UDPGameServer_8cpp" startline="65" endline="73">broadcastSnapshot</references>
+        <references refid="classUDPGameServer_1a9d28a7f4a0c75aba168ea6a58633d1bb" compoundref="UDPGameServer_8cpp" startline="174" endline="193">handlePacket</references>
+        <references refid="classUDPGameServer_1a7f3a37004641222f4d30d55614f05029" compoundref="UDPGameServer_8cpp" startline="277" endline="297">networkLoop</references>
+        <references refid="classUDPGameServer_1a04aa4dac3d2e7571a2d092c0a37e75ef" compoundref="UDPGameServer_8cpp" startline="53" endline="57">nowMs</references>
+        <references refid="classIpcChannel_1a35498032e830b79724747de4e7b6ca1b" compoundref="IpcChannel_8cpp" startline="71" endline="80">IpcChannel::send</references>
+        <references refid="classUDPGameServer_1aa1c969e983f12d8e36bfb2465f7fe5d6" compoundref="UDPGameServer_8cpp" startline="234" endline="275">updateSimulation</references>
+        <referencedby refid="game_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" compoundref="game_8cpp" startline="50" endline="91">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classUDPGameServer_1a33e8d20721c5a01eafc5f466ecd9e1b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void UDPGameServer::setIpc</definition>
+        <argsstring>(IpcChannel *ipc)</argsstring>
+        <name>setIpc</name>
+        <qualifiedname>UDPGameServer::setIpc</qualifiedname>
+        <param>
+          <type><ref refid="classIpcChannel" kindref="compound">IpcChannel</ref> *</type>
+          <declname>ipc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="41" column="14" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="41" bodyend="41"/>
+        <references refid="classUDPGameServer_1a019dfad81daf07296be196eeea940c9e" compoundref="UDPGameServer_8hpp" startline="123">_ipc</references>
+        <referencedby refid="game_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" compoundref="game_8cpp" startline="50" endline="91">main</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classUDPGameServer_1a9d28a7f4a0c75aba168ea6a58633d1bb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UDPGameServer::handlePacket</definition>
+        <argsstring>(const Packet &amp;packet, const sockaddr_in &amp;from)</argsstring>
+        <name>handlePacket</name>
+        <qualifiedname>UDPGameServer::handlePacket</qualifiedname>
+        <param>
+          <type>const <ref refid="classPacket" kindref="compound">Packet</ref> &amp;</type>
+          <declname>packet</declname>
+        </param>
+        <param>
+          <type>const sockaddr_in &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+<para>Route an incoming packet to the appropriate handler. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>packet</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parsed packet contents. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>from</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sender endpoint. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="50" column="14" bodyfile="Network/TransportLayer/UDP/UDPGameServer.cpp" bodystart="174" bodyend="193"/>
+        <references refid="classUDPGameServer_1a367b917d572ad28819003841b3be180c" compoundref="UDPGameServer_8cpp" startline="75" endline="101">handleHello</references>
+        <references refid="classUDPGameServer_1abe9913c5eaa12c361bdcc9ce68bdc835" compoundref="UDPGameServer_8cpp" startline="103" endline="138">handleInput</references>
+        <references refid="classUDPGameServer_1a0117b7531413f5b7b161675f9e9efd3d" compoundref="UDPGameServer_8cpp" startline="140" endline="172">handleShoot</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a96a4de9c97bf5686278b38d16e7658ea">HELLO_UDP</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56aa84cc046d48610b05c21fd3670d0c829">INPUT</references>
+        <references refid="classPacket_1a3f718725cfd763776d87841235986095" compoundref="Packet_8hpp" startline="52">Packet::payload</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a600e36d8f89903f17192c68b6ff1e6eb">PING_UDP</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56adc6c95d7a7387379cf7fd130bbf3f77d">PONG_UDP</references>
+        <references refid="classUDPGameServer_1a602889e958a3ff926bb8de325c982a62" compoundref="UDPGameServer_8cpp" startline="59" endline="63">sendPacketTo</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a0504ea30baff7b670a10cb44f8e5cca2">SHOOT</references>
+        <references refid="classPacket_1aebbae2cef32f967d0bbcabbe41dae6bf" compoundref="Packet_8hpp" startline="50">Packet::type</references>
+        <referencedby refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" compoundref="UDPGameServer_8cpp" startline="195" endline="232">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classUDPGameServer_1a367b917d572ad28819003841b3be180c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UDPGameServer::handleHello</definition>
+        <argsstring>(const Packet &amp;packet, const sockaddr_in &amp;from)</argsstring>
+        <name>handleHello</name>
+        <qualifiedname>UDPGameServer::handleHello</qualifiedname>
+        <param>
+          <type>const <ref refid="classPacket" kindref="compound">Packet</ref> &amp;</type>
+          <declname>packet</declname>
+        </param>
+        <param>
+          <type>const sockaddr_in &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+<para>Register a new player on receipt of a hello message. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>packet</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="structUDPGameServer_1_1Incoming" kindref="compound">Incoming</ref> hello packet. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>from</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sender endpoint. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="58" column="14" bodyfile="Network/TransportLayer/UDP/UDPGameServer.cpp" bodystart="75" bodyend="101"/>
+        <references refid="classUDPGameServer_1a6c3b3016f0b7493aa6d6efd7df70652d" compoundref="UDPGameServer_8hpp" startline="113">_expectedLobby</references>
+        <references refid="classUDPGameServer_1a4c197dcedb9480e8ad9c3aa9368b34d3" compoundref="UDPGameServer_8hpp" startline="107">_playerLobby</references>
+        <references refid="classUDPGameServer_1addc03e253cc450a368fa4e17cb369bdd" compoundref="UDPGameServer_8hpp" startline="108">_sessions</references>
+        <references refid="classUDPGameServer_1a717a4dc2095ce6aa20c6e006acf8eef4" compoundref="UDPGameServer_8hpp" startline="106">_worlds</references>
+        <references refid="classGameWorld_1a9a877bcf4eed6527b0896242463a3dfa" compoundref="GameWorld_8cpp" startline="424" endline="464">GameWorld::buildSnapshotPacket</references>
+        <references refid="classSessionManager_1a48995915db3b90fa7228d357d6293163" compoundref="SessionManager_8cpp" startline="61" endline="68">SessionManager::getSession</references>
+        <references refid="classUDPGameServer_1ae610b7c128c3b70e06f3fc1b5a3ecdc5" compoundref="UDPGameServer_8cpp" startline="299" endline="305">logPrefix</references>
+        <references refid="classPacket_1a3f718725cfd763776d87841235986095" compoundref="Packet_8hpp" startline="52">Packet::payload</references>
+        <references refid="classGameWorld_1aaebb0cdb6bcf4382893ce438832db63e" compoundref="GameWorld_8cpp" startline="34" endline="48">GameWorld::registerPlayer</references>
+        <references refid="classUDPGameServer_1a602889e958a3ff926bb8de325c982a62" compoundref="UDPGameServer_8cpp" startline="59" endline="63">sendPacketTo</references>
+        <references refid="classGameWorld_1a163fb2fed54650ebba995df1e64c39db" compoundref="GameWorld_8hpp" startline="139" endline="139">GameWorld::setLogPrefix</references>
+        <references refid="classSessionManager_1af2596853b8042076df0c1022468eaec3" compoundref="SessionManager_8cpp" startline="50" endline="59">SessionManager::setUdpAddr</references>
+        <referencedby refid="classUDPGameServer_1a9d28a7f4a0c75aba168ea6a58633d1bb" compoundref="UDPGameServer_8cpp" startline="174" endline="193">handlePacket</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classUDPGameServer_1abe9913c5eaa12c361bdcc9ce68bdc835" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UDPGameServer::handleInput</definition>
+        <argsstring>(const Packet &amp;packet, const sockaddr_in &amp;from)</argsstring>
+        <name>handleInput</name>
+        <qualifiedname>UDPGameServer::handleInput</qualifiedname>
+        <param>
+          <type>const <ref refid="classPacket" kindref="compound">Packet</ref> &amp;</type>
+          <declname>packet</declname>
+        </param>
+        <param>
+          <type>const sockaddr_in &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+<para>Update player inputs (movement/direction). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>packet</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="structUDPGameServer_1_1Incoming" kindref="compound">Incoming</ref> input packet. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>from</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Sender endpoint. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="66" column="14" bodyfile="Network/TransportLayer/UDP/UDPGameServer.cpp" bodystart="103" bodyend="138"/>
+        <references refid="classUDPGameServer_1a6c3b3016f0b7493aa6d6efd7df70652d" compoundref="UDPGameServer_8hpp" startline="113">_expectedLobby</references>
+        <references refid="classUDPGameServer_1a4c197dcedb9480e8ad9c3aa9368b34d3" compoundref="UDPGameServer_8hpp" startline="107">_playerLobby</references>
+        <references refid="classUDPGameServer_1addc03e253cc450a368fa4e17cb369bdd" compoundref="UDPGameServer_8hpp" startline="108">_sessions</references>
+        <references refid="classUDPGameServer_1a717a4dc2095ce6aa20c6e006acf8eef4" compoundref="UDPGameServer_8hpp" startline="106">_worlds</references>
+        <references refid="classSessionManager_1a48995915db3b90fa7228d357d6293163" compoundref="SessionManager_8cpp" startline="61" endline="68">SessionManager::getSession</references>
+        <references refid="classUDPGameServer_1ae610b7c128c3b70e06f3fc1b5a3ecdc5" compoundref="UDPGameServer_8cpp" startline="299" endline="305">logPrefix</references>
+        <references refid="classPacket_1a3f718725cfd763776d87841235986095" compoundref="Packet_8hpp" startline="52">Packet::payload</references>
+        <referencedby refid="classUDPGameServer_1a9d28a7f4a0c75aba168ea6a58633d1bb" compoundref="UDPGameServer_8cpp" startline="174" endline="193">handlePacket</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classUDPGameServer_1a0117b7531413f5b7b161675f9e9efd3d" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UDPGameServer::handleShoot</definition>
+        <argsstring>(const Packet &amp;packet)</argsstring>
+        <name>handleShoot</name>
+        <qualifiedname>UDPGameServer::handleShoot</qualifiedname>
+        <param>
+          <type>const <ref refid="classPacket" kindref="compound">Packet</ref> &amp;</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+<para>Handle a shoot command (spawn a bullet). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="71" column="14" bodyfile="Network/TransportLayer/UDP/UDPGameServer.cpp" bodystart="140" bodyend="172"/>
+        <references refid="classUDPGameServer_1a6c3b3016f0b7493aa6d6efd7df70652d" compoundref="UDPGameServer_8hpp" startline="113">_expectedLobby</references>
+        <references refid="classUDPGameServer_1a4c197dcedb9480e8ad9c3aa9368b34d3" compoundref="UDPGameServer_8hpp" startline="107">_playerLobby</references>
+        <references refid="classUDPGameServer_1addc03e253cc450a368fa4e17cb369bdd" compoundref="UDPGameServer_8hpp" startline="108">_sessions</references>
+        <references refid="classUDPGameServer_1a717a4dc2095ce6aa20c6e006acf8eef4" compoundref="UDPGameServer_8hpp" startline="106">_worlds</references>
+        <references refid="classSessionManager_1a48995915db3b90fa7228d357d6293163" compoundref="SessionManager_8cpp" startline="61" endline="68">SessionManager::getSession</references>
+        <references refid="classPacket_1a3f718725cfd763776d87841235986095" compoundref="Packet_8hpp" startline="52">Packet::payload</references>
+        <referencedby refid="classUDPGameServer_1a9d28a7f4a0c75aba168ea6a58633d1bb" compoundref="UDPGameServer_8cpp" startline="174" endline="193">handlePacket</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classUDPGameServer_1a19fbc481d5a9467da80ef95a4e3872e5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UDPGameServer::broadcastSnapshot</definition>
+        <argsstring>()</argsstring>
+        <name>broadcastSnapshot</name>
+        <qualifiedname>UDPGameServer::broadcastSnapshot</qualifiedname>
+        <briefdescription>
+<para>Broadcast the current snapshot to all connected players. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="76" column="14" bodyfile="Network/TransportLayer/UDP/UDPGameServer.cpp" bodystart="65" bodyend="73"/>
+        <references refid="classUDPGameServer_1a717a4dc2095ce6aa20c6e006acf8eef4" compoundref="UDPGameServer_8hpp" startline="106">_worlds</references>
+        <references refid="classUDPGameServer_1a602889e958a3ff926bb8de325c982a62" compoundref="UDPGameServer_8cpp" startline="59" endline="63">sendPacketTo</references>
+        <referencedby refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" compoundref="UDPGameServer_8cpp" startline="195" endline="232">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classUDPGameServer_1a602889e958a3ff926bb8de325c982a62" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool UDPGameServer::sendPacketTo</definition>
+        <argsstring>(const Packet &amp;packet, const sockaddr_in &amp;to)</argsstring>
+        <name>sendPacketTo</name>
+        <qualifiedname>UDPGameServer::sendPacketTo</qualifiedname>
+        <param>
+          <type>const <ref refid="classPacket" kindref="compound">Packet</ref> &amp;</type>
+          <declname>packet</declname>
+        </param>
+        <param>
+          <type>const sockaddr_in &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+<para>Send a packet to a single endpoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>packet</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classPacket" kindref="compound">Packet</ref> to send. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>to</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Destination endpoint. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true on success, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="85" column="14" bodyfile="Network/TransportLayer/UDP/UDPGameServer.cpp" bodystart="59" bodyend="63"/>
+        <references refid="classUDPGameServer_1a25c7a0d2ae641a6c71421059bb024a60" compoundref="UDPGameServer_8hpp" startline="105">_socket</references>
+        <references refid="classPacket_1aa88c2d28796644c8a1d6137996502ca8" compoundref="Packet_8cpp" startline="10" endline="27">Packet::serialize</references>
+        <references refid="classNetwork_1_1TransportLayer_1_1UDPSocket_1a887cf24e71c890759f907c074f5b3505" compoundref="UDPSocket_8cpp" startline="17" endline="24">Network::TransportLayer::UDPSocket::writeByte</references>
+        <referencedby refid="classUDPGameServer_1a19fbc481d5a9467da80ef95a4e3872e5" compoundref="UDPGameServer_8cpp" startline="65" endline="73">broadcastSnapshot</referencedby>
+        <referencedby refid="classUDPGameServer_1a367b917d572ad28819003841b3be180c" compoundref="UDPGameServer_8cpp" startline="75" endline="101">handleHello</referencedby>
+        <referencedby refid="classUDPGameServer_1a9d28a7f4a0c75aba168ea6a58633d1bb" compoundref="UDPGameServer_8cpp" startline="174" endline="193">handlePacket</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classUDPGameServer_1a04aa4dac3d2e7571a2d092c0a37e75ef" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>long long</type>
+        <definition>long long UDPGameServer::nowMs</definition>
+        <argsstring>() const</argsstring>
+        <name>nowMs</name>
+        <qualifiedname>UDPGameServer::nowMs</qualifiedname>
+        <briefdescription>
+<para>Monotonic time helper in milliseconds. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="90" column="19" bodyfile="Network/TransportLayer/UDP/UDPGameServer.cpp" bodystart="53" bodyend="57"/>
+        <referencedby refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" compoundref="UDPGameServer_8cpp" startline="195" endline="232">run</referencedby>
+        <referencedby refid="classUDPGameServer_1aa1c969e983f12d8e36bfb2465f7fe5d6" compoundref="UDPGameServer_8cpp" startline="234" endline="275">updateSimulation</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classUDPGameServer_1aa1c969e983f12d8e36bfb2465f7fe5d6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UDPGameServer::updateSimulation</definition>
+        <argsstring>(long long nowMs, long long deltaMs)</argsstring>
+        <name>updateSimulation</name>
+        <qualifiedname>UDPGameServer::updateSimulation</qualifiedname>
+        <param>
+          <type>long long</type>
+          <declname>nowMs</declname>
+        </param>
+        <param>
+          <type>long long</type>
+          <declname>deltaMs</declname>
+        </param>
+        <briefdescription>
+<para>Advance the local simulation based on elapsed time. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>nowMs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current timestamp in milliseconds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="97" column="14" bodyfile="Network/TransportLayer/UDP/UDPGameServer.cpp" bodystart="234" bodyend="275"/>
+        <references refid="classUDPGameServer_1a6c3b3016f0b7493aa6d6efd7df70652d" compoundref="UDPGameServer_8hpp" startline="113">_expectedLobby</references>
+        <references refid="classUDPGameServer_1a019dfad81daf07296be196eeea940c9e" compoundref="UDPGameServer_8hpp" startline="123">_ipc</references>
+        <references refid="classUDPGameServer_1a4c197dcedb9480e8ad9c3aa9368b34d3" compoundref="UDPGameServer_8hpp" startline="107">_playerLobby</references>
+        <references refid="classUDPGameServer_1a03e47ae3e4629b2715c5d423f2abfc17" compoundref="UDPGameServer_8hpp" startline="121" endline="121">_running</references>
+        <references refid="classUDPGameServer_1a717a4dc2095ce6aa20c6e006acf8eef4" compoundref="UDPGameServer_8hpp" startline="106">_worlds</references>
+        <references refid="classUDPGameServer_1a04aa4dac3d2e7571a2d092c0a37e75ef" compoundref="UDPGameServer_8cpp" startline="53" endline="57">nowMs</references>
+        <references refid="classIpcChannel_1a35498032e830b79724747de4e7b6ca1b" compoundref="IpcChannel_8cpp" startline="71" endline="80">IpcChannel::send</references>
+        <referencedby refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" compoundref="UDPGameServer_8cpp" startline="195" endline="232">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classUDPGameServer_1a7f3a37004641222f4d30d55614f05029" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void UDPGameServer::networkLoop</definition>
+        <argsstring>()</argsstring>
+        <name>networkLoop</name>
+        <qualifiedname>UDPGameServer::networkLoop</qualifiedname>
+        <briefdescription>
+<para>Thread loop to read incoming UDP packets without blocking the simulation tick. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="102" column="14" bodyfile="Network/TransportLayer/UDP/UDPGameServer.cpp" bodystart="277" bodyend="297"/>
+        <references refid="classUDPGameServer_1afdb634c720e621ceefae4c3cdddf2070" compoundref="UDPGameServer_8hpp" startline="119">_incoming</references>
+        <references refid="classUDPGameServer_1a20cfba9fdeb64468286e7f71a19871d2" compoundref="UDPGameServer_8hpp" startline="120">_queueMutex</references>
+        <references refid="classUDPGameServer_1a03e47ae3e4629b2715c5d423f2abfc17" compoundref="UDPGameServer_8hpp" startline="121" endline="121">_running</references>
+        <references refid="classUDPGameServer_1a25c7a0d2ae641a6c71421059bb024a60" compoundref="UDPGameServer_8hpp" startline="105">_socket</references>
+        <references refid="classPacket_1abfcd427a2ca434ac71592334517638fb" compoundref="Packet_8cpp" startline="29" endline="49">Packet::deserialize</references>
+        <references refid="structUDPGameServer_1_1Incoming_1a74e2b72a9291cd52c909ba3b5f3005c1" compoundref="UDPGameServer_8hpp" startline="117" endline="117">UDPGameServer::Incoming::from</references>
+        <references refid="classNetwork_1_1TransportLayer_1_1UDPSocket_1a429dc0b0e539ab051d785b7145e42bf7" compoundref="UDPSocket_8hpp" startline="71" endline="71">Network::TransportLayer::UDPSocket::getSenderAddr</references>
+        <references refid="classUDPGameServer_1ae610b7c128c3b70e06f3fc1b5a3ecdc5" compoundref="UDPGameServer_8cpp" startline="299" endline="305">logPrefix</references>
+        <references refid="structUDPGameServer_1_1Incoming_1af8787121530430cf0411a81d8b9ac498" compoundref="UDPGameServer_8hpp" startline="116">UDPGameServer::Incoming::pkt</references>
+        <references refid="classNetwork_1_1TransportLayer_1_1UDPSocket_1a34b53ce1224f81fc6809a24412854294" compoundref="UDPSocket_8cpp" startline="35" endline="45">Network::TransportLayer::UDPSocket::readByte</references>
+        <referencedby refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" compoundref="UDPGameServer_8cpp" startline="195" endline="232">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classUDPGameServer_1ae610b7c128c3b70e06f3fc1b5a3ecdc5" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string UDPGameServer::logPrefix</definition>
+        <argsstring>() const</argsstring>
+        <name>logPrefix</name>
+        <qualifiedname>UDPGameServer::logPrefix</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="103" column="21" bodyfile="Network/TransportLayer/UDP/UDPGameServer.cpp" bodystart="299" bodyend="305"/>
+        <references refid="classUDPGameServer_1a6c3b3016f0b7493aa6d6efd7df70652d" compoundref="UDPGameServer_8hpp" startline="113">_expectedLobby</references>
+        <references refid="classUDPGameServer_1a8403afcff6dde0baa509124d4553b73e" compoundref="UDPGameServer_8hpp" startline="111">_port</references>
+        <referencedby refid="classUDPGameServer_1a367b917d572ad28819003841b3be180c" compoundref="UDPGameServer_8cpp" startline="75" endline="101">handleHello</referencedby>
+        <referencedby refid="classUDPGameServer_1abe9913c5eaa12c361bdcc9ce68bdc835" compoundref="UDPGameServer_8cpp" startline="103" endline="138">handleInput</referencedby>
+        <referencedby refid="classUDPGameServer_1a7f3a37004641222f4d30d55614f05029" compoundref="UDPGameServer_8cpp" startline="277" endline="297">networkLoop</referencedby>
+        <referencedby refid="classUDPGameServer_1a0272e620fa267e7a2043b5729d24cfbc" compoundref="UDPGameServer_8cpp" startline="18" endline="43">UDPGameServer</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Simple UDP authoritative game server that manages players and snapshots. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>The server listens on a UDP port, accepts player &quot;hello&quot; packets, tracks their positions/velocities, updates a small simulation loop, and periodically broadcasts snapshots to all connected players. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="6">
+        <label>IpcChannel</label>
+        <link refid="classIpcChannel"/>
+      </node>
+      <node id="3">
+        <label>Network::TransportLayer::ASocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1ASocket"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Network::TransportLayer::ISocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1ISocket"/>
+      </node>
+      <node id="2">
+        <label>Network::TransportLayer::UDPSocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1UDPSocket"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>SessionManager</label>
+        <link refid="classSessionManager"/>
+      </node>
+      <node id="1">
+        <label>UDPGameServer</label>
+        <link refid="classUDPGameServer"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-_socket</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-_sessions</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-_ipc</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="32" column="1" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="32" bodyend="124"/>
+    <listofallmembers>
+      <member refid="classUDPGameServer_1a6c3b3016f0b7493aa6d6efd7df70652d" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>_expectedLobby</name></member>
+      <member refid="classUDPGameServer_1afdb634c720e621ceefae4c3cdddf2070" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>_incoming</name></member>
+      <member refid="classUDPGameServer_1a019dfad81daf07296be196eeea940c9e" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>_ipc</name></member>
+      <member refid="classUDPGameServer_1a390e8fc2716ffa166d2bd6f91acb9bf2" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>_lastSnapshotMs</name></member>
+      <member refid="classUDPGameServer_1a2f64e138162800e13ab68e61d273e335" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>_lastTickMs</name></member>
+      <member refid="classUDPGameServer_1aa31422212ed9a118802d233aedf1453a" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>_networkThread</name></member>
+      <member refid="classUDPGameServer_1a4c197dcedb9480e8ad9c3aa9368b34d3" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>_playerLobby</name></member>
+      <member refid="classUDPGameServer_1a8403afcff6dde0baa509124d4553b73e" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>_port</name></member>
+      <member refid="classUDPGameServer_1a20cfba9fdeb64468286e7f71a19871d2" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>_queueMutex</name></member>
+      <member refid="classUDPGameServer_1a03e47ae3e4629b2715c5d423f2abfc17" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>_running</name></member>
+      <member refid="classUDPGameServer_1addc03e253cc450a368fa4e17cb369bdd" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>_sessions</name></member>
+      <member refid="classUDPGameServer_1abbeb77deb2d519708ae2c6e2df26ba54" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>_snapshotIntervalMs</name></member>
+      <member refid="classUDPGameServer_1a25c7a0d2ae641a6c71421059bb024a60" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>_socket</name></member>
+      <member refid="classUDPGameServer_1a9386af9feddd3dc985886c42ad90e44e" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>_tickIntervalMs</name></member>
+      <member refid="classUDPGameServer_1a717a4dc2095ce6aa20c6e006acf8eef4" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>_worlds</name></member>
+      <member refid="classUDPGameServer_1a19fbc481d5a9467da80ef95a4e3872e5" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>broadcastSnapshot</name></member>
+      <member refid="classUDPGameServer_1a367b917d572ad28819003841b3be180c" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>handleHello</name></member>
+      <member refid="classUDPGameServer_1abe9913c5eaa12c361bdcc9ce68bdc835" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>handleInput</name></member>
+      <member refid="classUDPGameServer_1a9d28a7f4a0c75aba168ea6a58633d1bb" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>handlePacket</name></member>
+      <member refid="classUDPGameServer_1a0117b7531413f5b7b161675f9e9efd3d" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>handleShoot</name></member>
+      <member refid="classUDPGameServer_1ae610b7c128c3b70e06f3fc1b5a3ecdc5" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>logPrefix</name></member>
+      <member refid="classUDPGameServer_1a7f3a37004641222f4d30d55614f05029" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>networkLoop</name></member>
+      <member refid="classUDPGameServer_1a04aa4dac3d2e7571a2d092c0a37e75ef" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>nowMs</name></member>
+      <member refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" prot="public" virt="non-virtual"><scope>UDPGameServer</scope><name>run</name></member>
+      <member refid="classUDPGameServer_1a602889e958a3ff926bb8de325c982a62" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>sendPacketTo</name></member>
+      <member refid="classUDPGameServer_1a33e8d20721c5a01eafc5f466ecd9e1b7" prot="public" virt="non-virtual"><scope>UDPGameServer</scope><name>setIpc</name></member>
+      <member refid="classUDPGameServer_1a0272e620fa267e7a2043b5729d24cfbc" prot="public" virt="non-virtual"><scope>UDPGameServer</scope><name>UDPGameServer</name></member>
+      <member refid="classUDPGameServer_1aa1c969e983f12d8e36bfb2465f7fe5d6" prot="private" virt="non-virtual"><scope>UDPGameServer</scope><name>updateSimulation</name></member>
+      <member refid="classUDPGameServer_1ac43ecfc8705a619accf685658472e529" prot="public" virt="non-virtual"><scope>UDPGameServer</scope><name>~UDPGameServer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

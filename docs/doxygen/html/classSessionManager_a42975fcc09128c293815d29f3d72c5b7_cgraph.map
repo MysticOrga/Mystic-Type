@@ -1,0 +1,5 @@
+<map id="SessionManager::allowInput" name="SessionManager::allowInput">
+<area shape="rect" id="Node000001" title="Rate&#45;limit input packets per second." alt="" coords="5,5,211,31"/>
+<area shape="rect" id="Node000002" href="$classSessionManager.html#a3f16df2f2fcaa18971326cf09e8741fb" title=" " alt="" coords="259,5,480,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,15,245,15,245,21,211,21"/>
+</map>

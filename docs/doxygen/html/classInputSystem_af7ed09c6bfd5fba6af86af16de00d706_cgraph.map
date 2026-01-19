@@ -1,0 +1,20 @@
+<map id="InputSystem::update" name="InputSystem::update">
+<area shape="rect" id="Node000001" title="Updates input state and sends player commands to the server." alt="" coords="5,80,163,105"/>
+<area shape="rect" id="Node000002" href="$classRaylib_1_1Input.html#a4cd5c6122b4771997efbb9ef2d3c4771" title="Checks if a key is currently pressed down." alt="" coords="218,5,402,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,77,210,39,237,32,238,37,212,45,115,82"/>
+<area shape="rect" id="Node000003" href="$classRaylib_1_1Input.html#a77b20ab7de1540d7cc5c18f71b137a12" title="Checks if a key was just pressed this frame." alt="" coords="211,55,409,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="163,81,197,77,197,83,163,87"/>
+<area shape="rect" id="Node000004" href="$classNetworkClient.html#afdfce51c7dbb2e61f5e9280b15368915" title="Send player input over UDP." alt="" coords="217,104,403,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="163,98,203,103,203,108,163,104"/>
+<area shape="rect" id="Node000009" href="$classNetworkClient.html#a2773882369d758cbb23aa67b0dda78ed" title="Send a shoot command over UDP." alt="" coords="215,153,405,179"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="117,103,212,138,243,147,241,152,210,143,115,108"/>
+<area shape="rect" id="Node000005" href="$classNetworkClient.html#a6c612ab362cc3e4ea8c94ebc2cddc4e6" title=" " alt="" coords="457,129,680,155"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="404,123,444,127,444,132,403,128"/>
+<area shape="rect" id="Node000006" href="$classNetworkClient.html#aaf60f1216a17b46ad12539625a1022c2" title=" " alt="" coords="741,80,910,105"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="635,127,745,105,746,111,636,132"/>
+<area shape="rect" id="Node000007" href="$classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="762,129,889,155"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="680,139,748,139,748,145,680,145"/>
+<area shape="rect" id="Node000008" href="$classNetworkClient.html#a36892dcdc8c2523b27947a347ea16022" title=" " alt="" coords="728,179,923,219"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="627,152,723,174,721,179,626,157"/>
+<area shape="poly" id="edge9_Node000009_Node000005" title=" " alt="" coords="405,155,444,151,444,156,406,160"/>
+</map>

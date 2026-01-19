@@ -1,0 +1,314 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="ASocket_8hpp" kind="file" language="C++">
+    <compoundname>ASocket.hpp</compoundname>
+    <includes refid="ISocket_8hpp" local="yes">ISocket.hpp</includes>
+    <includedby refid="ASocket_8cpp" local="yes">Network/TransportLayer/ASocket.cpp</includedby>
+    <includedby refid="TCPSocket_8hpp" local="yes">Network/TransportLayer/TCP/TCPSocket.hpp</includedby>
+    <includedby refid="UDPSocket_8hpp" local="yes">Network/TransportLayer/UDP/UDPSocket.hpp</includedby>
+    <includedby refid="UnixSocket_8hpp" local="yes">Network/TransportLayer/UNIX/UnixSocket.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Network/TransportLayer/ASocket.hpp</label>
+        <link refid="ASocket_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>ISocket.hpp</label>
+        <link refid="ISocket_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>arpa/inet.h</label>
+      </node>
+      <node id="4">
+        <label>cstdint</label>
+      </node>
+      <node id="5">
+        <label>errno.h</label>
+      </node>
+      <node id="6">
+        <label>netinet/in.h</label>
+      </node>
+      <node id="7">
+        <label>netinet/tcp.h</label>
+      </node>
+      <node id="8">
+        <label>sys/select.h</label>
+      </node>
+      <node id="9">
+        <label>sys/socket.h</label>
+      </node>
+      <node id="10">
+        <label>sys/un.h</label>
+      </node>
+      <node id="11">
+        <label>unistd.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="12">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/client.cpp</label>
+        <link refid="client_8cpp"/>
+      </node>
+      <node id="16">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/game.cpp</label>
+        <link refid="game_8cpp"/>
+      </node>
+      <node id="5">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/server.cpp</label>
+        <link refid="server_8cpp"/>
+      </node>
+      <node id="10">
+        <label>Network/Client/NetworkClient.cpp</label>
+        <link refid="NetworkClient_8cpp"/>
+      </node>
+      <node id="9">
+        <label>Network/Client/NetworkClient.hpp</label>
+        <link refid="NetworkClient_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Network/TransportLayer/ASocket.cpp</label>
+        <link refid="ASocket_8cpp"/>
+      </node>
+      <node id="1">
+        <label>Network/TransportLayer/ASocket.hpp</label>
+        <link refid="ASocket_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Network/TransportLayer/TCP/TCPServer.cpp</label>
+        <link refid="TCPServer_8cpp"/>
+      </node>
+      <node id="4">
+        <label>Network/TransportLayer/TCP/TCPServer.hpp</label>
+        <link refid="TCPServer_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>Network/TransportLayer/TCP/TCPSocket.cpp</label>
+        <link refid="TCPSocket_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Network/TransportLayer/TCP/TCPSocket.hpp</label>
+        <link refid="TCPSocket_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>Network/TransportLayer/UDP/UDPGameServer.cpp</label>
+        <link refid="UDPGameServer_8cpp"/>
+      </node>
+      <node id="15">
+        <label>Network/TransportLayer/UDP/UDPGameServer.hpp</label>
+        <link refid="UDPGameServer_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>Network/TransportLayer/UDP/UDPSocket.cpp</label>
+        <link refid="UDPSocket_8cpp"/>
+      </node>
+      <node id="8">
+        <label>Network/TransportLayer/UDP/UDPSocket.hpp</label>
+        <link refid="UDPSocket_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>Network/TransportLayer/UNIX/UnixSocket.cpp</label>
+        <link refid="UnixSocket_8cpp"/>
+      </node>
+      <node id="21">
+        <label>Network/TransportLayer/UNIX/UnixSocket.hpp</label>
+        <link refid="UnixSocket_8hpp"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>graphical-client/GraphicClient/GraphicClient.cpp</label>
+        <link refid="GraphicClient_8cpp"/>
+      </node>
+      <node id="11">
+        <label>graphical-client/GraphicClient/GraphicClient.hpp</label>
+        <link refid="GraphicClient_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>graphical-client/ecs/System.hpp</label>
+        <link refid="System_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>server/IpcChannel.cpp</label>
+        <link refid="IpcChannel_8cpp"/>
+      </node>
+      <node id="19">
+        <label>server/IpcChannel.hpp</label>
+        <link refid="IpcChannel_8hpp"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classNetwork_1_1TransportLayer_1_1ASocket" prot="public">Network::TransportLayer::ASocket</innerclass>
+    <innernamespace refid="namespaceNetwork">Network</innernamespace>
+    <innernamespace refid="namespaceNetwork_1_1TransportLayer">Network::TransportLayer</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">**<sp/>EPITECH<sp/>PROJECT,<sp/>2025</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">**<sp/>Mystic-Type</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">**<sp/>File<sp/>description:</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">**<sp/>class<sp/>abstraction<sp/>for<sp/>socket</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>ASOCKET_HPP_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ASOCKET_HPP_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ISocket_8hpp" kindref="compound">ISocket.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceNetwork_1_1TransportLayer" kindref="compound">Network::TransportLayer</ref></highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14" refid="classNetwork_1_1TransportLayer_1_1ASocket" refkind="compound"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classNetwork_1_1TransportLayer_1_1ASocket" kindref="compound">ASocket</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ISocket" kindref="compound">ISocket</ref></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Construct<sp/>a<sp/>new<sp/>ASocket<sp/>object</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>domain<sp/>The<sp/>communication<sp/>domain<sp/>(e.g.,<sp/>AF_INET)</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>type<sp/>The<sp/>communication<sp/>type<sp/>(e.g.,<sp/>SOCK_STREAM)</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>protocol<sp/>The<sp/>protocol<sp/>to<sp/>be<sp/>used<sp/>(e.g.,<sp/>IPPROTO_TCP)</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ASocket" kindref="compound">ASocket</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>domain,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>type,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>protocol);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Destroy<sp/>the<sp/>ASocket<sp/>object</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ASocket_1ae7ed622b5397311c5fa1126d2bab57d8" kindref="member">~ASocket</ref>();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Get<sp/>the<sp/>underlying<sp/>socket<sp/>file<sp/>descriptor</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>int<sp/>The<sp/>socket<sp/>file<sp/>descriptor</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="classNetwork_1_1TransportLayer_1_1ASocket_1a65e51ed926d1ef000bf854a8e7fcd474" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ASocket_1a65e51ed926d1ef000bf854a8e7fcd474" kindref="member">getSocketFd</ref>()</highlight><highlight class="keyword"><sp/>const<sp/>override</highlight></codeline>
+<codeline lineno="38"><highlight class="keyword"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ASocket_1a98cc1b369dd9afea0f122e6f07c41caa" kindref="member">_socketFd</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Close<sp/>the<sp/>socket</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ASocket_1afb543d4b49e71b180cfe2259c8c5093b" kindref="member">closeSocket</ref>()<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Bind<sp/>the<sp/>socket<sp/>to<sp/>a<sp/>specific<sp/>address<sp/>and<sp/>port</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>domain<sp/>The<sp/>communication<sp/>domain<sp/>(e.g.,<sp/>AF_INET)</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>port<sp/>The<sp/>port<sp/>number<sp/>to<sp/>bind<sp/>to</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>address<sp/>The<sp/>IP<sp/>address<sp/>to<sp/>bind<sp/>to<sp/>(in<sp/>network<sp/>byte<sp/>order)</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>true<sp/>if<sp/>binding<sp/>is<sp/>successful,<sp/>false<sp/>otherwise</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ASocket_1a65fa2f6ba45358b7a7776d14b0111756" kindref="member">bindSock</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>domain,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>port,<sp/>uint32_t<sp/>address);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Read<sp/>bytes<sp/>from<sp/>the<sp/>socket</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>buffer<sp/>Buffer<sp/>to<sp/>store<sp/>the<sp/>read<sp/>data</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>size<sp/>Number<sp/>of<sp/>bytes<sp/>to<sp/>read</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>ssize_t<sp/>Number<sp/>of<sp/>bytes<sp/>read,<sp/>or<sp/>-1<sp/>on<sp/>error</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ssize_t<sp/><ref refid="classNetwork_1_1TransportLayer_1_1ASocket_1a34da0184468795bb34afb8e7008a1ed3" kindref="member">readByte</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*buffer,<sp/>std::size_t<sp/>size)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Write<sp/>bytes<sp/>to<sp/>the<sp/>socket</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>data<sp/>Data<sp/>to<sp/>write</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>size<sp/>Number<sp/>of<sp/>bytes<sp/>to<sp/>write</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>ssize_t<sp/>Number<sp/>of<sp/>bytes<sp/>written,<sp/>or<sp/>-1<sp/>on<sp/>error</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>ssize_t<sp/><ref refid="classNetwork_1_1TransportLayer_1_1ASocket_1ab5fcc3d62999cde65373dc40a1592943" kindref="member">writeByte</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*data,<sp/>std::size_t<sp/>size)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Check<sp/>the<sp/>socket<sp/>state<sp/>for<sp/>read,<sp/>write,<sp/>or<sp/>exception</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>timeoutSec<sp/>Timeout<sp/>in<sp/>seconds</highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>timeoutUsec<sp/>Timeout<sp/>in<sp/>microseconds</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>IOState<sp/>The<sp/>state<sp/>of<sp/>the<sp/>socket</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7" kindref="member">IOState</ref><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ASocket_1a50cace88b622aa442d901434ecc33bd8" kindref="member">sockState</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>timeoutSec,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>timeoutUsec)<sp/></highlight><highlight class="keyword">override</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="86" refid="classNetwork_1_1TransportLayer_1_1ASocket_1a98cc1b369dd9afea0f122e6f07c41caa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref><sp/><ref refid="classNetwork_1_1TransportLayer_1_1ASocket_1a98cc1b369dd9afea0f122e6f07c41caa" kindref="member">_socketFd</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>native<sp/>socket<sp/>descriptor</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="classNetwork_1_1TransportLayer_1_1ASocket_1a4438e961d347a409c9e19efdb030bae5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">sockaddr_in<sp/><ref refid="classNetwork_1_1TransportLayer_1_1ASocket_1a4438e961d347a409c9e19efdb030bae5" kindref="member">_addr</ref>;<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>bound<sp/>address/port<sp/>for<sp/>the<sp/>socket</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!ASOCKET_HPP_<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="Network/TransportLayer/ASocket.hpp"/>
+  </compounddef>
+</doxygen>

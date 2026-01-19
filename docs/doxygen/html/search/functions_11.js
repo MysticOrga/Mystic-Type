@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['udpgameserver_0',['UDPGameServer',['../classUDPGameServer.html#a0272e620fa267e7a2043b5729d24cfbc',1,'UDPGameServer']]],
-  ['udpsocket_1',['UDPSocket',['../classNetwork_1_1TransportLayer_1_1UDPSocket.html#a548052ba8e2a8caaf20a60ff8b73134d',1,'Network::TransportLayer::UDPSocket']]],
-  ['update_2',['update',['../classInputSystem.html#af7ed09c6bfd5fba6af86af16de00d706',1,'InputSystem::update()'],['../classMovementSystem.html#a57b0e4d3739f4b27ce15324b8a4d47bf',1,'MovementSystem::update()'],['../classCircleRenderSystem.html#aead45b36f0cc7ccec0004b8a9b454d07',1,'CircleRenderSystem::update()'],['../classRectangleRenderSystem.html#a92f6643f7bbedda7d15c6ea55f7407d1',1,'RectangleRenderSystem::update()'],['../classSpriteRenderSystem.html#a439243229880829d70b83b895b500495',1,'SpriteRenderSystem::update()'],['../classRtype_1_1Graphic_1_1AnimatedSprite.html#ae93338c214b783b3b9c3549c0fab7f08',1,'Rtype::Graphic::AnimatedSprite::update()']]],
-  ['updateinput_3',['updateInput',['../classGameWorld.html#ae1686bb695784eed35eb8b48713f7727',1,'GameWorld']]],
-  ['updatepong_4',['updatePong',['../classSessionManager.html#ac233a47eaa6ca5e9b69e0cb8cd377358',1,'SessionManager']]],
-  ['updateserveraddress_5',['updateServerAddress',['../classNetworkClient.html#acb108e50dae9dda5b2cef508db1dd582',1,'NetworkClient']]],
-  ['upsertbullet_6',['upsertBullet',['../classGameState.html#a23099e9050e7a20e6d1349384591b3b5',1,'GameState']]],
-  ['upsertmonster_7',['upsertMonster',['../classGameState.html#a72d25f3760e72101b6c3ddc990da3d04',1,'GameState']]],
-  ['upsertplayer_8',['upsertPlayer',['../classGameState.html#a9f034439dd565e62cb83be4ac56baba1',1,'GameState']]]
+  ['takebossdefeated_0',['takeBossDefeated',['../classGameWorld.html#a7729f2448efdc4dd6f5e77e67c20c5af',1,'GameWorld']]],
+  ['takebossspawned_1',['takeBossSpawned',['../classGameWorld.html#a6b1d4741dc5a2b5a12b844c95408390f',1,'GameWorld']]],
+  ['takenoplayers_2',['takeNoPlayers',['../classGameWorld.html#ae1abffc0a60f2c06c647e30ea89baddd',1,'GameWorld']]],
+  ['tcpserver_3',['TCPServer',['../classTCPServer.html#ad8f4ffce8b9317fc30a7cfa9e5c5442a',1,'TCPServer']]],
+  ['tcpsocket_4',['TCPSocket',['../classNetwork_1_1TransportLayer_1_1TCPSocket.html#ad12c80bc63624bdee7d22050a0ec812a',1,'Network::TransportLayer::TCPSocket']]],
+  ['text_5',['text',['../classRaylib_1_1Draw.html#adf84c6a40cd571fbbdeacf2868ab192e',1,'Raylib::Draw']]],
+  ['texture_6',['Texture',['../classRaylib_1_1Texture.html#af1b708b4c5b8d20ef2ce13e6a2fa6e16',1,'Raylib::Texture']]],
+  ['tick_7',['tick',['../classGameWorld.html#a88c3b380a238a69dc05b5a9df07621dd',1,'GameWorld']]]
 ];

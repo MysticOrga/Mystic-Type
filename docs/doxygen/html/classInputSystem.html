@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -91,6 +92,7 @@ $(document).ready(function(){initNavTree('classInputSystem.html',''); initResiza
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classInputSystem-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">InputSystem Class Reference</div></div>
 </div><!--header-->
@@ -99,7 +101,15 @@ $(document).ready(function(){initNavTree('classInputSystem.html',''); initResiza
 <p>Handles player input and keyboard key binding management.  
  <a href="classInputSystem.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="System_8hpp_source.html">System.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="System_8hpp_source.html">graphical-client/ecs/System.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for InputSystem:</div>
+<div class="dyncontent">
+<div class="center"><img src="classInputSystem__coll__graph.png" border="0" usemap="#aInputSystem_coll__map" alt="Collaboration graph"/></div>
+<map name="aInputSystem_coll__map" id="aInputSystem_coll__map">
+<area shape="rect" title="Handles player input and keyboard key binding management." alt="" coords="5,5,127,151"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -115,10 +125,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af7ed09c6bfd5fba6af86af16de00d706" id="r_af7ed09c6bfd5fba6af86af16de00d706"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputSystem.html#af7ed09c6bfd5fba6af86af16de00d706">update</a> (<a class="el" href="classNetworkClient.html">NetworkClient</a> &amp;net, const <a class="el" href="classPosition.html">Position</a> &amp;pos, <a class="el" href="classVelocity.html">Velocity</a> &amp;vel)</td></tr>
 <tr class="memdesc:af7ed09c6bfd5fba6af86af16de00d706"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates input state and sends player commands to the server.  <br /></td></tr>
 <tr class="separator:af7ed09c6bfd5fba6af86af16de00d706"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:af2085774ee25bb4c472b6e8a48b28773" id="r_af2085774ee25bb4c472b6e8a48b28773"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNetworkClient.html#af897ec3417cf4dc121accb155d7320ee">NetworkClient::MoveCmd</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputSystem.html#af2085774ee25bb4c472b6e8a48b28773">_lastDir</a> = <a class="el" href="classNetworkClient.html#af897ec3417cf4dc121accb155d7320eea92b09c7c48c520c3c55e497875da437c">NetworkClient::MoveCmd::Right</a></td></tr>
+<tr class="separator:af2085774ee25bb4c472b6e8a48b28773"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dd1e484e9025053f403fef34f5671a2" id="r_a3dd1e484e9025053f403fef34f5671a2"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; uint8_t, KeyboardKey &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classInputSystem.html#a3dd1e484e9025053f403fef34f5671a2">_keyMap</a></td></tr>
+<tr class="separator:a3dd1e484e9025053f403fef34f5671a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Handles player input and keyboard key binding management. </p>
 <p>This system manages keyboard input, detects key presses/holds, and communicates player movement and shooting commands to the server. Players can configure custom key bindings for all actions. </p>
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00041">41</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2f18d9fdb44805c63984113c1433c223" name="a2f18d9fdb44805c63984113c1433c223"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2f18d9fdb44805c63984113c1433c223">&#9670;&#160;</a></span>InputSystem()</h2>
@@ -145,6 +164,10 @@ Public Member Functions</h2></td></tr>
 
 <p>Constructor initializing default key bindings. </p>
 <p>Sets up default arrow keys for movement and A for shooting. </p>
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00050">50</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="System_8hpp_source.html#l00145">_keyMap</a>, <a class="el" href="System_8hpp_source.html#l00029">DOWN</a>, <a class="el" href="System_8hpp_source.html#l00027">LEFT</a>, <a class="el" href="System_8hpp_source.html#l00026">RIGHT</a>, <a class="el" href="System_8hpp_source.html#l00030">SHOOT</a>, and <a class="el" href="System_8hpp_source.html#l00028">UP</a>.</p>
 
 </div>
 </div>
@@ -181,6 +204,30 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The KeyboardKey currently bound to this action. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00074">74</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="System_8hpp_source.html#l00145">_keyMap</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l01328">GraphicClient::selectSettings()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classInputSystem_ac4da6a8e14e4907b0c7882e1297fea3a_icgraph.png" border="0" usemap="#aclassInputSystem_ac4da6a8e14e4907b0c7882e1297fea3a_icgraph" alt=""/></div>
+<map name="aclassInputSystem_ac4da6a8e14e4907b0c7882e1297fea3a_icgraph" id="aclassInputSystem_ac4da6a8e14e4907b0c7882e1297fea3a_icgraph">
+<area shape="rect" title="Retrieves the current key binding for an action." alt="" coords="1013,5,1171,31"/>
+<area shape="rect" href="classGraphicClient.html#a349a93e6b861365d4aaa7d7cea0d9ccf" title="Shows controls settings menu for key remapping." alt="" coords="755,5,965,31"/>
+<area shape="poly" title=" " alt="" coords="1000,21,966,21,966,15,1000,15"/>
+<area shape="rect" href="classGraphicClient.html#a2d663515d7165fbe3533e038b5b2e916" title="Shows main menu with server connection options." alt="" coords="481,5,707,31"/>
+<area shape="poly" title=" " alt="" coords="741,21,707,21,707,15,741,15"/>
+<area shape="rect" href="classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="295,5,433,31"/>
+<area shape="poly" title=" " alt="" coords="467,21,434,21,434,15,467,15"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,5,247,31"/>
+<area shape="poly" title=" " alt="" coords="281,21,247,21,247,15,281,15"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -226,6 +273,30 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00064">64</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="System_8hpp_source.html#l00145">_keyMap</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l01328">GraphicClient::selectSettings()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classInputSystem_ab584f9708fa5b2c909a96a698980f682_icgraph.png" border="0" usemap="#aclassInputSystem_ab584f9708fa5b2c909a96a698980f682_icgraph" alt=""/></div>
+<map name="aclassInputSystem_ab584f9708fa5b2c909a96a698980f682_icgraph" id="aclassInputSystem_ab584f9708fa5b2c909a96a698980f682_icgraph">
+<area shape="rect" title="Sets a custom key binding for a specific action." alt="" coords="1013,5,1169,31"/>
+<area shape="rect" href="classGraphicClient.html#a349a93e6b861365d4aaa7d7cea0d9ccf" title="Shows controls settings menu for key remapping." alt="" coords="755,5,965,31"/>
+<area shape="poly" title=" " alt="" coords="1000,21,966,21,966,15,1000,15"/>
+<area shape="rect" href="classGraphicClient.html#a2d663515d7165fbe3533e038b5b2e916" title="Shows main menu with server connection options." alt="" coords="481,5,707,31"/>
+<area shape="poly" title=" " alt="" coords="741,21,707,21,707,15,741,15"/>
+<area shape="rect" href="classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="295,5,433,31"/>
+<area shape="poly" title=" " alt="" coords="467,21,434,21,434,15,467,15"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,5,247,31"/>
+<area shape="poly" title=" " alt="" coords="281,21,247,21,247,15,281,15"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -279,6 +350,106 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00090">90</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="System_8hpp_source.html#l00145">_keyMap</a>, <a class="el" href="System_8hpp_source.html#l00144">_lastDir</a>, <a class="el" href="System_8hpp_source.html#l00029">DOWN</a>, <a class="el" href="classNetworkClient.html#af897ec3417cf4dc121accb155d7320eea08a38277b0309070706f6652eeae9a53">NetworkClient::Down</a>, <a class="el" href="Raylib_8cpp_source.html#l00073">Raylib::Input::isKeyDown()</a>, <a class="el" href="Raylib_8cpp_source.html#l00074">Raylib::Input::isKeyPressed()</a>, <a class="el" href="System_8hpp_source.html#l00027">LEFT</a>, <a class="el" href="classNetworkClient.html#af897ec3417cf4dc121accb155d7320eea945d5e233cf7d6240f6b783b36a374ff">NetworkClient::Left</a>, <a class="el" href="System_8hpp_source.html#l00026">RIGHT</a>, <a class="el" href="classNetworkClient.html#af897ec3417cf4dc121accb155d7320eea92b09c7c48c520c3c55e497875da437c">NetworkClient::Right</a>, <a class="el" href="NetworkClient_8cpp_source.html#l00123">NetworkClient::sendInput()</a>, <a class="el" href="NetworkClient_8cpp_source.html#l00137">NetworkClient::sendShoot()</a>, <a class="el" href="System_8hpp_source.html#l00030">SHOOT</a>, <a class="el" href="System_8hpp_source.html#l00028">UP</a>, <a class="el" href="classNetworkClient.html#af897ec3417cf4dc121accb155d7320eea258f49887ef8d14ac268c92b02503aaa">NetworkClient::Up</a>, <a class="el" href="Components_8hpp_source.html#l00069">Velocity::vx</a>, <a class="el" href="Components_8hpp_source.html#l00070">Velocity::vy</a>, <a class="el" href="Components_8hpp_source.html#l00026">Position::x</a>, and <a class="el" href="Components_8hpp_source.html#l00027">Position::y</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l00371">GraphicClient::updateEntities()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classInputSystem_af7ed09c6bfd5fba6af86af16de00d706_cgraph.png" border="0" usemap="#aclassInputSystem_af7ed09c6bfd5fba6af86af16de00d706_cgraph" alt=""/></div>
+<map name="aclassInputSystem_af7ed09c6bfd5fba6af86af16de00d706_cgraph" id="aclassInputSystem_af7ed09c6bfd5fba6af86af16de00d706_cgraph">
+<area shape="rect" title="Updates input state and sends player commands to the server." alt="" coords="5,80,163,105"/>
+<area shape="rect" href="classRaylib_1_1Input.html#a4cd5c6122b4771997efbb9ef2d3c4771" title="Checks if a key is currently pressed down." alt="" coords="218,5,402,31"/>
+<area shape="poly" title=" " alt="" coords="113,77,210,39,237,32,238,37,212,45,115,82"/>
+<area shape="rect" href="classRaylib_1_1Input.html#a77b20ab7de1540d7cc5c18f71b137a12" title="Checks if a key was just pressed this frame." alt="" coords="211,55,409,80"/>
+<area shape="poly" title=" " alt="" coords="163,81,197,77,197,83,163,87"/>
+<area shape="rect" href="classNetworkClient.html#afdfce51c7dbb2e61f5e9280b15368915" title="Send player input over UDP." alt="" coords="217,104,403,129"/>
+<area shape="poly" title=" " alt="" coords="163,98,203,103,203,108,163,104"/>
+<area shape="rect" href="classNetworkClient.html#a2773882369d758cbb23aa67b0dda78ed" title="Send a shoot command over UDP." alt="" coords="215,153,405,179"/>
+<area shape="poly" title=" " alt="" coords="117,103,212,138,243,147,241,152,210,143,115,108"/>
+<area shape="rect" href="classNetworkClient.html#a6c612ab362cc3e4ea8c94ebc2cddc4e6" title=" " alt="" coords="457,129,680,155"/>
+<area shape="poly" title=" " alt="" coords="404,123,444,127,444,132,403,128"/>
+<area shape="rect" href="classNetworkClient.html#aaf60f1216a17b46ad12539625a1022c2" title=" " alt="" coords="741,80,910,105"/>
+<area shape="poly" title=" " alt="" coords="635,127,745,105,746,111,636,132"/>
+<area shape="rect" href="classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="762,129,889,155"/>
+<area shape="poly" title=" " alt="" coords="680,139,748,139,748,145,680,145"/>
+<area shape="rect" href="classNetworkClient.html#a36892dcdc8c2523b27947a347ea16022" title=" " alt="" coords="728,179,923,219"/>
+<area shape="poly" title=" " alt="" coords="627,152,723,174,721,179,626,157"/>
+<area shape="poly" title=" " alt="" coords="405,155,444,151,444,156,406,160"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classInputSystem_af7ed09c6bfd5fba6af86af16de00d706_icgraph.png" border="0" usemap="#aclassInputSystem_af7ed09c6bfd5fba6af86af16de00d706_icgraph" alt=""/></div>
+<map name="aclassInputSystem_af7ed09c6bfd5fba6af86af16de00d706_icgraph" id="aclassInputSystem_af7ed09c6bfd5fba6af86af16de00d706_icgraph">
+<area shape="rect" title="Updates input state and sends player commands to the server." alt="" coords="789,5,947,31"/>
+<area shape="rect" href="classGraphicClient.html#a50072266faf2e76ace99e16c4c7b208a" title="Updates all game entities based on delta time." alt="" coords="529,5,741,31"/>
+<area shape="poly" title=" " alt="" coords="775,21,741,21,741,15,775,15"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,5,481,31"/>
+<area shape="poly" title=" " alt="" coords="516,21,482,21,482,15,516,15"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,5,247,31"/>
+<area shape="poly" title=" " alt="" coords="281,21,247,21,247,15,281,15"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3dd1e484e9025053f403fef34f5671a2" name="a3dd1e484e9025053f403fef34f5671a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dd1e484e9025053f403fef34f5671a2">&#9670;&#160;</a></span>_keyMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;uint8_t, KeyboardKey&gt; InputSystem::_keyMap</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00145">145</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="System_8hpp_source.html#l00074">getKey()</a>, <a class="el" href="System_8hpp_source.html#l00050">InputSystem()</a>, <a class="el" href="System_8hpp_source.html#l00064">setKey()</a>, and <a class="el" href="System_8hpp_source.html#l00090">update()</a>.</p>
+
+</div>
+</div>
+<a id="af2085774ee25bb4c472b6e8a48b28773" name="af2085774ee25bb4c472b6e8a48b28773"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2085774ee25bb4c472b6e8a48b28773">&#9670;&#160;</a></span>_lastDir</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNetworkClient.html#af897ec3417cf4dc121accb155d7320ee">NetworkClient::MoveCmd</a> InputSystem::_lastDir = <a class="el" href="classNetworkClient.html#af897ec3417cf4dc121accb155d7320eea92b09c7c48c520c3c55e497875da437c">NetworkClient::MoveCmd::Right</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00144">144</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="System_8hpp_source.html#l00090">update()</a>.</p>
 
 </div>
 </div>

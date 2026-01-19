@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_f8129dbd3ae2d3b72ab062d666ff244a" kind="dir">
+    <compoundname>graphical-client/ecs</compoundname>
+    <innerfile refid="Components_8hpp">Components.hpp</innerfile>
+    <innerfile refid="Core_8hpp">Core.hpp</innerfile>
+    <innerfile refid="System_8hpp">System.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="graphical-client/ecs/"/>
+  </compounddef>
+</doxygen>

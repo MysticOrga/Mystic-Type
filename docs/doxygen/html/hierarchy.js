@@ -7,6 +7,7 @@ var hierarchy =
     [ "ChildProcessManager", "classChildProcessManager.html", null ],
     [ "CircleComponent", "classCircleComponent.html", null ],
     [ "CircleRenderSystem", "classCircleRenderSystem.html", null ],
+    [ "TCPServer::Client", "structTCPServer_1_1Client.html", null ],
     [ "Raylib::Draw", "classRaylib_1_1Draw.html", null ],
     [ "ECS", "classECS.html", null ],
     [ "GameState", "classGameState.html", null ],
@@ -15,15 +16,18 @@ var hierarchy =
     [ "IComponentArray", "classIComponentArray.html", [
       [ "ComponentArray< T >", "classComponentArray.html", null ]
     ] ],
+    [ "UDPGameServer::Incoming", "structUDPGameServer_1_1Incoming.html", null ],
     [ "Raylib::Input", "classRaylib_1_1Input.html", null ],
     [ "InputSystem", "classInputSystem.html", null ],
     [ "IpcChannel", "classIpcChannel.html", null ],
     [ "Network::TransportLayer::ISocket", "classNetwork_1_1TransportLayer_1_1ISocket.html", [
       [ "Network::TransportLayer::ASocket", "classNetwork_1_1TransportLayer_1_1ASocket.html", [
         [ "Network::TransportLayer::TCPSocket", "classNetwork_1_1TransportLayer_1_1TCPSocket.html", null ],
-        [ "Network::TransportLayer::UDPSocket", "classNetwork_1_1TransportLayer_1_1UDPSocket.html", null ]
+        [ "Network::TransportLayer::UDPSocket", "classNetwork_1_1TransportLayer_1_1UDPSocket.html", null ],
+        [ "Network::TransportLayer::UnixSocket", "classNetwork_1_1TransportLayer_1_1UnixSocket.html", null ]
       ] ]
     ] ],
+    [ "TCPServer::LobbyInfo", "structTCPServer_1_1LobbyInfo.html", null ],
     [ "GameWorld::MonsterState", "structGameWorld_1_1MonsterState.html", null ],
     [ "MonsterState", "structMonsterState.html", null ],
     [ "MovementSystem", "classMovementSystem.html", null ],

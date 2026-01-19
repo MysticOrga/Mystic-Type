@@ -1,0 +1,5 @@
+<map id="Raylib::Draw::circle" name="Raylib::Draw::circle">
+<area shape="rect" id="Node000001" title="Draws a filled circle." alt="" coords="208,13,355,38"/>
+<area shape="rect" id="Node000002" href="$classCircleRenderSystem.html#aead45b36f0cc7ccec0004b8a9b454d07" title="Renders a circle entity to the screen." alt="" coords="5,5,160,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="194,28,160,28,160,23,194,23"/>
+</map>

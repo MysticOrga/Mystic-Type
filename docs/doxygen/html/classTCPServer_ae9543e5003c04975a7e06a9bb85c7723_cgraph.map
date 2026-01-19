@@ -1,0 +1,11 @@
+<map id="TCPServer::receivePacket" name="TCPServer::receivePacket">
+<area shape="rect" id="Node000001" title="Receive and parse a packet from a client socket." alt="" coords="5,31,192,56"/>
+<area shape="rect" id="Node000002" href="$namespaceProtocol.html#ad768525ca5f0324a5f414440e67679b6" title="Append newly read bytes then attempt extraction." alt="" coords="240,5,423,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="192,31,226,27,227,32,193,36"/>
+<area shape="rect" id="Node000005" href="$classTCPServer.html#a00011973e407cab03dde7c74a4c65949" title="Read raw bytes from a socket fd." alt="" coords="261,55,402,80"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="193,50,247,56,247,61,192,56"/>
+<area shape="rect" id="Node000003" href="$namespaceProtocol.html#a10005c44787f8de2a0e42d395aff8baa" title="Try to extract a complete packet from an accumulated stream buffer." alt="" coords="471,5,672,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="423,15,457,15,457,21,423,21"/>
+<area shape="rect" id="Node000004" href="$classPacket.html#abfcd427a2ca434ac71592334517638fb" title="Deserialize a packet from a raw byte buffer." alt="" coords="720,5,863,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="672,15,706,15,706,21,672,21"/>
+</map>

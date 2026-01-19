@@ -1,0 +1,15 @@
+<map id="TCPServer::ensureLobbyProcess" name="TCPServer::ensureLobbyProcess">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1031,31,1260,56"/>
+<area shape="rect" id="Node000002" href="$classTCPServer.html#a84035146c9257be5714850a1f46d0bfb" title="Assign a client to a lobby (public or private)." alt="" coords="805,31,983,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1017,46,983,46,983,41,1017,41"/>
+<area shape="rect" id="Node000003" href="$classTCPServer.html#ad6bed785945fc2f21376ff2b58090829" title="Auto&#45;match the client into a public lobby." alt="" coords="543,5,750,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="791,36,750,31,750,26,792,30"/>
+<area shape="rect" id="Node000004" href="$classTCPServer.html#afd78aa179d3b735e82868d800629b354" title="Handle lobby&#45;related packets for a client." alt="" coords="536,55,757,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="792,56,758,59,757,54,791,51"/>
+<area shape="rect" id="Node000005" href="$classTCPServer.html#ada05a61182a782b4d3326fabd26a19bf" title="Read and handle data for a single client." alt="" coords="273,55,488,80"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="523,70,488,70,488,65,523,65"/>
+<area shape="rect" id="Node000006" href="$classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3" title="Run the main accept/receive loop (blocking)." alt="" coords="108,55,225,80"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="260,70,225,70,225,65,260,65"/>
+<area shape="rect" id="Node000007" href="$server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,55,60,80"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="94,70,60,70,60,65,94,65"/>
+</map>

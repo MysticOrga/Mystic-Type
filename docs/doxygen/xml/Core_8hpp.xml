@@ -1,0 +1,332 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="Core_8hpp" kind="file" language="C++">
+    <compoundname>Core.hpp</compoundname>
+    <includes local="no">bitset</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">unordered_map</includes>
+    <includes local="no">typeindex</includes>
+    <includes local="no">memory</includes>
+    <includedby refid="GraphicClient_8hpp" local="yes">graphical-client/GraphicClient/GraphicClient.hpp</includedby>
+    <includedby refid="System_8hpp" local="yes">graphical-client/ecs/System.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>graphical-client/ecs/Core.hpp</label>
+        <link refid="Core_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>bitset</label>
+      </node>
+      <node id="6">
+        <label>memory</label>
+      </node>
+      <node id="5">
+        <label>typeindex</label>
+      </node>
+      <node id="4">
+        <label>unordered_map</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/client.cpp</label>
+        <link refid="client_8cpp"/>
+      </node>
+      <node id="4">
+        <label>graphical-client/GraphicClient/GraphicClient.cpp</label>
+        <link refid="GraphicClient_8cpp"/>
+      </node>
+      <node id="2">
+        <label>graphical-client/GraphicClient/GraphicClient.hpp</label>
+        <link refid="GraphicClient_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>graphical-client/ecs/Core.hpp</label>
+        <link refid="Core_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>graphical-client/ecs/System.hpp</label>
+        <link refid="System_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classIComponentArray" prot="public">IComponentArray</innerclass>
+    <innerclass refid="classComponentArray" prot="public">ComponentArray</innerclass>
+    <innerclass refid="classECS" prot="public">ECS</innerclass>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" prot="public" static="no">
+        <type>uint32_t</type>
+        <definition>using Entity =  uint32_t</definition>
+        <argsstring></argsstring>
+        <name>Entity</name>
+        <briefdescription>
+<para>Entity identifier type. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="27" column="1" bodyfile="graphical-client/ecs/Core.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="Core_8hpp_1aeb9b9235190f907fe8b0994938dd2807" prot="public" static="no">
+        <type>std::bitset&lt; <ref refid="Core_8hpp_1a5b372ace64eb5b0434478550dab30091" kindref="member">MAX_COMPONENTS</ref> &gt;</type>
+        <definition>using Signature =  std::bitset&lt;MAX_COMPONENTS&gt;</definition>
+        <argsstring></argsstring>
+        <name>Signature</name>
+        <briefdescription>
+<para>Bitset representing which component types an entity has. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="32" column="1" bodyfile="graphical-client/ecs/Core.hpp" bodystart="32" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="var">
+      <memberdef kind="variable" id="Core_8hpp_1adc1f779412b3f14b77821cb39cdbb9da" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int MAX_ENTITIES</definition>
+        <argsstring></argsstring>
+        <name>MAX_ENTITIES</name>
+        <initializer>= 5000</initializer>
+        <briefdescription>
+<para>Maximum number of entities in the <ref refid="classECS" kindref="compound">ECS</ref> system. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="17" column="11" bodyfile="graphical-client/ecs/Core.hpp" bodystart="17" bodyend="-1"/>
+        <referencedby refid="classECS_1a7fba8bcfbb8d238085ab7302d96a332f" compoundref="Core_8hpp" startline="92" endline="94">ECS::ECS</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="Core_8hpp_1a5b372ace64eb5b0434478550dab30091" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int MAX_COMPONENTS</definition>
+        <argsstring></argsstring>
+        <name>MAX_COMPONENTS</name>
+        <initializer>= 32</initializer>
+        <briefdescription>
+<para>Maximum number of component types in the <ref refid="classECS" kindref="compound">ECS</ref> system. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="22" column="11" bodyfile="graphical-client/ecs/Core.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">**<sp/>EPITECH<sp/>PROJECT,<sp/>2025</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">**<sp/>rtype</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">**<sp/>File<sp/>description:</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">**<sp/>Core</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;bitset&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;typeindex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">*<sp/>@brief<sp/>Maximum<sp/>number<sp/>of<sp/>entities<sp/>in<sp/>the<sp/>ECS<sp/>system.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="Core_8hpp_1adc1f779412b3f14b77821cb39cdbb9da" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="Core_8hpp_1adc1f779412b3f14b77821cb39cdbb9da" kindref="member">MAX_ENTITIES</ref><sp/>=<sp/>5000;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="19"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">*<sp/>@brief<sp/>Maximum<sp/>number<sp/>of<sp/>component<sp/>types<sp/>in<sp/>the<sp/>ECS<sp/>system.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="Core_8hpp_1a5b372ace64eb5b0434478550dab30091" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="Core_8hpp_1a5b372ace64eb5b0434478550dab30091" kindref="member">MAX_COMPONENTS</ref><sp/>=<sp/>32;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="24"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="25"><highlight class="comment">*<sp/>@brief<sp/>Entity<sp/>identifier<sp/>type.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref><sp/>=<sp/>uint32_t;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="29"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="30"><highlight class="comment">*<sp/>@brief<sp/>Bitset<sp/>representing<sp/>which<sp/>component<sp/>types<sp/>an<sp/>entity<sp/>has.</highlight></codeline>
+<codeline lineno="31"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="Core_8hpp_1aeb9b9235190f907fe8b0994938dd2807" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="Core_8hpp_1aeb9b9235190f907fe8b0994938dd2807" kindref="member">Signature</ref><sp/>=<sp/>std::bitset&lt;MAX_COMPONENTS&gt;;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="34"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="35"><highlight class="comment">*<sp/>@class<sp/>IComponentArray</highlight></codeline>
+<codeline lineno="36"><highlight class="comment">*<sp/>@brief<sp/>Abstract<sp/>base<sp/>class<sp/>for<sp/>type-erased<sp/>component<sp/>storage.</highlight></codeline>
+<codeline lineno="37"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="38"><highlight class="comment">*<sp/>Provides<sp/>a<sp/>common<sp/>interface<sp/>for<sp/>different<sp/>component<sp/>array<sp/>types.</highlight></codeline>
+<codeline lineno="39"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="classIComponentArray" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classIComponentArray" kindref="compound">IComponentArray</ref><sp/>{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="42" refid="classIComponentArray_1a62d9c4e88931d5e885aaaf0e37a73600" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classIComponentArray_1a62d9c4e88931d5e885aaaf0e37a73600" kindref="member">~IComponentArray</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="45"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="46"><highlight class="comment">*<sp/>@class<sp/>ComponentArray</highlight></codeline>
+<codeline lineno="47"><highlight class="comment">*<sp/>@brief<sp/>Template<sp/>for<sp/>storing<sp/>components<sp/>of<sp/>a<sp/>specific<sp/>type.</highlight></codeline>
+<codeline lineno="48"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="49"><highlight class="comment">*<sp/>@tparam<sp/>T<sp/>The<sp/>component<sp/>type<sp/>to<sp/>store.</highlight></codeline>
+<codeline lineno="50"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="52" refid="classComponentArray" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classComponentArray" kindref="compound">ComponentArray</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="classIComponentArray" kindref="compound">IComponentArray</ref><sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="54" refid="classComponentArray_1a0adfaa99a57603c36378543459df8823" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;T&gt;<sp/><ref refid="classComponentArray_1a0adfaa99a57603c36378543459df8823" kindref="member">data</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Actual<sp/>component<sp/>data<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="classComponentArray_1a224946b56e9b2c9b1e20efd7dd83c3d5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;Entity&gt;<sp/><ref refid="classComponentArray_1a224946b56e9b2c9b1e20efd7dd83c3d5" kindref="member">entities</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Associated<sp/>entity<sp/>IDs<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Adds<sp/>or<sp/>updates<sp/>a<sp/>component<sp/>for<sp/>an<sp/>entity.</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>e<sp/>The<sp/>entity<sp/>ID.</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>component<sp/>The<sp/>component<sp/>to<sp/>add.</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="classComponentArray_1a37f484a9d2b6716e2facff9eabe1bb64" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classComponentArray_1a37f484a9d2b6716e2facff9eabe1bb64" kindref="member">add</ref>(<ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref><sp/>e,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;<sp/>component)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(e<sp/>&gt;=<sp/><ref refid="classComponentArray_1a0adfaa99a57603c36378543459df8823" kindref="member">data</ref>.size())<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classComponentArray_1a0adfaa99a57603c36378543459df8823" kindref="member">data</ref>.resize(e<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classComponentArray_1a224946b56e9b2c9b1e20efd7dd83c3d5" kindref="member">entities</ref>.resize(e<sp/>+<sp/>1);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classComponentArray_1a0adfaa99a57603c36378543459df8823" kindref="member">data</ref>[e]<sp/>=<sp/>component;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classComponentArray_1a224946b56e9b2c9b1e20efd7dd83c3d5" kindref="member">entities</ref>[e]<sp/>=<sp/>e;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Retrieves<sp/>a<sp/>component<sp/>for<sp/>an<sp/>entity.</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>e<sp/>The<sp/>entity<sp/>ID.</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>Reference<sp/>to<sp/>the<sp/>component.</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="classComponentArray_1a6e65e2943bae84c59bd936fca2214635" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>T&amp;<sp/><ref refid="classComponentArray_1a6e65e2943bae84c59bd936fca2214635" kindref="member">get</ref>(<ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref><sp/>e)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classComponentArray_1a0adfaa99a57603c36378543459df8823" kindref="member">data</ref>[e];</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="81"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="82"><highlight class="comment">*<sp/>@class<sp/>ECS</highlight></codeline>
+<codeline lineno="83"><highlight class="comment">*<sp/>@brief<sp/>Entity<sp/>Component<sp/>System<sp/>implementation.</highlight></codeline>
+<codeline lineno="84"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="85"><highlight class="comment">*<sp/>Manages<sp/>entities,<sp/>components,<sp/>and<sp/>their<sp/>associations<sp/>using<sp/>a<sp/>data-oriented<sp/>architecture.</highlight></codeline>
+<codeline lineno="86"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="classECS" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classECS" kindref="compound">ECS</ref><sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Constructor<sp/>initializing<sp/>entity<sp/>signatures.</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="classECS_1a7fba8bcfbb8d238085ab7302d96a332f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classECS_1a7fba8bcfbb8d238085ab7302d96a332f" kindref="member">ECS</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classECS_1a5cf70fd9d3ef94f40bd61beafe2de8bc" kindref="member">signatures</ref>.resize(<ref refid="Core_8hpp_1adc1f779412b3f14b77821cb39cdbb9da" kindref="member">MAX_ENTITIES</ref>);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Creates<sp/>a<sp/>new<sp/>entity.</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>The<sp/>ID<sp/>of<sp/>the<sp/>newly<sp/>created<sp/>entity.</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100" refid="classECS_1a41b876f3725cbb04aac3f2edd95522c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref><sp/><ref refid="classECS_1a41b876f3725cbb04aac3f2edd95522c6" kindref="member">createEntity</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref><sp/><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">next</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">next</ref>++;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Adds<sp/>a<sp/>component<sp/>to<sp/>an<sp/>entity.</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@tparam<sp/>T<sp/>The<sp/>component<sp/>type.</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>e<sp/>The<sp/>entity<sp/>ID.</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>c<sp/>The<sp/>component<sp/>instance.</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="112" refid="classECS_1a4fbe0d70b0934255d301ced9df6287e7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classECS_1a4fbe0d70b0934255d301ced9df6287e7" kindref="member">addComponent</ref>(<ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref><sp/><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">e</ref>,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">T</ref>&amp;<sp/><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">c</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::type_index<sp/>type<sp/>=<sp/></highlight><highlight class="keyword">typeid</highlight><highlight class="normal">(<ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">T</ref>);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="classECS_1a6819919da90f31fea50d2b290ba724c8" kindref="member">storages</ref>.count(type))<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classECS_1a6819919da90f31fea50d2b290ba724c8" kindref="member">storages</ref>[type]<sp/>=<sp/>std::make_unique&lt;ComponentArray&lt;T&gt;&gt;();</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal">*<sp/><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">storage</ref><sp/>=<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="classComponentArray" kindref="compound">ComponentArray&lt;T&gt;</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<ref refid="classECS_1a6819919da90f31fea50d2b290ba724c8" kindref="member">storages</ref>[type].get());</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">storage</ref>-&gt;<ref refid="classComponentArray_1a37f484a9d2b6716e2facff9eabe1bb64" kindref="member">add</ref>(<ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">e</ref>,<sp/><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">c</ref>);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classECS_1a5cf70fd9d3ef94f40bd61beafe2de8bc" kindref="member">signatures</ref>[<ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">e</ref>].set(<ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">getComponentTypeIndex&lt;T&gt;</ref>());</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Retrieves<sp/>a<sp/>component<sp/>from<sp/>an<sp/>entity.</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@tparam<sp/>T<sp/>The<sp/>component<sp/>type.</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>e<sp/>The<sp/>entity<sp/>ID.</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>Reference<sp/>to<sp/>the<sp/>component.</highlight></codeline>
+<codeline lineno="129"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="131" refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">T</ref>&amp;<sp/><ref refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" kindref="member">getComponent</ref>(<ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref><sp/><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">e</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="classComponentArray" kindref="compound">ComponentArray&lt;T&gt;</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<ref refid="classECS_1a6819919da90f31fea50d2b290ba724c8" kindref="member">storages</ref>[</highlight><highlight class="keyword">typeid</highlight><highlight class="normal">(<ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">T</ref>)].get())-&gt;get(<ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">e</ref>);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Checks<sp/>if<sp/>an<sp/>entity<sp/>has<sp/>a<sp/>specific<sp/>component<sp/>type.</highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@tparam<sp/>T<sp/>The<sp/>component<sp/>type.</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>e<sp/>The<sp/>entity<sp/>ID.</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>True<sp/>if<sp/>entity<sp/>has<sp/>component,<sp/>false<sp/>otherwise.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="142" refid="classECS_1a33c16853296e9784dfb558f35dffbd72" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classECS_1a33c16853296e9784dfb558f35dffbd72" kindref="member">hasComponent</ref>(<ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref><sp/><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">e</ref>)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">idx</ref><sp/>=<sp/></highlight><highlight class="keyword">const_cast&lt;</highlight><highlight class="normal"><ref refid="classECS" kindref="compound">ECS</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(</highlight><highlight class="keyword">this</highlight><highlight class="normal">)-&gt;<ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">getComponentTypeIndex&lt;T&gt;</ref>();</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">e</ref><sp/>&gt;=<sp/><ref refid="classECS_1a5cf70fd9d3ef94f40bd61beafe2de8bc" kindref="member">signatures</ref>.size())</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classECS_1a5cf70fd9d3ef94f40bd61beafe2de8bc" kindref="member">signatures</ref>[<ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">e</ref>].test(<ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">idx</ref>);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Retrieves<sp/>all<sp/>components<sp/>of<sp/>a<sp/>specific<sp/>type.</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@tparam<sp/>T<sp/>The<sp/>component<sp/>type.</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>Reference<sp/>to<sp/>the<sp/>vector<sp/>of<sp/>all<sp/>components<sp/>of<sp/>this<sp/>type.</highlight></codeline>
+<codeline lineno="153"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="155" refid="classECS_1ac35029e74e4944f3007c3ddcdd45b2e9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;T&gt;&amp;<sp/><ref refid="classECS_1ac35029e74e4944f3007c3ddcdd45b2e9" kindref="member">getAllComponents</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal"><ref refid="classComponentArray" kindref="compound">ComponentArray&lt;T&gt;</ref>*</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(<ref refid="classECS_1a6819919da90f31fea50d2b290ba724c8" kindref="member">storages</ref>[</highlight><highlight class="keyword">typeid</highlight><highlight class="normal">(<ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">T</ref>)].get())-&gt;data;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Gets<sp/>the<sp/>type<sp/>index<sp/>for<sp/>a<sp/>component<sp/>type.</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@tparam<sp/>T<sp/>The<sp/>component<sp/>type.</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>Unique<sp/>type<sp/>index<sp/>for<sp/>this<sp/>component.</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal">&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;</highlight></codeline>
+<codeline lineno="165" refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">getComponentTypeIndex</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>index<sp/>=<sp/><ref refid="classECS_1adcdcf4b06b3d85845ea113de96fd29c0" kindref="member">nextComponentIndex</ref>++;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>index;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="170"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="171"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Gets<sp/>the<sp/>signature<sp/>of<sp/>an<sp/>entity.</highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>e<sp/>The<sp/>entity<sp/>ID.</highlight></codeline>
+<codeline lineno="173"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>The<sp/>entity&apos;s<sp/>component<sp/>signature.</highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175" refid="classECS_1a11aacce5459a5ce429ea8d181bb4ddc3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Core_8hpp_1aeb9b9235190f907fe8b0994938dd2807" kindref="member">Signature</ref><sp/><ref refid="classECS_1a11aacce5459a5ce429ea8d181bb4ddc3" kindref="member">getSignature</ref>(<ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref><sp/><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">e</ref>)</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classECS_1a5cf70fd9d3ef94f40bd61beafe2de8bc" kindref="member">signatures</ref>[<ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">e</ref>];</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="180" refid="classECS_1a5cf70fd9d3ef94f40bd61beafe2de8bc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;Signature&gt;<sp/><ref refid="classECS_1a5cf70fd9d3ef94f40bd61beafe2de8bc" kindref="member">signatures</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Entity<sp/>component<sp/>signatures<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181" refid="classECS_1a6819919da90f31fea50d2b290ba724c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;std::type_index,<sp/>std::unique_ptr&lt;IComponentArray&gt;&gt;<sp/><ref refid="classECS_1a6819919da90f31fea50d2b290ba724c8" kindref="member">storages</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Component<sp/>storages<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182" refid="classECS_1adcdcf4b06b3d85845ea113de96fd29c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="classECS_1adcdcf4b06b3d85845ea113de96fd29c0" kindref="member">nextComponentIndex</ref><sp/>=<sp/>0;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Next<sp/>available<sp/>component<sp/>type<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="graphical-client/ecs/Core.hpp"/>
+  </compounddef>
+</doxygen>

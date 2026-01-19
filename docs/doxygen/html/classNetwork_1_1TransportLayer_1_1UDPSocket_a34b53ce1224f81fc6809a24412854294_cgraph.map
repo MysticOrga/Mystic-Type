@@ -1,0 +1,5 @@
+<map id="Network::TransportLayer::UDPSocket::readByte" name="Network::TransportLayer::UDPSocket::readByte">
+<area shape="rect" id="Node000001" title="Read bytes from the UDP socket." alt="" coords="5,5,187,45"/>
+<area shape="rect" id="Node000002" href="$classNetwork_1_1TransportLayer_1_1ASocket.html#a50cace88b622aa442d901434ecc33bd8" title="Check the socket state for read, write, or exception." alt="" coords="235,5,416,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,23,221,23,221,28,187,28"/>
+</map>

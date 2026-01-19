@@ -1,14 +1,18 @@
 var searchData=
 [
-  ['main_0',['main',['../server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;server.cpp'],['../client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;client.cpp'],['../game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;game.cpp']]],
-  ['max_5fclient_1',['MAX_CLIENT',['../TCPServer_8hpp.html#ab8ba2d8f79af5ca38005742bbc29a927',1,'TCPServer.hpp']]],
-  ['max_5fcomponents_2',['MAX_COMPONENTS',['../Core_8hpp.html#a5b372ace64eb5b0434478550dab30091',1,'Core.hpp']]],
-  ['max_5fentities_3',['MAX_ENTITIES',['../Core_8hpp.html#adc1f779412b3f14b77821cb39cdbb9da',1,'Core.hpp']]],
-  ['maxcount_4',['maxCount',['../classChildProcessManager.html#a3b7c34be0f81b8a841d4ecd28a837bf6',1,'ChildProcessManager']]],
-  ['message_5',['MESSAGE',['../Packet_8hpp.html#a0628f13bcd4685c7a4b4a9f1aad83b56a90791ed805bd5b00d78527d39d9ef7e4',1,'Packet.hpp']]],
-  ['monsterkind_6',['MonsterKind',['../classGameWorld.html#af3c04dc6f6e4211cd6007390bee1d9a7',1,'GameWorld']]],
-  ['monsterstate_7',['monsterstate',['../structGameWorld_1_1MonsterState.html',1,'GameWorld::MonsterState'],['../structMonsterState.html',1,'MonsterState']]],
-  ['movecmd_8',['MoveCmd',['../classNetworkClient.html#af897ec3417cf4dc121accb155d7320ee',1,'NetworkClient']]],
-  ['movementsystem_9',['MovementSystem',['../classMovementSystem.html',1,'']]],
-  ['mystic_20type_10',['Mystic-Type',['../index.html',1,'']]]
+  ['macos_0',['macos',['../index.html#autotoc_md8',1,'macOS'],['../index.html#autotoc_md4',1,'macOS']]],
+  ['main_1',['main',['../server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;server.cpp'],['../game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;game.cpp'],['../client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;client.cpp']]],
+  ['makeidpacket_2',['makeIdPacket',['../classTCPServer.html#a13efa1ebda8d0f4c99eae65d6b012b75',1,'TCPServer']]],
+  ['makelobbypacket_3',['makeLobbyPacket',['../classTCPServer.html#ae45d63761257c84a68a96c24541c13e4',1,'TCPServer']]],
+  ['makestringpacket_4',['makeStringPacket',['../classTCPServer.html#a35b89efbda16dd8af6b7ff45b6da036d',1,'TCPServer']]],
+  ['max_5fclient_5',['MAX_CLIENT',['../TCPServer_8hpp.html#ab8ba2d8f79af5ca38005742bbc29a927',1,'TCPServer.hpp']]],
+  ['max_5fcomponents_6',['MAX_COMPONENTS',['../Core_8hpp.html#a5b372ace64eb5b0434478550dab30091',1,'Core.hpp']]],
+  ['max_5fentities_7',['MAX_ENTITIES',['../Core_8hpp.html#adc1f779412b3f14b77821cb39cdbb9da',1,'Core.hpp']]],
+  ['maxcount_8',['maxCount',['../classChildProcessManager.html#a3b7c34be0f81b8a841d4ecd28a837bf6',1,'ChildProcessManager']]],
+  ['message_9',['MESSAGE',['../Packet_8hpp.html#a0628f13bcd4685c7a4b4a9f1aad83b56a90791ed805bd5b00d78527d39d9ef7e4',1,'Packet.hpp']]],
+  ['monsterkind_10',['MonsterKind',['../classGameWorld.html#af3c04dc6f6e4211cd6007390bee1d9a7',1,'GameWorld']]],
+  ['monsterstate_11',['monsterstate',['../structGameWorld_1_1MonsterState.html',1,'GameWorld::MonsterState'],['../structMonsterState.html',1,'MonsterState']]],
+  ['movecmd_12',['MoveCmd',['../classNetworkClient.html#af897ec3417cf4dc121accb155d7320ee',1,'NetworkClient']]],
+  ['movementsystem_13',['MovementSystem',['../classMovementSystem.html',1,'']]],
+  ['mystic_20type_14',['Mystic-Type',['../index.html',1,'']]]
 ];

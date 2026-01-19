@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_8caf3a053e0342ebb07dad232101334b" kind="dir">
+    <compoundname>Network/TransportLayer</compoundname>
+    <innerdir refid="dir_d861678bcbc44ffd8ef6a1bdec10e3b5">Network/TransportLayer/TCP</innerdir>
+    <innerdir refid="dir_631dafc6a1249c23d7cf438c9d57fdf2">Network/TransportLayer/UDP</innerdir>
+    <innerdir refid="dir_e676f1162f2a00557a6a29e0186a2919">Network/TransportLayer/UNIX</innerdir>
+    <innerfile refid="ASocket_8cpp">ASocket.cpp</innerfile>
+    <innerfile refid="ASocket_8hpp">ASocket.hpp</innerfile>
+    <innerfile refid="ISocket_8hpp">ISocket.hpp</innerfile>
+    <innerfile refid="Packet_8cpp">Packet.cpp</innerfile>
+    <innerfile refid="Packet_8hpp">Packet.hpp</innerfile>
+    <innerfile refid="Protocol_8cpp">Protocol.cpp</innerfile>
+    <innerfile refid="Protocol_8hpp">Protocol.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Network/TransportLayer/"/>
+  </compounddef>
+</doxygen>

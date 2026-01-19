@@ -1,0 +1,13 @@
+<map id="TCPServer" name="TCPServer">
+<area shape="rect" id="Node000001" title="Simple TCP server handling client connections and lobby state." alt="" coords="201,1012,359,1397"/>
+<area shape="rect" id="Node000002" href="$classNetwork_1_1TransportLayer_1_1TCPSocket.html" title="TCP socket wrapper providing connect/accept helpers." alt="" coords="5,657,179,817"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,816,143,899,176,987,197,1035,192,1037,171,989,138,901,112,818"/>
+<area shape="rect" id="Node000003" href="$classNetwork_1_1TransportLayer_1_1ASocket.html" title=" " alt="" coords="5,235,179,475"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,489,95,656,89,656,89,489"/>
+<area shape="rect" id="Node000004" href="$classNetwork_1_1TransportLayer_1_1ISocket.html" title="Interface for socket operations." alt="" coords="5,5,179,185"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="95,199,95,234,89,234,89,199"/>
+<area shape="rect" id="Node000005" href="$classSessionManager.html" title="Tracks client sessions across TCP and UDP, and enforces simple rate limits." alt="" coords="203,524,357,949"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="283,950,283,995,277,995,277,950"/>
+<area shape="rect" id="Node000006" href="$classChildProcessManager.html" title="Minimal child process manager to spawn UDP game servers." alt="" coords="381,644,560,829"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="436,830,367,998,362,996,431,828"/>
+</map>

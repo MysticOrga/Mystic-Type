@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['streamstatus_0',['StreamStatus',['../namespaceProtocol.html#aea1c7a72f2ed431c5d37b060c8cdb780',1,'Protocol']]]
+  ['recvresult_0',['recvresult',['../classNetworkClient.html#a187e3fa8efedbd07b5ccbc9ff0b44e55',1,'NetworkClient::RecvResult'],['../classTCPServer.html#a71488db7399ea324f5efe8064e24581c',1,'TCPServer::RecvResult']]]
 ];

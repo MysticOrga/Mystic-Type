@@ -1,0 +1,9 @@
+<map id="NetworkClient::sendPacketUdp" name="NetworkClient::sendPacketUdp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,228,80"/>
+<area shape="rect" id="Node000002" href="$classNetworkClient.html#aaf60f1216a17b46ad12539625a1022c2" title=" " alt="" coords="289,5,458,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,52,293,31,294,36,184,57"/>
+<area shape="rect" id="Node000003" href="$classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="310,55,437,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="228,65,296,65,296,70,228,70"/>
+<area shape="rect" id="Node000004" href="$classNetworkClient.html#a36892dcdc8c2523b27947a347ea16022" title=" " alt="" coords="276,105,471,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="175,77,271,99,269,104,174,83"/>
+</map>

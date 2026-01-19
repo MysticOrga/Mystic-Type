@@ -1,0 +1,5 @@
+<map id="Raylib::Window::setTargetFPS" name="Raylib::Window::setTargetFPS">
+<area shape="rect" id="Node000001" title="Sets target FPS (frames per second)." alt="" coords="260,5,475,31"/>
+<area shape="rect" id="Node000002" href="$classGraphicClient.html#aca385d0199520832fb464e03a8112dd5" title="Constructor initializing the graphic client." alt="" coords="5,5,212,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="246,21,212,21,212,15,246,15"/>
+</map>

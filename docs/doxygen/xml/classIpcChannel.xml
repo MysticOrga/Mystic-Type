@@ -1,0 +1,321 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classIpcChannel" kind="class" language="C++" prot="public">
+    <compoundname>IpcChannel</compoundname>
+    <includes refid="IpcChannel_8hpp" local="no">server/IpcChannel.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" prot="private" static="no" mutable="no">
+        <type><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref></type>
+        <definition>socket_t IpcChannel::_sockfd</definition>
+        <argsstring></argsstring>
+        <name>_sockfd</name>
+        <qualifiedname>IpcChannel::_sockfd</qualifiedname>
+        <initializer>= <ref refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" kindref="member">INVALID_SOCKET_FD</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/IpcChannel.hpp" line="72" column="14" bodyfile="server/IpcChannel.hpp" bodystart="72" bodyend="-1"/>
+        <referencedby refid="classIpcChannel_1a08fb3b62091cf125d554b805a4e64748" compoundref="IpcChannel_8cpp" startline="22" endline="52">bindServer</referencedby>
+        <referencedby refid="classIpcChannel_1aa2bbcedec629b7f3e365db5218d0bcc8" compoundref="IpcChannel_8cpp" startline="104" endline="112">close</referencedby>
+        <referencedby refid="classIpcChannel_1afa8b95326afd4d66bb573f333e124d33" compoundref="IpcChannel_8cpp" startline="54" endline="69">connectClient</referencedby>
+        <referencedby refid="classIpcChannel_1aadf27650ff534770bd014398c27d1438" compoundref="IpcChannel_8hpp" startline="69" endline="69">fd</referencedby>
+        <referencedby refid="classIpcChannel_1a733bd7b22e1828b0c48609a832f24181" compoundref="IpcChannel_8cpp" startline="82" endline="102">recv</referencedby>
+        <referencedby refid="classIpcChannel_1a35498032e830b79724747de4e7b6ca1b" compoundref="IpcChannel_8cpp" startline="71" endline="80">send</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classIpcChannel_1ad220948425e93fed642979014de89e15" prot="private" static="no" mutable="no">
+        <type>sockaddr_in</type>
+        <definition>sockaddr_in IpcChannel::_addr</definition>
+        <argsstring></argsstring>
+        <name>_addr</name>
+        <qualifiedname>IpcChannel::_addr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/IpcChannel.hpp" line="73" column="17" bodyfile="server/IpcChannel.hpp" bodystart="73" bodyend="-1"/>
+        <referencedby refid="classIpcChannel_1a08fb3b62091cf125d554b805a4e64748" compoundref="IpcChannel_8cpp" startline="22" endline="52">bindServer</referencedby>
+        <referencedby refid="classIpcChannel_1aa2bbcedec629b7f3e365db5218d0bcc8" compoundref="IpcChannel_8cpp" startline="104" endline="112">close</referencedby>
+        <referencedby refid="classIpcChannel_1afa8b95326afd4d66bb573f333e124d33" compoundref="IpcChannel_8cpp" startline="54" endline="69">connectClient</referencedby>
+        <referencedby refid="classIpcChannel_1a0f326fa25cb8a958dd5daa5ea071a2c5" compoundref="IpcChannel_8hpp" startline="56" endline="59">getport</referencedby>
+        <referencedby refid="classIpcChannel_1a35498032e830b79724747de4e7b6ca1b" compoundref="IpcChannel_8cpp" startline="71" endline="80">send</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classIpcChannel_1afbe5a59d97124b64e1dba4d8a84189fc" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool IpcChannel::_isServer</definition>
+        <argsstring></argsstring>
+        <name>_isServer</name>
+        <qualifiedname>IpcChannel::_isServer</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/IpcChannel.hpp" line="74" column="10" bodyfile="server/IpcChannel.hpp" bodystart="74" bodyend="-1"/>
+        <referencedby refid="classIpcChannel_1a08fb3b62091cf125d554b805a4e64748" compoundref="IpcChannel_8cpp" startline="22" endline="52">bindServer</referencedby>
+        <referencedby refid="classIpcChannel_1aa2bbcedec629b7f3e365db5218d0bcc8" compoundref="IpcChannel_8cpp" startline="104" endline="112">close</referencedby>
+        <referencedby refid="classIpcChannel_1afa8b95326afd4d66bb573f333e124d33" compoundref="IpcChannel_8cpp" startline="54" endline="69">connectClient</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classIpcChannel_1accdef665be5b8cc831aa12cc9fe64959" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IpcChannel::IpcChannel</definition>
+        <argsstring>()=default</argsstring>
+        <name>IpcChannel</name>
+        <qualifiedname>IpcChannel::IpcChannel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/IpcChannel.hpp" line="24" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classIpcChannel_1ad63c52abbe46734379d53197c042813a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IpcChannel::~IpcChannel</definition>
+        <argsstring>()</argsstring>
+        <name>~IpcChannel</name>
+        <qualifiedname>IpcChannel::~IpcChannel</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/IpcChannel.hpp" line="25" column="5" bodyfile="server/IpcChannel.cpp" bodystart="17" bodyend="20"/>
+        <references refid="classIpcChannel_1aa2bbcedec629b7f3e365db5218d0bcc8" compoundref="IpcChannel_8cpp" startline="104" endline="112">close</references>
+      </memberdef>
+      <memberdef kind="function" id="classIpcChannel_1a4cfe558307ce2aa78a5d7856588aeafb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>IpcChannel::IpcChannel</definition>
+        <argsstring>(const IpcChannel &amp;)=delete</argsstring>
+        <name>IpcChannel</name>
+        <qualifiedname>IpcChannel::IpcChannel</qualifiedname>
+        <param>
+          <type>const <ref refid="classIpcChannel" kindref="compound">IpcChannel</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/IpcChannel.hpp" line="27" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classIpcChannel_1a45651c654efa5e19e007b17a8a90e4ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classIpcChannel" kindref="compound">IpcChannel</ref> &amp;</type>
+        <definition>IpcChannel &amp; IpcChannel::operator=</definition>
+        <argsstring>(const IpcChannel &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>IpcChannel::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="classIpcChannel" kindref="compound">IpcChannel</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/IpcChannel.hpp" line="28" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classIpcChannel_1a08fb3b62091cf125d554b805a4e64748" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool IpcChannel::bindServer</definition>
+        <argsstring>(void)</argsstring>
+        <name>bindServer</name>
+        <qualifiedname>IpcChannel::bindServer</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Create a socket and bind to a path (server side). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true on success. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/IpcChannel.hpp" line="34" column="10" bodyfile="server/IpcChannel.cpp" bodystart="22" bodyend="52"/>
+        <references refid="classIpcChannel_1ad220948425e93fed642979014de89e15" compoundref="IpcChannel_8hpp" startline="73">_addr</references>
+        <references refid="classIpcChannel_1afbe5a59d97124b64e1dba4d8a84189fc" compoundref="IpcChannel_8hpp" startline="74">_isServer</references>
+        <references refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" compoundref="IpcChannel_8hpp" startline="72">_sockfd</references>
+        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="43">CLOSE</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+      </memberdef>
+      <memberdef kind="function" id="classIpcChannel_1afa8b95326afd4d66bb573f333e124d33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool IpcChannel::connectClient</definition>
+        <argsstring>(const std::string &amp;port)</argsstring>
+        <name>connectClient</name>
+        <qualifiedname>IpcChannel::connectClient</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>port</declname>
+        </param>
+        <briefdescription>
+<para>Create a socket and connect to a path (client side). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true on success. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/IpcChannel.hpp" line="40" column="10" bodyfile="server/IpcChannel.cpp" bodystart="54" bodyend="69"/>
+        <references refid="classIpcChannel_1ad220948425e93fed642979014de89e15" compoundref="IpcChannel_8hpp" startline="73">_addr</references>
+        <references refid="classIpcChannel_1afbe5a59d97124b64e1dba4d8a84189fc" compoundref="IpcChannel_8hpp" startline="74">_isServer</references>
+        <references refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" compoundref="IpcChannel_8hpp" startline="72">_sockfd</references>
+        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="43">CLOSE</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <referencedby refid="game_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" compoundref="game_8cpp" startline="50" endline="91">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classIpcChannel_1a35498032e830b79724747de4e7b6ca1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool IpcChannel::send</definition>
+        <argsstring>(const std::string &amp;msg)</argsstring>
+        <name>send</name>
+        <qualifiedname>IpcChannel::send</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Send a text message (limited to 1024 bytes). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/IpcChannel.hpp" line="45" column="10" bodyfile="server/IpcChannel.cpp" bodystart="71" bodyend="80"/>
+        <references refid="classIpcChannel_1ad220948425e93fed642979014de89e15" compoundref="IpcChannel_8hpp" startline="73">_addr</references>
+        <references refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" compoundref="IpcChannel_8hpp" startline="72">_sockfd</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <referencedby refid="game_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627" compoundref="game_8cpp" startline="50" endline="91">main</referencedby>
+        <referencedby refid="classUDPGameServer_1a476a4f2e8bb0833c788761298eb4a72b" compoundref="UDPGameServer_8cpp" startline="195" endline="232">UDPGameServer::run</referencedby>
+        <referencedby refid="classUDPGameServer_1aa1c969e983f12d8e36bfb2465f7fe5d6" compoundref="UDPGameServer_8cpp" startline="234" endline="275">UDPGameServer::updateSimulation</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classIpcChannel_1a733bd7b22e1828b0c48609a832f24181" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt; std::string &gt; IpcChannel::recv</definition>
+        <argsstring>(int timeoutMs=0)</argsstring>
+        <name>recv</name>
+        <qualifiedname>IpcChannel::recv</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>timeoutMs</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Receive a message with optional timeout (ms). timeoutMs = 0 =&gt; non-blocking, &lt;0 =&gt; blocking, &gt;0 =&gt; poll with timeout. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/IpcChannel.hpp" line="51" column="19" bodyfile="server/IpcChannel.cpp" bodystart="82" bodyend="102"/>
+        <references refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" compoundref="IpcChannel_8hpp" startline="72">_sockfd</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="classIpcChannel_1a733bd7b22e1828b0c48609a832f24181" compoundref="IpcChannel_8cpp" startline="82" endline="102">recv</references>
+        <referencedby refid="classIpcChannel_1a733bd7b22e1828b0c48609a832f24181" compoundref="IpcChannel_8cpp" startline="82" endline="102">recv</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classIpcChannel_1a0f326fa25cb8a958dd5daa5ea071a2c5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string IpcChannel::getport</definition>
+        <argsstring>(void) const</argsstring>
+        <name>getport</name>
+        <qualifiedname>IpcChannel::getport</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>get ipc port in string format </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/IpcChannel.hpp" line="56" column="24" bodyfile="server/IpcChannel.hpp" bodystart="56" bodyend="59"/>
+        <references refid="classIpcChannel_1ad220948425e93fed642979014de89e15" compoundref="IpcChannel_8hpp" startline="73">_addr</references>
+      </memberdef>
+      <memberdef kind="function" id="classIpcChannel_1aa2bbcedec629b7f3e365db5218d0bcc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void IpcChannel::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <qualifiedname>IpcChannel::close</qualifiedname>
+        <briefdescription>
+<para>Close the socket and unlink the path when in server mode. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/IpcChannel.hpp" line="64" column="10" bodyfile="server/IpcChannel.cpp" bodystart="104" bodyend="112"/>
+        <references refid="classIpcChannel_1ad220948425e93fed642979014de89e15" compoundref="IpcChannel_8hpp" startline="73">_addr</references>
+        <references refid="classIpcChannel_1afbe5a59d97124b64e1dba4d8a84189fc" compoundref="IpcChannel_8hpp" startline="74">_isServer</references>
+        <references refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" compoundref="IpcChannel_8hpp" startline="72">_sockfd</references>
+        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="43">CLOSE</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <referencedby refid="classIpcChannel_1ad63c52abbe46734379d53197c042813a" compoundref="IpcChannel_8cpp" startline="17" endline="20">~IpcChannel</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classIpcChannel_1aadf27650ff534770bd014398c27d1438" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref></type>
+        <definition>socket_t IpcChannel::fd</definition>
+        <argsstring>() const</argsstring>
+        <name>fd</name>
+        <qualifiedname>IpcChannel::fd</qualifiedname>
+        <briefdescription>
+<para>return internal sock fd </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/IpcChannel.hpp" line="69" column="14" bodyfile="server/IpcChannel.hpp" bodystart="69" bodyend="69"/>
+        <references refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" compoundref="IpcChannel_8hpp" startline="72">_sockfd</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Small IPC helper based on a UNIX datagram socket (SOCK_DGRAM). </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Server mode: bind() on a path, then recv/send. Client mode: connect() to the existing path, then recv/send.</para>
+<para>Messages are short ASCII strings (&lt;= 1024 bytes); this is not a reliable stream protocol but sufficient for READY/ALLOW/etc control signals. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>IpcChannel</label>
+        <link refid="classIpcChannel"/>
+      </node>
+    </collaborationgraph>
+    <location file="server/IpcChannel.hpp" line="22" column="1" bodyfile="server/IpcChannel.hpp" bodystart="22" bodyend="75"/>
+    <listofallmembers>
+      <member refid="classIpcChannel_1ad220948425e93fed642979014de89e15" prot="private" virt="non-virtual"><scope>IpcChannel</scope><name>_addr</name></member>
+      <member refid="classIpcChannel_1afbe5a59d97124b64e1dba4d8a84189fc" prot="private" virt="non-virtual"><scope>IpcChannel</scope><name>_isServer</name></member>
+      <member refid="classIpcChannel_1aaa1e07804ded384aa8bddb2aa0564480" prot="private" virt="non-virtual"><scope>IpcChannel</scope><name>_sockfd</name></member>
+      <member refid="classIpcChannel_1a08fb3b62091cf125d554b805a4e64748" prot="public" virt="non-virtual"><scope>IpcChannel</scope><name>bindServer</name></member>
+      <member refid="classIpcChannel_1aa2bbcedec629b7f3e365db5218d0bcc8" prot="public" virt="non-virtual"><scope>IpcChannel</scope><name>close</name></member>
+      <member refid="classIpcChannel_1afa8b95326afd4d66bb573f333e124d33" prot="public" virt="non-virtual"><scope>IpcChannel</scope><name>connectClient</name></member>
+      <member refid="classIpcChannel_1aadf27650ff534770bd014398c27d1438" prot="public" virt="non-virtual"><scope>IpcChannel</scope><name>fd</name></member>
+      <member refid="classIpcChannel_1a0f326fa25cb8a958dd5daa5ea071a2c5" prot="public" virt="non-virtual"><scope>IpcChannel</scope><name>getport</name></member>
+      <member refid="classIpcChannel_1accdef665be5b8cc831aa12cc9fe64959" prot="public" virt="non-virtual"><scope>IpcChannel</scope><name>IpcChannel</name></member>
+      <member refid="classIpcChannel_1a4cfe558307ce2aa78a5d7856588aeafb" prot="public" virt="non-virtual"><scope>IpcChannel</scope><name>IpcChannel</name></member>
+      <member refid="classIpcChannel_1a45651c654efa5e19e007b17a8a90e4ab" prot="public" virt="non-virtual"><scope>IpcChannel</scope><name>operator=</name></member>
+      <member refid="classIpcChannel_1a733bd7b22e1828b0c48609a832f24181" prot="public" virt="non-virtual"><scope>IpcChannel</scope><name>recv</name></member>
+      <member refid="classIpcChannel_1a35498032e830b79724747de4e7b6ca1b" prot="public" virt="non-virtual"><scope>IpcChannel</scope><name>send</name></member>
+      <member refid="classIpcChannel_1ad63c52abbe46734379d53197c042813a" prot="public" virt="non-virtual"><scope>IpcChannel</scope><name>~IpcChannel</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

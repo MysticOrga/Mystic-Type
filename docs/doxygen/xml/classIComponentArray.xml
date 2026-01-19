@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classIComponentArray" kind="class" language="C++" prot="public">
+    <compoundname>IComponentArray</compoundname>
+    <derivedcompoundref refid="classComponentArray" prot="public" virt="non-virtual">ComponentArray&lt; T &gt;</derivedcompoundref>
+    <includes refid="Core_8hpp" local="no">graphical-client/ecs/Core.hpp</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classIComponentArray_1a62d9c4e88931d5e885aaaf0e37a73600" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual IComponentArray::~IComponentArray</definition>
+        <argsstring>()=default</argsstring>
+        <name>~IComponentArray</name>
+        <qualifiedname>IComponentArray::~IComponentArray</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="42" column="13"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Abstract base class for type-erased component storage. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides a common interface for different component array types. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ComponentArray&lt; T &gt;</label>
+        <link refid="classComponentArray"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>IComponentArray</label>
+        <link refid="classIComponentArray"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>IComponentArray</label>
+        <link refid="classIComponentArray"/>
+      </node>
+    </collaborationgraph>
+    <location file="graphical-client/ecs/Core.hpp" line="40" column="1" bodyfile="graphical-client/ecs/Core.hpp" bodystart="40" bodyend="43"/>
+    <listofallmembers>
+      <member refid="classIComponentArray_1a62d9c4e88931d5e885aaaf0e37a73600" prot="public" virt="virtual"><scope>IComponentArray</scope><name>~IComponentArray</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

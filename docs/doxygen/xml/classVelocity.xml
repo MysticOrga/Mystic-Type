@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classVelocity" kind="class" language="C++" prot="public">
+    <compoundname>Velocity</compoundname>
+    <includes refid="Components_8hpp" local="no">graphical-client/ecs/Components.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classVelocity_1a2592d4678c041df7b39ae7663ec0ed5d" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Velocity::vx</definition>
+        <argsstring></argsstring>
+        <name>vx</name>
+        <qualifiedname>Velocity::vx</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>X velocity component </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="69" column="11" bodyfile="graphical-client/ecs/Components.hpp" bodystart="69" bodyend="-1"/>
+        <referencedby refid="classInputSystem_1af7ed09c6bfd5fba6af86af16de00d706" compoundref="System_8hpp" startline="90" endline="141">InputSystem::update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classVelocity_1ae2a7111ea8910254dce8882f3ab760a3" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Velocity::vy</definition>
+        <argsstring></argsstring>
+        <name>vy</name>
+        <qualifiedname>Velocity::vy</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Y velocity component </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="70" column="11" bodyfile="graphical-client/ecs/Components.hpp" bodystart="70" bodyend="-1"/>
+        <referencedby refid="classInputSystem_1af7ed09c6bfd5fba6af86af16de00d706" compoundref="System_8hpp" startline="90" endline="141">InputSystem::update</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classVelocity_1ac2e4e5b5c056fd2befa3a0d63e94f5ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Velocity::Velocity</definition>
+        <argsstring>(float vx=0, float vy=0)</argsstring>
+        <name>Velocity</name>
+        <qualifiedname>Velocity::Velocity</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>vx</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>vy</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Constructor for <ref refid="classVelocity" kindref="compound">Velocity</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>vx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>X velocity (default: 0). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Y velocity (default: 0). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="77" column="5" bodyfile="graphical-client/ecs/Components.hpp" bodystart="77" bodyend="77"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Represents the velocity of an entity. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Stores X and Y velocity components for movement. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Velocity</label>
+        <link refid="classVelocity"/>
+      </node>
+    </collaborationgraph>
+    <location file="graphical-client/ecs/Components.hpp" line="66" column="1" bodyfile="graphical-client/ecs/Components.hpp" bodystart="67" bodyend="78"/>
+    <listofallmembers>
+      <member refid="classVelocity_1ac2e4e5b5c056fd2befa3a0d63e94f5ae" prot="public" virt="non-virtual"><scope>Velocity</scope><name>Velocity</name></member>
+      <member refid="classVelocity_1a2592d4678c041df7b39ae7663ec0ed5d" prot="public" virt="non-virtual"><scope>Velocity</scope><name>vx</name></member>
+      <member refid="classVelocity_1ae2a7111ea8910254dce8882f3ab760a3" prot="public" virt="non-virtual"><scope>Velocity</scope><name>vy</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,9 @@
+<map id="UDPGameServer::broadcastSnapshot" name="UDPGameServer::broadcastSnapshot">
+<area shape="rect" id="Node000001" title="Broadcast the current snapshot to all connected players." alt="" coords="5,27,208,67"/>
+<area shape="rect" id="Node000002" href="$classUDPGameServer.html#a602889e958a3ff926bb8de325c982a62" title="Send a packet to a single endpoint." alt="" coords="256,35,483,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="208,45,242,45,242,50,208,50"/>
+<area shape="rect" id="Node000003" href="$classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="558,5,685,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="478,32,544,24,545,30,479,37"/>
+<area shape="rect" id="Node000004" href="$classNetwork_1_1TransportLayer_1_1UDPSocket.html#a887cf24e71c890759f907c074f5b3505" title="Write bytes to the UDP socket." alt="" coords="531,55,712,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="483,57,517,61,517,66,483,63"/>
+</map>

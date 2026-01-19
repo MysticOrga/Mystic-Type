@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="GameState_8hpp" kind="file" language="C++">
+    <compoundname>GameState.hpp</compoundname>
+    <includes local="no">unordered_map</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">cstdint</includes>
+    <includedby refid="NetworkClient_8cpp" local="yes">Network/Client/NetworkClient.cpp</includedby>
+    <includedby refid="NetworkClient_8hpp" local="yes">Network/Client/NetworkClient.hpp</includedby>
+    <includedby refid="GraphicClient_8hpp" local="yes">graphical-client/GraphicClient/GraphicClient.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Network/Client/GameState.hpp</label>
+        <link refid="GameState_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cstdint</label>
+      </node>
+      <node id="2">
+        <label>unordered_map</label>
+      </node>
+      <node id="3">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/client.cpp</label>
+        <link refid="client_8cpp"/>
+      </node>
+      <node id="1">
+        <label>Network/Client/GameState.hpp</label>
+        <link refid="GameState_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Network/Client/NetworkClient.cpp</label>
+        <link refid="NetworkClient_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Network/Client/NetworkClient.hpp</label>
+        <link refid="NetworkClient_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>graphical-client/GraphicClient/GraphicClient.cpp</label>
+        <link refid="GraphicClient_8cpp"/>
+      </node>
+      <node id="4">
+        <label>graphical-client/GraphicClient/GraphicClient.hpp</label>
+        <link refid="GraphicClient_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>graphical-client/ecs/System.hpp</label>
+        <link refid="System_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structPlayerState" prot="public">PlayerState</innerclass>
+    <innerclass refid="structBulletState" prot="public">BulletState</innerclass>
+    <innerclass refid="structMonsterState" prot="public">MonsterState</innerclass>
+    <innerclass refid="classGameState" prot="public">GameState</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">**<sp/>EPITECH<sp/>PROJECT,<sp/>2025</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">**<sp/>Mystic-Type</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">**<sp/>File<sp/>description:</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">**<sp/>Game<sp/>state<sp/>for<sp/>client</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="14"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Lightweight<sp/>snapshot<sp/>of<sp/>a<sp/>player<sp/>for<sp/>client-side<sp/>rendering.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="structPlayerState" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structPlayerState" kindref="compound">PlayerState</ref><sp/>{</highlight></codeline>
+<codeline lineno="18" refid="structPlayerState_1a1d13670f7d332ebb4edab0cdd84c9bcb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="19" refid="structPlayerState_1a511d57ac4a0a817233868d7a87441b1a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structPlayerState_1a511d57ac4a0a817233868d7a87441b1a" kindref="member">x</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="20" refid="structPlayerState_1a50f07cd4be8eb68af2a3cf73b843e757" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structPlayerState_1a50f07cd4be8eb68af2a3cf73b843e757" kindref="member">y</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="21" refid="structPlayerState_1a12ddc6ce91f2180e81363a3863edbacf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structPlayerState_1a12ddc6ce91f2180e81363a3863edbacf" kindref="member">hp</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="22" refid="structPlayerState_1a239b365ad0ad982f928dd77b8b3d121f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="structPlayerState_1a239b365ad0ad982f928dd77b8b3d121f" kindref="member">score</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="25"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Lightweight<sp/>snapshot<sp/>of<sp/>a<sp/>bullet<sp/>for<sp/>client-side<sp/>rendering.</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="structBulletState" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structBulletState" kindref="compound">BulletState</ref><sp/>{</highlight></codeline>
+<codeline lineno="29" refid="structBulletState_1afc3da02363e84dcd9524b62d4125eb48" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="30" refid="structBulletState_1ae58c567afd2735b48696ce42494416b6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structBulletState_1ae58c567afd2735b48696ce42494416b6" kindref="member">x</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="31" refid="structBulletState_1a46bfd93072fd5ed96e00366e47315202" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structBulletState_1a46bfd93072fd5ed96e00366e47315202" kindref="member">y</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="32" refid="structBulletState_1a52e263cd18ea7729984530807bb8e139" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="structBulletState_1a52e263cd18ea7729984530807bb8e139" kindref="member">vx</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="33" refid="structBulletState_1a64b346c59c2bbb5a112908d78fe92bf7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>int8_t<sp/><ref refid="structBulletState_1a64b346c59c2bbb5a112908d78fe92bf7" kindref="member">vy</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="36"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Lightweight<sp/>snapshot<sp/>of<sp/>a<sp/>monster<sp/>for<sp/>client-side<sp/>rendering.</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="structMonsterState" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structMonsterState" kindref="compound">MonsterState</ref><sp/>{</highlight></codeline>
+<codeline lineno="40" refid="structMonsterState_1a3db09a581fbc727ca5943c52b95dabce" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="41" refid="structMonsterState_1a7defca59db78cded4e5d6526e7569adc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structMonsterState_1a7defca59db78cded4e5d6526e7569adc" kindref="member">x</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="42" refid="structMonsterState_1ad65a95979ad3a2747b0fcce97cb4762c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structMonsterState_1ad65a95979ad3a2747b0fcce97cb4762c" kindref="member">y</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="43" refid="structMonsterState_1ab8eb152bf072fc02d85636f18963e95b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structMonsterState_1ab8eb152bf072fc02d85636f18963e95b" kindref="member">hp</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="44" refid="structMonsterState_1a26ad229c9a3b5ceef052c357c11e2472" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint8_t<sp/><ref refid="structMonsterState_1a26ad229c9a3b5ceef052c357c11e2472" kindref="member">type</ref><sp/>=<sp/>0;<sp/></highlight><highlight class="comment">//<sp/>0<sp/>=<sp/>sin,<sp/>1<sp/>=<sp/>cos</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="47"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Client-side<sp/>container<sp/>for<sp/>the<sp/>latest<sp/>world<sp/>state.</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classGameState" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classGameState" kindref="compound">GameState</ref><sp/>{</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Insert<sp/>or<sp/>update<sp/>a<sp/>player<sp/>entry.</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="classGameState_1a9f034439dd565e62cb83be4ac56baba1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGameState_1a9f034439dd565e62cb83be4ac56baba1" kindref="member">upsertPlayer</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>uint8_t<sp/>x,<sp/>uint8_t<sp/>y,<sp/>uint8_t<sp/>hp,<sp/>uint16_t<sp/>score)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGameState_1a61038ea129759cc4631044201305b10e" kindref="member">_players</ref>[id]<sp/>=<sp/><ref refid="structPlayerState" kindref="compound">PlayerState</ref>{id,<sp/>x,<sp/>y,<sp/>hp,<sp/>score};</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Insert<sp/>or<sp/>update<sp/>a<sp/>bullet<sp/>entry.</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63" refid="classGameState_1a23099e9050e7a20e6d1349384591b3b5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGameState_1a23099e9050e7a20e6d1349384591b3b5" kindref="member">upsertBullet</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>uint8_t<sp/>x,<sp/>uint8_t<sp/>y,<sp/>int8_t<sp/>vx,<sp/>int8_t<sp/>vy)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGameState_1a6ebd00bef3ebc816d2796634953b7615" kindref="member">_bullets</ref>[id]<sp/>=<sp/><ref refid="structBulletState" kindref="compound">BulletState</ref>{id,<sp/>x,<sp/>y,<sp/>vx,<sp/>vy};</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Insert<sp/>or<sp/>update<sp/>a<sp/>monster<sp/>entry.</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="classGameState_1a72d25f3760e72101b6c3ddc990da3d04" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGameState_1a72d25f3760e72101b6c3ddc990da3d04" kindref="member">upsertMonster</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/>uint8_t<sp/>x,<sp/>uint8_t<sp/>y,<sp/>uint8_t<sp/>hp,<sp/>uint8_t<sp/>type)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGameState_1a684212aeb845a80b274f98de6e46214a" kindref="member">_monsters</ref>[id]<sp/>=<sp/><ref refid="structMonsterState" kindref="compound">MonsterState</ref>{id,<sp/>x,<sp/>y,<sp/>hp,<sp/>type};</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Clear<sp/>all<sp/>cached<sp/>entities.</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="classGameState_1aa19f7b265ddcdf1c490b1c43556d07e1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGameState_1aa19f7b265ddcdf1c490b1c43556d07e1" kindref="member">clear</ref>()</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGameState_1a61038ea129759cc4631044201305b10e" kindref="member">_players</ref>.clear();</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGameState_1a6ebd00bef3ebc816d2796634953b7615" kindref="member">_bullets</ref>.clear();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGameState_1a684212aeb845a80b274f98de6e46214a" kindref="member">_monsters</ref>.clear();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Clear<sp/>only<sp/>player<sp/>entries.</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89" refid="classGameState_1a59e8f64ec95841389e7bdbc1a07f718a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGameState_1a59e8f64ec95841389e7bdbc1a07f718a" kindref="member">clearPlayers</ref>()</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classGameState_1a61038ea129759cc4631044201305b10e" kindref="member">_players</ref>.clear();</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Return<sp/>a<sp/>snapshot<sp/>list<sp/>of<sp/>current<sp/>players.</highlight></codeline>
+<codeline lineno="96"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97" refid="classGameState_1adbedaec4367fbf2705065e66a8909ce5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;PlayerState&gt;<sp/><ref refid="classGameState_1adbedaec4367fbf2705065e66a8909ce5" kindref="member">listPlayers</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="98"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;PlayerState&gt;<sp/>res;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res.reserve(<ref refid="classGameState_1a61038ea129759cc4631044201305b10e" kindref="member">_players</ref>.size());</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;kv<sp/>:<sp/><ref refid="classGameState_1a61038ea129759cc4631044201305b10e" kindref="member">_players</ref>)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res.push_back(kv.second);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Return<sp/>a<sp/>snapshot<sp/>list<sp/>of<sp/>current<sp/>bullets.</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109" refid="classGameState_1a65f539f1657ebd717fe5d48683144c82" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;BulletState&gt;<sp/><ref refid="classGameState_1a65f539f1657ebd717fe5d48683144c82" kindref="member">listBullets</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="110"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;BulletState&gt;<sp/>res;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res.reserve(<ref refid="classGameState_1a6ebd00bef3ebc816d2796634953b7615" kindref="member">_bullets</ref>.size());</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;kv<sp/>:<sp/><ref refid="classGameState_1a6ebd00bef3ebc816d2796634953b7615" kindref="member">_bullets</ref>)</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res.push_back(kv.second);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Return<sp/>a<sp/>snapshot<sp/>list<sp/>of<sp/>current<sp/>monsters.</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="classGameState_1a8fd239e201dacc3cc9d19dc34d67f301" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;MonsterState&gt;<sp/><ref refid="classGameState_1a8fd239e201dacc3cc9d19dc34d67f301" kindref="member">listMonsters</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="122"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;MonsterState&gt;<sp/>res;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res.reserve(<ref refid="classGameState_1a684212aeb845a80b274f98de6e46214a" kindref="member">_monsters</ref>.size());</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;kv<sp/>:<sp/><ref refid="classGameState_1a684212aeb845a80b274f98de6e46214a" kindref="member">_monsters</ref>)</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>res.push_back(kv.second);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>res;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="131" refid="classGameState_1a61038ea129759cc4631044201305b10e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;int,<sp/>PlayerState&gt;<sp/><ref refid="classGameState_1a61038ea129759cc4631044201305b10e" kindref="member">_players</ref>;</highlight></codeline>
+<codeline lineno="132" refid="classGameState_1a6ebd00bef3ebc816d2796634953b7615" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;int,<sp/>BulletState&gt;<sp/><ref refid="classGameState_1a6ebd00bef3ebc816d2796634953b7615" kindref="member">_bullets</ref>;</highlight></codeline>
+<codeline lineno="133" refid="classGameState_1a684212aeb845a80b274f98de6e46214a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;int,<sp/>MonsterState&gt;<sp/><ref refid="classGameState_1a684212aeb845a80b274f98de6e46214a" kindref="member">_monsters</ref>;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="Network/Client/GameState.hpp"/>
+  </compounddef>
+</doxygen>

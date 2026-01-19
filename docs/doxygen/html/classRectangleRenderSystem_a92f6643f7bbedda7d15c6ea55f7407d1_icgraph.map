@@ -1,0 +1,11 @@
+<map id="RectangleRenderSystem::update" name="RectangleRenderSystem::update">
+<area shape="rect" id="Node000001" title="Renders a rectangle entity to the screen." alt="" coords="737,5,920,45"/>
+<area shape="rect" id="Node000002" href="$classGraphicClient.html#ab0acd8f5b8996cc62295831d7af1cf59" title="Renders the entire game scene." alt="" coords="529,13,689,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="724,28,689,28,689,23,724,23"/>
+<area shape="rect" id="Node000003" href="$classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,13,481,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="516,28,482,28,482,23,516,23"/>
+<area shape="rect" id="Node000004" href="$classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,13,247,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="281,28,247,28,247,23,281,23"/>
+<area shape="rect" id="Node000005" href="$client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>

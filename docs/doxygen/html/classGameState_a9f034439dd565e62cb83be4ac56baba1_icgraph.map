@@ -1,0 +1,14 @@
+<map id="GameState::upsertPlayer" name="GameState::upsertPlayer">
+<area shape="rect" id="Node000001" title="Insert or update a player entry." alt="" coords="800,32,985,57"/>
+<area shape="rect" id="Node000002" href="$classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="319,5,457,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="786,42,458,24,458,19,786,36"/>
+<area shape="rect" id="Node000005" href="$classGraphicClient.html#a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" title="Processes network events and updates game state." alt="" coords="529,53,752,93"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="787,59,752,63,752,58,786,54"/>
+<area shape="rect" id="Node000003" href="$classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,32,247,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="305,31,247,39,247,33,304,26"/>
+<area shape="rect" id="Node000004" href="$client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,32,60,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,47,60,47,60,42,94,42"/>
+<area shape="rect" id="Node000006" href="$classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,56,481,81"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="516,73,481,73,481,67,516,68"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="280,59,247,55,247,50,281,54"/>
+</map>

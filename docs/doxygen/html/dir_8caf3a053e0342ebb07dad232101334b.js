@@ -2,6 +2,7 @@ var dir_8caf3a053e0342ebb07dad232101334b =
 [
     [ "TCP", "dir_d861678bcbc44ffd8ef6a1bdec10e3b5.html", "dir_d861678bcbc44ffd8ef6a1bdec10e3b5" ],
     [ "UDP", "dir_631dafc6a1249c23d7cf438c9d57fdf2.html", "dir_631dafc6a1249c23d7cf438c9d57fdf2" ],
+    [ "UNIX", "dir_e676f1162f2a00557a6a29e0186a2919.html", "dir_e676f1162f2a00557a6a29e0186a2919" ],
     [ "ASocket.cpp", "ASocket_8cpp.html", null ],
     [ "ASocket.hpp", "ASocket_8hpp.html", "ASocket_8hpp" ],
     [ "ISocket.hpp", "ISocket_8hpp.html", "ISocket_8hpp" ],

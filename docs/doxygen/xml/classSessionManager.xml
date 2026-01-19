@@ -1,0 +1,535 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classSessionManager" kind="class" language="C++" prot="public">
+    <compoundname>SessionManager</compoundname>
+    <includes refid="SessionManager_8hpp" local="no">Network/SessionManager.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" prot="private" static="no" mutable="yes">
+        <type>std::mutex</type>
+        <definition>std::mutex SessionManager::_mutex</definition>
+        <argsstring></argsstring>
+        <name>_mutex</name>
+        <qualifiedname>SessionManager::_mutex</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="110" column="24" bodyfile="Network/SessionManager.hpp" bodystart="110" bodyend="-1"/>
+        <referencedby refid="classSessionManager_1af8d1197fa1236d0295e3d31170639f6e" compoundref="SessionManager_8cpp" startline="10" endline="20">addSession</referencedby>
+        <referencedby refid="classSessionManager_1a42975fcc09128c293815d29f3d72c5b7" compoundref="SessionManager_8cpp" startline="125" endline="133">allowInput</referencedby>
+        <referencedby refid="classSessionManager_1a3b6210717467960e603c7308ead2a23a" compoundref="SessionManager_8cpp" startline="135" endline="143">allowShoot</referencedby>
+        <referencedby refid="classSessionManager_1a0c52e8605801fc4e98c84b724ec72c09" compoundref="SessionManager_8cpp" startline="88" endline="95">getLobbyCode</referencedby>
+        <referencedby refid="classSessionManager_1a3d137db5b62fdb63340d7b92b8eb371f" compoundref="SessionManager_8cpp" startline="106" endline="113">getPseudo</referencedby>
+        <referencedby refid="classSessionManager_1a48995915db3b90fa7228d357d6293163" compoundref="SessionManager_8cpp" startline="61" endline="68">getSession</referencedby>
+        <referencedby refid="classSessionManager_1ae44030d05e51a85f73a32f6bb6b053cb" compoundref="SessionManager_8cpp" startline="34" endline="48">removeByFd</referencedby>
+        <referencedby refid="classSessionManager_1a8916c4ee701635dd8b2ee525331efb0b" compoundref="SessionManager_8cpp" startline="22" endline="32">removeById</referencedby>
+        <referencedby refid="classSessionManager_1a8023cf136e039298b1e2ba5fe7cb224b" compoundref="SessionManager_8cpp" startline="79" endline="86">setLobbyCode</referencedby>
+        <referencedby refid="classSessionManager_1a84b313bdbfecb70d12707d77f357bca8" compoundref="SessionManager_8cpp" startline="97" endline="104">setPseudo</referencedby>
+        <referencedby refid="classSessionManager_1af2596853b8042076df0c1022468eaec3" compoundref="SessionManager_8cpp" startline="50" endline="59">setUdpAddr</referencedby>
+        <referencedby refid="classSessionManager_1ac233a47eaa6ca5e9b69e0cb8cd377358" compoundref="SessionManager_8cpp" startline="70" endline="77">updatePong</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; int, <ref refid="structSession" kindref="compound">Session</ref> &gt;</type>
+        <definition>std::unordered_map&lt;int, Session&gt; SessionManager::_sessions</definition>
+        <argsstring></argsstring>
+        <name>_sessions</name>
+        <qualifiedname>SessionManager::_sessions</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="111" column="24" bodyfile="Network/SessionManager.hpp" bodystart="111" bodyend="-1"/>
+        <referencedby refid="classSessionManager_1af8d1197fa1236d0295e3d31170639f6e" compoundref="SessionManager_8cpp" startline="10" endline="20">addSession</referencedby>
+        <referencedby refid="classSessionManager_1a42975fcc09128c293815d29f3d72c5b7" compoundref="SessionManager_8cpp" startline="125" endline="133">allowInput</referencedby>
+        <referencedby refid="classSessionManager_1a3b6210717467960e603c7308ead2a23a" compoundref="SessionManager_8cpp" startline="135" endline="143">allowShoot</referencedby>
+        <referencedby refid="classSessionManager_1a0c52e8605801fc4e98c84b724ec72c09" compoundref="SessionManager_8cpp" startline="88" endline="95">getLobbyCode</referencedby>
+        <referencedby refid="classSessionManager_1a3d137db5b62fdb63340d7b92b8eb371f" compoundref="SessionManager_8cpp" startline="106" endline="113">getPseudo</referencedby>
+        <referencedby refid="classSessionManager_1a48995915db3b90fa7228d357d6293163" compoundref="SessionManager_8cpp" startline="61" endline="68">getSession</referencedby>
+        <referencedby refid="classSessionManager_1ae44030d05e51a85f73a32f6bb6b053cb" compoundref="SessionManager_8cpp" startline="34" endline="48">removeByFd</referencedby>
+        <referencedby refid="classSessionManager_1a8916c4ee701635dd8b2ee525331efb0b" compoundref="SessionManager_8cpp" startline="22" endline="32">removeById</referencedby>
+        <referencedby refid="classSessionManager_1a8023cf136e039298b1e2ba5fe7cb224b" compoundref="SessionManager_8cpp" startline="79" endline="86">setLobbyCode</referencedby>
+        <referencedby refid="classSessionManager_1a84b313bdbfecb70d12707d77f357bca8" compoundref="SessionManager_8cpp" startline="97" endline="104">setPseudo</referencedby>
+        <referencedby refid="classSessionManager_1af2596853b8042076df0c1022468eaec3" compoundref="SessionManager_8cpp" startline="50" endline="59">setUdpAddr</referencedby>
+        <referencedby refid="classSessionManager_1ac233a47eaa6ca5e9b69e0cb8cd377358" compoundref="SessionManager_8cpp" startline="70" endline="77">updatePong</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classSessionManager_1a8fb480012df18cedb0dc9fd7517d1a9a" prot="private" static="no" mutable="no">
+        <type>std::function&lt; void(int)&gt;</type>
+        <definition>std::function&lt;void(int)&gt; SessionManager::_onRemove</definition>
+        <argsstring></argsstring>
+        <name>_onRemove</name>
+        <qualifiedname>SessionManager::_onRemove</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="112" column="19" bodyfile="Network/SessionManager.hpp" bodystart="112" bodyend="-1"/>
+        <referencedby refid="classSessionManager_1ae44030d05e51a85f73a32f6bb6b053cb" compoundref="SessionManager_8cpp" startline="34" endline="48">removeByFd</referencedby>
+        <referencedby refid="classSessionManager_1a8916c4ee701635dd8b2ee525331efb0b" compoundref="SessionManager_8cpp" startline="22" endline="32">removeById</referencedby>
+        <referencedby refid="classSessionManager_1aa54fb04918bcd7d31bcdfe2ce2ee6545" compoundref="SessionManager_8hpp" startline="56" endline="56">setOnRemove</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classSessionManager_1ab07589dac6e7346f7eb4dbd1c871ee80" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int SessionManager::_maxInputsPerSec</definition>
+        <argsstring></argsstring>
+        <name>_maxInputsPerSec</name>
+        <qualifiedname>SessionManager::_maxInputsPerSec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="113" column="15" bodyfile="Network/SessionManager.hpp" bodystart="113" bodyend="-1"/>
+        <referencedby refid="classSessionManager_1a42975fcc09128c293815d29f3d72c5b7" compoundref="SessionManager_8cpp" startline="125" endline="133">allowInput</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classSessionManager_1acf90d50c96347bbf4f617071b9343723" prot="private" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int SessionManager::_maxShootsPerSec</definition>
+        <argsstring></argsstring>
+        <name>_maxShootsPerSec</name>
+        <qualifiedname>SessionManager::_maxShootsPerSec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="114" column="15" bodyfile="Network/SessionManager.hpp" bodystart="114" bodyend="-1"/>
+        <referencedby refid="classSessionManager_1a3b6210717467960e603c7308ead2a23a" compoundref="SessionManager_8cpp" startline="135" endline="143">allowShoot</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classSessionManager_1a8321c72e22b470cade42377861508d36" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>SessionManager::SessionManager</definition>
+        <argsstring>(int maxInputsPerSec=30, int maxShootsPerSec=10)</argsstring>
+        <name>SessionManager</name>
+        <qualifiedname>SessionManager::SessionManager</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>maxInputsPerSec</declname>
+          <defval>30</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>maxShootsPerSec</declname>
+          <defval>10</defval>
+        </param>
+        <briefdescription>
+<para>Construct a manager with simple per-second rate limits. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="50" column="5" bodyfile="Network/SessionManager.hpp" bodystart="50" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classSessionManager_1aa54fb04918bcd7d31bcdfe2ce2ee6545" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void SessionManager::setOnRemove</definition>
+        <argsstring>(std::function&lt; void(int)&gt; cb)</argsstring>
+        <name>setOnRemove</name>
+        <qualifiedname>SessionManager::setOnRemove</qualifiedname>
+        <param>
+          <type>std::function&lt; void(int)&gt;</type>
+          <declname>cb</declname>
+        </param>
+        <briefdescription>
+<para>Set callback invoked when a session is removed. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="56" column="10" bodyfile="Network/SessionManager.hpp" bodystart="56" bodyend="56"/>
+        <references refid="classSessionManager_1a8fb480012df18cedb0dc9fd7517d1a9a" compoundref="SessionManager_8hpp" startline="112">_onRemove</references>
+        <referencedby refid="classUDPGameServer_1a0272e620fa267e7a2043b5729d24cfbc" compoundref="UDPGameServer_8cpp" startline="18" endline="43">UDPGameServer::UDPGameServer</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classSessionManager_1af8d1197fa1236d0295e3d31170639f6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SessionManager::addSession</definition>
+        <argsstring>(int id, int tcpFd, const sockaddr_in &amp;tcpAddr, long nowMs)</argsstring>
+        <name>addSession</name>
+        <qualifiedname>SessionManager::addSession</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>tcpFd</declname>
+        </param>
+        <param>
+          <type>const sockaddr_in &amp;</type>
+          <declname>tcpAddr</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>nowMs</declname>
+        </param>
+        <briefdescription>
+<para>Add a TCP session entry. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="60" column="10" bodyfile="Network/SessionManager.cpp" bodystart="10" bodyend="20"/>
+        <references refid="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" compoundref="SessionManager_8hpp" startline="110">_mutex</references>
+        <references refid="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" compoundref="SessionManager_8hpp" startline="111">_sessions</references>
+        <references refid="structSession_1a40fe33141283136858bf8f11b6f5cc46" compoundref="SessionManager_8hpp" startline="27">Session::id</references>
+        <references refid="structSession_1a82593a4e6ef0e6f9f1ef1bdacb2ec4df" compoundref="SessionManager_8hpp" startline="32">Session::lastPong</references>
+        <references refid="structSession_1a0831d2d53f42052f7b48fd07393d4c0c" compoundref="SessionManager_8hpp" startline="38">Session::lobbyCode</references>
+        <references refid="structSession_1a855744125c995b27c5dda56aed9ef1ec" compoundref="SessionManager_8hpp" startline="29" endline="29">Session::tcpAddr</references>
+        <references refid="structSession_1aabdac7621ae32d2f6cc6e3830f86e539" compoundref="SessionManager_8hpp" startline="28">Session::tcpFd</references>
+        <referencedby refid="classTCPServer_1ae0e94f8d712b3c9028fe674100d649b9" compoundref="TCPServer_8cpp" startline="165" endline="201">TCPServer::acceptNewClient</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classSessionManager_1a8916c4ee701635dd8b2ee525331efb0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SessionManager::removeById</definition>
+        <argsstring>(int id)</argsstring>
+        <name>removeById</name>
+        <qualifiedname>SessionManager::removeById</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Remove a session by player id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="64" column="10" bodyfile="Network/SessionManager.cpp" bodystart="22" bodyend="32"/>
+        <references refid="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" compoundref="SessionManager_8hpp" startline="110">_mutex</references>
+        <references refid="classSessionManager_1a8fb480012df18cedb0dc9fd7517d1a9a" compoundref="SessionManager_8hpp" startline="112">_onRemove</references>
+        <references refid="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" compoundref="SessionManager_8hpp" startline="111">_sessions</references>
+        <referencedby refid="classTCPServer_1a435ec8dcd340e15f964ce3c0748c7305" compoundref="TCPServer_8cpp" startline="142" endline="158">TCPServer::resetClient</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classSessionManager_1ae44030d05e51a85f73a32f6bb6b053cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SessionManager::removeByFd</definition>
+        <argsstring>(int fd)</argsstring>
+        <name>removeByFd</name>
+        <qualifiedname>SessionManager::removeByFd</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>fd</declname>
+        </param>
+        <briefdescription>
+<para>Remove a session by TCP file descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="68" column="10" bodyfile="Network/SessionManager.cpp" bodystart="34" bodyend="48"/>
+        <references refid="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" compoundref="SessionManager_8hpp" startline="110">_mutex</references>
+        <references refid="classSessionManager_1a8fb480012df18cedb0dc9fd7517d1a9a" compoundref="SessionManager_8hpp" startline="112">_onRemove</references>
+        <references refid="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" compoundref="SessionManager_8hpp" startline="111">_sessions</references>
+      </memberdef>
+      <memberdef kind="function" id="classSessionManager_1af2596853b8042076df0c1022468eaec3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SessionManager::setUdpAddr</definition>
+        <argsstring>(int id, const sockaddr_in &amp;udpAddr)</argsstring>
+        <name>setUdpAddr</name>
+        <qualifiedname>SessionManager::setUdpAddr</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const sockaddr_in &amp;</type>
+          <declname>udpAddr</declname>
+        </param>
+        <briefdescription>
+<para>Register the client&apos;s UDP address. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="72" column="10" bodyfile="Network/SessionManager.cpp" bodystart="50" bodyend="59"/>
+        <references refid="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" compoundref="SessionManager_8hpp" startline="110">_mutex</references>
+        <references refid="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" compoundref="SessionManager_8hpp" startline="111">_sessions</references>
+        <referencedby refid="classUDPGameServer_1a367b917d572ad28819003841b3be180c" compoundref="UDPGameServer_8cpp" startline="75" endline="101">UDPGameServer::handleHello</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classSessionManager_1a48995915db3b90fa7228d357d6293163" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structSession" kindref="compound">Session</ref> &gt;</type>
+        <definition>std::optional&lt; Session &gt; SessionManager::getSession</definition>
+        <argsstring>(int id) const</argsstring>
+        <name>getSession</name>
+        <qualifiedname>SessionManager::getSession</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Lookup a session by player id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="76" column="19" bodyfile="Network/SessionManager.cpp" bodystart="61" bodyend="68"/>
+        <references refid="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" compoundref="SessionManager_8hpp" startline="110">_mutex</references>
+        <references refid="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" compoundref="SessionManager_8hpp" startline="111">_sessions</references>
+        <referencedby refid="classUDPGameServer_1a367b917d572ad28819003841b3be180c" compoundref="UDPGameServer_8cpp" startline="75" endline="101">UDPGameServer::handleHello</referencedby>
+        <referencedby refid="classUDPGameServer_1abe9913c5eaa12c361bdcc9ce68bdc835" compoundref="UDPGameServer_8cpp" startline="103" endline="138">UDPGameServer::handleInput</referencedby>
+        <referencedby refid="classUDPGameServer_1a0117b7531413f5b7b161675f9e9efd3d" compoundref="UDPGameServer_8cpp" startline="140" endline="172">UDPGameServer::handleShoot</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classSessionManager_1ac233a47eaa6ca5e9b69e0cb8cd377358" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SessionManager::updatePong</definition>
+        <argsstring>(int id, long nowMs)</argsstring>
+        <name>updatePong</name>
+        <qualifiedname>SessionManager::updatePong</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>nowMs</declname>
+        </param>
+        <briefdescription>
+<para>Update last PONG time for heartbeat checks. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="80" column="10" bodyfile="Network/SessionManager.cpp" bodystart="70" bodyend="77"/>
+        <references refid="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" compoundref="SessionManager_8hpp" startline="110">_mutex</references>
+        <references refid="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" compoundref="SessionManager_8hpp" startline="111">_sessions</references>
+        <referencedby refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" compoundref="TCPServer_8cpp" startline="203" endline="331">TCPServer::processClientData</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classSessionManager_1a8023cf136e039298b1e2ba5fe7cb224b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SessionManager::setLobbyCode</definition>
+        <argsstring>(int id, const std::string &amp;code)</argsstring>
+        <name>setLobbyCode</name>
+        <qualifiedname>SessionManager::setLobbyCode</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+<para>Store the lobby code for a player. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="84" column="10" bodyfile="Network/SessionManager.cpp" bodystart="79" bodyend="86"/>
+        <references refid="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" compoundref="SessionManager_8hpp" startline="110">_mutex</references>
+        <references refid="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" compoundref="SessionManager_8hpp" startline="111">_sessions</references>
+        <referencedby refid="classTCPServer_1a84035146c9257be5714850a1f46d0bfb" compoundref="TCPServer_8cpp" startline="669" endline="693">TCPServer::assignLobby</referencedby>
+        <referencedby refid="classTCPServer_1a508cc3d7023b0cfe9abed2e3166b1682" compoundref="TCPServer_8cpp" startline="620" endline="637">TCPServer::removeFromLobby</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classSessionManager_1a0c52e8605801fc4e98c84b724ec72c09" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt; std::string &gt; SessionManager::getLobbyCode</definition>
+        <argsstring>(int id) const</argsstring>
+        <name>getLobbyCode</name>
+        <qualifiedname>SessionManager::getLobbyCode</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Fetch the lobby code for a player. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="88" column="19" bodyfile="Network/SessionManager.cpp" bodystart="88" bodyend="95"/>
+        <references refid="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" compoundref="SessionManager_8hpp" startline="110">_mutex</references>
+        <references refid="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" compoundref="SessionManager_8hpp" startline="111">_sessions</references>
+        <referencedby refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" compoundref="TCPServer_8cpp" startline="203" endline="331">TCPServer::processClientData</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classSessionManager_1a84b313bdbfecb70d12707d77f357bca8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SessionManager::setPseudo</definition>
+        <argsstring>(int id, const std::string &amp;pseudo)</argsstring>
+        <name>setPseudo</name>
+        <qualifiedname>SessionManager::setPseudo</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>pseudo</declname>
+        </param>
+        <briefdescription>
+<para>Store the player&apos;s pseudo. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="92" column="10" bodyfile="Network/SessionManager.cpp" bodystart="97" bodyend="104"/>
+        <references refid="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" compoundref="SessionManager_8hpp" startline="110">_mutex</references>
+        <references refid="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" compoundref="SessionManager_8hpp" startline="111">_sessions</references>
+        <referencedby refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" compoundref="TCPServer_8cpp" startline="203" endline="331">TCPServer::processClientData</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classSessionManager_1a3d137db5b62fdb63340d7b92b8eb371f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt; std::string &gt; SessionManager::getPseudo</definition>
+        <argsstring>(int id) const</argsstring>
+        <name>getPseudo</name>
+        <qualifiedname>SessionManager::getPseudo</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+<para>Fetch the player&apos;s pseudo. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="96" column="19" bodyfile="Network/SessionManager.cpp" bodystart="106" bodyend="113"/>
+        <references refid="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" compoundref="SessionManager_8hpp" startline="110">_mutex</references>
+        <references refid="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" compoundref="SessionManager_8hpp" startline="111">_sessions</references>
+        <referencedby refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" compoundref="TCPServer_8cpp" startline="203" endline="331">TCPServer::processClientData</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classSessionManager_1a42975fcc09128c293815d29f3d72c5b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SessionManager::allowInput</definition>
+        <argsstring>(int id, long nowMs)</argsstring>
+        <name>allowInput</name>
+        <qualifiedname>SessionManager::allowInput</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>nowMs</declname>
+        </param>
+        <briefdescription>
+<para>Rate-limit input packets per second. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="101" column="10" bodyfile="Network/SessionManager.cpp" bodystart="125" bodyend="133"/>
+        <references refid="classSessionManager_1ab07589dac6e7346f7eb4dbd1c871ee80" compoundref="SessionManager_8hpp" startline="113">_maxInputsPerSec</references>
+        <references refid="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" compoundref="SessionManager_8hpp" startline="110">_mutex</references>
+        <references refid="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" compoundref="SessionManager_8hpp" startline="111">_sessions</references>
+        <references refid="classSessionManager_1a3f16df2f2fcaa18971326cf09e8741fb" compoundref="SessionManager_8cpp" startline="115" endline="123">resetCounter</references>
+      </memberdef>
+      <memberdef kind="function" id="classSessionManager_1a3b6210717467960e603c7308ead2a23a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool SessionManager::allowShoot</definition>
+        <argsstring>(int id, long nowMs)</argsstring>
+        <name>allowShoot</name>
+        <qualifiedname>SessionManager::allowShoot</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>long</type>
+          <declname>nowMs</declname>
+        </param>
+        <briefdescription>
+<para>Rate-limit shoot packets per second. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="105" column="10" bodyfile="Network/SessionManager.cpp" bodystart="135" bodyend="143"/>
+        <references refid="classSessionManager_1acf90d50c96347bbf4f617071b9343723" compoundref="SessionManager_8hpp" startline="114">_maxShootsPerSec</references>
+        <references refid="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" compoundref="SessionManager_8hpp" startline="110">_mutex</references>
+        <references refid="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" compoundref="SessionManager_8hpp" startline="111">_sessions</references>
+        <references refid="classSessionManager_1a3f16df2f2fcaa18971326cf09e8741fb" compoundref="SessionManager_8cpp" startline="115" endline="123">resetCounter</references>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classSessionManager_1a3f16df2f2fcaa18971326cf09e8741fb" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SessionManager::resetCounter</definition>
+        <argsstring>(long nowMs, long &amp;lastMs, int &amp;count, int limit)</argsstring>
+        <name>resetCounter</name>
+        <qualifiedname>SessionManager::resetCounter</qualifiedname>
+        <param>
+          <type>long</type>
+          <declname>nowMs</declname>
+        </param>
+        <param>
+          <type>long &amp;</type>
+          <declname>lastMs</declname>
+        </param>
+        <param>
+          <type>int &amp;</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>limit</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="108" column="10" bodyfile="Network/SessionManager.cpp" bodystart="115" bodyend="123"/>
+        <referencedby refid="classSessionManager_1a42975fcc09128c293815d29f3d72c5b7" compoundref="SessionManager_8cpp" startline="125" endline="133">allowInput</referencedby>
+        <referencedby refid="classSessionManager_1a3b6210717467960e603c7308ead2a23a" compoundref="SessionManager_8cpp" startline="135" endline="143">allowShoot</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Tracks client sessions across TCP and UDP, and enforces simple rate limits. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>SessionManager</label>
+        <link refid="classSessionManager"/>
+      </node>
+    </collaborationgraph>
+    <location file="Network/SessionManager.hpp" line="45" column="1" bodyfile="Network/SessionManager.hpp" bodystart="45" bodyend="115"/>
+    <listofallmembers>
+      <member refid="classSessionManager_1ab07589dac6e7346f7eb4dbd1c871ee80" prot="private" virt="non-virtual"><scope>SessionManager</scope><name>_maxInputsPerSec</name></member>
+      <member refid="classSessionManager_1acf90d50c96347bbf4f617071b9343723" prot="private" virt="non-virtual"><scope>SessionManager</scope><name>_maxShootsPerSec</name></member>
+      <member refid="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" prot="private" virt="non-virtual"><scope>SessionManager</scope><name>_mutex</name></member>
+      <member refid="classSessionManager_1a8fb480012df18cedb0dc9fd7517d1a9a" prot="private" virt="non-virtual"><scope>SessionManager</scope><name>_onRemove</name></member>
+      <member refid="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" prot="private" virt="non-virtual"><scope>SessionManager</scope><name>_sessions</name></member>
+      <member refid="classSessionManager_1af8d1197fa1236d0295e3d31170639f6e" prot="public" virt="non-virtual"><scope>SessionManager</scope><name>addSession</name></member>
+      <member refid="classSessionManager_1a42975fcc09128c293815d29f3d72c5b7" prot="public" virt="non-virtual"><scope>SessionManager</scope><name>allowInput</name></member>
+      <member refid="classSessionManager_1a3b6210717467960e603c7308ead2a23a" prot="public" virt="non-virtual"><scope>SessionManager</scope><name>allowShoot</name></member>
+      <member refid="classSessionManager_1a0c52e8605801fc4e98c84b724ec72c09" prot="public" virt="non-virtual"><scope>SessionManager</scope><name>getLobbyCode</name></member>
+      <member refid="classSessionManager_1a3d137db5b62fdb63340d7b92b8eb371f" prot="public" virt="non-virtual"><scope>SessionManager</scope><name>getPseudo</name></member>
+      <member refid="classSessionManager_1a48995915db3b90fa7228d357d6293163" prot="public" virt="non-virtual"><scope>SessionManager</scope><name>getSession</name></member>
+      <member refid="classSessionManager_1ae44030d05e51a85f73a32f6bb6b053cb" prot="public" virt="non-virtual"><scope>SessionManager</scope><name>removeByFd</name></member>
+      <member refid="classSessionManager_1a8916c4ee701635dd8b2ee525331efb0b" prot="public" virt="non-virtual"><scope>SessionManager</scope><name>removeById</name></member>
+      <member refid="classSessionManager_1a3f16df2f2fcaa18971326cf09e8741fb" prot="private" virt="non-virtual"><scope>SessionManager</scope><name>resetCounter</name></member>
+      <member refid="classSessionManager_1a8321c72e22b470cade42377861508d36" prot="public" virt="non-virtual"><scope>SessionManager</scope><name>SessionManager</name></member>
+      <member refid="classSessionManager_1a8023cf136e039298b1e2ba5fe7cb224b" prot="public" virt="non-virtual"><scope>SessionManager</scope><name>setLobbyCode</name></member>
+      <member refid="classSessionManager_1aa54fb04918bcd7d31bcdfe2ce2ee6545" prot="public" virt="non-virtual"><scope>SessionManager</scope><name>setOnRemove</name></member>
+      <member refid="classSessionManager_1a84b313bdbfecb70d12707d77f357bca8" prot="public" virt="non-virtual"><scope>SessionManager</scope><name>setPseudo</name></member>
+      <member refid="classSessionManager_1af2596853b8042076df0c1022468eaec3" prot="public" virt="non-virtual"><scope>SessionManager</scope><name>setUdpAddr</name></member>
+      <member refid="classSessionManager_1ac233a47eaa6ca5e9b69e0cb8cd377358" prot="public" virt="non-virtual"><scope>SessionManager</scope><name>updatePong</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

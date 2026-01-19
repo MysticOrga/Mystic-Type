@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -91,6 +92,8 @@ $(document).ready(function(){initNavTree('classECS.html',''); initResizable(); }
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="classECS-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ECS Class Reference</div></div>
 </div><!--header-->
@@ -99,7 +102,15 @@ $(document).ready(function(){initNavTree('classECS.html',''); initResizable(); }
 <p>Entity Component System implementation.  
  <a href="classECS.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="Core_8hpp_source.html">Core.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="Core_8hpp_source.html">graphical-client/ecs/Core.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for ECS:</div>
+<div class="dyncontent">
+<div class="center"><img src="classECS__coll__graph.png" border="0" usemap="#aECS_coll__map" alt="Collaboration graph"/></div>
+<map name="aECS_coll__map" id="aECS_coll__map">
+<area shape="rect" title="Entity Component System implementation." alt="" coords="5,5,207,251"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -132,10 +143,24 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a11aacce5459a5ce429ea8d181bb4ddc3" id="r_a11aacce5459a5ce429ea8d181bb4ddc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="Core_8hpp.html#aeb9b9235190f907fe8b0994938dd2807">Signature</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classECS.html#a11aacce5459a5ce429ea8d181bb4ddc3">getSignature</a> (<a class="el" href="Core_8hpp.html#aff1ac8fd0b927c16980eeb4053d1d5ca">Entity</a> <a class="el" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602">e</a>) <a class="el" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602">const</a></td></tr>
 <tr class="memdesc:a11aacce5459a5ce429ea8d181bb4ddc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the signature of an entity.  <br /></td></tr>
 <tr class="separator:a11aacce5459a5ce429ea8d181bb4ddc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a5cf70fd9d3ef94f40bd61beafe2de8bc" id="r_a5cf70fd9d3ef94f40bd61beafe2de8bc"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="Core_8hpp.html#aeb9b9235190f907fe8b0994938dd2807">Signature</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classECS.html#a5cf70fd9d3ef94f40bd61beafe2de8bc">signatures</a></td></tr>
+<tr class="separator:a5cf70fd9d3ef94f40bd61beafe2de8bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6819919da90f31fea50d2b290ba724c8" id="r_a6819919da90f31fea50d2b290ba724c8"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::type_index, std::unique_ptr&lt; <a class="el" href="classIComponentArray.html">IComponentArray</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classECS.html#a6819919da90f31fea50d2b290ba724c8">storages</a></td></tr>
+<tr class="separator:a6819919da90f31fea50d2b290ba724c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:adcdcf4b06b3d85845ea113de96fd29c0" id="r_adcdcf4b06b3d85845ea113de96fd29c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602">static</a> <a class="el" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classECS.html#adcdcf4b06b3d85845ea113de96fd29c0">nextComponentIndex</a> = 0</td></tr>
+<tr class="separator:adcdcf4b06b3d85845ea113de96fd29c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Entity Component System implementation. </p>
 <p>Manages entities, components, and their associations using a data-oriented architecture. </p>
+
+<p class="definition">Definition at line <a class="el" href="Core_8hpp_source.html#l00087">87</a> of file <a class="el" href="Core_8hpp_source.html">Core.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7fba8bcfbb8d238085ab7302d96a332f" name="a7fba8bcfbb8d238085ab7302d96a332f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7fba8bcfbb8d238085ab7302d96a332f">&#9670;&#160;</a></span>ECS()</h2>
@@ -161,6 +186,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructor initializing entity signatures. </p>
+
+<p class="definition">Definition at line <a class="el" href="Core_8hpp_source.html#l00092">92</a> of file <a class="el" href="Core_8hpp_source.html">Core.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Core_8hpp_source.html#l00017">MAX_ENTITIES</a>, and <a class="el" href="Core_8hpp_source.html#l00180">signatures</a>.</p>
 
 </div>
 </div>
@@ -216,6 +245,60 @@ template&lt;<a class="el" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602"
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="Core_8hpp_source.html#l00112">112</a> of file <a class="el" href="Core_8hpp_source.html">Core.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Core_8hpp_source.html#l00062">ComponentArray&lt; T &gt;::add()</a>, <a class="el" href="Core_8hpp_source.html#l00165">getComponentTypeIndex()</a>, <a class="el" href="Core_8hpp_source.html#l00180">signatures</a>, and <a class="el" href="Core_8hpp_source.html#l00181">storages</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l00094">GraphicClient::createBulletEntity()</a>, <a class="el" href="GraphicClient_8cpp_source.html#l00103">GraphicClient::createMonsterEntity()</a>, <a class="el" href="GraphicClient_8cpp_source.html#l00083">GraphicClient::createPlayerEntity()</a>, and <a class="el" href="GraphicClient_8cpp_source.html#l00416">GraphicClient::selectLobby()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classECS_a4fbe0d70b0934255d301ced9df6287e7_cgraph.png" border="0" usemap="#aclassECS_a4fbe0d70b0934255d301ced9df6287e7_cgraph" alt=""/></div>
+<map name="aclassECS_a4fbe0d70b0934255d301ced9df6287e7_cgraph" id="aclassECS_a4fbe0d70b0934255d301ced9df6287e7_cgraph">
+<area shape="rect" title="Adds a component to an entity." alt="" coords="5,31,160,56"/>
+<area shape="rect" href="classComponentArray.html#a37f484a9d2b6716e2facff9eabe1bb64" title="Adds or updates a component for an entity." alt="" coords="235,5,398,31"/>
+<area shape="poly" title=" " alt="" coords="160,32,221,26,222,31,161,38"/>
+<area shape="rect" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="208,55,425,80"/>
+<area shape="poly" title=" " alt="" coords="161,49,194,52,194,57,160,54"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classECS_a4fbe0d70b0934255d301ced9df6287e7_icgraph.png" border="0" usemap="#aclassECS_a4fbe0d70b0934255d301ced9df6287e7_icgraph" alt=""/></div>
+<map name="aclassECS_a4fbe0d70b0934255d301ced9df6287e7_icgraph" id="aclassECS_a4fbe0d70b0934255d301ced9df6287e7_icgraph">
+<area shape="rect" title="Adds a component to an entity." alt="" coords="1305,109,1460,134"/>
+<area shape="rect" href="classGraphicClient.html#a31bdd83222945e28b307b03b32135288" title="Creates a bullet entity at specified position." alt="" coords="1053,5,1250,45"/>
+<area shape="poly" title=" " alt="" coords="1346,104,1256,60,1224,48,1226,43,1258,55,1349,99"/>
+<area shape="rect" href="classGraphicClient.html#a6dd918f7ac4761ab4946371df06386ec" title="Creates a monster entity at specified position." alt="" coords="1045,69,1257,109"/>
+<area shape="poly" title=" " alt="" coords="1291,111,1257,107,1258,101,1292,106"/>
+<area shape="rect" href="classGraphicClient.html#a1f97bf7f358d1d5a5d65069d641feb5b" title="Creates a player entity at specified position." alt="" coords="1051,133,1251,173"/>
+<area shape="poly" title=" " alt="" coords="1292,137,1252,142,1251,137,1291,131"/>
+<area shape="rect" href="classGraphicClient.html#a70229e3e019e7b315f06c9ad74f23be5" title="Shows lobby selection menu." alt="" coords="795,194,991,219"/>
+<area shape="poly" title=" " alt="" coords="1352,144,1309,168,1258,188,1190,202,1119,211,992,214,991,209,1119,205,1189,197,1257,183,1307,163,1350,139"/>
+<area shape="rect" href="classGraphicClient.html#a61111e5d14a72f0f69344ab034a0622a" title="Synchronizes bullet entities with server state." alt="" coords="797,21,990,46"/>
+<area shape="poly" title=" " alt="" coords="1039,31,990,33,990,28,1039,26"/>
+<area shape="rect" href="classGraphicClient.html#a50072266faf2e76ace99e16c4c7b208a" title="Updates all game entities based on delta time." alt="" coords="529,85,741,110"/>
+<area shape="poly" title=" " alt="" coords="829,52,688,87,687,82,827,47"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,86,481,111"/>
+<area shape="poly" title=" " alt="" coords="516,101,482,101,482,95,516,95"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,113,247,138"/>
+<area shape="poly" title=" " alt="" coords="281,115,247,119,247,114,280,110"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,113,60,138"/>
+<area shape="poly" title=" " alt="" coords="94,128,60,128,60,123,94,123"/>
+<area shape="rect" href="classGraphicClient.html#afe45a37a11b23a08cce4d7c6b7efccbc" title="Synchronizes monster entities with server state." alt="" coords="789,78,997,103"/>
+<area shape="poly" title=" " alt="" coords="1031,93,998,93,998,87,1031,87"/>
+<area shape="poly" title=" " alt="" coords="776,96,742,97,742,92,775,91"/>
+<area shape="rect" href="classGraphicClient.html#aacb31035c31d741d0ae2ca5ec9228b12" title="Synchronizes player entities with server state." alt="" coords="795,141,992,166"/>
+<area shape="poly" title=" " alt="" coords="1038,156,992,156,992,151,1038,151"/>
+<area shape="poly" title=" " alt="" coords="820,140,694,113,695,107,822,135"/>
+<area shape="rect" href="classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="566,141,705,166"/>
+<area shape="poly" title=" " alt="" coords="781,156,705,156,705,151,781,151"/>
+<area shape="poly" title=" " alt="" coords="552,151,247,132,247,127,552,146"/>
+<area shape="poly" title=" " alt="" coords="817,194,697,169,698,163,818,189"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a41b876f3725cbb04aac3f2edd95522c6" name="a41b876f3725cbb04aac3f2edd95522c6"></a>
@@ -243,6 +326,46 @@ template&lt;<a class="el" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602"
 
 <p>Creates a new entity. </p>
 <dl class="section return"><dt>Returns</dt><dd>The ID of the newly created entity. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Core_8hpp_source.html#l00100">100</a> of file <a class="el" href="Core_8hpp_source.html">Core.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l00094">GraphicClient::createBulletEntity()</a>, <a class="el" href="GraphicClient_8cpp_source.html#l00103">GraphicClient::createMonsterEntity()</a>, <a class="el" href="GraphicClient_8cpp_source.html#l00083">GraphicClient::createPlayerEntity()</a>, and <a class="el" href="GraphicClient_8cpp_source.html#l00416">GraphicClient::selectLobby()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classECS_a41b876f3725cbb04aac3f2edd95522c6_icgraph.png" border="0" usemap="#aclassECS_a41b876f3725cbb04aac3f2edd95522c6_icgraph" alt=""/></div>
+<map name="aclassECS_a41b876f3725cbb04aac3f2edd95522c6_icgraph" id="aclassECS_a41b876f3725cbb04aac3f2edd95522c6_icgraph">
+<area shape="rect" title="Creates a new entity." alt="" coords="1305,109,1440,134"/>
+<area shape="rect" href="classGraphicClient.html#a31bdd83222945e28b307b03b32135288" title="Creates a bullet entity at specified position." alt="" coords="1053,5,1250,45"/>
+<area shape="poly" title=" " alt="" coords="1339,104,1300,81,1256,60,1225,48,1226,43,1258,55,1303,77,1342,99"/>
+<area shape="rect" href="classGraphicClient.html#a6dd918f7ac4761ab4946371df06386ec" title="Creates a monster entity at specified position." alt="" coords="1045,69,1257,109"/>
+<area shape="poly" title=" " alt="" coords="1291,112,1257,107,1258,102,1292,107"/>
+<area shape="rect" href="classGraphicClient.html#a1f97bf7f358d1d5a5d65069d641feb5b" title="Creates a player entity at specified position." alt="" coords="1051,133,1251,173"/>
+<area shape="poly" title=" " alt="" coords="1292,136,1252,141,1251,136,1291,130"/>
+<area shape="rect" href="classGraphicClient.html#a70229e3e019e7b315f06c9ad74f23be5" title="Shows lobby selection menu." alt="" coords="795,194,991,219"/>
+<area shape="poly" title=" " alt="" coords="1344,144,1305,168,1258,188,1190,203,1120,212,991,215,991,210,1119,207,1189,198,1257,183,1302,163,1342,140"/>
+<area shape="rect" href="classGraphicClient.html#a61111e5d14a72f0f69344ab034a0622a" title="Synchronizes bullet entities with server state." alt="" coords="797,21,990,46"/>
+<area shape="poly" title=" " alt="" coords="1039,31,990,33,990,28,1039,26"/>
+<area shape="rect" href="classGraphicClient.html#a50072266faf2e76ace99e16c4c7b208a" title="Updates all game entities based on delta time." alt="" coords="529,85,741,110"/>
+<area shape="poly" title=" " alt="" coords="829,52,688,87,687,82,827,47"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,86,481,111"/>
+<area shape="poly" title=" " alt="" coords="516,101,482,101,482,95,516,95"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,113,247,138"/>
+<area shape="poly" title=" " alt="" coords="281,115,247,119,247,114,280,110"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,113,60,138"/>
+<area shape="poly" title=" " alt="" coords="94,128,60,128,60,123,94,123"/>
+<area shape="rect" href="classGraphicClient.html#afe45a37a11b23a08cce4d7c6b7efccbc" title="Synchronizes monster entities with server state." alt="" coords="789,78,997,103"/>
+<area shape="poly" title=" " alt="" coords="1031,93,998,93,998,87,1031,87"/>
+<area shape="poly" title=" " alt="" coords="776,96,742,97,742,92,775,91"/>
+<area shape="rect" href="classGraphicClient.html#aacb31035c31d741d0ae2ca5ec9228b12" title="Synchronizes player entities with server state." alt="" coords="795,141,992,166"/>
+<area shape="poly" title=" " alt="" coords="1038,156,992,156,992,151,1038,151"/>
+<area shape="poly" title=" " alt="" coords="820,140,694,113,695,107,822,135"/>
+<area shape="rect" href="classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="566,141,705,166"/>
+<area shape="poly" title=" " alt="" coords="781,156,705,156,705,151,781,151"/>
+<area shape="poly" title=" " alt="" coords="552,151,247,132,247,127,552,146"/>
+<area shape="poly" title=" " alt="" coords="817,194,697,169,698,163,818,189"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -279,6 +402,20 @@ template&lt;<a class="el" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602"
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the vector of all components of this type. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Core_8hpp_source.html#l00155">155</a> of file <a class="el" href="Core_8hpp_source.html">Core.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Core_8hpp_source.html#l00165">getComponentTypeIndex()</a>, and <a class="el" href="Core_8hpp_source.html#l00181">storages</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classECS_ac35029e74e4944f3007c3ddcdd45b2e9_cgraph.png" border="0" usemap="#aclassECS_ac35029e74e4944f3007c3ddcdd45b2e9_cgraph" alt=""/></div>
+<map name="aclassECS_ac35029e74e4944f3007c3ddcdd45b2e9_cgraph" id="aclassECS_ac35029e74e4944f3007c3ddcdd45b2e9_cgraph">
+<area shape="rect" title="Retrieves all components of a specific type." alt="" coords="5,5,180,31"/>
+<area shape="rect" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="228,5,445,31"/>
+<area shape="poly" title=" " alt="" coords="180,15,214,15,214,21,180,21"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -323,6 +460,66 @@ template&lt;<a class="el" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602"
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the component. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="Core_8hpp_source.html#l00131">131</a> of file <a class="el" href="Core_8hpp_source.html">Core.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Core_8hpp_source.html#l00165">getComponentTypeIndex()</a>, and <a class="el" href="Core_8hpp_source.html#l00181">storages</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l00416">GraphicClient::selectLobby()</a>, <a class="el" href="GraphicClient_8cpp_source.html#l00200">GraphicClient::syncBullets()</a>, <a class="el" href="GraphicClient_8cpp_source.html#l00130">GraphicClient::syncEntities()</a>, <a class="el" href="GraphicClient_8cpp_source.html#l00239">GraphicClient::syncMonsters()</a>, <a class="el" href="System_8hpp_source.html#l00198">CircleRenderSystem::update()</a>, <a class="el" href="System_8hpp_source.html#l00233">RectangleRenderSystem::update()</a>, <a class="el" href="System_8hpp_source.html#l00164">MovementSystem::update()</a>, <a class="el" href="System_8hpp_source.html#l00284">SpriteRenderSystem::update()</a>, and <a class="el" href="GraphicClient_8cpp_source.html#l00371">GraphicClient::updateEntities()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classECS_ab25123ea5b19ee74c4e120eb6d808a48_cgraph.png" border="0" usemap="#aclassECS_ab25123ea5b19ee74c4e120eb6d808a48_cgraph" alt=""/></div>
+<map name="aclassECS_ab25123ea5b19ee74c4e120eb6d808a48_cgraph" id="aclassECS_ab25123ea5b19ee74c4e120eb6d808a48_cgraph">
+<area shape="rect" title="Retrieves a component from an entity." alt="" coords="5,5,156,31"/>
+<area shape="rect" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="204,5,421,31"/>
+<area shape="poly" title=" " alt="" coords="156,15,190,15,190,21,156,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classECS_ab25123ea5b19ee74c4e120eb6d808a48_icgraph.png" border="0" usemap="#aclassECS_ab25123ea5b19ee74c4e120eb6d808a48_icgraph" alt=""/></div>
+<map name="aclassECS_ab25123ea5b19ee74c4e120eb6d808a48_icgraph" id="aclassECS_ab25123ea5b19ee74c4e120eb6d808a48_icgraph">
+<area shape="rect" title="Retrieves a component from an entity." alt="" coords="1045,205,1196,231"/>
+<area shape="rect" href="classGraphicClient.html#a70229e3e019e7b315f06c9ad74f23be5" title="Shows lobby selection menu." alt="" coords="795,5,991,31"/>
+<area shape="poly" title=" " alt="" coords="1106,193,1090,159,1065,118,1034,78,996,44,974,33,977,28,999,40,1038,74,1070,115,1094,157,1111,191"/>
+<area shape="rect" href="classGraphicClient.html#a61111e5d14a72f0f69344ab034a0622a" title="Synchronizes bullet entities with server state." alt="" coords="797,104,990,129"/>
+<area shape="poly" title=" " alt="" coords="1087,200,1044,175,996,151,942,132,944,127,998,146,1047,170,1090,195"/>
+<area shape="rect" href="classGraphicClient.html#a50072266faf2e76ace99e16c4c7b208a" title="Updates all game entities based on delta time." alt="" coords="529,155,741,180"/>
+<area shape="poly" title=" " alt="" coords="1052,205,997,195,864,181,741,174,742,168,865,176,998,190,1053,200"/>
+<area shape="rect" href="classGraphicClient.html#aacb31035c31d741d0ae2ca5ec9228b12" title="Synchronizes player entities with server state." alt="" coords="795,55,992,80"/>
+<area shape="poly" title=" " alt="" coords="1101,196,1057,143,1028,116,996,94,971,83,973,78,999,89,1032,112,1061,140,1105,192"/>
+<area shape="rect" href="classGraphicClient.html#afe45a37a11b23a08cce4d7c6b7efccbc" title="Synchronizes monster entities with server state." alt="" coords="789,205,997,231"/>
+<area shape="poly" title=" " alt="" coords="1032,221,998,221,998,215,1032,215"/>
+<area shape="rect" href="classCircleRenderSystem.html#aead45b36f0cc7ccec0004b8a9b454d07" title="Renders a circle entity to the screen." alt="" coords="816,255,971,295"/>
+<area shape="poly" title=" " alt="" coords="1057,237,972,258,970,253,1056,231"/>
+<area shape="rect" href="classRectangleRenderSystem.html#a92f6643f7bbedda7d15c6ea55f7407d1" title="Renders a rectangle entity to the screen." alt="" coords="802,370,985,410"/>
+<area shape="poly" title=" " alt="" coords="1106,244,1063,301,1033,332,999,359,973,372,971,368,996,354,1029,328,1058,298,1102,241"/>
+<area shape="rect" href="classMovementSystem.html#a57b0e4d3739f4b27ce15324b8a4d47bf" title="Updates entity position based on velocity with fixed time stepping." alt="" coords="796,320,991,345"/>
+<area shape="poly" title=" " alt="" coords="1097,242,1053,277,998,310,963,322,961,317,996,305,1050,272,1094,238"/>
+<area shape="rect" href="classSpriteRenderSystem.html#a439243229880829d70b83b895b500495" title="Updates and renders an animated sprite entity." alt="" coords="816,434,971,474"/>
+<area shape="poly" title=" " alt="" coords="1113,245,1098,284,1073,332,1041,382,999,424,972,440,969,435,996,420,1037,378,1069,330,1093,282,1108,243"/>
+<area shape="rect" href="classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="566,55,705,80"/>
+<area shape="poly" title=" " alt="" coords="814,36,703,57,702,52,812,31"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,129,247,155"/>
+<area shape="poly" title=" " alt="" coords="553,83,247,133,246,128,552,78"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,129,60,155"/>
+<area shape="poly" title=" " alt="" coords="94,145,60,145,60,139,94,139"/>
+<area shape="poly" title=" " alt="" coords="815,135,701,157,700,152,814,129"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,155,481,180"/>
+<area shape="poly" title=" " alt="" coords="516,170,482,170,482,165,516,165"/>
+<area shape="poly" title=" " alt="" coords="280,157,247,153,247,148,281,152"/>
+<area shape="poly" title=" " alt="" coords="781,70,705,70,705,65,781,65"/>
+<area shape="poly" title=" " alt="" coords="815,86,790,94,718,126,659,157,657,152,715,121,788,89,813,81"/>
+<area shape="poly" title=" " alt="" coords="814,205,700,183,701,177,815,200"/>
+<area shape="rect" href="classGraphicClient.html#ab0acd8f5b8996cc62295831d7af1cf59" title="Renders the entire game scene." alt="" coords="555,377,715,403"/>
+<area shape="poly" title=" " alt="" coords="789,393,716,393,716,387,789,387"/>
+<area shape="poly" title=" " alt="" coords="608,370,402,182,405,178,611,366"/>
+<area shape="poly" title=" " alt="" coords="806,318,788,310,742,279,701,243,645,182,649,178,705,239,745,275,791,305,808,313"/>
+<area shape="poly" title=" " alt="" coords="802,434,687,405,688,400,803,429"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="aacd3f4c4db77a1e5ff41711297ec6602" name="aacd3f4c4db77a1e5ff41711297ec6602"></a>
@@ -359,6 +556,76 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Unique type index for this component. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="Core_8hpp_source.html#l00165">165</a> of file <a class="el" href="Core_8hpp_source.html">Core.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Core_8hpp_source.html#l00182">nextComponentIndex</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Core_8hpp_source.html#l00112">addComponent()</a>, <a class="el" href="Core_8hpp_source.html#l00155">getAllComponents()</a>, <a class="el" href="Core_8hpp_source.html#l00131">getComponent()</a>, <a class="el" href="Core_8hpp_source.html#l00175">getSignature()</a>, and <a class="el" href="Core_8hpp_source.html#l00142">hasComponent()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classECS_aacd3f4c4db77a1e5ff41711297ec6602_icgraph.png" border="0" usemap="#aclassECS_aacd3f4c4db77a1e5ff41711297ec6602_icgraph" alt=""/></div>
+<map name="aclassECS_aacd3f4c4db77a1e5ff41711297ec6602_icgraph" id="aclassECS_aacd3f4c4db77a1e5ff41711297ec6602_icgraph">
+<area shape="rect" title="Gets the type index for a component type." alt="" coords="1528,398,1745,423"/>
+<area shape="rect" href="classECS.html#a4fbe0d70b0934255d301ced9df6287e7" title="Adds a component to an entity." alt="" coords="1315,349,1470,374"/>
+<area shape="poly" title=" " alt="" coords="1559,398,1456,377,1457,371,1560,393"/>
+<area shape="rect" href="classECS.html#ac35029e74e4944f3007c3ddcdd45b2e9" title="Retrieves all components of a specific type." alt="" coords="1305,398,1480,423"/>
+<area shape="poly" title=" " alt="" coords="1514,413,1480,413,1480,408,1514,408"/>
+<area shape="rect" href="classECS.html#ab25123ea5b19ee74c4e120eb6d808a48" title="Retrieves a component from an entity." alt="" coords="1076,227,1227,253"/>
+<area shape="poly" title=" " alt="" coords="1599,394,1479,338,1369,299,1257,268,1208,255,1209,250,1258,263,1371,294,1481,334,1601,389"/>
+<area shape="rect" href="classECS.html#a11aacce5459a5ce429ea8d181bb4ddc3" title="Gets the signature of an entity." alt="" coords="1323,447,1462,473"/>
+<area shape="poly" title=" " alt="" coords="1560,429,1457,450,1456,445,1559,423"/>
+<area shape="rect" href="classECS.html#a33c16853296e9784dfb558f35dffbd72" title="Checks if an entity has a specific component type." alt="" coords="1316,497,1469,522"/>
+<area shape="poly" title=" " alt="" coords="1602,432,1546,460,1481,488,1446,499,1445,494,1479,483,1543,455,1599,427"/>
+<area shape="rect" href="classGraphicClient.html#a31bdd83222945e28b307b03b32135288" title="Creates a bullet entity at specified position." alt="" coords="1053,277,1250,317"/>
+<area shape="poly" title=" " alt="" coords="1330,348,1227,320,1228,315,1331,342"/>
+<area shape="rect" href="classGraphicClient.html#a6dd918f7ac4761ab4946371df06386ec" title="Creates a monster entity at specified position." alt="" coords="1045,341,1257,381"/>
+<area shape="poly" title=" " alt="" coords="1302,364,1258,364,1258,359,1302,359"/>
+<area shape="rect" href="classGraphicClient.html#a1f97bf7f358d1d5a5d65069d641feb5b" title="Creates a player entity at specified position." alt="" coords="1051,405,1251,445"/>
+<area shape="poly" title=" " alt="" coords="1331,380,1228,408,1227,403,1330,375"/>
+<area shape="rect" href="classGraphicClient.html#a70229e3e019e7b315f06c9ad74f23be5" title="Shows lobby selection menu." alt="" coords="795,447,991,473"/>
+<area shape="poly" title=" " alt="" coords="1315,382,1307,387,1292,405,1285,424,1277,443,1259,460,1218,477,1176,488,1132,493,1088,495,1006,488,940,475,941,470,1007,483,1088,489,1131,488,1175,483,1217,472,1256,455,1273,440,1280,422,1287,402,1304,383,1313,378"/>
+<area shape="rect" href="classGraphicClient.html#a61111e5d14a72f0f69344ab034a0622a" title="Synchronizes bullet entities with server state." alt="" coords="797,299,990,325"/>
+<area shape="poly" title=" " alt="" coords="1039,306,990,309,990,304,1039,301"/>
+<area shape="rect" href="classGraphicClient.html#a50072266faf2e76ace99e16c4c7b208a" title="Updates all game entities based on delta time." alt="" coords="529,299,741,325"/>
+<area shape="poly" title=" " alt="" coords="783,315,741,315,741,309,783,309"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,299,481,325"/>
+<area shape="poly" title=" " alt="" coords="516,315,482,315,482,309,516,309"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,349,247,374"/>
+<area shape="poly" title=" " alt="" coords="321,330,233,351,232,346,319,325"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,349,60,374"/>
+<area shape="poly" title=" " alt="" coords="94,364,60,364,60,359,94,359"/>
+<area shape="rect" href="classGraphicClient.html#afe45a37a11b23a08cce4d7c6b7efccbc" title="Synchronizes monster entities with server state." alt="" coords="789,349,997,374"/>
+<area shape="poly" title=" " alt="" coords="1031,364,998,364,998,359,1031,359"/>
+<area shape="poly" title=" " alt="" coords="812,349,702,327,703,322,814,343"/>
+<area shape="rect" href="classGraphicClient.html#aacb31035c31d741d0ae2ca5ec9228b12" title="Synchronizes player entities with server state." alt="" coords="795,398,992,423"/>
+<area shape="poly" title=" " alt="" coords="1037,422,992,419,992,414,1038,416"/>
+<area shape="poly" title=" " alt="" coords="818,397,788,388,716,357,658,327,661,322,718,352,790,383,819,392"/>
+<area shape="rect" href="classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="566,398,705,423"/>
+<area shape="poly" title=" " alt="" coords="781,413,705,413,705,408,781,408"/>
+<area shape="poly" title=" " alt="" coords="552,404,247,371,247,366,553,399"/>
+<area shape="poly" title=" " alt="" coords="812,447,702,426,703,421,814,442"/>
+<area shape="poly" title=" " alt="" coords="1082,259,1046,268,936,302,935,297,1045,263,1080,253"/>
+<area shape="poly" title=" " alt="" coords="1063,253,790,289,710,302,710,297,789,284,1062,248"/>
+<area shape="poly" title=" " alt="" coords="1064,258,1047,267,1031,284,1024,302,1016,320,999,338,974,351,972,346,996,334,1011,317,1019,300,1027,281,1044,263,1061,253"/>
+<area shape="poly" title=" " alt="" coords="1065,256,1047,267,1035,281,1028,295,1024,326,1020,357,1012,372,999,387,979,400,976,396,996,383,1008,369,1014,355,1019,325,1023,294,1030,278,1044,263,1062,252"/>
+<area shape="poly" title=" " alt="" coords="1065,255,1047,267,1032,287,1025,307,1024,350,1023,393,1016,415,999,437,981,449,978,445,995,433,1011,413,1018,392,1019,350,1019,307,1027,285,1043,263,1062,251"/>
+<area shape="rect" href="classCircleRenderSystem.html#aead45b36f0cc7ccec0004b8a9b454d07" title="Renders a circle entity to the screen." alt="" coords="816,5,971,45"/>
+<area shape="poly" title=" " alt="" coords="1134,217,1111,182,1080,139,1041,96,996,60,970,46,972,41,999,55,1044,93,1084,136,1116,179,1138,214"/>
+<area shape="rect" href="classRectangleRenderSystem.html#a92f6643f7bbedda7d15c6ea55f7407d1" title="Renders a rectangle entity to the screen." alt="" coords="802,69,985,109"/>
+<area shape="poly" title=" " alt="" coords="1125,220,1069,172,1034,146,996,124,969,112,971,107,999,119,1036,142,1072,168,1129,216"/>
+<area shape="rect" href="classMovementSystem.html#a57b0e4d3739f4b27ce15324b8a4d47bf" title="Updates entity position based on velocity with fixed time stepping." alt="" coords="796,198,991,223"/>
+<area shape="poly" title=" " alt="" coords="1062,233,991,224,991,219,1063,227"/>
+<area shape="rect" href="classSpriteRenderSystem.html#a439243229880829d70b83b895b500495" title="Updates and renders an animated sprite entity." alt="" coords="816,133,971,173"/>
+<area shape="poly" title=" " alt="" coords="1102,225,996,188,960,176,961,171,998,183,1104,220"/>
+<area shape="rect" href="classGraphicClient.html#ab0acd8f5b8996cc62295831d7af1cf59" title="Renders the entire game scene." alt="" coords="555,141,715,166"/>
+<area shape="poly" title=" " alt="" coords="799,115,688,143,687,138,798,110"/>
+<area shape="poly" title=" " alt="" coords="605,176,410,301,408,297,602,171"/>
+<area shape="poly" title=" " alt="" coords="835,230,790,245,663,302,661,297,788,240,833,225"/>
+<area shape="poly" title=" " alt="" coords="802,156,716,156,716,151,802,151"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a11aacce5459a5ce429ea8d181bb4ddc3" name="a11aacce5459a5ce429ea8d181bb4ddc3"></a>
@@ -393,6 +660,20 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The entity's component signature. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Core_8hpp_source.html#l00175">175</a> of file <a class="el" href="Core_8hpp_source.html">Core.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Core_8hpp_source.html#l00165">getComponentTypeIndex()</a>, and <a class="el" href="Core_8hpp_source.html#l00180">signatures</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classECS_a11aacce5459a5ce429ea8d181bb4ddc3_cgraph.png" border="0" usemap="#aclassECS_a11aacce5459a5ce429ea8d181bb4ddc3_cgraph" alt=""/></div>
+<map name="aclassECS_a11aacce5459a5ce429ea8d181bb4ddc3_cgraph" id="aclassECS_a11aacce5459a5ce429ea8d181bb4ddc3_cgraph">
+<area shape="rect" title="Gets the signature of an entity." alt="" coords="5,5,144,31"/>
+<area shape="rect" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="192,5,409,31"/>
+<area shape="poly" title=" " alt="" coords="144,15,178,15,178,21,144,21"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -436,6 +717,102 @@ template&lt;<a class="el" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602"
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if entity has component, false otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Core_8hpp_source.html#l00142">142</a> of file <a class="el" href="Core_8hpp_source.html">Core.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Core_8hpp_source.html#l00165">getComponentTypeIndex()</a>, and <a class="el" href="Core_8hpp_source.html#l00180">signatures</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classECS_a33c16853296e9784dfb558f35dffbd72_cgraph.png" border="0" usemap="#aclassECS_a33c16853296e9784dfb558f35dffbd72_cgraph" alt=""/></div>
+<map name="aclassECS_a33c16853296e9784dfb558f35dffbd72_cgraph" id="aclassECS_a33c16853296e9784dfb558f35dffbd72_cgraph">
+<area shape="rect" title="Checks if an entity has a specific component type." alt="" coords="5,5,159,31"/>
+<area shape="rect" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="207,5,424,31"/>
+<area shape="poly" title=" " alt="" coords="159,15,193,15,193,21,159,21"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="adcdcf4b06b3d85845ea113de96fd29c0" name="adcdcf4b06b3d85845ea113de96fd29c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcdcf4b06b3d85845ea113de96fd29c0">&#9670;&#160;</a></span>nextComponentIndex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602">size_t</a> ECS::nextComponentIndex = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Next available component type index </p>
+
+<p class="definition">Definition at line <a class="el" href="Core_8hpp_source.html#l00182">182</a> of file <a class="el" href="Core_8hpp_source.html">Core.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Core_8hpp_source.html#l00165">getComponentTypeIndex()</a>.</p>
+
+</div>
+</div>
+<a id="a5cf70fd9d3ef94f40bd61beafe2de8bc" name="a5cf70fd9d3ef94f40bd61beafe2de8bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cf70fd9d3ef94f40bd61beafe2de8bc">&#9670;&#160;</a></span>signatures</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="Core_8hpp.html#aeb9b9235190f907fe8b0994938dd2807">Signature</a>&gt; ECS::signatures</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Entity component signatures </p>
+
+<p class="definition">Definition at line <a class="el" href="Core_8hpp_source.html#l00180">180</a> of file <a class="el" href="Core_8hpp_source.html">Core.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Core_8hpp_source.html#l00112">addComponent()</a>, <a class="el" href="Core_8hpp_source.html#l00092">ECS()</a>, <a class="el" href="Core_8hpp_source.html#l00175">getSignature()</a>, and <a class="el" href="Core_8hpp_source.html#l00142">hasComponent()</a>.</p>
+
+</div>
+</div>
+<a id="a6819919da90f31fea50d2b290ba724c8" name="a6819919da90f31fea50d2b290ba724c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6819919da90f31fea50d2b290ba724c8">&#9670;&#160;</a></span>storages</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::type_index, std::unique_ptr&lt;<a class="el" href="classIComponentArray.html">IComponentArray</a>&gt; &gt; ECS::storages</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Component storages </p>
+
+<p class="definition">Definition at line <a class="el" href="Core_8hpp_source.html#l00181">181</a> of file <a class="el" href="Core_8hpp_source.html">Core.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Core_8hpp_source.html#l00112">addComponent()</a>, <a class="el" href="Core_8hpp_source.html#l00155">getAllComponents()</a>, and <a class="el" href="Core_8hpp_source.html#l00131">getComponent()</a>.</p>
 
 </div>
 </div>

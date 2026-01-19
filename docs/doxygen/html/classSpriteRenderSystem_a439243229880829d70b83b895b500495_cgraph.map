@@ -1,0 +1,7 @@
+<map id="SpriteRenderSystem::update" name="SpriteRenderSystem::update">
+<area shape="rect" id="Node000001" title="Updates and renders an animated sprite entity." alt="" coords="5,5,160,45"/>
+<area shape="rect" id="Node000002" href="$classECS.html#ab25123ea5b19ee74c4e120eb6d808a48" title="Retrieves a component from an entity." alt="" coords="208,13,359,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,23,194,23,194,28,161,28"/>
+<area shape="rect" id="Node000003" href="$classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="407,13,624,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="359,23,393,23,393,28,359,28"/>
+</map>

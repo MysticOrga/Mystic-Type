@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classCircleComponent" kind="class" language="C++" prot="public">
+    <compoundname>CircleComponent</compoundname>
+    <includes refid="Components_8hpp" local="no">graphical-client/ecs/Components.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classCircleComponent_1a9fa07a9c87953c90e06d5cb153e45842" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float CircleComponent::radius</definition>
+        <argsstring></argsstring>
+        <name>radius</name>
+        <qualifiedname>CircleComponent::radius</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Circle radius in pixels </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="89" column="11" bodyfile="graphical-client/ecs/Components.hpp" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classCircleComponent_1a2d0285da58a8198a1c3713e583e28528" prot="public" static="no" mutable="no">
+        <type>Color</type>
+        <definition>Color CircleComponent::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>CircleComponent::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Circle color </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="90" column="11" bodyfile="graphical-client/ecs/Components.hpp" bodystart="90" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classCircleComponent_1a3a628c09c2fcceb5083283b7913c802c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>CircleComponent::CircleComponent</definition>
+        <argsstring>(float r=20, Color c=RED)</argsstring>
+        <name>CircleComponent</name>
+        <qualifiedname>CircleComponent::CircleComponent</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>r</declname>
+          <defval>20</defval>
+        </param>
+        <param>
+          <type>Color</type>
+          <declname>c</declname>
+          <defval>RED</defval>
+        </param>
+        <briefdescription>
+<para>Constructor for <ref refid="classCircleComponent" kindref="compound">CircleComponent</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Radius (default: 20). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Color (default: RED). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="97" column="5" bodyfile="graphical-client/ecs/Components.hpp" bodystart="97" bodyend="97"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Component for rendering circular entities. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Stores visual properties for circle rendering. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>CircleComponent</label>
+        <link refid="classCircleComponent"/>
+      </node>
+    </collaborationgraph>
+    <location file="graphical-client/ecs/Components.hpp" line="86" column="1" bodyfile="graphical-client/ecs/Components.hpp" bodystart="87" bodyend="98"/>
+    <listofallmembers>
+      <member refid="classCircleComponent_1a3a628c09c2fcceb5083283b7913c802c" prot="public" virt="non-virtual"><scope>CircleComponent</scope><name>CircleComponent</name></member>
+      <member refid="classCircleComponent_1a2d0285da58a8198a1c3713e583e28528" prot="public" virt="non-virtual"><scope>CircleComponent</scope><name>color</name></member>
+      <member refid="classCircleComponent_1a9fa07a9c87953c90e06d5cb153e45842" prot="public" virt="non-virtual"><scope>CircleComponent</scope><name>radius</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

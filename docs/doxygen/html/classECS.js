@@ -7,5 +7,8 @@ var classECS =
     [ "getComponent", "classECS.html#ab25123ea5b19ee74c4e120eb6d808a48", null ],
     [ "getComponentTypeIndex", "classECS.html#aacd3f4c4db77a1e5ff41711297ec6602", null ],
     [ "getSignature", "classECS.html#a11aacce5459a5ce429ea8d181bb4ddc3", null ],
-    [ "hasComponent", "classECS.html#a33c16853296e9784dfb558f35dffbd72", null ]
+    [ "hasComponent", "classECS.html#a33c16853296e9784dfb558f35dffbd72", null ],
+    [ "nextComponentIndex", "classECS.html#adcdcf4b06b3d85845ea113de96fd29c0", null ],
+    [ "signatures", "classECS.html#a5cf70fd9d3ef94f40bd61beafe2de8bc", null ],
+    [ "storages", "classECS.html#a6819919da90f31fea50d2b290ba724c8", null ]
 ];

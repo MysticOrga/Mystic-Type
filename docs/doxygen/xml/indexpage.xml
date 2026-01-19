@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="indexpage" kind="page">
+    <compoundname>index</compoundname>
+    <title>Mystic-Type</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><anchor id="index_1md__2home_2loic_2EPITECH_2rtype_2Mystic-Type_2README"/> Multiplayer R-Type-like with an authoritative TCP/UDP server and a raylib graphical client.</para>
+<sect1 id="index_1autotoc_md1">
+<title>Prerequisites</title>
+<para><itemizedlist>
+<listitem><para>CMake ≥ 3.14</para>
+</listitem><listitem><para>C++17 compiler</para>
+</listitem><listitem><para>raylib (fetched automatically via FetchContent)</para>
+</listitem><listitem><para>Works on macOS, Linux, and Windows (WSA init handled in entry points).</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md2">
+<title>Build</title>
+<sect2 id="index_1autotoc_md3">
+<title>Linux</title>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">./build.sh<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>build<sp/>client<sp/>+<sp/>servers</highlight></codeline>
+</programlisting> Executables are in <computeroutput>build/linux/</computeroutput>:<itemizedlist>
+<listitem><para><computeroutput>rtype-tcp-server</computeroutput></para>
+</listitem><listitem><para><computeroutput>rtype-udp-server</computeroutput></para>
+</listitem><listitem><para><computeroutput>rtype-client</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="index_1autotoc_md4">
+<title>macOS</title>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">cmake<sp/>-S<sp/>.<sp/>-B<sp/>build<sp/>-G<sp/>&quot;Unix<sp/>Makefiles&quot;</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>--build<sp/>build</highlight></codeline>
+</programlisting> Executables are in <computeroutput>build/</computeroutput>:<itemizedlist>
+<listitem><para><computeroutput>rtype-tcp-server</computeroutput></para>
+</listitem><listitem><para><computeroutput>rtype-udp-server</computeroutput></para>
+</listitem><listitem><para><computeroutput>rtype-client</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+<sect2 id="index_1autotoc_md5">
+<title>Windows</title>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">cmake<sp/>-S<sp/>.<sp/>-B<sp/>build<sp/>-G<sp/>&quot;Visual<sp/>Studio<sp/>17<sp/>2022&quot;</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>--build<sp/>build<sp/>--config<sp/>Release</highlight></codeline>
+</programlisting> Executables are in <computeroutput>build/Release/</computeroutput>:<itemizedlist>
+<listitem><para><computeroutput>rtype-tcp-server.exe</computeroutput></para>
+</listitem><listitem><para><computeroutput>rtype-udp-server.exe</computeroutput></para>
+</listitem><listitem><para><computeroutput>rtype-client.exe</computeroutput></para>
+</listitem></itemizedlist>
+</para>
+</sect2>
+</sect1>
+<sect1 id="index_1autotoc_md6">
+<title>Run</title>
+<sect2 id="index_1autotoc_md7">
+<title>Linux</title>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">./build/linux/rtype-tcp-server</highlight></codeline>
+<codeline><highlight class="normal">./build/linux/rtype-udp-server</highlight></codeline>
+<codeline><highlight class="normal">./build/linux/rtype-client</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="index_1autotoc_md8">
+<title>macOS</title>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">./build/rtype-tcp-server</highlight></codeline>
+<codeline><highlight class="normal">./build/rtype-udp-server</highlight></codeline>
+<codeline><highlight class="normal">./build/rtype-client</highlight></codeline>
+</programlisting></para>
+</sect2>
+<sect2 id="index_1autotoc_md9">
+<title>Windows</title>
+<para><programlisting filename=".bash"><codeline><highlight class="normal">.\build\Release\rtype-tcp-server.exe</highlight></codeline>
+<codeline><highlight class="normal">.\build\Release\rtype-udp-server.exe</highlight></codeline>
+<codeline><highlight class="normal">.\build\Release\rtype-client.exe</highlight></codeline>
+</programlisting></para>
+</sect2>
+</sect1>
+<sect1 id="index_1autotoc_md10">
+<title>Architecture</title>
+<para><itemizedlist>
+<listitem><para><computeroutput>src/server/</computeroutput>: server entry point, TCP loop (handshake + heartbeat) and UDP loop (simulation).</para>
+</listitem><listitem><para><computeroutput>src/graphical-client/</computeroutput>: raylib client + minimal <ref refid="classECS" kindref="compound">ECS</ref>.</para>
+</listitem><listitem><para><computeroutput>src/Network/TransportLayer/</computeroutput>:<itemizedlist>
+<listitem><para><computeroutput><ref refid="classTCPServer" kindref="compound">TCPServer</ref></computeroutput>, <computeroutput>TCPSocket</computeroutput>: listening socket, handshake, PING/PONG.</para>
+</listitem><listitem><para><computeroutput><ref refid="classUDPGameServer" kindref="compound">UDPGameServer</ref></computeroutput>: handles HELLO_UDP/INPUT/SHOOT, simulation tick, SNAPSHOT broadcast.</para>
+</listitem><listitem><para><computeroutput><ref refid="classGameWorld" kindref="compound">GameWorld</ref></computeroutput>: authoritative simulation (players, bullets, monsters).</para>
+</listitem><listitem><para><computeroutput><ref refid="classPacket" kindref="compound">Packet</ref></computeroutput>, <computeroutput><ref refid="namespaceProtocol" kindref="compound">Protocol</ref></computeroutput>: packet format, TCP framing.</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><computeroutput>src/Network/Client/</computeroutput>: <computeroutput><ref refid="classNetworkClient" kindref="compound">NetworkClient</ref></computeroutput> manages TCP (handshake/heartbeat) and UDP (inputs, snapshots).</para>
+</listitem><listitem><para><computeroutput>src/Network/SessionManager</computeroutput>: tracks sessions, rate-limits INPUT/SHOOT, purges game state on disconnect.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md11">
+<title>Network protocol (summary)</title>
+<para><itemizedlist>
+<listitem><para>TCP (reliable):<itemizedlist>
+<listitem><para>Handshake: SERVER_HELLO → CLIENT_HELLO(&quot;toto…&quot;) → <ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ae0aa021e21dddbd6d8cecec71e9cf564" kindref="member">OK(id)</ref> or <ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a392253eaea22aafdb199bc238bafc082" kindref="member">REFUSED(reason)</ref>.</para>
+</listitem><listitem><para>Heartbeat: PING/PONG, timeout &gt;10s → disconnect.</para>
+</listitem><listitem><para>Lobby: PLAYER_LIST, NEW_PLAYER.</para>
+</listitem><listitem><para>Framing: 2-byte length prefix + packet (magic 0x5254, type, size, payload).</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para>UDP (real-time):<itemizedlist>
+<listitem><para><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a96a4de9c97bf5686278b38d16e7658ea" kindref="member">HELLO_UDP(id,x,y)</ref> to register endpoint.</para>
+</listitem><listitem><para><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56aa84cc046d48610b05c21fd3670d0c829" kindref="member">INPUT(id, pos, vel, dir)</ref> → server ignores client positions (authority).</para>
+</listitem><listitem><para><ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494a38317998d0db1f65b5a5d3f9990c02f3" kindref="member">SHOOT(id, pos, vel)</ref>.</para>
+</listitem><listitem><para>SNAPSHOT periodically: players, bullets, monsters.</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md12">
+<title>Controls by default (client)</title>
+<para><itemizedlist>
+<listitem><para>Move: W/A/S/D</para>
+</listitem><listitem><para>Shoot: Space</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md13">
+<title>Key features</title>
+<para><itemizedlist>
+<listitem><para>TCP protocol with framing and handshake (SERVER_HELLO/CLIENT_HELLO/OK/REFUSED).</para>
+</listitem><listitem><para>Heartbeat (PING/PONG) with timeout disconnect and session cleanup.</para>
+</listitem><listitem><para>Lobby system: auto public, create, join by code; lobby-scoped player list and chat.</para>
+</listitem><listitem><para>UDP authoritative simulation with fixed tick and periodic snapshots.</para>
+</listitem><listitem><para>Player input, shooting, bullets, monsters (sine/zigzag), boss logic, and collisions.</para>
+</listitem><listitem><para>Client UI: lobby/pseudo selection, in-game chat, and return-to-lobby flow.</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md14">
+<title>Documentation</title>
+<para><itemizedlist>
+<listitem><para><ulink url="https://mysticorga.github.io/Mystic-Type/">Doxygen</ulink></para>
+</listitem><listitem><para><ref refid="namespaceProtocol" kindref="compound">Protocol</ref> RFCs:<itemizedlist>
+<listitem><para><ulink url="https://mysticorga.github.io/Mystic-Type/rfc/mtp_protocol_rfc.txt">mtp protocol</ulink></para>
+</listitem><listitem><para><ulink url="https://mysticorga.github.io/Mystic-Type/rfc/tcp_protocol_rfc.txt">tcp protocol</ulink></para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="index_1autotoc_md15">
+<title>Authors</title>
+<para><itemizedlist>
+<listitem><para>Quentin Hivanhoe: <computeroutput>quentin.hivanhoe@epitech.eu</computeroutput></para>
+</listitem><listitem><para>Loic Rabearivelo: <computeroutput>loic.rabearivelo@epitech.eu</computeroutput></para>
+</listitem><listitem><para>Emma Hoarau: <computeroutput>emma-frederique.hoarau@epitech.eu</computeroutput></para>
+</listitem><listitem><para>Nicolas Samy: <computeroutput>nicolas.samy@epitech.eu</computeroutput> </para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+    </detaileddescription>
+    <location file="/home/loic/EPITECH/rtype/Mystic-Type/README.md"/>
+  </compounddef>
+</doxygen>

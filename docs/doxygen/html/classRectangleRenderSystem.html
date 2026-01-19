@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -91,6 +92,7 @@ $(document).ready(function(){initNavTree('classRectangleRenderSystem.html',''); 
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classRectangleRenderSystem-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">RectangleRenderSystem Class Reference</div></div>
 </div><!--header-->
@@ -99,7 +101,15 @@ $(document).ready(function(){initNavTree('classRectangleRenderSystem.html',''); 
 <p>Renders rectangle-based entities with proper coordinate transformation.  
  <a href="classRectangleRenderSystem.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="System_8hpp_source.html">System.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="System_8hpp_source.html">graphical-client/ecs/System.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for RectangleRenderSystem:</div>
+<div class="dyncontent">
+<div class="center"><img src="classRectangleRenderSystem__coll__graph.png" border="0" usemap="#aRectangleRenderSystem_coll__map" alt="Collaboration graph"/></div>
+<map name="aRectangleRenderSystem_coll__map" id="aRectangleRenderSystem_coll__map">
+<area shape="rect" title="Renders rectangle&#45;based entities with proper coordinate transformation." alt="" coords="5,5,180,131"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -109,10 +119,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a92f6643f7bbedda7d15c6ea55f7407d1" id="r_a92f6643f7bbedda7d15c6ea55f7407d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRectangleRenderSystem.html#a92f6643f7bbedda7d15c6ea55f7407d1">update</a> (<a class="el" href="classECS.html">ECS</a> &amp;ecs, <a class="el" href="Core_8hpp.html#aff1ac8fd0b927c16980eeb4053d1d5ca">Entity</a> e)</td></tr>
 <tr class="memdesc:a92f6643f7bbedda7d15c6ea55f7407d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders a rectangle entity to the screen.  <br /></td></tr>
 <tr class="separator:a92f6643f7bbedda7d15c6ea55f7407d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ae46bcea7d3acaf9af00e0f78d33b31d4" id="r_ae46bcea7d3acaf9af00e0f78d33b31d4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRectangleRenderSystem.html#ae46bcea7d3acaf9af00e0f78d33b31d4">_offsetX</a> = 0.0f</td></tr>
+<tr class="separator:ae46bcea7d3acaf9af00e0f78d33b31d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8f08ab9bd2a18bd1ca44f18caa8012d" id="r_ab8f08ab9bd2a18bd1ca44f18caa8012d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRectangleRenderSystem.html#ab8f08ab9bd2a18bd1ca44f18caa8012d">_offsetY</a> = 0.0f</td></tr>
+<tr class="separator:ab8f08ab9bd2a18bd1ca44f18caa8012d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00c54f80d65ee74fc5a06370b0b997e5" id="r_a00c54f80d65ee74fc5a06370b0b997e5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRectangleRenderSystem.html#a00c54f80d65ee74fc5a06370b0b997e5">_areaSize</a> = 1280.0f</td></tr>
+<tr class="separator:a00c54f80d65ee74fc5a06370b0b997e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Renders rectangle-based entities with proper coordinate transformation. </p>
 <p>Transforms game coordinates (0-255) to screen coordinates based on game area offset and size. </p>
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00212">212</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a084776cc697d899483b31ec00a99e9b3" name="a084776cc697d899483b31ec00a99e9b3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a084776cc697d899483b31ec00a99e9b3">&#9670;&#160;</a></span>setGameAreaOffset()</h2>
@@ -164,6 +185,26 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00221">221</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="System_8hpp_source.html#l00246">_areaSize</a>, <a class="el" href="System_8hpp_source.html#l00244">_offsetX</a>, and <a class="el" href="System_8hpp_source.html#l00245">_offsetY</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l00027">GraphicClient::init()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classRectangleRenderSystem_a084776cc697d899483b31ec00a99e9b3_icgraph.png" border="0" usemap="#aclassRectangleRenderSystem_a084776cc697d899483b31ec00a99e9b3_icgraph" alt=""/></div>
+<map name="aclassRectangleRenderSystem_a084776cc697d899483b31ec00a99e9b3_icgraph" id="aclassRectangleRenderSystem_a084776cc697d899483b31ec00a99e9b3_icgraph">
+<area shape="rect" title="Sets the game area offset and size for coordinate transformation." alt="" coords="481,5,664,45"/>
+<area shape="rect" href="classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="295,13,433,38"/>
+<area shape="poly" title=" " alt="" coords="468,28,434,28,434,23,468,23"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,13,247,38"/>
+<area shape="poly" title=" " alt="" coords="281,28,247,28,247,23,281,23"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a92f6643f7bbedda7d15c6ea55f7407d1" name="a92f6643f7bbedda7d15c6ea55f7407d1"></a>
@@ -208,6 +249,121 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00233">233</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="System_8hpp_source.html#l00246">_areaSize</a>, <a class="el" href="System_8hpp_source.html#l00244">_offsetX</a>, <a class="el" href="System_8hpp_source.html#l00245">_offsetY</a>, <a class="el" href="Core_8hpp_source.html#l00131">ECS::getComponent()</a>, and <a class="el" href="Raylib_8cpp_source.html#l00057">Raylib::Draw::rectangle()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l00774">GraphicClient::render()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classRectangleRenderSystem_a92f6643f7bbedda7d15c6ea55f7407d1_cgraph.png" border="0" usemap="#aclassRectangleRenderSystem_a92f6643f7bbedda7d15c6ea55f7407d1_cgraph" alt=""/></div>
+<map name="aclassRectangleRenderSystem_a92f6643f7bbedda7d15c6ea55f7407d1_cgraph" id="aclassRectangleRenderSystem_a92f6643f7bbedda7d15c6ea55f7407d1_cgraph">
+<area shape="rect" title="Renders a rectangle entity to the screen." alt="" coords="5,23,188,63"/>
+<area shape="rect" href="classECS.html#ab25123ea5b19ee74c4e120eb6d808a48" title="Retrieves a component from an entity." alt="" coords="247,5,398,31"/>
+<area shape="poly" title=" " alt="" coords="188,30,233,25,234,31,188,36"/>
+<area shape="rect" href="classRaylib_1_1Draw.html#ac711ababd202454476d1127d61f8a837" title="Draws a filled rectangle." alt="" coords="236,55,409,80"/>
+<area shape="poly" title=" " alt="" coords="188,50,223,54,222,59,188,56"/>
+<area shape="rect" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="457,5,675,31"/>
+<area shape="poly" title=" " alt="" coords="398,15,444,15,444,21,398,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classRectangleRenderSystem_a92f6643f7bbedda7d15c6ea55f7407d1_icgraph.png" border="0" usemap="#aclassRectangleRenderSystem_a92f6643f7bbedda7d15c6ea55f7407d1_icgraph" alt=""/></div>
+<map name="aclassRectangleRenderSystem_a92f6643f7bbedda7d15c6ea55f7407d1_icgraph" id="aclassRectangleRenderSystem_a92f6643f7bbedda7d15c6ea55f7407d1_icgraph">
+<area shape="rect" title="Renders a rectangle entity to the screen." alt="" coords="737,5,920,45"/>
+<area shape="rect" href="classGraphicClient.html#ab0acd8f5b8996cc62295831d7af1cf59" title="Renders the entire game scene." alt="" coords="529,13,689,38"/>
+<area shape="poly" title=" " alt="" coords="724,28,689,28,689,23,724,23"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,13,481,38"/>
+<area shape="poly" title=" " alt="" coords="516,28,482,28,482,23,516,23"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,13,247,38"/>
+<area shape="poly" title=" " alt="" coords="281,28,247,28,247,23,281,23"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a00c54f80d65ee74fc5a06370b0b997e5" name="a00c54f80d65ee74fc5a06370b0b997e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00c54f80d65ee74fc5a06370b0b997e5">&#9670;&#160;</a></span>_areaSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float RectangleRenderSystem::_areaSize = 1280.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00246">246</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="System_8hpp_source.html#l00221">setGameAreaOffset()</a>, and <a class="el" href="System_8hpp_source.html#l00233">update()</a>.</p>
+
+</div>
+</div>
+<a id="ae46bcea7d3acaf9af00e0f78d33b31d4" name="ae46bcea7d3acaf9af00e0f78d33b31d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae46bcea7d3acaf9af00e0f78d33b31d4">&#9670;&#160;</a></span>_offsetX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float RectangleRenderSystem::_offsetX = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00244">244</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="System_8hpp_source.html#l00221">setGameAreaOffset()</a>, and <a class="el" href="System_8hpp_source.html#l00233">update()</a>.</p>
+
+</div>
+</div>
+<a id="ab8f08ab9bd2a18bd1ca44f18caa8012d" name="ab8f08ab9bd2a18bd1ca44f18caa8012d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8f08ab9bd2a18bd1ca44f18caa8012d">&#9670;&#160;</a></span>_offsetY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float RectangleRenderSystem::_offsetY = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00245">245</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="System_8hpp_source.html#l00221">setGameAreaOffset()</a>, and <a class="el" href="System_8hpp_source.html#l00233">update()</a>.</p>
 
 </div>
 </div>

@@ -1,0 +1,11 @@
+<map id="TCPServer::ensureLobbyProcess" name="TCPServer::ensureLobbyProcess">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,99,235,125"/>
+<area shape="rect" id="Node000002" href="$classChildProcessManager.html#af9be1ce64da7e05952b231b22df221a0" title=" " alt="" coords="289,5,451,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="157,97,297,48,299,53,159,102"/>
+<area shape="rect" id="Node000003" href="$classTCPServer.html#a25273652d6d80037ec5bcad8725bd269" title=" " alt="" coords="283,70,457,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="228,97,268,92,269,97,229,102"/>
+<area shape="rect" id="Node000004" href="$classChildProcessManager.html#a3b7c34be0f81b8a841d4ecd28a837bf6" title=" " alt="" coords="289,120,451,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="234,122,275,127,275,132,233,127"/>
+<area shape="rect" id="Node000005" href="$classChildProcessManager.html#a138e2d098e92a2c6d1ad7b35dadd6541" title="Spawn a UDP game server process." alt="" coords="289,184,451,224"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="157,122,303,177,301,182,155,127"/>
+</map>

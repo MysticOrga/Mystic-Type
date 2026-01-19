@@ -1,0 +1,24 @@
+<map id="NetworkClient::receiveTcpFramed" name="NetworkClient::receiveTcpFramed">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1357,38,1549,78"/>
+<area shape="rect" id="Node000002" href="$classNetworkClient.html#a1773337e67c321eece590156e1a7b38a" title="Perform the application handshake over TCP." alt="" coords="800,5,1047,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1343,52,1047,30,1047,25,1344,47"/>
+<area shape="rect" id="Node000006" href="$classNetworkClient.html#ac0dca5641be17084ead40825063b944e" title=" " alt="" coords="1095,71,1309,96"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="1344,72,1310,75,1309,70,1344,66"/>
+<area shape="rect" id="Node000003" href="$classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="319,77,457,103"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="811,35,530,73,458,83,457,77,529,67,810,30"/>
+<area shape="rect" id="Node000004" href="$classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,107,247,132"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="305,104,247,112,247,107,304,99"/>
+<area shape="rect" id="Node000005" href="$client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,107,60,132"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,122,60,122,60,117,94,117"/>
+<area shape="rect" id="Node000007" href="$classNetworkClient.html#a1f77ff0729755d9782b4542582cfe214" title="Poll TCP/UDP sockets and handle any received packets." alt="" coords="825,96,1021,121"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1081,97,1022,102,1021,97,1080,92"/>
+<area shape="poly" id="edge7_Node000007_Node000003" title=" " alt="" coords="811,98,752,94,594,90,458,91,458,86,594,85,752,89,812,93"/>
+<area shape="rect" id="Node000008" href="$classGraphicClient.html#a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" title="Processes network events and updates game state." alt="" coords="529,153,752,193"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="854,127,730,155,729,150,852,122"/>
+<area shape="rect" id="Node000010" href="$classGraphicClient.html#a70229e3e019e7b315f06c9ad74f23be5" title="Shows lobby selection menu." alt="" coords="543,103,739,128"/>
+<area shape="poly" id="edge11_Node000007_Node000010" title=" " alt="" coords="812,114,739,116,739,110,812,109"/>
+<area shape="rect" id="Node000009" href="$classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,131,481,156"/>
+<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="515,161,481,157,482,151,516,156"/>
+<area shape="poly" id="edge10_Node000009_Node000004" title=" " alt="" coords="280,134,247,130,247,125,281,128"/>
+<area shape="poly" id="edge12_Node000010_Node000003" title=" " alt="" coords="529,107,457,100,458,94,529,101"/>
+</map>

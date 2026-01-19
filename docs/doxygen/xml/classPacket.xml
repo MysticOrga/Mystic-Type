@@ -1,0 +1,258 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classPacket" kind="class" language="C++" prot="public">
+    <compoundname>Packet</compoundname>
+    <includes refid="Packet_8hpp" local="no">Network/TransportLayer/Packet.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classPacket_1a7e86ba3319a45d5cbfe6f4cc792594b1" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t Packet::header</definition>
+        <argsstring></argsstring>
+        <name>header</name>
+        <qualifiedname>Packet::header</qualifiedname>
+        <initializer>= <ref refid="Packet_8hpp_1ab8c5cddb2e1593369ad6517eb7fca5b6" kindref="member">PACKET_MAGIC</ref></initializer>
+        <briefdescription>
+<para>Magic number to validate packets. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/Packet.hpp" line="49" column="18" bodyfile="Network/TransportLayer/Packet.hpp" bodystart="49" bodyend="-1"/>
+        <referencedby refid="classPacket_1abfcd427a2ca434ac71592334517638fb" compoundref="Packet_8cpp" startline="29" endline="49">deserialize</referencedby>
+        <referencedby refid="classPacket_1aa88c2d28796644c8a1d6137996502ca8" compoundref="Packet_8cpp" startline="10" endline="27">serialize</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classPacket_1aebbae2cef32f967d0bbcabbe41dae6bf" prot="public" static="no" mutable="no">
+        <type><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56" kindref="member">PacketType</ref></type>
+        <definition>PacketType Packet::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>Packet::type</qualifiedname>
+        <initializer>= <ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a90791ed805bd5b00d78527d39d9ef7e4" kindref="member">PacketType::MESSAGE</ref></initializer>
+        <briefdescription>
+<para><ref refid="classPacket" kindref="compound">Packet</ref> category. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/Packet.hpp" line="50" column="20" bodyfile="Network/TransportLayer/Packet.hpp" bodystart="50" bodyend="-1"/>
+        <referencedby refid="classPacket_1abfcd427a2ca434ac71592334517638fb" compoundref="Packet_8cpp" startline="29" endline="49">deserialize</referencedby>
+        <referencedby refid="classTCPServer_1afd78aa179d3b735e82868d800629b354" compoundref="TCPServer_8cpp" startline="702" endline="760">TCPServer::handleLobbyPacket</referencedby>
+        <referencedby refid="classUDPGameServer_1a9d28a7f4a0c75aba168ea6a58633d1bb" compoundref="UDPGameServer_8cpp" startline="174" endline="193">UDPGameServer::handlePacket</referencedby>
+        <referencedby refid="classNetworkClient_1a5bc6fcb253ac9f9d74c649cb4b30d546" compoundref="NetworkClient_8cpp" startline="275" endline="345">NetworkClient::handleTcpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" compoundref="NetworkClient_8cpp" startline="347" endline="456">NetworkClient::handleUdpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a1773337e67c321eece590156e1a7b38a" compoundref="NetworkClient_8cpp" startline="54" endline="91">NetworkClient::performHandshake</referencedby>
+        <referencedby refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" compoundref="TCPServer_8cpp" startline="203" endline="331">TCPServer::processClientData</referencedby>
+        <referencedby refid="classPacket_1aa88c2d28796644c8a1d6137996502ca8" compoundref="Packet_8cpp" startline="10" endline="27">serialize</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classPacket_1af702242beb44d7ee757716717fd629df" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t Packet::size</definition>
+        <argsstring></argsstring>
+        <name>size</name>
+        <qualifiedname>Packet::size</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+<para>Payload size in bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/Packet.hpp" line="51" column="17" bodyfile="Network/TransportLayer/Packet.hpp" bodystart="51" bodyend="-1"/>
+        <referencedby refid="classPacket_1abfcd427a2ca434ac71592334517638fb" compoundref="Packet_8cpp" startline="29" endline="49">deserialize</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classPacket_1a3f718725cfd763776d87841235986095" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; uint8_t &gt;</type>
+        <definition>std::vector&lt;uint8_t&gt; Packet::payload</definition>
+        <argsstring></argsstring>
+        <name>payload</name>
+        <qualifiedname>Packet::payload</qualifiedname>
+        <briefdescription>
+<para>Raw payload bytes. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/Packet.hpp" line="52" column="21" bodyfile="Network/TransportLayer/Packet.hpp" bodystart="52" bodyend="-1"/>
+        <referencedby refid="classPacket_1abfcd427a2ca434ac71592334517638fb" compoundref="Packet_8cpp" startline="29" endline="49">deserialize</referencedby>
+        <referencedby refid="classUDPGameServer_1a367b917d572ad28819003841b3be180c" compoundref="UDPGameServer_8cpp" startline="75" endline="101">UDPGameServer::handleHello</referencedby>
+        <referencedby refid="classUDPGameServer_1abe9913c5eaa12c361bdcc9ce68bdc835" compoundref="UDPGameServer_8cpp" startline="103" endline="138">UDPGameServer::handleInput</referencedby>
+        <referencedby refid="classTCPServer_1afd78aa179d3b735e82868d800629b354" compoundref="TCPServer_8cpp" startline="702" endline="760">TCPServer::handleLobbyPacket</referencedby>
+        <referencedby refid="classUDPGameServer_1a9d28a7f4a0c75aba168ea6a58633d1bb" compoundref="UDPGameServer_8cpp" startline="174" endline="193">UDPGameServer::handlePacket</referencedby>
+        <referencedby refid="classUDPGameServer_1a0117b7531413f5b7b161675f9e9efd3d" compoundref="UDPGameServer_8cpp" startline="140" endline="172">UDPGameServer::handleShoot</referencedby>
+        <referencedby refid="classNetworkClient_1a5bc6fcb253ac9f9d74c649cb4b30d546" compoundref="NetworkClient_8cpp" startline="275" endline="345">NetworkClient::handleTcpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" compoundref="NetworkClient_8cpp" startline="347" endline="456">NetworkClient::handleUdpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a1773337e67c321eece590156e1a7b38a" compoundref="NetworkClient_8cpp" startline="54" endline="91">NetworkClient::performHandshake</referencedby>
+        <referencedby refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" compoundref="TCPServer_8cpp" startline="203" endline="331">TCPServer::processClientData</referencedby>
+        <referencedby refid="classPacket_1aa88c2d28796644c8a1d6137996502ca8" compoundref="Packet_8cpp" startline="10" endline="27">serialize</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classPacket_1ab1ec7232eac75450a4392bb9c10921fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Packet::Packet</definition>
+        <argsstring>()=default</argsstring>
+        <name>Packet</name>
+        <qualifiedname>Packet::Packet</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/Packet.hpp" line="54" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classPacket_1aab0404b1c09020e8e4b3ab676135c2e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Packet::Packet</definition>
+        <argsstring>(PacketType t, const std::vector&lt; uint8_t &gt; &amp;data)</argsstring>
+        <name>Packet</name>
+        <qualifiedname>Packet::Packet</qualifiedname>
+        <param>
+          <type><ref refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56" kindref="member">PacketType</ref></type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Construct a packet with a given type and payload. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classPacket" kindref="compound">Packet</ref> type. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Payload bytes. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/Packet.hpp" line="62" column="9" bodyfile="Network/TransportLayer/Packet.hpp" bodystart="62" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="classPacket_1aa88c2d28796644c8a1d6137996502ca8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; uint8_t &gt;</type>
+        <definition>std::vector&lt; uint8_t &gt; Packet::serialize</definition>
+        <argsstring>() const</argsstring>
+        <name>serialize</name>
+        <qualifiedname>Packet::serialize</qualifiedname>
+        <briefdescription>
+<para>Serialize the packet to a byte buffer ready to send. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Byte vector containing header, type, size, and payload. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/Packet.hpp" line="70" column="21" bodyfile="Network/TransportLayer/Packet.cpp" bodystart="10" bodyend="27"/>
+        <references refid="classPacket_1a7e86ba3319a45d5cbfe6f4cc792594b1" compoundref="Packet_8hpp" startline="49">header</references>
+        <references refid="classPacket_1a3f718725cfd763776d87841235986095" compoundref="Packet_8hpp" startline="52">payload</references>
+        <references refid="classPacket_1aebbae2cef32f967d0bbcabbe41dae6bf" compoundref="Packet_8hpp" startline="50">type</references>
+        <referencedby refid="namespaceProtocol_1a668bdeed219432868fca095e1b2f2667" compoundref="Protocol_8cpp" startline="11" endline="24">Protocol::frameTcp</referencedby>
+        <referencedby refid="classUDPGameServer_1a602889e958a3ff926bb8de325c982a62" compoundref="UDPGameServer_8cpp" startline="59" endline="63">UDPGameServer::sendPacketTo</referencedby>
+        <referencedby refid="classNetworkClient_1a6c612ab362cc3e4ea8c94ebc2cddc4e6" compoundref="NetworkClient_8cpp" startline="197" endline="206">NetworkClient::sendPacketUdp</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classPacket_1abfcd427a2ca434ac71592334517638fb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classPacket" kindref="compound">Packet</ref></type>
+        <definition>Packet Packet::deserialize</definition>
+        <argsstring>(const uint8_t *data, size_t len)</argsstring>
+        <name>deserialize</name>
+        <qualifiedname>Packet::deserialize</qualifiedname>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>len</declname>
+        </param>
+        <briefdescription>
+<para>Deserialize a packet from a raw byte buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the raw buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the buffer. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Parsed <ref refid="classPacket" kindref="compound">Packet</ref> instance. </para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::runtime_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if the buffer is invalid. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/Packet.hpp" line="80" column="23" bodyfile="Network/TransportLayer/Packet.cpp" bodystart="29" bodyend="49"/>
+        <references refid="classPacket_1a7e86ba3319a45d5cbfe6f4cc792594b1" compoundref="Packet_8hpp" startline="49">header</references>
+        <references refid="classPacket_1a3f718725cfd763776d87841235986095" compoundref="Packet_8hpp" startline="52">payload</references>
+        <references refid="classPacket_1af702242beb44d7ee757716717fd629df" compoundref="Packet_8hpp" startline="51">size</references>
+        <references refid="classPacket_1aebbae2cef32f967d0bbcabbe41dae6bf" compoundref="Packet_8hpp" startline="50">type</references>
+        <referencedby refid="namespaceProtocol_1a10005c44787f8de2a0e42d395aff8baa" compoundref="Protocol_8cpp" startline="26" endline="44">Protocol::extractFromBuffer</referencedby>
+        <referencedby refid="classUDPGameServer_1a7f3a37004641222f4d30d55614f05029" compoundref="UDPGameServer_8cpp" startline="277" endline="297">UDPGameServer::networkLoop</referencedby>
+        <referencedby refid="classNetworkClient_1a101f6ab85ee02ddb9d45a40dad603e29" compoundref="NetworkClient_8cpp" startline="218" endline="230">NetworkClient::readUdpPacket</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Light container for game protocol packets with (de)serialization helpers. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Packet</label>
+        <link refid="classPacket"/>
+      </node>
+    </collaborationgraph>
+    <location file="Network/TransportLayer/Packet.hpp" line="47" column="1" bodyfile="Network/TransportLayer/Packet.hpp" bodystart="47" bodyend="81"/>
+    <listofallmembers>
+      <member refid="classPacket_1abfcd427a2ca434ac71592334517638fb" prot="public" virt="non-virtual"><scope>Packet</scope><name>deserialize</name></member>
+      <member refid="classPacket_1a7e86ba3319a45d5cbfe6f4cc792594b1" prot="public" virt="non-virtual"><scope>Packet</scope><name>header</name></member>
+      <member refid="classPacket_1ab1ec7232eac75450a4392bb9c10921fb" prot="public" virt="non-virtual"><scope>Packet</scope><name>Packet</name></member>
+      <member refid="classPacket_1aab0404b1c09020e8e4b3ab676135c2e3" prot="public" virt="non-virtual"><scope>Packet</scope><name>Packet</name></member>
+      <member refid="classPacket_1a3f718725cfd763776d87841235986095" prot="public" virt="non-virtual"><scope>Packet</scope><name>payload</name></member>
+      <member refid="classPacket_1aa88c2d28796644c8a1d6137996502ca8" prot="public" virt="non-virtual"><scope>Packet</scope><name>serialize</name></member>
+      <member refid="classPacket_1af702242beb44d7ee757716717fd629df" prot="public" virt="non-virtual"><scope>Packet</scope><name>size</name></member>
+      <member refid="classPacket_1aebbae2cef32f967d0bbcabbe41dae6bf" prot="public" virt="non-virtual"><scope>Packet</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

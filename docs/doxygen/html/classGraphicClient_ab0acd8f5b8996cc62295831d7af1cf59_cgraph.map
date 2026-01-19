@@ -1,0 +1,48 @@
+<map id="GraphicClient::render" name="GraphicClient::render">
+<area shape="rect" id="Node000001" title="Renders the entire game scene." alt="" coords="5,327,165,352"/>
+<area shape="rect" id="Node000002" href="$classRaylib_1_1Window.html#a0d93c896921575743b097baa6d66a6b4" title="Begins drawing frame." alt="" coords="237,5,457,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,326,94,272,114,194,131,152,152,110,179,72,212,40,223,32,226,37,215,44,183,76,157,113,136,154,120,196,99,273,91,326"/>
+<area shape="rect" id="Node000003" href="$classGraphicClient.html#ab72f007713bd3d5074c566a425c0d9b1" title="Draws the game area background with animations." alt="" coords="213,55,480,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="86,326,98,280,121,215,137,181,158,147,183,116,212,89,219,84,222,88,215,93,186,119,162,150,142,183,126,217,103,282,92,327"/>
+<area shape="rect" id="Node000006" href="$classRaylib_1_1Window.html#a9692f845607bfbb28fb4e889ea0d3b37" title="Ends drawing frame and displays it." alt="" coords="243,104,451,129"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="88,326,103,288,128,237,164,183,186,159,212,138,228,129,231,134,215,143,190,163,168,186,132,239,107,290,93,327"/>
+<area shape="rect" id="Node000007" href="$classNetworkClient.html#a9f92ea1a77f00b2867ebc37b6581d507" title="Get current lobby code." alt="" coords="239,153,455,179"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="91,325,109,296,135,258,170,220,212,188,225,181,227,186,215,192,174,224,139,262,113,299,96,328"/>
+<area shape="rect" id="Node000008" href="$classNetworkClient.html#a3a848ca2af9ba2a3008e33ecc39a3622" title="Get server&#45;assigned player id." alt="" coords="248,203,445,228"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="97,325,144,281,177,257,212,237,234,229,235,234,214,242,180,261,148,285,100,328"/>
+<area shape="rect" id="Node000009" href="$classNetworkClient.html#a9b4492241691163874e561440a379c3e" title="Estimated snapshot loss percentage." alt="" coords="237,252,456,277"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="113,324,159,305,213,286,247,278,248,283,214,291,161,310,115,329"/>
+<area shape="rect" id="Node000010" href="$classNetworkClient.html#aa2de4fb4f6154441c96a7620ae3fb982" title="Last measured UDP RTT in ms." alt="" coords="238,301,455,327"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="165,329,224,323,224,329,166,334"/>
+<area shape="rect" id="Node000011" href="$classNetworkClient.html#a14ed76e74eea78d36e9009129f641f79" title="Get current UDP receive rate in Kbps." alt="" coords="237,351,456,376"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="166,344,224,349,223,355,165,349"/>
+<area shape="rect" id="Node000014" href="$classNetworkClient.html#ad5c06bb19f3f5959f30bc383d89cb6e4" title="Get current UDP transmit rate in Kbps." alt="" coords="237,400,456,425"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="117,350,214,385,254,395,253,400,213,390,115,355"/>
+<area shape="rect" id="Node000015" href="$classGameState.html#adbedaec4367fbf2705065e66a8909ce5" title="Return a snapshot list of current players." alt="" coords="261,449,432,475"/>
+<area shape="poly" id="edge16_Node000001_Node000015" title=" " alt="" coords="101,350,148,392,180,415,214,434,249,446,247,451,212,439,177,420,145,396,97,354"/>
+<area shape="rect" id="Node000016" href="$classSpriteRenderSystem.html#aaaf180675dc11ac4aab058fb44ab762a" title="Sets the sprite scaling factors." alt="" coords="269,499,424,539"/>
+<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="96,351,141,415,175,452,215,484,257,502,255,507,212,488,171,456,136,418,92,354"/>
+<area shape="rect" id="Node000017" href="$classRaylib_1_1Draw.html#adf84c6a40cd571fbbdeacf2868ab192e" title="Draws text on screen." alt="" coords="277,564,416,589"/>
+<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="93,352,106,391,131,445,167,502,189,528,215,549,238,562,265,569,263,575,236,567,212,554,185,531,162,505,126,448,101,393,88,353"/>
+<area shape="rect" id="Node000018" href="$classRectangleRenderSystem.html#a92f6643f7bbedda7d15c6ea55f7407d1" title="Renders a rectangle entity to the screen." alt="" coords="255,678,438,718"/>
+<area shape="poly" id="edge19_Node000001_Node000018" title=" " alt="" coords="90,352,97,409,117,494,133,540,154,586,181,628,215,664,244,681,241,686,212,668,177,631,150,588,128,542,112,495,92,410,85,353"/>
+<area shape="rect" id="Node000022" href="$classSpriteRenderSystem.html#a439243229880829d70b83b895b500495" title="Updates and renders an animated sprite entity." alt="" coords="269,614,424,654"/>
+<area shape="poly" id="edge23_Node000001_Node000022" title=" " alt="" coords="92,351,103,398,125,466,142,502,162,537,186,570,215,599,235,611,257,620,255,625,232,616,212,603,182,574,157,540,137,504,120,468,97,400,86,353"/>
+<area shape="rect" id="Node000004" href="$classRaylib_1_1Window.html#ab5db70ee0a095180020beaa8f134247d" title="Clears background with specified color." alt="" coords="528,31,767,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="480,54,514,51,515,57,480,59"/>
+<area shape="rect" id="Node000005" href="$classRaylib_1_1Draw.html#a1a91623bcea0592d00ae0264d81acd52" title="Draws a rectangle outline." alt="" coords="544,80,751,105"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="480,76,530,80,530,85,480,81"/>
+<area shape="rect" id="Node000012" href="$classNetworkClient.html#aaf60f1216a17b46ad12539625a1022c2" title=" " alt="" coords="563,347,732,372"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="456,359,549,358,549,363,456,365"/>
+<area shape="rect" id="Node000013" href="$classNetworkClient.html#a36892dcdc8c2523b27947a347ea16022" title=" " alt="" coords="550,397,745,437"/>
+<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="419,373,537,394,536,400,419,379"/>
+<area shape="poly" id="edge14_Node000014_Node000012" title=" " alt="" coords="419,397,561,372,562,377,419,403"/>
+<area shape="poly" id="edge15_Node000014_Node000013" title=" " alt="" coords="456,411,536,413,536,418,456,417"/>
+<area shape="rect" id="Node000019" href="$classECS.html#ab25123ea5b19ee74c4e120eb6d808a48" title="Retrieves a component from an entity." alt="" coords="572,628,723,653"/>
+<area shape="poly" id="edge20_Node000018_Node000019" title=" " alt="" coords="438,678,566,653,567,659,439,683"/>
+<area shape="rect" id="Node000021" href="$classRaylib_1_1Draw.html#ac711ababd202454476d1127d61f8a837" title="Draws a filled rectangle." alt="" coords="561,685,734,711"/>
+<area shape="poly" id="edge22_Node000018_Node000021" title=" " alt="" coords="438,695,546,695,546,701,438,701"/>
+<area shape="rect" id="Node000020" href="$classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="815,628,1032,653"/>
+<area shape="poly" id="edge21_Node000019_Node000020" title=" " alt="" coords="723,638,801,638,801,643,723,643"/>
+<area shape="poly" id="edge24_Node000022_Node000019" title=" " alt="" coords="424,633,558,636,558,641,424,638"/>
+</map>

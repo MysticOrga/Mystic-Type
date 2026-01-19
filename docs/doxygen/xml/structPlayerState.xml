@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structPlayerState" kind="struct" language="C++" prot="public">
+    <compoundname>PlayerState</compoundname>
+    <includes refid="GameState_8hpp" local="no">Network/Client/GameState.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structPlayerState_1a1d13670f7d332ebb4edab0cdd84c9bcb" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int PlayerState::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>PlayerState::id</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="18" column="9" bodyfile="Network/Client/GameState.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPlayerState_1a511d57ac4a0a817233868d7a87441b1a" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t PlayerState::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>PlayerState::x</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="19" column="13" bodyfile="Network/Client/GameState.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPlayerState_1a50f07cd4be8eb68af2a3cf73b843e757" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t PlayerState::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>PlayerState::y</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="20" column="13" bodyfile="Network/Client/GameState.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPlayerState_1a12ddc6ce91f2180e81363a3863edbacf" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t PlayerState::hp</definition>
+        <argsstring></argsstring>
+        <name>hp</name>
+        <qualifiedname>PlayerState::hp</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="21" column="13" bodyfile="Network/Client/GameState.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structPlayerState_1a239b365ad0ad982f928dd77b8b3d121f" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t PlayerState::score</definition>
+        <argsstring></argsstring>
+        <name>score</name>
+        <qualifiedname>PlayerState::score</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/GameState.hpp" line="22" column="14" bodyfile="Network/Client/GameState.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Lightweight snapshot of a player for client-side rendering. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>PlayerState</label>
+        <link refid="structPlayerState"/>
+      </node>
+    </collaborationgraph>
+    <location file="Network/Client/GameState.hpp" line="17" column="1" bodyfile="Network/Client/GameState.hpp" bodystart="17" bodyend="23"/>
+    <listofallmembers>
+      <member refid="structPlayerState_1a12ddc6ce91f2180e81363a3863edbacf" prot="public" virt="non-virtual"><scope>PlayerState</scope><name>hp</name></member>
+      <member refid="structPlayerState_1a1d13670f7d332ebb4edab0cdd84c9bcb" prot="public" virt="non-virtual"><scope>PlayerState</scope><name>id</name></member>
+      <member refid="structPlayerState_1a239b365ad0ad982f928dd77b8b3d121f" prot="public" virt="non-virtual"><scope>PlayerState</scope><name>score</name></member>
+      <member refid="structPlayerState_1a511d57ac4a0a817233868d7a87441b1a" prot="public" virt="non-virtual"><scope>PlayerState</scope><name>x</name></member>
+      <member refid="structPlayerState_1a50f07cd4be8eb68af2a3cf73b843e757" prot="public" virt="non-virtual"><scope>PlayerState</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

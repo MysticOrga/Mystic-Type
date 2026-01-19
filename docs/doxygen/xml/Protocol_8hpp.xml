@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="Protocol_8hpp" kind="file" language="C++">
+    <compoundname>Protocol.hpp</compoundname>
+    <includes refid="Packet_8hpp" local="yes">Packet.hpp</includes>
+    <includes local="no">cstdint</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="NetworkClient_8cpp" local="yes">Network/Client/NetworkClient.cpp</includedby>
+    <includedby refid="Protocol_8cpp" local="yes">Network/TransportLayer/Protocol.cpp</includedby>
+    <includedby refid="TCPServer_8cpp" local="yes">Network/TransportLayer/TCP/TCPServer.cpp</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>Packet.hpp</label>
+        <link refid="Packet_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Network/TransportLayer/Protocol.hpp</label>
+        <link refid="Protocol_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>cstdint</label>
+      </node>
+      <node id="4">
+        <label>stdexcept</label>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>Network/Client/NetworkClient.cpp</label>
+        <link refid="NetworkClient_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Network/TransportLayer/Protocol.cpp</label>
+        <link refid="Protocol_8cpp"/>
+      </node>
+      <node id="1">
+        <label>Network/TransportLayer/Protocol.hpp</label>
+        <link refid="Protocol_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Network/TransportLayer/TCP/TCPServer.cpp</label>
+        <link refid="TCPServer_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespaceProtocol">Protocol</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">**<sp/>EPITECH<sp/>PROJECT,<sp/>2025</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">**<sp/>Mystic-Type</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">**<sp/>File<sp/>description:</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">**<sp/>Protocol<sp/>helpers<sp/>shared<sp/>by<sp/>client<sp/>and<sp/>server</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Packet_8hpp" kindref="compound">Packet.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="namespaceProtocol" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceProtocol" kindref="compound">Protocol</ref></highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Status<sp/>for<sp/>framed<sp/>TCP<sp/>stream<sp/>parsing.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780" kindref="member">StreamStatus</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780aef70e46fd3bbc21e3e1f0b6815e750c0" kindref="member">Disconnected</ref>,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780a4307e7e7986aa21a4b7c3ef2b5e948f6" kindref="member">Incomplete</ref>,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780aa60852f204ed8028c1c58808b746d115" kindref="member">Ok</ref></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Build<sp/>a<sp/>TCP<sp/>framed<sp/>buffer<sp/>(2<sp/>bytes<sp/>length<sp/>+<sp/>serialized<sp/>packet).</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@throw<sp/>std::runtime_error<sp/>if<sp/>payload<sp/>is<sp/>too<sp/>large.</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;uint8_t&gt;<sp/><ref refid="namespaceProtocol_1a668bdeed219432868fca095e1b2f2667" kindref="member">frameTcp</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/>&amp;packet);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Try<sp/>to<sp/>extract<sp/>a<sp/>complete<sp/>packet<sp/>from<sp/>an<sp/>accumulated<sp/>stream<sp/>buffer.</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>recvBuffer<sp/>Mutable<sp/>buffer<sp/>that<sp/>stores<sp/>previous<sp/>bytes.</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>out<sp/>Parsed<sp/>packet<sp/>on<sp/>success.</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>StreamStatus</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780" kindref="member">StreamStatus</ref><sp/><ref refid="namespaceProtocol_1a10005c44787f8de2a0e42d395aff8baa" kindref="member">extractFromBuffer</ref>(std::vector&lt;uint8_t&gt;<sp/>&amp;recvBuffer,<sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/>&amp;out);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Append<sp/>newly<sp/>read<sp/>bytes<sp/>then<sp/>attempt<sp/>extraction.</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780" kindref="member">StreamStatus</ref><sp/><ref refid="namespaceProtocol_1ad768525ca5f0324a5f414440e67679b6" kindref="member">consumeChunk</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>*data,<sp/>std::size_t<sp/>len,<sp/>std::vector&lt;uint8_t&gt;<sp/>&amp;recvBuffer,<sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/>&amp;out);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>Protocol</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="Network/TransportLayer/Protocol.hpp"/>
+  </compounddef>
+</doxygen>

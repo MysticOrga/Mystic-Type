@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['session_0',['Session',['../structSession.html',1,'']]],
-  ['sessionmanager_1',['SessionManager',['../classSessionManager.html',1,'']]],
-  ['sprite_2',['Sprite',['../classSprite.html',1,'']]],
-  ['spriterendersystem_3',['SpriteRenderSystem',['../classSpriteRenderSystem.html',1,'']]]
+  ['rectanglecomponent_0',['RectangleComponent',['../classRectangleComponent.html',1,'']]],
+  ['rectanglerendersystem_1',['RectangleRenderSystem',['../classRectangleRenderSystem.html',1,'']]]
 ];

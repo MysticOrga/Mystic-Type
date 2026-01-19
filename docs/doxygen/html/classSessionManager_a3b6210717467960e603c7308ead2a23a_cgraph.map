@@ -1,0 +1,5 @@
+<map id="SessionManager::allowShoot" name="SessionManager::allowShoot">
+<area shape="rect" id="Node000001" title="Rate&#45;limit shoot packets per second." alt="" coords="5,5,215,31"/>
+<area shape="rect" id="Node000002" href="$classSessionManager.html#a3f16df2f2fcaa18971326cf09e8741fb" title=" " alt="" coords="263,5,484,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="215,15,249,15,249,21,215,21"/>
+</map>

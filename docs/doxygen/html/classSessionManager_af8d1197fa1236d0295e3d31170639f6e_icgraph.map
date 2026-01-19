@@ -1,0 +1,9 @@
+<map id="SessionManager::addSession" name="SessionManager::addSession">
+<area shape="rect" id="Node000001" title="Add a TCP session entry." alt="" coords="528,5,739,31"/>
+<area shape="rect" id="Node000002" href="$classTCPServer.html#ae0e94f8d712b3c9028fe674100d649b9" title="Accept incoming connection and register a new client slot." alt="" coords="273,5,480,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="515,21,480,21,480,15,515,15"/>
+<area shape="rect" id="Node000003" href="$classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3" title="Run the main accept/receive loop (blocking)." alt="" coords="108,5,225,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="260,21,225,21,225,15,260,15"/>
+<area shape="rect" id="Node000004" href="$server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>

@@ -1,0 +1,472 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="GraphicClient_8hpp" kind="file" language="C++">
+    <compoundname>GraphicClient.hpp</compoundname>
+    <includes refid="Raylib_8hpp" local="yes">../Raylib/Raylib.hpp</includes>
+    <includes refid="Core_8hpp" local="yes">../ecs/Core.hpp</includes>
+    <includes refid="System_8hpp" local="yes">../ecs/System.hpp</includes>
+    <includes refid="NetworkClient_8hpp" local="yes">../../Network/Client/NetworkClient.hpp</includes>
+    <includes refid="GameState_8hpp" local="yes">../../Network/Client/GameState.hpp</includes>
+    <includes local="no">unordered_map</includes>
+    <includes local="no">string</includes>
+    <includes local="no">chrono</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="client_8cpp" local="yes">/home/loic/EPITECH/rtype/Mystic-Type/client.cpp</includedby>
+    <includedby refid="GraphicClient_8cpp" local="yes">graphical-client/GraphicClient/GraphicClient.cpp</includedby>
+    <incdepgraph>
+      <node id="27">
+        <label>GameState.hpp</label>
+        <link refid="GameState_8hpp"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>../../Network/Client/NetworkClient.hpp</label>
+        <link refid="NetworkClient_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>../ASocket.hpp</label>
+        <link refid="ASocket_8hpp"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>ISocket.hpp</label>
+        <link refid="ISocket_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>../TransportLayer/Packet.hpp</label>
+        <link refid="Packet_8hpp"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>../TransportLayer/UDP/UDPSocket.hpp</label>
+        <link refid="UDPSocket_8hpp"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>../Graphic/Graphic.hpp</label>
+        <link refid="Graphic_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>graphical-client/GraphicClient/GraphicClient.hpp</label>
+        <link refid="GraphicClient_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../Raylib/Raylib.hpp</label>
+        <link refid="Raylib_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>Components.hpp</label>
+        <link refid="Components_8hpp"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>../ecs/Core.hpp</label>
+        <link refid="Core_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>../ecs/System.hpp</label>
+        <link refid="System_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="30">
+        <label>algorithm</label>
+      </node>
+      <node id="20">
+        <label>arpa/inet.h</label>
+      </node>
+      <node id="6">
+        <label>bitset</label>
+      </node>
+      <node id="31">
+        <label>chrono</label>
+      </node>
+      <node id="13">
+        <label>cstdint</label>
+      </node>
+      <node id="21">
+        <label>errno.h</label>
+      </node>
+      <node id="10">
+        <label>memory</label>
+      </node>
+      <node id="22">
+        <label>netinet/in.h</label>
+      </node>
+      <node id="23">
+        <label>netinet/tcp.h</label>
+      </node>
+      <node id="3">
+        <label>raylib.h</label>
+      </node>
+      <node id="16">
+        <label>stdexcept</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="14">
+        <label>sys/select.h</label>
+      </node>
+      <node id="24">
+        <label>sys/socket.h</label>
+      </node>
+      <node id="25">
+        <label>sys/un.h</label>
+      </node>
+      <node id="9">
+        <label>typeindex</label>
+      </node>
+      <node id="26">
+        <label>unistd.h</label>
+      </node>
+      <node id="8">
+        <label>unordered_map</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/client.cpp</label>
+        <link refid="client_8cpp"/>
+      </node>
+      <node id="3">
+        <label>graphical-client/GraphicClient/GraphicClient.cpp</label>
+        <link refid="GraphicClient_8cpp"/>
+      </node>
+      <node id="1">
+        <label>graphical-client/GraphicClient/GraphicClient.hpp</label>
+        <link refid="GraphicClient_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classGraphicClient" prot="public">GraphicClient</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">**<sp/>EPITECH<sp/>PROJECT,<sp/>2025</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">**<sp/>Mystic-Type</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">**<sp/>File<sp/>description:</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">**<sp/>GraphicClient</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Raylib/Raylib.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../ecs/Core.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../ecs/System.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../../Network/Client/NetworkClient.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../../Network/Client/GameState.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;chrono&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="20"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">*<sp/>@class<sp/>GraphicClient</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">*<sp/>@brief<sp/>Main<sp/>client<sp/>application<sp/>managing<sp/>graphics,<sp/>networking,<sp/>and<sp/>game<sp/>state.</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="24"><highlight class="comment">*<sp/>Handles<sp/>game<sp/>initialization,<sp/>rendering,<sp/>entity<sp/>management,<sp/>user<sp/>input<sp/>processing,</highlight></codeline>
+<codeline lineno="25"><highlight class="comment">*<sp/>menu<sp/>interactions,<sp/>and<sp/>network<sp/>communication<sp/>with<sp/>the<sp/>game<sp/>server.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="classGraphicClient" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classGraphicClient" kindref="compound">GraphicClient</ref><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Constructor<sp/>initializing<sp/>the<sp/>graphic<sp/>client.</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGraphicClient_1aca385d0199520832fb464e03a8112dd5" kindref="member">GraphicClient</ref>();</highlight></codeline>
+<codeline lineno="33" refid="classGraphicClient_1a9ccf7889b329ef2a927a5522814d930a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGraphicClient_1a9ccf7889b329ef2a927a5522814d930a" kindref="member">~GraphicClient</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Main<sp/>application<sp/>loop.</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>Exit<sp/>code<sp/>(0<sp/>for<sp/>success).</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" kindref="member">run</ref>();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="41" refid="classGraphicClient_1a52f25216ca79230194e237a48fa12b18" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a52f25216ca79230194e237a48fa12b18" kindref="member">GAME_AREA_SIZE</ref><sp/>=<sp/>765.0f;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Game<sp/>area<sp/>render<sp/>size<sp/>in<sp/>pixels<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="classGraphicClient_1aa997b1f0089b31169851aa8c3f60f3fe" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1aa997b1f0089b31169851aa8c3f60f3fe" kindref="member">GAME_AREA_OFFSET_X</ref><sp/>=<sp/>577.5f;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Game<sp/>area<sp/>X<sp/>offset<sp/>on<sp/>screen<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="classGraphicClient_1aa65b589ade4fd8ddd3d8a7115d175e2b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1aa65b589ade4fd8ddd3d8a7115d175e2b" kindref="member">GAME_AREA_OFFSET_Y</ref><sp/>=<sp/>157.5f;<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Game<sp/>area<sp/>Y<sp/>offset<sp/>on<sp/>screen<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Initializes<sp/>the<sp/>client<sp/>(connects<sp/>to<sp/>server,<sp/>shows<sp/>menus).</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>True<sp/>if<sp/>initialization<sp/>successful,<sp/>false<sp/>otherwise.</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" kindref="member">init</ref>();</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Main<sp/>game<sp/>loop<sp/>iteration.</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" kindref="member">gameLoop</ref>();</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Processes<sp/>network<sp/>events<sp/>and<sp/>updates<sp/>game<sp/>state.</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" kindref="member">processNetworkEvents</ref>();</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Updates<sp/>all<sp/>game<sp/>entities<sp/>based<sp/>on<sp/>delta<sp/>time.</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>dt<sp/>Delta<sp/>time<sp/>since<sp/>last<sp/>update.</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" kindref="member">updateEntities</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dt);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Renders<sp/>the<sp/>entire<sp/>game<sp/>scene.</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>dt<sp/>Delta<sp/>time<sp/>since<sp/>last<sp/>frame.</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" kindref="member">render</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dt);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Draws<sp/>the<sp/>game<sp/>area<sp/>background<sp/>with<sp/>animations.</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>hoverAnimTimer<sp/>Animation<sp/>timer<sp/>for<sp/>effects.</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1ab72f007713bd3d5074c566a425c0d9b1" kindref="member">drawGameBackground</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>hoverAnimTimer);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Creates<sp/>a<sp/>player<sp/>entity<sp/>at<sp/>specified<sp/>position.</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>x<sp/>X<sp/>position<sp/>in<sp/>game<sp/>coordinates.</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>y<sp/>Y<sp/>position<sp/>in<sp/>game<sp/>coordinates.</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>Entity<sp/>ID<sp/>of<sp/>created<sp/>player.</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref><sp/><ref refid="classGraphicClient_1a1f97bf7f358d1d5a5d65069d641feb5b" kindref="member">createPlayerEntity</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Creates<sp/>a<sp/>bullet<sp/>entity<sp/>at<sp/>specified<sp/>position.</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>x<sp/>X<sp/>position<sp/>in<sp/>game<sp/>coordinates.</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>y<sp/>Y<sp/>position<sp/>in<sp/>game<sp/>coordinates.</highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>vx<sp/>X<sp/>velocity.</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>vy<sp/>Y<sp/>velocity.</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>Entity<sp/>ID<sp/>of<sp/>created<sp/>bullet.</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref><sp/><ref refid="classGraphicClient_1a31bdd83222945e28b307b03b32135288" kindref="member">createBulletEntity</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>vx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>vy);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Creates<sp/>a<sp/>monster<sp/>entity<sp/>at<sp/>specified<sp/>position.</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>x<sp/>X<sp/>position<sp/>in<sp/>game<sp/>coordinates.</highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>y<sp/>Y<sp/>position<sp/>in<sp/>game<sp/>coordinates.</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>type<sp/>Monster<sp/>type<sp/>identifier.</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>Entity<sp/>ID<sp/>of<sp/>created<sp/>monster.</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref><sp/><ref refid="classGraphicClient_1a6dd918f7ac4761ab4946371df06386ec" kindref="member">createMonsterEntity</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>x,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>y,<sp/>uint8_t<sp/>type);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Synchronizes<sp/>player<sp/>entities<sp/>with<sp/>server<sp/>state.</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>players<sp/>List<sp/>of<sp/>player<sp/>states<sp/>from<sp/>server.</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1aacb31035c31d741d0ae2ca5ec9228b12" kindref="member">syncEntities</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;PlayerState&gt;<sp/>&amp;players);</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Synchronizes<sp/>bullet<sp/>entities<sp/>with<sp/>server<sp/>state.</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>bullets<sp/>List<sp/>of<sp/>bullet<sp/>states<sp/>from<sp/>server.</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a61111e5d14a72f0f69344ab034a0622a" kindref="member">syncBullets</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;BulletState&gt;<sp/>&amp;bullets);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Synchronizes<sp/>monster<sp/>entities<sp/>with<sp/>server<sp/>state.</highlight></codeline>
+<codeline lineno="121"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>monsters<sp/>List<sp/>of<sp/>monster<sp/>states<sp/>from<sp/>server.</highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1afe45a37a11b23a08cce4d7c6b7efccbc" kindref="member">syncMonsters</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;MonsterState&gt;<sp/>&amp;monsters);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="125"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Shows<sp/>lobby<sp/>selection<sp/>menu.</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>True<sp/>if<sp/>lobby<sp/>selected<sp/>successfully,<sp/>false<sp/>otherwise.</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" kindref="member">selectLobby</ref>();</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Shows<sp/>pseudo/username<sp/>input<sp/>menu.</highlight></codeline>
+<codeline lineno="133"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>True<sp/>if<sp/>pseudo<sp/>entered<sp/>successfully,<sp/>false<sp/>otherwise.</highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" kindref="member">selectPseudo</ref>();</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="137"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Shows<sp/>main<sp/>menu<sp/>with<sp/>server<sp/>connection<sp/>options.</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>True<sp/>if<sp/>user<sp/>proceeded<sp/>to<sp/>game,<sp/>false<sp/>otherwise.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" kindref="member">selectMainMenu</ref>();</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="143"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Shows<sp/>controls<sp/>settings<sp/>menu<sp/>for<sp/>key<sp/>remapping.</highlight></codeline>
+<codeline lineno="145"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>True<sp/>on<sp/>menu<sp/>close,<sp/>false<sp/>on<sp/>exit.</highlight></codeline>
+<codeline lineno="146"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" kindref="member">selectSettings</ref>();</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="149"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Converts<sp/>keyboard<sp/>key<sp/>code<sp/>to<sp/>human-readable<sp/>string.</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>key<sp/>KeyboardKey<sp/>code<sp/>to<sp/>convert.</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>String<sp/>representation<sp/>of<sp/>the<sp/>key.</highlight></codeline>
+<codeline lineno="153"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classGraphicClient_1a8afc36976fbd0ff4c0e8e3a3acb53989" kindref="member">keyboardKeyToString</ref>(KeyboardKey<sp/>key);</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="157"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Disconnects<sp/>from<sp/>server<sp/>and<sp/>quits<sp/>the<sp/>application.</highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>Properly<sp/>closes<sp/>network<sp/>connections<sp/>and<sp/>sets<sp/>exit<sp/>flag.</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161" refid="classGraphicClient_1ad5fb254db602fc2a00310d5c33237a92" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1ad5fb254db602fc2a00310d5c33237a92" kindref="member">disconnectAndQuit</ref>();</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Graphics<sp/>and<sp/>Rendering</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164" refid="classGraphicClient_1a9267fe8ea88f600994981271461383be" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classRaylib_1_1Window" kindref="compound">Raylib::Window</ref><sp/><ref refid="classGraphicClient_1a9267fe8ea88f600994981271461383be" kindref="member">_window</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Game<sp/>window<sp/>handle<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Networking</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167" refid="classGraphicClient_1a20356ba82da3f85b4eccdef7b722f472" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNetworkClient" kindref="compound">NetworkClient</ref><sp/><ref refid="classGraphicClient_1a20356ba82da3f85b4eccdef7b722f472" kindref="member">_net</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Network<sp/>client<sp/>for<sp/>server<sp/>communication<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="168" refid="classGraphicClient_1acb4c98b2104cce0ec8de9051d6d53bf2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classGameState" kindref="compound">GameState</ref><sp/><ref refid="classGraphicClient_1acb4c98b2104cce0ec8de9051d6d53bf2" kindref="member">_state</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Current<sp/>game<sp/>state<sp/>from<sp/>server<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>ECS<sp/>Systems</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171" refid="classGraphicClient_1aa2ace668a32b35b06b45e386d00ea4f1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classECS" kindref="compound">ECS</ref><sp/><ref refid="classGraphicClient_1aa2ace668a32b35b06b45e386d00ea4f1" kindref="member">_ecs</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Main<sp/>entity<sp/>component<sp/>system<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172" refid="classGraphicClient_1aad6444ee81ce5610e8f134c8ee002077" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classECS" kindref="compound">ECS</ref><sp/><ref refid="classGraphicClient_1aad6444ee81ce5610e8f134c8ee002077" kindref="member">_uiEcs</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>UI<sp/>entity<sp/>component<sp/>system<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174" refid="classGraphicClient_1a2e26499ba6df996c1ac3c980b5320c40" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classSpriteRenderSystem" kindref="compound">SpriteRenderSystem</ref><sp/><ref refid="classGraphicClient_1a2e26499ba6df996c1ac3c980b5320c40" kindref="member">_spriteRenderSystem</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Sprite<sp/>rendering<sp/>system<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175" refid="classGraphicClient_1a91c6a0f863c130c89d3ff55cd05741a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classRectangleRenderSystem" kindref="compound">RectangleRenderSystem</ref><sp/><ref refid="classGraphicClient_1a91c6a0f863c130c89d3ff55cd05741a0" kindref="member">_rectangleRenderSystem</ref>;<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Rectangle<sp/>rendering<sp/>system<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="176" refid="classGraphicClient_1aa1b6f7632112637217ee65be6a6dcbae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classInputSystem" kindref="compound">InputSystem</ref><sp/><ref refid="classGraphicClient_1aa1b6f7632112637217ee65be6a6dcbae" kindref="member">_inputSystem</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Player<sp/>input<sp/>handling<sp/>system<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177" refid="classGraphicClient_1af728873f72540cf041d42a9d7e317337" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classMovementSystem" kindref="compound">MovementSystem</ref><sp/><ref refid="classGraphicClient_1af728873f72540cf041d42a9d7e317337" kindref="member">_movementSystem</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Entity<sp/>movement<sp/>system<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Entity<sp/>Maps</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="180" refid="classGraphicClient_1a82245caa063f38af3a7b4ad1a7418efc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;int,<sp/>Entity&gt;<sp/><ref refid="classGraphicClient_1a82245caa063f38af3a7b4ad1a7418efc" kindref="member">_entities</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Mapping<sp/>of<sp/>server<sp/>player<sp/>IDs<sp/>to<sp/>entities<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="181" refid="classGraphicClient_1a88e6521fa2a326f2563bd7674c361438" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;int,<sp/>Entity&gt;<sp/><ref refid="classGraphicClient_1a88e6521fa2a326f2563bd7674c361438" kindref="member">_bulletEntities</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Mapping<sp/>of<sp/>bullet<sp/>IDs<sp/>to<sp/>entities<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="182" refid="classGraphicClient_1a4e4f2c634651d79b312ce55f8bbb43d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;int,<sp/>Entity&gt;<sp/><ref refid="classGraphicClient_1a4e4f2c634651d79b312ce55f8bbb43d8" kindref="member">_monsterEntities</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Mapping<sp/>of<sp/>monster<sp/>IDs<sp/>to<sp/>entities<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Chat<sp/>System</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185" refid="classGraphicClient_1a3674d589494334b97ac301bb3a6c088f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::string&gt;<sp/><ref refid="classGraphicClient_1a3674d589494334b97ac301bb3a6c088f" kindref="member">_chatLog</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Chat<sp/>message<sp/>history<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="186" refid="classGraphicClient_1a29003b747d7aad2476accc5b80250eef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classGraphicClient_1a29003b747d7aad2476accc5b80250eef" kindref="member">_chatInput</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Current<sp/>chat<sp/>input<sp/>buffer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="187" refid="classGraphicClient_1a04a9a700edbeddcc42a63a3f8d6fe14e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a04a9a700edbeddcc42a63a3f8d6fe14e" kindref="member">_chatActive</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Chat<sp/>input<sp/>active<sp/>flag<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Player<sp/>Info</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190" refid="classGraphicClient_1a2fad4811cde141bb655df45eac5a6bae" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classGraphicClient_1a2fad4811cde141bb655df45eac5a6bae" kindref="member">_localPseudo</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Local<sp/>player<sp/>username<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="191" refid="classGraphicClient_1aa935bab23b2dadf2856fe49c9aef642a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classGraphicClient_1aa935bab23b2dadf2856fe49c9aef642a" kindref="member">_lastChatSent</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Last<sp/>sent<sp/>chat<sp/>message<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Network<sp/>Timing</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194" refid="classGraphicClient_1a6b93f97cd4b03c881c45451ab1e60afa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;int,<sp/>int&gt;<sp/><ref refid="classGraphicClient_1a6b93f97cd4b03c881c45451ab1e60afa" kindref="member">_playerPingMs</ref>;<sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Ping<sp/>values<sp/>for<sp/>each<sp/>player<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="195" refid="classGraphicClient_1aa769c45dded765a088aa3f2111d99124" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::chrono::steady_clock::time_point<sp/><ref refid="classGraphicClient_1aa769c45dded765a088aa3f2111d99124" kindref="member">_lastKeepAlive</ref>{};<sp/></highlight><highlight class="comment">/**&lt;<sp/>Last<sp/>keep-alive<sp/>packet<sp/>time<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196" refid="classGraphicClient_1a52dcaca28beda66bed425b6020dfc43c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::chrono::steady_clock::time_point<sp/><ref refid="classGraphicClient_1a52dcaca28beda66bed425b6020dfc43c" kindref="member">_lastHello</ref>{};<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Last<sp/>hello<sp/>packet<sp/>time<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="197" refid="classGraphicClient_1a3a0eeb38f5ce4b276f311b92c65fd501" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::chrono::steady_clock::time_point<sp/><ref refid="classGraphicClient_1a3a0eeb38f5ce4b276f311b92c65fd501" kindref="member">_lastUdpPing</ref>{};<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Last<sp/>UDP<sp/>ping<sp/>time<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198" refid="classGraphicClient_1a81a2e4066369786564a7d8221c8d83a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a81a2e4066369786564a7d8221c8d83a0" kindref="member">_udpReady</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>UDP<sp/>connection<sp/>ready<sp/>flag<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Animation<sp/>and<sp/>State</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="201" refid="classGraphicClient_1a8e52c08b5ba630898751b895d8b9d6ba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a8e52c08b5ba630898751b895d8b9d6ba" kindref="member">_gameAnimTimer</ref><sp/>=<sp/>0.0f;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Global<sp/>animation<sp/>timer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202" refid="classGraphicClient_1a60cedf219d20bc0cafe62005fe9ee88a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a60cedf219d20bc0cafe62005fe9ee88a" kindref="member">_forceExit</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Force<sp/>exit<sp/>flag<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="203" refid="classGraphicClient_1a5490f7579a280a251ba1441af0317d4a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a5490f7579a280a251ba1441af0317d4a" kindref="member">_restartToMenu</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Restart<sp/>to<sp/>menu<sp/>flag<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204" refid="classGraphicClient_1a61b58ea0f04c31a6cb4f2103f5df4f51" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a61b58ea0f04c31a6cb4f2103f5df4f51" kindref="member">_hasPseudo</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Player<sp/>has<sp/>entered<sp/>pseudo<sp/>flag<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="205" refid="classGraphicClient_1a1dbb979ad32f77bcf170c02e93d9b896" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classGraphicClient_1a1dbb979ad32f77bcf170c02e93d9b896" kindref="member">_lastInitError</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Last<sp/>initialization<sp/>error<sp/>message<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Server<sp/>Connection</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208" refid="classGraphicClient_1abb4308207bbfbe4f674b28c7de9fafb7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classGraphicClient_1abb4308207bbfbe4f674b28c7de9fafb7" kindref="member">_serverIp</ref><sp/>=<sp/></highlight><highlight class="stringliteral">&quot;127.0.0.1&quot;</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Server<sp/>IP<sp/>address<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209" refid="classGraphicClient_1a39d4c8c19e2ae4030687f0068cd5fa8c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a39d4c8c19e2ae4030687f0068cd5fa8c" kindref="member">_serverPort</ref><sp/>=<sp/>4243;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Server<sp/>port<sp/>number<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210" refid="classGraphicClient_1a042a31cb7e92647410b8b40c54c8d074" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1a042a31cb7e92647410b8b40c54c8d074" kindref="member">_hasServerConfig</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Server<sp/>config<sp/>provided<sp/>flag<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Lobby<sp/>Return</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213" refid="classGraphicClient_1acf2b54f37edf9f394796f9b549dc9efb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classGraphicClient_1acf2b54f37edf9f394796f9b549dc9efb" kindref="member">_pendingReturnToLobby</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Pending<sp/>return<sp/>to<sp/>lobby<sp/>flag<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214" refid="classGraphicClient_1a210f3519772cd892b489fadf1962dda6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::chrono::steady_clock::time_point<sp/><ref refid="classGraphicClient_1a210f3519772cd892b489fadf1962dda6" kindref="member">_returnToLobbyAt</ref>{};<sp/></highlight><highlight class="comment">/**&lt;<sp/>Time<sp/>to<sp/>return<sp/>to<sp/>lobby<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215" refid="classGraphicClient_1abe1ec0067a934ed489c6bf1bb83c5af4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classGraphicClient_1abe1ec0067a934ed489c6bf1bb83c5af4" kindref="member">_pendingReturnReason</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Reason<sp/>for<sp/>returning<sp/>to<sp/>lobby<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="graphical-client/GraphicClient/GraphicClient.hpp"/>
+  </compounddef>
+</doxygen>

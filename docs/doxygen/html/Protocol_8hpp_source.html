@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -112,7 +113,10 @@ $(document).ready(function(){initNavTree('Protocol_8hpp_source.html',''); initRe
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="foldopen" id="foldopen00014" data-start="{" data-end="}">
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespaceProtocol.html">   14</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceProtocol.html">Protocol</a></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{<span class="comment"></span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">     * @brief Status for framed TCP stream parsing.</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">     */</span></div>
 <div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespaceProtocol.html#aea1c7a72f2ed431c5d37b060c8cdb780">   19</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceProtocol.html#aea1c7a72f2ed431c5d37b060c8cdb780">StreamStatus</a> {</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <a class="code hl_enumvalue" href="namespaceProtocol.html#aea1c7a72f2ed431c5d37b060c8cdb780aef70e46fd3bbc21e3e1f0b6815e750c0">Disconnected</a>,</div>
@@ -120,21 +124,36 @@ $(document).ready(function(){initNavTree('Protocol_8hpp_source.html',''); initRe
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <a class="code hl_enumvalue" href="namespaceProtocol.html#aea1c7a72f2ed431c5d37b060c8cdb780aa60852f204ed8028c1c58808b746d115">Ok</a></div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    };</div>
 </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"></span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">     * @brief Build a TCP framed buffer (2 bytes length + serialized packet).</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">     * @throw std::runtime_error if payload is too large.</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">     */</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    std::vector&lt;uint8_t&gt; <a class="code hl_function" href="namespaceProtocol.html#a668bdeed219432868fca095e1b2f2667">frameTcp</a>(<span class="keyword">const</span> <a class="code hl_class" href="classPacket.html">Packet</a> &amp;packet);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"></span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">     * @brief Try to extract a complete packet from an accumulated stream buffer.</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">     * @param recvBuffer Mutable buffer that stores previous bytes.</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">     * @param out Parsed packet on success.</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">     * @return StreamStatus</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">     */</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_enumeration" href="namespaceProtocol.html#aea1c7a72f2ed431c5d37b060c8cdb780">StreamStatus</a> <a class="code hl_function" href="namespaceProtocol.html#a10005c44787f8de2a0e42d395aff8baa">extractFromBuffer</a>(std::vector&lt;uint8_t&gt; &amp;recvBuffer, <a class="code hl_class" href="classPacket.html">Packet</a> &amp;out);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"></span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">     * @brief Append newly read bytes then attempt extraction.</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">     */</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_enumeration" href="namespaceProtocol.html#aea1c7a72f2ed431c5d37b060c8cdb780">StreamStatus</a> <a class="code hl_function" href="namespaceProtocol.html#ad768525ca5f0324a5f414440e67679b6">consumeChunk</a>(<span class="keyword">const</span> uint8_t *data, std::size_t len, std::vector&lt;uint8_t&gt; &amp;recvBuffer, <a class="code hl_class" href="classPacket.html">Packet</a> &amp;out);</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>} <span class="comment">// namespace Protocol</span></div>
 </div>
 <div class="ttc" id="aPacket_8hpp_html"><div class="ttname"><a href="Packet_8hpp.html">Packet.hpp</a></div></div>
-<div class="ttc" id="aclassPacket_html"><div class="ttname"><a href="classPacket.html">Packet</a></div><div class="ttdoc">Light container for game protocol packets with (de)serialization helpers.</div><div class="ttdef"><b>Definition</b> Packet.hpp:47</div></div>
-<div class="ttc" id="anamespaceProtocol_html"><div class="ttname"><a href="namespaceProtocol.html">Protocol</a></div><div class="ttdef"><b>Definition</b> Protocol.hpp:15</div></div>
-<div class="ttc" id="anamespaceProtocol_html_a10005c44787f8de2a0e42d395aff8baa"><div class="ttname"><a href="namespaceProtocol.html#a10005c44787f8de2a0e42d395aff8baa">Protocol::extractFromBuffer</a></div><div class="ttdeci">StreamStatus extractFromBuffer(std::vector&lt; uint8_t &gt; &amp;recvBuffer, Packet &amp;out)</div><div class="ttdoc">Try to extract a complete packet from an accumulated stream buffer.</div><div class="ttdef"><b>Definition</b> Protocol.cpp:26</div></div>
-<div class="ttc" id="anamespaceProtocol_html_a668bdeed219432868fca095e1b2f2667"><div class="ttname"><a href="namespaceProtocol.html#a668bdeed219432868fca095e1b2f2667">Protocol::frameTcp</a></div><div class="ttdeci">std::vector&lt; uint8_t &gt; frameTcp(const Packet &amp;packet)</div><div class="ttdoc">Build a TCP framed buffer (2 bytes length + serialized packet).</div><div class="ttdef"><b>Definition</b> Protocol.cpp:11</div></div>
-<div class="ttc" id="anamespaceProtocol_html_ad768525ca5f0324a5f414440e67679b6"><div class="ttname"><a href="namespaceProtocol.html#ad768525ca5f0324a5f414440e67679b6">Protocol::consumeChunk</a></div><div class="ttdeci">StreamStatus consumeChunk(const uint8_t *data, std::size_t len, std::vector&lt; uint8_t &gt; &amp;recvBuffer, Packet &amp;out)</div><div class="ttdoc">Append newly read bytes then attempt extraction.</div><div class="ttdef"><b>Definition</b> Protocol.cpp:46</div></div>
-<div class="ttc" id="anamespaceProtocol_html_aea1c7a72f2ed431c5d37b060c8cdb780"><div class="ttname"><a href="namespaceProtocol.html#aea1c7a72f2ed431c5d37b060c8cdb780">Protocol::StreamStatus</a></div><div class="ttdeci">StreamStatus</div><div class="ttdoc">Status for framed TCP stream parsing.</div><div class="ttdef"><b>Definition</b> Protocol.hpp:19</div></div>
+<div class="ttc" id="aclassPacket_html"><div class="ttname"><a href="classPacket.html">Packet</a></div><div class="ttdoc">Light container for game protocol packets with (de)serialization helpers.</div><div class="ttdef"><b>Definition</b> <a href="Packet_8hpp_source.html#l00047">Packet.hpp:47</a></div></div>
+<div class="ttc" id="anamespaceProtocol_html"><div class="ttname"><a href="namespaceProtocol.html">Protocol</a></div><div class="ttdef"><b>Definition</b> <a href="Protocol_8hpp_source.html#l00014">Protocol.hpp:15</a></div></div>
+<div class="ttc" id="anamespaceProtocol_html_a10005c44787f8de2a0e42d395aff8baa"><div class="ttname"><a href="namespaceProtocol.html#a10005c44787f8de2a0e42d395aff8baa">Protocol::extractFromBuffer</a></div><div class="ttdeci">StreamStatus extractFromBuffer(std::vector&lt; uint8_t &gt; &amp;recvBuffer, Packet &amp;out)</div><div class="ttdoc">Try to extract a complete packet from an accumulated stream buffer.</div><div class="ttdef"><b>Definition</b> <a href="Protocol_8cpp_source.html#l00026">Protocol.cpp:26</a></div></div>
+<div class="ttc" id="anamespaceProtocol_html_a668bdeed219432868fca095e1b2f2667"><div class="ttname"><a href="namespaceProtocol.html#a668bdeed219432868fca095e1b2f2667">Protocol::frameTcp</a></div><div class="ttdeci">std::vector&lt; uint8_t &gt; frameTcp(const Packet &amp;packet)</div><div class="ttdoc">Build a TCP framed buffer (2 bytes length + serialized packet).</div><div class="ttdef"><b>Definition</b> <a href="Protocol_8cpp_source.html#l00011">Protocol.cpp:11</a></div></div>
+<div class="ttc" id="anamespaceProtocol_html_ad768525ca5f0324a5f414440e67679b6"><div class="ttname"><a href="namespaceProtocol.html#ad768525ca5f0324a5f414440e67679b6">Protocol::consumeChunk</a></div><div class="ttdeci">StreamStatus consumeChunk(const uint8_t *data, std::size_t len, std::vector&lt; uint8_t &gt; &amp;recvBuffer, Packet &amp;out)</div><div class="ttdoc">Append newly read bytes then attempt extraction.</div><div class="ttdef"><b>Definition</b> <a href="Protocol_8cpp_source.html#l00046">Protocol.cpp:46</a></div></div>
+<div class="ttc" id="anamespaceProtocol_html_aea1c7a72f2ed431c5d37b060c8cdb780"><div class="ttname"><a href="namespaceProtocol.html#aea1c7a72f2ed431c5d37b060c8cdb780">Protocol::StreamStatus</a></div><div class="ttdeci">StreamStatus</div><div class="ttdoc">Status for framed TCP stream parsing.</div><div class="ttdef"><b>Definition</b> <a href="Protocol_8hpp_source.html#l00019">Protocol.hpp:19</a></div></div>
 <div class="ttc" id="anamespaceProtocol_html_aea1c7a72f2ed431c5d37b060c8cdb780a4307e7e7986aa21a4b7c3ef2b5e948f6"><div class="ttname"><a href="namespaceProtocol.html#aea1c7a72f2ed431c5d37b060c8cdb780a4307e7e7986aa21a4b7c3ef2b5e948f6">Protocol::StreamStatus::Incomplete</a></div><div class="ttdeci">@ Incomplete</div></div>
 <div class="ttc" id="anamespaceProtocol_html_aea1c7a72f2ed431c5d37b060c8cdb780aa60852f204ed8028c1c58808b746d115"><div class="ttname"><a href="namespaceProtocol.html#aea1c7a72f2ed431c5d37b060c8cdb780aa60852f204ed8028c1c58808b746d115">Protocol::StreamStatus::Ok</a></div><div class="ttdeci">@ Ok</div></div>
 <div class="ttc" id="anamespaceProtocol_html_aea1c7a72f2ed431c5d37b060c8cdb780aef70e46fd3bbc21e3e1f0b6815e750c0"><div class="ttname"><a href="namespaceProtocol.html#aea1c7a72f2ed431c5d37b060c8cdb780aef70e46fd3bbc21e3e1f0b6815e750c0">Protocol::StreamStatus::Disconnected</a></div><div class="ttdeci">@ Disconnected</div></div>

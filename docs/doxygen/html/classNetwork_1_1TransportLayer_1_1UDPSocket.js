@@ -6,5 +6,6 @@ var classNetwork_1_1TransportLayer_1_1UDPSocket =
     [ "getSenderAddr", "classNetwork_1_1TransportLayer_1_1UDPSocket.html#a429dc0b0e539ab051d785b7145e42bf7", null ],
     [ "readByte", "classNetwork_1_1TransportLayer_1_1UDPSocket.html#a34b53ce1224f81fc6809a24412854294", null ],
     [ "writeByte", "classNetwork_1_1TransportLayer_1_1UDPSocket.html#a887cf24e71c890759f907c074f5b3505", null ],
-    [ "writeByte", "classNetwork_1_1TransportLayer_1_1UDPSocket.html#a1d5b406ab44c0523c8bb7db44eee59a0", null ]
+    [ "writeByte", "classNetwork_1_1TransportLayer_1_1UDPSocket.html#a1d5b406ab44c0523c8bb7db44eee59a0", null ],
+    [ "_senderAddr", "classNetwork_1_1TransportLayer_1_1UDPSocket.html#a8cb227a0a16480a39a6dfe532e5d2d5f", null ]
 ];

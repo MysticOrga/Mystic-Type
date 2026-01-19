@@ -1,0 +1,11 @@
+<map id="GraphicClient::createPlayerEntity" name="GraphicClient::createPlayerEntity">
+<area shape="rect" id="Node000001" title="Creates a player entity at specified position." alt="" coords="5,47,205,87"/>
+<area shape="rect" id="Node000002" href="$classECS.html#a4fbe0d70b0934255d301ced9df6287e7" title="Adds a component to an entity." alt="" coords="253,29,408,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,53,239,50,240,55,206,59"/>
+<area shape="rect" id="Node000005" href="$classECS.html#a41b876f3725cbb04aac3f2edd95522c6" title="Creates a new entity." alt="" coords="263,79,398,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="206,75,250,80,250,85,205,81"/>
+<area shape="rect" id="Node000003" href="$classComponentArray.html#a37f484a9d2b6716e2facff9eabe1bb64" title="Adds or updates a component for an entity." alt="" coords="483,5,646,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="408,31,469,25,470,30,409,37"/>
+<area shape="rect" id="Node000004" href="$classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="456,55,673,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="409,48,442,51,442,57,408,53"/>
+</map>

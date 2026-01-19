@@ -1,0 +1,12 @@
+<map id="GameState::clear" name="GameState::clear">
+<area shape="rect" id="Node000001" title="Clear all cached entities." alt="" coords="800,42,935,67"/>
+<area shape="rect" id="Node000002" href="$classGraphicClient.html#a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" title="Processes network events and updates game state." alt="" coords="529,5,752,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="786,47,752,42,753,37,786,42"/>
+<area shape="rect" id="Node000004" href="$classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,45,247,70"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="786,59,752,60,247,61,247,55,752,55,786,54"/>
+<area shape="rect" id="Node000003" href="$classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,17,481,42"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="516,30,481,31,481,25,516,25"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="281,46,247,51,247,45,280,41"/>
+<area shape="rect" id="Node000005" href="$client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,45,60,70"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,60,60,60,60,55,94,55"/>
+</map>

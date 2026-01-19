@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -93,6 +94,8 @@ $(document).ready(function(){initNavTree('classGameWorld.html',''); initResizabl
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classGameWorld-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">GameWorld Class Reference</div></div>
 </div><!--header-->
@@ -101,7 +104,15 @@ $(document).ready(function(){initNavTree('classGameWorld.html',''); initResizabl
 <p>Server-side authoritative simulation for players, bullets and monsters.  
  <a href="classGameWorld.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="GameWorld_8hpp_source.html">Network/TransportLayer/UDP/GameWorld.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for GameWorld:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameWorld__coll__graph.png" border="0" usemap="#aGameWorld_coll__map" alt="Collaboration graph"/></div>
+<map name="aGameWorld_coll__map" id="aGameWorld_coll__map">
+<area shape="rect" title="Server&#45;side authoritative simulation for players, bullets and monsters." alt="" coords="5,5,207,631"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -164,10 +175,62 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a163fb2fed54650ebba995df1e64c39db" id="r_a163fb2fed54650ebba995df1e64c39db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#a163fb2fed54650ebba995df1e64c39db">setLogPrefix</a> (const std::string &amp;prefix)</td></tr>
 <tr class="memdesc:a163fb2fed54650ebba995df1e64c39db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prefix used in log output.  <br /></td></tr>
 <tr class="separator:a163fb2fed54650ebba995df1e64c39db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a3bf3aa2e665bed5c7e5c87f6f482ae97" id="r_a3bf3aa2e665bed5c7e5c87f6f482ae97"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#a3bf3aa2e665bed5c7e5c87f6f482ae97">spawnMonster</a> (long long nowMs)</td></tr>
+<tr class="separator:a3bf3aa2e665bed5c7e5c87f6f482ae97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98daebdd5931cf333037bc3891b16794" id="r_a98daebdd5931cf333037bc3891b16794"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#a98daebdd5931cf333037bc3891b16794">spawnBoss</a> (long long nowMs)</td></tr>
+<tr class="separator:a98daebdd5931cf333037bc3891b16794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1835fdf3232458197a2c81a1a0c5e02" id="r_ac1835fdf3232458197a2c81a1a0c5e02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#ac1835fdf3232458197a2c81a1a0c5e02">spawnBossBullet</a> (const <a class="el" href="structGameWorld_1_1MonsterState.html">MonsterState</a> &amp;boss, long long nowMs)</td></tr>
+<tr class="separator:ac1835fdf3232458197a2c81a1a0c5e02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6af008239b30629fad73ae657465d37e" id="r_a6af008239b30629fad73ae657465d37e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#a6af008239b30629fad73ae657465d37e">shouldSpawnBoss</a> () const</td></tr>
+<tr class="separator:a6af008239b30629fad73ae657465d37e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbdde5eb929528699e8176ec57779ec7" id="r_acbdde5eb929528699e8176ec57779ec7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#acbdde5eb929528699e8176ec57779ec7">hasBoss</a> () const</td></tr>
+<tr class="separator:acbdde5eb929528699e8176ec57779ec7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bb6ed054b809cc92573fd87850ac468" id="r_a0bb6ed054b809cc92573fd87850ac468"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#a0bb6ed054b809cc92573fd87850ac468">updateBossMovement</a> (<a class="el" href="structGameWorld_1_1MonsterState.html">MonsterState</a> &amp;boss, long long nowMs, float dtSec)</td></tr>
+<tr class="separator:a0bb6ed054b809cc92573fd87850ac468"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a46a68b140b6bcd93c8ea4d145142d536" id="r_a46a68b140b6bcd93c8ea4d145142d536"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, <a class="el" href="structGameWorld_1_1PlayerState.html">PlayerState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#a46a68b140b6bcd93c8ea4d145142d536">_players</a></td></tr>
+<tr class="separator:a46a68b140b6bcd93c8ea4d145142d536"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac911c03e487bf4e2d77c8ede28babf03" id="r_ac911c03e487bf4e2d77c8ede28babf03"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structGameWorld_1_1BulletState.html">BulletState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#ac911c03e487bf4e2d77c8ede28babf03">_bullets</a></td></tr>
+<tr class="separator:ac911c03e487bf4e2d77c8ede28babf03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67b9e4b2ad25ed6fd3e5ca8e3b238b8d" id="r_a67b9e4b2ad25ed6fd3e5ca8e3b238b8d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structGameWorld_1_1MonsterState.html">MonsterState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#a67b9e4b2ad25ed6fd3e5ca8e3b238b8d">_monsters</a></td></tr>
+<tr class="separator:a67b9e4b2ad25ed6fd3e5ca8e3b238b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae566a13c392531f47667bd5f6af1f25" id="r_aae566a13c392531f47667bd5f6af1f25"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#aae566a13c392531f47667bd5f6af1f25">_monsterKilled</a> = 0</td></tr>
+<tr class="separator:aae566a13c392531f47667bd5f6af1f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad17902d7af7e1d778daff68c08d8076a" id="r_ad17902d7af7e1d778daff68c08d8076a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#ad17902d7af7e1d778daff68c08d8076a">_nextBulletId</a> = 1</td></tr>
+<tr class="separator:ad17902d7af7e1d778daff68c08d8076a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad74e5cf7fea12c00759a2521d76931d9" id="r_ad74e5cf7fea12c00759a2521d76931d9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#ad74e5cf7fea12c00759a2521d76931d9">_nextMonsterId</a> = 1</td></tr>
+<tr class="separator:ad74e5cf7fea12c00759a2521d76931d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8ac13c233c40d9e8f9f6a0b4afb8ef8" id="r_ab8ac13c233c40d9e8f9f6a0b4afb8ef8"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#ab8ac13c233c40d9e8f9f6a0b4afb8ef8">_lastMonsterSpawnMs</a> = 0</td></tr>
+<tr class="separator:ab8ac13c233c40d9e8f9f6a0b4afb8ef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99254eafbade5a1bad114a9477e62071" id="r_a99254eafbade5a1bad114a9477e62071"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#a99254eafbade5a1bad114a9477e62071">_monsterSpawnIntervalMs</a> = 1800</td></tr>
+<tr class="separator:a99254eafbade5a1bad114a9477e62071"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c9f70e5ed7cba792fde805088741b7a" id="r_a5c9f70e5ed7cba792fde805088741b7a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#a5c9f70e5ed7cba792fde805088741b7a">_bossSpawnedFlag</a> = false</td></tr>
+<tr class="separator:a5c9f70e5ed7cba792fde805088741b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56582971b46ddc377a513090e46662d3" id="r_a56582971b46ddc377a513090e46662d3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#a56582971b46ddc377a513090e46662d3">_bossSpawnedOnce</a> = false</td></tr>
+<tr class="separator:a56582971b46ddc377a513090e46662d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb755ee97dd7f8632eef630319f2b3e2" id="r_acb755ee97dd7f8632eef630319f2b3e2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#acb755ee97dd7f8632eef630319f2b3e2">_bossDefeatedFlag</a> = false</td></tr>
+<tr class="separator:acb755ee97dd7f8632eef630319f2b3e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa78b4bb4f31d3d10a37ce43a1a446bae" id="r_aa78b4bb4f31d3d10a37ce43a1a446bae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#aa78b4bb4f31d3d10a37ce43a1a446bae">_hadPlayers</a> = false</td></tr>
+<tr class="separator:aa78b4bb4f31d3d10a37ce43a1a446bae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab50b19c51863e1a304ab2e22833a4e0d" id="r_ab50b19c51863e1a304ab2e22833a4e0d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#ab50b19c51863e1a304ab2e22833a4e0d">_noPlayersFlag</a> = false</td></tr>
+<tr class="separator:ab50b19c51863e1a304ab2e22833a4e0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade346ceb17e4fe79c3030b7cec924a7f" id="r_ade346ceb17e4fe79c3030b7cec924a7f"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#ade346ceb17e4fe79c3030b7cec924a7f">_lobbyScore</a> = 0</td></tr>
+<tr class="separator:ade346ceb17e4fe79c3030b7cec924a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa84b4174d2f8fd9c1f313687b1ee4850" id="r_aa84b4174d2f8fd9c1f313687b1ee4850"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#aa84b4174d2f8fd9c1f313687b1ee4850">_snapshotSeq</a> = 0</td></tr>
+<tr class="separator:aa84b4174d2f8fd9c1f313687b1ee4850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a025e4ab2ae1b20af78178303ce541ae9" id="r_a025e4ab2ae1b20af78178303ce541ae9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameWorld.html#a025e4ab2ae1b20af78178303ce541ae9">_logPrefix</a></td></tr>
+<tr class="separator:a025e4ab2ae1b20af78178303ce541ae9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Server-side authoritative simulation for players, bullets and monsters. </p>
 <p>Keeps track of entity states and performs time-based updates (movement, spawn, collisions). All networking code stays in <a class="el" href="classUDPGameServer.html" title="Simple UDP authoritative game server that manages players and snapshots.">UDPGameServer</a>; this class only handles game logic/state. </p>
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00030">30</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="af3c04dc6f6e4211cd6007390bee1d9a7" name="af3c04dc6f6e4211cd6007390bee1d9a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af3c04dc6f6e4211cd6007390bee1d9a7">&#9670;&#160;</a></span>MonsterKind</h2>
@@ -195,6 +258,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="af3c04dc6f6e4211cd6007390bee1d9a7aeacf3a101066b77f05938928385bd8d9" name="af3c04dc6f6e4211cd6007390bee1d9a7aeacf3a101066b77f05938928385bd8d9"></a>ZigZag&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="af3c04dc6f6e4211cd6007390bee1d9a7a5859831e2b3db23528c710b1451e13fc" name="af3c04dc6f6e4211cd6007390bee1d9a7a5859831e2b3db23528c710b1451e13fc"></a>Boss&#160;</td><td class="fielddoc"></td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00063">63</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
 
 </div>
 </div>
@@ -271,6 +336,10 @@ Public Member Functions</h2></td></tr>
 
 <p>Register a player shot in the world. </p>
 
+<p class="definition">Definition at line <a class="el" href="GameWorld_8cpp_source.html#l00064">64</a> of file <a class="el" href="GameWorld_8cpp_source.html">GameWorld.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00150">_bullets</a>, <a class="el" href="GameWorld_8hpp_source.html#l00164">_logPrefix</a>, <a class="el" href="GameWorld_8hpp_source.html#l00153">_nextBulletId</a>, <a class="el" href="GameWorld_8hpp_source.html#l00149">_players</a>, <a class="el" href="GameWorld_8hpp_source.html#l00052">GameWorld::BulletState::id</a>, <a class="el" href="GameWorld_8hpp_source.html#l00053">GameWorld::BulletState::ownerId</a>, <a class="el" href="GameWorld_8hpp_source.html#l00056">GameWorld::BulletState::velX</a>, <a class="el" href="GameWorld_8hpp_source.html#l00057">GameWorld::BulletState::velY</a>, <a class="el" href="GameWorld_8hpp_source.html#l00054">GameWorld::BulletState::x</a>, and <a class="el" href="GameWorld_8hpp_source.html#l00055">GameWorld::BulletState::y</a>.</p>
+
 </div>
 </div>
 <a id="a9a877bcf4eed6527b0896242463a3dfa" name="a9a877bcf4eed6527b0896242463a3dfa"></a>
@@ -289,6 +358,69 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Build a UDP snapshot packet of current world state. </p>
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8cpp_source.html#l00424">424</a> of file <a class="el" href="GameWorld_8cpp_source.html">GameWorld.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00150">_bullets</a>, <a class="el" href="GameWorld_8hpp_source.html#l00162">_lobbyScore</a>, <a class="el" href="GameWorld_8hpp_source.html#l00151">_monsters</a>, <a class="el" href="GameWorld_8hpp_source.html#l00149">_players</a>, <a class="el" href="GameWorld_8hpp_source.html#l00163">_snapshotSeq</a>, and <a class="el" href="Packet_8hpp.html#a0628f13bcd4685c7a4b4a9f1aad83b56a46b8744c6bc840d2cb241fa165f3e204">SNAPSHOT</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00075">UDPGameServer::handleHello()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameWorld_a9a877bcf4eed6527b0896242463a3dfa_icgraph.png" border="0" usemap="#aclassGameWorld_a9a877bcf4eed6527b0896242463a3dfa_icgraph" alt=""/></div>
+<map name="aclassGameWorld_a9a877bcf4eed6527b0896242463a3dfa_icgraph" id="aclassGameWorld_a9a877bcf4eed6527b0896242463a3dfa_icgraph">
+<area shape="rect" title="Build a UDP snapshot packet of current world state." alt="" coords="855,5,1053,45"/>
+<area shape="rect" href="classUDPGameServer.html#a367b917d572ad28819003841b3be180c" title="Register a new player on receipt of a hello message." alt="" coords="589,13,807,38"/>
+<area shape="poly" title=" " alt="" coords="841,28,807,28,807,23,841,23"/>
+<area shape="rect" href="classUDPGameServer.html#a9d28a7f4a0c75aba168ea6a58633d1bb" title="Route an incoming packet to the appropriate handler." alt="" coords="316,13,541,38"/>
+<area shape="poly" title=" " alt="" coords="575,28,542,28,542,23,575,23"/>
+<area shape="rect" href="classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b" title="Start the main server loop (blocking)." alt="" coords="108,13,268,38"/>
+<area shape="poly" title=" " alt="" coords="302,28,268,28,268,23,302,23"/>
+<area shape="rect" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acbdde5eb929528699e8176ec57779ec7" name="acbdde5eb929528699e8176ec57779ec7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbdde5eb929528699e8176ec57779ec7">&#9670;&#160;</a></span>hasBoss()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameWorld::hasBoss </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8cpp_source.html#l00145">145</a> of file <a class="el" href="GameWorld_8cpp_source.html">GameWorld.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00151">_monsters</a>, and <a class="el" href="classGameWorld.html#af3c04dc6f6e4211cd6007390bee1d9a7a5859831e2b3db23528c710b1451e13fc">Boss</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00248">tick()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameWorld_acbdde5eb929528699e8176ec57779ec7_icgraph.png" border="0" usemap="#aclassGameWorld_acbdde5eb929528699e8176ec57779ec7_icgraph" alt=""/></div>
+<map name="aclassGameWorld_acbdde5eb929528699e8176ec57779ec7_icgraph" id="aclassGameWorld_acbdde5eb929528699e8176ec57779ec7_icgraph">
+<area shape="rect" title=" " alt="" coords="184,5,344,31"/>
+<area shape="rect" href="classGameWorld.html#a88c3b380a238a69dc05b5a9df07621dd" title="Advance simulation." alt="" coords="5,5,136,31"/>
+<area shape="poly" title=" " alt="" coords="170,21,136,21,136,15,170,15"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -317,6 +449,10 @@ Public Member Functions</h2></td></tr>
 
 <p>True after at least one player has joined. </p>
 
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00130">130</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00160">_hadPlayers</a>.</p>
+
 </div>
 </div>
 <a id="a4655740f12ec6ebd9d9374b229c6323a" name="a4655740f12ec6ebd9d9374b229c6323a"></a>
@@ -343,6 +479,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Access player map (read-only). </p>
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00135">135</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00149">_players</a>.</p>
 
 </div>
 </div>
@@ -386,6 +526,28 @@ Public Member Functions</h2></td></tr>
 
 <p>Register a player on HELLO_UDP. </p>
 
+<p class="definition">Definition at line <a class="el" href="GameWorld_8cpp_source.html#l00034">34</a> of file <a class="el" href="GameWorld_8cpp_source.html">GameWorld.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00160">_hadPlayers</a>, <a class="el" href="GameWorld_8hpp_source.html#l00162">_lobbyScore</a>, <a class="el" href="GameWorld_8hpp_source.html#l00149">_players</a>, <a class="el" href="GameWorld_8hpp_source.html#l00041">GameWorld::PlayerState::addr</a>, <a class="el" href="GameWorld_8hpp_source.html#l00039">GameWorld::PlayerState::hp</a>, <a class="el" href="GameWorld_8hpp_source.html#l00036">GameWorld::PlayerState::id</a>, <a class="el" href="GameWorld_8hpp_source.html#l00045">GameWorld::PlayerState::lastHitMs</a>, <a class="el" href="GameWorld_8hpp_source.html#l00040">GameWorld::PlayerState::score</a>, <a class="el" href="GameWorld_8hpp_source.html#l00042">GameWorld::PlayerState::velX</a>, <a class="el" href="GameWorld_8hpp_source.html#l00043">GameWorld::PlayerState::velY</a>, <a class="el" href="GameWorld_8hpp_source.html#l00037">GameWorld::PlayerState::x</a>, and <a class="el" href="GameWorld_8hpp_source.html#l00038">GameWorld::PlayerState::y</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00075">UDPGameServer::handleHello()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameWorld_aaebb0cdb6bcf4382893ce438832db63e_icgraph.png" border="0" usemap="#aclassGameWorld_aaebb0cdb6bcf4382893ce438832db63e_icgraph" alt=""/></div>
+<map name="aclassGameWorld_aaebb0cdb6bcf4382893ce438832db63e_icgraph" id="aclassGameWorld_aaebb0cdb6bcf4382893ce438832db63e_icgraph">
+<area shape="rect" title="Register a player on HELLO_UDP." alt="" coords="855,5,1052,31"/>
+<area shape="rect" href="classUDPGameServer.html#a367b917d572ad28819003841b3be180c" title="Register a new player on receipt of a hello message." alt="" coords="589,5,807,31"/>
+<area shape="poly" title=" " alt="" coords="841,21,807,21,807,15,841,15"/>
+<area shape="rect" href="classUDPGameServer.html#a9d28a7f4a0c75aba168ea6a58633d1bb" title="Route an incoming packet to the appropriate handler." alt="" coords="316,5,541,31"/>
+<area shape="poly" title=" " alt="" coords="575,21,542,21,542,15,575,15"/>
+<area shape="rect" href="classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b" title="Start the main server loop (blocking)." alt="" coords="108,5,268,31"/>
+<area shape="poly" title=" " alt="" coords="302,21,268,21,268,15,302,15"/>
+<area shape="rect" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="ab9bdf76c054d7fd1d08241a954315b46" name="ab9bdf76c054d7fd1d08241a954315b46"></a>
@@ -405,6 +567,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Remove a player and any references to it. </p>
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8cpp_source.html#l00085">85</a> of file <a class="el" href="GameWorld_8cpp_source.html">GameWorld.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00150">_bullets</a>, <a class="el" href="GameWorld_8hpp_source.html#l00160">_hadPlayers</a>, <a class="el" href="GameWorld_8hpp_source.html#l00161">_noPlayersFlag</a>, and <a class="el" href="GameWorld_8hpp_source.html#l00149">_players</a>.</p>
 
 </div>
 </div>
@@ -434,6 +600,207 @@ Public Member Functions</h2></td></tr>
 
 <p>Prefix used in log output. </p>
 
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00139">139</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00164">_logPrefix</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00075">UDPGameServer::handleHello()</a>, and <a class="el" href="UDPGameServer_8cpp_source.html#l00018">UDPGameServer::UDPGameServer()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameWorld_a163fb2fed54650ebba995df1e64c39db_icgraph.png" border="0" usemap="#aclassGameWorld_a163fb2fed54650ebba995df1e64c39db_icgraph" alt=""/></div>
+<map name="aclassGameWorld_a163fb2fed54650ebba995df1e64c39db_icgraph" id="aclassGameWorld_a163fb2fed54650ebba995df1e64c39db_icgraph">
+<area shape="rect" title="Prefix used in log output." alt="" coords="885,31,1072,56"/>
+<area shape="rect" href="classUDPGameServer.html#a367b917d572ad28819003841b3be180c" title="Register a new player on receipt of a hello message." alt="" coords="605,5,822,31"/>
+<area shape="poly" title=" " alt="" coords="871,36,822,31,823,26,872,30"/>
+<area shape="rect" href="classUDPGameServer.html#a0272e620fa267e7a2043b5729d24cfbc" title=" " alt="" coords="589,55,837,80"/>
+<area shape="poly" title=" " alt="" coords="872,56,838,59,837,53,871,50"/>
+<area shape="rect" href="classUDPGameServer.html#a9d28a7f4a0c75aba168ea6a58633d1bb" title="Route an incoming packet to the appropriate handler." alt="" coords="316,5,541,31"/>
+<area shape="poly" title=" " alt="" coords="591,21,542,21,542,15,591,15"/>
+<area shape="rect" href="classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b" title="Start the main server loop (blocking)." alt="" coords="108,5,268,31"/>
+<area shape="poly" title=" " alt="" coords="302,21,268,21,268,15,302,15"/>
+<area shape="rect" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6af008239b30629fad73ae657465d37e" name="a6af008239b30629fad73ae657465d37e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6af008239b30629fad73ae657465d37e">&#9670;&#160;</a></span>shouldSpawnBoss()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameWorld::shouldSpawnBoss </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8cpp_source.html#l00140">140</a> of file <a class="el" href="GameWorld_8cpp_source.html">GameWorld.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00158">_bossSpawnedOnce</a>, and <a class="el" href="GameWorld_8hpp_source.html#l00162">_lobbyScore</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00248">tick()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameWorld_a6af008239b30629fad73ae657465d37e_icgraph.png" border="0" usemap="#aclassGameWorld_a6af008239b30629fad73ae657465d37e_icgraph" alt=""/></div>
+<map name="aclassGameWorld_a6af008239b30629fad73ae657465d37e_icgraph" id="aclassGameWorld_a6af008239b30629fad73ae657465d37e_icgraph">
+<area shape="rect" title=" " alt="" coords="184,5,407,31"/>
+<area shape="rect" href="classGameWorld.html#a88c3b380a238a69dc05b5a9df07621dd" title="Advance simulation." alt="" coords="5,5,136,31"/>
+<area shape="poly" title=" " alt="" coords="170,21,136,21,136,15,170,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a98daebdd5931cf333037bc3891b16794" name="a98daebdd5931cf333037bc3891b16794"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98daebdd5931cf333037bc3891b16794">&#9670;&#160;</a></span>spawnBoss()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameWorld::spawnBoss </td>
+          <td>(</td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>nowMs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8cpp_source.html#l00154">154</a> of file <a class="el" href="GameWorld_8cpp_source.html">GameWorld.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00157">_bossSpawnedFlag</a>, <a class="el" href="GameWorld_8hpp_source.html#l00158">_bossSpawnedOnce</a>, <a class="el" href="GameWorld_8hpp_source.html#l00164">_logPrefix</a>, <a class="el" href="GameWorld_8hpp_source.html#l00151">_monsters</a>, <a class="el" href="GameWorld_8hpp_source.html#l00154">_nextMonsterId</a>, <a class="el" href="GameWorld_8hpp_source.html#l00072">GameWorld::MonsterState::baseY</a>, <a class="el" href="classGameWorld.html#af3c04dc6f6e4211cd6007390bee1d9a7a5859831e2b3db23528c710b1451e13fc">Boss</a>, <a class="el" href="GameWorld_8hpp_source.html#l00078">GameWorld::MonsterState::hp</a>, <a class="el" href="GameWorld_8hpp_source.html#l00069">GameWorld::MonsterState::id</a>, <a class="el" href="GameWorld_8hpp_source.html#l00079">GameWorld::MonsterState::kind</a>, <a class="el" href="GameWorld_8hpp_source.html#l00080">GameWorld::MonsterState::nextPatternMs</a>, <a class="el" href="GameWorld_8hpp_source.html#l00081">GameWorld::MonsterState::nextShotMs</a>, <a class="el" href="GameWorld_8hpp_source.html#l00076">GameWorld::MonsterState::speedX</a>, <a class="el" href="GameWorld_8hpp_source.html#l00077">GameWorld::MonsterState::speedY</a>, <a class="el" href="GameWorld_8hpp_source.html#l00070">GameWorld::MonsterState::x</a>, and <a class="el" href="GameWorld_8hpp_source.html#l00071">GameWorld::MonsterState::y</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00248">tick()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameWorld_a98daebdd5931cf333037bc3891b16794_icgraph.png" border="0" usemap="#aclassGameWorld_a98daebdd5931cf333037bc3891b16794_icgraph" alt=""/></div>
+<map name="aclassGameWorld_a98daebdd5931cf333037bc3891b16794_icgraph" id="aclassGameWorld_a98daebdd5931cf333037bc3891b16794_icgraph">
+<area shape="rect" title=" " alt="" coords="184,5,363,31"/>
+<area shape="rect" href="classGameWorld.html#a88c3b380a238a69dc05b5a9df07621dd" title="Advance simulation." alt="" coords="5,5,136,31"/>
+<area shape="poly" title=" " alt="" coords="170,21,136,21,136,15,170,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac1835fdf3232458197a2c81a1a0c5e02" name="ac1835fdf3232458197a2c81a1a0c5e02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1835fdf3232458197a2c81a1a0c5e02">&#9670;&#160;</a></span>spawnBossBullet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameWorld::spawnBossBullet </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structGameWorld_1_1MonsterState.html">MonsterState</a> &amp;&#160;</td>
+          <td class="paramname"><em>boss</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>nowMs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8cpp_source.html#l00196">196</a> of file <a class="el" href="GameWorld_8cpp_source.html">GameWorld.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00150">_bullets</a>, <a class="el" href="GameWorld_8hpp_source.html#l00153">_nextBulletId</a>, <a class="el" href="GameWorld_8hpp_source.html#l00052">GameWorld::BulletState::id</a>, <a class="el" href="GameWorld_8hpp_source.html#l00069">GameWorld::MonsterState::id</a>, <a class="el" href="GameWorld_8hpp_source.html#l00053">GameWorld::BulletState::ownerId</a>, <a class="el" href="GameWorld_8hpp_source.html#l00056">GameWorld::BulletState::velX</a>, <a class="el" href="GameWorld_8hpp_source.html#l00057">GameWorld::BulletState::velY</a>, <a class="el" href="GameWorld_8hpp_source.html#l00054">GameWorld::BulletState::x</a>, <a class="el" href="GameWorld_8hpp_source.html#l00070">GameWorld::MonsterState::x</a>, <a class="el" href="GameWorld_8hpp_source.html#l00055">GameWorld::BulletState::y</a>, and <a class="el" href="GameWorld_8hpp_source.html#l00071">GameWorld::MonsterState::y</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00248">tick()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameWorld_ac1835fdf3232458197a2c81a1a0c5e02_icgraph.png" border="0" usemap="#aclassGameWorld_ac1835fdf3232458197a2c81a1a0c5e02_icgraph" alt=""/></div>
+<map name="aclassGameWorld_ac1835fdf3232458197a2c81a1a0c5e02_icgraph" id="aclassGameWorld_ac1835fdf3232458197a2c81a1a0c5e02_icgraph">
+<area shape="rect" title=" " alt="" coords="184,5,401,31"/>
+<area shape="rect" href="classGameWorld.html#a88c3b380a238a69dc05b5a9df07621dd" title="Advance simulation." alt="" coords="5,5,136,31"/>
+<area shape="poly" title=" " alt="" coords="170,21,136,21,136,15,170,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3bf3aa2e665bed5c7e5c87f6f482ae97" name="a3bf3aa2e665bed5c7e5c87f6f482ae97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bf3aa2e665bed5c7e5c87f6f482ae97">&#9670;&#160;</a></span>spawnMonster()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameWorld::spawnMonster </td>
+          <td>(</td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>nowMs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8cpp_source.html#l00101">101</a> of file <a class="el" href="GameWorld_8cpp_source.html">GameWorld.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00155">_lastMonsterSpawnMs</a>, <a class="el" href="GameWorld_8hpp_source.html#l00164">_logPrefix</a>, <a class="el" href="GameWorld_8hpp_source.html#l00151">_monsters</a>, <a class="el" href="GameWorld_8hpp_source.html#l00156">_monsterSpawnIntervalMs</a>, <a class="el" href="GameWorld_8hpp_source.html#l00154">_nextMonsterId</a>, <a class="el" href="GameWorld_8hpp_source.html#l00073">GameWorld::MonsterState::amplitude</a>, <a class="el" href="GameWorld_8hpp_source.html#l00072">GameWorld::MonsterState::baseY</a>, <a class="el" href="GameWorld_8hpp_source.html#l00075">GameWorld::MonsterState::freq</a>, <a class="el" href="GameWorld_8hpp_source.html#l00078">GameWorld::MonsterState::hp</a>, <a class="el" href="GameWorld_8hpp_source.html#l00069">GameWorld::MonsterState::id</a>, <a class="el" href="GameWorld_8hpp_source.html#l00079">GameWorld::MonsterState::kind</a>, <a class="el" href="GameWorld_8hpp_source.html#l00074">GameWorld::MonsterState::phase</a>, <a class="el" href="classGameWorld.html#af3c04dc6f6e4211cd6007390bee1d9a7a6ca9e2d793f678aba7c1b19526592a46">Sine</a>, <a class="el" href="GameWorld_8hpp_source.html#l00076">GameWorld::MonsterState::speedX</a>, <a class="el" href="GameWorld_8hpp_source.html#l00070">GameWorld::MonsterState::x</a>, <a class="el" href="GameWorld_8hpp_source.html#l00071">GameWorld::MonsterState::y</a>, and <a class="el" href="classGameWorld.html#af3c04dc6f6e4211cd6007390bee1d9a7aeacf3a101066b77f05938928385bd8d9">ZigZag</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00248">tick()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameWorld_a3bf3aa2e665bed5c7e5c87f6f482ae97_icgraph.png" border="0" usemap="#aclassGameWorld_a3bf3aa2e665bed5c7e5c87f6f482ae97_icgraph" alt=""/></div>
+<map name="aclassGameWorld_a3bf3aa2e665bed5c7e5c87f6f482ae97_icgraph" id="aclassGameWorld_a3bf3aa2e665bed5c7e5c87f6f482ae97_icgraph">
+<area shape="rect" title=" " alt="" coords="184,5,385,31"/>
+<area shape="rect" href="classGameWorld.html#a88c3b380a238a69dc05b5a9df07621dd" title="Advance simulation." alt="" coords="5,5,136,31"/>
+<area shape="poly" title=" " alt="" coords="170,21,137,21,137,15,170,15"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a7729f2448efdc4dd6f5e77e67c20c5af" name="a7729f2448efdc4dd6f5e77e67c20c5af"></a>
@@ -452,6 +819,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Consume boss-defeated flag (one-shot). </p>
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8cpp_source.html#l00182">182</a> of file <a class="el" href="GameWorld_8cpp_source.html">GameWorld.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00159">_bossDefeatedFlag</a>.</p>
 
 </div>
 </div>
@@ -472,6 +843,10 @@ Public Member Functions</h2></td></tr>
 
 <p>Consume boss-spawned flag (one-shot). </p>
 
+<p class="definition">Definition at line <a class="el" href="GameWorld_8cpp_source.html#l00175">175</a> of file <a class="el" href="GameWorld_8cpp_source.html">GameWorld.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00157">_bossSpawnedFlag</a>.</p>
+
 </div>
 </div>
 <a id="ae1abffc0a60f2c06c647e30ea89baddd" name="ae1abffc0a60f2c06c647e30ea89baddd"></a>
@@ -490,6 +865,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Consume no-players flag (one-shot). </p>
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8cpp_source.html#l00189">189</a> of file <a class="el" href="GameWorld_8cpp_source.html">GameWorld.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00161">_noPlayersFlag</a>.</p>
 
 </div>
 </div>
@@ -527,6 +906,88 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8cpp_source.html#l00248">248</a> of file <a class="el" href="GameWorld_8cpp_source.html">GameWorld.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00159">_bossDefeatedFlag</a>, <a class="el" href="GameWorld_8hpp_source.html#l00150">_bullets</a>, <a class="el" href="GameWorld_8hpp_source.html#l00155">_lastMonsterSpawnMs</a>, <a class="el" href="GameWorld_8hpp_source.html#l00162">_lobbyScore</a>, <a class="el" href="GameWorld_8hpp_source.html#l00164">_logPrefix</a>, <a class="el" href="GameWorld_8hpp_source.html#l00152">_monsterKilled</a>, <a class="el" href="GameWorld_8hpp_source.html#l00151">_monsters</a>, <a class="el" href="GameWorld_8hpp_source.html#l00156">_monsterSpawnIntervalMs</a>, <a class="el" href="GameWorld_8hpp_source.html#l00149">_players</a>, <a class="el" href="classGameWorld.html#af3c04dc6f6e4211cd6007390bee1d9a7a5859831e2b3db23528c710b1451e13fc">Boss</a>, <a class="el" href="GameWorld_8cpp_source.html#l00145">hasBoss()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00140">shouldSpawnBoss()</a>, <a class="el" href="classGameWorld.html#af3c04dc6f6e4211cd6007390bee1d9a7a6ca9e2d793f678aba7c1b19526592a46">Sine</a>, <a class="el" href="GameWorld_8cpp_source.html#l00154">spawnBoss()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00196">spawnBossBullet()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00101">spawnMonster()</a>, and <a class="el" href="GameWorld_8cpp_source.html#l00213">updateBossMovement()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameWorld_a88c3b380a238a69dc05b5a9df07621dd_cgraph.png" border="0" usemap="#aclassGameWorld_a88c3b380a238a69dc05b5a9df07621dd_cgraph" alt=""/></div>
+<map name="aclassGameWorld_a88c3b380a238a69dc05b5a9df07621dd_cgraph" id="aclassGameWorld_a88c3b380a238a69dc05b5a9df07621dd_cgraph">
+<area shape="rect" title="Advance simulation." alt="" coords="5,129,136,155"/>
+<area shape="rect" href="classGameWorld.html#acbdde5eb929528699e8176ec57779ec7" title=" " alt="" coords="230,5,390,31"/>
+<area shape="poly" title=" " alt="" coords="80,127,122,84,151,60,183,40,215,27,217,32,185,44,154,64,125,88,84,131"/>
+<area shape="rect" href="classGameWorld.html#a6af008239b30629fad73ae657465d37e" title=" " alt="" coords="199,55,421,80"/>
+<area shape="poly" title=" " alt="" coords="95,127,135,107,183,89,214,80,215,86,185,94,137,112,97,132"/>
+<area shape="rect" href="classGameWorld.html#a98daebdd5931cf333037bc3891b16794" title=" " alt="" coords="221,104,399,129"/>
+<area shape="poly" title=" " alt="" coords="136,132,207,125,208,130,136,138"/>
+<area shape="rect" href="classGameWorld.html#ac1835fdf3232458197a2c81a1a0c5e02" title=" " alt="" coords="201,153,419,179"/>
+<area shape="poly" title=" " alt="" coords="136,146,188,151,187,156,136,151"/>
+<area shape="rect" href="classGameWorld.html#a3bf3aa2e665bed5c7e5c87f6f482ae97" title=" " alt="" coords="209,203,411,228"/>
+<area shape="poly" title=" " alt="" coords="99,152,139,170,185,187,221,197,220,202,183,193,137,175,97,157"/>
+<area shape="rect" href="classGameWorld.html#a0bb6ed054b809cc92573fd87850ac468" title=" " alt="" coords="184,252,436,277"/>
+<area shape="poly" title=" " alt="" coords="85,153,126,195,154,218,185,237,206,245,204,250,183,242,151,222,122,199,81,157"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0bb6ed054b809cc92573fd87850ac468" name="a0bb6ed054b809cc92573fd87850ac468"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bb6ed054b809cc92573fd87850ac468">&#9670;&#160;</a></span>updateBossMovement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameWorld::updateBossMovement </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structGameWorld_1_1MonsterState.html">MonsterState</a> &amp;&#160;</td>
+          <td class="paramname"><em>boss</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>nowMs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dtSec</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8cpp_source.html#l00213">213</a> of file <a class="el" href="GameWorld_8cpp_source.html">GameWorld.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00080">GameWorld::MonsterState::nextPatternMs</a>, <a class="el" href="GameWorld_8hpp_source.html#l00076">GameWorld::MonsterState::speedX</a>, <a class="el" href="GameWorld_8hpp_source.html#l00077">GameWorld::MonsterState::speedY</a>, <a class="el" href="GameWorld_8hpp_source.html#l00070">GameWorld::MonsterState::x</a>, and <a class="el" href="GameWorld_8hpp_source.html#l00071">GameWorld::MonsterState::y</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00248">tick()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameWorld_a0bb6ed054b809cc92573fd87850ac468_icgraph.png" border="0" usemap="#aclassGameWorld_a0bb6ed054b809cc92573fd87850ac468_icgraph" alt=""/></div>
+<map name="aclassGameWorld_a0bb6ed054b809cc92573fd87850ac468_icgraph" id="aclassGameWorld_a0bb6ed054b809cc92573fd87850ac468_icgraph">
+<area shape="rect" title=" " alt="" coords="184,5,436,31"/>
+<area shape="rect" href="classGameWorld.html#a88c3b380a238a69dc05b5a9df07621dd" title="Advance simulation." alt="" coords="5,5,136,31"/>
+<area shape="poly" title=" " alt="" coords="170,21,136,21,136,15,170,15"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -576,11 +1037,432 @@ Public Member Functions</h2></td></tr>
 
 <p>Update input state and refresh the sender address. </p>
 
+<p class="definition">Definition at line <a class="el" href="GameWorld_8cpp_source.html#l00050">50</a> of file <a class="el" href="GameWorld_8cpp_source.html">GameWorld.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameWorld_8hpp_source.html#l00149">_players</a>, <a class="el" href="GameWorld_8hpp_source.html#l00041">GameWorld::PlayerState::addr</a>, <a class="el" href="GameWorld_8hpp_source.html#l00044">GameWorld::PlayerState::dir</a>, <a class="el" href="GameWorld_8hpp_source.html#l00042">GameWorld::PlayerState::velX</a>, and <a class="el" href="GameWorld_8hpp_source.html#l00043">GameWorld::PlayerState::velY</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="acb755ee97dd7f8632eef630319f2b3e2" name="acb755ee97dd7f8632eef630319f2b3e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb755ee97dd7f8632eef630319f2b3e2">&#9670;&#160;</a></span>_bossDefeatedFlag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameWorld::_bossDefeatedFlag = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00159">159</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00182">takeBossDefeated()</a>, and <a class="el" href="GameWorld_8cpp_source.html#l00248">tick()</a>.</p>
+
+</div>
+</div>
+<a id="a5c9f70e5ed7cba792fde805088741b7a" name="a5c9f70e5ed7cba792fde805088741b7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c9f70e5ed7cba792fde805088741b7a">&#9670;&#160;</a></span>_bossSpawnedFlag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameWorld::_bossSpawnedFlag = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00157">157</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00154">spawnBoss()</a>, and <a class="el" href="GameWorld_8cpp_source.html#l00175">takeBossSpawned()</a>.</p>
+
+</div>
+</div>
+<a id="a56582971b46ddc377a513090e46662d3" name="a56582971b46ddc377a513090e46662d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56582971b46ddc377a513090e46662d3">&#9670;&#160;</a></span>_bossSpawnedOnce</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameWorld::_bossSpawnedOnce = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00158">158</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00140">shouldSpawnBoss()</a>, and <a class="el" href="GameWorld_8cpp_source.html#l00154">spawnBoss()</a>.</p>
+
+</div>
+</div>
+<a id="ac911c03e487bf4e2d77c8ede28babf03" name="ac911c03e487bf4e2d77c8ede28babf03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac911c03e487bf4e2d77c8ede28babf03">&#9670;&#160;</a></span>_bullets</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structGameWorld_1_1BulletState.html">BulletState</a>&gt; GameWorld::_bullets</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00150">150</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00064">addShot()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00424">buildSnapshotPacket()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00085">removePlayer()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00196">spawnBossBullet()</a>, and <a class="el" href="GameWorld_8cpp_source.html#l00248">tick()</a>.</p>
+
+</div>
+</div>
+<a id="aa78b4bb4f31d3d10a37ce43a1a446bae" name="aa78b4bb4f31d3d10a37ce43a1a446bae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa78b4bb4f31d3d10a37ce43a1a446bae">&#9670;&#160;</a></span>_hadPlayers</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameWorld::_hadPlayers = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00160">160</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8hpp_source.html#l00130">hasHadPlayers()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00034">registerPlayer()</a>, and <a class="el" href="GameWorld_8cpp_source.html#l00085">removePlayer()</a>.</p>
+
+</div>
+</div>
+<a id="ab8ac13c233c40d9e8f9f6a0b4afb8ef8" name="ab8ac13c233c40d9e8f9f6a0b4afb8ef8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8ac13c233c40d9e8f9f6a0b4afb8ef8">&#9670;&#160;</a></span>_lastMonsterSpawnMs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long long GameWorld::_lastMonsterSpawnMs = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00155">155</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00101">spawnMonster()</a>, and <a class="el" href="GameWorld_8cpp_source.html#l00248">tick()</a>.</p>
+
+</div>
+</div>
+<a id="ade346ceb17e4fe79c3030b7cec924a7f" name="ade346ceb17e4fe79c3030b7cec924a7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade346ceb17e4fe79c3030b7cec924a7f">&#9670;&#160;</a></span>_lobbyScore</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t GameWorld::_lobbyScore = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00162">162</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00424">buildSnapshotPacket()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00034">registerPlayer()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00140">shouldSpawnBoss()</a>, and <a class="el" href="GameWorld_8cpp_source.html#l00248">tick()</a>.</p>
+
+</div>
+</div>
+<a id="a025e4ab2ae1b20af78178303ce541ae9" name="a025e4ab2ae1b20af78178303ce541ae9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a025e4ab2ae1b20af78178303ce541ae9">&#9670;&#160;</a></span>_logPrefix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string GameWorld::_logPrefix</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00164">164</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00064">addShot()</a>, <a class="el" href="GameWorld_8hpp_source.html#l00139">setLogPrefix()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00154">spawnBoss()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00101">spawnMonster()</a>, and <a class="el" href="GameWorld_8cpp_source.html#l00248">tick()</a>.</p>
+
+</div>
+</div>
+<a id="aae566a13c392531f47667bd5f6af1f25" name="aae566a13c392531f47667bd5f6af1f25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae566a13c392531f47667bd5f6af1f25">&#9670;&#160;</a></span>_monsterKilled</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t GameWorld::_monsterKilled = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00152">152</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00248">tick()</a>.</p>
+
+</div>
+</div>
+<a id="a67b9e4b2ad25ed6fd3e5ca8e3b238b8d" name="a67b9e4b2ad25ed6fd3e5ca8e3b238b8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67b9e4b2ad25ed6fd3e5ca8e3b238b8d">&#9670;&#160;</a></span>_monsters</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="structGameWorld_1_1MonsterState.html">MonsterState</a>&gt; GameWorld::_monsters</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00151">151</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00424">buildSnapshotPacket()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00145">hasBoss()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00154">spawnBoss()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00101">spawnMonster()</a>, and <a class="el" href="GameWorld_8cpp_source.html#l00248">tick()</a>.</p>
+
+</div>
+</div>
+<a id="a99254eafbade5a1bad114a9477e62071" name="a99254eafbade5a1bad114a9477e62071"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99254eafbade5a1bad114a9477e62071">&#9670;&#160;</a></span>_monsterSpawnIntervalMs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long long GameWorld::_monsterSpawnIntervalMs = 1800</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00156">156</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00101">spawnMonster()</a>, and <a class="el" href="GameWorld_8cpp_source.html#l00248">tick()</a>.</p>
+
+</div>
+</div>
+<a id="ad17902d7af7e1d778daff68c08d8076a" name="ad17902d7af7e1d778daff68c08d8076a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad17902d7af7e1d778daff68c08d8076a">&#9670;&#160;</a></span>_nextBulletId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameWorld::_nextBulletId = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00153">153</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00064">addShot()</a>, and <a class="el" href="GameWorld_8cpp_source.html#l00196">spawnBossBullet()</a>.</p>
+
+</div>
+</div>
+<a id="ad74e5cf7fea12c00759a2521d76931d9" name="ad74e5cf7fea12c00759a2521d76931d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad74e5cf7fea12c00759a2521d76931d9">&#9670;&#160;</a></span>_nextMonsterId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int GameWorld::_nextMonsterId = 1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00154">154</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00154">spawnBoss()</a>, and <a class="el" href="GameWorld_8cpp_source.html#l00101">spawnMonster()</a>.</p>
+
+</div>
+</div>
+<a id="ab50b19c51863e1a304ab2e22833a4e0d" name="ab50b19c51863e1a304ab2e22833a4e0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab50b19c51863e1a304ab2e22833a4e0d">&#9670;&#160;</a></span>_noPlayersFlag</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool GameWorld::_noPlayersFlag = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00161">161</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00085">removePlayer()</a>, and <a class="el" href="GameWorld_8cpp_source.html#l00189">takeNoPlayers()</a>.</p>
+
+</div>
+</div>
+<a id="a46a68b140b6bcd93c8ea4d145142d536" name="a46a68b140b6bcd93c8ea4d145142d536"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46a68b140b6bcd93c8ea4d145142d536">&#9670;&#160;</a></span>_players</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;int, <a class="el" href="structGameWorld_1_1PlayerState.html">PlayerState</a>&gt; GameWorld::_players</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00149">149</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00064">addShot()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00424">buildSnapshotPacket()</a>, <a class="el" href="GameWorld_8hpp_source.html#l00135">players()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00034">registerPlayer()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00085">removePlayer()</a>, <a class="el" href="GameWorld_8cpp_source.html#l00248">tick()</a>, and <a class="el" href="GameWorld_8cpp_source.html#l00050">updateInput()</a>.</p>
+
+</div>
+</div>
+<a id="aa84b4174d2f8fd9c1f313687b1ee4850" name="aa84b4174d2f8fd9c1f313687b1ee4850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa84b4174d2f8fd9c1f313687b1ee4850">&#9670;&#160;</a></span>_snapshotSeq</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t GameWorld::_snapshotSeq = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameWorld_8hpp_source.html#l00163">163</a> of file <a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameWorld_8cpp_source.html#l00424">buildSnapshotPacket()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Network/TransportLayer/UDP/<a class="el" href="GameWorld_8hpp_source.html">GameWorld.hpp</a></li>
-<li>Network/TransportLayer/UDP/<a class="el" href="GameWorld_8cpp.html">GameWorld.cpp</a></li>
+<li>Network/TransportLayer/UDP/<a class="el" href="GameWorld_8cpp_source.html">GameWorld.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

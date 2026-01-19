@@ -1,0 +1,15 @@
+<map id="TCPServer::sendPlayerListToClient" name="TCPServer::sendPlayerListToClient">
+<area shape="rect" id="Node000001" title="Send the current player list to a single client." alt="" coords="5,35,196,75"/>
+<area shape="rect" id="Node000002" href="$classTCPServer.html#a196ba30f88f890e9acf0ef1a21a74c71" title="Build the packet containing the list of connected players." alt="" coords="244,5,436,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,40,230,36,231,41,197,46"/>
+<area shape="rect" id="Node000003" href="$classTCPServer.html#a9a65a3923e77e48c5f0019b45af8fcb5" title="Send a packet to a specific client fd." alt="" coords="255,70,425,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="197,63,242,69,241,74,196,68"/>
+<area shape="rect" id="Node000004" href="$namespaceProtocol.html#a668bdeed219432868fca095e1b2f2667" title="Build a TCP framed buffer (2 bytes length + serialized packet)." alt="" coords="486,45,629,70"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="425,70,472,65,473,70,425,75"/>
+<area shape="rect" id="Node000006" href="$classTCPServer.html#a79e20e1d2821e399fe47dd1055341d5e" title="Ensure the full buffer is written to the socket." alt="" coords="484,94,631,119"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="425,89,471,94,470,100,425,95"/>
+<area shape="rect" id="Node000005" href="$classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="688,45,815,70"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="629,55,674,55,674,60,629,60"/>
+<area shape="rect" id="Node000007" href="$classTCPServer.html#a5b1988f8a542c2d39f3d3556264e71b2" title="Write raw bytes to a socket fd." alt="" coords="679,94,824,119"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="631,104,665,104,665,109,631,109"/>
+</map>

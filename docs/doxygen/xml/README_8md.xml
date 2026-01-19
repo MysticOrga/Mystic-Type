@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="README_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Mystic-Type</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Multiplayer<sp/>R-Type-like<sp/>with<sp/>an<sp/>authoritative<sp/>TCP/UDP<sp/>server<sp/>and<sp/>a<sp/>raylib<sp/>graphical<sp/>client.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Prerequisites</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>CMake<sp/>≥<sp/>3.14</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>C++17<sp/>compiler</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>raylib<sp/>(fetched<sp/>automatically<sp/>via<sp/>FetchContent)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Works<sp/>on<sp/>macOS,<sp/>Linux,<sp/>and<sp/>Windows<sp/>(WSA<sp/>init<sp/>handled<sp/>in<sp/>entry<sp/>points).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Build</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Linux</highlight></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">./build.sh<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>#<sp/>build<sp/>client<sp/>+<sp/>servers</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Executables<sp/>are<sp/>in<sp/>`build/linux/`:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`rtype-tcp-server`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`rtype-udp-server`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`rtype-client`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>macOS</highlight></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>-S<sp/>.<sp/>-B<sp/>build<sp/>-G<sp/>&quot;Unix<sp/>Makefiles&quot;</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>--build<sp/>build</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Executables<sp/>are<sp/>in<sp/>`build/`:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`rtype-tcp-server`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`rtype-udp-server`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`rtype-client`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Windows</highlight></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>-S<sp/>.<sp/>-B<sp/>build<sp/>-G<sp/>&quot;Visual<sp/>Studio<sp/>17<sp/>2022&quot;</highlight></codeline>
+<codeline><highlight class="normal">cmake<sp/>--build<sp/>build<sp/>--config<sp/>Release</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">Executables<sp/>are<sp/>in<sp/>`build/Release/`:</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`rtype-tcp-server.exe`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`rtype-udp-server.exe`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`rtype-client.exe`</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Run</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Linux</highlight></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">./build/linux/rtype-tcp-server</highlight></codeline>
+<codeline><highlight class="normal">./build/linux/rtype-udp-server</highlight></codeline>
+<codeline><highlight class="normal">./build/linux/rtype-client</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>macOS</highlight></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">./build/rtype-tcp-server</highlight></codeline>
+<codeline><highlight class="normal">./build/rtype-udp-server</highlight></codeline>
+<codeline><highlight class="normal">./build/rtype-client</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Windows</highlight></codeline>
+<codeline><highlight class="normal">```bash</highlight></codeline>
+<codeline><highlight class="normal">.\build\Release\rtype-tcp-server.exe</highlight></codeline>
+<codeline><highlight class="normal">.\build\Release\rtype-udp-server.exe</highlight></codeline>
+<codeline><highlight class="normal">.\build\Release\rtype-client.exe</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Architecture</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`src/server/`:<sp/>server<sp/>entry<sp/>point,<sp/>TCP<sp/>loop<sp/>(handshake<sp/>+<sp/>heartbeat)<sp/>and<sp/>UDP<sp/>loop<sp/>(simulation).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`src/graphical-client/`:<sp/>raylib<sp/>client<sp/>+<sp/>minimal<sp/>ECS.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`src/Network/TransportLayer/`:</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>`TCPServer`,<sp/>`TCPSocket`:<sp/>listening<sp/>socket,<sp/>handshake,<sp/>PING/PONG.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>`UDPGameServer`:<sp/>handles<sp/>HELLO_UDP/INPUT/SHOOT,<sp/>simulation<sp/>tick,<sp/>SNAPSHOT<sp/>broadcast.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>`GameWorld`:<sp/>authoritative<sp/>simulation<sp/>(players,<sp/>bullets,<sp/>monsters).</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>`Packet`,<sp/>`Protocol`:<sp/>packet<sp/>format,<sp/>TCP<sp/>framing.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`src/Network/Client/`:<sp/>`NetworkClient`<sp/>manages<sp/>TCP<sp/>(handshake/heartbeat)<sp/>and<sp/>UDP<sp/>(inputs,<sp/>snapshots).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>`src/Network/SessionManager`:<sp/>tracks<sp/>sessions,<sp/>rate-limits<sp/>INPUT/SHOOT,<sp/>purges<sp/>game<sp/>state<sp/>on<sp/>disconnect.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Network<sp/>protocol<sp/>(summary)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>TCP<sp/>(reliable):</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Handshake:<sp/>SERVER_HELLO<sp/>→<sp/>CLIENT_HELLO(&quot;toto…&quot;)<sp/>→<sp/>OK(id)<sp/>or<sp/>REFUSED(reason).</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Heartbeat:<sp/>PING/PONG,<sp/>timeout<sp/>&gt;10s<sp/>→<sp/>disconnect.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Lobby:<sp/>PLAYER_LIST,<sp/>NEW_PLAYER.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>Framing:<sp/>2-byte<sp/>length<sp/>prefix<sp/>+<sp/>packet<sp/>(magic<sp/>0x5254,<sp/>type,<sp/>size,<sp/>payload).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>UDP<sp/>(real-time):</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>HELLO_UDP(id,x,y)<sp/>to<sp/>register<sp/>endpoint.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>INPUT(id,<sp/>pos,<sp/>vel,<sp/>dir)<sp/>→<sp/>server<sp/>ignores<sp/>client<sp/>positions<sp/>(authority).</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>SHOOT(id,<sp/>pos,<sp/>vel).</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>SNAPSHOT<sp/>periodically:<sp/>players,<sp/>bullets,<sp/>monsters.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Controls<sp/>by<sp/>default<sp/>(client)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Move:<sp/>W/A/S/D</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Shoot:<sp/>Space</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Key<sp/>features</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>TCP<sp/>protocol<sp/>with<sp/>framing<sp/>and<sp/>handshake<sp/>(SERVER_HELLO/CLIENT_HELLO/OK/REFUSED).</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Heartbeat<sp/>(PING/PONG)<sp/>with<sp/>timeout<sp/>disconnect<sp/>and<sp/>session<sp/>cleanup.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Lobby<sp/>system:<sp/>auto<sp/>public,<sp/>create,<sp/>join<sp/>by<sp/>code;<sp/>lobby-scoped<sp/>player<sp/>list<sp/>and<sp/>chat.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>UDP<sp/>authoritative<sp/>simulation<sp/>with<sp/>fixed<sp/>tick<sp/>and<sp/>periodic<sp/>snapshots.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Player<sp/>input,<sp/>shooting,<sp/>bullets,<sp/>monsters<sp/>(sine/zigzag),<sp/>boss<sp/>logic,<sp/>and<sp/>collisions.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Client<sp/>UI:<sp/>lobby/pseudo<sp/>selection,<sp/>in-game<sp/>chat,<sp/>and<sp/>return-to-lobby<sp/>flow.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Documentation</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>[Doxygen](https://mysticorga.github.io/Mystic-Type/)</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Protocol<sp/>RFCs:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>[mtp<sp/>protocol](https://mysticorga.github.io/Mystic-Type/rfc/mtp_protocol_rfc.txt)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>[tcp<sp/>protocol](https://mysticorga.github.io/Mystic-Type/rfc/tcp_protocol_rfc.txt)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Authors</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Quentin<sp/>Hivanhoe:<sp/>`quentin.hivanhoe@epitech.eu`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Loic<sp/>Rabearivelo:<sp/>`loic.rabearivelo@epitech.eu`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Emma<sp/>Hoarau:<sp/>`emma-frederique.hoarau@epitech.eu`</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Nicolas<sp/>Samy:<sp/>`nicolas.samy@epitech.eu`</highlight></codeline>
+    </programlisting>
+    <location file="/home/loic/EPITECH/rtype/Mystic-Type/README.md"/>
+  </compounddef>
+</doxygen>

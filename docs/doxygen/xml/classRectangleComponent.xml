@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classRectangleComponent" kind="class" language="C++" prot="public">
+    <compoundname>RectangleComponent</compoundname>
+    <includes refid="Components_8hpp" local="no">graphical-client/ecs/Components.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classRectangleComponent_1a6d8450e91c1f98934035dbebdbd3e649" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RectangleComponent::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>RectangleComponent::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rectangle width </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="109" column="9" bodyfile="graphical-client/ecs/Components.hpp" bodystart="109" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRectangleComponent_1a43e28a5a631469e7c8196c6f18ffe7fe" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int RectangleComponent::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>RectangleComponent::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rectangle height </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="110" column="9" bodyfile="graphical-client/ecs/Components.hpp" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classRectangleComponent_1ac72b22619fc3694c3fcfe4c185ec4a24" prot="public" static="no" mutable="no">
+        <type>Color</type>
+        <definition>Color RectangleComponent::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>RectangleComponent::color</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rectangle color </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="111" column="11" bodyfile="graphical-client/ecs/Components.hpp" bodystart="111" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRectangleComponent_1adf53aeb10ac51bee957123fe52ee8f14" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>RectangleComponent::RectangleComponent</definition>
+        <argsstring>(int w=10, int h=10, Color c=BLACK)</argsstring>
+        <name>RectangleComponent</name>
+        <qualifiedname>RectangleComponent::RectangleComponent</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>w</declname>
+          <defval>10</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>h</declname>
+          <defval>10</defval>
+        </param>
+        <param>
+          <type>Color</type>
+          <declname>c</declname>
+          <defval>BLACK</defval>
+        </param>
+        <briefdescription>
+<para>Constructor for <ref refid="classRectangleComponent" kindref="compound">RectangleComponent</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>w</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Width (default: 10). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>h</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Height (default: 10). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Color (default: BLACK). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="119" column="5" bodyfile="graphical-client/ecs/Components.hpp" bodystart="119" bodyend="120"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Component for rendering rectangular entities. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Stores visual properties for rectangle rendering. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>RectangleComponent</label>
+        <link refid="classRectangleComponent"/>
+      </node>
+    </collaborationgraph>
+    <location file="graphical-client/ecs/Components.hpp" line="106" column="1" bodyfile="graphical-client/ecs/Components.hpp" bodystart="107" bodyend="121"/>
+    <listofallmembers>
+      <member refid="classRectangleComponent_1ac72b22619fc3694c3fcfe4c185ec4a24" prot="public" virt="non-virtual"><scope>RectangleComponent</scope><name>color</name></member>
+      <member refid="classRectangleComponent_1a43e28a5a631469e7c8196c6f18ffe7fe" prot="public" virt="non-virtual"><scope>RectangleComponent</scope><name>height</name></member>
+      <member refid="classRectangleComponent_1adf53aeb10ac51bee957123fe52ee8f14" prot="public" virt="non-virtual"><scope>RectangleComponent</scope><name>RectangleComponent</name></member>
+      <member refid="classRectangleComponent_1a6d8450e91c1f98934035dbebdbd3e649" prot="public" virt="non-virtual"><scope>RectangleComponent</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,24 @@
+<map id="NetworkClient::getPlayerId" name="NetworkClient::getPlayerId">
+<area shape="rect" id="Node000001" title="Get server&#45;assigned player id." alt="" coords="1045,82,1243,108"/>
+<area shape="rect" id="Node000002" href="$classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="571,24,710,49"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1112,77,1060,46,1029,32,997,22,917,10,836,9,761,16,699,26,699,21,761,11,836,4,918,4,998,16,1031,27,1062,41,1115,72"/>
+<area shape="rect" id="Node000005" href="$classGraphicClient.html#a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" title="Processes network events and updates game state." alt="" coords="529,123,752,163"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1032,108,752,135,752,130,1031,103"/>
+<area shape="rect" id="Node000007" href="$classGraphicClient.html#ab0acd8f5b8996cc62295831d7af1cf59" title="Renders the entire game scene." alt="" coords="819,185,979,210"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="1107,116,998,167,942,187,940,182,996,162,1105,112"/>
+<area shape="rect" id="Node000008" href="$classGraphicClient.html#aacb31035c31d741d0ae2ca5ec9228b12" title="Synchronizes player entities with server state." alt="" coords="800,32,997,57"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="1068,82,960,60,961,54,1069,77"/>
+<area shape="rect" id="Node000009" href="$classGraphicClient.html#a50072266faf2e76ace99e16c4c7b208a" title="Updates all game entities based on delta time." alt="" coords="535,73,747,98"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="1032,96,747,90,747,85,1032,90"/>
+<area shape="rect" id="Node000003" href="$classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,77,247,102"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="557,48,247,84,246,79,557,43"/>
+<area shape="rect" id="Node000004" href="$client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,77,60,102"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,92,60,92,60,87,94,87"/>
+<area shape="rect" id="Node000006" href="$classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,102,481,128"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="515,132,481,128,482,123,516,126"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="280,105,247,101,247,95,281,99"/>
+<area shape="poly" id="edge8_Node000007_Node000006" title=" " alt="" coords="805,203,673,199,600,191,529,178,464,155,411,130,413,125,466,150,530,172,601,186,674,193,805,198"/>
+<area shape="poly" id="edge10_Node000008_Node000002" title=" " alt="" coords="786,44,710,41,710,36,786,38"/>
+<area shape="poly" id="edge11_Node000008_Node000009" title=" " alt="" coords="806,62,721,76,720,70,805,57"/>
+<area shape="poly" id="edge12_Node000009_Node000006" title=" " alt="" coords="521,102,482,107,481,101,520,97"/>
+</map>

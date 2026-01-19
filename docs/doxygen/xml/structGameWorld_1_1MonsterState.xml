@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structGameWorld_1_1MonsterState" kind="struct" language="C++" prot="public">
+    <compoundname>GameWorld::MonsterState</compoundname>
+    <includes refid="GameWorld_8hpp" local="no">Network/TransportLayer/UDP/GameWorld.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structGameWorld_1_1MonsterState_1ae22dac3d57e25d9b86a0a4845fdfee26" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GameWorld::MonsterState::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>GameWorld::MonsterState::id</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/GameWorld.hpp" line="69" column="13" bodyfile="Network/TransportLayer/UDP/GameWorld.hpp" bodystart="69" bodyend="-1"/>
+        <referencedby refid="classGameWorld_1a98daebdd5931cf333037bc3891b16794" compoundref="GameWorld_8cpp" startline="154" endline="173">GameWorld::spawnBoss</referencedby>
+        <referencedby refid="classGameWorld_1ac1835fdf3232458197a2c81a1a0c5e02" compoundref="GameWorld_8cpp" startline="196" endline="211">GameWorld::spawnBossBullet</referencedby>
+        <referencedby refid="classGameWorld_1a3bf3aa2e665bed5c7e5c87f6f482ae97" compoundref="GameWorld_8cpp" startline="101" endline="138">GameWorld::spawnMonster</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGameWorld_1_1MonsterState_1a6617c3280d1b0440b57cb30178739fca" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float GameWorld::MonsterState::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <qualifiedname>GameWorld::MonsterState::x</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/GameWorld.hpp" line="70" column="15" bodyfile="Network/TransportLayer/UDP/GameWorld.hpp" bodystart="70" bodyend="-1"/>
+        <referencedby refid="classGameWorld_1a98daebdd5931cf333037bc3891b16794" compoundref="GameWorld_8cpp" startline="154" endline="173">GameWorld::spawnBoss</referencedby>
+        <referencedby refid="classGameWorld_1ac1835fdf3232458197a2c81a1a0c5e02" compoundref="GameWorld_8cpp" startline="196" endline="211">GameWorld::spawnBossBullet</referencedby>
+        <referencedby refid="classGameWorld_1a3bf3aa2e665bed5c7e5c87f6f482ae97" compoundref="GameWorld_8cpp" startline="101" endline="138">GameWorld::spawnMonster</referencedby>
+        <referencedby refid="classGameWorld_1a0bb6ed054b809cc92573fd87850ac468" compoundref="GameWorld_8cpp" startline="213" endline="246">GameWorld::updateBossMovement</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGameWorld_1_1MonsterState_1ace6861d5fb54001fedd1fa0b053d225f" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float GameWorld::MonsterState::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <qualifiedname>GameWorld::MonsterState::y</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/GameWorld.hpp" line="71" column="15" bodyfile="Network/TransportLayer/UDP/GameWorld.hpp" bodystart="71" bodyend="-1"/>
+        <referencedby refid="classGameWorld_1a98daebdd5931cf333037bc3891b16794" compoundref="GameWorld_8cpp" startline="154" endline="173">GameWorld::spawnBoss</referencedby>
+        <referencedby refid="classGameWorld_1ac1835fdf3232458197a2c81a1a0c5e02" compoundref="GameWorld_8cpp" startline="196" endline="211">GameWorld::spawnBossBullet</referencedby>
+        <referencedby refid="classGameWorld_1a3bf3aa2e665bed5c7e5c87f6f482ae97" compoundref="GameWorld_8cpp" startline="101" endline="138">GameWorld::spawnMonster</referencedby>
+        <referencedby refid="classGameWorld_1a0bb6ed054b809cc92573fd87850ac468" compoundref="GameWorld_8cpp" startline="213" endline="246">GameWorld::updateBossMovement</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGameWorld_1_1MonsterState_1a37f746e4dc5df65a93c31107097110c4" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float GameWorld::MonsterState::baseY</definition>
+        <argsstring></argsstring>
+        <name>baseY</name>
+        <qualifiedname>GameWorld::MonsterState::baseY</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/GameWorld.hpp" line="72" column="15" bodyfile="Network/TransportLayer/UDP/GameWorld.hpp" bodystart="72" bodyend="-1"/>
+        <referencedby refid="classGameWorld_1a98daebdd5931cf333037bc3891b16794" compoundref="GameWorld_8cpp" startline="154" endline="173">GameWorld::spawnBoss</referencedby>
+        <referencedby refid="classGameWorld_1a3bf3aa2e665bed5c7e5c87f6f482ae97" compoundref="GameWorld_8cpp" startline="101" endline="138">GameWorld::spawnMonster</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGameWorld_1_1MonsterState_1a4fb30943cf1d5a76583972d92caa325b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float GameWorld::MonsterState::amplitude</definition>
+        <argsstring></argsstring>
+        <name>amplitude</name>
+        <qualifiedname>GameWorld::MonsterState::amplitude</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/GameWorld.hpp" line="73" column="15" bodyfile="Network/TransportLayer/UDP/GameWorld.hpp" bodystart="73" bodyend="-1"/>
+        <referencedby refid="classGameWorld_1a3bf3aa2e665bed5c7e5c87f6f482ae97" compoundref="GameWorld_8cpp" startline="101" endline="138">GameWorld::spawnMonster</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGameWorld_1_1MonsterState_1a0f6baa4107c0898313fc3bf3348f6127" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float GameWorld::MonsterState::phase</definition>
+        <argsstring></argsstring>
+        <name>phase</name>
+        <qualifiedname>GameWorld::MonsterState::phase</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/GameWorld.hpp" line="74" column="15" bodyfile="Network/TransportLayer/UDP/GameWorld.hpp" bodystart="74" bodyend="-1"/>
+        <referencedby refid="classGameWorld_1a3bf3aa2e665bed5c7e5c87f6f482ae97" compoundref="GameWorld_8cpp" startline="101" endline="138">GameWorld::spawnMonster</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGameWorld_1_1MonsterState_1a414729d64b907002169772ba2a1dbcc3" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float GameWorld::MonsterState::freq</definition>
+        <argsstring></argsstring>
+        <name>freq</name>
+        <qualifiedname>GameWorld::MonsterState::freq</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/GameWorld.hpp" line="75" column="15" bodyfile="Network/TransportLayer/UDP/GameWorld.hpp" bodystart="75" bodyend="-1"/>
+        <referencedby refid="classGameWorld_1a3bf3aa2e665bed5c7e5c87f6f482ae97" compoundref="GameWorld_8cpp" startline="101" endline="138">GameWorld::spawnMonster</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGameWorld_1_1MonsterState_1aae0e2baffbd9342713d1e24bd2f2dfeb" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float GameWorld::MonsterState::speedX</definition>
+        <argsstring></argsstring>
+        <name>speedX</name>
+        <qualifiedname>GameWorld::MonsterState::speedX</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/GameWorld.hpp" line="76" column="15" bodyfile="Network/TransportLayer/UDP/GameWorld.hpp" bodystart="76" bodyend="-1"/>
+        <referencedby refid="classGameWorld_1a98daebdd5931cf333037bc3891b16794" compoundref="GameWorld_8cpp" startline="154" endline="173">GameWorld::spawnBoss</referencedby>
+        <referencedby refid="classGameWorld_1a3bf3aa2e665bed5c7e5c87f6f482ae97" compoundref="GameWorld_8cpp" startline="101" endline="138">GameWorld::spawnMonster</referencedby>
+        <referencedby refid="classGameWorld_1a0bb6ed054b809cc92573fd87850ac468" compoundref="GameWorld_8cpp" startline="213" endline="246">GameWorld::updateBossMovement</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGameWorld_1_1MonsterState_1a757841176bc040ae9ff9a0234f862fc1" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float GameWorld::MonsterState::speedY</definition>
+        <argsstring></argsstring>
+        <name>speedY</name>
+        <qualifiedname>GameWorld::MonsterState::speedY</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/GameWorld.hpp" line="77" column="15" bodyfile="Network/TransportLayer/UDP/GameWorld.hpp" bodystart="77" bodyend="-1"/>
+        <referencedby refid="classGameWorld_1a98daebdd5931cf333037bc3891b16794" compoundref="GameWorld_8cpp" startline="154" endline="173">GameWorld::spawnBoss</referencedby>
+        <referencedby refid="classGameWorld_1a0bb6ed054b809cc92573fd87850ac468" compoundref="GameWorld_8cpp" startline="213" endline="246">GameWorld::updateBossMovement</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGameWorld_1_1MonsterState_1a60efd1c141ca0076b9de281cea9efa61" prot="public" static="no" mutable="no">
+        <type>int8_t</type>
+        <definition>int8_t GameWorld::MonsterState::hp</definition>
+        <argsstring></argsstring>
+        <name>hp</name>
+        <qualifiedname>GameWorld::MonsterState::hp</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/GameWorld.hpp" line="78" column="16" bodyfile="Network/TransportLayer/UDP/GameWorld.hpp" bodystart="78" bodyend="-1"/>
+        <referencedby refid="classGameWorld_1a98daebdd5931cf333037bc3891b16794" compoundref="GameWorld_8cpp" startline="154" endline="173">GameWorld::spawnBoss</referencedby>
+        <referencedby refid="classGameWorld_1a3bf3aa2e665bed5c7e5c87f6f482ae97" compoundref="GameWorld_8cpp" startline="101" endline="138">GameWorld::spawnMonster</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGameWorld_1_1MonsterState_1a8472fb9f9ee4ff3a58d6d11744f43491" prot="public" static="no" mutable="no">
+        <type><ref refid="classGameWorld_1af3c04dc6f6e4211cd6007390bee1d9a7" kindref="member">MonsterKind</ref></type>
+        <definition>MonsterKind GameWorld::MonsterState::kind</definition>
+        <argsstring></argsstring>
+        <name>kind</name>
+        <qualifiedname>GameWorld::MonsterState::kind</qualifiedname>
+        <initializer>= <ref refid="classGameWorld_1af3c04dc6f6e4211cd6007390bee1d9a7a6ca9e2d793f678aba7c1b19526592a46" kindref="member">MonsterKind::Sine</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/GameWorld.hpp" line="79" column="21" bodyfile="Network/TransportLayer/UDP/GameWorld.hpp" bodystart="79" bodyend="-1"/>
+        <referencedby refid="classGameWorld_1a98daebdd5931cf333037bc3891b16794" compoundref="GameWorld_8cpp" startline="154" endline="173">GameWorld::spawnBoss</referencedby>
+        <referencedby refid="classGameWorld_1a3bf3aa2e665bed5c7e5c87f6f482ae97" compoundref="GameWorld_8cpp" startline="101" endline="138">GameWorld::spawnMonster</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGameWorld_1_1MonsterState_1a5b42bf1cd6bb78a55099646765aa775f" prot="public" static="no" mutable="no">
+        <type>long long</type>
+        <definition>long long GameWorld::MonsterState::nextPatternMs</definition>
+        <argsstring></argsstring>
+        <name>nextPatternMs</name>
+        <qualifiedname>GameWorld::MonsterState::nextPatternMs</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/GameWorld.hpp" line="80" column="19" bodyfile="Network/TransportLayer/UDP/GameWorld.hpp" bodystart="80" bodyend="-1"/>
+        <referencedby refid="classGameWorld_1a98daebdd5931cf333037bc3891b16794" compoundref="GameWorld_8cpp" startline="154" endline="173">GameWorld::spawnBoss</referencedby>
+        <referencedby refid="classGameWorld_1a0bb6ed054b809cc92573fd87850ac468" compoundref="GameWorld_8cpp" startline="213" endline="246">GameWorld::updateBossMovement</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structGameWorld_1_1MonsterState_1a210c2f8a7a247cd9a11694b3fa4b2212" prot="public" static="no" mutable="no">
+        <type>long long</type>
+        <definition>long long GameWorld::MonsterState::nextShotMs</definition>
+        <argsstring></argsstring>
+        <name>nextShotMs</name>
+        <qualifiedname>GameWorld::MonsterState::nextShotMs</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/GameWorld.hpp" line="81" column="19" bodyfile="Network/TransportLayer/UDP/GameWorld.hpp" bodystart="81" bodyend="-1"/>
+        <referencedby refid="classGameWorld_1a98daebdd5931cf333037bc3891b16794" compoundref="GameWorld_8cpp" startline="154" endline="173">GameWorld::spawnBoss</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Monster state tracked by the authoritative server. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>GameWorld::MonsterState</label>
+        <link refid="structGameWorld_1_1MonsterState"/>
+      </node>
+    </collaborationgraph>
+    <location file="Network/TransportLayer/UDP/GameWorld.hpp" line="68" column="5" bodyfile="Network/TransportLayer/UDP/GameWorld.hpp" bodystart="68" bodyend="82"/>
+    <listofallmembers>
+      <member refid="structGameWorld_1_1MonsterState_1a4fb30943cf1d5a76583972d92caa325b" prot="public" virt="non-virtual"><scope>GameWorld::MonsterState</scope><name>amplitude</name></member>
+      <member refid="structGameWorld_1_1MonsterState_1a37f746e4dc5df65a93c31107097110c4" prot="public" virt="non-virtual"><scope>GameWorld::MonsterState</scope><name>baseY</name></member>
+      <member refid="structGameWorld_1_1MonsterState_1a414729d64b907002169772ba2a1dbcc3" prot="public" virt="non-virtual"><scope>GameWorld::MonsterState</scope><name>freq</name></member>
+      <member refid="structGameWorld_1_1MonsterState_1a60efd1c141ca0076b9de281cea9efa61" prot="public" virt="non-virtual"><scope>GameWorld::MonsterState</scope><name>hp</name></member>
+      <member refid="structGameWorld_1_1MonsterState_1ae22dac3d57e25d9b86a0a4845fdfee26" prot="public" virt="non-virtual"><scope>GameWorld::MonsterState</scope><name>id</name></member>
+      <member refid="structGameWorld_1_1MonsterState_1a8472fb9f9ee4ff3a58d6d11744f43491" prot="public" virt="non-virtual"><scope>GameWorld::MonsterState</scope><name>kind</name></member>
+      <member refid="structGameWorld_1_1MonsterState_1a5b42bf1cd6bb78a55099646765aa775f" prot="public" virt="non-virtual"><scope>GameWorld::MonsterState</scope><name>nextPatternMs</name></member>
+      <member refid="structGameWorld_1_1MonsterState_1a210c2f8a7a247cd9a11694b3fa4b2212" prot="public" virt="non-virtual"><scope>GameWorld::MonsterState</scope><name>nextShotMs</name></member>
+      <member refid="structGameWorld_1_1MonsterState_1a0f6baa4107c0898313fc3bf3348f6127" prot="public" virt="non-virtual"><scope>GameWorld::MonsterState</scope><name>phase</name></member>
+      <member refid="structGameWorld_1_1MonsterState_1aae0e2baffbd9342713d1e24bd2f2dfeb" prot="public" virt="non-virtual"><scope>GameWorld::MonsterState</scope><name>speedX</name></member>
+      <member refid="structGameWorld_1_1MonsterState_1a757841176bc040ae9ff9a0234f862fc1" prot="public" virt="non-virtual"><scope>GameWorld::MonsterState</scope><name>speedY</name></member>
+      <member refid="structGameWorld_1_1MonsterState_1a6617c3280d1b0440b57cb30178739fca" prot="public" virt="non-virtual"><scope>GameWorld::MonsterState</scope><name>x</name></member>
+      <member refid="structGameWorld_1_1MonsterState_1ace6861d5fb54001fedd1fa0b053d225f" prot="public" virt="non-virtual"><scope>GameWorld::MonsterState</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

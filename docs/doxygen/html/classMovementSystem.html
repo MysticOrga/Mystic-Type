@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -91,6 +92,7 @@ $(document).ready(function(){initNavTree('classMovementSystem.html',''); initRes
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classMovementSystem-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">MovementSystem Class Reference</div></div>
 </div><!--header-->
@@ -99,17 +101,32 @@ $(document).ready(function(){initNavTree('classMovementSystem.html',''); initRes
 <p>Handles entity position updates based on velocity.  
  <a href="classMovementSystem.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="System_8hpp_source.html">System.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="System_8hpp_source.html">graphical-client/ecs/System.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for MovementSystem:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMovementSystem__coll__graph.png" border="0" usemap="#aMovementSystem_coll__map" alt="Collaboration graph"/></div>
+<map name="aMovementSystem_coll__map" id="aMovementSystem_coll__map">
+<area shape="rect" title="Handles entity position updates based on velocity." alt="" coords="5,5,139,71"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a57b0e4d3739f4b27ce15324b8a4d47bf" id="r_a57b0e4d3739f4b27ce15324b8a4d47bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMovementSystem.html#a57b0e4d3739f4b27ce15324b8a4d47bf">update</a> (<a class="el" href="classECS.html">ECS</a> &amp;ecs, <a class="el" href="Core_8hpp.html#aff1ac8fd0b927c16980eeb4053d1d5ca">Entity</a> e, float dt)</td></tr>
 <tr class="memdesc:a57b0e4d3739f4b27ce15324b8a4d47bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates entity position based on velocity with fixed time stepping.  <br /></td></tr>
 <tr class="separator:a57b0e4d3739f4b27ce15324b8a4d47bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac23640cf7f551bc63f202e3ccd9aad9d" id="r_ac23640cf7f551bc63f202e3ccd9aad9d"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; <a class="el" href="Core_8hpp.html#aff1ac8fd0b927c16980eeb4053d1d5ca">Entity</a>, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMovementSystem.html#ac23640cf7f551bc63f202e3ccd9aad9d">_accumulator</a></td></tr>
+<tr class="separator:ac23640cf7f551bc63f202e3ccd9aad9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Handles entity position updates based on velocity. </p>
 <p>Updates entity positions using a fixed tick duration (32ms) to match server updates and prevent frame-rate dependent velocity accumulation. </p>
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00155">155</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a57b0e4d3739f4b27ce15324b8a4d47bf" name="a57b0e4d3739f4b27ce15324b8a4d47bf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a57b0e4d3739f4b27ce15324b8a4d47bf">&#9670;&#160;</a></span>update()</h2>
@@ -160,6 +177,67 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00164">164</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="System_8hpp_source.html#l00181">_accumulator</a>, <a class="el" href="Core_8hpp_source.html#l00131">ECS::getComponent()</a>, and <a class="el" href="Components_8hpp_source.html#l00027">Position::y</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l00371">GraphicClient::updateEntities()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMovementSystem_a57b0e4d3739f4b27ce15324b8a4d47bf_cgraph.png" border="0" usemap="#aclassMovementSystem_a57b0e4d3739f4b27ce15324b8a4d47bf_cgraph" alt=""/></div>
+<map name="aclassMovementSystem_a57b0e4d3739f4b27ce15324b8a4d47bf_cgraph" id="aclassMovementSystem_a57b0e4d3739f4b27ce15324b8a4d47bf_cgraph">
+<area shape="rect" title="Updates entity position based on velocity with fixed time stepping." alt="" coords="5,5,200,31"/>
+<area shape="rect" href="classECS.html#ab25123ea5b19ee74c4e120eb6d808a48" title="Retrieves a component from an entity." alt="" coords="248,5,399,31"/>
+<area shape="poly" title=" " alt="" coords="200,15,234,15,234,21,200,21"/>
+<area shape="rect" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="447,5,664,31"/>
+<area shape="poly" title=" " alt="" coords="399,15,433,15,433,21,399,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classMovementSystem_a57b0e4d3739f4b27ce15324b8a4d47bf_icgraph.png" border="0" usemap="#aclassMovementSystem_a57b0e4d3739f4b27ce15324b8a4d47bf_icgraph" alt=""/></div>
+<map name="aclassMovementSystem_a57b0e4d3739f4b27ce15324b8a4d47bf_icgraph" id="aclassMovementSystem_a57b0e4d3739f4b27ce15324b8a4d47bf_icgraph">
+<area shape="rect" title="Updates entity position based on velocity with fixed time stepping." alt="" coords="789,5,984,31"/>
+<area shape="rect" href="classGraphicClient.html#a50072266faf2e76ace99e16c4c7b208a" title="Updates all game entities based on delta time." alt="" coords="529,5,741,31"/>
+<area shape="poly" title=" " alt="" coords="776,21,742,21,742,15,776,15"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,5,481,31"/>
+<area shape="poly" title=" " alt="" coords="516,21,482,21,482,15,516,15"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,5,247,31"/>
+<area shape="poly" title=" " alt="" coords="281,21,247,21,247,15,281,15"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac23640cf7f551bc63f202e3ccd9aad9d" name="ac23640cf7f551bc63f202e3ccd9aad9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac23640cf7f551bc63f202e3ccd9aad9d">&#9670;&#160;</a></span>_accumulator</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;<a class="el" href="Core_8hpp.html#aff1ac8fd0b927c16980eeb4053d1d5ca">Entity</a>, float&gt; MovementSystem::_accumulator</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00181">181</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="System_8hpp_source.html#l00164">update()</a>.</p>
 
 </div>
 </div>

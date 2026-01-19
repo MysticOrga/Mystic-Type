@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['main_0',['main',['../server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;server.cpp'],['../client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;client.cpp'],['../game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;game.cpp']]],
-  ['maxcount_1',['maxCount',['../classChildProcessManager.html#a3b7c34be0f81b8a841d4ecd28a837bf6',1,'ChildProcessManager']]]
+  ['listbullets_0',['listBullets',['../classGameState.html#a65f539f1657ebd717fe5d48683144c82',1,'GameState']]],
+  ['listmonsters_1',['listMonsters',['../classGameState.html#a8fd239e201dacc3cc9d19dc34d67f301',1,'GameState']]],
+  ['listplayers_2',['listPlayers',['../classGameState.html#adbedaec4367fbf2705065e66a8909ce5',1,'GameState']]],
+  ['logprefix_3',['logPrefix',['../classUDPGameServer.html#ae610b7c128c3b70e06f3fc1b5a3ecdc5',1,'UDPGameServer']]]
 ];

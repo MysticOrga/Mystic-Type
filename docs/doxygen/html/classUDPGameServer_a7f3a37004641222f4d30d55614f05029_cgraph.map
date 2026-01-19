@@ -1,0 +1,13 @@
+<map id="UDPGameServer::networkLoop" name="UDPGameServer::networkLoop">
+<area shape="rect" id="Node000001" title="Thread loop to read incoming UDP packets without blocking the simulation tick." alt="" coords="5,92,228,117"/>
+<area shape="rect" id="Node000002" href="$classPacket.html#abfcd427a2ca434ac71592334517638fb" title="Deserialize a packet from a raw byte buffer." alt="" coords="307,5,450,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="147,89,275,41,307,31,309,37,277,46,149,94"/>
+<area shape="rect" id="Node000003" href="$classNetwork_1_1TransportLayer_1_1UDPSocket.html#a429dc0b0e539ab051d785b7145e42bf7" title="Get the sender address of the last received packet." alt="" coords="276,55,481,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="228,90,262,86,262,91,229,95"/>
+<area shape="rect" id="Node000004" href="$classUDPGameServer.html#ae610b7c128c3b70e06f3fc1b5a3ecdc5" title=" " alt="" coords="281,120,477,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="229,114,268,118,267,123,228,119"/>
+<area shape="rect" id="Node000005" href="$classNetwork_1_1TransportLayer_1_1UDPSocket.html#a34b53ce1224f81fc6809a24412854294" title="Read bytes from the UDP socket." alt="" coords="288,170,469,210"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="158,115,304,163,303,168,156,120"/>
+<area shape="rect" id="Node000006" href="$classNetwork_1_1TransportLayer_1_1ASocket.html#a50cace88b622aa442d901434ecc33bd8" title="Check the socket state for read, write, or exception." alt="" coords="529,170,711,210"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="470,187,516,187,516,193,470,193"/>
+</map>

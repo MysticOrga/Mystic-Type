@@ -5,12 +5,13 @@ var annotated_dup =
         [ "ASocket", "classNetwork_1_1TransportLayer_1_1ASocket.html", "classNetwork_1_1TransportLayer_1_1ASocket" ],
         [ "ISocket", "classNetwork_1_1TransportLayer_1_1ISocket.html", "classNetwork_1_1TransportLayer_1_1ISocket" ],
         [ "TCPSocket", "classNetwork_1_1TransportLayer_1_1TCPSocket.html", "classNetwork_1_1TransportLayer_1_1TCPSocket" ],
-        [ "UDPSocket", "classNetwork_1_1TransportLayer_1_1UDPSocket.html", "classNetwork_1_1TransportLayer_1_1UDPSocket" ]
+        [ "UDPSocket", "classNetwork_1_1TransportLayer_1_1UDPSocket.html", "classNetwork_1_1TransportLayer_1_1UDPSocket" ],
+        [ "UnixSocket", "classNetwork_1_1TransportLayer_1_1UnixSocket.html", "classNetwork_1_1TransportLayer_1_1UnixSocket" ]
       ] ]
     ] ],
     [ "Raylib", "namespaceRaylib.html", [
-      [ "Draw", "classRaylib_1_1Draw.html", null ],
-      [ "Input", "classRaylib_1_1Input.html", null ],
+      [ "Draw", "classRaylib_1_1Draw.html", "classRaylib_1_1Draw" ],
+      [ "Input", "classRaylib_1_1Input.html", "classRaylib_1_1Input" ],
       [ "Texture", "classRaylib_1_1Texture.html", "classRaylib_1_1Texture" ],
       [ "Window", "classRaylib_1_1Window.html", "classRaylib_1_1Window" ]
     ] ],

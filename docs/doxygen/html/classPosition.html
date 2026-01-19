@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -100,7 +101,15 @@ $(document).ready(function(){initNavTree('classPosition.html',''); initResizable
 <p>Represents the 2D position of an entity.  
  <a href="classPosition.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="Components_8hpp_source.html">Components.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="Components_8hpp_source.html">graphical-client/ecs/Components.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Position:</div>
+<div class="dyncontent">
+<div class="center"><img src="classPosition__coll__graph.png" border="0" usemap="#aPosition_coll__map" alt="Collaboration graph"/></div>
+<map name="aPosition_coll__map" id="aPosition_coll__map">
+<area shape="rect" title="Represents the 2D position of an entity." alt="" coords="5,5,96,91"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -118,6 +127,8 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Represents the 2D position of an entity. </p>
 <p>Stores X and Y coordinates for game world positioning. </p>
+
+<p class="definition">Definition at line <a class="el" href="Components_8hpp_source.html#l00023">23</a> of file <a class="el" href="Components_8hpp_source.html">Components.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae9699660fab021c41818a551ab14f5b0" name="ae9699660fab021c41818a551ab14f5b0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae9699660fab021c41818a551ab14f5b0">&#9670;&#160;</a></span>Position()</h2>
@@ -162,6 +173,8 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="Components_8hpp_source.html#l00034">34</a> of file <a class="el" href="Components_8hpp_source.html">Components.hpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -178,6 +191,10 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>X coordinate </p>
 
+<p class="definition">Definition at line <a class="el" href="Components_8hpp_source.html#l00026">26</a> of file <a class="el" href="Components_8hpp_source.html">Components.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l00130">GraphicClient::syncEntities()</a>, <a class="el" href="GraphicClient_8cpp_source.html#l00239">GraphicClient::syncMonsters()</a>, <a class="el" href="System_8hpp_source.html#l00090">InputSystem::update()</a>, and <a class="el" href="GraphicClient_8cpp_source.html#l00371">GraphicClient::updateEntities()</a>.</p>
+
 </div>
 </div>
 <a id="a54a6182b5f7539295b32255808897d3f" name="a54a6182b5f7539295b32255808897d3f"></a>
@@ -192,6 +209,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Y coordinate </p>
+
+<p class="definition">Definition at line <a class="el" href="Components_8hpp_source.html#l00027">27</a> of file <a class="el" href="Components_8hpp_source.html">Components.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="System_8hpp_source.html#l00164">MovementSystem::update()</a>, and <a class="el" href="System_8hpp_source.html#l00090">InputSystem::update()</a>.</p>
 
 </div>
 </div>

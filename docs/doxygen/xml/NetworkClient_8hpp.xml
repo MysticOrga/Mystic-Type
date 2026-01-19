@@ -1,0 +1,389 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="NetworkClient_8hpp" kind="file" language="C++">
+    <compoundname>NetworkClient.hpp</compoundname>
+    <includes local="no">cstdint</includes>
+    <includes local="no">string</includes>
+    <includes local="no">sys/select.h</includes>
+    <includes refid="Packet_8hpp" local="yes">../TransportLayer/Packet.hpp</includes>
+    <includes refid="UDPSocket_8hpp" local="yes">../TransportLayer/UDP/UDPSocket.hpp</includes>
+    <includes refid="GameState_8hpp" local="yes">GameState.hpp</includes>
+    <includedby refid="NetworkClient_8cpp" local="yes">Network/Client/NetworkClient.cpp</includedby>
+    <includedby refid="GraphicClient_8hpp" local="yes">graphical-client/GraphicClient/GraphicClient.hpp</includedby>
+    <includedby refid="System_8hpp" local="yes">graphical-client/ecs/System.hpp</includedby>
+    <incdepgraph>
+      <node id="18">
+        <label>GameState.hpp</label>
+        <link refid="GameState_8hpp"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Network/Client/NetworkClient.hpp</label>
+        <link refid="NetworkClient_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>../ASocket.hpp</label>
+        <link refid="ASocket_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>ISocket.hpp</label>
+        <link refid="ISocket_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>../TransportLayer/Packet.hpp</label>
+        <link refid="Packet_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>../TransportLayer/UDP/UDPSocket.hpp</label>
+        <link refid="UDPSocket_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>arpa/inet.h</label>
+      </node>
+      <node id="2">
+        <label>cstdint</label>
+      </node>
+      <node id="12">
+        <label>errno.h</label>
+      </node>
+      <node id="13">
+        <label>netinet/in.h</label>
+      </node>
+      <node id="14">
+        <label>netinet/tcp.h</label>
+      </node>
+      <node id="6">
+        <label>stdexcept</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="4">
+        <label>sys/select.h</label>
+      </node>
+      <node id="15">
+        <label>sys/socket.h</label>
+      </node>
+      <node id="16">
+        <label>sys/un.h</label>
+      </node>
+      <node id="17">
+        <label>unistd.h</label>
+      </node>
+      <node id="19">
+        <label>unordered_map</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/client.cpp</label>
+        <link refid="client_8cpp"/>
+      </node>
+      <node id="2">
+        <label>Network/Client/NetworkClient.cpp</label>
+        <link refid="NetworkClient_8cpp"/>
+      </node>
+      <node id="1">
+        <label>Network/Client/NetworkClient.hpp</label>
+        <link refid="NetworkClient_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>graphical-client/GraphicClient/GraphicClient.cpp</label>
+        <link refid="GraphicClient_8cpp"/>
+      </node>
+      <node id="3">
+        <label>graphical-client/GraphicClient/GraphicClient.hpp</label>
+        <link refid="GraphicClient_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>graphical-client/ecs/System.hpp</label>
+        <link refid="System_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classNetworkClient" prot="public">NetworkClient</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">**<sp/>EPITECH<sp/>PROJECT,<sp/>2025</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">**<sp/>Mystic-Type</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">**<sp/>File<sp/>description:</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">**<sp/>Network<sp/>client<sp/>(TCP<sp/>+<sp/>UDP)</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&lt;netinet/in.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;sys/select.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../TransportLayer/Packet.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../TransportLayer/UDP/UDPSocket.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="GameState_8hpp" kindref="compound">GameState.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="20"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/>@brief<sp/>TCP+UDP<sp/>client<sp/>responsible<sp/>for<sp/>handshake,<sp/>lobby,<sp/>and<sp/>gameplay<sp/>packets.</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="classNetworkClient" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classNetworkClient" kindref="compound">NetworkClient</ref><sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Build<sp/>a<sp/>client<sp/>targeting<sp/>a<sp/>server<sp/>address.</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>ip<sp/>IPv4<sp/>address<sp/>as<sp/>string.</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>port<sp/>TCP<sp/>port.</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNetworkClient" kindref="compound">NetworkClient</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;ip,<sp/>uint16_t<sp/>port);</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Disconnect<sp/>on<sp/>destruction.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNetworkClient_1ab82fb597494c89b4a7ba9fd0d4b659c4" kindref="member">~NetworkClient</ref>();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Create<sp/>a<sp/>TCP<sp/>connection<sp/>and<sp/>ensure<sp/>UDP<sp/>socket<sp/>exists.</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1aaeedfac221d22aa5df4135b1680c4c99" kindref="member">connectToServer</ref>();</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Perform<sp/>the<sp/>application<sp/>handshake<sp/>over<sp/>TCP.</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a1773337e67c321eece590156e1a7b38a" kindref="member">performHandshake</ref>();</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Send<sp/>TCP<sp/>PONG<sp/>in<sp/>response<sp/>to<sp/>server<sp/>PING.</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a28a515bbb5f6f75d6603a5332c217f93" kindref="member">sendPong</ref>();</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Send<sp/>UDP<sp/>hello<sp/>to<sp/>register<sp/>address/port<sp/>on<sp/>server.</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1aeb3772e8f3674783b14953ee27e1cd39" kindref="member">sendHelloUdp</ref>(uint8_t<sp/>x<sp/>=<sp/>0,<sp/>uint8_t<sp/>y<sp/>=<sp/>0);</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Input<sp/>directions<sp/>for<sp/>UDP<sp/>INPUT<sp/>packets.</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320ee" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320ee" kindref="member">MoveCmd</ref><sp/>:<sp/>uint8_t<sp/>{<sp/><ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea258f49887ef8d14ac268c92b02503aaa" kindref="member">Up</ref><sp/>=<sp/>0,<sp/><ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea08a38277b0309070706f6652eeae9a53" kindref="member">Down</ref><sp/>=<sp/>1,<sp/><ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea945d5e233cf7d6240f6b783b36a374ff" kindref="member">Left</ref><sp/>=<sp/>2,<sp/><ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea92b09c7c48c520c3c55e497875da437c" kindref="member">Right</ref><sp/>=<sp/>3<sp/>};</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Send<sp/>player<sp/>input<sp/>over<sp/>UDP.</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1afdfce51c7dbb2e61f5e9280b15368915" kindref="member">sendInput</ref>(uint8_t<sp/>posX,<sp/>uint8_t<sp/>posY,<sp/>int8_t<sp/>velX,<sp/>int8_t<sp/>velY,<sp/><ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320ee" kindref="member">MoveCmd</ref><sp/>dir);</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Send<sp/>a<sp/>shoot<sp/>command<sp/>over<sp/>UDP.</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a2773882369d758cbb23aa67b0dda78ed" kindref="member">sendShoot</ref>(uint8_t<sp/>posX,<sp/>uint8_t<sp/>posY,<sp/>int8_t<sp/>velX,<sp/>int8_t<sp/>velY);</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="64"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Send<sp/>a<sp/>chat<sp/>message<sp/>over<sp/>TCP.</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1ae93ee27e05eea56b96d34c4789a01f41" kindref="member">sendChat</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;text);</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="68"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Ask<sp/>the<sp/>server<sp/>to<sp/>create<sp/>a<sp/>private<sp/>lobby.</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a69d86a3b406a767d3feb704be440343a" kindref="member">sendCreateLobby</ref>();</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Ask<sp/>the<sp/>server<sp/>to<sp/>join<sp/>an<sp/>existing<sp/>lobby.</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1ab66ff3a3c9bb96ad56e141d3713914bd" kindref="member">sendJoinLobby</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;code);</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Set<sp/>the<sp/>preferred<sp/>pseudo<sp/>for<sp/>the<sp/>handshake<sp/>payload.</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="classNetworkClient_1acfbb5b079e33b388d8df440cf29e89a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1acfbb5b079e33b388d8df440cf29e89a1" kindref="member">setPseudo</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;pseudo)<sp/>{<sp/><ref refid="classNetworkClient_1a040896aa0ec5206449d02e6dd264f7cd" kindref="member">_pseudo</ref><sp/>=<sp/>pseudo;<sp/>}</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Send<sp/>a<sp/>UDP<sp/>ping<sp/>with<sp/>client<sp/>timestamp.</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1ad087f54b86ec34f0be29053415ab7a46" kindref="member">sendUdpPing</ref>();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Poll<sp/>TCP/UDP<sp/>sockets<sp/>and<sp/>handle<sp/>any<sp/>received<sp/>packets.</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a1f77ff0729755d9782b4542582cfe214" kindref="member">pollPackets</ref>();</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Close<sp/>TCP<sp/>and<sp/>UDP<sp/>sockets<sp/>and<sp/>reset<sp/>state.</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a7f69f5c30fd349d670fae18598737b86" kindref="member">disconnect</ref>();</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Close<sp/>UDP<sp/>socket<sp/>only.</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a632c4eeb2d8086de97cd616b2be972cf" kindref="member">disconnectUdp</ref>();</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="97"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Ensure<sp/>UDP<sp/>socket<sp/>exists.</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a0ea20f35b1cb3a917add14fc0bbc03af" kindref="member">ensureUdp</ref>();</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="101"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Reset<sp/>state<sp/>when<sp/>entering<sp/>a<sp/>lobby.</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" kindref="member">resetForLobby</ref>();</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Reset<sp/>state<sp/>after<sp/>a<sp/>full<sp/>reconnect.</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" kindref="member">resetForReconnect</ref>();</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="110"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Return<sp/>true<sp/>when<sp/>TCP<sp/>is<sp/>connected.</highlight></codeline>
+<codeline lineno="111"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="classNetworkClient_1a08e45bde82ce1fbc60128fd538b58078" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a08e45bde82ce1fbc60128fd538b58078" kindref="member">isConnected</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1aeef42eb1f64d0e680941ec6583bbbd44" kindref="member">_tcpConnected</ref>;<sp/>}</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Update<sp/>remote<sp/>server<sp/>address<sp/>for<sp/>TCP<sp/>and<sp/>UDP.</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1acb108e50dae9dda5b2cef508db1dd582" kindref="member">updateServerAddress</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;ip,<sp/>uint16_t<sp/>port);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="118"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="119"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Get<sp/>server-assigned<sp/>player<sp/>id.</highlight></codeline>
+<codeline lineno="120"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121" refid="classNetworkClient_1a3a848ca2af9ba2a3008e33ecc39a3622" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a3a848ca2af9ba2a3008e33ecc39a3622" kindref="member">getPlayerId</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a8b0d8d4bb3fa98ecf345d0fc6dafd8e7" kindref="member">_playerId</ref>;<sp/>}</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="122"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="123"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Get<sp/>current<sp/>lobby<sp/>code.</highlight></codeline>
+<codeline lineno="124"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125" refid="classNetworkClient_1a9f92ea1a77f00b2867ebc37b6581d507" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;<ref refid="classNetworkClient_1a9f92ea1a77f00b2867ebc37b6581d507" kindref="member">getLobbyCode</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a0b474e7f79f3dd26df29fb5fe39367b2" kindref="member">_lobbyCode</ref>;<sp/>}</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="126"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="127"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Get<sp/>current<sp/>pseudo.</highlight></codeline>
+<codeline lineno="128"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="classNetworkClient_1af14f1f811649fc4555ea11aba8a812f2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;<ref refid="classNetworkClient_1af14f1f811649fc4555ea11aba8a812f2" kindref="member">getPseudo</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a040896aa0ec5206449d02e6dd264f7cd" kindref="member">_pseudo</ref>;<sp/>}</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="130"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="131"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Get<sp/>last<sp/>received<sp/>player<sp/>snapshots.</highlight></codeline>
+<codeline lineno="132"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133" refid="classNetworkClient_1a501553ba5f6d381f43855eda057157bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;PlayerState&gt;<sp/>&amp;<ref refid="classNetworkClient_1a501553ba5f6d381f43855eda057157bf" kindref="member">getLastSnapshot</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a38aa8a71fa921d8afe01d8caaf6d1df0" kindref="member">_lastSnapshot</ref>;<sp/>}</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="134"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="135"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Get<sp/>last<sp/>received<sp/>bullet<sp/>snapshots.</highlight></codeline>
+<codeline lineno="136"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137" refid="classNetworkClient_1abfd2ef3eb235148e35fe65831187feab" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;BulletState&gt;<sp/>&amp;<ref refid="classNetworkClient_1abfd2ef3eb235148e35fe65831187feab" kindref="member">getLastSnapshotBullets</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a8e04154250d91bbbb2cfbc0afeaed6bb" kindref="member">_lastSnapshotBullets</ref>;<sp/>}</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="138"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="139"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Get<sp/>last<sp/>received<sp/>monster<sp/>snapshots.</highlight></codeline>
+<codeline lineno="140"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141" refid="classNetworkClient_1a4b6f0c20c59eeeddf98e738257c8a793" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;MonsterState&gt;<sp/>&amp;<ref refid="classNetworkClient_1a4b6f0c20c59eeeddf98e738257c8a793" kindref="member">getLastSnapshotMonsters</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1ae8afee744ef3cbfc90a6ae126c6a0c1b" kindref="member">_lastSnapshotMonsters</ref>;<sp/>}</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="142"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="143"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Get<sp/>last<sp/>received<sp/>player<sp/>list<sp/>from<sp/>TCP.</highlight></codeline>
+<codeline lineno="144"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145" refid="classNetworkClient_1ac79abc81697913608e849a936eee4ada" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;PlayerState&gt;<sp/>&amp;<ref refid="classNetworkClient_1ac79abc81697913608e849a936eee4ada" kindref="member">getLastPlayerList</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1ac396fc7cda4c100ff4afca5fccf73429" kindref="member">_lastPlayerList</ref>;<sp/>}</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="146"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="147"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Get<sp/>pending<sp/>network<sp/>events.</highlight></codeline>
+<codeline lineno="148"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149" refid="classNetworkClient_1aa443eee7ab598870a1028935b1b8c174" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::string&gt;<sp/>&amp;<ref refid="classNetworkClient_1aa443eee7ab598870a1028935b1b8c174" kindref="member">getEvents</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a71ebf3bcf361e32e24abecffca56fdec" kindref="member">_events</ref>;<sp/>}</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="150"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="151"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Clear<sp/>queued<sp/>events.</highlight></codeline>
+<codeline lineno="152"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153" refid="classNetworkClient_1ad93611688c9c99aba516b5396a543cd8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1ad93611688c9c99aba516b5396a543cd8" kindref="member">clearEvents</ref>()<sp/>{<sp/><ref refid="classNetworkClient_1a71ebf3bcf361e32e24abecffca56fdec" kindref="member">_events</ref>.clear();<sp/>}</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="154"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="155"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Last<sp/>measured<sp/>UDP<sp/>RTT<sp/>in<sp/>ms.</highlight></codeline>
+<codeline lineno="156"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157" refid="classNetworkClient_1aa2de4fb4f6154441c96a7620ae3fb982" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1aa2de4fb4f6154441c96a7620ae3fb982" kindref="member">getUdpPingMs</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a2965fb9499f0868ae11cda1c07c63425" kindref="member">_udpPingMs</ref>;<sp/>}</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Estimated<sp/>snapshot<sp/>loss<sp/>percentage.</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a9b4492241691163874e561440a379c3e" kindref="member">getUdpLossPct</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Get<sp/>current<sp/>UDP<sp/>receive<sp/>rate<sp/>in<sp/>Kbps.</highlight></codeline>
+<codeline lineno="164"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a14ed76e74eea78d36e9009129f641f79" kindref="member">getUdpRxKbps</ref>();</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="166"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="167"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Get<sp/>current<sp/>UDP<sp/>transmit<sp/>rate<sp/>in<sp/>Kbps.</highlight></codeline>
+<codeline lineno="168"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1ad5c06bb19f3f5959f30bc383d89cb6e4" kindref="member">getUdpTxKbps</ref>();</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="172"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="173"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Result<sp/>of<sp/>a<sp/>framed<sp/>TCP<sp/>receive<sp/>attempt.</highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="175" refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">enum<sp/>class</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55" kindref="member">RecvResult</ref><sp/>{<sp/><ref refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55aef70e46fd3bbc21e3e1f0b6815e750c0" kindref="member">Disconnected</ref>,<sp/><ref refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55a4307e7e7986aa21a4b7c3ef2b5e948f6" kindref="member">Incomplete</ref>,<sp/><ref refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55aa60852f204ed8028c1c58808b746d115" kindref="member">Ok</ref><sp/>};</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1ac0dca5641be17084ead40825063b944e" kindref="member">readTcpPacket</ref>(<ref refid="classPacket" kindref="compound">Packet</ref><sp/>&amp;p);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a101f6ab85ee02ddb9d45a40dad603e29" kindref="member">readUdpPacket</ref>(<ref refid="classPacket" kindref="compound">Packet</ref><sp/>&amp;p);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1af150c1b7e0aa8c19cb337fb838479324" kindref="member">sendPacketTcp</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/>&amp;p);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a6c612ab362cc3e4ea8c94ebc2cddc4e6" kindref="member">sendPacketUdp</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/>&amp;p);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a5bc6fcb253ac9f9d74c649cb4b30d546" kindref="member">handleTcpPacket</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/>&amp;p);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" kindref="member">handleUdpPacket</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classPacket" kindref="compound">Packet</ref><sp/>&amp;p);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a844f1f20acd0958f264c7bb67e18d111" kindref="member">writeAll</ref>(<ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref><sp/>fd,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>uint8_t<sp/>*data,<sp/>std::size_t<sp/>size);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55" kindref="member">RecvResult</ref><sp/><ref refid="classNetworkClient_1ab8fe1bfbcfc0f363bce00cb1dc2a2f88" kindref="member">receiveTcpFramed</ref>(<ref refid="classPacket" kindref="compound">Packet</ref><sp/>&amp;p);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"></highlight></codeline>
+<codeline lineno="185" refid="classNetworkClient_1a18dce692aa54fd1e006744d59d097e5f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref><sp/><ref refid="classNetworkClient_1a18dce692aa54fd1e006744d59d097e5f" kindref="member">_tcpFd</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="186" refid="classNetworkClient_1afec94b5ac7dda0fc2b434261108f43ad" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref><sp/><ref refid="classNetworkClient_1afec94b5ac7dda0fc2b434261108f43ad" kindref="member">_udpFd</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="187" refid="classNetworkClient_1aeef42eb1f64d0e680941ec6583bbbd44" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1aeef42eb1f64d0e680941ec6583bbbd44" kindref="member">_tcpConnected</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="188" refid="classNetworkClient_1afc9f1111f98037b27d3033e8d9118556" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1afc9f1111f98037b27d3033e8d9118556" kindref="member">_udpConnected</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="189" refid="classNetworkClient_1a11f8f91b9958ae221c08bf304fbfe31e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>sockaddr_in<sp/><ref refid="classNetworkClient_1a11f8f91b9958ae221c08bf304fbfe31e" kindref="member">_tcpAddr</ref>{};</highlight></codeline>
+<codeline lineno="190" refid="classNetworkClient_1ad6b5430496083ed39dacbb31514f3849" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>sockaddr_in<sp/><ref refid="classNetworkClient_1ad6b5430496083ed39dacbb31514f3849" kindref="member">_udpAddr</ref>{};</highlight></codeline>
+<codeline lineno="191" refid="classNetworkClient_1a8b0d8d4bb3fa98ecf345d0fc6dafd8e7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a8b0d8d4bb3fa98ecf345d0fc6dafd8e7" kindref="member">_playerId</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="192" refid="classNetworkClient_1a0b474e7f79f3dd26df29fb5fe39367b2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classNetworkClient_1a0b474e7f79f3dd26df29fb5fe39367b2" kindref="member">_lobbyCode</ref>;</highlight></codeline>
+<codeline lineno="193" refid="classNetworkClient_1a040896aa0ec5206449d02e6dd264f7cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classNetworkClient_1a040896aa0ec5206449d02e6dd264f7cd" kindref="member">_pseudo</ref>;</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195" refid="classNetworkClient_1a38aa8a71fa921d8afe01d8caaf6d1df0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;PlayerState&gt;<sp/><ref refid="classNetworkClient_1a38aa8a71fa921d8afe01d8caaf6d1df0" kindref="member">_lastSnapshot</ref>;</highlight></codeline>
+<codeline lineno="196" refid="classNetworkClient_1a8e04154250d91bbbb2cfbc0afeaed6bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;BulletState&gt;<sp/><ref refid="classNetworkClient_1a8e04154250d91bbbb2cfbc0afeaed6bb" kindref="member">_lastSnapshotBullets</ref>;</highlight></codeline>
+<codeline lineno="197" refid="classNetworkClient_1ae8afee744ef3cbfc90a6ae126c6a0c1b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;MonsterState&gt;<sp/><ref refid="classNetworkClient_1ae8afee744ef3cbfc90a6ae126c6a0c1b" kindref="member">_lastSnapshotMonsters</ref>;</highlight></codeline>
+<codeline lineno="198" refid="classNetworkClient_1ac396fc7cda4c100ff4afca5fccf73429" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;PlayerState&gt;<sp/><ref refid="classNetworkClient_1ac396fc7cda4c100ff4afca5fccf73429" kindref="member">_lastPlayerList</ref>;</highlight></codeline>
+<codeline lineno="199" refid="classNetworkClient_1a71ebf3bcf361e32e24abecffca56fdec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;std::string&gt;<sp/><ref refid="classNetworkClient_1a71ebf3bcf361e32e24abecffca56fdec" kindref="member">_events</ref>;</highlight></codeline>
+<codeline lineno="200" refid="classNetworkClient_1a70fc44c2906eb7a70b74108f34df3008" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;uint8_t&gt;<sp/><ref refid="classNetworkClient_1a70fc44c2906eb7a70b74108f34df3008" kindref="member">_tcpRecvBuffer</ref>;</highlight></codeline>
+<codeline lineno="201" refid="classNetworkClient_1a7313805bd859cfc09dec94a7c8eb2fe0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="classNetworkClient_1a7313805bd859cfc09dec94a7c8eb2fe0" kindref="member">_lastSnapshotSeq</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="202" refid="classNetworkClient_1ad35265342327777ccb894b79f81b05e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1ad35265342327777ccb894b79f81b05e6" kindref="member">_hasSnapshotSeq</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="203" refid="classNetworkClient_1a45e486f8ec98988efc9030a65dc49e09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="classNetworkClient_1a45e486f8ec98988efc9030a65dc49e09" kindref="member">_snapshotReceived</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="204" refid="classNetworkClient_1a629d27e793d46d3be1754f668932dd09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="classNetworkClient_1a629d27e793d46d3be1754f668932dd09" kindref="member">_snapshotLost</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="205" refid="classNetworkClient_1a2965fb9499f0868ae11cda1c07c63425" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a2965fb9499f0868ae11cda1c07c63425" kindref="member">_udpPingMs</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="206" refid="classNetworkClient_1a60a9388fce03419f064d436e02e59a23" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="classNetworkClient_1a60a9388fce03419f064d436e02e59a23" kindref="member">_udpLastPingSentMs</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="207" refid="classNetworkClient_1aef7a8773ff5b23399cb9aac0b3c4d7a4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="classNetworkClient_1aef7a8773ff5b23399cb9aac0b3c4d7a4" kindref="member">_udpBytesInWindow</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="208" refid="classNetworkClient_1a8c4e09f4a487b00c7b4cfd6507f5d1d0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint64_t<sp/><ref refid="classNetworkClient_1a8c4e09f4a487b00c7b4cfd6507f5d1d0" kindref="member">_udpBytesOutWindow</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="209" refid="classNetworkClient_1ac3ce12720fa24e5706d225d80bf5f1aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1ac3ce12720fa24e5706d225d80bf5f1aa" kindref="member">_udpRateWindowStartMs</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="210" refid="classNetworkClient_1a633d1f57b2d80be8d61c3695115cf614" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a633d1f57b2d80be8d61c3695115cf614" kindref="member">_udpRxKbps</ref><sp/>=<sp/>0.0f;</highlight></codeline>
+<codeline lineno="211" refid="classNetworkClient_1a9be81688f8ada89b3b8a26144ef651bb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a9be81688f8ada89b3b8a26144ef651bb" kindref="member">_udpTxKbps</ref><sp/>=<sp/>0.0f;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1aaf60f1216a17b46ad12539625a1022c2" kindref="member">nowMs</ref>()<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1a36892dcdc8c2523b27947a347ea16022" kindref="member">updateUdpRates</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="classNetworkClient_1aaf60f1216a17b46ad12539625a1022c2" kindref="member">nowMs</ref>);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="Network/Client/NetworkClient.hpp"/>
+  </compounddef>
+</doxygen>

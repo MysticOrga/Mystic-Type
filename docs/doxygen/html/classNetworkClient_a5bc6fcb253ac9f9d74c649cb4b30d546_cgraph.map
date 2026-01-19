@@ -1,0 +1,15 @@
+<map id="NetworkClient::handleTcpPacket" name="NetworkClient::handleTcpPacket">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,23,193,63"/>
+<area shape="rect" id="Node000002" href="$classNetworkClient.html#a7f69f5c30fd349d670fae18598737b86" title="Close TCP and UDP sockets and reset state." alt="" coords="241,5,435,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="193,31,227,27,228,32,194,36"/>
+<area shape="rect" id="Node000003" href="$classNetworkClient.html#a28a515bbb5f6f75d6603a5332c217f93" title="Send TCP PONG in response to server PING." alt="" coords="245,55,431,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="194,50,231,54,231,59,193,55"/>
+<area shape="rect" id="Node000004" href="$classNetworkClient.html#af150c1b7e0aa8c19cb337fb838479324" title=" " alt="" coords="483,55,700,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="432,65,469,65,469,70,432,70"/>
+<area shape="rect" id="Node000005" href="$namespaceProtocol.html#a668bdeed219432868fca095e1b2f2667" title="Build a TCP framed buffer (2 bytes length + serialized packet)." alt="" coords="763,29,906,55"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="700,53,749,48,750,53,701,59"/>
+<area shape="rect" id="Node000007" href="$classNetworkClient.html#a844f1f20acd0958f264c7bb67e18d111" title=" " alt="" coords="748,79,921,104"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="701,75,735,79,734,84,700,81"/>
+<area shape="rect" id="Node000006" href="$classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="969,29,1096,55"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="907,39,956,39,956,45,907,45"/>
+</map>

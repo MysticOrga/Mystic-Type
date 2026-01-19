@@ -1,0 +1,1645 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classGraphicClient" kind="class" language="C++" prot="public">
+    <compoundname>GraphicClient</compoundname>
+    <includes refid="GraphicClient_8hpp" local="no">graphical-client/GraphicClient/GraphicClient.hpp</includes>
+    <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="classGraphicClient_1a52f25216ca79230194e237a48fa12b18" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float GraphicClient::GAME_AREA_SIZE</definition>
+        <argsstring></argsstring>
+        <name>GAME_AREA_SIZE</name>
+        <qualifiedname>GraphicClient::GAME_AREA_SIZE</qualifiedname>
+        <initializer>= 765.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Game area render size in pixels </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="41" column="28" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="41" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1ab72f007713bd3d5074c566a425c0d9b1" compoundref="GraphicClient_8cpp" startline="754" endline="772">drawGameBackground</referencedby>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">init</referencedby>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1aa997b1f0089b31169851aa8c3f60f3fe" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float GraphicClient::GAME_AREA_OFFSET_X</definition>
+        <argsstring></argsstring>
+        <name>GAME_AREA_OFFSET_X</name>
+        <qualifiedname>GraphicClient::GAME_AREA_OFFSET_X</qualifiedname>
+        <initializer>= 577.5f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Game area X offset on screen </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="42" column="28" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="42" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1ab72f007713bd3d5074c566a425c0d9b1" compoundref="GraphicClient_8cpp" startline="754" endline="772">drawGameBackground</referencedby>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">init</referencedby>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1aa65b589ade4fd8ddd3d8a7115d175e2b" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float GraphicClient::GAME_AREA_OFFSET_Y</definition>
+        <argsstring></argsstring>
+        <name>GAME_AREA_OFFSET_Y</name>
+        <qualifiedname>GraphicClient::GAME_AREA_OFFSET_Y</qualifiedname>
+        <initializer>= 157.5f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Game area Y offset on screen </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="43" column="28" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="43" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1ab72f007713bd3d5074c566a425c0d9b1" compoundref="GraphicClient_8cpp" startline="754" endline="772">drawGameBackground</referencedby>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">init</referencedby>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classGraphicClient_1a9267fe8ea88f600994981271461383be" prot="private" static="no" mutable="no">
+        <type><ref refid="classRaylib_1_1Window" kindref="compound">Raylib::Window</ref></type>
+        <definition>Raylib::Window GraphicClient::_window</definition>
+        <argsstring></argsstring>
+        <name>_window</name>
+        <qualifiedname>GraphicClient::_window</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Game window handle </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="164" column="20" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="164" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1ab72f007713bd3d5074c566a425c0d9b1" compoundref="GraphicClient_8cpp" startline="754" endline="772">drawGameBackground</referencedby>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1aca385d0199520832fb464e03a8112dd5" compoundref="GraphicClient_8cpp" startline="20" endline="25">GraphicClient</referencedby>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">selectLobby</referencedby>
+        <referencedby refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" compoundref="GraphicClient_8cpp" startline="1007" endline="1230">selectMainMenu</referencedby>
+        <referencedby refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" compoundref="GraphicClient_8cpp" startline="679" endline="752">selectPseudo</referencedby>
+        <referencedby refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" compoundref="GraphicClient_8cpp" startline="1328" endline="1574">selectSettings</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a20356ba82da3f85b4eccdef7b722f472" prot="private" static="no" mutable="no">
+        <type><ref refid="classNetworkClient" kindref="compound">NetworkClient</ref></type>
+        <definition>NetworkClient GraphicClient::_net</definition>
+        <argsstring></argsstring>
+        <name>_net</name>
+        <qualifiedname>GraphicClient::_net</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="namespaceNetwork" kindref="compound">Network</ref> client for server communication </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="167" column="19" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="167" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">init</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">processNetworkEvents</referencedby>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">selectLobby</referencedby>
+        <referencedby refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" compoundref="GraphicClient_8cpp" startline="1007" endline="1230">selectMainMenu</referencedby>
+        <referencedby refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" compoundref="GraphicClient_8cpp" startline="679" endline="752">selectPseudo</referencedby>
+        <referencedby refid="classGraphicClient_1aacb31035c31d741d0ae2ca5ec9228b12" compoundref="GraphicClient_8cpp" startline="130" endline="197">syncEntities</referencedby>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">updateEntities</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1acb4c98b2104cce0ec8de9051d6d53bf2" prot="private" static="no" mutable="no">
+        <type><ref refid="classGameState" kindref="compound">GameState</ref></type>
+        <definition>GameState GraphicClient::_state</definition>
+        <argsstring></argsstring>
+        <name>_state</name>
+        <qualifiedname>GraphicClient::_state</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current game state from server </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="168" column="15" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="168" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">init</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">processNetworkEvents</referencedby>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">updateEntities</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1aa2ace668a32b35b06b45e386d00ea4f1" prot="private" static="no" mutable="no">
+        <type><ref refid="classECS" kindref="compound">ECS</ref></type>
+        <definition>ECS GraphicClient::_ecs</definition>
+        <argsstring></argsstring>
+        <name>_ecs</name>
+        <qualifiedname>GraphicClient::_ecs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Main entity component system </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="171" column="9" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="171" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a31bdd83222945e28b307b03b32135288" compoundref="GraphicClient_8cpp" startline="94" endline="101">createBulletEntity</referencedby>
+        <referencedby refid="classGraphicClient_1a6dd918f7ac4761ab4946371df06386ec" compoundref="GraphicClient_8cpp" startline="103" endline="128">createMonsterEntity</referencedby>
+        <referencedby refid="classGraphicClient_1a1f97bf7f358d1d5a5d65069d641feb5b" compoundref="GraphicClient_8cpp" startline="83" endline="92">createPlayerEntity</referencedby>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+        <referencedby refid="classGraphicClient_1a61111e5d14a72f0f69344ab034a0622a" compoundref="GraphicClient_8cpp" startline="200" endline="237">syncBullets</referencedby>
+        <referencedby refid="classGraphicClient_1aacb31035c31d741d0ae2ca5ec9228b12" compoundref="GraphicClient_8cpp" startline="130" endline="197">syncEntities</referencedby>
+        <referencedby refid="classGraphicClient_1afe45a37a11b23a08cce4d7c6b7efccbc" compoundref="GraphicClient_8cpp" startline="239" endline="271">syncMonsters</referencedby>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">updateEntities</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1aad6444ee81ce5610e8f134c8ee002077" prot="private" static="no" mutable="no">
+        <type><ref refid="classECS" kindref="compound">ECS</ref></type>
+        <definition>ECS GraphicClient::_uiEcs</definition>
+        <argsstring></argsstring>
+        <name>_uiEcs</name>
+        <qualifiedname>GraphicClient::_uiEcs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>UI entity component system </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="172" column="9" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="172" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">selectLobby</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a2e26499ba6df996c1ac3c980b5320c40" prot="private" static="no" mutable="no">
+        <type><ref refid="classSpriteRenderSystem" kindref="compound">SpriteRenderSystem</ref></type>
+        <definition>SpriteRenderSystem GraphicClient::_spriteRenderSystem</definition>
+        <argsstring></argsstring>
+        <name>_spriteRenderSystem</name>
+        <qualifiedname>GraphicClient::_spriteRenderSystem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classSprite" kindref="compound">Sprite</ref> rendering system </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="174" column="24" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="174" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">init</referencedby>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a91c6a0f863c130c89d3ff55cd05741a0" prot="private" static="no" mutable="no">
+        <type><ref refid="classRectangleRenderSystem" kindref="compound">RectangleRenderSystem</ref></type>
+        <definition>RectangleRenderSystem GraphicClient::_rectangleRenderSystem</definition>
+        <argsstring></argsstring>
+        <name>_rectangleRenderSystem</name>
+        <qualifiedname>GraphicClient::_rectangleRenderSystem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Rectangle rendering system </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="175" column="27" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="175" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">init</referencedby>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1aa1b6f7632112637217ee65be6a6dcbae" prot="private" static="no" mutable="no">
+        <type><ref refid="classInputSystem" kindref="compound">InputSystem</ref></type>
+        <definition>InputSystem GraphicClient::_inputSystem</definition>
+        <argsstring></argsstring>
+        <name>_inputSystem</name>
+        <qualifiedname>GraphicClient::_inputSystem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Player input handling system </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="176" column="17" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="176" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" compoundref="GraphicClient_8cpp" startline="1328" endline="1574">selectSettings</referencedby>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">updateEntities</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1af728873f72540cf041d42a9d7e317337" prot="private" static="no" mutable="no">
+        <type><ref refid="classMovementSystem" kindref="compound">MovementSystem</ref></type>
+        <definition>MovementSystem GraphicClient::_movementSystem</definition>
+        <argsstring></argsstring>
+        <name>_movementSystem</name>
+        <qualifiedname>GraphicClient::_movementSystem</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Entity movement system </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="177" column="20" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="177" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">updateEntities</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a82245caa063f38af3a7b4ad1a7418efc" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; int, <ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref> &gt;</type>
+        <definition>std::unordered_map&lt;int, Entity&gt; GraphicClient::_entities</definition>
+        <argsstring></argsstring>
+        <name>_entities</name>
+        <qualifiedname>GraphicClient::_entities</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Mapping of server player IDs to entities </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="180" column="24" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="180" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+        <referencedby refid="classGraphicClient_1aacb31035c31d741d0ae2ca5ec9228b12" compoundref="GraphicClient_8cpp" startline="130" endline="197">syncEntities</referencedby>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">updateEntities</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a88e6521fa2a326f2563bd7674c361438" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; int, <ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref> &gt;</type>
+        <definition>std::unordered_map&lt;int, Entity&gt; GraphicClient::_bulletEntities</definition>
+        <argsstring></argsstring>
+        <name>_bulletEntities</name>
+        <qualifiedname>GraphicClient::_bulletEntities</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Mapping of bullet IDs to entities </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="181" column="24" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="181" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+        <referencedby refid="classGraphicClient_1a61111e5d14a72f0f69344ab034a0622a" compoundref="GraphicClient_8cpp" startline="200" endline="237">syncBullets</referencedby>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">updateEntities</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a4e4f2c634651d79b312ce55f8bbb43d8" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; int, <ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref> &gt;</type>
+        <definition>std::unordered_map&lt;int, Entity&gt; GraphicClient::_monsterEntities</definition>
+        <argsstring></argsstring>
+        <name>_monsterEntities</name>
+        <qualifiedname>GraphicClient::_monsterEntities</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Mapping of monster IDs to entities </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="182" column="24" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="182" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+        <referencedby refid="classGraphicClient_1afe45a37a11b23a08cce4d7c6b7efccbc" compoundref="GraphicClient_8cpp" startline="239" endline="271">syncMonsters</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a3674d589494334b97ac301bb3a6c088f" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; GraphicClient::_chatLog</definition>
+        <argsstring></argsstring>
+        <name>_chatLog</name>
+        <qualifiedname>GraphicClient::_chatLog</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Chat message history </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="185" column="17" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="185" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">processNetworkEvents</referencedby>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a29003b747d7aad2476accc5b80250eef" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string GraphicClient::_chatInput</definition>
+        <argsstring></argsstring>
+        <name>_chatInput</name>
+        <qualifiedname>GraphicClient::_chatInput</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current chat input buffer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="186" column="17" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="186" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a04a9a700edbeddcc42a63a3f8d6fe14e" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GraphicClient::_chatActive</definition>
+        <argsstring></argsstring>
+        <name>_chatActive</name>
+        <qualifiedname>GraphicClient::_chatActive</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Chat input active flag </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="187" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="187" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">updateEntities</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a2fad4811cde141bb655df45eac5a6bae" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string GraphicClient::_localPseudo</definition>
+        <argsstring></argsstring>
+        <name>_localPseudo</name>
+        <qualifiedname>GraphicClient::_localPseudo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Local player username </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="190" column="17" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="190" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">processNetworkEvents</referencedby>
+        <referencedby refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" compoundref="GraphicClient_8cpp" startline="679" endline="752">selectPseudo</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1aa935bab23b2dadf2856fe49c9aef642a" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string GraphicClient::_lastChatSent</definition>
+        <argsstring></argsstring>
+        <name>_lastChatSent</name>
+        <qualifiedname>GraphicClient::_lastChatSent</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Last sent chat message </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="191" column="17" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="191" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">processNetworkEvents</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a6b93f97cd4b03c881c45451ab1e60afa" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; int, int &gt;</type>
+        <definition>std::unordered_map&lt;int, int&gt; GraphicClient::_playerPingMs</definition>
+        <argsstring></argsstring>
+        <name>_playerPingMs</name>
+        <qualifiedname>GraphicClient::_playerPingMs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Ping values for each player </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="194" column="24" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="194" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1aa769c45dded765a088aa3f2111d99124" prot="private" static="no" mutable="no">
+        <type>std::chrono::steady_clock::time_point</type>
+        <definition>std::chrono::steady_clock::time_point GraphicClient::_lastKeepAlive</definition>
+        <argsstring></argsstring>
+        <name>_lastKeepAlive</name>
+        <qualifiedname>GraphicClient::_lastKeepAlive</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Last keep-alive packet time </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="195" column="43" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="195" bodyend="195"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1aca385d0199520832fb464e03a8112dd5" compoundref="GraphicClient_8cpp" startline="20" endline="25">GraphicClient</referencedby>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">selectLobby</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a52dcaca28beda66bed425b6020dfc43c" prot="private" static="no" mutable="no">
+        <type>std::chrono::steady_clock::time_point</type>
+        <definition>std::chrono::steady_clock::time_point GraphicClient::_lastHello</definition>
+        <argsstring></argsstring>
+        <name>_lastHello</name>
+        <qualifiedname>GraphicClient::_lastHello</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Last hello packet time </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="196" column="43" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="196" bodyend="196"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1aca385d0199520832fb464e03a8112dd5" compoundref="GraphicClient_8cpp" startline="20" endline="25">GraphicClient</referencedby>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">init</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a3a0eeb38f5ce4b276f311b92c65fd501" prot="private" static="no" mutable="no">
+        <type>std::chrono::steady_clock::time_point</type>
+        <definition>std::chrono::steady_clock::time_point GraphicClient::_lastUdpPing</definition>
+        <argsstring></argsstring>
+        <name>_lastUdpPing</name>
+        <qualifiedname>GraphicClient::_lastUdpPing</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Last UDP ping time </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="197" column="43" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="197" bodyend="197"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a81a2e4066369786564a7d8221c8d83a0" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GraphicClient::_udpReady</definition>
+        <argsstring></argsstring>
+        <name>_udpReady</name>
+        <qualifiedname>GraphicClient::_udpReady</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>UDP connection ready flag </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="198" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="198" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">processNetworkEvents</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a8e52c08b5ba630898751b895d8b9d6ba" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float GraphicClient::_gameAnimTimer</definition>
+        <argsstring></argsstring>
+        <name>_gameAnimTimer</name>
+        <qualifiedname>GraphicClient::_gameAnimTimer</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Global animation timer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="201" column="11" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="201" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a60cedf219d20bc0cafe62005fe9ee88a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GraphicClient::_forceExit</definition>
+        <argsstring></argsstring>
+        <name>_forceExit</name>
+        <qualifiedname>GraphicClient::_forceExit</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Force exit flag </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="202" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="202" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">processNetworkEvents</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a5490f7579a280a251ba1441af0317d4a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GraphicClient::_restartToMenu</definition>
+        <argsstring></argsstring>
+        <name>_restartToMenu</name>
+        <qualifiedname>GraphicClient::_restartToMenu</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Restart to menu flag </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="203" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="203" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">processNetworkEvents</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a61b58ea0f04c31a6cb4f2103f5df4f51" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GraphicClient::_hasPseudo</definition>
+        <argsstring></argsstring>
+        <name>_hasPseudo</name>
+        <qualifiedname>GraphicClient::_hasPseudo</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Player has entered pseudo flag </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="204" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="204" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">init</referencedby>
+        <referencedby refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" compoundref="GraphicClient_8cpp" startline="679" endline="752">selectPseudo</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a1dbb979ad32f77bcf170c02e93d9b896" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string GraphicClient::_lastInitError</definition>
+        <argsstring></argsstring>
+        <name>_lastInitError</name>
+        <qualifiedname>GraphicClient::_lastInitError</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Last initialization error message </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="205" column="17" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="205" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">init</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1abb4308207bbfbe4f674b28c7de9fafb7" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string GraphicClient::_serverIp</definition>
+        <argsstring></argsstring>
+        <name>_serverIp</name>
+        <qualifiedname>GraphicClient::_serverIp</qualifiedname>
+        <initializer>= &quot;127.0.0.1&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Server IP address </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="208" column="17" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="208" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" compoundref="GraphicClient_8cpp" startline="1007" endline="1230">selectMainMenu</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a39d4c8c19e2ae4030687f0068cd5fa8c" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int GraphicClient::_serverPort</definition>
+        <argsstring></argsstring>
+        <name>_serverPort</name>
+        <qualifiedname>GraphicClient::_serverPort</qualifiedname>
+        <initializer>= 4243</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Server port number </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="209" column="9" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="209" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" compoundref="GraphicClient_8cpp" startline="1007" endline="1230">selectMainMenu</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a042a31cb7e92647410b8b40c54c8d074" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GraphicClient::_hasServerConfig</definition>
+        <argsstring></argsstring>
+        <name>_hasServerConfig</name>
+        <qualifiedname>GraphicClient::_hasServerConfig</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Server config provided flag </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="210" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="210" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">init</referencedby>
+        <referencedby refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" compoundref="GraphicClient_8cpp" startline="1007" endline="1230">selectMainMenu</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1acf2b54f37edf9f394796f9b549dc9efb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool GraphicClient::_pendingReturnToLobby</definition>
+        <argsstring></argsstring>
+        <name>_pendingReturnToLobby</name>
+        <qualifiedname>GraphicClient::_pendingReturnToLobby</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Pending return to lobby flag </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="213" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="213" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">processNetworkEvents</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1a210f3519772cd892b489fadf1962dda6" prot="private" static="no" mutable="no">
+        <type>std::chrono::steady_clock::time_point</type>
+        <definition>std::chrono::steady_clock::time_point GraphicClient::_returnToLobbyAt</definition>
+        <argsstring></argsstring>
+        <name>_returnToLobbyAt</name>
+        <qualifiedname>GraphicClient::_returnToLobbyAt</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Time to return to lobby </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="214" column="43" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="214" bodyend="214"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">processNetworkEvents</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classGraphicClient_1abe1ec0067a934ed489c6bf1bb83c5af4" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string GraphicClient::_pendingReturnReason</definition>
+        <argsstring></argsstring>
+        <name>_pendingReturnReason</name>
+        <qualifiedname>GraphicClient::_pendingReturnReason</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reason for returning to lobby </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="215" column="17" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="215" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">processNetworkEvents</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classGraphicClient_1aca385d0199520832fb464e03a8112dd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GraphicClient::GraphicClient</definition>
+        <argsstring>()</argsstring>
+        <name>GraphicClient</name>
+        <qualifiedname>GraphicClient::GraphicClient</qualifiedname>
+        <briefdescription>
+<para>Constructor initializing the graphic client. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="32" column="5" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="20" bodyend="25"/>
+        <references refid="classGraphicClient_1a52dcaca28beda66bed425b6020dfc43c" compoundref="GraphicClient_8hpp" startline="196" endline="196">_lastHello</references>
+        <references refid="classGraphicClient_1aa769c45dded765a088aa3f2111d99124" compoundref="GraphicClient_8hpp" startline="195" endline="195">_lastKeepAlive</references>
+        <references refid="classGraphicClient_1a9267fe8ea88f600994981271461383be" compoundref="GraphicClient_8hpp" startline="164">_window</references>
+        <references refid="classRaylib_1_1Window_1a3cc1b124c027948c7b0928a13ee065b2" compoundref="Raylib_8cpp" startline="30" endline="30">Raylib::Window::setTargetFPS</references>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1a9ccf7889b329ef2a927a5522814d930a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>GraphicClient::~GraphicClient</definition>
+        <argsstring>()=default</argsstring>
+        <name>~GraphicClient</name>
+        <qualifiedname>GraphicClient::~GraphicClient</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="33" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int GraphicClient::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <qualifiedname>GraphicClient::run</qualifiedname>
+        <briefdescription>
+<para>Main application loop. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Exit code (0 for success). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="39" column="9" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="973" bodyend="1005"/>
+        <references refid="classGraphicClient_1a88e6521fa2a326f2563bd7674c361438" compoundref="GraphicClient_8hpp" startline="181">_bulletEntities</references>
+        <references refid="classGraphicClient_1a04a9a700edbeddcc42a63a3f8d6fe14e" compoundref="GraphicClient_8hpp" startline="187">_chatActive</references>
+        <references refid="classGraphicClient_1a29003b747d7aad2476accc5b80250eef" compoundref="GraphicClient_8hpp" startline="186">_chatInput</references>
+        <references refid="classGraphicClient_1a3674d589494334b97ac301bb3a6c088f" compoundref="GraphicClient_8hpp" startline="185">_chatLog</references>
+        <references refid="classGraphicClient_1a82245caa063f38af3a7b4ad1a7418efc" compoundref="GraphicClient_8hpp" startline="180">_entities</references>
+        <references refid="classGraphicClient_1a60cedf219d20bc0cafe62005fe9ee88a" compoundref="GraphicClient_8hpp" startline="202">_forceExit</references>
+        <references refid="classGraphicClient_1a8e52c08b5ba630898751b895d8b9d6ba" compoundref="GraphicClient_8hpp" startline="201">_gameAnimTimer</references>
+        <references refid="classGraphicClient_1a1dbb979ad32f77bcf170c02e93d9b896" compoundref="GraphicClient_8hpp" startline="205">_lastInitError</references>
+        <references refid="classGraphicClient_1a4e4f2c634651d79b312ce55f8bbb43d8" compoundref="GraphicClient_8hpp" startline="182">_monsterEntities</references>
+        <references refid="classGraphicClient_1a20356ba82da3f85b4eccdef7b722f472" compoundref="GraphicClient_8hpp" startline="167">_net</references>
+        <references refid="classGraphicClient_1abe1ec0067a934ed489c6bf1bb83c5af4" compoundref="GraphicClient_8hpp" startline="215">_pendingReturnReason</references>
+        <references refid="classGraphicClient_1acf2b54f37edf9f394796f9b549dc9efb" compoundref="GraphicClient_8hpp" startline="213">_pendingReturnToLobby</references>
+        <references refid="classGraphicClient_1a6b93f97cd4b03c881c45451ab1e60afa" compoundref="GraphicClient_8hpp" startline="194">_playerPingMs</references>
+        <references refid="classGraphicClient_1a5490f7579a280a251ba1441af0317d4a" compoundref="GraphicClient_8hpp" startline="203">_restartToMenu</references>
+        <references refid="classGraphicClient_1acb4c98b2104cce0ec8de9051d6d53bf2" compoundref="GraphicClient_8hpp" startline="168">_state</references>
+        <references refid="classGraphicClient_1a81a2e4066369786564a7d8221c8d83a0" compoundref="GraphicClient_8hpp" startline="198">_udpReady</references>
+        <references refid="classGraphicClient_1a9267fe8ea88f600994981271461383be" compoundref="GraphicClient_8hpp" startline="164">_window</references>
+        <references refid="classGameState_1aa19f7b265ddcdf1c490b1c43556d07e1" compoundref="GameState_8hpp" startline="79" endline="84">GameState::clear</references>
+        <references refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</references>
+        <references refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">init</references>
+        <references refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">NetworkClient::resetForLobby</references>
+        <references refid="classRaylib_1_1Window_1ac0d6cca8b53645743f06c2e453624938" compoundref="Raylib_8cpp" startline="22" endline="22">Raylib::Window::shouldClose</references>
+        <referencedby refid="client_8cpp_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="client_8cpp" startline="11" endline="27">main</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GraphicClient::init</definition>
+        <argsstring>()</argsstring>
+        <name>init</name>
+        <qualifiedname>GraphicClient::init</qualifiedname>
+        <briefdescription>
+<para>Initializes the client (connects to server, shows menus). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if initialization successful, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="50" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="27" bodyend="81"/>
+        <references refid="classGraphicClient_1a61b58ea0f04c31a6cb4f2103f5df4f51" compoundref="GraphicClient_8hpp" startline="204">_hasPseudo</references>
+        <references refid="classGraphicClient_1a042a31cb7e92647410b8b40c54c8d074" compoundref="GraphicClient_8hpp" startline="210">_hasServerConfig</references>
+        <references refid="classGraphicClient_1a52dcaca28beda66bed425b6020dfc43c" compoundref="GraphicClient_8hpp" startline="196" endline="196">_lastHello</references>
+        <references refid="classGraphicClient_1a1dbb979ad32f77bcf170c02e93d9b896" compoundref="GraphicClient_8hpp" startline="205">_lastInitError</references>
+        <references refid="classGraphicClient_1a20356ba82da3f85b4eccdef7b722f472" compoundref="GraphicClient_8hpp" startline="167">_net</references>
+        <references refid="classGraphicClient_1a91c6a0f863c130c89d3ff55cd05741a0" compoundref="GraphicClient_8hpp" startline="175">_rectangleRenderSystem</references>
+        <references refid="classGraphicClient_1a2e26499ba6df996c1ac3c980b5320c40" compoundref="GraphicClient_8hpp" startline="174">_spriteRenderSystem</references>
+        <references refid="classGraphicClient_1acb4c98b2104cce0ec8de9051d6d53bf2" compoundref="GraphicClient_8hpp" startline="168">_state</references>
+        <references refid="classNetworkClient_1ad93611688c9c99aba516b5396a543cd8" compoundref="NetworkClient_8hpp" startline="153" endline="153">NetworkClient::clearEvents</references>
+        <references refid="classNetworkClient_1aaeedfac221d22aa5df4135b1680c4c99" compoundref="NetworkClient_8cpp" startline="36" endline="52">NetworkClient::connectToServer</references>
+        <references refid="classNetworkClient_1a0ea20f35b1cb3a917add14fc0bbc03af" compoundref="NetworkClient_8cpp" startline="511" endline="520">NetworkClient::ensureUdp</references>
+        <references refid="classGraphicClient_1aa997b1f0089b31169851aa8c3f60f3fe" compoundref="GraphicClient_8hpp" startline="42">GAME_AREA_OFFSET_X</references>
+        <references refid="classGraphicClient_1aa65b589ade4fd8ddd3d8a7115d175e2b" compoundref="GraphicClient_8hpp" startline="43">GAME_AREA_OFFSET_Y</references>
+        <references refid="classGraphicClient_1a52f25216ca79230194e237a48fa12b18" compoundref="GraphicClient_8hpp" startline="41">GAME_AREA_SIZE</references>
+        <references refid="classNetworkClient_1ac79abc81697913608e849a936eee4ada" compoundref="NetworkClient_8hpp" startline="145" endline="145">NetworkClient::getLastPlayerList</references>
+        <references refid="classNetworkClient_1a3a848ca2af9ba2a3008e33ecc39a3622" compoundref="NetworkClient_8hpp" startline="121" endline="121">NetworkClient::getPlayerId</references>
+        <references refid="classNetworkClient_1a08e45bde82ce1fbc60128fd538b58078" compoundref="NetworkClient_8hpp" startline="112" endline="112">NetworkClient::isConnected</references>
+        <references refid="classGameState_1adbedaec4367fbf2705065e66a8909ce5" compoundref="GameState_8hpp" startline="97" endline="104">GameState::listPlayers</references>
+        <references refid="classNetworkClient_1a1773337e67c321eece590156e1a7b38a" compoundref="NetworkClient_8cpp" startline="54" endline="91">NetworkClient::performHandshake</references>
+        <references refid="classNetworkClient_1a1f77ff0729755d9782b4542582cfe214" compoundref="NetworkClient_8cpp" startline="232" endline="273">NetworkClient::pollPackets</references>
+        <references refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">selectLobby</references>
+        <references refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" compoundref="GraphicClient_8cpp" startline="1007" endline="1230">selectMainMenu</references>
+        <references refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" compoundref="GraphicClient_8cpp" startline="679" endline="752">selectPseudo</references>
+        <references refid="classNetworkClient_1aeb3772e8f3674783b14953ee27e1cd39" compoundref="NetworkClient_8cpp" startline="99" endline="107">NetworkClient::sendHelloUdp</references>
+        <references refid="classRectangleRenderSystem_1a084776cc697d899483b31ec00a99e9b3" compoundref="System_8hpp" startline="221" endline="226">RectangleRenderSystem::setGameAreaOffset</references>
+        <references refid="classSpriteRenderSystem_1abb1858e6c55c336ea4e1a9e4f597946c" compoundref="System_8hpp" startline="271" endline="276">SpriteRenderSystem::setGameAreaOffset</references>
+        <references refid="classGraphicClient_1aacb31035c31d741d0ae2ca5ec9228b12" compoundref="GraphicClient_8cpp" startline="130" endline="197">syncEntities</references>
+        <references refid="classGameState_1a9f034439dd565e62cb83be4ac56baba1" compoundref="GameState_8hpp" startline="55" endline="58">GameState::upsertPlayer</references>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GraphicClient::gameLoop</definition>
+        <argsstring>()</argsstring>
+        <name>gameLoop</name>
+        <qualifiedname>GraphicClient::gameLoop</qualifiedname>
+        <briefdescription>
+<para>Main game loop iteration. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="55" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="859" bodyend="971"/>
+        <references refid="classGraphicClient_1a04a9a700edbeddcc42a63a3f8d6fe14e" compoundref="GraphicClient_8hpp" startline="187">_chatActive</references>
+        <references refid="classGraphicClient_1a29003b747d7aad2476accc5b80250eef" compoundref="GraphicClient_8hpp" startline="186">_chatInput</references>
+        <references refid="classGraphicClient_1a3674d589494334b97ac301bb3a6c088f" compoundref="GraphicClient_8hpp" startline="185">_chatLog</references>
+        <references refid="classGraphicClient_1a60cedf219d20bc0cafe62005fe9ee88a" compoundref="GraphicClient_8hpp" startline="202">_forceExit</references>
+        <references refid="classGraphicClient_1aa935bab23b2dadf2856fe49c9aef642a" compoundref="GraphicClient_8hpp" startline="191">_lastChatSent</references>
+        <references refid="classGraphicClient_1a52dcaca28beda66bed425b6020dfc43c" compoundref="GraphicClient_8hpp" startline="196" endline="196">_lastHello</references>
+        <references refid="classGraphicClient_1aa769c45dded765a088aa3f2111d99124" compoundref="GraphicClient_8hpp" startline="195" endline="195">_lastKeepAlive</references>
+        <references refid="classGraphicClient_1a3a0eeb38f5ce4b276f311b92c65fd501" compoundref="GraphicClient_8hpp" startline="197" endline="197">_lastUdpPing</references>
+        <references refid="classGraphicClient_1a2fad4811cde141bb655df45eac5a6bae" compoundref="GraphicClient_8hpp" startline="190">_localPseudo</references>
+        <references refid="classGraphicClient_1a20356ba82da3f85b4eccdef7b722f472" compoundref="GraphicClient_8hpp" startline="167">_net</references>
+        <references refid="classGraphicClient_1abe1ec0067a934ed489c6bf1bb83c5af4" compoundref="GraphicClient_8hpp" startline="215">_pendingReturnReason</references>
+        <references refid="classGraphicClient_1acf2b54f37edf9f394796f9b549dc9efb" compoundref="GraphicClient_8hpp" startline="213">_pendingReturnToLobby</references>
+        <references refid="classGraphicClient_1a5490f7579a280a251ba1441af0317d4a" compoundref="GraphicClient_8hpp" startline="203">_restartToMenu</references>
+        <references refid="classGraphicClient_1a210f3519772cd892b489fadf1962dda6" compoundref="GraphicClient_8hpp" startline="214" endline="214">_returnToLobbyAt</references>
+        <references refid="classGraphicClient_1a81a2e4066369786564a7d8221c8d83a0" compoundref="GraphicClient_8hpp" startline="198">_udpReady</references>
+        <references refid="classGraphicClient_1a9267fe8ea88f600994981271461383be" compoundref="GraphicClient_8hpp" startline="164">_window</references>
+        <references refid="classNetworkClient_1ad93611688c9c99aba516b5396a543cd8" compoundref="NetworkClient_8hpp" startline="153" endline="153">NetworkClient::clearEvents</references>
+        <references refid="classNetworkClient_1a7f69f5c30fd349d670fae18598737b86" compoundref="NetworkClient_8cpp" startline="487" endline="500">NetworkClient::disconnect</references>
+        <references refid="classNetworkClient_1a632c4eeb2d8086de97cd616b2be972cf" compoundref="NetworkClient_8cpp" startline="502" endline="509">NetworkClient::disconnectUdp</references>
+        <references refid="classNetworkClient_1aa443eee7ab598870a1028935b1b8c174" compoundref="NetworkClient_8hpp" startline="149" endline="149">NetworkClient::getEvents</references>
+        <references refid="classRaylib_1_1Window_1a8a6eedeecb648b4c1527681a42727e15" compoundref="Raylib_8cpp" startline="29" endline="29">Raylib::Window::getFrameTime</references>
+        <references refid="classRaylib_1_1Input_1a77b20ab7de1540d7cc5c18f71b137a12" compoundref="Raylib_8cpp" startline="74" endline="74">Raylib::Input::isKeyPressed</references>
+        <references refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">processNetworkEvents</references>
+        <references refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</references>
+        <references refid="classNetworkClient_1ae93ee27e05eea56b96d34c4789a01f41" compoundref="NetworkClient_8cpp" startline="150" endline="170">NetworkClient::sendChat</references>
+        <references refid="classNetworkClient_1aeb3772e8f3674783b14953ee27e1cd39" compoundref="NetworkClient_8cpp" startline="99" endline="107">NetworkClient::sendHelloUdp</references>
+        <references refid="classNetworkClient_1a28a515bbb5f6f75d6603a5332c217f93" compoundref="NetworkClient_8cpp" startline="93" endline="97">NetworkClient::sendPong</references>
+        <references refid="classNetworkClient_1ad087f54b86ec34f0be29053415ab7a46" compoundref="NetworkClient_8cpp" startline="109" endline="121">NetworkClient::sendUdpPing</references>
+        <references refid="classRaylib_1_1Window_1ac0d6cca8b53645743f06c2e453624938" compoundref="Raylib_8cpp" startline="22" endline="22">Raylib::Window::shouldClose</references>
+        <references refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">updateEntities</references>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GraphicClient::processNetworkEvents</definition>
+        <argsstring>()</argsstring>
+        <name>processNetworkEvents</name>
+        <qualifiedname>GraphicClient::processNetworkEvents</qualifiedname>
+        <briefdescription>
+<para>Processes network events and updates game state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="60" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="273" bodyend="370"/>
+        <references refid="classGraphicClient_1a3674d589494334b97ac301bb3a6c088f" compoundref="GraphicClient_8hpp" startline="185">_chatLog</references>
+        <references refid="classGraphicClient_1a60cedf219d20bc0cafe62005fe9ee88a" compoundref="GraphicClient_8hpp" startline="202">_forceExit</references>
+        <references refid="classGraphicClient_1aa935bab23b2dadf2856fe49c9aef642a" compoundref="GraphicClient_8hpp" startline="191">_lastChatSent</references>
+        <references refid="classGraphicClient_1a2fad4811cde141bb655df45eac5a6bae" compoundref="GraphicClient_8hpp" startline="190">_localPseudo</references>
+        <references refid="classGraphicClient_1a20356ba82da3f85b4eccdef7b722f472" compoundref="GraphicClient_8hpp" startline="167">_net</references>
+        <references refid="classGraphicClient_1abe1ec0067a934ed489c6bf1bb83c5af4" compoundref="GraphicClient_8hpp" startline="215">_pendingReturnReason</references>
+        <references refid="classGraphicClient_1acf2b54f37edf9f394796f9b549dc9efb" compoundref="GraphicClient_8hpp" startline="213">_pendingReturnToLobby</references>
+        <references refid="classGraphicClient_1a5490f7579a280a251ba1441af0317d4a" compoundref="GraphicClient_8hpp" startline="203">_restartToMenu</references>
+        <references refid="classGraphicClient_1a210f3519772cd892b489fadf1962dda6" compoundref="GraphicClient_8hpp" startline="214" endline="214">_returnToLobbyAt</references>
+        <references refid="classGraphicClient_1acb4c98b2104cce0ec8de9051d6d53bf2" compoundref="GraphicClient_8hpp" startline="168">_state</references>
+        <references refid="classGraphicClient_1a81a2e4066369786564a7d8221c8d83a0" compoundref="GraphicClient_8hpp" startline="198">_udpReady</references>
+        <references refid="classGameState_1aa19f7b265ddcdf1c490b1c43556d07e1" compoundref="GameState_8hpp" startline="79" endline="84">GameState::clear</references>
+        <references refid="classNetworkClient_1ad93611688c9c99aba516b5396a543cd8" compoundref="NetworkClient_8hpp" startline="153" endline="153">NetworkClient::clearEvents</references>
+        <references refid="classGameState_1a59e8f64ec95841389e7bdbc1a07f718a" compoundref="GameState_8hpp" startline="89" endline="92">GameState::clearPlayers</references>
+        <references refid="classNetworkClient_1a7f69f5c30fd349d670fae18598737b86" compoundref="NetworkClient_8cpp" startline="487" endline="500">NetworkClient::disconnect</references>
+        <references refid="classNetworkClient_1a632c4eeb2d8086de97cd616b2be972cf" compoundref="NetworkClient_8cpp" startline="502" endline="509">NetworkClient::disconnectUdp</references>
+        <references refid="classNetworkClient_1aa443eee7ab598870a1028935b1b8c174" compoundref="NetworkClient_8hpp" startline="149" endline="149">NetworkClient::getEvents</references>
+        <references refid="classNetworkClient_1ac79abc81697913608e849a936eee4ada" compoundref="NetworkClient_8hpp" startline="145" endline="145">NetworkClient::getLastPlayerList</references>
+        <references refid="classNetworkClient_1a501553ba5f6d381f43855eda057157bf" compoundref="NetworkClient_8hpp" startline="133" endline="133">NetworkClient::getLastSnapshot</references>
+        <references refid="classNetworkClient_1a4b6f0c20c59eeeddf98e738257c8a793" compoundref="NetworkClient_8hpp" startline="141" endline="141">NetworkClient::getLastSnapshotMonsters</references>
+        <references refid="classNetworkClient_1a3a848ca2af9ba2a3008e33ecc39a3622" compoundref="NetworkClient_8hpp" startline="121" endline="121">NetworkClient::getPlayerId</references>
+        <references refid="classGameState_1adbedaec4367fbf2705065e66a8909ce5" compoundref="GameState_8hpp" startline="97" endline="104">GameState::listPlayers</references>
+        <references refid="classNetworkClient_1a1f77ff0729755d9782b4542582cfe214" compoundref="NetworkClient_8cpp" startline="232" endline="273">NetworkClient::pollPackets</references>
+        <references refid="classGameState_1a72d25f3760e72101b6c3ddc990da3d04" compoundref="GameState_8hpp" startline="71" endline="74">GameState::upsertMonster</references>
+        <references refid="classGameState_1a9f034439dd565e62cb83be4ac56baba1" compoundref="GameState_8hpp" startline="55" endline="58">GameState::upsertPlayer</references>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GraphicClient::updateEntities</definition>
+        <argsstring>(float dt)</argsstring>
+        <name>updateEntities</name>
+        <qualifiedname>GraphicClient::updateEntities</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Updates all game entities based on delta time. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Delta time since last update. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="66" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="371" bodyend="414"/>
+        <references refid="classGraphicClient_1a88e6521fa2a326f2563bd7674c361438" compoundref="GraphicClient_8hpp" startline="181">_bulletEntities</references>
+        <references refid="classGraphicClient_1a04a9a700edbeddcc42a63a3f8d6fe14e" compoundref="GraphicClient_8hpp" startline="187">_chatActive</references>
+        <references refid="classGraphicClient_1aa2ace668a32b35b06b45e386d00ea4f1" compoundref="GraphicClient_8hpp" startline="171">_ecs</references>
+        <references refid="classGraphicClient_1a82245caa063f38af3a7b4ad1a7418efc" compoundref="GraphicClient_8hpp" startline="180">_entities</references>
+        <references refid="classGraphicClient_1aa1b6f7632112637217ee65be6a6dcbae" compoundref="GraphicClient_8hpp" startline="176">_inputSystem</references>
+        <references refid="classGraphicClient_1af728873f72540cf041d42a9d7e317337" compoundref="GraphicClient_8hpp" startline="177">_movementSystem</references>
+        <references refid="classGraphicClient_1a20356ba82da3f85b4eccdef7b722f472" compoundref="GraphicClient_8hpp" startline="167">_net</references>
+        <references refid="classGraphicClient_1acb4c98b2104cce0ec8de9051d6d53bf2" compoundref="GraphicClient_8hpp" startline="168">_state</references>
+        <references refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" compoundref="Core_8hpp" startline="131" endline="133">ECS::getComponent</references>
+        <references refid="classNetworkClient_1abfd2ef3eb235148e35fe65831187feab" compoundref="NetworkClient_8hpp" startline="137" endline="137">NetworkClient::getLastSnapshotBullets</references>
+        <references refid="classNetworkClient_1a4b6f0c20c59eeeddf98e738257c8a793" compoundref="NetworkClient_8hpp" startline="141" endline="141">NetworkClient::getLastSnapshotMonsters</references>
+        <references refid="classNetworkClient_1a3a848ca2af9ba2a3008e33ecc39a3622" compoundref="NetworkClient_8hpp" startline="121" endline="121">NetworkClient::getPlayerId</references>
+        <references refid="classGameState_1adbedaec4367fbf2705065e66a8909ce5" compoundref="GameState_8hpp" startline="97" endline="104">GameState::listPlayers</references>
+        <references refid="classGraphicClient_1a61111e5d14a72f0f69344ab034a0622a" compoundref="GraphicClient_8cpp" startline="200" endline="237">syncBullets</references>
+        <references refid="classGraphicClient_1aacb31035c31d741d0ae2ca5ec9228b12" compoundref="GraphicClient_8cpp" startline="130" endline="197">syncEntities</references>
+        <references refid="classGraphicClient_1afe45a37a11b23a08cce4d7c6b7efccbc" compoundref="GraphicClient_8cpp" startline="239" endline="271">syncMonsters</references>
+        <references refid="classMovementSystem_1a57b0e4d3739f4b27ce15324b8a4d47bf" compoundref="System_8hpp" startline="164" endline="178">MovementSystem::update</references>
+        <references refid="classInputSystem_1af7ed09c6bfd5fba6af86af16de00d706" compoundref="System_8hpp" startline="90" endline="141">InputSystem::update</references>
+        <references refid="classPosition_1af684446cbf0f6d53386686283da6dcc6" compoundref="Components_8hpp" startline="26">Position::x</references>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GraphicClient::render</definition>
+        <argsstring>(float dt)</argsstring>
+        <name>render</name>
+        <qualifiedname>GraphicClient::render</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Renders the entire game scene. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Delta time since last frame. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="72" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="774" bodyend="857"/>
+        <references refid="classGraphicClient_1a88e6521fa2a326f2563bd7674c361438" compoundref="GraphicClient_8hpp" startline="181">_bulletEntities</references>
+        <references refid="classGraphicClient_1a04a9a700edbeddcc42a63a3f8d6fe14e" compoundref="GraphicClient_8hpp" startline="187">_chatActive</references>
+        <references refid="classGraphicClient_1a29003b747d7aad2476accc5b80250eef" compoundref="GraphicClient_8hpp" startline="186">_chatInput</references>
+        <references refid="classGraphicClient_1a3674d589494334b97ac301bb3a6c088f" compoundref="GraphicClient_8hpp" startline="185">_chatLog</references>
+        <references refid="classGraphicClient_1aa2ace668a32b35b06b45e386d00ea4f1" compoundref="GraphicClient_8hpp" startline="171">_ecs</references>
+        <references refid="classGraphicClient_1a82245caa063f38af3a7b4ad1a7418efc" compoundref="GraphicClient_8hpp" startline="180">_entities</references>
+        <references refid="classGraphicClient_1a8e52c08b5ba630898751b895d8b9d6ba" compoundref="GraphicClient_8hpp" startline="201">_gameAnimTimer</references>
+        <references refid="classGraphicClient_1a4e4f2c634651d79b312ce55f8bbb43d8" compoundref="GraphicClient_8hpp" startline="182">_monsterEntities</references>
+        <references refid="classGraphicClient_1a20356ba82da3f85b4eccdef7b722f472" compoundref="GraphicClient_8hpp" startline="167">_net</references>
+        <references refid="classGraphicClient_1a91c6a0f863c130c89d3ff55cd05741a0" compoundref="GraphicClient_8hpp" startline="175">_rectangleRenderSystem</references>
+        <references refid="classGraphicClient_1a2e26499ba6df996c1ac3c980b5320c40" compoundref="GraphicClient_8hpp" startline="174">_spriteRenderSystem</references>
+        <references refid="classGraphicClient_1acb4c98b2104cce0ec8de9051d6d53bf2" compoundref="GraphicClient_8hpp" startline="168">_state</references>
+        <references refid="classGraphicClient_1a9267fe8ea88f600994981271461383be" compoundref="GraphicClient_8hpp" startline="164">_window</references>
+        <references refid="classRaylib_1_1Window_1a0d93c896921575743b097baa6d66a6b4" compoundref="Raylib_8cpp" startline="24" endline="24">Raylib::Window::beginDrawing</references>
+        <references refid="classGraphicClient_1ab72f007713bd3d5074c566a425c0d9b1" compoundref="GraphicClient_8cpp" startline="754" endline="772">drawGameBackground</references>
+        <references refid="classRaylib_1_1Window_1a9692f845607bfbb28fb4e889ea0d3b37" compoundref="Raylib_8cpp" startline="25" endline="25">Raylib::Window::endDrawing</references>
+        <references refid="classGraphicClient_1aa997b1f0089b31169851aa8c3f60f3fe" compoundref="GraphicClient_8hpp" startline="42">GAME_AREA_OFFSET_X</references>
+        <references refid="classGraphicClient_1aa65b589ade4fd8ddd3d8a7115d175e2b" compoundref="GraphicClient_8hpp" startline="43">GAME_AREA_OFFSET_Y</references>
+        <references refid="classGraphicClient_1a52f25216ca79230194e237a48fa12b18" compoundref="GraphicClient_8hpp" startline="41">GAME_AREA_SIZE</references>
+        <references refid="classNetworkClient_1a9f92ea1a77f00b2867ebc37b6581d507" compoundref="NetworkClient_8hpp" startline="125" endline="125">NetworkClient::getLobbyCode</references>
+        <references refid="classNetworkClient_1a3a848ca2af9ba2a3008e33ecc39a3622" compoundref="NetworkClient_8hpp" startline="121" endline="121">NetworkClient::getPlayerId</references>
+        <references refid="classNetworkClient_1a9b4492241691163874e561440a379c3e" compoundref="NetworkClient_8cpp" startline="587" endline="593">NetworkClient::getUdpLossPct</references>
+        <references refid="classNetworkClient_1aa2de4fb4f6154441c96a7620ae3fb982" compoundref="NetworkClient_8hpp" startline="157" endline="157">NetworkClient::getUdpPingMs</references>
+        <references refid="classNetworkClient_1a14ed76e74eea78d36e9009129f641f79" compoundref="NetworkClient_8cpp" startline="595" endline="599">NetworkClient::getUdpRxKbps</references>
+        <references refid="classNetworkClient_1ad5c06bb19f3f5959f30bc383d89cb6e4" compoundref="NetworkClient_8cpp" startline="601" endline="605">NetworkClient::getUdpTxKbps</references>
+        <references refid="classGameState_1adbedaec4367fbf2705065e66a8909ce5" compoundref="GameState_8hpp" startline="97" endline="104">GameState::listPlayers</references>
+        <references refid="classSpriteRenderSystem_1aaaf180675dc11ac4aab058fb44ab762a" compoundref="System_8hpp" startline="263" endline="263">SpriteRenderSystem::setScale</references>
+        <references refid="classRaylib_1_1Draw_1adf84c6a40cd571fbbdeacf2868ab192e" compoundref="Raylib_8cpp" startline="68" endline="71">Raylib::Draw::text</references>
+        <references refid="classRectangleRenderSystem_1a92f6643f7bbedda7d15c6ea55f7407d1" compoundref="System_8hpp" startline="233" endline="242">RectangleRenderSystem::update</references>
+        <references refid="classSpriteRenderSystem_1a439243229880829d70b83b895b500495" compoundref="System_8hpp" startline="284" endline="297">SpriteRenderSystem::update</references>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">gameLoop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1ab72f007713bd3d5074c566a425c0d9b1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GraphicClient::drawGameBackground</definition>
+        <argsstring>(float hoverAnimTimer)</argsstring>
+        <name>drawGameBackground</name>
+        <qualifiedname>GraphicClient::drawGameBackground</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>hoverAnimTimer</declname>
+        </param>
+        <briefdescription>
+<para>Draws the game area background with animations. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>hoverAnimTimer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Animation timer for effects. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="78" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="754" bodyend="772"/>
+        <references refid="classGraphicClient_1a9267fe8ea88f600994981271461383be" compoundref="GraphicClient_8hpp" startline="164">_window</references>
+        <references refid="classRaylib_1_1Window_1ab5db70ee0a095180020beaa8f134247d" compoundref="Raylib_8cpp" startline="26" endline="26">Raylib::Window::clearBackground</references>
+        <references refid="classGraphicClient_1aa997b1f0089b31169851aa8c3f60f3fe" compoundref="GraphicClient_8hpp" startline="42">GAME_AREA_OFFSET_X</references>
+        <references refid="classGraphicClient_1aa65b589ade4fd8ddd3d8a7115d175e2b" compoundref="GraphicClient_8hpp" startline="43">GAME_AREA_OFFSET_Y</references>
+        <references refid="classGraphicClient_1a52f25216ca79230194e237a48fa12b18" compoundref="GraphicClient_8hpp" startline="41">GAME_AREA_SIZE</references>
+        <references refid="classRaylib_1_1Draw_1a1a91623bcea0592d00ae0264d81acd52" compoundref="Raylib_8cpp" startline="63" endline="66">Raylib::Draw::rectangleLines</references>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">render</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1a1f97bf7f358d1d5a5d65069d641feb5b" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref></type>
+        <definition>Entity GraphicClient::createPlayerEntity</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>createPlayerEntity</name>
+        <qualifiedname>GraphicClient::createPlayerEntity</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+<para>Creates a player entity at specified position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>X position in game coordinates. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Y position in game coordinates. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Entity ID of created player. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="86" column="12" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="83" bodyend="92"/>
+        <references refid="classGraphicClient_1aa2ace668a32b35b06b45e386d00ea4f1" compoundref="GraphicClient_8hpp" startline="171">_ecs</references>
+        <references refid="classECS_1a4fbe0d70b0934255d301ced9df6287e7" compoundref="Core_8hpp" startline="112" endline="122">ECS::addComponent</references>
+        <references refid="classECS_1a41b876f3725cbb04aac3f2edd95522c6" compoundref="Core_8hpp" startline="100" endline="103">ECS::createEntity</references>
+        <referencedby refid="classGraphicClient_1aacb31035c31d741d0ae2ca5ec9228b12" compoundref="GraphicClient_8cpp" startline="130" endline="197">syncEntities</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1a31bdd83222945e28b307b03b32135288" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref></type>
+        <definition>Entity GraphicClient::createBulletEntity</definition>
+        <argsstring>(float x, float y, float vx, float vy)</argsstring>
+        <name>createBulletEntity</name>
+        <qualifiedname>GraphicClient::createBulletEntity</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>vx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>vy</declname>
+        </param>
+        <briefdescription>
+<para>Creates a bullet entity at specified position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>X position in game coordinates. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Y position in game coordinates. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>X velocity. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Y velocity. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Entity ID of created bullet. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="96" column="12" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="94" bodyend="101"/>
+        <references refid="classGraphicClient_1aa2ace668a32b35b06b45e386d00ea4f1" compoundref="GraphicClient_8hpp" startline="171">_ecs</references>
+        <references refid="classECS_1a4fbe0d70b0934255d301ced9df6287e7" compoundref="Core_8hpp" startline="112" endline="122">ECS::addComponent</references>
+        <references refid="classECS_1a41b876f3725cbb04aac3f2edd95522c6" compoundref="Core_8hpp" startline="100" endline="103">ECS::createEntity</references>
+        <referencedby refid="classGraphicClient_1a61111e5d14a72f0f69344ab034a0622a" compoundref="GraphicClient_8cpp" startline="200" endline="237">syncBullets</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1a6dd918f7ac4761ab4946371df06386ec" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref></type>
+        <definition>Entity GraphicClient::createMonsterEntity</definition>
+        <argsstring>(float x, float y, uint8_t type)</argsstring>
+        <name>createMonsterEntity</name>
+        <qualifiedname>GraphicClient::createMonsterEntity</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>type</declname>
+        </param>
+        <briefdescription>
+<para>Creates a monster entity at specified position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>X position in game coordinates. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>y</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Y position in game coordinates. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Monster type identifier. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Entity ID of created monster. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="105" column="12" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="103" bodyend="128"/>
+        <references refid="classGraphicClient_1aa2ace668a32b35b06b45e386d00ea4f1" compoundref="GraphicClient_8hpp" startline="171">_ecs</references>
+        <references refid="classECS_1a4fbe0d70b0934255d301ced9df6287e7" compoundref="Core_8hpp" startline="112" endline="122">ECS::addComponent</references>
+        <references refid="classECS_1a41b876f3725cbb04aac3f2edd95522c6" compoundref="Core_8hpp" startline="100" endline="103">ECS::createEntity</references>
+        <referencedby refid="classGraphicClient_1afe45a37a11b23a08cce4d7c6b7efccbc" compoundref="GraphicClient_8cpp" startline="239" endline="271">syncMonsters</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1aacb31035c31d741d0ae2ca5ec9228b12" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GraphicClient::syncEntities</definition>
+        <argsstring>(const std::vector&lt; PlayerState &gt; &amp;players)</argsstring>
+        <name>syncEntities</name>
+        <qualifiedname>GraphicClient::syncEntities</qualifiedname>
+        <param>
+          <type>const std::vector&lt; <ref refid="structPlayerState" kindref="compound">PlayerState</ref> &gt; &amp;</type>
+          <declname>players</declname>
+        </param>
+        <briefdescription>
+<para>Synchronizes player entities with server state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>players</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>List of player states from server. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="111" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="130" bodyend="197"/>
+        <references refid="classGraphicClient_1aa2ace668a32b35b06b45e386d00ea4f1" compoundref="GraphicClient_8hpp" startline="171">_ecs</references>
+        <references refid="classGraphicClient_1a82245caa063f38af3a7b4ad1a7418efc" compoundref="GraphicClient_8hpp" startline="180">_entities</references>
+        <references refid="classGraphicClient_1a20356ba82da3f85b4eccdef7b722f472" compoundref="GraphicClient_8hpp" startline="167">_net</references>
+        <references refid="classGraphicClient_1a1f97bf7f358d1d5a5d65069d641feb5b" compoundref="GraphicClient_8cpp" startline="83" endline="92">createPlayerEntity</references>
+        <references refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" compoundref="Core_8hpp" startline="131" endline="133">ECS::getComponent</references>
+        <references refid="classNetworkClient_1a3a848ca2af9ba2a3008e33ecc39a3622" compoundref="NetworkClient_8hpp" startline="121" endline="121">NetworkClient::getPlayerId</references>
+        <references refid="classPosition_1af684446cbf0f6d53386686283da6dcc6" compoundref="Components_8hpp" startline="26">Position::x</references>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">init</referencedby>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">updateEntities</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1a61111e5d14a72f0f69344ab034a0622a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GraphicClient::syncBullets</definition>
+        <argsstring>(const std::vector&lt; BulletState &gt; &amp;bullets)</argsstring>
+        <name>syncBullets</name>
+        <qualifiedname>GraphicClient::syncBullets</qualifiedname>
+        <param>
+          <type>const std::vector&lt; <ref refid="structBulletState" kindref="compound">BulletState</ref> &gt; &amp;</type>
+          <declname>bullets</declname>
+        </param>
+        <briefdescription>
+<para>Synchronizes bullet entities with server state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>bullets</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>List of bullet states from server. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="117" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="200" bodyend="237"/>
+        <references refid="classGraphicClient_1a88e6521fa2a326f2563bd7674c361438" compoundref="GraphicClient_8hpp" startline="181">_bulletEntities</references>
+        <references refid="classGraphicClient_1aa2ace668a32b35b06b45e386d00ea4f1" compoundref="GraphicClient_8hpp" startline="171">_ecs</references>
+        <references refid="classGraphicClient_1a31bdd83222945e28b307b03b32135288" compoundref="GraphicClient_8cpp" startline="94" endline="101">createBulletEntity</references>
+        <references refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" compoundref="Core_8hpp" startline="131" endline="133">ECS::getComponent</references>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">updateEntities</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1afe45a37a11b23a08cce4d7c6b7efccbc" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GraphicClient::syncMonsters</definition>
+        <argsstring>(const std::vector&lt; MonsterState &gt; &amp;monsters)</argsstring>
+        <name>syncMonsters</name>
+        <qualifiedname>GraphicClient::syncMonsters</qualifiedname>
+        <param>
+          <type>const std::vector&lt; <ref refid="structMonsterState" kindref="compound">MonsterState</ref> &gt; &amp;</type>
+          <declname>monsters</declname>
+        </param>
+        <briefdescription>
+<para>Synchronizes monster entities with server state. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>monsters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>List of monster states from server. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="123" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="239" bodyend="271"/>
+        <references refid="classGraphicClient_1aa2ace668a32b35b06b45e386d00ea4f1" compoundref="GraphicClient_8hpp" startline="171">_ecs</references>
+        <references refid="classGraphicClient_1a4e4f2c634651d79b312ce55f8bbb43d8" compoundref="GraphicClient_8hpp" startline="182">_monsterEntities</references>
+        <references refid="classGraphicClient_1a6dd918f7ac4761ab4946371df06386ec" compoundref="GraphicClient_8cpp" startline="103" endline="128">createMonsterEntity</references>
+        <references refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" compoundref="Core_8hpp" startline="131" endline="133">ECS::getComponent</references>
+        <references refid="classPosition_1af684446cbf0f6d53386686283da6dcc6" compoundref="Components_8hpp" startline="26">Position::x</references>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">updateEntities</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GraphicClient::selectLobby</definition>
+        <argsstring>()</argsstring>
+        <name>selectLobby</name>
+        <qualifiedname>GraphicClient::selectLobby</qualifiedname>
+        <briefdescription>
+<para>Shows lobby selection menu. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if lobby selected successfully, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="129" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="416" bodyend="677"/>
+        <references refid="classGraphicClient_1aa769c45dded765a088aa3f2111d99124" compoundref="GraphicClient_8hpp" startline="195" endline="195">_lastKeepAlive</references>
+        <references refid="classGraphicClient_1a20356ba82da3f85b4eccdef7b722f472" compoundref="GraphicClient_8hpp" startline="167">_net</references>
+        <references refid="classGraphicClient_1aad6444ee81ce5610e8f134c8ee002077" compoundref="GraphicClient_8hpp" startline="172">_uiEcs</references>
+        <references refid="classGraphicClient_1a9267fe8ea88f600994981271461383be" compoundref="GraphicClient_8hpp" startline="164">_window</references>
+        <references refid="classECS_1a4fbe0d70b0934255d301ced9df6287e7" compoundref="Core_8hpp" startline="112" endline="122">ECS::addComponent</references>
+        <references refid="classRaylib_1_1Window_1a0d93c896921575743b097baa6d66a6b4" compoundref="Raylib_8cpp" startline="24" endline="24">Raylib::Window::beginDrawing</references>
+        <references refid="classRaylib_1_1Window_1ab5db70ee0a095180020beaa8f134247d" compoundref="Raylib_8cpp" startline="26" endline="26">Raylib::Window::clearBackground</references>
+        <references refid="classNetworkClient_1ad93611688c9c99aba516b5396a543cd8" compoundref="NetworkClient_8hpp" startline="153" endline="153">NetworkClient::clearEvents</references>
+        <references refid="classECS_1a41b876f3725cbb04aac3f2edd95522c6" compoundref="Core_8hpp" startline="100" endline="103">ECS::createEntity</references>
+        <references refid="classRaylib_1_1Window_1a9692f845607bfbb28fb4e889ea0d3b37" compoundref="Raylib_8cpp" startline="25" endline="25">Raylib::Window::endDrawing</references>
+        <references refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" compoundref="Core_8hpp" startline="131" endline="133">ECS::getComponent</references>
+        <references refid="classNetworkClient_1aa443eee7ab598870a1028935b1b8c174" compoundref="NetworkClient_8hpp" startline="149" endline="149">NetworkClient::getEvents</references>
+        <references refid="classRaylib_1_1Window_1a8a6eedeecb648b4c1527681a42727e15" compoundref="Raylib_8cpp" startline="29" endline="29">Raylib::Window::getFrameTime</references>
+        <references refid="classNetworkClient_1a9f92ea1a77f00b2867ebc37b6581d507" compoundref="NetworkClient_8hpp" startline="125" endline="125">NetworkClient::getLobbyCode</references>
+        <references refid="structUIButton_1a29796662c05780b5010b18a94b189661" compoundref="Components_8hpp" startline="136">UIButton::hovered</references>
+        <references refid="classRaylib_1_1Input_1a77b20ab7de1540d7cc5c18f71b137a12" compoundref="Raylib_8cpp" startline="74" endline="74">Raylib::Input::isKeyPressed</references>
+        <references refid="classNetworkClient_1a1f77ff0729755d9782b4542582cfe214" compoundref="NetworkClient_8cpp" startline="232" endline="273">NetworkClient::pollPackets</references>
+        <references refid="classRaylib_1_1Draw_1ac711ababd202454476d1127d61f8a837" compoundref="Raylib_8cpp" startline="57" endline="60">Raylib::Draw::rectangle</references>
+        <references refid="classRaylib_1_1Draw_1a1a91623bcea0592d00ae0264d81acd52" compoundref="Raylib_8cpp" startline="63" endline="66">Raylib::Draw::rectangleLines</references>
+        <references refid="classNetworkClient_1a69d86a3b406a767d3feb704be440343a" compoundref="NetworkClient_8cpp" startline="172" endline="177">NetworkClient::sendCreateLobby</references>
+        <references refid="classNetworkClient_1ab66ff3a3c9bb96ad56e141d3713914bd" compoundref="NetworkClient_8cpp" startline="179" endline="184">NetworkClient::sendJoinLobby</references>
+        <references refid="classNetworkClient_1a28a515bbb5f6f75d6603a5332c217f93" compoundref="NetworkClient_8cpp" startline="93" endline="97">NetworkClient::sendPong</references>
+        <references refid="classRaylib_1_1Draw_1adf84c6a40cd571fbbdeacf2868ab192e" compoundref="Raylib_8cpp" startline="68" endline="71">Raylib::Draw::text</references>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">init</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GraphicClient::selectPseudo</definition>
+        <argsstring>()</argsstring>
+        <name>selectPseudo</name>
+        <qualifiedname>GraphicClient::selectPseudo</qualifiedname>
+        <briefdescription>
+<para>Shows pseudo/username input menu. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if pseudo entered successfully, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="135" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="679" bodyend="752"/>
+        <references refid="classGraphicClient_1a61b58ea0f04c31a6cb4f2103f5df4f51" compoundref="GraphicClient_8hpp" startline="204">_hasPseudo</references>
+        <references refid="classGraphicClient_1a2fad4811cde141bb655df45eac5a6bae" compoundref="GraphicClient_8hpp" startline="190">_localPseudo</references>
+        <references refid="classGraphicClient_1a20356ba82da3f85b4eccdef7b722f472" compoundref="GraphicClient_8hpp" startline="167">_net</references>
+        <references refid="classGraphicClient_1a9267fe8ea88f600994981271461383be" compoundref="GraphicClient_8hpp" startline="164">_window</references>
+        <references refid="classRaylib_1_1Window_1a0d93c896921575743b097baa6d66a6b4" compoundref="Raylib_8cpp" startline="24" endline="24">Raylib::Window::beginDrawing</references>
+        <references refid="classRaylib_1_1Window_1ab5db70ee0a095180020beaa8f134247d" compoundref="Raylib_8cpp" startline="26" endline="26">Raylib::Window::clearBackground</references>
+        <references refid="classRaylib_1_1Window_1a9692f845607bfbb28fb4e889ea0d3b37" compoundref="Raylib_8cpp" startline="25" endline="25">Raylib::Window::endDrawing</references>
+        <references refid="classRaylib_1_1Window_1a8a6eedeecb648b4c1527681a42727e15" compoundref="Raylib_8cpp" startline="29" endline="29">Raylib::Window::getFrameTime</references>
+        <references refid="classRaylib_1_1Input_1a77b20ab7de1540d7cc5c18f71b137a12" compoundref="Raylib_8cpp" startline="74" endline="74">Raylib::Input::isKeyPressed</references>
+        <references refid="classRaylib_1_1Draw_1ac711ababd202454476d1127d61f8a837" compoundref="Raylib_8cpp" startline="57" endline="60">Raylib::Draw::rectangle</references>
+        <references refid="classRaylib_1_1Draw_1a1a91623bcea0592d00ae0264d81acd52" compoundref="Raylib_8cpp" startline="63" endline="66">Raylib::Draw::rectangleLines</references>
+        <references refid="classNetworkClient_1acfbb5b079e33b388d8df440cf29e89a1" compoundref="NetworkClient_8hpp" startline="79" endline="79">NetworkClient::setPseudo</references>
+        <references refid="classRaylib_1_1Window_1ac0d6cca8b53645743f06c2e453624938" compoundref="Raylib_8cpp" startline="22" endline="22">Raylib::Window::shouldClose</references>
+        <references refid="classRaylib_1_1Draw_1adf84c6a40cd571fbbdeacf2868ab192e" compoundref="Raylib_8cpp" startline="68" endline="71">Raylib::Draw::text</references>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">init</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GraphicClient::selectMainMenu</definition>
+        <argsstring>()</argsstring>
+        <name>selectMainMenu</name>
+        <qualifiedname>GraphicClient::selectMainMenu</qualifiedname>
+        <briefdescription>
+<para>Shows main menu with server connection options. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if user proceeded to game, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="141" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="1007" bodyend="1230"/>
+        <references refid="classGraphicClient_1a042a31cb7e92647410b8b40c54c8d074" compoundref="GraphicClient_8hpp" startline="210">_hasServerConfig</references>
+        <references refid="classGraphicClient_1a20356ba82da3f85b4eccdef7b722f472" compoundref="GraphicClient_8hpp" startline="167">_net</references>
+        <references refid="classGraphicClient_1abb4308207bbfbe4f674b28c7de9fafb7" compoundref="GraphicClient_8hpp" startline="208">_serverIp</references>
+        <references refid="classGraphicClient_1a39d4c8c19e2ae4030687f0068cd5fa8c" compoundref="GraphicClient_8hpp" startline="209">_serverPort</references>
+        <references refid="classGraphicClient_1a9267fe8ea88f600994981271461383be" compoundref="GraphicClient_8hpp" startline="164">_window</references>
+        <references refid="classRaylib_1_1Window_1a0d93c896921575743b097baa6d66a6b4" compoundref="Raylib_8cpp" startline="24" endline="24">Raylib::Window::beginDrawing</references>
+        <references refid="classRaylib_1_1Window_1ab5db70ee0a095180020beaa8f134247d" compoundref="Raylib_8cpp" startline="26" endline="26">Raylib::Window::clearBackground</references>
+        <references refid="classRaylib_1_1Window_1a9692f845607bfbb28fb4e889ea0d3b37" compoundref="Raylib_8cpp" startline="25" endline="25">Raylib::Window::endDrawing</references>
+        <references refid="classRaylib_1_1Window_1a8a6eedeecb648b4c1527681a42727e15" compoundref="Raylib_8cpp" startline="29" endline="29">Raylib::Window::getFrameTime</references>
+        <references refid="classRaylib_1_1Input_1a77b20ab7de1540d7cc5c18f71b137a12" compoundref="Raylib_8cpp" startline="74" endline="74">Raylib::Input::isKeyPressed</references>
+        <references refid="classRaylib_1_1Draw_1ac711ababd202454476d1127d61f8a837" compoundref="Raylib_8cpp" startline="57" endline="60">Raylib::Draw::rectangle</references>
+        <references refid="classRaylib_1_1Draw_1a1a91623bcea0592d00ae0264d81acd52" compoundref="Raylib_8cpp" startline="63" endline="66">Raylib::Draw::rectangleLines</references>
+        <references refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" compoundref="GraphicClient_8cpp" startline="1328" endline="1574">selectSettings</references>
+        <references refid="classRaylib_1_1Window_1ac0d6cca8b53645743f06c2e453624938" compoundref="Raylib_8cpp" startline="22" endline="22">Raylib::Window::shouldClose</references>
+        <references refid="classRaylib_1_1Draw_1adf84c6a40cd571fbbdeacf2868ab192e" compoundref="Raylib_8cpp" startline="68" endline="71">Raylib::Draw::text</references>
+        <references refid="classNetworkClient_1acb108e50dae9dda5b2cef508db1dd582" compoundref="NetworkClient_8cpp" startline="607" endline="613">NetworkClient::updateServerAddress</references>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">init</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool GraphicClient::selectSettings</definition>
+        <argsstring>()</argsstring>
+        <name>selectSettings</name>
+        <qualifiedname>GraphicClient::selectSettings</qualifiedname>
+        <briefdescription>
+<para>Shows controls settings menu for key remapping. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True on menu close, false on exit. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="147" column="10" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="1328" bodyend="1574"/>
+        <references refid="classGraphicClient_1aa1b6f7632112637217ee65be6a6dcbae" compoundref="GraphicClient_8hpp" startline="176">_inputSystem</references>
+        <references refid="classGraphicClient_1a9267fe8ea88f600994981271461383be" compoundref="GraphicClient_8hpp" startline="164">_window</references>
+        <references refid="classRaylib_1_1Window_1a0d93c896921575743b097baa6d66a6b4" compoundref="Raylib_8cpp" startline="24" endline="24">Raylib::Window::beginDrawing</references>
+        <references refid="classRaylib_1_1Window_1ab5db70ee0a095180020beaa8f134247d" compoundref="Raylib_8cpp" startline="26" endline="26">Raylib::Window::clearBackground</references>
+        <references refid="System_8hpp_1adade54da2b207529e678a25e6389d494a9b0b4a95b99523966e0e34ffdadac9da" compoundref="System_8hpp" startline="29">DOWN</references>
+        <references refid="classRaylib_1_1Window_1a9692f845607bfbb28fb4e889ea0d3b37" compoundref="Raylib_8cpp" startline="25" endline="25">Raylib::Window::endDrawing</references>
+        <references refid="classRaylib_1_1Window_1a8a6eedeecb648b4c1527681a42727e15" compoundref="Raylib_8cpp" startline="29" endline="29">Raylib::Window::getFrameTime</references>
+        <references refid="classInputSystem_1ac4da6a8e14e4907b0c7882e1297fea3a" compoundref="System_8hpp" startline="74" endline="78">InputSystem::getKey</references>
+        <references refid="classRaylib_1_1Input_1a77b20ab7de1540d7cc5c18f71b137a12" compoundref="Raylib_8cpp" startline="74" endline="74">Raylib::Input::isKeyPressed</references>
+        <references refid="classGraphicClient_1a8afc36976fbd0ff4c0e8e3a3acb53989" compoundref="GraphicClient_8cpp" startline="1232" endline="1326">keyboardKeyToString</references>
+        <references refid="System_8hpp_1adade54da2b207529e678a25e6389d494adb45120aafd37a973140edee24708065" compoundref="System_8hpp" startline="27">LEFT</references>
+        <references refid="classRaylib_1_1Draw_1ac711ababd202454476d1127d61f8a837" compoundref="Raylib_8cpp" startline="57" endline="60">Raylib::Draw::rectangle</references>
+        <references refid="classRaylib_1_1Draw_1a1a91623bcea0592d00ae0264d81acd52" compoundref="Raylib_8cpp" startline="63" endline="66">Raylib::Draw::rectangleLines</references>
+        <references refid="System_8hpp_1adade54da2b207529e678a25e6389d494aec8379af7490bb9eaaf579cf17876f38" compoundref="System_8hpp" startline="26">RIGHT</references>
+        <references refid="classInputSystem_1ab584f9708fa5b2c909a96a698980f682" compoundref="System_8hpp" startline="64" endline="67">InputSystem::setKey</references>
+        <references refid="System_8hpp_1adade54da2b207529e678a25e6389d494a38317998d0db1f65b5a5d3f9990c02f3" compoundref="System_8hpp" startline="30">SHOOT</references>
+        <references refid="classRaylib_1_1Window_1ac0d6cca8b53645743f06c2e453624938" compoundref="Raylib_8cpp" startline="22" endline="22">Raylib::Window::shouldClose</references>
+        <references refid="classRaylib_1_1Draw_1adf84c6a40cd571fbbdeacf2868ab192e" compoundref="Raylib_8cpp" startline="68" endline="71">Raylib::Draw::text</references>
+        <references refid="System_8hpp_1adade54da2b207529e678a25e6389d494aba595d8bca8bc5e67c37c0a9d89becfa" compoundref="System_8hpp" startline="28">UP</references>
+        <referencedby refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" compoundref="GraphicClient_8cpp" startline="1007" endline="1230">selectMainMenu</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1a8afc36976fbd0ff4c0e8e3a3acb53989" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string GraphicClient::keyboardKeyToString</definition>
+        <argsstring>(KeyboardKey key)</argsstring>
+        <name>keyboardKeyToString</name>
+        <qualifiedname>GraphicClient::keyboardKeyToString</qualifiedname>
+        <param>
+          <type>KeyboardKey</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Converts keyboard key code to human-readable string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>KeyboardKey code to convert. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>String representation of the key. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="154" column="17" bodyfile="graphical-client/GraphicClient/GraphicClient.cpp" bodystart="1232" bodyend="1326"/>
+        <referencedby refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" compoundref="GraphicClient_8cpp" startline="1328" endline="1574">selectSettings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classGraphicClient_1ad5fb254db602fc2a00310d5c33237a92" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void GraphicClient::disconnectAndQuit</definition>
+        <argsstring>()</argsstring>
+        <name>disconnectAndQuit</name>
+        <qualifiedname>GraphicClient::disconnectAndQuit</qualifiedname>
+        <briefdescription>
+<para>Disconnects from server and quits the application. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Properly closes network connections and sets exit flag. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="161" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Main client application managing graphics, networking, and game state. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Handles game initialization, rendering, entity management, user input processing, menu interactions, and network communication with the game server. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="5">
+        <label>ECS</label>
+        <link refid="classECS"/>
+      </node>
+      <node id="4">
+        <label>GameState</label>
+        <link refid="classGameState"/>
+      </node>
+      <node id="1">
+        <label>GraphicClient</label>
+        <link refid="classGraphicClient"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>-_window</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>-_net</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>-_state</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>-_ecs</edgelabel>
+          <edgelabel>-_uiEcs</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>-_spriteRenderSystem</edgelabel>
+        </childnode>
+        <childnode refid="7" relation="usage">
+          <edgelabel>-_rectangleRenderSystem</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>-_inputSystem</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>-_movementSystem</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>InputSystem</label>
+        <link refid="classInputSystem"/>
+      </node>
+      <node id="9">
+        <label>MovementSystem</label>
+        <link refid="classMovementSystem"/>
+      </node>
+      <node id="3">
+        <label>NetworkClient</label>
+        <link refid="classNetworkClient"/>
+      </node>
+      <node id="2">
+        <label>Raylib::Window</label>
+        <link refid="classRaylib_1_1Window"/>
+      </node>
+      <node id="7">
+        <label>RectangleRenderSystem</label>
+        <link refid="classRectangleRenderSystem"/>
+      </node>
+      <node id="6">
+        <label>SpriteRenderSystem</label>
+        <link refid="classSpriteRenderSystem"/>
+      </node>
+    </collaborationgraph>
+    <location file="graphical-client/GraphicClient/GraphicClient.hpp" line="27" column="1" bodyfile="graphical-client/GraphicClient/GraphicClient.hpp" bodystart="27" bodyend="216"/>
+    <listofallmembers>
+      <member refid="classGraphicClient_1a88e6521fa2a326f2563bd7674c361438" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_bulletEntities</name></member>
+      <member refid="classGraphicClient_1a04a9a700edbeddcc42a63a3f8d6fe14e" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_chatActive</name></member>
+      <member refid="classGraphicClient_1a29003b747d7aad2476accc5b80250eef" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_chatInput</name></member>
+      <member refid="classGraphicClient_1a3674d589494334b97ac301bb3a6c088f" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_chatLog</name></member>
+      <member refid="classGraphicClient_1aa2ace668a32b35b06b45e386d00ea4f1" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_ecs</name></member>
+      <member refid="classGraphicClient_1a82245caa063f38af3a7b4ad1a7418efc" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_entities</name></member>
+      <member refid="classGraphicClient_1a60cedf219d20bc0cafe62005fe9ee88a" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_forceExit</name></member>
+      <member refid="classGraphicClient_1a8e52c08b5ba630898751b895d8b9d6ba" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_gameAnimTimer</name></member>
+      <member refid="classGraphicClient_1a61b58ea0f04c31a6cb4f2103f5df4f51" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_hasPseudo</name></member>
+      <member refid="classGraphicClient_1a042a31cb7e92647410b8b40c54c8d074" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_hasServerConfig</name></member>
+      <member refid="classGraphicClient_1aa1b6f7632112637217ee65be6a6dcbae" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_inputSystem</name></member>
+      <member refid="classGraphicClient_1aa935bab23b2dadf2856fe49c9aef642a" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_lastChatSent</name></member>
+      <member refid="classGraphicClient_1a52dcaca28beda66bed425b6020dfc43c" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_lastHello</name></member>
+      <member refid="classGraphicClient_1a1dbb979ad32f77bcf170c02e93d9b896" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_lastInitError</name></member>
+      <member refid="classGraphicClient_1aa769c45dded765a088aa3f2111d99124" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_lastKeepAlive</name></member>
+      <member refid="classGraphicClient_1a3a0eeb38f5ce4b276f311b92c65fd501" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_lastUdpPing</name></member>
+      <member refid="classGraphicClient_1a2fad4811cde141bb655df45eac5a6bae" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_localPseudo</name></member>
+      <member refid="classGraphicClient_1a4e4f2c634651d79b312ce55f8bbb43d8" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_monsterEntities</name></member>
+      <member refid="classGraphicClient_1af728873f72540cf041d42a9d7e317337" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_movementSystem</name></member>
+      <member refid="classGraphicClient_1a20356ba82da3f85b4eccdef7b722f472" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_net</name></member>
+      <member refid="classGraphicClient_1abe1ec0067a934ed489c6bf1bb83c5af4" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_pendingReturnReason</name></member>
+      <member refid="classGraphicClient_1acf2b54f37edf9f394796f9b549dc9efb" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_pendingReturnToLobby</name></member>
+      <member refid="classGraphicClient_1a6b93f97cd4b03c881c45451ab1e60afa" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_playerPingMs</name></member>
+      <member refid="classGraphicClient_1a91c6a0f863c130c89d3ff55cd05741a0" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_rectangleRenderSystem</name></member>
+      <member refid="classGraphicClient_1a5490f7579a280a251ba1441af0317d4a" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_restartToMenu</name></member>
+      <member refid="classGraphicClient_1a210f3519772cd892b489fadf1962dda6" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_returnToLobbyAt</name></member>
+      <member refid="classGraphicClient_1abb4308207bbfbe4f674b28c7de9fafb7" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_serverIp</name></member>
+      <member refid="classGraphicClient_1a39d4c8c19e2ae4030687f0068cd5fa8c" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_serverPort</name></member>
+      <member refid="classGraphicClient_1a2e26499ba6df996c1ac3c980b5320c40" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_spriteRenderSystem</name></member>
+      <member refid="classGraphicClient_1acb4c98b2104cce0ec8de9051d6d53bf2" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_state</name></member>
+      <member refid="classGraphicClient_1a81a2e4066369786564a7d8221c8d83a0" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_udpReady</name></member>
+      <member refid="classGraphicClient_1aad6444ee81ce5610e8f134c8ee002077" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_uiEcs</name></member>
+      <member refid="classGraphicClient_1a9267fe8ea88f600994981271461383be" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>_window</name></member>
+      <member refid="classGraphicClient_1a31bdd83222945e28b307b03b32135288" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>createBulletEntity</name></member>
+      <member refid="classGraphicClient_1a6dd918f7ac4761ab4946371df06386ec" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>createMonsterEntity</name></member>
+      <member refid="classGraphicClient_1a1f97bf7f358d1d5a5d65069d641feb5b" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>createPlayerEntity</name></member>
+      <member refid="classGraphicClient_1ad5fb254db602fc2a00310d5c33237a92" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>disconnectAndQuit</name></member>
+      <member refid="classGraphicClient_1ab72f007713bd3d5074c566a425c0d9b1" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>drawGameBackground</name></member>
+      <member refid="classGraphicClient_1aa997b1f0089b31169851aa8c3f60f3fe" prot="public" virt="non-virtual"><scope>GraphicClient</scope><name>GAME_AREA_OFFSET_X</name></member>
+      <member refid="classGraphicClient_1aa65b589ade4fd8ddd3d8a7115d175e2b" prot="public" virt="non-virtual"><scope>GraphicClient</scope><name>GAME_AREA_OFFSET_Y</name></member>
+      <member refid="classGraphicClient_1a52f25216ca79230194e237a48fa12b18" prot="public" virt="non-virtual"><scope>GraphicClient</scope><name>GAME_AREA_SIZE</name></member>
+      <member refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>gameLoop</name></member>
+      <member refid="classGraphicClient_1aca385d0199520832fb464e03a8112dd5" prot="public" virt="non-virtual"><scope>GraphicClient</scope><name>GraphicClient</name></member>
+      <member refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>init</name></member>
+      <member refid="classGraphicClient_1a8afc36976fbd0ff4c0e8e3a3acb53989" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>keyboardKeyToString</name></member>
+      <member refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>processNetworkEvents</name></member>
+      <member refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>render</name></member>
+      <member refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" prot="public" virt="non-virtual"><scope>GraphicClient</scope><name>run</name></member>
+      <member refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>selectLobby</name></member>
+      <member refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>selectMainMenu</name></member>
+      <member refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>selectPseudo</name></member>
+      <member refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>selectSettings</name></member>
+      <member refid="classGraphicClient_1a61111e5d14a72f0f69344ab034a0622a" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>syncBullets</name></member>
+      <member refid="classGraphicClient_1aacb31035c31d741d0ae2ca5ec9228b12" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>syncEntities</name></member>
+      <member refid="classGraphicClient_1afe45a37a11b23a08cce4d7c6b7efccbc" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>syncMonsters</name></member>
+      <member refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" prot="private" virt="non-virtual"><scope>GraphicClient</scope><name>updateEntities</name></member>
+      <member refid="classGraphicClient_1a9ccf7889b329ef2a927a5522814d930a" prot="public" virt="non-virtual"><scope>GraphicClient</scope><name>~GraphicClient</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -92,6 +93,8 @@ $(document).ready(function(){initNavTree('classUDPGameServer.html',''); initResi
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classUDPGameServer-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">UDPGameServer Class Reference</div></div>
 </div><!--header-->
@@ -100,8 +103,31 @@ $(document).ready(function(){initNavTree('classUDPGameServer.html',''); initResi
 <p>Simple UDP authoritative game server that manages players and snapshots.  
  <a href="classUDPGameServer.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="UDPGameServer_8hpp_source.html">Network/TransportLayer/UDP/UDPGameServer.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for UDPGameServer:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer__coll__graph.png" border="0" usemap="#aUDPGameServer_coll__map" alt="Collaboration graph"/></div>
+<map name="aUDPGameServer_coll__map" id="aUDPGameServer_coll__map">
+<area shape="rect" title="Simple UDP authoritative game server that manages players and snapshots." alt="" coords="198,1012,362,1557"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html" title="UDP Socket class inheriting from ASocket." alt="" coords="5,637,179,837"/>
+<area shape="poly" title=" " alt="" coords="129,836,195,1029,190,1031,124,838"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html" title=" " alt="" coords="5,235,179,475"/>
+<area shape="poly" title=" " alt="" coords="95,489,95,637,89,637,89,489"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ISocket.html" title="Interface for socket operations." alt="" coords="5,5,179,185"/>
+<area shape="poly" title=" " alt="" coords="95,199,95,234,89,234,89,199"/>
+<area shape="rect" href="classSessionManager.html" title="Tracks client sessions across TCP and UDP, and enforces simple rate limits." alt="" coords="203,524,357,949"/>
+<area shape="poly" title=" " alt="" coords="283,950,283,996,277,996,277,950"/>
+<area shape="rect" href="classIpcChannel.html" title="Small IPC helper based on a UNIX datagram socket (SOCK_DGRAM)." alt="" coords="381,584,509,889"/>
+<area shape="poly" title=" " alt="" coords="402,890,369,998,364,996,397,889"/>
+</map>
+</div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structUDPGameServer_1_1Incoming.html">Incoming</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0272e620fa267e7a2043b5729d24cfbc" id="r_a0272e620fa267e7a2043b5729d24cfbc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a0272e620fa267e7a2043b5729d24cfbc">UDPGameServer</a> (uint16_t port, <a class="el" href="classSessionManager.html">SessionManager</a> &amp;sessions, long long snapshotIntervalMs=500, std::string lobbyCode=&quot;PUBLIC&quot;)</td></tr>
@@ -113,10 +139,77 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a476a4f2e8bb0833c788761298eb4a72b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33e8d20721c5a01eafc5f466ecd9e1b7" id="r_a33e8d20721c5a01eafc5f466ecd9e1b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a33e8d20721c5a01eafc5f466ecd9e1b7">setIpc</a> (<a class="el" href="classIpcChannel.html">IpcChannel</a> *ipc)</td></tr>
 <tr class="separator:a33e8d20721c5a01eafc5f466ecd9e1b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a9d28a7f4a0c75aba168ea6a58633d1bb" id="r_a9d28a7f4a0c75aba168ea6a58633d1bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a9d28a7f4a0c75aba168ea6a58633d1bb">handlePacket</a> (const <a class="el" href="classPacket.html">Packet</a> &amp;packet, const sockaddr_in &amp;from)</td></tr>
+<tr class="memdesc:a9d28a7f4a0c75aba168ea6a58633d1bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Route an incoming packet to the appropriate handler.  <br /></td></tr>
+<tr class="separator:a9d28a7f4a0c75aba168ea6a58633d1bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a367b917d572ad28819003841b3be180c" id="r_a367b917d572ad28819003841b3be180c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a367b917d572ad28819003841b3be180c">handleHello</a> (const <a class="el" href="classPacket.html">Packet</a> &amp;packet, const sockaddr_in &amp;from)</td></tr>
+<tr class="memdesc:a367b917d572ad28819003841b3be180c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a new player on receipt of a hello message.  <br /></td></tr>
+<tr class="separator:a367b917d572ad28819003841b3be180c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe9913c5eaa12c361bdcc9ce68bdc835" id="r_abe9913c5eaa12c361bdcc9ce68bdc835"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#abe9913c5eaa12c361bdcc9ce68bdc835">handleInput</a> (const <a class="el" href="classPacket.html">Packet</a> &amp;packet, const sockaddr_in &amp;from)</td></tr>
+<tr class="memdesc:abe9913c5eaa12c361bdcc9ce68bdc835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update player inputs (movement/direction).  <br /></td></tr>
+<tr class="separator:abe9913c5eaa12c361bdcc9ce68bdc835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0117b7531413f5b7b161675f9e9efd3d" id="r_a0117b7531413f5b7b161675f9e9efd3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a0117b7531413f5b7b161675f9e9efd3d">handleShoot</a> (const <a class="el" href="classPacket.html">Packet</a> &amp;packet)</td></tr>
+<tr class="memdesc:a0117b7531413f5b7b161675f9e9efd3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle a shoot command (spawn a bullet).  <br /></td></tr>
+<tr class="separator:a0117b7531413f5b7b161675f9e9efd3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19fbc481d5a9467da80ef95a4e3872e5" id="r_a19fbc481d5a9467da80ef95a4e3872e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a19fbc481d5a9467da80ef95a4e3872e5">broadcastSnapshot</a> ()</td></tr>
+<tr class="memdesc:a19fbc481d5a9467da80ef95a4e3872e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadcast the current snapshot to all connected players.  <br /></td></tr>
+<tr class="separator:a19fbc481d5a9467da80ef95a4e3872e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a602889e958a3ff926bb8de325c982a62" id="r_a602889e958a3ff926bb8de325c982a62"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a602889e958a3ff926bb8de325c982a62">sendPacketTo</a> (const <a class="el" href="classPacket.html">Packet</a> &amp;packet, const sockaddr_in &amp;to)</td></tr>
+<tr class="memdesc:a602889e958a3ff926bb8de325c982a62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a packet to a single endpoint.  <br /></td></tr>
+<tr class="separator:a602889e958a3ff926bb8de325c982a62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04aa4dac3d2e7571a2d092c0a37e75ef" id="r_a04aa4dac3d2e7571a2d092c0a37e75ef"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a04aa4dac3d2e7571a2d092c0a37e75ef">nowMs</a> () const</td></tr>
+<tr class="memdesc:a04aa4dac3d2e7571a2d092c0a37e75ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Monotonic time helper in milliseconds.  <br /></td></tr>
+<tr class="separator:a04aa4dac3d2e7571a2d092c0a37e75ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1c969e983f12d8e36bfb2465f7fe5d6" id="r_aa1c969e983f12d8e36bfb2465f7fe5d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#aa1c969e983f12d8e36bfb2465f7fe5d6">updateSimulation</a> (long long <a class="el" href="classUDPGameServer.html#a04aa4dac3d2e7571a2d092c0a37e75ef">nowMs</a>, long long deltaMs)</td></tr>
+<tr class="memdesc:aa1c969e983f12d8e36bfb2465f7fe5d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advance the local simulation based on elapsed time.  <br /></td></tr>
+<tr class="separator:aa1c969e983f12d8e36bfb2465f7fe5d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f3a37004641222f4d30d55614f05029" id="r_a7f3a37004641222f4d30d55614f05029"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a7f3a37004641222f4d30d55614f05029">networkLoop</a> ()</td></tr>
+<tr class="memdesc:a7f3a37004641222f4d30d55614f05029"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread loop to read incoming UDP packets without blocking the simulation tick.  <br /></td></tr>
+<tr class="separator:a7f3a37004641222f4d30d55614f05029"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae610b7c128c3b70e06f3fc1b5a3ecdc5" id="r_ae610b7c128c3b70e06f3fc1b5a3ecdc5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#ae610b7c128c3b70e06f3fc1b5a3ecdc5">logPrefix</a> () const</td></tr>
+<tr class="separator:ae610b7c128c3b70e06f3fc1b5a3ecdc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a25c7a0d2ae641a6c71421059bb024a60" id="r_a25c7a0d2ae641a6c71421059bb024a60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html">Network::TransportLayer::UDPSocket</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a25c7a0d2ae641a6c71421059bb024a60">_socket</a></td></tr>
+<tr class="separator:a25c7a0d2ae641a6c71421059bb024a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a717a4dc2095ce6aa20c6e006acf8eef4" id="r_a717a4dc2095ce6aa20c6e006acf8eef4"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, <a class="el" href="classGameWorld.html">GameWorld</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a717a4dc2095ce6aa20c6e006acf8eef4">_worlds</a></td></tr>
+<tr class="separator:a717a4dc2095ce6aa20c6e006acf8eef4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c197dcedb9480e8ad9c3aa9368b34d3" id="r_a4c197dcedb9480e8ad9c3aa9368b34d3"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a4c197dcedb9480e8ad9c3aa9368b34d3">_playerLobby</a></td></tr>
+<tr class="separator:a4c197dcedb9480e8ad9c3aa9368b34d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addc03e253cc450a368fa4e17cb369bdd" id="r_addc03e253cc450a368fa4e17cb369bdd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classSessionManager.html">SessionManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#addc03e253cc450a368fa4e17cb369bdd">_sessions</a></td></tr>
+<tr class="separator:addc03e253cc450a368fa4e17cb369bdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a390e8fc2716ffa166d2bd6f91acb9bf2" id="r_a390e8fc2716ffa166d2bd6f91acb9bf2"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a390e8fc2716ffa166d2bd6f91acb9bf2">_lastSnapshotMs</a> = 0</td></tr>
+<tr class="separator:a390e8fc2716ffa166d2bd6f91acb9bf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f64e138162800e13ab68e61d273e335" id="r_a2f64e138162800e13ab68e61d273e335"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a2f64e138162800e13ab68e61d273e335">_lastTickMs</a> = 0</td></tr>
+<tr class="separator:a2f64e138162800e13ab68e61d273e335"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8403afcff6dde0baa509124d4553b73e" id="r_a8403afcff6dde0baa509124d4553b73e"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a8403afcff6dde0baa509124d4553b73e">_port</a></td></tr>
+<tr class="separator:a8403afcff6dde0baa509124d4553b73e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbeb77deb2d519708ae2c6e2df26ba54" id="r_abbeb77deb2d519708ae2c6e2df26ba54"><td class="memItemLeft" align="right" valign="top">const long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#abbeb77deb2d519708ae2c6e2df26ba54">_snapshotIntervalMs</a></td></tr>
+<tr class="separator:abbeb77deb2d519708ae2c6e2df26ba54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c3b3016f0b7493aa6d6efd7df70652d" id="r_a6c3b3016f0b7493aa6d6efd7df70652d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a6c3b3016f0b7493aa6d6efd7df70652d">_expectedLobby</a></td></tr>
+<tr class="separator:a6c3b3016f0b7493aa6d6efd7df70652d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9386af9feddd3dc985886c42ad90e44e" id="r_a9386af9feddd3dc985886c42ad90e44e"><td class="memItemLeft" align="right" valign="top">const long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a9386af9feddd3dc985886c42ad90e44e">_tickIntervalMs</a> = 32</td></tr>
+<tr class="separator:a9386af9feddd3dc985886c42ad90e44e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdb634c720e621ceefae4c3cdddf2070" id="r_afdb634c720e621ceefae4c3cdddf2070"><td class="memItemLeft" align="right" valign="top">std::queue&lt; <a class="el" href="structUDPGameServer_1_1Incoming.html">Incoming</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#afdb634c720e621ceefae4c3cdddf2070">_incoming</a></td></tr>
+<tr class="separator:afdb634c720e621ceefae4c3cdddf2070"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20cfba9fdeb64468286e7f71a19871d2" id="r_a20cfba9fdeb64468286e7f71a19871d2"><td class="memItemLeft" align="right" valign="top">std::mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a20cfba9fdeb64468286e7f71a19871d2">_queueMutex</a></td></tr>
+<tr class="separator:a20cfba9fdeb64468286e7f71a19871d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03e47ae3e4629b2715c5d423f2abfc17" id="r_a03e47ae3e4629b2715c5d423f2abfc17"><td class="memItemLeft" align="right" valign="top">std::atomic&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a03e47ae3e4629b2715c5d423f2abfc17">_running</a> {false}</td></tr>
+<tr class="separator:a03e47ae3e4629b2715c5d423f2abfc17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa31422212ed9a118802d233aedf1453a" id="r_aa31422212ed9a118802d233aedf1453a"><td class="memItemLeft" align="right" valign="top">std::thread&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#aa31422212ed9a118802d233aedf1453a">_networkThread</a></td></tr>
+<tr class="separator:aa31422212ed9a118802d233aedf1453a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a019dfad81daf07296be196eeea940c9e" id="r_a019dfad81daf07296be196eeea940c9e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classIpcChannel.html">IpcChannel</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUDPGameServer.html#a019dfad81daf07296be196eeea940c9e">_ipc</a> = nullptr</td></tr>
+<tr class="separator:a019dfad81daf07296be196eeea940c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Simple UDP authoritative game server that manages players and snapshots. </p>
 <p>The server listens on a UDP port, accepts player "hello" packets, tracks their positions/velocities, updates a small simulation loop, and periodically broadcasts snapshots to all connected players. </p>
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00032">32</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0272e620fa267e7a2043b5729d24cfbc" name="a0272e620fa267e7a2043b5729d24cfbc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0272e620fa267e7a2043b5729d24cfbc">&#9670;&#160;</a></span>UDPGameServer()</h2>
@@ -164,6 +257,28 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8cpp_source.html#l00018">18</a> of file <a class="el" href="UDPGameServer_8cpp_source.html">UDPGameServer.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="UDPGameServer_8hpp_source.html#l00113">_expectedLobby</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00107">_playerLobby</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00108">_sessions</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00105">_socket</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00106">_worlds</a>, <a class="el" href="UDPSocket_8cpp_source.html#l00012">Network::TransportLayer::UDPSocket::bindTo()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00299">logPrefix()</a>, <a class="el" href="GameWorld_8hpp_source.html#l00139">GameWorld::setLogPrefix()</a>, and <a class="el" href="SessionManager_8hpp_source.html#l00056">SessionManager::setOnRemove()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a0272e620fa267e7a2043b5729d24cfbc_cgraph.png" border="0" usemap="#aclassUDPGameServer_a0272e620fa267e7a2043b5729d24cfbc_cgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a0272e620fa267e7a2043b5729d24cfbc_cgraph" id="aclassUDPGameServer_a0272e620fa267e7a2043b5729d24cfbc_cgraph">
+<area shape="rect" title=" " alt="" coords="5,95,253,121"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a4972fa36f907bdcdae38d7d551f34e8b" title="Bind the UDP socket to a port/address." alt="" coords="325,5,507,45"/>
+<area shape="poly" title=" " alt="" coords="172,93,301,55,329,47,330,52,302,60,174,98"/>
+<area shape="rect" href="classUDPGameServer.html#ae610b7c128c3b70e06f3fc1b5a3ecdc5" title=" " alt="" coords="318,70,514,95"/>
+<area shape="poly" title=" " alt="" coords="253,94,304,90,304,95,254,100"/>
+<area shape="rect" href="classGameWorld.html#a163fb2fed54650ebba995df1e64c39db" title="Prefix used in log output." alt="" coords="323,119,509,145"/>
+<area shape="poly" title=" " alt="" coords="254,116,309,120,309,126,253,121"/>
+<area shape="rect" href="classSessionManager.html#aa54fb04918bcd7d31bcdfe2ce2ee6545" title="Set callback invoked when a session is removed." alt="" coords="301,169,531,194"/>
+<area shape="poly" title=" " alt="" coords="174,118,302,153,342,163,341,168,301,159,173,123"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html#a65fa2f6ba45358b7a7776d14b0111756" title="Bind the socket to a specific address and port." alt="" coords="579,5,760,45"/>
+<area shape="poly" title=" " alt="" coords="507,23,565,23,565,28,507,28"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="ac43ecfc8705a619accf685658472e529" name="ac43ecfc8705a619accf685658472e529"></a>
@@ -181,9 +296,561 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8cpp_source.html#l00045">45</a> of file <a class="el" href="UDPGameServer_8cpp_source.html">UDPGameServer.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="UDPGameServer_8hpp_source.html#l00122">_networkThread</a>, and <a class="el" href="UDPGameServer_8hpp_source.html#l00121">_running</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a19fbc481d5a9467da80ef95a4e3872e5" name="a19fbc481d5a9467da80ef95a4e3872e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19fbc481d5a9467da80ef95a4e3872e5">&#9670;&#160;</a></span>broadcastSnapshot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UDPGameServer::broadcastSnapshot </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Broadcast the current snapshot to all connected players. </p>
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8cpp_source.html#l00065">65</a> of file <a class="el" href="UDPGameServer_8cpp_source.html">UDPGameServer.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="UDPGameServer_8hpp_source.html#l00106">_worlds</a>, and <a class="el" href="UDPGameServer_8cpp_source.html#l00059">sendPacketTo()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00195">run()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a19fbc481d5a9467da80ef95a4e3872e5_cgraph.png" border="0" usemap="#aclassUDPGameServer_a19fbc481d5a9467da80ef95a4e3872e5_cgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a19fbc481d5a9467da80ef95a4e3872e5_cgraph" id="aclassUDPGameServer_a19fbc481d5a9467da80ef95a4e3872e5_cgraph">
+<area shape="rect" title="Broadcast the current snapshot to all connected players." alt="" coords="5,27,208,67"/>
+<area shape="rect" href="classUDPGameServer.html#a602889e958a3ff926bb8de325c982a62" title="Send a packet to a single endpoint." alt="" coords="256,35,483,60"/>
+<area shape="poly" title=" " alt="" coords="208,45,242,45,242,50,208,50"/>
+<area shape="rect" href="classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="558,5,685,31"/>
+<area shape="poly" title=" " alt="" coords="478,32,544,24,545,30,479,37"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a887cf24e71c890759f907c074f5b3505" title="Write bytes to the UDP socket." alt="" coords="531,55,712,95"/>
+<area shape="poly" title=" " alt="" coords="483,57,517,61,517,66,483,63"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a19fbc481d5a9467da80ef95a4e3872e5_icgraph.png" border="0" usemap="#aclassUDPGameServer_a19fbc481d5a9467da80ef95a4e3872e5_icgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a19fbc481d5a9467da80ef95a4e3872e5_icgraph" id="aclassUDPGameServer_a19fbc481d5a9467da80ef95a4e3872e5_icgraph">
+<area shape="rect" title="Broadcast the current snapshot to all connected players." alt="" coords="316,5,519,45"/>
+<area shape="rect" href="classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b" title="Start the main server loop (blocking)." alt="" coords="108,13,268,38"/>
+<area shape="poly" title=" " alt="" coords="302,28,268,28,268,23,302,23"/>
+<area shape="rect" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a367b917d572ad28819003841b3be180c" name="a367b917d572ad28819003841b3be180c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a367b917d572ad28819003841b3be180c">&#9670;&#160;</a></span>handleHello()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UDPGameServer::handleHello </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classPacket.html">Packet</a> &amp;&#160;</td>
+          <td class="paramname"><em>packet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sockaddr_in &amp;&#160;</td>
+          <td class="paramname"><em>from</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Register a new player on receipt of a hello message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet</td><td><a class="el" href="structUDPGameServer_1_1Incoming.html">Incoming</a> hello packet. </td></tr>
+    <tr><td class="paramname">from</td><td>Sender endpoint. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8cpp_source.html#l00075">75</a> of file <a class="el" href="UDPGameServer_8cpp_source.html">UDPGameServer.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="UDPGameServer_8hpp_source.html#l00113">_expectedLobby</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00107">_playerLobby</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00108">_sessions</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00106">_worlds</a>, <a class="el" href="GameWorld_8cpp_source.html#l00424">GameWorld::buildSnapshotPacket()</a>, <a class="el" href="SessionManager_8cpp_source.html#l00061">SessionManager::getSession()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00299">logPrefix()</a>, <a class="el" href="Packet_8hpp_source.html#l00052">Packet::payload</a>, <a class="el" href="GameWorld_8cpp_source.html#l00034">GameWorld::registerPlayer()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00059">sendPacketTo()</a>, <a class="el" href="GameWorld_8hpp_source.html#l00139">GameWorld::setLogPrefix()</a>, and <a class="el" href="SessionManager_8cpp_source.html#l00050">SessionManager::setUdpAddr()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00174">handlePacket()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a367b917d572ad28819003841b3be180c_cgraph.png" border="0" usemap="#aclassUDPGameServer_a367b917d572ad28819003841b3be180c_cgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a367b917d572ad28819003841b3be180c_cgraph" id="aclassUDPGameServer_a367b917d572ad28819003841b3be180c_cgraph">
+<area shape="rect" title="Register a new player on receipt of a hello message." alt="" coords="5,169,223,194"/>
+<area shape="rect" href="classGameWorld.html#a9a877bcf4eed6527b0896242463a3dfa" title="Build a UDP snapshot packet of current world state." alt="" coords="285,5,483,45"/>
+<area shape="poly" title=" " alt="" coords="126,166,185,113,225,82,269,55,285,48,287,53,272,60,228,86,188,117,130,170"/>
+<area shape="rect" href="classSessionManager.html#a48995915db3b90fa7228d357d6293163" title="Lookup a session by player id." alt="" coords="280,70,488,95"/>
+<area shape="poly" title=" " alt="" coords="137,166,196,135,270,104,297,96,298,101,272,109,198,140,139,171"/>
+<area shape="rect" href="classUDPGameServer.html#ae610b7c128c3b70e06f3fc1b5a3ecdc5" title=" " alt="" coords="286,119,482,145"/>
+<area shape="poly" title=" " alt="" coords="184,166,300,145,301,150,185,171"/>
+<area shape="rect" href="classGameWorld.html#aaebb0cdb6bcf4382893ce438832db63e" title="Register a player on HELLO_UDP." alt="" coords="285,169,483,194"/>
+<area shape="poly" title=" " alt="" coords="223,179,272,179,272,184,223,184"/>
+<area shape="rect" href="classUDPGameServer.html#a602889e958a3ff926bb8de325c982a62" title="Send a packet to a single endpoint." alt="" coords="271,218,497,243"/>
+<area shape="poly" title=" " alt="" coords="185,191,301,213,300,218,184,197"/>
+<area shape="rect" href="classGameWorld.html#a163fb2fed54650ebba995df1e64c39db" title="Prefix used in log output." alt="" coords="291,267,477,293"/>
+<area shape="poly" title=" " alt="" coords="139,192,198,223,272,253,298,261,297,267,270,259,196,227,137,197"/>
+<area shape="rect" href="classSessionManager.html#af2596853b8042076df0c1022468eaec3" title="Register the client&#39;s UDP address." alt="" coords="277,317,491,342"/>
+<area shape="poly" title=" " alt="" coords="129,192,187,246,227,277,272,303,289,310,287,315,269,308,225,282,184,251,125,196"/>
+<area shape="rect" href="classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="573,190,699,215"/>
+<area shape="poly" title=" " alt="" coords="497,215,558,209,559,214,498,221"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a887cf24e71c890759f907c074f5b3505" title="Write bytes to the UDP socket." alt="" coords="545,240,727,280"/>
+<area shape="poly" title=" " alt="" coords="494,241,532,245,531,251,493,246"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a367b917d572ad28819003841b3be180c_icgraph.png" border="0" usemap="#aclassUDPGameServer_a367b917d572ad28819003841b3be180c_icgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a367b917d572ad28819003841b3be180c_icgraph" id="aclassUDPGameServer_a367b917d572ad28819003841b3be180c_icgraph">
+<area shape="rect" title="Register a new player on receipt of a hello message." alt="" coords="589,5,807,31"/>
+<area shape="rect" href="classUDPGameServer.html#a9d28a7f4a0c75aba168ea6a58633d1bb" title="Route an incoming packet to the appropriate handler." alt="" coords="316,5,541,31"/>
+<area shape="poly" title=" " alt="" coords="575,21,542,21,542,15,575,15"/>
+<area shape="rect" href="classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b" title="Start the main server loop (blocking)." alt="" coords="108,5,268,31"/>
+<area shape="poly" title=" " alt="" coords="302,21,268,21,268,15,302,15"/>
+<area shape="rect" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abe9913c5eaa12c361bdcc9ce68bdc835" name="abe9913c5eaa12c361bdcc9ce68bdc835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe9913c5eaa12c361bdcc9ce68bdc835">&#9670;&#160;</a></span>handleInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UDPGameServer::handleInput </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classPacket.html">Packet</a> &amp;&#160;</td>
+          <td class="paramname"><em>packet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sockaddr_in &amp;&#160;</td>
+          <td class="paramname"><em>from</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Update player inputs (movement/direction). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet</td><td><a class="el" href="structUDPGameServer_1_1Incoming.html">Incoming</a> input packet. </td></tr>
+    <tr><td class="paramname">from</td><td>Sender endpoint. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8cpp_source.html#l00103">103</a> of file <a class="el" href="UDPGameServer_8cpp_source.html">UDPGameServer.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="UDPGameServer_8hpp_source.html#l00113">_expectedLobby</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00107">_playerLobby</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00108">_sessions</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00106">_worlds</a>, <a class="el" href="SessionManager_8cpp_source.html#l00061">SessionManager::getSession()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00299">logPrefix()</a>, and <a class="el" href="Packet_8hpp_source.html#l00052">Packet::payload</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00174">handlePacket()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_abe9913c5eaa12c361bdcc9ce68bdc835_cgraph.png" border="0" usemap="#aclassUDPGameServer_abe9913c5eaa12c361bdcc9ce68bdc835_cgraph" alt=""/></div>
+<map name="aclassUDPGameServer_abe9913c5eaa12c361bdcc9ce68bdc835_cgraph" id="aclassUDPGameServer_abe9913c5eaa12c361bdcc9ce68bdc835_cgraph">
+<area shape="rect" title="Update player inputs (movement/direction)." alt="" coords="5,31,221,56"/>
+<area shape="rect" href="classSessionManager.html#a48995915db3b90fa7228d357d6293163" title="Lookup a session by player id." alt="" coords="269,5,477,31"/>
+<area shape="poly" title=" " alt="" coords="221,30,256,27,256,32,222,35"/>
+<area shape="rect" href="classUDPGameServer.html#ae610b7c128c3b70e06f3fc1b5a3ecdc5" title=" " alt="" coords="275,55,471,80"/>
+<area shape="poly" title=" " alt="" coords="222,51,262,54,262,60,221,56"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_abe9913c5eaa12c361bdcc9ce68bdc835_icgraph.png" border="0" usemap="#aclassUDPGameServer_abe9913c5eaa12c361bdcc9ce68bdc835_icgraph" alt=""/></div>
+<map name="aclassUDPGameServer_abe9913c5eaa12c361bdcc9ce68bdc835_icgraph" id="aclassUDPGameServer_abe9913c5eaa12c361bdcc9ce68bdc835_icgraph">
+<area shape="rect" title="Update player inputs (movement/direction)." alt="" coords="589,5,805,31"/>
+<area shape="rect" href="classUDPGameServer.html#a9d28a7f4a0c75aba168ea6a58633d1bb" title="Route an incoming packet to the appropriate handler." alt="" coords="316,5,541,31"/>
+<area shape="poly" title=" " alt="" coords="575,21,542,21,542,15,575,15"/>
+<area shape="rect" href="classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b" title="Start the main server loop (blocking)." alt="" coords="108,5,268,31"/>
+<area shape="poly" title=" " alt="" coords="302,21,268,21,268,15,302,15"/>
+<area shape="rect" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9d28a7f4a0c75aba168ea6a58633d1bb" name="a9d28a7f4a0c75aba168ea6a58633d1bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d28a7f4a0c75aba168ea6a58633d1bb">&#9670;&#160;</a></span>handlePacket()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UDPGameServer::handlePacket </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classPacket.html">Packet</a> &amp;&#160;</td>
+          <td class="paramname"><em>packet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sockaddr_in &amp;&#160;</td>
+          <td class="paramname"><em>from</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Route an incoming packet to the appropriate handler. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet</td><td>Parsed packet contents. </td></tr>
+    <tr><td class="paramname">from</td><td>Sender endpoint. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8cpp_source.html#l00174">174</a> of file <a class="el" href="UDPGameServer_8cpp_source.html">UDPGameServer.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="UDPGameServer_8cpp_source.html#l00075">handleHello()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00103">handleInput()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00140">handleShoot()</a>, <a class="el" href="Packet_8hpp.html#a0628f13bcd4685c7a4b4a9f1aad83b56a96a4de9c97bf5686278b38d16e7658ea">HELLO_UDP</a>, <a class="el" href="Packet_8hpp.html#a0628f13bcd4685c7a4b4a9f1aad83b56aa84cc046d48610b05c21fd3670d0c829">INPUT</a>, <a class="el" href="Packet_8hpp_source.html#l00052">Packet::payload</a>, <a class="el" href="Packet_8hpp.html#a0628f13bcd4685c7a4b4a9f1aad83b56a600e36d8f89903f17192c68b6ff1e6eb">PING_UDP</a>, <a class="el" href="Packet_8hpp.html#a0628f13bcd4685c7a4b4a9f1aad83b56adc6c95d7a7387379cf7fd130bbf3f77d">PONG_UDP</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00059">sendPacketTo()</a>, <a class="el" href="Packet_8hpp.html#a0628f13bcd4685c7a4b4a9f1aad83b56a0504ea30baff7b670a10cb44f8e5cca2">SHOOT</a>, and <a class="el" href="Packet_8hpp_source.html#l00050">Packet::type</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00195">run()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a9d28a7f4a0c75aba168ea6a58633d1bb_cgraph.png" border="0" usemap="#aclassUDPGameServer_a9d28a7f4a0c75aba168ea6a58633d1bb_cgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a9d28a7f4a0c75aba168ea6a58633d1bb_cgraph" id="aclassUDPGameServer_a9d28a7f4a0c75aba168ea6a58633d1bb_cgraph">
+<area shape="rect" title="Route an incoming packet to the appropriate handler." alt="" coords="5,81,231,107"/>
+<area shape="rect" href="classUDPGameServer.html#a367b917d572ad28819003841b3be180c" title="Register a new player on receipt of a hello message." alt="" coords="280,135,497,160"/>
+<area shape="poly" title=" " alt="" coords="184,104,311,129,310,135,183,109"/>
+<area shape="rect" href="classUDPGameServer.html#a602889e958a3ff926bb8de325c982a62" title="Send a packet to a single endpoint." alt="" coords="547,317,773,343"/>
+<area shape="poly" title=" " alt="" coords="142,104,306,196,424,253,548,303,574,311,572,317,546,309,422,258,304,201,139,109"/>
+<area shape="rect" href="classUDPGameServer.html#abe9913c5eaa12c361bdcc9ce68bdc835" title="Update player inputs (movement/direction)." alt="" coords="281,55,497,80"/>
+<area shape="poly" title=" " alt="" coords="231,80,267,77,267,82,231,86"/>
+<area shape="rect" href="classUDPGameServer.html#a0117b7531413f5b7b161675f9e9efd3d" title="Handle a shoot command (spawn a bullet)." alt="" coords="279,5,499,31"/>
+<area shape="poly" title=" " alt="" coords="154,79,278,39,311,31,312,36,279,45,156,84"/>
+<area shape="rect" href="classGameWorld.html#a9a877bcf4eed6527b0896242463a3dfa" title="Build a UDP snapshot packet of current world state." alt="" coords="561,154,759,194"/>
+<area shape="poly" title=" " alt="" coords="498,155,547,160,547,166,497,161"/>
+<area shape="rect" href="classSessionManager.html#a48995915db3b90fa7228d357d6293163" title="Lookup a session by player id." alt="" coords="556,5,764,31"/>
+<area shape="poly" title=" " alt="" coords="420,132,458,114,497,89,511,76,520,64,529,51,545,40,559,33,561,38,548,44,533,55,524,67,515,80,500,93,461,118,422,137"/>
+<area shape="rect" href="classUDPGameServer.html#ae610b7c128c3b70e06f3fc1b5a3ecdc5" title=" " alt="" coords="562,55,758,80"/>
+<area shape="poly" title=" " alt="" coords="421,132,546,89,578,81,579,86,547,94,423,137"/>
+<area shape="rect" href="classGameWorld.html#aaebb0cdb6bcf4382893ce438832db63e" title="Register a player on HELLO_UDP." alt="" coords="561,219,759,244"/>
+<area shape="poly" title=" " alt="" coords="421,158,479,180,547,203,583,213,581,218,546,209,477,185,419,163"/>
+<area shape="poly" title=" " alt="" coords="412,158,455,188,501,230,515,251,523,270,531,287,548,304,557,309,554,314,545,308,527,291,518,272,510,253,497,233,452,192,409,162"/>
+<area shape="rect" href="classGameWorld.html#a163fb2fed54650ebba995df1e64c39db" title="Prefix used in log output." alt="" coords="567,268,753,293"/>
+<area shape="poly" title=" " alt="" coords="406,158,465,205,505,232,548,254,567,262,566,267,546,259,502,236,462,210,402,162"/>
+<area shape="rect" href="classSessionManager.html#af2596853b8042076df0c1022468eaec3" title="Register the client&#39;s UDP address." alt="" coords="553,104,767,129"/>
+<area shape="poly" title=" " alt="" coords="497,132,539,128,540,133,498,138"/>
+<area shape="rect" href="classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="849,288,975,313"/>
+<area shape="poly" title=" " alt="" coords="769,315,835,307,836,312,770,320"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a887cf24e71c890759f907c074f5b3505" title="Write bytes to the UDP socket." alt="" coords="821,338,1003,378"/>
+<area shape="poly" title=" " alt="" coords="774,340,808,344,807,349,773,345"/>
+<area shape="poly" title=" " alt="" coords="459,52,575,31,576,36,460,57"/>
+<area shape="poly" title=" " alt="" coords="497,65,548,65,548,70,497,70"/>
+<area shape="poly" title=" " alt="" coords="499,15,542,15,542,21,499,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a9d28a7f4a0c75aba168ea6a58633d1bb_icgraph.png" border="0" usemap="#aclassUDPGameServer_a9d28a7f4a0c75aba168ea6a58633d1bb_icgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a9d28a7f4a0c75aba168ea6a58633d1bb_icgraph" id="aclassUDPGameServer_a9d28a7f4a0c75aba168ea6a58633d1bb_icgraph">
+<area shape="rect" title="Route an incoming packet to the appropriate handler." alt="" coords="316,5,541,31"/>
+<area shape="rect" href="classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b" title="Start the main server loop (blocking)." alt="" coords="108,5,268,31"/>
+<area shape="poly" title=" " alt="" coords="302,21,268,21,268,15,302,15"/>
+<area shape="rect" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0117b7531413f5b7b161675f9e9efd3d" name="a0117b7531413f5b7b161675f9e9efd3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0117b7531413f5b7b161675f9e9efd3d">&#9670;&#160;</a></span>handleShoot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UDPGameServer::handleShoot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classPacket.html">Packet</a> &amp;&#160;</td>
+          <td class="paramname"><em>packet</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handle a shoot command (spawn a bullet). </p>
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8cpp_source.html#l00140">140</a> of file <a class="el" href="UDPGameServer_8cpp_source.html">UDPGameServer.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="UDPGameServer_8hpp_source.html#l00113">_expectedLobby</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00107">_playerLobby</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00108">_sessions</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00106">_worlds</a>, <a class="el" href="SessionManager_8cpp_source.html#l00061">SessionManager::getSession()</a>, and <a class="el" href="Packet_8hpp_source.html#l00052">Packet::payload</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00174">handlePacket()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a0117b7531413f5b7b161675f9e9efd3d_cgraph.png" border="0" usemap="#aclassUDPGameServer_a0117b7531413f5b7b161675f9e9efd3d_cgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a0117b7531413f5b7b161675f9e9efd3d_cgraph" id="aclassUDPGameServer_a0117b7531413f5b7b161675f9e9efd3d_cgraph">
+<area shape="rect" title="Handle a shoot command (spawn a bullet)." alt="" coords="5,5,225,31"/>
+<area shape="rect" href="classSessionManager.html#a48995915db3b90fa7228d357d6293163" title="Lookup a session by player id." alt="" coords="273,5,481,31"/>
+<area shape="poly" title=" " alt="" coords="226,15,260,15,260,21,226,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a0117b7531413f5b7b161675f9e9efd3d_icgraph.png" border="0" usemap="#aclassUDPGameServer_a0117b7531413f5b7b161675f9e9efd3d_icgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a0117b7531413f5b7b161675f9e9efd3d_icgraph" id="aclassUDPGameServer_a0117b7531413f5b7b161675f9e9efd3d_icgraph">
+<area shape="rect" title="Handle a shoot command (spawn a bullet)." alt="" coords="589,5,809,31"/>
+<area shape="rect" href="classUDPGameServer.html#a9d28a7f4a0c75aba168ea6a58633d1bb" title="Route an incoming packet to the appropriate handler." alt="" coords="316,5,541,31"/>
+<area shape="poly" title=" " alt="" coords="575,21,542,21,542,15,575,15"/>
+<area shape="rect" href="classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b" title="Start the main server loop (blocking)." alt="" coords="108,5,268,31"/>
+<area shape="poly" title=" " alt="" coords="302,21,268,21,268,15,302,15"/>
+<area shape="rect" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae610b7c128c3b70e06f3fc1b5a3ecdc5" name="ae610b7c128c3b70e06f3fc1b5a3ecdc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae610b7c128c3b70e06f3fc1b5a3ecdc5">&#9670;&#160;</a></span>logPrefix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string UDPGameServer::logPrefix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8cpp_source.html#l00299">299</a> of file <a class="el" href="UDPGameServer_8cpp_source.html">UDPGameServer.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="UDPGameServer_8hpp_source.html#l00113">_expectedLobby</a>, and <a class="el" href="UDPGameServer_8hpp_source.html#l00111">_port</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00075">handleHello()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00103">handleInput()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00277">networkLoop()</a>, and <a class="el" href="UDPGameServer_8cpp_source.html#l00018">UDPGameServer()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_ae610b7c128c3b70e06f3fc1b5a3ecdc5_icgraph.png" border="0" usemap="#aclassUDPGameServer_ae610b7c128c3b70e06f3fc1b5a3ecdc5_icgraph" alt=""/></div>
+<map name="aclassUDPGameServer_ae610b7c128c3b70e06f3fc1b5a3ecdc5_icgraph" id="aclassUDPGameServer_ae610b7c128c3b70e06f3fc1b5a3ecdc5_icgraph">
+<area shape="rect" title=" " alt="" coords="885,80,1081,105"/>
+<area shape="rect" href="classUDPGameServer.html#a367b917d572ad28819003841b3be180c" title="Register a new player on receipt of a hello message." alt="" coords="605,5,822,31"/>
+<area shape="poly" title=" " alt="" coords="936,78,837,45,788,33,790,28,838,39,938,72"/>
+<area shape="rect" href="classUDPGameServer.html#abe9913c5eaa12c361bdcc9ce68bdc835" title="Update player inputs (movement/direction)." alt="" coords="605,55,821,80"/>
+<area shape="poly" title=" " alt="" coords="871,85,821,80,822,75,872,80"/>
+<area shape="rect" href="classUDPGameServer.html#a7f3a37004641222f4d30d55614f05029" title="Thread loop to read incoming UDP packets without blocking the simulation tick." alt="" coords="317,104,540,129"/>
+<area shape="poly" title=" " alt="" coords="871,100,541,115,540,109,871,95"/>
+<area shape="rect" href="classUDPGameServer.html#a0272e620fa267e7a2043b5729d24cfbc" title=" " alt="" coords="589,156,837,181"/>
+<area shape="poly" title=" " alt="" coords="930,112,838,139,766,158,765,153,837,134,928,107"/>
+<area shape="rect" href="classUDPGameServer.html#a9d28a7f4a0c75aba168ea6a58633d1bb" title="Route an incoming packet to the appropriate handler." alt="" coords="316,55,541,80"/>
+<area shape="poly" title=" " alt="" coords="626,36,503,57,502,52,625,30"/>
+<area shape="rect" href="classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b" title="Start the main server loop (blocking)." alt="" coords="108,80,268,105"/>
+<area shape="poly" title=" " alt="" coords="303,83,268,87,268,82,302,78"/>
+<area shape="rect" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,80,60,105"/>
+<area shape="poly" title=" " alt="" coords="94,95,60,95,60,90,94,90"/>
+<area shape="poly" title=" " alt="" coords="591,70,542,70,542,65,591,65"/>
+<area shape="poly" title=" " alt="" coords="303,107,268,103,268,98,304,102"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7f3a37004641222f4d30d55614f05029" name="a7f3a37004641222f4d30d55614f05029"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f3a37004641222f4d30d55614f05029">&#9670;&#160;</a></span>networkLoop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UDPGameServer::networkLoop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Thread loop to read incoming UDP packets without blocking the simulation tick. </p>
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8cpp_source.html#l00277">277</a> of file <a class="el" href="UDPGameServer_8cpp_source.html">UDPGameServer.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="UDPGameServer_8hpp_source.html#l00119">_incoming</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00120">_queueMutex</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00121">_running</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00105">_socket</a>, <a class="el" href="Packet_8cpp_source.html#l00029">Packet::deserialize()</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00117">UDPGameServer::Incoming::from</a>, <a class="el" href="UDPSocket_8hpp_source.html#l00071">Network::TransportLayer::UDPSocket::getSenderAddr()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00299">logPrefix()</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00116">UDPGameServer::Incoming::pkt</a>, and <a class="el" href="UDPSocket_8cpp_source.html#l00035">Network::TransportLayer::UDPSocket::readByte()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00195">run()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a7f3a37004641222f4d30d55614f05029_cgraph.png" border="0" usemap="#aclassUDPGameServer_a7f3a37004641222f4d30d55614f05029_cgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a7f3a37004641222f4d30d55614f05029_cgraph" id="aclassUDPGameServer_a7f3a37004641222f4d30d55614f05029_cgraph">
+<area shape="rect" title="Thread loop to read incoming UDP packets without blocking the simulation tick." alt="" coords="5,92,228,117"/>
+<area shape="rect" href="classPacket.html#abfcd427a2ca434ac71592334517638fb" title="Deserialize a packet from a raw byte buffer." alt="" coords="307,5,450,31"/>
+<area shape="poly" title=" " alt="" coords="147,89,275,41,307,31,309,37,277,46,149,94"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a429dc0b0e539ab051d785b7145e42bf7" title="Get the sender address of the last received packet." alt="" coords="276,55,481,95"/>
+<area shape="poly" title=" " alt="" coords="228,90,262,86,262,91,229,95"/>
+<area shape="rect" href="classUDPGameServer.html#ae610b7c128c3b70e06f3fc1b5a3ecdc5" title=" " alt="" coords="281,120,477,145"/>
+<area shape="poly" title=" " alt="" coords="229,114,268,118,267,123,228,119"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a34b53ce1224f81fc6809a24412854294" title="Read bytes from the UDP socket." alt="" coords="288,170,469,210"/>
+<area shape="poly" title=" " alt="" coords="158,115,304,163,303,168,156,120"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html#a50cace88b622aa442d901434ecc33bd8" title="Check the socket state for read, write, or exception." alt="" coords="529,170,711,210"/>
+<area shape="poly" title=" " alt="" coords="470,187,516,187,516,193,470,193"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a7f3a37004641222f4d30d55614f05029_icgraph.png" border="0" usemap="#aclassUDPGameServer_a7f3a37004641222f4d30d55614f05029_icgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a7f3a37004641222f4d30d55614f05029_icgraph" id="aclassUDPGameServer_a7f3a37004641222f4d30d55614f05029_icgraph">
+<area shape="rect" title="Thread loop to read incoming UDP packets without blocking the simulation tick." alt="" coords="316,5,539,31"/>
+<area shape="rect" href="classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b" title="Start the main server loop (blocking)." alt="" coords="108,5,268,31"/>
+<area shape="poly" title=" " alt="" coords="302,21,268,21,268,15,302,15"/>
+<area shape="rect" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a04aa4dac3d2e7571a2d092c0a37e75ef" name="a04aa4dac3d2e7571a2d092c0a37e75ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04aa4dac3d2e7571a2d092c0a37e75ef">&#9670;&#160;</a></span>nowMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long long UDPGameServer::nowMs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Monotonic time helper in milliseconds. </p>
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8cpp_source.html#l00053">53</a> of file <a class="el" href="UDPGameServer_8cpp_source.html">UDPGameServer.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00195">run()</a>, and <a class="el" href="UDPGameServer_8cpp_source.html#l00234">updateSimulation()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a04aa4dac3d2e7571a2d092c0a37e75ef_icgraph.png" border="0" usemap="#aclassUDPGameServer_a04aa4dac3d2e7571a2d092c0a37e75ef_icgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a04aa4dac3d2e7571a2d092c0a37e75ef_icgraph" id="aclassUDPGameServer_a04aa4dac3d2e7571a2d092c0a37e75ef_icgraph">
+<area shape="rect" title="Monotonic time helper in milliseconds." alt="" coords="619,5,804,31"/>
+<area shape="rect" href="classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b" title="Start the main server loop (blocking)." alt="" coords="108,5,268,31"/>
+<area shape="poly" title=" " alt="" coords="604,21,268,21,268,15,604,15"/>
+<area shape="rect" href="classUDPGameServer.html#aa1c969e983f12d8e36bfb2465f7fe5d6" title="Advance the local simulation based on elapsed time." alt="" coords="316,31,571,56"/>
+<area shape="poly" title=" " alt="" coords="605,31,571,34,571,29,605,25"/>
+<area shape="rect" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+<area shape="poly" title=" " alt="" coords="302,32,268,29,269,23,302,27"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a476a4f2e8bb0833c788761298eb4a72b" name="a476a4f2e8bb0833c788761298eb4a72b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a476a4f2e8bb0833c788761298eb4a72b">&#9670;&#160;</a></span>run()</h2>
 
@@ -200,6 +867,166 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Start the main server loop (blocking). </p>
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8cpp_source.html#l00195">195</a> of file <a class="el" href="UDPGameServer_8cpp_source.html">UDPGameServer.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="UDPGameServer_8hpp_source.html#l00119">_incoming</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00123">_ipc</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00109">_lastSnapshotMs</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00110">_lastTickMs</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00122">_networkThread</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00120">_queueMutex</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00121">_running</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00112">_snapshotIntervalMs</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00114">_tickIntervalMs</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00065">broadcastSnapshot()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00174">handlePacket()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00277">networkLoop()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00053">nowMs()</a>, <a class="el" href="IpcChannel_8cpp_source.html#l00071">IpcChannel::send()</a>, and <a class="el" href="UDPGameServer_8cpp_source.html#l00234">updateSimulation()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00050">main()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a476a4f2e8bb0833c788761298eb4a72b_cgraph.png" border="0" usemap="#aclassUDPGameServer_a476a4f2e8bb0833c788761298eb4a72b_cgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a476a4f2e8bb0833c788761298eb4a72b_cgraph" id="aclassUDPGameServer_a476a4f2e8bb0833c788761298eb4a72b_cgraph">
+<area shape="rect" title="Start the main server loop (blocking)." alt="" coords="5,488,165,513"/>
+<area shape="rect" href="classUDPGameServer.html#a19fbc481d5a9467da80ef95a4e3872e5" title="Broadcast the current snapshot to all connected players." alt="" coords="239,105,442,145"/>
+<area shape="poly" title=" " alt="" coords="88,487,130,377,166,303,211,232,253,187,297,151,300,155,257,191,215,236,170,306,134,380,93,489"/>
+<area shape="rect" href="classUDPGameServer.html#a9d28a7f4a0c75aba168ea6a58633d1bb" title="Route an incoming packet to the appropriate handler." alt="" coords="228,247,453,272"/>
+<area shape="poly" title=" " alt="" coords="98,486,314,280,318,284,102,490"/>
+<area shape="rect" href="classUDPGameServer.html#a7f3a37004641222f4d30d55614f05029" title="Thread loop to read incoming UDP packets without blocking the simulation tick." alt="" coords="229,461,452,487"/>
+<area shape="poly" title=" " alt="" coords="165,490,215,484,216,490,166,495"/>
+<area shape="rect" href="classUDPGameServer.html#a04aa4dac3d2e7571a2d092c0a37e75ef" title="Monotonic time helper in milliseconds." alt="" coords="533,576,719,601"/>
+<area shape="poly" title=" " alt="" coords="166,511,468,559,538,571,537,576,468,565,165,516"/>
+<area shape="rect" href="classIpcChannel.html#a35498032e830b79724747de4e7b6ca1b" title="Send a text message (limited to 1024 bytes)." alt="" coords="559,625,693,651"/>
+<area shape="poly" title=" " alt="" coords="98,512,144,562,177,589,214,610,256,625,299,636,388,647,473,649,545,645,545,651,473,655,388,653,298,641,254,630,212,615,174,594,140,566,94,515"/>
+<area shape="rect" href="classUDPGameServer.html#aa1c969e983f12d8e36bfb2465f7fe5d6" title="Advance the local simulation based on elapsed time." alt="" coords="213,575,468,600"/>
+<area shape="poly" title=" " alt="" coords="118,511,214,547,280,568,279,573,212,553,116,516"/>
+<area shape="rect" href="classUDPGameServer.html#a602889e958a3ff926bb8de325c982a62" title="Send a packet to a single endpoint." alt="" coords="784,33,1011,59"/>
+<area shape="poly" title=" " alt="" coords="442,108,792,58,793,63,443,113"/>
+<area shape="rect" href="classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="1086,5,1213,31"/>
+<area shape="poly" title=" " alt="" coords="1011,31,1072,24,1072,29,1011,36"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a887cf24e71c890759f907c074f5b3505" title="Write bytes to the UDP socket." alt="" coords="1059,55,1240,95"/>
+<area shape="poly" title=" " alt="" coords="1007,56,1045,61,1045,66,1006,61"/>
+<area shape="poly" title=" " alt="" coords="370,244,515,182,577,160,627,146,675,129,735,102,758,85,783,69,807,60,809,65,785,74,761,90,737,107,677,134,628,151,579,165,517,187,372,249"/>
+<area shape="rect" href="classUDPGameServer.html#a367b917d572ad28819003841b3be180c" title="Register a new player on receipt of a hello message." alt="" coords="517,197,735,223"/>
+<area shape="poly" title=" " alt="" coords="414,244,538,223,538,228,415,249"/>
+<area shape="rect" href="classUDPGameServer.html#abe9913c5eaa12c361bdcc9ce68bdc835" title="Update player inputs (movement/direction)." alt="" coords="518,296,734,321"/>
+<area shape="poly" title=" " alt="" coords="415,269,538,291,538,296,414,275"/>
+<area shape="rect" href="classUDPGameServer.html#a0117b7531413f5b7b161675f9e9efd3d" title="Handle a shoot command (spawn a bullet)." alt="" coords="516,247,736,272"/>
+<area shape="poly" title=" " alt="" coords="454,257,502,257,502,262,454,262"/>
+<area shape="poly" title=" " alt="" coords="673,195,705,181,734,160,750,137,756,115,764,92,782,69,792,63,795,67,786,73,768,94,761,116,755,140,738,164,707,185,675,200"/>
+<area shape="rect" href="classGameWorld.html#a9a877bcf4eed6527b0896242463a3dfa" title="Build a UDP snapshot packet of current world state." alt="" coords="798,83,997,123"/>
+<area shape="poly" title=" " alt="" coords="657,195,735,160,758,146,783,133,803,125,805,130,785,138,761,150,737,164,659,200"/>
+<area shape="rect" href="classSessionManager.html#a48995915db3b90fa7228d357d6293163" title="Lookup a session by player id." alt="" coords="793,296,1001,321"/>
+<area shape="poly" title=" " alt="" coords="711,220,737,232,753,244,762,257,771,270,785,281,802,289,800,294,783,286,767,273,758,260,749,248,735,236,709,225"/>
+<area shape="rect" href="classUDPGameServer.html#ae610b7c128c3b70e06f3fc1b5a3ecdc5" title=" " alt="" coords="799,345,995,371"/>
+<area shape="poly" title=" " alt="" coords="718,220,738,232,750,244,757,257,763,283,768,308,775,319,786,331,794,337,791,341,782,335,770,323,763,310,757,284,752,259,745,247,734,236,716,225"/>
+<area shape="rect" href="classGameWorld.html#aaebb0cdb6bcf4382893ce438832db63e" title="Register a player on HELLO_UDP." alt="" coords="799,148,996,173"/>
+<area shape="poly" title=" " alt="" coords="696,195,813,173,814,179,697,200"/>
+<area shape="rect" href="classGameWorld.html#a163fb2fed54650ebba995df1e64c39db" title="Prefix used in log output." alt="" coords="804,197,991,223"/>
+<area shape="poly" title=" " alt="" coords="735,207,790,207,790,213,735,213"/>
+<area shape="rect" href="classSessionManager.html#af2596853b8042076df0c1022468eaec3" title="Register the client&#39;s UDP address." alt="" coords="791,247,1004,272"/>
+<area shape="poly" title=" " alt="" coords="697,220,814,241,813,247,696,225"/>
+<area shape="poly" title=" " alt="" coords="734,306,779,306,779,311,734,311"/>
+<area shape="poly" title=" " alt="" coords="697,319,814,340,813,345,696,324"/>
+<area shape="poly" title=" " alt="" coords="697,269,814,291,813,296,696,275"/>
+<area shape="poly" title=" " alt="" coords="359,459,426,419,470,398,515,382,584,367,655,358,786,351,786,357,655,363,585,372,517,387,472,403,429,424,362,463"/>
+<area shape="rect" href="classPacket.html#abfcd427a2ca434ac71592334517638fb" title="Deserialize a packet from a raw byte buffer." alt="" coords="555,461,697,487"/>
+<area shape="poly" title=" " alt="" coords="452,471,541,471,541,477,452,477"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a429dc0b0e539ab051d785b7145e42bf7" title="Get the sender address of the last received packet." alt="" coords="523,511,729,551"/>
+<area shape="poly" title=" " alt="" coords="405,484,513,506,512,511,404,489"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a34b53ce1224f81fc6809a24412854294" title="Read bytes from the UDP socket." alt="" coords="535,397,717,437"/>
+<area shape="poly" title=" " alt="" coords="404,459,522,435,523,440,405,464"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html#a50cace88b622aa442d901434ecc33bd8" title="Check the socket state for read, write, or exception." alt="" coords="807,397,988,437"/>
+<area shape="poly" title=" " alt="" coords="717,414,793,414,793,419,717,419"/>
+<area shape="poly" title=" " alt="" coords="468,585,520,586,520,591,468,591"/>
+<area shape="poly" title=" " alt="" coords="413,597,546,621,545,626,412,603"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a476a4f2e8bb0833c788761298eb4a72b_icgraph.png" border="0" usemap="#aclassUDPGameServer_a476a4f2e8bb0833c788761298eb4a72b_icgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a476a4f2e8bb0833c788761298eb4a72b_icgraph" id="aclassUDPGameServer_a476a4f2e8bb0833c788761298eb4a72b_icgraph">
+<area shape="rect" title="Start the main server loop (blocking)." alt="" coords="108,5,268,31"/>
+<area shape="rect" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a602889e958a3ff926bb8de325c982a62" name="a602889e958a3ff926bb8de325c982a62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a602889e958a3ff926bb8de325c982a62">&#9670;&#160;</a></span>sendPacketTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool UDPGameServer::sendPacketTo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classPacket.html">Packet</a> &amp;&#160;</td>
+          <td class="paramname"><em>packet</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const sockaddr_in &amp;&#160;</td>
+          <td class="paramname"><em>to</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Send a packet to a single endpoint. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">packet</td><td><a class="el" href="classPacket.html" title="Light container for game protocol packets with (de)serialization helpers.">Packet</a> to send. </td></tr>
+    <tr><td class="paramname">to</td><td>Destination endpoint. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true on success, false otherwise. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8cpp_source.html#l00059">59</a> of file <a class="el" href="UDPGameServer_8cpp_source.html">UDPGameServer.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="UDPGameServer_8hpp_source.html#l00105">_socket</a>, <a class="el" href="Packet_8cpp_source.html#l00010">Packet::serialize()</a>, and <a class="el" href="UDPSocket_8cpp_source.html#l00017">Network::TransportLayer::UDPSocket::writeByte()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00065">broadcastSnapshot()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00075">handleHello()</a>, and <a class="el" href="UDPGameServer_8cpp_source.html#l00174">handlePacket()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a602889e958a3ff926bb8de325c982a62_cgraph.png" border="0" usemap="#aclassUDPGameServer_a602889e958a3ff926bb8de325c982a62_cgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a602889e958a3ff926bb8de325c982a62_cgraph" id="aclassUDPGameServer_a602889e958a3ff926bb8de325c982a62_cgraph">
+<area shape="rect" title="Send a packet to a single endpoint." alt="" coords="5,35,232,60"/>
+<area shape="rect" href="classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="307,5,434,31"/>
+<area shape="poly" title=" " alt="" coords="228,32,294,24,294,30,228,37"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a887cf24e71c890759f907c074f5b3505" title="Write bytes to the UDP socket." alt="" coords="280,55,461,95"/>
+<area shape="poly" title=" " alt="" coords="233,57,267,61,266,66,232,63"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a602889e958a3ff926bb8de325c982a62_icgraph.png" border="0" usemap="#aclassUDPGameServer_a602889e958a3ff926bb8de325c982a62_icgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a602889e958a3ff926bb8de325c982a62_icgraph" id="aclassUDPGameServer_a602889e958a3ff926bb8de325c982a62_icgraph">
+<area shape="rect" title="Send a packet to a single endpoint." alt="" coords="855,63,1081,89"/>
+<area shape="rect" href="classUDPGameServer.html#a19fbc481d5a9467da80ef95a4e3872e5" title="Broadcast the current snapshot to all connected players." alt="" coords="327,5,530,45"/>
+<area shape="poly" title=" " alt="" coords="877,64,806,55,662,42,530,33,530,28,662,36,807,49,877,59"/>
+<area shape="rect" href="classUDPGameServer.html#a367b917d572ad28819003841b3be180c" title="Register a new player on receipt of a hello message." alt="" coords="589,63,807,89"/>
+<area shape="poly" title=" " alt="" coords="841,79,807,79,807,73,841,73"/>
+<area shape="rect" href="classUDPGameServer.html#a9d28a7f4a0c75aba168ea6a58633d1bb" title="Route an incoming packet to the appropriate handler." alt="" coords="316,70,541,95"/>
+<area shape="poly" title=" " alt="" coords="889,94,807,104,698,109,589,104,522,98,523,93,590,99,698,104,806,99,888,88"/>
+<area shape="rect" href="classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b" title="Start the main server loop (blocking)." alt="" coords="108,42,268,67"/>
+<area shape="poly" title=" " alt="" coords="314,42,268,48,268,42,313,37"/>
+<area shape="rect" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,42,60,67"/>
+<area shape="poly" title=" " alt="" coords="94,57,60,57,60,52,94,52"/>
+<area shape="poly" title=" " alt="" coords="575,82,542,83,542,77,575,76"/>
+<area shape="poly" title=" " alt="" coords="306,71,268,67,269,61,306,66"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -227,11 +1054,492 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00041">41</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="UDPGameServer_8hpp_source.html#l00123">_ipc</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="game_8cpp_source.html#l00050">main()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_a33e8d20721c5a01eafc5f466ecd9e1b7_icgraph.png" border="0" usemap="#aclassUDPGameServer_a33e8d20721c5a01eafc5f466ecd9e1b7_icgraph" alt=""/></div>
+<map name="aclassUDPGameServer_a33e8d20721c5a01eafc5f466ecd9e1b7_icgraph" id="aclassUDPGameServer_a33e8d20721c5a01eafc5f466ecd9e1b7_icgraph">
+<area shape="rect" title=" " alt="" coords="108,5,287,31"/>
+<area shape="rect" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa1c969e983f12d8e36bfb2465f7fe5d6" name="aa1c969e983f12d8e36bfb2465f7fe5d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1c969e983f12d8e36bfb2465f7fe5d6">&#9670;&#160;</a></span>updateSimulation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UDPGameServer::updateSimulation </td>
+          <td>(</td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>nowMs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>deltaMs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Advance the local simulation based on elapsed time. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nowMs</td><td>Current timestamp in milliseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8cpp_source.html#l00234">234</a> of file <a class="el" href="UDPGameServer_8cpp_source.html">UDPGameServer.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="UDPGameServer_8hpp_source.html#l00113">_expectedLobby</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00123">_ipc</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00107">_playerLobby</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00121">_running</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00106">_worlds</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00053">nowMs()</a>, and <a class="el" href="IpcChannel_8cpp_source.html#l00071">IpcChannel::send()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00195">run()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_aa1c969e983f12d8e36bfb2465f7fe5d6_cgraph.png" border="0" usemap="#aclassUDPGameServer_aa1c969e983f12d8e36bfb2465f7fe5d6_cgraph" alt=""/></div>
+<map name="aclassUDPGameServer_aa1c969e983f12d8e36bfb2465f7fe5d6_cgraph" id="aclassUDPGameServer_aa1c969e983f12d8e36bfb2465f7fe5d6_cgraph">
+<area shape="rect" title="Advance the local simulation based on elapsed time." alt="" coords="5,31,260,56"/>
+<area shape="rect" href="classUDPGameServer.html#a04aa4dac3d2e7571a2d092c0a37e75ef" title="Monotonic time helper in milliseconds." alt="" coords="308,5,493,31"/>
+<area shape="poly" title=" " alt="" coords="260,29,294,25,294,31,260,34"/>
+<area shape="rect" href="classIpcChannel.html#a35498032e830b79724747de4e7b6ca1b" title="Send a text message (limited to 1024 bytes)." alt="" coords="334,55,467,80"/>
+<area shape="poly" title=" " alt="" coords="260,52,321,58,320,63,260,57"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUDPGameServer_aa1c969e983f12d8e36bfb2465f7fe5d6_icgraph.png" border="0" usemap="#aclassUDPGameServer_aa1c969e983f12d8e36bfb2465f7fe5d6_icgraph" alt=""/></div>
+<map name="aclassUDPGameServer_aa1c969e983f12d8e36bfb2465f7fe5d6_icgraph" id="aclassUDPGameServer_aa1c969e983f12d8e36bfb2465f7fe5d6_icgraph">
+<area shape="rect" title="Advance the local simulation based on elapsed time." alt="" coords="316,5,571,31"/>
+<area shape="rect" href="classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b" title="Start the main server loop (blocking)." alt="" coords="108,5,268,31"/>
+<area shape="poly" title=" " alt="" coords="302,21,268,21,268,15,302,15"/>
+<area shape="rect" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a6c3b3016f0b7493aa6d6efd7df70652d" name="a6c3b3016f0b7493aa6d6efd7df70652d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c3b3016f0b7493aa6d6efd7df70652d">&#9670;&#160;</a></span>_expectedLobby</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string UDPGameServer::_expectedLobby</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00113">113</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00075">handleHello()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00103">handleInput()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00140">handleShoot()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00299">logPrefix()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00018">UDPGameServer()</a>, and <a class="el" href="UDPGameServer_8cpp_source.html#l00234">updateSimulation()</a>.</p>
+
+</div>
+</div>
+<a id="afdb634c720e621ceefae4c3cdddf2070" name="afdb634c720e621ceefae4c3cdddf2070"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdb634c720e621ceefae4c3cdddf2070">&#9670;&#160;</a></span>_incoming</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt;<a class="el" href="structUDPGameServer_1_1Incoming.html">Incoming</a>&gt; UDPGameServer::_incoming</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00119">119</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00277">networkLoop()</a>, and <a class="el" href="UDPGameServer_8cpp_source.html#l00195">run()</a>.</p>
+
+</div>
+</div>
+<a id="a019dfad81daf07296be196eeea940c9e" name="a019dfad81daf07296be196eeea940c9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a019dfad81daf07296be196eeea940c9e">&#9670;&#160;</a></span>_ipc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classIpcChannel.html">IpcChannel</a>* UDPGameServer::_ipc = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00123">123</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00195">run()</a>, <a class="el" href="UDPGameServer_8hpp_source.html#l00041">setIpc()</a>, and <a class="el" href="UDPGameServer_8cpp_source.html#l00234">updateSimulation()</a>.</p>
+
+</div>
+</div>
+<a id="a390e8fc2716ffa166d2bd6f91acb9bf2" name="a390e8fc2716ffa166d2bd6f91acb9bf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a390e8fc2716ffa166d2bd6f91acb9bf2">&#9670;&#160;</a></span>_lastSnapshotMs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long long UDPGameServer::_lastSnapshotMs = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00109">109</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00195">run()</a>.</p>
+
+</div>
+</div>
+<a id="a2f64e138162800e13ab68e61d273e335" name="a2f64e138162800e13ab68e61d273e335"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f64e138162800e13ab68e61d273e335">&#9670;&#160;</a></span>_lastTickMs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long long UDPGameServer::_lastTickMs = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00110">110</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00195">run()</a>.</p>
+
+</div>
+</div>
+<a id="aa31422212ed9a118802d233aedf1453a" name="aa31422212ed9a118802d233aedf1453a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa31422212ed9a118802d233aedf1453a">&#9670;&#160;</a></span>_networkThread</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::thread UDPGameServer::_networkThread</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00122">122</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00195">run()</a>, and <a class="el" href="UDPGameServer_8cpp_source.html#l00045">~UDPGameServer()</a>.</p>
+
+</div>
+</div>
+<a id="a4c197dcedb9480e8ad9c3aa9368b34d3" name="a4c197dcedb9480e8ad9c3aa9368b34d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c197dcedb9480e8ad9c3aa9368b34d3">&#9670;&#160;</a></span>_playerLobby</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;int, std::string&gt; UDPGameServer::_playerLobby</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00107">107</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00075">handleHello()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00103">handleInput()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00140">handleShoot()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00018">UDPGameServer()</a>, and <a class="el" href="UDPGameServer_8cpp_source.html#l00234">updateSimulation()</a>.</p>
+
+</div>
+</div>
+<a id="a8403afcff6dde0baa509124d4553b73e" name="a8403afcff6dde0baa509124d4553b73e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8403afcff6dde0baa509124d4553b73e">&#9670;&#160;</a></span>_port</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint16_t UDPGameServer::_port</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00111">111</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00299">logPrefix()</a>.</p>
+
+</div>
+</div>
+<a id="a20cfba9fdeb64468286e7f71a19871d2" name="a20cfba9fdeb64468286e7f71a19871d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20cfba9fdeb64468286e7f71a19871d2">&#9670;&#160;</a></span>_queueMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::mutex UDPGameServer::_queueMutex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00120">120</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00277">networkLoop()</a>, and <a class="el" href="UDPGameServer_8cpp_source.html#l00195">run()</a>.</p>
+
+</div>
+</div>
+<a id="a03e47ae3e4629b2715c5d423f2abfc17" name="a03e47ae3e4629b2715c5d423f2abfc17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03e47ae3e4629b2715c5d423f2abfc17">&#9670;&#160;</a></span>_running</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::atomic&lt;bool&gt; UDPGameServer::_running {false}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00121">121</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00277">networkLoop()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00195">run()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00234">updateSimulation()</a>, and <a class="el" href="UDPGameServer_8cpp_source.html#l00045">~UDPGameServer()</a>.</p>
+
+</div>
+</div>
+<a id="addc03e253cc450a368fa4e17cb369bdd" name="addc03e253cc450a368fa4e17cb369bdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addc03e253cc450a368fa4e17cb369bdd">&#9670;&#160;</a></span>_sessions</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classSessionManager.html">SessionManager</a>&amp; UDPGameServer::_sessions</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00108">108</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00075">handleHello()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00103">handleInput()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00140">handleShoot()</a>, and <a class="el" href="UDPGameServer_8cpp_source.html#l00018">UDPGameServer()</a>.</p>
+
+</div>
+</div>
+<a id="abbeb77deb2d519708ae2c6e2df26ba54" name="abbeb77deb2d519708ae2c6e2df26ba54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbeb77deb2d519708ae2c6e2df26ba54">&#9670;&#160;</a></span>_snapshotIntervalMs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const long long UDPGameServer::_snapshotIntervalMs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00112">112</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00195">run()</a>.</p>
+
+</div>
+</div>
+<a id="a25c7a0d2ae641a6c71421059bb024a60" name="a25c7a0d2ae641a6c71421059bb024a60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25c7a0d2ae641a6c71421059bb024a60">&#9670;&#160;</a></span>_socket</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html">Network::TransportLayer::UDPSocket</a> UDPGameServer::_socket</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00105">105</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00277">networkLoop()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00059">sendPacketTo()</a>, and <a class="el" href="UDPGameServer_8cpp_source.html#l00018">UDPGameServer()</a>.</p>
+
+</div>
+</div>
+<a id="a9386af9feddd3dc985886c42ad90e44e" name="a9386af9feddd3dc985886c42ad90e44e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9386af9feddd3dc985886c42ad90e44e">&#9670;&#160;</a></span>_tickIntervalMs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const long long UDPGameServer::_tickIntervalMs = 32</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00114">114</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00195">run()</a>.</p>
+
+</div>
+</div>
+<a id="a717a4dc2095ce6aa20c6e006acf8eef4" name="a717a4dc2095ce6aa20c6e006acf8eef4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a717a4dc2095ce6aa20c6e006acf8eef4">&#9670;&#160;</a></span>_worlds</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, <a class="el" href="classGameWorld.html">GameWorld</a>&gt; UDPGameServer::_worlds</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="UDPGameServer_8hpp_source.html#l00106">106</a> of file <a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="UDPGameServer_8cpp_source.html#l00065">broadcastSnapshot()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00075">handleHello()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00103">handleInput()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00140">handleShoot()</a>, <a class="el" href="UDPGameServer_8cpp_source.html#l00018">UDPGameServer()</a>, and <a class="el" href="UDPGameServer_8cpp_source.html#l00234">updateSimulation()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Network/TransportLayer/UDP/<a class="el" href="UDPGameServer_8hpp_source.html">UDPGameServer.hpp</a></li>
-<li>Network/TransportLayer/UDP/<a class="el" href="UDPGameServer_8cpp.html">UDPGameServer.cpp</a></li>
+<li>Network/TransportLayer/UDP/<a class="el" href="UDPGameServer_8cpp_source.html">UDPGameServer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

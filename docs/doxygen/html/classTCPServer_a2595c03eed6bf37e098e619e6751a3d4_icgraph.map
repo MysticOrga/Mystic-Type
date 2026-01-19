@@ -1,0 +1,21 @@
+<map id="TCPServer::closeFdRaw" name="TCPServer::closeFdRaw">
+<area shape="rect" id="Node000001" title="Close a raw fd without resetting the caller&#39;s variable." alt="" coords="985,44,1160,69"/>
+<area shape="rect" id="Node000002" href="$classTCPServer.html#aa6089a11e438f73bfc614c44f86e5d75" title="Close and invalidate a file descriptor." alt="" coords="791,44,937,69"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="972,59,937,59,937,54,972,54"/>
+<area shape="rect" id="Node000003" href="$classTCPServer.html#ae0e94f8d712b3c9028fe674100d649b9" title="Accept incoming connection and register a new client slot." alt="" coords="536,5,743,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="777,44,713,33,714,28,777,39"/>
+<area shape="rect" id="Node000006" href="$classTCPServer.html#a435ec8dcd340e15f964ce3c0748c7305" title="Reset client fields and close its socket." alt="" coords="556,68,723,93"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="777,69,723,74,722,69,777,63"/>
+<area shape="rect" id="Node000004" href="$classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3" title="Run the main accept/receive loop (blocking)." alt="" coords="108,43,225,68"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="522,18,402,21,274,33,213,45,212,40,273,27,402,16,522,13"/>
+<area shape="rect" id="Node000005" href="$server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,43,60,68"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,58,60,58,60,53,94,53"/>
+<area shape="rect" id="Node000007" href="$classTCPServer.html#a867c0e233f62e2d8f181ae99dbcca0a0" title="Disconnect clients whose heartbeat timed out." alt="" coords="281,43,480,68"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="542,74,480,68,480,62,542,69"/>
+<area shape="rect" id="Node000008" href="$classTCPServer.html#ada05a61182a782b4d3326fabd26a19bf" title="Read and handle data for a single client." alt="" coords="273,92,488,117"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="543,92,489,97,488,92,542,87"/>
+<area shape="rect" id="Node000009" href="$classTCPServer.html#abc497ac52355e53986a6a1bd1acb9581" title="Destroy the TCPServer, closing the listening socket." alt="" coords="294,141,467,167"/>
+<area shape="poly" id="edge10_Node000006_Node000009" title=" " alt="" coords="589,100,489,131,440,144,438,139,487,126,587,95"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="268,58,226,58,226,53,268,53"/>
+<area shape="poly" id="edge9_Node000008_Node000004" title=" " alt="" coords="311,91,222,71,223,65,312,86"/>
+</map>

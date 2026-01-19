@@ -9,22 +9,55 @@ Multiplayer R-Type-like with an authoritative TCP/UDP server and a raylib graphi
 - Works on macOS, Linux, and Windows (WSA init handled in entry points).
 
 ## Build
+
+### Linux
 ```bash
 ./build.sh              # build client + servers
 ```
-Executables are in `build/linux/bin/`:
+Executables are in `build/linux/`:
 - `rtype-tcp-server`
 - `rtype-udp-server`
 - `rtype-client`
 
-## Run
-Server:
+### macOS
 ```bash
-./build/linux/bin/rtype-tcp-server
+./build.sh
 ```
-Graphical client:
+Executables are in `build/linux/`:
+- `rtype-tcp-server`
+- `rtype-udp-server`
+- `rtype-client`
+
+### Windows
 ```bash
-./build/linux/bin/rtype-client
+cmake -S . -B build -G "Visual Studio 17 2022"
+```
+Executables are in `build/Release/`:
+- `rtype-tcp-server.exe`
+- `rtype-udp-server.exe`
+- `rtype-client.exe`
+
+## Run
+
+### Linux
+```bash
+cd ./build/linux/
+./rtype-tcp-server
+./rtype-client
+```
+
+### macOS
+```bash
+cd ./build/linux/
+./rtype-tcp-server
+./rtype-client
+```
+
+### Windows
+```bash
+cd .\build/Release
+.\rtype-tcp-server.exe
+.\rtype-client.exe
 ```
 
 ## Architecture

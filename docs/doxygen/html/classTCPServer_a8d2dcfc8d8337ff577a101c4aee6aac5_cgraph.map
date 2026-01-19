@@ -1,0 +1,17 @@
+<map id="TCPServer::refreshLobby" name="TCPServer::refreshLobby">
+<area shape="rect" id="Node000001" title="Resend the player list to all members of a lobby." alt="" coords="5,42,187,67"/>
+<area shape="rect" id="Node000002" href="$classTCPServer.html#aa87b20fb76f60c19df36f39ef3621b05" title="Send the current player list to a single client." alt="" coords="235,35,425,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="187,52,221,52,221,57,187,57"/>
+<area shape="rect" id="Node000003" href="$classTCPServer.html#a196ba30f88f890e9acf0ef1a21a74c71" title="Build the packet containing the list of connected players." alt="" coords="473,5,665,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="425,40,459,36,460,41,426,46"/>
+<area shape="rect" id="Node000004" href="$classTCPServer.html#a9a65a3923e77e48c5f0019b45af8fcb5" title="Send a packet to a specific client fd." alt="" coords="485,70,654,95"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="426,63,471,69,471,74,425,68"/>
+<area shape="rect" id="Node000005" href="$namespaceProtocol.html#a668bdeed219432868fca095e1b2f2667" title="Build a TCP framed buffer (2 bytes length + serialized packet)." alt="" coords="715,45,858,70"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="654,70,701,65,702,70,655,75"/>
+<area shape="rect" id="Node000007" href="$classTCPServer.html#a79e20e1d2821e399fe47dd1055341d5e" title="Ensure the full buffer is written to the socket." alt="" coords="713,94,860,119"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="655,89,700,94,699,100,654,95"/>
+<area shape="rect" id="Node000006" href="$classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="917,45,1044,70"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="858,55,903,55,903,60,858,60"/>
+<area shape="rect" id="Node000008" href="$classTCPServer.html#a5b1988f8a542c2d39f3d3556264e71b2" title="Write raw bytes to a socket fd." alt="" coords="908,94,1053,119"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="860,104,894,104,894,109,860,109"/>
+</map>

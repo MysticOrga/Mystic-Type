@@ -1,0 +1,7 @@
+<map id="ECS::addComponent" name="ECS::addComponent">
+<area shape="rect" id="Node000001" title="Adds a component to an entity." alt="" coords="5,31,160,56"/>
+<area shape="rect" id="Node000002" href="$classComponentArray.html#a37f484a9d2b6716e2facff9eabe1bb64" title="Adds or updates a component for an entity." alt="" coords="235,5,398,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,32,221,26,222,31,161,38"/>
+<area shape="rect" id="Node000003" href="$classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="208,55,425,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,49,194,52,194,57,160,54"/>
+</map>

@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -93,12 +94,23 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>score&#160;:&#160;<a class="el" href="structGameWorld_1_1PlayerState.html#ab0dfb20c2c7c738a5e77d9936d2cb99a">GameWorld::PlayerState</a>, <a class="el" href="structPlayerState.html#a239b365ad0ad982f928dd77b8b3d121f">PlayerState</a></li>
+<li>selectFdSet()&#160;:&#160;<a class="el" href="classTCPServer.html#a3b0daca7192b0342a5694a287319ddaa">TCPServer</a></li>
+<li>selectLobby()&#160;:&#160;<a class="el" href="classGraphicClient.html#a70229e3e019e7b315f06c9ad74f23be5">GraphicClient</a></li>
+<li>selectMainMenu()&#160;:&#160;<a class="el" href="classGraphicClient.html#a2d663515d7165fbe3533e038b5b2e916">GraphicClient</a></li>
+<li>selectPseudo()&#160;:&#160;<a class="el" href="classGraphicClient.html#a14824911dd4c90d0f459ed532aec0dd7">GraphicClient</a></li>
+<li>selectSettings()&#160;:&#160;<a class="el" href="classGraphicClient.html#a349a93e6b861365d4aaa7d7cea0d9ccf">GraphicClient</a></li>
 <li>send()&#160;:&#160;<a class="el" href="classIpcChannel.html#a35498032e830b79724747de4e7b6ca1b">IpcChannel</a></li>
 <li>sendChat()&#160;:&#160;<a class="el" href="classNetworkClient.html#ae93ee27e05eea56b96d34c4789a01f41">NetworkClient</a></li>
 <li>sendCreateLobby()&#160;:&#160;<a class="el" href="classNetworkClient.html#a69d86a3b406a767d3feb704be440343a">NetworkClient</a></li>
 <li>sendHelloUdp()&#160;:&#160;<a class="el" href="classNetworkClient.html#aeb3772e8f3674783b14953ee27e1cd39">NetworkClient</a></li>
 <li>sendInput()&#160;:&#160;<a class="el" href="classNetworkClient.html#afdfce51c7dbb2e61f5e9280b15368915">NetworkClient</a></li>
 <li>sendJoinLobby()&#160;:&#160;<a class="el" href="classNetworkClient.html#ab66ff3a3c9bb96ad56e141d3713914bd">NetworkClient</a></li>
+<li>sendPacket()&#160;:&#160;<a class="el" href="classTCPServer.html#a9a65a3923e77e48c5f0019b45af8fcb5">TCPServer</a></li>
+<li>sendPacketTcp()&#160;:&#160;<a class="el" href="classNetworkClient.html#af150c1b7e0aa8c19cb337fb838479324">NetworkClient</a></li>
+<li>sendPacketTo()&#160;:&#160;<a class="el" href="classUDPGameServer.html#a602889e958a3ff926bb8de325c982a62">UDPGameServer</a></li>
+<li>sendPacketUdp()&#160;:&#160;<a class="el" href="classNetworkClient.html#a6c612ab362cc3e4ea8c94ebc2cddc4e6">NetworkClient</a></li>
+<li>sendPingToAll()&#160;:&#160;<a class="el" href="classTCPServer.html#a1ef2aa5cce99901889e64fce86fbac33">TCPServer</a></li>
+<li>sendPlayerListToClient()&#160;:&#160;<a class="el" href="classTCPServer.html#aa87b20fb76f60c19df36f39ef3621b05">TCPServer</a></li>
 <li>sendPong()&#160;:&#160;<a class="el" href="classNetworkClient.html#a28a515bbb5f6f75d6603a5332c217f93">NetworkClient</a></li>
 <li>sendShoot()&#160;:&#160;<a class="el" href="classNetworkClient.html#a2773882369d758cbb23aa67b0dda78ed">NetworkClient</a></li>
 <li>sendUdpPing()&#160;:&#160;<a class="el" href="classNetworkClient.html#ad087f54b86ec34f0be29053415ab7a46">NetworkClient</a></li>
@@ -110,6 +122,7 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 <li>setLobbyCode()&#160;:&#160;<a class="el" href="classSessionManager.html#a8023cf136e039298b1e2ba5fe7cb224b">SessionManager</a></li>
 <li>setLogPrefix()&#160;:&#160;<a class="el" href="classGameWorld.html#a163fb2fed54650ebba995df1e64c39db">GameWorld</a></li>
 <li>setOnRemove()&#160;:&#160;<a class="el" href="classSessionManager.html#aa54fb04918bcd7d31bcdfe2ce2ee6545">SessionManager</a></li>
+<li>setPath()&#160;:&#160;<a class="el" href="classNetwork_1_1TransportLayer_1_1UnixSocket.html#a207cfb6db259da409456e6c4dce13692">Network::TransportLayer::UnixSocket</a></li>
 <li>setPosition()&#160;:&#160;<a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a1f7c6aceeed5f9ec40d5140203bf844b">Rtype::Graphic::AnimatedSprite</a></li>
 <li>setPseudo()&#160;:&#160;<a class="el" href="classNetworkClient.html#acfbb5b079e33b388d8df440cf29e89a1">NetworkClient</a>, <a class="el" href="classSessionManager.html#a84b313bdbfecb70d12707d77f357bca8">SessionManager</a></li>
 <li>setScale()&#160;:&#160;<a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a656054e8c3f7380066422d10a7584c44">Rtype::Graphic::AnimatedSprite</a>, <a class="el" href="classSpriteRenderSystem.html#aaaf180675dc11ac4aab058fb44ab762a">SpriteRenderSystem</a></li>
@@ -117,13 +130,22 @@ $(document).ready(function(){initNavTree('functions_s.html',''); initResizable()
 <li>setUdpAddr()&#160;:&#160;<a class="el" href="classSessionManager.html#af2596853b8042076df0c1022468eaec3">SessionManager</a></li>
 <li>shootCount&#160;:&#160;<a class="el" href="structSession.html#a0a38770e87af1772c19fce6a97528056">Session</a></li>
 <li>shouldClose()&#160;:&#160;<a class="el" href="classRaylib_1_1Window.html#ac0d6cca8b53645743f06c2e453624938">Raylib::Window</a></li>
+<li>shouldSpawnBoss()&#160;:&#160;<a class="el" href="classGameWorld.html#a6af008239b30629fad73ae657465d37e">GameWorld</a></li>
+<li>signatures&#160;:&#160;<a class="el" href="classECS.html#a5cf70fd9d3ef94f40bd61beafe2de8bc">ECS</a></li>
 <li>size&#160;:&#160;<a class="el" href="classPacket.html#af702242beb44d7ee757716717fd629df">Packet</a></li>
 <li>sockState()&#160;:&#160;<a class="el" href="classNetwork_1_1TransportLayer_1_1ASocket.html#a50cace88b622aa442d901434ecc33bd8">Network::TransportLayer::ASocket</a>, <a class="el" href="classNetwork_1_1TransportLayer_1_1ISocket.html#a3bc7abee67be5b72149c67a1e990d14b">Network::TransportLayer::ISocket</a></li>
 <li>spawn()&#160;:&#160;<a class="el" href="classChildProcessManager.html#a138e2d098e92a2c6d1ad7b35dadd6541">ChildProcessManager</a></li>
+<li>spawnBoss()&#160;:&#160;<a class="el" href="classGameWorld.html#a98daebdd5931cf333037bc3891b16794">GameWorld</a></li>
+<li>spawnBossBullet()&#160;:&#160;<a class="el" href="classGameWorld.html#ac1835fdf3232458197a2c81a1a0c5e02">GameWorld</a></li>
+<li>spawnMonster()&#160;:&#160;<a class="el" href="classGameWorld.html#a3bf3aa2e665bed5c7e5c87f6f482ae97">GameWorld</a></li>
 <li>speedX&#160;:&#160;<a class="el" href="structGameWorld_1_1MonsterState.html#aae0e2baffbd9342713d1e24bd2f2dfeb">GameWorld::MonsterState</a></li>
 <li>speedY&#160;:&#160;<a class="el" href="structGameWorld_1_1MonsterState.html#a757841176bc040ae9ff9a0234f862fc1">GameWorld::MonsterState</a></li>
-<li>Sprite()&#160;:&#160;<a class="el" href="classSprite.html#a03ea660b2e77213c9ae05830bfdfbc5d">Sprite</a></li>
 <li>sprite&#160;:&#160;<a class="el" href="classSprite.html#afdaef0e77d5d077f74f920ef15f58d7f">Sprite</a></li>
+<li>Sprite()&#160;:&#160;<a class="el" href="classSprite.html#a03ea660b2e77213c9ae05830bfdfbc5d">Sprite</a></li>
+<li>storages&#160;:&#160;<a class="el" href="classECS.html#a6819919da90f31fea50d2b290ba724c8">ECS</a></li>
+<li>syncBullets()&#160;:&#160;<a class="el" href="classGraphicClient.html#a61111e5d14a72f0f69344ab034a0622a">GraphicClient</a></li>
+<li>syncEntities()&#160;:&#160;<a class="el" href="classGraphicClient.html#aacb31035c31d741d0ae2ca5ec9228b12">GraphicClient</a></li>
+<li>syncMonsters()&#160;:&#160;<a class="el" href="classGraphicClient.html#afe45a37a11b23a08cce4d7c6b7efccbc">GraphicClient</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

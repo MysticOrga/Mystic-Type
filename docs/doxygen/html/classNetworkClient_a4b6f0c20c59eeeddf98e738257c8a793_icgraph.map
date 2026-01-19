@@ -1,0 +1,14 @@
+<map id="NetworkClient::getLastSnapshotMonsters" name="NetworkClient::getLastSnapshotMonsters">
+<area shape="rect" id="Node000001" title="Get last received monster snapshots." alt="" coords="800,35,1031,75"/>
+<area shape="rect" id="Node000002" href="$classGraphicClient.html#a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" title="Processes network events and updates game state." alt="" coords="529,5,752,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="786,44,752,40,753,35,787,38"/>
+<area shape="rect" id="Node000006" href="$classGraphicClient.html#a50072266faf2e76ace99e16c4c7b208a" title="Updates all game entities based on delta time." alt="" coords="535,70,747,95"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="787,70,747,75,747,69,786,65"/>
+<area shape="rect" id="Node000003" href="$classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,42,481,67"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="516,42,482,47,481,41,515,37"/>
+<area shape="rect" id="Node000004" href="$classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,42,247,67"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="281,57,247,57,247,52,281,52"/>
+<area shape="rect" id="Node000005" href="$client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,42,60,67"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,57,60,57,60,52,94,52"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="520,72,481,68,482,62,521,67"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="TCPServer::waitForReadable" name="TCPServer::waitForReadable">
+<area shape="rect" id="Node000001" title="Block until a file descriptor is readable or times out." alt="" coords="5,5,211,31"/>
+<area shape="rect" id="Node000002" href="$classTCPServer.html#a3b0daca7192b0342a5694a287319ddaa" title="Wrapper around select for testability." alt="" coords="259,5,431,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="211,15,245,15,245,21,211,21"/>
+</map>

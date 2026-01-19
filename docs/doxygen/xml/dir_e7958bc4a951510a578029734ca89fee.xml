@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_e7958bc4a951510a578029734ca89fee" kind="dir">
+    <compoundname>graphical-client</compoundname>
+    <innerdir refid="dir_f8129dbd3ae2d3b72ab062d666ff244a">graphical-client/ecs</innerdir>
+    <innerdir refid="dir_b872c0e105a2fc8b4ed88fdf8fe97baa">graphical-client/Graphic</innerdir>
+    <innerdir refid="dir_d7b089d80e197b7173c130d051c7dd95">graphical-client/GraphicClient</innerdir>
+    <innerdir refid="dir_a77af5e100df803ce29cdf5c84f97a20">graphical-client/Raylib</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="graphical-client/"/>
+  </compounddef>
+</doxygen>

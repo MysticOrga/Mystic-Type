@@ -1,0 +1,11 @@
+<map id="Network::TransportLayer::ASocket::bindSock" name="Network::TransportLayer::ASocket::bindSock">
+<area shape="rect" id="Node000001" title="Bind the socket to a specific address and port." alt="" coords="547,37,728,77"/>
+<area shape="rect" id="Node000002" href="$classNetwork_1_1TransportLayer_1_1TCPSocket.html#a1101a573328f3e3763b5cc0fed67f0ae" title="Bind to an address and start listening." alt="" coords="301,5,499,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="533,46,498,41,499,36,534,41"/>
+<area shape="rect" id="Node000004" href="$classNetwork_1_1TransportLayer_1_1UDPSocket.html#a4972fa36f907bdcdae38d7d551f34e8b" title="Bind the UDP socket to a port/address." alt="" coords="309,69,491,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="534,74,491,80,490,74,533,69"/>
+<area shape="rect" id="Node000003" href="$classTCPServer.html#ad8f4ffce8b9317fc30a7cfa9e5c5442a" title="Construct a new TCPServer bound to the given port." alt="" coords="48,13,211,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="288,28,211,28,211,23,288,23"/>
+<area shape="rect" id="Node000005" href="$classUDPGameServer.html#a0272e620fa267e7a2043b5729d24cfbc" title=" " alt="" coords="5,77,253,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="296,92,254,92,254,87,296,87"/>
+</map>

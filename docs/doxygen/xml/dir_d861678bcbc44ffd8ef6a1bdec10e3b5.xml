@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_d861678bcbc44ffd8ef6a1bdec10e3b5" kind="dir">
+    <compoundname>Network/TransportLayer/TCP</compoundname>
+    <innerfile refid="TCPServer_8cpp">TCPServer.cpp</innerfile>
+    <innerfile refid="TCPServer_8hpp">TCPServer.hpp</innerfile>
+    <innerfile refid="TCPSocket_8cpp">TCPSocket.cpp</innerfile>
+    <innerfile refid="TCPSocket_8hpp">TCPSocket.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Network/TransportLayer/TCP/"/>
+  </compounddef>
+</doxygen>

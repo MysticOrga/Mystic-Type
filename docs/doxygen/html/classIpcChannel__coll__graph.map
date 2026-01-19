@@ -1,0 +1,3 @@
+<map id="IpcChannel" name="IpcChannel">
+<area shape="rect" id="Node000001" title="Small IPC helper based on a UNIX datagram socket (SOCK_DGRAM)." alt="" coords="5,5,133,311"/>
+</map>

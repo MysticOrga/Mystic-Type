@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -91,6 +92,7 @@ $(document).ready(function(){initNavTree('classSpriteRenderSystem.html',''); ini
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classSpriteRenderSystem-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">SpriteRenderSystem Class Reference</div></div>
 </div><!--header-->
@@ -99,7 +101,15 @@ $(document).ready(function(){initNavTree('classSpriteRenderSystem.html',''); ini
 <p>Renders animated sprite entities with proper coordinate transformation.  
  <a href="classSpriteRenderSystem.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="System_8hpp_source.html">System.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="System_8hpp_source.html">graphical-client/ecs/System.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for SpriteRenderSystem:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSpriteRenderSystem__coll__graph.png" border="0" usemap="#aSpriteRenderSystem_coll__map" alt="Collaboration graph"/></div>
+<map name="aSpriteRenderSystem_coll__map" id="aSpriteRenderSystem_coll__map">
+<area shape="rect" title="Renders animated sprite entities with proper coordinate transformation." alt="" coords="5,5,172,191"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -112,10 +122,25 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a439243229880829d70b83b895b500495" id="r_a439243229880829d70b83b895b500495"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpriteRenderSystem.html#a439243229880829d70b83b895b500495">update</a> (<a class="el" href="classECS.html">ECS</a> &amp;ecs, <a class="el" href="Core_8hpp.html#aff1ac8fd0b927c16980eeb4053d1d5ca">Entity</a> e, float dt)</td></tr>
 <tr class="memdesc:a439243229880829d70b83b895b500495"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates and renders an animated sprite entity.  <br /></td></tr>
 <tr class="separator:a439243229880829d70b83b895b500495"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a733b0be24b57ad5533c791a6cc3d6669" id="r_a733b0be24b57ad5533c791a6cc3d6669"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpriteRenderSystem.html#a733b0be24b57ad5533c791a6cc3d6669">_scaleX</a> = 1.0f</td></tr>
+<tr class="separator:a733b0be24b57ad5533c791a6cc3d6669"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a83c885d6559c0928e6def5ca18e5a1" id="r_a2a83c885d6559c0928e6def5ca18e5a1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpriteRenderSystem.html#a2a83c885d6559c0928e6def5ca18e5a1">_scaleY</a> = 1.0f</td></tr>
+<tr class="separator:a2a83c885d6559c0928e6def5ca18e5a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a406f5de0e7d1764fb135efe5a0f6ab80" id="r_a406f5de0e7d1764fb135efe5a0f6ab80"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpriteRenderSystem.html#a406f5de0e7d1764fb135efe5a0f6ab80">_offsetX</a> = 0.0f</td></tr>
+<tr class="separator:a406f5de0e7d1764fb135efe5a0f6ab80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bf896c956a20bca32afeaeda05973fd" id="r_a3bf896c956a20bca32afeaeda05973fd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpriteRenderSystem.html#a3bf896c956a20bca32afeaeda05973fd">_offsetY</a> = 0.0f</td></tr>
+<tr class="separator:a3bf896c956a20bca32afeaeda05973fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae81e2dc6198204f7e0c607edff2b6a58" id="r_ae81e2dc6198204f7e0c607edff2b6a58"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSpriteRenderSystem.html#ae81e2dc6198204f7e0c607edff2b6a58">_areaSize</a> = 1280.0f</td></tr>
+<tr class="separator:ae81e2dc6198204f7e0c607edff2b6a58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Renders animated sprite entities with proper coordinate transformation. </p>
 <p>Handles drawing of animated sprites with scaling and converts game coordinates to screen coordinates. </p>
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00255">255</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="abb1858e6c55c336ea4e1a9e4f597946c" name="abb1858e6c55c336ea4e1a9e4f597946c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abb1858e6c55c336ea4e1a9e4f597946c">&#9670;&#160;</a></span>setGameAreaOffset()</h2>
@@ -167,6 +192,26 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00271">271</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="System_8hpp_source.html#l00304">_areaSize</a>, <a class="el" href="System_8hpp_source.html#l00302">_offsetX</a>, and <a class="el" href="System_8hpp_source.html#l00303">_offsetY</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l00027">GraphicClient::init()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSpriteRenderSystem_abb1858e6c55c336ea4e1a9e4f597946c_icgraph.png" border="0" usemap="#aclassSpriteRenderSystem_abb1858e6c55c336ea4e1a9e4f597946c_icgraph" alt=""/></div>
+<map name="aclassSpriteRenderSystem_abb1858e6c55c336ea4e1a9e4f597946c_icgraph" id="aclassSpriteRenderSystem_abb1858e6c55c336ea4e1a9e4f597946c_icgraph">
+<area shape="rect" title="Sets the game area offset and size for coordinate transformation." alt="" coords="481,5,640,45"/>
+<area shape="rect" href="classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="295,13,433,38"/>
+<area shape="poly" title=" " alt="" coords="468,28,433,28,433,23,468,23"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,13,247,38"/>
+<area shape="poly" title=" " alt="" coords="281,28,247,28,247,23,281,23"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="aaaf180675dc11ac4aab058fb44ab762a" name="aaaf180675dc11ac4aab058fb44ab762a"></a>
@@ -211,6 +256,28 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00263">263</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="System_8hpp_source.html#l00300">_scaleX</a>, and <a class="el" href="System_8hpp_source.html#l00301">_scaleY</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l00774">GraphicClient::render()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSpriteRenderSystem_aaaf180675dc11ac4aab058fb44ab762a_icgraph.png" border="0" usemap="#aclassSpriteRenderSystem_aaaf180675dc11ac4aab058fb44ab762a_icgraph" alt=""/></div>
+<map name="aclassSpriteRenderSystem_aaaf180675dc11ac4aab058fb44ab762a_icgraph" id="aclassSpriteRenderSystem_aaaf180675dc11ac4aab058fb44ab762a_icgraph">
+<area shape="rect" title="Sets the sprite scaling factors." alt="" coords="737,5,892,45"/>
+<area shape="rect" href="classGraphicClient.html#ab0acd8f5b8996cc62295831d7af1cf59" title="Renders the entire game scene." alt="" coords="529,13,689,38"/>
+<area shape="poly" title=" " alt="" coords="724,28,690,28,690,23,724,23"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,13,481,38"/>
+<area shape="poly" title=" " alt="" coords="516,28,482,28,482,23,516,23"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,13,247,38"/>
+<area shape="poly" title=" " alt="" coords="281,28,247,28,247,23,281,23"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -263,6 +330,171 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00284">284</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="System_8hpp_source.html#l00304">_areaSize</a>, <a class="el" href="System_8hpp_source.html#l00302">_offsetX</a>, <a class="el" href="System_8hpp_source.html#l00303">_offsetY</a>, and <a class="el" href="Core_8hpp_source.html#l00131">ECS::getComponent()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l00774">GraphicClient::render()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSpriteRenderSystem_a439243229880829d70b83b895b500495_cgraph.png" border="0" usemap="#aclassSpriteRenderSystem_a439243229880829d70b83b895b500495_cgraph" alt=""/></div>
+<map name="aclassSpriteRenderSystem_a439243229880829d70b83b895b500495_cgraph" id="aclassSpriteRenderSystem_a439243229880829d70b83b895b500495_cgraph">
+<area shape="rect" title="Updates and renders an animated sprite entity." alt="" coords="5,5,160,45"/>
+<area shape="rect" href="classECS.html#ab25123ea5b19ee74c4e120eb6d808a48" title="Retrieves a component from an entity." alt="" coords="208,13,359,38"/>
+<area shape="poly" title=" " alt="" coords="161,23,194,23,194,28,161,28"/>
+<area shape="rect" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="407,13,624,38"/>
+<area shape="poly" title=" " alt="" coords="359,23,393,23,393,28,359,28"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSpriteRenderSystem_a439243229880829d70b83b895b500495_icgraph.png" border="0" usemap="#aclassSpriteRenderSystem_a439243229880829d70b83b895b500495_icgraph" alt=""/></div>
+<map name="aclassSpriteRenderSystem_a439243229880829d70b83b895b500495_icgraph" id="aclassSpriteRenderSystem_a439243229880829d70b83b895b500495_icgraph">
+<area shape="rect" title="Updates and renders an animated sprite entity." alt="" coords="737,5,892,45"/>
+<area shape="rect" href="classGraphicClient.html#ab0acd8f5b8996cc62295831d7af1cf59" title="Renders the entire game scene." alt="" coords="529,13,689,38"/>
+<area shape="poly" title=" " alt="" coords="724,28,690,28,690,23,724,23"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,13,481,38"/>
+<area shape="poly" title=" " alt="" coords="516,28,482,28,482,23,516,23"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,13,247,38"/>
+<area shape="poly" title=" " alt="" coords="281,28,247,28,247,23,281,23"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ae81e2dc6198204f7e0c607edff2b6a58" name="ae81e2dc6198204f7e0c607edff2b6a58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae81e2dc6198204f7e0c607edff2b6a58">&#9670;&#160;</a></span>_areaSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float SpriteRenderSystem::_areaSize = 1280.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00304">304</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="System_8hpp_source.html#l00271">setGameAreaOffset()</a>, and <a class="el" href="System_8hpp_source.html#l00284">update()</a>.</p>
+
+</div>
+</div>
+<a id="a406f5de0e7d1764fb135efe5a0f6ab80" name="a406f5de0e7d1764fb135efe5a0f6ab80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a406f5de0e7d1764fb135efe5a0f6ab80">&#9670;&#160;</a></span>_offsetX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float SpriteRenderSystem::_offsetX = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00302">302</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="System_8hpp_source.html#l00271">setGameAreaOffset()</a>, and <a class="el" href="System_8hpp_source.html#l00284">update()</a>.</p>
+
+</div>
+</div>
+<a id="a3bf896c956a20bca32afeaeda05973fd" name="a3bf896c956a20bca32afeaeda05973fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bf896c956a20bca32afeaeda05973fd">&#9670;&#160;</a></span>_offsetY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float SpriteRenderSystem::_offsetY = 0.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00303">303</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="System_8hpp_source.html#l00271">setGameAreaOffset()</a>, and <a class="el" href="System_8hpp_source.html#l00284">update()</a>.</p>
+
+</div>
+</div>
+<a id="a733b0be24b57ad5533c791a6cc3d6669" name="a733b0be24b57ad5533c791a6cc3d6669"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a733b0be24b57ad5533c791a6cc3d6669">&#9670;&#160;</a></span>_scaleX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float SpriteRenderSystem::_scaleX = 1.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00300">300</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="System_8hpp_source.html#l00263">setScale()</a>.</p>
+
+</div>
+</div>
+<a id="a2a83c885d6559c0928e6def5ca18e5a1" name="a2a83c885d6559c0928e6def5ca18e5a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a83c885d6559c0928e6def5ca18e5a1">&#9670;&#160;</a></span>_scaleY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float SpriteRenderSystem::_scaleY = 1.0f</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00301">301</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="System_8hpp_source.html#l00263">setScale()</a>.</p>
 
 </div>
 </div>

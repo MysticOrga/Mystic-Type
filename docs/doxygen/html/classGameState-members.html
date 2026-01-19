@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -95,14 +96,17 @@ $(document).ready(function(){initNavTree('classGameState.html',''); initResizabl
 
 <p>This is the complete list of members for <a class="el" href="classGameState.html">GameState</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classGameState.html#aa19f7b265ddcdf1c490b1c43556d07e1">clear</a>()</td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classGameState.html#a59e8f64ec95841389e7bdbc1a07f718a">clearPlayers</a>()</td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classGameState.html#a65f539f1657ebd717fe5d48683144c82">listBullets</a>() const</td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classGameState.html#a8fd239e201dacc3cc9d19dc34d67f301">listMonsters</a>() const</td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classGameState.html#adbedaec4367fbf2705065e66a8909ce5">listPlayers</a>() const</td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classGameState.html#a23099e9050e7a20e6d1349384591b3b5">upsertBullet</a>(int id, uint8_t x, uint8_t y, int8_t vx, int8_t vy)</td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classGameState.html#a72d25f3760e72101b6c3ddc990da3d04">upsertMonster</a>(int id, uint8_t x, uint8_t y, uint8_t hp, uint8_t type)</td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classGameState.html#a9f034439dd565e62cb83be4ac56baba1">upsertPlayer</a>(int id, uint8_t x, uint8_t y, uint8_t hp, uint16_t score)</td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classGameState.html#a6ebd00bef3ebc816d2796634953b7615">_bullets</a></td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classGameState.html#a684212aeb845a80b274f98de6e46214a">_monsters</a></td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classGameState.html#a61038ea129759cc4631044201305b10e">_players</a></td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classGameState.html#aa19f7b265ddcdf1c490b1c43556d07e1">clear</a>()</td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classGameState.html#a59e8f64ec95841389e7bdbc1a07f718a">clearPlayers</a>()</td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classGameState.html#a65f539f1657ebd717fe5d48683144c82">listBullets</a>() const</td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classGameState.html#a8fd239e201dacc3cc9d19dc34d67f301">listMonsters</a>() const</td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classGameState.html#adbedaec4367fbf2705065e66a8909ce5">listPlayers</a>() const</td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classGameState.html#a23099e9050e7a20e6d1349384591b3b5">upsertBullet</a>(int id, uint8_t x, uint8_t y, int8_t vx, int8_t vy)</td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classGameState.html#a72d25f3760e72101b6c3ddc990da3d04">upsertMonster</a>(int id, uint8_t x, uint8_t y, uint8_t hp, uint8_t type)</td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classGameState.html#a9f034439dd565e62cb83be4ac56baba1">upsertPlayer</a>(int id, uint8_t x, uint8_t y, uint8_t hp, uint16_t score)</td><td class="entry"><a class="el" href="classGameState.html">GameState</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

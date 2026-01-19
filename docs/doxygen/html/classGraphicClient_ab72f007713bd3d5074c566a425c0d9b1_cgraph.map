@@ -1,0 +1,7 @@
+<map id="GraphicClient::drawGameBackground" name="GraphicClient::drawGameBackground">
+<area shape="rect" id="Node000001" title="Draws the game area background with animations." alt="" coords="5,31,272,56"/>
+<area shape="rect" id="Node000002" href="$classRaylib_1_1Window.html#ab5db70ee0a095180020beaa8f134247d" title="Clears background with specified color." alt="" coords="320,5,559,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="272,29,306,27,307,32,272,35"/>
+<area shape="rect" id="Node000003" href="$classRaylib_1_1Draw.html#a1a91623bcea0592d00ae0264d81acd52" title="Draws a rectangle outline." alt="" coords="336,55,543,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="272,51,322,55,322,61,272,57"/>
+</map>

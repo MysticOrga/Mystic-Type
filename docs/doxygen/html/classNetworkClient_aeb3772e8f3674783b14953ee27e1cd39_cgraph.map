@@ -1,0 +1,11 @@
+<map id="NetworkClient::sendHelloUdp" name="NetworkClient::sendHelloUdp">
+<area shape="rect" id="Node000001" title="Send UDP hello to register address/port on server." alt="" coords="5,55,220,80"/>
+<area shape="rect" id="Node000002" href="$classNetworkClient.html#a6c612ab362cc3e4ea8c94ebc2cddc4e6" title=" " alt="" coords="268,55,491,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,65,254,65,254,70,220,70"/>
+<area shape="rect" id="Node000003" href="$classNetworkClient.html#aaf60f1216a17b46ad12539625a1022c2" title=" " alt="" coords="551,5,721,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="446,52,555,31,556,36,447,57"/>
+<area shape="rect" id="Node000004" href="$classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="573,55,699,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="491,65,559,65,559,70,491,70"/>
+<area shape="rect" id="Node000005" href="$classNetworkClient.html#a36892dcdc8c2523b27947a347ea16022" title=" " alt="" coords="539,105,733,145"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="438,77,533,99,532,104,436,83"/>
+</map>

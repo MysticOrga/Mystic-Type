@@ -1,0 +1,19 @@
+<map id="NetworkClient::handleUdpPacket" name="NetworkClient::handleUdpPacket">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1044,17,1237,57"/>
+<area shape="rect" id="Node000002" href="$classNetworkClient.html#a1f77ff0729755d9782b4542582cfe214" title="Poll TCP/UDP sockets and handle any received packets." alt="" coords="800,25,996,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1030,40,996,40,996,35,1030,35"/>
+<area shape="rect" id="Node000003" href="$classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="319,25,457,50"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="824,25,752,15,641,8,530,15,447,27,446,22,529,9,641,3,752,9,825,19"/>
+<area shape="rect" id="Node000006" href="$classGraphicClient.html#a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" title="Processes network events and updates game state." alt="" coords="529,75,752,115"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="828,56,731,77,730,72,826,50"/>
+<area shape="rect" id="Node000008" href="$classGraphicClient.html#a70229e3e019e7b315f06c9ad74f23be5" title="Shows lobby selection menu." alt="" coords="543,25,739,50"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="786,40,739,40,739,35,786,35"/>
+<area shape="rect" id="Node000004" href="$classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,54,247,79"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="305,51,247,60,247,54,304,46"/>
+<area shape="rect" id="Node000005" href="$client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,54,60,79"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,69,60,69,60,64,94,64"/>
+<area shape="rect" id="Node000007" href="$classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,78,481,103"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="516,95,481,95,481,89,516,90"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="280,81,247,77,247,72,281,76"/>
+<area shape="poly" id="edge9_Node000008_Node000003" title=" " alt="" coords="529,40,458,40,458,35,529,35"/>
+</map>

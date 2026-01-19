@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classInputSystem" kind="class" language="C++" prot="public">
+    <compoundname>InputSystem</compoundname>
+    <includes refid="System_8hpp" local="no">graphical-client/ecs/System.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classInputSystem_1af2085774ee25bb4c472b6e8a48b28773" prot="private" static="no" mutable="no">
+        <type><ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320ee" kindref="member">NetworkClient::MoveCmd</ref></type>
+        <definition>NetworkClient::MoveCmd InputSystem::_lastDir</definition>
+        <argsstring></argsstring>
+        <name>_lastDir</name>
+        <qualifiedname>InputSystem::_lastDir</qualifiedname>
+        <initializer>= <ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea92b09c7c48c520c3c55e497875da437c" kindref="member">NetworkClient::MoveCmd::Right</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/System.hpp" line="144" column="28" bodyfile="graphical-client/ecs/System.hpp" bodystart="144" bodyend="-1"/>
+        <referencedby refid="classInputSystem_1af7ed09c6bfd5fba6af86af16de00d706" compoundref="System_8hpp" startline="90" endline="141">update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; uint8_t, KeyboardKey &gt;</type>
+        <definition>std::unordered_map&lt;uint8_t, KeyboardKey&gt; InputSystem::_keyMap</definition>
+        <argsstring></argsstring>
+        <name>_keyMap</name>
+        <qualifiedname>InputSystem::_keyMap</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/System.hpp" line="145" column="24" bodyfile="graphical-client/ecs/System.hpp" bodystart="145" bodyend="-1"/>
+        <referencedby refid="classInputSystem_1ac4da6a8e14e4907b0c7882e1297fea3a" compoundref="System_8hpp" startline="74" endline="78">getKey</referencedby>
+        <referencedby refid="classInputSystem_1a2f18d9fdb44805c63984113c1433c223" compoundref="System_8hpp" startline="50" endline="57">InputSystem</referencedby>
+        <referencedby refid="classInputSystem_1ab584f9708fa5b2c909a96a698980f682" compoundref="System_8hpp" startline="64" endline="67">setKey</referencedby>
+        <referencedby refid="classInputSystem_1af7ed09c6bfd5fba6af86af16de00d706" compoundref="System_8hpp" startline="90" endline="141">update</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classInputSystem_1a2f18d9fdb44805c63984113c1433c223" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>InputSystem::InputSystem</definition>
+        <argsstring>()</argsstring>
+        <name>InputSystem</name>
+        <qualifiedname>InputSystem::InputSystem</qualifiedname>
+        <briefdescription>
+<para>Constructor initializing default key bindings. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets up default arrow keys for movement and A for shooting. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/System.hpp" line="50" column="5" bodyfile="graphical-client/ecs/System.hpp" bodystart="50" bodyend="57"/>
+        <references refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" compoundref="System_8hpp" startline="145">_keyMap</references>
+        <references refid="System_8hpp_1adade54da2b207529e678a25e6389d494a9b0b4a95b99523966e0e34ffdadac9da" compoundref="System_8hpp" startline="29">DOWN</references>
+        <references refid="System_8hpp_1adade54da2b207529e678a25e6389d494adb45120aafd37a973140edee24708065" compoundref="System_8hpp" startline="27">LEFT</references>
+        <references refid="System_8hpp_1adade54da2b207529e678a25e6389d494aec8379af7490bb9eaaf579cf17876f38" compoundref="System_8hpp" startline="26">RIGHT</references>
+        <references refid="System_8hpp_1adade54da2b207529e678a25e6389d494a38317998d0db1f65b5a5d3f9990c02f3" compoundref="System_8hpp" startline="30">SHOOT</references>
+        <references refid="System_8hpp_1adade54da2b207529e678a25e6389d494aba595d8bca8bc5e67c37c0a9d89becfa" compoundref="System_8hpp" startline="28">UP</references>
+      </memberdef>
+      <memberdef kind="function" id="classInputSystem_1ab584f9708fa5b2c909a96a698980f682" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void InputSystem::setKey</definition>
+        <argsstring>(KeyEvent event, KeyboardKey key)</argsstring>
+        <name>setKey</name>
+        <qualifiedname>InputSystem::setKey</qualifiedname>
+        <param>
+          <type><ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494" kindref="member">KeyEvent</ref></type>
+          <declname>event</declname>
+        </param>
+        <param>
+          <type>KeyboardKey</type>
+          <declname>key</declname>
+        </param>
+        <briefdescription>
+<para>Sets a custom key binding for a specific action. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The KeyEvent action to rebind. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>key</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The KeyboardKey to bind to this action. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/System.hpp" line="64" column="17" bodyfile="graphical-client/ecs/System.hpp" bodystart="64" bodyend="67"/>
+        <references refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" compoundref="System_8hpp" startline="145">_keyMap</references>
+        <referencedby refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" compoundref="GraphicClient_8cpp" startline="1328" endline="1574">GraphicClient::selectSettings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classInputSystem_1ac4da6a8e14e4907b0c7882e1297fea3a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>KeyboardKey</type>
+        <definition>KeyboardKey InputSystem::getKey</definition>
+        <argsstring>(KeyEvent event) const</argsstring>
+        <name>getKey</name>
+        <qualifiedname>InputSystem::getKey</qualifiedname>
+        <param>
+          <type><ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494" kindref="member">KeyEvent</ref></type>
+          <declname>event</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves the current key binding for an action. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>event</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The KeyEvent action to query. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The KeyboardKey currently bound to this action. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/System.hpp" line="74" column="24" bodyfile="graphical-client/ecs/System.hpp" bodystart="74" bodyend="78"/>
+        <references refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" compoundref="System_8hpp" startline="145">_keyMap</references>
+        <referencedby refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" compoundref="GraphicClient_8cpp" startline="1328" endline="1574">GraphicClient::selectSettings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classInputSystem_1af7ed09c6bfd5fba6af86af16de00d706" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void InputSystem::update</definition>
+        <argsstring>(NetworkClient &amp;net, const Position &amp;pos, Velocity &amp;vel)</argsstring>
+        <name>update</name>
+        <qualifiedname>InputSystem::update</qualifiedname>
+        <param>
+          <type><ref refid="classNetworkClient" kindref="compound">NetworkClient</ref> &amp;</type>
+          <declname>net</declname>
+        </param>
+        <param>
+          <type>const <ref refid="classPosition" kindref="compound">Position</ref> &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <param>
+          <type><ref refid="classVelocity" kindref="compound">Velocity</ref> &amp;</type>
+          <declname>vel</declname>
+        </param>
+        <briefdescription>
+<para>Updates input state and sends player commands to the server. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Processes keyboard input for movement and shooting, applies velocity changes, and sends commands to the server for validation and propagation to other players.</para>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>net</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference to <ref refid="classNetworkClient" kindref="compound">NetworkClient</ref> for sending commands to server. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current player position. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>vel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference to velocity component (modified by this method). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/System.hpp" line="90" column="10" bodyfile="graphical-client/ecs/System.hpp" bodystart="90" bodyend="141"/>
+        <references refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" compoundref="System_8hpp" startline="145">_keyMap</references>
+        <references refid="classInputSystem_1af2085774ee25bb4c472b6e8a48b28773" compoundref="System_8hpp" startline="144">_lastDir</references>
+        <references refid="System_8hpp_1adade54da2b207529e678a25e6389d494a9b0b4a95b99523966e0e34ffdadac9da" compoundref="System_8hpp" startline="29">DOWN</references>
+        <references refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea08a38277b0309070706f6652eeae9a53">NetworkClient::Down</references>
+        <references refid="classRaylib_1_1Input_1a4cd5c6122b4771997efbb9ef2d3c4771" compoundref="Raylib_8cpp" startline="73" endline="73">Raylib::Input::isKeyDown</references>
+        <references refid="classRaylib_1_1Input_1a77b20ab7de1540d7cc5c18f71b137a12" compoundref="Raylib_8cpp" startline="74" endline="74">Raylib::Input::isKeyPressed</references>
+        <references refid="System_8hpp_1adade54da2b207529e678a25e6389d494adb45120aafd37a973140edee24708065" compoundref="System_8hpp" startline="27">LEFT</references>
+        <references refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea945d5e233cf7d6240f6b783b36a374ff">NetworkClient::Left</references>
+        <references refid="System_8hpp_1adade54da2b207529e678a25e6389d494aec8379af7490bb9eaaf579cf17876f38" compoundref="System_8hpp" startline="26">RIGHT</references>
+        <references refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea92b09c7c48c520c3c55e497875da437c">NetworkClient::Right</references>
+        <references refid="classNetworkClient_1afdfce51c7dbb2e61f5e9280b15368915" compoundref="NetworkClient_8cpp" startline="123" endline="135">NetworkClient::sendInput</references>
+        <references refid="classNetworkClient_1a2773882369d758cbb23aa67b0dda78ed" compoundref="NetworkClient_8cpp" startline="137" endline="148">NetworkClient::sendShoot</references>
+        <references refid="System_8hpp_1adade54da2b207529e678a25e6389d494a38317998d0db1f65b5a5d3f9990c02f3" compoundref="System_8hpp" startline="30">SHOOT</references>
+        <references refid="System_8hpp_1adade54da2b207529e678a25e6389d494aba595d8bca8bc5e67c37c0a9d89becfa" compoundref="System_8hpp" startline="28">UP</references>
+        <references refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea258f49887ef8d14ac268c92b02503aaa">NetworkClient::Up</references>
+        <references refid="classVelocity_1a2592d4678c041df7b39ae7663ec0ed5d" compoundref="Components_8hpp" startline="69">Velocity::vx</references>
+        <references refid="classVelocity_1ae2a7111ea8910254dce8882f3ab760a3" compoundref="Components_8hpp" startline="70">Velocity::vy</references>
+        <references refid="classPosition_1af684446cbf0f6d53386686283da6dcc6" compoundref="Components_8hpp" startline="26">Position::x</references>
+        <references refid="classPosition_1a54a6182b5f7539295b32255808897d3f" compoundref="Components_8hpp" startline="27">Position::y</references>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">GraphicClient::updateEntities</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Handles player input and keyboard key binding management. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This system manages keyboard input, detects key presses/holds, and communicates player movement and shooting commands to the server. Players can configure custom key bindings for all actions. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>InputSystem</label>
+        <link refid="classInputSystem"/>
+      </node>
+    </collaborationgraph>
+    <location file="graphical-client/ecs/System.hpp" line="41" column="1" bodyfile="graphical-client/ecs/System.hpp" bodystart="42" bodyend="146"/>
+    <listofallmembers>
+      <member refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" prot="private" virt="non-virtual"><scope>InputSystem</scope><name>_keyMap</name></member>
+      <member refid="classInputSystem_1af2085774ee25bb4c472b6e8a48b28773" prot="private" virt="non-virtual"><scope>InputSystem</scope><name>_lastDir</name></member>
+      <member refid="classInputSystem_1ac4da6a8e14e4907b0c7882e1297fea3a" prot="public" virt="non-virtual"><scope>InputSystem</scope><name>getKey</name></member>
+      <member refid="classInputSystem_1a2f18d9fdb44805c63984113c1433c223" prot="public" virt="non-virtual"><scope>InputSystem</scope><name>InputSystem</name></member>
+      <member refid="classInputSystem_1ab584f9708fa5b2c909a96a698980f682" prot="public" virt="non-virtual"><scope>InputSystem</scope><name>setKey</name></member>
+      <member refid="classInputSystem_1af7ed09c6bfd5fba6af86af16de00d706" prot="public" virt="non-virtual"><scope>InputSystem</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,7 @@
+<map id="UDPGameServer::handleInput" name="UDPGameServer::handleInput">
+<area shape="rect" id="Node000001" title="Update player inputs (movement/direction)." alt="" coords="5,31,221,56"/>
+<area shape="rect" id="Node000002" href="$classSessionManager.html#a48995915db3b90fa7228d357d6293163" title="Lookup a session by player id." alt="" coords="269,5,477,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="221,30,256,27,256,32,222,35"/>
+<area shape="rect" id="Node000003" href="$classUDPGameServer.html#ae610b7c128c3b70e06f3fc1b5a3ecdc5" title=" " alt="" coords="275,55,471,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="222,51,262,54,262,60,221,56"/>
+</map>

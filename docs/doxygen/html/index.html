@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -103,17 +104,50 @@ Prerequisites</h1>
 </ul>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Build</h1>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Linux</h2>
 <div class="fragment"><div class="line">./build.sh              # build client + servers</div>
-</div><!-- fragment --><p> Executables are in <code>build/linux/bin/</code>:</p><ul>
+</div><!-- fragment --><p> Executables are in <code>build/linux/</code>:</p><ul>
 <li><code>rtype-tcp-server</code></li>
 <li><code>rtype-udp-server</code></li>
 <li><code>rtype-client</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
+macOS</h2>
+<div class="fragment"><div class="line">cmake -S . -B build -G &quot;Unix Makefiles&quot;</div>
+<div class="line">cmake --build build</div>
+</div><!-- fragment --><p> Executables are in <code>build/</code>:</p><ul>
+<li><code>rtype-tcp-server</code></li>
+<li><code>rtype-udp-server</code></li>
+<li><code>rtype-client</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Windows</h2>
+<div class="fragment"><div class="line">cmake -S . -B build -G &quot;Visual Studio 17 2022&quot;</div>
+<div class="line">cmake --build build --config Release</div>
+</div><!-- fragment --><p> Executables are in <code>build/Release/</code>:</p><ul>
+<li><code>rtype-tcp-server.exe</code></li>
+<li><code>rtype-udp-server.exe</code></li>
+<li><code>rtype-client.exe</code></li>
+</ul>
+<h1><a class="anchor" id="autotoc_md6"></a>
 Run</h1>
-<p>Server: </p><div class="fragment"><div class="line">./build/linux/bin/rtype-tcp-server</div>
-</div><!-- fragment --><p> Graphical client: </p><div class="fragment"><div class="line">./build/linux/bin/rtype-client</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
+Linux</h2>
+<div class="fragment"><div class="line">./build/linux/rtype-tcp-server</div>
+<div class="line">./build/linux/rtype-udp-server</div>
+<div class="line">./build/linux/rtype-client</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
+macOS</h2>
+<div class="fragment"><div class="line">./build/rtype-tcp-server</div>
+<div class="line">./build/rtype-udp-server</div>
+<div class="line">./build/rtype-client</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
+Windows</h2>
+<div class="fragment"><div class="line">.\build\Release\rtype-tcp-server.exe</div>
+<div class="line">.\build\Release\rtype-udp-server.exe</div>
+<div class="line">.\build\Release\rtype-client.exe</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md10"></a>
 Architecture</h1>
 <ul>
 <li><code>src/server/</code>: server entry point, TCP loop (handshake + heartbeat) and UDP loop (simulation).</li>
@@ -128,7 +162,7 @@ Architecture</h1>
 <li><code>src/Network/Client/</code>: <code><a class="el" href="classNetworkClient.html" title="TCP+UDP client responsible for handshake, lobby, and gameplay packets.">NetworkClient</a></code> manages TCP (handshake/heartbeat) and UDP (inputs, snapshots).</li>
 <li><code>src/Network/SessionManager</code>: tracks sessions, rate-limits INPUT/SHOOT, purges game state on disconnect.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<h1><a class="anchor" id="autotoc_md11"></a>
 Network protocol (summary)</h1>
 <ul>
 <li>TCP (reliable):<ul>
@@ -146,13 +180,13 @@ Network protocol (summary)</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md6"></a>
+<h1><a class="anchor" id="autotoc_md12"></a>
 Controls by default (client)</h1>
 <ul>
 <li>Move: W/A/S/D</li>
 <li>Shoot: Space</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<h1><a class="anchor" id="autotoc_md13"></a>
 Key features</h1>
 <ul>
 <li>TCP protocol with framing and handshake (SERVER_HELLO/CLIENT_HELLO/OK/REFUSED).</li>
@@ -162,7 +196,7 @@ Key features</h1>
 <li>Player input, shooting, bullets, monsters (sine/zigzag), boss logic, and collisions.</li>
 <li>Client UI: lobby/pseudo selection, in-game chat, and return-to-lobby flow.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md14"></a>
 Documentation</h1>
 <ul>
 <li><a href="https://mysticorga.github.io/Mystic-Type/">Doxygen</a></li>
@@ -172,7 +206,7 @@ Documentation</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="autotoc_md15"></a>
 Authors</h1>
 <ul>
 <li>Quentin Hivanhoe: <code>quentin.hivanhoe@epitech.eu</code></li>

@@ -1,0 +1,13 @@
+<map id="UDPGameServer" name="UDPGameServer">
+<area shape="rect" id="Node000001" title="Simple UDP authoritative game server that manages players and snapshots." alt="" coords="198,1012,362,1557"/>
+<area shape="rect" id="Node000002" href="$classNetwork_1_1TransportLayer_1_1UDPSocket.html" title="UDP Socket class inheriting from ASocket." alt="" coords="5,637,179,837"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,836,195,1029,190,1031,124,838"/>
+<area shape="rect" id="Node000003" href="$classNetwork_1_1TransportLayer_1_1ASocket.html" title=" " alt="" coords="5,235,179,475"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="95,489,95,637,89,637,89,489"/>
+<area shape="rect" id="Node000004" href="$classNetwork_1_1TransportLayer_1_1ISocket.html" title="Interface for socket operations." alt="" coords="5,5,179,185"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="95,199,95,234,89,234,89,199"/>
+<area shape="rect" id="Node000005" href="$classSessionManager.html" title="Tracks client sessions across TCP and UDP, and enforces simple rate limits." alt="" coords="203,524,357,949"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="283,950,283,996,277,996,277,950"/>
+<area shape="rect" id="Node000006" href="$classIpcChannel.html" title="Small IPC helper based on a UNIX datagram socket (SOCK_DGRAM)." alt="" coords="381,584,509,889"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="402,890,369,998,364,996,397,889"/>
+</map>

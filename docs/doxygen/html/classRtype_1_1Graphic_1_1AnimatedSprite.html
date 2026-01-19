@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -91,6 +92,7 @@ $(document).ready(function(){initNavTree('classRtype_1_1Graphic_1_1AnimatedSprit
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classRtype_1_1Graphic_1_1AnimatedSprite-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Rtype::Graphic::AnimatedSprite Class Reference</div></div>
 </div><!--header-->
@@ -99,7 +101,15 @@ $(document).ready(function(){initNavTree('classRtype_1_1Graphic_1_1AnimatedSprit
 <p>Manages animated sprite rendering with frame-based animation.  
  <a href="classRtype_1_1Graphic_1_1AnimatedSprite.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="Graphic_8hpp_source.html">graphical-client/Graphic/Graphic.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Rtype::Graphic::AnimatedSprite:</div>
+<div class="dyncontent">
+<div class="center"><img src="classRtype_1_1Graphic_1_1AnimatedSprite__coll__graph.png" border="0" usemap="#aRtype_1_1Graphic_1_1AnimatedSprite_coll__map" alt="Collaboration graph"/></div>
+<map name="aRtype_1_1Graphic_1_1AnimatedSprite_coll__map" id="aRtype_1_1Graphic_1_1AnimatedSprite_coll__map">
+<area shape="rect" title="Manages animated sprite rendering with frame&#45;based animation." alt="" coords="5,5,187,345"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -118,10 +128,35 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a963c826ca2ecb849b9b8839559916012" id="r_a963c826ca2ecb849b9b8839559916012"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a963c826ca2ecb849b9b8839559916012">draw</a> ()</td></tr>
 <tr class="memdesc:a963c826ca2ecb849b9b8839559916012"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders the sprite to the screen.  <br /></td></tr>
 <tr class="separator:a963c826ca2ecb849b9b8839559916012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:acc6026ccd104477fc636205013674568" id="r_acc6026ccd104477fc636205013674568"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classRaylib_1_1Texture.html">Raylib::Texture</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#acc6026ccd104477fc636205013674568">_texture</a></td></tr>
+<tr class="separator:acc6026ccd104477fc636205013674568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad9657c6ba086ca797a8714e18d283ea" id="r_aad9657c6ba086ca797a8714e18d283ea"><td class="memItemLeft" align="right" valign="top">Vector2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#aad9657c6ba086ca797a8714e18d283ea">_size</a></td></tr>
+<tr class="separator:aad9657c6ba086ca797a8714e18d283ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac497bb551d49b7234cfe7087d91f52bc" id="r_ac497bb551d49b7234cfe7087d91f52bc"><td class="memItemLeft" align="right" valign="top">Vector2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac497bb551d49b7234cfe7087d91f52bc">_positionInSpritesheet</a></td></tr>
+<tr class="separator:ac497bb551d49b7234cfe7087d91f52bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac99408e6df78edff7a6b5bfcb470f119" id="r_ac99408e6df78edff7a6b5bfcb470f119"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac99408e6df78edff7a6b5bfcb470f119">_maxFrames</a></td></tr>
+<tr class="separator:ac99408e6df78edff7a6b5bfcb470f119"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af13d2e9637dce59a579c923fdaa888d7" id="r_af13d2e9637dce59a579c923fdaa888d7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#af13d2e9637dce59a579c923fdaa888d7">_frameTime</a></td></tr>
+<tr class="separator:af13d2e9637dce59a579c923fdaa888d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afeed552cf17a6135da0f2bbfc567e6cb" id="r_afeed552cf17a6135da0f2bbfc567e6cb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#afeed552cf17a6135da0f2bbfc567e6cb">_timer</a></td></tr>
+<tr class="separator:afeed552cf17a6135da0f2bbfc567e6cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d84c74ead5552710bfad214ae3a63b3" id="r_a0d84c74ead5552710bfad214ae3a63b3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a0d84c74ead5552710bfad214ae3a63b3">_currentFrame</a></td></tr>
+<tr class="separator:a0d84c74ead5552710bfad214ae3a63b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae09ae8b36b9ab3e12ebdc4d1798799b4" id="r_ae09ae8b36b9ab3e12ebdc4d1798799b4"><td class="memItemLeft" align="right" valign="top">Rectangle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae09ae8b36b9ab3e12ebdc4d1798799b4">_sourceRect</a></td></tr>
+<tr class="separator:ae09ae8b36b9ab3e12ebdc4d1798799b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ead5e3f0b95f79971d2de88fe47b94d" id="r_a9ead5e3f0b95f79971d2de88fe47b94d"><td class="memItemLeft" align="right" valign="top">Vector2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a9ead5e3f0b95f79971d2de88fe47b94d">_position</a></td></tr>
+<tr class="separator:a9ead5e3f0b95f79971d2de88fe47b94d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2ef4cb259da3fc514d0090d5dbb1afb" id="r_ac2ef4cb259da3fc514d0090d5dbb1afb"><td class="memItemLeft" align="right" valign="top">Vector2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac2ef4cb259da3fc514d0090d5dbb1afb">_scale</a> {1.0f, 1.0f}</td></tr>
+<tr class="separator:ac2ef4cb259da3fc514d0090d5dbb1afb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Manages animated sprite rendering with frame-based animation. </p>
 <p>Handles sprite sheet loading, animation frame updates, positioning, and rendering. </p>
+
+<p class="definition">Definition at line <a class="el" href="Graphic_8hpp_source.html#l00032">32</a> of file <a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae284bb557cb2c7261d888df9ac1a94af" name="ae284bb557cb2c7261d888df9ac1a94af"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae284bb557cb2c7261d888df9ac1a94af">&#9670;&#160;</a></span>AnimatedSprite()</h2>
@@ -194,6 +229,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="Graphic_8hpp_source.html#l00058">58</a> of file <a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -222,6 +259,10 @@ Public Member Functions</h2></td></tr>
 
 <p>Renders the sprite to the screen. </p>
 <p>Draws the current animation frame centered at the sprite position. </p>
+
+<p class="definition">Definition at line <a class="el" href="Graphic_8hpp_source.html#l00117">117</a> of file <a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Graphic_8hpp_source.html#l00045">_position</a>, <a class="el" href="Graphic_8hpp_source.html#l00046">_scale</a>, <a class="el" href="Graphic_8hpp_source.html#l00044">_sourceRect</a>, and <a class="el" href="Graphic_8hpp_source.html#l00035">_texture</a>.</p>
 
 </div>
 </div>
@@ -256,6 +297,10 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="Graphic_8hpp_source.html#l00077">77</a> of file <a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Graphic_8hpp_source.html#l00045">_position</a>.</p>
 
 </div>
 </div>
@@ -302,6 +347,10 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="Graphic_8hpp_source.html#l00087">87</a> of file <a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Graphic_8hpp_source.html#l00046">_scale</a>.</p>
+
 </div>
 </div>
 <a id="ae93338c214b783b3b9c3549c0fab7f08" name="ae93338c214b783b3b9c3549c0fab7f08"></a>
@@ -335,6 +384,281 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="Graphic_8hpp_source.html#l00096">96</a> of file <a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Graphic_8hpp_source.html#l00042">_currentFrame</a>, <a class="el" href="Graphic_8hpp_source.html#l00040">_frameTime</a>, <a class="el" href="Graphic_8hpp_source.html#l00039">_maxFrames</a>, <a class="el" href="Graphic_8hpp_source.html#l00038">_positionInSpritesheet</a>, <a class="el" href="Graphic_8hpp_source.html#l00037">_size</a>, <a class="el" href="Graphic_8hpp_source.html#l00044">_sourceRect</a>, and <a class="el" href="Graphic_8hpp_source.html#l00041">_timer</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0d84c74ead5552710bfad214ae3a63b3" name="a0d84c74ead5552710bfad214ae3a63b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d84c74ead5552710bfad214ae3a63b3">&#9670;&#160;</a></span>_currentFrame</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Rtype::Graphic::AnimatedSprite::_currentFrame</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Currently displayed frame index </p>
+
+<p class="definition">Definition at line <a class="el" href="Graphic_8hpp_source.html#l00042">42</a> of file <a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Graphic_8hpp_source.html#l00096">update()</a>.</p>
+
+</div>
+</div>
+<a id="af13d2e9637dce59a579c923fdaa888d7" name="af13d2e9637dce59a579c923fdaa888d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af13d2e9637dce59a579c923fdaa888d7">&#9670;&#160;</a></span>_frameTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Rtype::Graphic::AnimatedSprite::_frameTime</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Time each frame is displayed </p>
+
+<p class="definition">Definition at line <a class="el" href="Graphic_8hpp_source.html#l00040">40</a> of file <a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Graphic_8hpp_source.html#l00096">update()</a>.</p>
+
+</div>
+</div>
+<a id="ac99408e6df78edff7a6b5bfcb470f119" name="ac99408e6df78edff7a6b5bfcb470f119"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac99408e6df78edff7a6b5bfcb470f119">&#9670;&#160;</a></span>_maxFrames</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Rtype::Graphic::AnimatedSprite::_maxFrames</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Total number of animation frames </p>
+
+<p class="definition">Definition at line <a class="el" href="Graphic_8hpp_source.html#l00039">39</a> of file <a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Graphic_8hpp_source.html#l00096">update()</a>.</p>
+
+</div>
+</div>
+<a id="a9ead5e3f0b95f79971d2de88fe47b94d" name="a9ead5e3f0b95f79971d2de88fe47b94d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ead5e3f0b95f79971d2de88fe47b94d">&#9670;&#160;</a></span>_position</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector2 Rtype::Graphic::AnimatedSprite::_position</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Current screen position </p>
+
+<p class="definition">Definition at line <a class="el" href="Graphic_8hpp_source.html#l00045">45</a> of file <a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Graphic_8hpp_source.html#l00117">draw()</a>, and <a class="el" href="Graphic_8hpp_source.html#l00077">setPosition()</a>.</p>
+
+</div>
+</div>
+<a id="ac497bb551d49b7234cfe7087d91f52bc" name="ac497bb551d49b7234cfe7087d91f52bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac497bb551d49b7234cfe7087d91f52bc">&#9670;&#160;</a></span>_positionInSpritesheet</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector2 Rtype::Graphic::AnimatedSprite::_positionInSpritesheet</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Starting position in sprite sheet </p>
+
+<p class="definition">Definition at line <a class="el" href="Graphic_8hpp_source.html#l00038">38</a> of file <a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Graphic_8hpp_source.html#l00096">update()</a>.</p>
+
+</div>
+</div>
+<a id="ac2ef4cb259da3fc514d0090d5dbb1afb" name="ac2ef4cb259da3fc514d0090d5dbb1afb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2ef4cb259da3fc514d0090d5dbb1afb">&#9670;&#160;</a></span>_scale</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector2 Rtype::Graphic::AnimatedSprite::_scale {1.0f, 1.0f}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><a class="el" href="classSprite.html" title="Stores an animated sprite for rendering.">Sprite</a> scale factors </p>
+
+<p class="definition">Definition at line <a class="el" href="Graphic_8hpp_source.html#l00046">46</a> of file <a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Graphic_8hpp_source.html#l00117">draw()</a>, and <a class="el" href="Graphic_8hpp_source.html#l00087">setScale()</a>.</p>
+
+</div>
+</div>
+<a id="aad9657c6ba086ca797a8714e18d283ea" name="aad9657c6ba086ca797a8714e18d283ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad9657c6ba086ca797a8714e18d283ea">&#9670;&#160;</a></span>_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vector2 Rtype::Graphic::AnimatedSprite::_size</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Size of each individual frame </p>
+
+<p class="definition">Definition at line <a class="el" href="Graphic_8hpp_source.html#l00037">37</a> of file <a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Graphic_8hpp_source.html#l00096">update()</a>.</p>
+
+</div>
+</div>
+<a id="ae09ae8b36b9ab3e12ebdc4d1798799b4" name="ae09ae8b36b9ab3e12ebdc4d1798799b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae09ae8b36b9ab3e12ebdc4d1798799b4">&#9670;&#160;</a></span>_sourceRect</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Rectangle Rtype::Graphic::AnimatedSprite::_sourceRect</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Source rectangle in sprite sheet </p>
+
+<p class="definition">Definition at line <a class="el" href="Graphic_8hpp_source.html#l00044">44</a> of file <a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Graphic_8hpp_source.html#l00117">draw()</a>, and <a class="el" href="Graphic_8hpp_source.html#l00096">update()</a>.</p>
+
+</div>
+</div>
+<a id="acc6026ccd104477fc636205013674568" name="acc6026ccd104477fc636205013674568"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc6026ccd104477fc636205013674568">&#9670;&#160;</a></span>_texture</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classRaylib_1_1Texture.html">Raylib::Texture</a>&gt; Rtype::Graphic::AnimatedSprite::_texture</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Loaded sprite sheet texture </p>
+
+<p class="definition">Definition at line <a class="el" href="Graphic_8hpp_source.html#l00035">35</a> of file <a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Graphic_8hpp_source.html#l00117">draw()</a>.</p>
+
+</div>
+</div>
+<a id="afeed552cf17a6135da0f2bbfc567e6cb" name="afeed552cf17a6135da0f2bbfc567e6cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afeed552cf17a6135da0f2bbfc567e6cb">&#9670;&#160;</a></span>_timer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Rtype::Graphic::AnimatedSprite::_timer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Current frame timer </p>
+
+<p class="definition">Definition at line <a class="el" href="Graphic_8hpp_source.html#l00041">41</a> of file <a class="el" href="Graphic_8hpp_source.html">Graphic.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Graphic_8hpp_source.html#l00096">update()</a>.</p>
 
 </div>
 </div>

@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structUIButton" kind="struct" language="C++" prot="public">
+    <compoundname>UIButton</compoundname>
+    <includes refid="Components_8hpp" local="no">graphical-client/ecs/Components.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structUIButton_1a8f11fc89d4e99b6d37e184b03928d4dc" prot="public" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle UIButton::bounds</definition>
+        <argsstring></argsstring>
+        <name>bounds</name>
+        <qualifiedname>UIButton::bounds</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Button boundaries </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="130" column="15" bodyfile="graphical-client/ecs/Components.hpp" bodystart="130" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structUIButton_1aff3ad68c65cc6e580040a95de90fc212" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string UIButton::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <qualifiedname>UIButton::label</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Button label text </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="131" column="17" bodyfile="graphical-client/ecs/Components.hpp" bodystart="131" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structUIButton_1a1d512972bac6c551b1aa915071d2aea5" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string UIButton::action</definition>
+        <argsstring></argsstring>
+        <name>action</name>
+        <qualifiedname>UIButton::action</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Associated action identifier </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="132" column="17" bodyfile="graphical-client/ecs/Components.hpp" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structUIButton_1a69eec7515944cfcdd394eb88dd401f0e" prot="public" static="no" mutable="no">
+        <type>Color</type>
+        <definition>Color UIButton::bg</definition>
+        <argsstring></argsstring>
+        <name>bg</name>
+        <qualifiedname>UIButton::bg</qualifiedname>
+        <initializer>{40, 40, 60, 255}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Background color </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="133" column="11" bodyfile="graphical-client/ecs/Components.hpp" bodystart="133" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="variable" id="structUIButton_1a977cd8fa8a9e24ce1dfd1d4b09942096" prot="public" static="no" mutable="no">
+        <type>Color</type>
+        <definition>Color UIButton::hoverBg</definition>
+        <argsstring></argsstring>
+        <name>hoverBg</name>
+        <qualifiedname>UIButton::hoverBg</qualifiedname>
+        <initializer>{70, 70, 120, 255}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hover background color </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="134" column="11" bodyfile="graphical-client/ecs/Components.hpp" bodystart="134" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="variable" id="structUIButton_1a264da0902741b2f70c57917e10908fcf" prot="public" static="no" mutable="no">
+        <type>Color</type>
+        <definition>Color UIButton::text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <qualifiedname>UIButton::text</qualifiedname>
+        <initializer>{230, 230, 230, 255}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Text color </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="135" column="11" bodyfile="graphical-client/ecs/Components.hpp" bodystart="135" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="variable" id="structUIButton_1a29796662c05780b5010b18a94b189661" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool UIButton::hovered</definition>
+        <argsstring></argsstring>
+        <name>hovered</name>
+        <qualifiedname>UIButton::hovered</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Hover state </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="136" column="10" bodyfile="graphical-client/ecs/Components.hpp" bodystart="136" bodyend="-1"/>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Component for UI button elements. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Represents a clickable button in the user interface. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>UIButton</label>
+        <link refid="structUIButton"/>
+      </node>
+    </collaborationgraph>
+    <location file="graphical-client/ecs/Components.hpp" line="129" column="1" bodyfile="graphical-client/ecs/Components.hpp" bodystart="129" bodyend="137"/>
+    <listofallmembers>
+      <member refid="structUIButton_1a1d512972bac6c551b1aa915071d2aea5" prot="public" virt="non-virtual"><scope>UIButton</scope><name>action</name></member>
+      <member refid="structUIButton_1a69eec7515944cfcdd394eb88dd401f0e" prot="public" virt="non-virtual"><scope>UIButton</scope><name>bg</name></member>
+      <member refid="structUIButton_1a8f11fc89d4e99b6d37e184b03928d4dc" prot="public" virt="non-virtual"><scope>UIButton</scope><name>bounds</name></member>
+      <member refid="structUIButton_1a977cd8fa8a9e24ce1dfd1d4b09942096" prot="public" virt="non-virtual"><scope>UIButton</scope><name>hoverBg</name></member>
+      <member refid="structUIButton_1a29796662c05780b5010b18a94b189661" prot="public" virt="non-virtual"><scope>UIButton</scope><name>hovered</name></member>
+      <member refid="structUIButton_1aff3ad68c65cc6e580040a95de90fc212" prot="public" virt="non-virtual"><scope>UIButton</scope><name>label</name></member>
+      <member refid="structUIButton_1a264da0902741b2f70c57917e10908fcf" prot="public" virt="non-virtual"><scope>UIButton</scope><name>text</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

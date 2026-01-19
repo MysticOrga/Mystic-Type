@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structSession" kind="struct" language="C++" prot="public">
+    <compoundname>Session</compoundname>
+    <includes refid="SessionManager_8hpp" local="no">Network/SessionManager.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structSession_1a40fe33141283136858bf8f11b6f5cc46" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Session::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>Session::id</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="27" column="9" bodyfile="Network/SessionManager.hpp" bodystart="27" bodyend="-1"/>
+        <referencedby refid="classSessionManager_1af8d1197fa1236d0295e3d31170639f6e" compoundref="SessionManager_8cpp" startline="10" endline="20">SessionManager::addSession</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structSession_1aabdac7621ae32d2f6cc6e3830f86e539" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Session::tcpFd</definition>
+        <argsstring></argsstring>
+        <name>tcpFd</name>
+        <qualifiedname>Session::tcpFd</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="28" column="9" bodyfile="Network/SessionManager.hpp" bodystart="28" bodyend="-1"/>
+        <referencedby refid="classSessionManager_1af8d1197fa1236d0295e3d31170639f6e" compoundref="SessionManager_8cpp" startline="10" endline="20">SessionManager::addSession</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structSession_1a855744125c995b27c5dda56aed9ef1ec" prot="public" static="no" mutable="no">
+        <type>sockaddr_in</type>
+        <definition>sockaddr_in Session::tcpAddr</definition>
+        <argsstring></argsstring>
+        <name>tcpAddr</name>
+        <qualifiedname>Session::tcpAddr</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="29" column="17" bodyfile="Network/SessionManager.hpp" bodystart="29" bodyend="29"/>
+        <referencedby refid="classSessionManager_1af8d1197fa1236d0295e3d31170639f6e" compoundref="SessionManager_8cpp" startline="10" endline="20">SessionManager::addSession</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structSession_1abd8785a968fc61b4296e7f813b33e164" prot="public" static="no" mutable="no">
+        <type>sockaddr_in</type>
+        <definition>sockaddr_in Session::udpAddr</definition>
+        <argsstring></argsstring>
+        <name>udpAddr</name>
+        <qualifiedname>Session::udpAddr</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="30" column="17" bodyfile="Network/SessionManager.hpp" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSession_1a801fe8001c034dc66207c2e561292d1c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Session::hasUdp</definition>
+        <argsstring></argsstring>
+        <name>hasUdp</name>
+        <qualifiedname>Session::hasUdp</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="31" column="10" bodyfile="Network/SessionManager.hpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSession_1a82593a4e6ef0e6f9f1ef1bdacb2ec4df" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long Session::lastPong</definition>
+        <argsstring></argsstring>
+        <name>lastPong</name>
+        <qualifiedname>Session::lastPong</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="32" column="10" bodyfile="Network/SessionManager.hpp" bodystart="32" bodyend="-1"/>
+        <referencedby refid="classSessionManager_1af8d1197fa1236d0295e3d31170639f6e" compoundref="SessionManager_8cpp" startline="10" endline="20">SessionManager::addSession</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structSession_1a75334035d7b9b2a2c77755975563089a" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long Session::lastInputMs</definition>
+        <argsstring></argsstring>
+        <name>lastInputMs</name>
+        <qualifiedname>Session::lastInputMs</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="34" column="10" bodyfile="Network/SessionManager.hpp" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSession_1a5ae730d96911daf7a5bd0ddad6848b4a" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Session::inputCount</definition>
+        <argsstring></argsstring>
+        <name>inputCount</name>
+        <qualifiedname>Session::inputCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="35" column="9" bodyfile="Network/SessionManager.hpp" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSession_1a04b8c23754d16de9469a2f5c7aeb266c" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long Session::lastShootMs</definition>
+        <argsstring></argsstring>
+        <name>lastShootMs</name>
+        <qualifiedname>Session::lastShootMs</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="36" column="10" bodyfile="Network/SessionManager.hpp" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSession_1a0a38770e87af1772c19fce6a97528056" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Session::shootCount</definition>
+        <argsstring></argsstring>
+        <name>shootCount</name>
+        <qualifiedname>Session::shootCount</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="37" column="9" bodyfile="Network/SessionManager.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structSession_1a0831d2d53f42052f7b48fd07393d4c0c" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Session::lobbyCode</definition>
+        <argsstring></argsstring>
+        <name>lobbyCode</name>
+        <qualifiedname>Session::lobbyCode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="38" column="17" bodyfile="Network/SessionManager.hpp" bodystart="38" bodyend="-1"/>
+        <referencedby refid="classSessionManager_1af8d1197fa1236d0295e3d31170639f6e" compoundref="SessionManager_8cpp" startline="10" endline="20">SessionManager::addSession</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structSession_1a2235d40d78d5759a71adbefd238f5184" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string Session::pseudo</definition>
+        <argsstring></argsstring>
+        <name>pseudo</name>
+        <qualifiedname>Session::pseudo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/SessionManager.hpp" line="39" column="17" bodyfile="Network/SessionManager.hpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>In-memory session record shared between TCP and UDP servers. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Session</label>
+        <link refid="structSession"/>
+      </node>
+    </collaborationgraph>
+    <location file="Network/SessionManager.hpp" line="26" column="1" bodyfile="Network/SessionManager.hpp" bodystart="26" bodyend="40"/>
+    <listofallmembers>
+      <member refid="structSession_1a801fe8001c034dc66207c2e561292d1c" prot="public" virt="non-virtual"><scope>Session</scope><name>hasUdp</name></member>
+      <member refid="structSession_1a40fe33141283136858bf8f11b6f5cc46" prot="public" virt="non-virtual"><scope>Session</scope><name>id</name></member>
+      <member refid="structSession_1a5ae730d96911daf7a5bd0ddad6848b4a" prot="public" virt="non-virtual"><scope>Session</scope><name>inputCount</name></member>
+      <member refid="structSession_1a75334035d7b9b2a2c77755975563089a" prot="public" virt="non-virtual"><scope>Session</scope><name>lastInputMs</name></member>
+      <member refid="structSession_1a82593a4e6ef0e6f9f1ef1bdacb2ec4df" prot="public" virt="non-virtual"><scope>Session</scope><name>lastPong</name></member>
+      <member refid="structSession_1a04b8c23754d16de9469a2f5c7aeb266c" prot="public" virt="non-virtual"><scope>Session</scope><name>lastShootMs</name></member>
+      <member refid="structSession_1a0831d2d53f42052f7b48fd07393d4c0c" prot="public" virt="non-virtual"><scope>Session</scope><name>lobbyCode</name></member>
+      <member refid="structSession_1a2235d40d78d5759a71adbefd238f5184" prot="public" virt="non-virtual"><scope>Session</scope><name>pseudo</name></member>
+      <member refid="structSession_1a0a38770e87af1772c19fce6a97528056" prot="public" virt="non-virtual"><scope>Session</scope><name>shootCount</name></member>
+      <member refid="structSession_1a855744125c995b27c5dda56aed9ef1ec" prot="public" virt="non-virtual"><scope>Session</scope><name>tcpAddr</name></member>
+      <member refid="structSession_1aabdac7621ae32d2f6cc6e3830f86e539" prot="public" virt="non-virtual"><scope>Session</scope><name>tcpFd</name></member>
+      <member refid="structSession_1abd8785a968fc61b4296e7f813b33e164" prot="public" virt="non-virtual"><scope>Session</scope><name>udpAddr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

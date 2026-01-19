@@ -1,0 +1,403 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classECS" kind="class" language="C++" prot="public">
+    <compoundname>ECS</compoundname>
+    <includes refid="Core_8hpp" local="no">graphical-client/ecs/Core.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classECS_1a5cf70fd9d3ef94f40bd61beafe2de8bc" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="Core_8hpp_1aeb9b9235190f907fe8b0994938dd2807" kindref="member">Signature</ref> &gt;</type>
+        <definition>std::vector&lt;Signature&gt; ECS::signatures</definition>
+        <argsstring></argsstring>
+        <name>signatures</name>
+        <qualifiedname>ECS::signatures</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Entity component signatures </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="180" column="17" bodyfile="graphical-client/ecs/Core.hpp" bodystart="180" bodyend="-1"/>
+        <referencedby refid="classECS_1a4fbe0d70b0934255d301ced9df6287e7" compoundref="Core_8hpp" startline="112" endline="122">addComponent</referencedby>
+        <referencedby refid="classECS_1a7fba8bcfbb8d238085ab7302d96a332f" compoundref="Core_8hpp" startline="92" endline="94">ECS</referencedby>
+        <referencedby refid="classECS_1a11aacce5459a5ce429ea8d181bb4ddc3" compoundref="Core_8hpp" startline="175" endline="177">getSignature</referencedby>
+        <referencedby refid="classECS_1a33c16853296e9784dfb558f35dffbd72" compoundref="Core_8hpp" startline="142" endline="147">hasComponent</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classECS_1a6819919da90f31fea50d2b290ba724c8" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::type_index, std::unique_ptr&lt; <ref refid="classIComponentArray" kindref="compound">IComponentArray</ref> &gt; &gt;</type>
+        <definition>std::unordered_map&lt;std::type_index, std::unique_ptr&lt;IComponentArray&gt; &gt; ECS::storages</definition>
+        <argsstring></argsstring>
+        <name>storages</name>
+        <qualifiedname>ECS::storages</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Component storages </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="181" column="24" bodyfile="graphical-client/ecs/Core.hpp" bodystart="181" bodyend="-1"/>
+        <referencedby refid="classECS_1a4fbe0d70b0934255d301ced9df6287e7" compoundref="Core_8hpp" startline="112" endline="122">addComponent</referencedby>
+        <referencedby refid="classECS_1ac35029e74e4944f3007c3ddcdd45b2e9" compoundref="Core_8hpp" startline="155" endline="157">getAllComponents</referencedby>
+        <referencedby refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" compoundref="Core_8hpp" startline="131" endline="133">getComponent</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classECS_1adcdcf4b06b3d85845ea113de96fd29c0" prot="private" static="yes" mutable="no">
+        <type><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">size_t</ref></type>
+        <definition>size_t ECS::nextComponentIndex</definition>
+        <argsstring></argsstring>
+        <name>nextComponentIndex</name>
+        <qualifiedname>ECS::nextComponentIndex</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Next available component type index </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="182" column="26" bodyfile="graphical-client/ecs/Core.hpp" bodystart="182" bodyend="-1"/>
+        <referencedby refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" compoundref="Core_8hpp" startline="165" endline="168">getComponentTypeIndex</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classECS_1a7fba8bcfbb8d238085ab7302d96a332f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>ECS::ECS</definition>
+        <argsstring>()</argsstring>
+        <name>ECS</name>
+        <qualifiedname>ECS::ECS</qualifiedname>
+        <briefdescription>
+<para>Constructor initializing entity signatures. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="92" column="5" bodyfile="graphical-client/ecs/Core.hpp" bodystart="92" bodyend="94"/>
+        <references refid="Core_8hpp_1adc1f779412b3f14b77821cb39cdbb9da" compoundref="Core_8hpp" startline="17">MAX_ENTITIES</references>
+        <references refid="classECS_1a5cf70fd9d3ef94f40bd61beafe2de8bc" compoundref="Core_8hpp" startline="180">signatures</references>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a41b876f3725cbb04aac3f2edd95522c6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref></type>
+        <definition>Entity ECS::createEntity</definition>
+        <argsstring>()</argsstring>
+        <name>createEntity</name>
+        <qualifiedname>ECS::createEntity</qualifiedname>
+        <briefdescription>
+<para>Creates a new entity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The ID of the newly created entity. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="100" column="12" bodyfile="graphical-client/ecs/Core.hpp" bodystart="100" bodyend="103"/>
+        <referencedby refid="classGraphicClient_1a31bdd83222945e28b307b03b32135288" compoundref="GraphicClient_8cpp" startline="94" endline="101">GraphicClient::createBulletEntity</referencedby>
+        <referencedby refid="classGraphicClient_1a6dd918f7ac4761ab4946371df06386ec" compoundref="GraphicClient_8cpp" startline="103" endline="128">GraphicClient::createMonsterEntity</referencedby>
+        <referencedby refid="classGraphicClient_1a1f97bf7f358d1d5a5d65069d641feb5b" compoundref="GraphicClient_8cpp" startline="83" endline="92">GraphicClient::createPlayerEntity</referencedby>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a4fbe0d70b0934255d301ced9df6287e7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">typename</ref> <ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">T</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">void</ref></type>
+        <definition>void ECS::addComponent</definition>
+        <argsstring>(Entity e, const T &amp;c)</argsstring>
+        <name>addComponent</name>
+        <qualifiedname>ECS::addComponent</qualifiedname>
+        <param>
+          <type><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref></type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">const</ref> <ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">T</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Adds a component to an entity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The component type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entity ID. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The component instance. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="112" column="10" bodyfile="graphical-client/ecs/Core.hpp" bodystart="112" bodyend="122"/>
+        <references refid="classComponentArray_1a37f484a9d2b6716e2facff9eabe1bb64" compoundref="Core_8hpp" startline="62" endline="69">ComponentArray&lt; T &gt;::add</references>
+        <references refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" compoundref="Core_8hpp" startline="165" endline="168">getComponentTypeIndex</references>
+        <references refid="classECS_1a5cf70fd9d3ef94f40bd61beafe2de8bc" compoundref="Core_8hpp" startline="180">signatures</references>
+        <references refid="classECS_1a6819919da90f31fea50d2b290ba724c8" compoundref="Core_8hpp" startline="181">storages</references>
+        <referencedby refid="classGraphicClient_1a31bdd83222945e28b307b03b32135288" compoundref="GraphicClient_8cpp" startline="94" endline="101">GraphicClient::createBulletEntity</referencedby>
+        <referencedby refid="classGraphicClient_1a6dd918f7ac4761ab4946371df06386ec" compoundref="GraphicClient_8cpp" startline="103" endline="128">GraphicClient::createMonsterEntity</referencedby>
+        <referencedby refid="classGraphicClient_1a1f97bf7f358d1d5a5d65069d641feb5b" compoundref="GraphicClient_8cpp" startline="83" endline="92">GraphicClient::createPlayerEntity</referencedby>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">typename</ref> <ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">T</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">T</ref> &amp;</type>
+        <definition>T &amp; ECS::getComponent</definition>
+        <argsstring>(Entity e)</argsstring>
+        <name>getComponent</name>
+        <qualifiedname>ECS::getComponent</qualifiedname>
+        <param>
+          <type><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Retrieves a component from an entity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The component type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entity ID. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the component. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="131" column="7" bodyfile="graphical-client/ecs/Core.hpp" bodystart="131" bodyend="133"/>
+        <references refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" compoundref="Core_8hpp" startline="165" endline="168">getComponentTypeIndex</references>
+        <references refid="classECS_1a6819919da90f31fea50d2b290ba724c8" compoundref="Core_8hpp" startline="181">storages</references>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+        <referencedby refid="classGraphicClient_1a61111e5d14a72f0f69344ab034a0622a" compoundref="GraphicClient_8cpp" startline="200" endline="237">GraphicClient::syncBullets</referencedby>
+        <referencedby refid="classGraphicClient_1aacb31035c31d741d0ae2ca5ec9228b12" compoundref="GraphicClient_8cpp" startline="130" endline="197">GraphicClient::syncEntities</referencedby>
+        <referencedby refid="classGraphicClient_1afe45a37a11b23a08cce4d7c6b7efccbc" compoundref="GraphicClient_8cpp" startline="239" endline="271">GraphicClient::syncMonsters</referencedby>
+        <referencedby refid="classCircleRenderSystem_1aead45b36f0cc7ccec0004b8a9b454d07" compoundref="System_8hpp" startline="198" endline="203">CircleRenderSystem::update</referencedby>
+        <referencedby refid="classRectangleRenderSystem_1a92f6643f7bbedda7d15c6ea55f7407d1" compoundref="System_8hpp" startline="233" endline="242">RectangleRenderSystem::update</referencedby>
+        <referencedby refid="classMovementSystem_1a57b0e4d3739f4b27ce15324b8a4d47bf" compoundref="System_8hpp" startline="164" endline="178">MovementSystem::update</referencedby>
+        <referencedby refid="classSpriteRenderSystem_1a439243229880829d70b83b895b500495" compoundref="System_8hpp" startline="284" endline="297">SpriteRenderSystem::update</referencedby>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">GraphicClient::updateEntities</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a33c16853296e9784dfb558f35dffbd72" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">typename</ref> <ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">T</ref></type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">bool</ref></type>
+        <definition>bool ECS::hasComponent</definition>
+        <argsstring>(Entity e) const</argsstring>
+        <name>hasComponent</name>
+        <qualifiedname>ECS::hasComponent</qualifiedname>
+        <param>
+          <type><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Checks if an entity has a specific component type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The component type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entity ID. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if entity has component, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="142" column="10" bodyfile="graphical-client/ecs/Core.hpp" bodystart="142" bodyend="147"/>
+        <references refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" compoundref="Core_8hpp" startline="165" endline="168">getComponentTypeIndex</references>
+        <references refid="classECS_1a5cf70fd9d3ef94f40bd61beafe2de8bc" compoundref="Core_8hpp" startline="180">signatures</references>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1ac35029e74e4944f3007c3ddcdd45b2e9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">typename</ref> <ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">T</ref></type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; <ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">T</ref> &gt; &amp;</type>
+        <definition>std::vector&lt; T &gt; &amp; ECS::getAllComponents</definition>
+        <argsstring>()</argsstring>
+        <name>getAllComponents</name>
+        <qualifiedname>ECS::getAllComponents</qualifiedname>
+        <briefdescription>
+<para>Retrieves all components of a specific type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The component type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Reference to the vector of all components of this type. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="155" column="17" bodyfile="graphical-client/ecs/Core.hpp" bodystart="155" bodyend="157"/>
+        <references refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" compoundref="Core_8hpp" startline="165" endline="168">getComponentTypeIndex</references>
+        <references refid="classECS_1a6819919da90f31fea50d2b290ba724c8" compoundref="Core_8hpp" startline="181">storages</references>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type><ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">typename</ref> <ref refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" kindref="member">T</ref></type>
+          </param>
+        </templateparamlist>
+        <type>size_t</type>
+        <definition>size_t ECS::getComponentTypeIndex</definition>
+        <argsstring>()</argsstring>
+        <name>getComponentTypeIndex</name>
+        <qualifiedname>ECS::getComponentTypeIndex</qualifiedname>
+        <briefdescription>
+<para>Gets the type index for a component type. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="templateparam"><parameteritem>
+<parameternamelist>
+<parametername>T</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The component type. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Unique type index for this component. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="165" column="12" bodyfile="graphical-client/ecs/Core.hpp" bodystart="165" bodyend="168"/>
+        <references refid="classECS_1adcdcf4b06b3d85845ea113de96fd29c0" compoundref="Core_8hpp" startline="182">nextComponentIndex</references>
+        <referencedby refid="classECS_1a4fbe0d70b0934255d301ced9df6287e7" compoundref="Core_8hpp" startline="112" endline="122">addComponent</referencedby>
+        <referencedby refid="classECS_1ac35029e74e4944f3007c3ddcdd45b2e9" compoundref="Core_8hpp" startline="155" endline="157">getAllComponents</referencedby>
+        <referencedby refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" compoundref="Core_8hpp" startline="131" endline="133">getComponent</referencedby>
+        <referencedby refid="classECS_1a11aacce5459a5ce429ea8d181bb4ddc3" compoundref="Core_8hpp" startline="175" endline="177">getSignature</referencedby>
+        <referencedby refid="classECS_1a33c16853296e9784dfb558f35dffbd72" compoundref="Core_8hpp" startline="142" endline="147">hasComponent</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classECS_1a11aacce5459a5ce429ea8d181bb4ddc3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="Core_8hpp_1aeb9b9235190f907fe8b0994938dd2807" kindref="member">Signature</ref></type>
+        <definition>Signature ECS::getSignature</definition>
+        <argsstring>(Entity e) const</argsstring>
+        <name>getSignature</name>
+        <qualifiedname>ECS::getSignature</qualifiedname>
+        <param>
+          <type><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Gets the signature of an entity. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entity ID. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The entity&apos;s component signature. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Core.hpp" line="175" column="15" bodyfile="graphical-client/ecs/Core.hpp" bodystart="175" bodyend="177"/>
+        <references refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" compoundref="Core_8hpp" startline="165" endline="168">getComponentTypeIndex</references>
+        <references refid="classECS_1a5cf70fd9d3ef94f40bd61beafe2de8bc" compoundref="Core_8hpp" startline="180">signatures</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Entity Component System implementation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Manages entities, components, and their associations using a data-oriented architecture. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>ECS</label>
+        <link refid="classECS"/>
+      </node>
+    </collaborationgraph>
+    <location file="graphical-client/ecs/Core.hpp" line="87" column="1" bodyfile="graphical-client/ecs/Core.hpp" bodystart="87" bodyend="183"/>
+    <listofallmembers>
+      <member refid="classECS_1a4fbe0d70b0934255d301ced9df6287e7" prot="public" virt="non-virtual"><scope>ECS</scope><name>addComponent</name></member>
+      <member refid="classECS_1a41b876f3725cbb04aac3f2edd95522c6" prot="public" virt="non-virtual"><scope>ECS</scope><name>createEntity</name></member>
+      <member refid="classECS_1a7fba8bcfbb8d238085ab7302d96a332f" prot="public" virt="non-virtual"><scope>ECS</scope><name>ECS</name></member>
+      <member refid="classECS_1ac35029e74e4944f3007c3ddcdd45b2e9" prot="public" virt="non-virtual"><scope>ECS</scope><name>getAllComponents</name></member>
+      <member refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" prot="public" virt="non-virtual"><scope>ECS</scope><name>getComponent</name></member>
+      <member refid="classECS_1aacd3f4c4db77a1e5ff41711297ec6602" prot="public" virt="non-virtual"><scope>ECS</scope><name>getComponentTypeIndex</name></member>
+      <member refid="classECS_1a11aacce5459a5ce429ea8d181bb4ddc3" prot="public" virt="non-virtual"><scope>ECS</scope><name>getSignature</name></member>
+      <member refid="classECS_1a33c16853296e9784dfb558f35dffbd72" prot="public" virt="non-virtual"><scope>ECS</scope><name>hasComponent</name></member>
+      <member refid="classECS_1adcdcf4b06b3d85845ea113de96fd29c0" prot="private" virt="non-virtual"><scope>ECS</scope><name>nextComponentIndex</name></member>
+      <member refid="classECS_1a5cf70fd9d3ef94f40bd61beafe2de8bc" prot="private" virt="non-virtual"><scope>ECS</scope><name>signatures</name></member>
+      <member refid="classECS_1a6819919da90f31fea50d2b290ba724c8" prot="private" virt="non-virtual"><scope>ECS</scope><name>storages</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

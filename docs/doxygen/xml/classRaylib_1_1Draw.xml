@@ -1,0 +1,340 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classRaylib_1_1Draw" kind="class" language="C++" prot="public">
+    <compoundname>Raylib::Draw</compoundname>
+    <includes refid="Raylib_8hpp" local="no">graphical-client/Raylib/Raylib.hpp</includes>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classRaylib_1_1Draw_1acd88c7a4f6721ddfe38937feaa1efbb1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Raylib::Draw::circle</definition>
+        <argsstring>(int centerX, int centerY, float radius, Color color)</argsstring>
+        <name>circle</name>
+        <qualifiedname>Raylib::Draw::circle</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>centerX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>centerY</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>radius</declname>
+        </param>
+        <param>
+          <type>Color</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Draws a filled circle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>centerX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Center X coordinate. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>centerY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Center Y coordinate. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>radius</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Circle radius. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>color</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Fill color. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="159" column="21" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="52" bodyend="55"/>
+        <referencedby refid="classCircleRenderSystem_1aead45b36f0cc7ccec0004b8a9b454d07" compoundref="System_8hpp" startline="198" endline="203">CircleRenderSystem::update</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Draw_1ac711ababd202454476d1127d61f8a837" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Raylib::Draw::rectangle</definition>
+        <argsstring>(int posX, int posY, int width, int height, Color color)</argsstring>
+        <name>rectangle</name>
+        <qualifiedname>Raylib::Draw::rectangle</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>posX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>posY</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>Color</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Draws a filled rectangle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>posX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>X position. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>posY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Y position. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rectangle width. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rectangle height. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>color</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Fill color. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="169" column="21" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="57" bodyend="60"/>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+        <referencedby refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" compoundref="GraphicClient_8cpp" startline="1007" endline="1230">GraphicClient::selectMainMenu</referencedby>
+        <referencedby refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" compoundref="GraphicClient_8cpp" startline="679" endline="752">GraphicClient::selectPseudo</referencedby>
+        <referencedby refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" compoundref="GraphicClient_8cpp" startline="1328" endline="1574">GraphicClient::selectSettings</referencedby>
+        <referencedby refid="classRectangleRenderSystem_1a92f6643f7bbedda7d15c6ea55f7407d1" compoundref="System_8hpp" startline="233" endline="242">RectangleRenderSystem::update</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Draw_1a1a91623bcea0592d00ae0264d81acd52" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Raylib::Draw::rectangleLines</definition>
+        <argsstring>(int posX, int posY, int width, int height, Color color)</argsstring>
+        <name>rectangleLines</name>
+        <qualifiedname>Raylib::Draw::rectangleLines</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>posX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>posY</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>Color</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Draws a rectangle outline. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>posX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>X position. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>posY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Y position. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rectangle width. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Rectangle height. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>color</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Outline color. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="179" column="21" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="63" bodyend="66"/>
+        <referencedby refid="classGraphicClient_1ab72f007713bd3d5074c566a425c0d9b1" compoundref="GraphicClient_8cpp" startline="754" endline="772">GraphicClient::drawGameBackground</referencedby>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+        <referencedby refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" compoundref="GraphicClient_8cpp" startline="1007" endline="1230">GraphicClient::selectMainMenu</referencedby>
+        <referencedby refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" compoundref="GraphicClient_8cpp" startline="679" endline="752">GraphicClient::selectPseudo</referencedby>
+        <referencedby refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" compoundref="GraphicClient_8cpp" startline="1328" endline="1574">GraphicClient::selectSettings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Draw_1adf84c6a40cd571fbbdeacf2868ab192e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Raylib::Draw::text</definition>
+        <argsstring>(const std::string &amp;msg, int posX, int posY, int fontSize, Color color)</argsstring>
+        <name>text</name>
+        <qualifiedname>Raylib::Draw::text</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>posX</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>posY</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>fontSize</declname>
+        </param>
+        <param>
+          <type>Color</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Draws text on screen. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Text message. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>posX</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>X position. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>posY</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Y position. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fontSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Font size. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>color</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Text color. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="189" column="21" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="68" bodyend="71"/>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">GraphicClient::render</referencedby>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+        <referencedby refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" compoundref="GraphicClient_8cpp" startline="1007" endline="1230">GraphicClient::selectMainMenu</referencedby>
+        <referencedby refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" compoundref="GraphicClient_8cpp" startline="679" endline="752">GraphicClient::selectPseudo</referencedby>
+        <referencedby refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" compoundref="GraphicClient_8cpp" startline="1328" endline="1574">GraphicClient::selectSettings</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Static drawing utilities. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides drawing functions for basic shapes and text. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Raylib::Draw</label>
+        <link refid="classRaylib_1_1Draw"/>
+      </node>
+    </collaborationgraph>
+    <location file="graphical-client/Raylib/Raylib.hpp" line="150" column="5" bodyfile="graphical-client/Raylib/Raylib.hpp" bodystart="150" bodyend="190"/>
+    <listofallmembers>
+      <member refid="classRaylib_1_1Draw_1acd88c7a4f6721ddfe38937feaa1efbb1" prot="public" virt="non-virtual"><scope>Raylib::Draw</scope><name>circle</name></member>
+      <member refid="classRaylib_1_1Draw_1ac711ababd202454476d1127d61f8a837" prot="public" virt="non-virtual"><scope>Raylib::Draw</scope><name>rectangle</name></member>
+      <member refid="classRaylib_1_1Draw_1a1a91623bcea0592d00ae0264d81acd52" prot="public" virt="non-virtual"><scope>Raylib::Draw</scope><name>rectangleLines</name></member>
+      <member refid="classRaylib_1_1Draw_1adf84c6a40cd571fbbdeacf2868ab192e" prot="public" virt="non-virtual"><scope>Raylib::Draw</scope><name>text</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

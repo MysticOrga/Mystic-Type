@@ -1,0 +1,11 @@
+<map id="NetworkClient::sendShoot" name="NetworkClient::sendShoot">
+<area shape="rect" id="Node000001" title="Send a shoot command over UDP." alt="" coords="5,55,196,80"/>
+<area shape="rect" id="Node000002" href="$classNetworkClient.html#a6c612ab362cc3e4ea8c94ebc2cddc4e6" title=" " alt="" coords="244,55,467,80"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,65,230,65,230,70,196,70"/>
+<area shape="rect" id="Node000003" href="$classNetworkClient.html#aaf60f1216a17b46ad12539625a1022c2" title=" " alt="" coords="527,5,697,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="422,52,531,31,532,36,423,57"/>
+<area shape="rect" id="Node000004" href="$classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="549,55,675,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="467,65,535,65,535,70,467,70"/>
+<area shape="rect" id="Node000005" href="$classNetworkClient.html#a36892dcdc8c2523b27947a347ea16022" title=" " alt="" coords="515,105,709,145"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="414,77,509,99,508,104,412,83"/>
+</map>

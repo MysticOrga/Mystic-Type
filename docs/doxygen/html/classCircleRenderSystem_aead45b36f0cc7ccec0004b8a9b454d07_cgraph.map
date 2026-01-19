@@ -1,0 +1,9 @@
+<map id="CircleRenderSystem::update" name="CircleRenderSystem::update">
+<area shape="rect" id="Node000001" title="Renders a circle entity to the screen." alt="" coords="5,23,160,63"/>
+<area shape="rect" id="Node000002" href="$classRaylib_1_1Draw.html#acd88c7a4f6721ddfe38937feaa1efbb1" title="Draws a filled circle." alt="" coords="210,5,357,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,31,196,26,197,32,161,36"/>
+<area shape="rect" id="Node000003" href="$classECS.html#ab25123ea5b19ee74c4e120eb6d808a48" title="Retrieves a component from an entity." alt="" coords="208,55,359,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="161,50,194,54,194,59,160,55"/>
+<area shape="rect" id="Node000004" href="$classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="407,55,624,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="359,65,393,65,393,70,359,70"/>
+</map>

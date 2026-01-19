@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classMovementSystem" kind="class" language="C++" prot="public">
+    <compoundname>MovementSystem</compoundname>
+    <includes refid="System_8hpp" local="no">graphical-client/ecs/System.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classMovementSystem_1ac23640cf7f551bc63f202e3ccd9aad9d" prot="private" static="no" mutable="no">
+        <type>std::unordered_map&lt; <ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref>, float &gt;</type>
+        <definition>std::unordered_map&lt;Entity, float&gt; MovementSystem::_accumulator</definition>
+        <argsstring></argsstring>
+        <name>_accumulator</name>
+        <qualifiedname>MovementSystem::_accumulator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/System.hpp" line="181" column="24" bodyfile="graphical-client/ecs/System.hpp" bodystart="181" bodyend="-1"/>
+        <referencedby refid="classMovementSystem_1a57b0e4d3739f4b27ce15324b8a4d47bf" compoundref="System_8hpp" startline="164" endline="178">update</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classMovementSystem_1a57b0e4d3739f4b27ce15324b8a4d47bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void MovementSystem::update</definition>
+        <argsstring>(ECS &amp;ecs, Entity e, float dt)</argsstring>
+        <name>update</name>
+        <qualifiedname>MovementSystem::update</qualifiedname>
+        <param>
+          <type><ref refid="classECS" kindref="compound">ECS</ref> &amp;</type>
+          <declname>ecs</declname>
+        </param>
+        <param>
+          <type><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref></type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Updates entity position based on velocity with fixed time stepping. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ecs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference to the <ref refid="classECS" kindref="compound">ECS</ref> system. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The entity to update. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Delta time since last frame. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/System.hpp" line="164" column="10" bodyfile="graphical-client/ecs/System.hpp" bodystart="164" bodyend="178"/>
+        <references refid="classMovementSystem_1ac23640cf7f551bc63f202e3ccd9aad9d" compoundref="System_8hpp" startline="181">_accumulator</references>
+        <references refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" compoundref="Core_8hpp" startline="131" endline="133">ECS::getComponent</references>
+        <references refid="classPosition_1a54a6182b5f7539295b32255808897d3f" compoundref="Components_8hpp" startline="27">Position::y</references>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">GraphicClient::updateEntities</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Handles entity position updates based on velocity. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Updates entity positions using a fixed tick duration (32ms) to match server updates and prevent frame-rate dependent velocity accumulation. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>MovementSystem</label>
+        <link refid="classMovementSystem"/>
+      </node>
+    </collaborationgraph>
+    <location file="graphical-client/ecs/System.hpp" line="155" column="1" bodyfile="graphical-client/ecs/System.hpp" bodystart="156" bodyend="182"/>
+    <listofallmembers>
+      <member refid="classMovementSystem_1ac23640cf7f551bc63f202e3ccd9aad9d" prot="private" virt="non-virtual"><scope>MovementSystem</scope><name>_accumulator</name></member>
+      <member refid="classMovementSystem_1a57b0e4d3739f4b27ce15324b8a4d47bf" prot="public" virt="non-virtual"><scope>MovementSystem</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

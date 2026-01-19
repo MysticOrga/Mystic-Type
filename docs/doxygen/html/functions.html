@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -92,8 +93,132 @@ $(document).ready(function(){initNavTree('functions.html',''); initResizable(); 
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index__5F" name="index__5F"></a>- _ -</h3><ul>
-<li>_addr&#160;:&#160;<a class="el" href="classNetwork_1_1TransportLayer_1_1ASocket.html#a4438e961d347a409c9e19efdb030bae5">Network::TransportLayer::ASocket</a></li>
+<li>_accumulator&#160;:&#160;<a class="el" href="classMovementSystem.html#ac23640cf7f551bc63f202e3ccd9aad9d">MovementSystem</a></li>
+<li>_addr&#160;:&#160;<a class="el" href="classIpcChannel.html#ad220948425e93fed642979014de89e15">IpcChannel</a>, <a class="el" href="classNetwork_1_1TransportLayer_1_1ASocket.html#a4438e961d347a409c9e19efdb030bae5">Network::TransportLayer::ASocket</a>, <a class="el" href="classNetwork_1_1TransportLayer_1_1UnixSocket.html#a5ce10aa23c1a06d3ca8787c5d6db7f26">Network::TransportLayer::UnixSocket</a></li>
+<li>_areaSize&#160;:&#160;<a class="el" href="classRectangleRenderSystem.html#a00c54f80d65ee74fc5a06370b0b997e5">RectangleRenderSystem</a>, <a class="el" href="classSpriteRenderSystem.html#ae81e2dc6198204f7e0c607edff2b6a58">SpriteRenderSystem</a></li>
+<li>_bossDefeatedFlag&#160;:&#160;<a class="el" href="classGameWorld.html#acb755ee97dd7f8632eef630319f2b3e2">GameWorld</a></li>
+<li>_bossSpawnedFlag&#160;:&#160;<a class="el" href="classGameWorld.html#a5c9f70e5ed7cba792fde805088741b7a">GameWorld</a></li>
+<li>_bossSpawnedOnce&#160;:&#160;<a class="el" href="classGameWorld.html#a56582971b46ddc377a513090e46662d3">GameWorld</a></li>
+<li>_bulletEntities&#160;:&#160;<a class="el" href="classGraphicClient.html#a88e6521fa2a326f2563bd7674c361438">GraphicClient</a></li>
+<li>_bullets&#160;:&#160;<a class="el" href="classGameState.html#a6ebd00bef3ebc816d2796634953b7615">GameState</a>, <a class="el" href="classGameWorld.html#ac911c03e487bf4e2d77c8ede28babf03">GameWorld</a></li>
+<li>_chatActive&#160;:&#160;<a class="el" href="classGraphicClient.html#a04a9a700edbeddcc42a63a3f8d6fe14e">GraphicClient</a></li>
+<li>_chatInput&#160;:&#160;<a class="el" href="classGraphicClient.html#a29003b747d7aad2476accc5b80250eef">GraphicClient</a></li>
+<li>_chatLog&#160;:&#160;<a class="el" href="classGraphicClient.html#a3674d589494334b97ac301bb3a6c088f">GraphicClient</a></li>
+<li>_childMgr&#160;:&#160;<a class="el" href="classTCPServer.html#af631fe23418972d040c6ffce2a1418f7">TCPServer</a></li>
+<li>_children&#160;:&#160;<a class="el" href="classChildProcessManager.html#a363292f659a911dbc0407ec13e669f39">ChildProcessManager</a></li>
+<li>_clientLobby&#160;:&#160;<a class="el" href="classTCPServer.html#af426291ba1ed4f4d21e8cab3c7a03bc3">TCPServer</a></li>
+<li>_clients&#160;:&#160;<a class="el" href="classTCPServer.html#a84e56cbbeeab8d9e7569444fa657a239">TCPServer</a></li>
+<li>_currentFrame&#160;:&#160;<a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a0d84c74ead5552710bfad214ae3a63b3">Rtype::Graphic::AnimatedSprite</a></li>
+<li>_ecs&#160;:&#160;<a class="el" href="classGraphicClient.html#aa2ace668a32b35b06b45e386d00ea4f1">GraphicClient</a></li>
+<li>_entities&#160;:&#160;<a class="el" href="classGraphicClient.html#a82245caa063f38af3a7b4ad1a7418efc">GraphicClient</a></li>
+<li>_events&#160;:&#160;<a class="el" href="classNetworkClient.html#a71ebf3bcf361e32e24abecffca56fdec">NetworkClient</a></li>
+<li>_expectedLobby&#160;:&#160;<a class="el" href="classUDPGameServer.html#a6c3b3016f0b7493aa6d6efd7df70652d">UDPGameServer</a></li>
+<li>_forceExit&#160;:&#160;<a class="el" href="classGraphicClient.html#a60cedf219d20bc0cafe62005fe9ee88a">GraphicClient</a></li>
+<li>_frameTime&#160;:&#160;<a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#af13d2e9637dce59a579c923fdaa888d7">Rtype::Graphic::AnimatedSprite</a></li>
+<li>_gameAnimTimer&#160;:&#160;<a class="el" href="classGraphicClient.html#a8e52c08b5ba630898751b895d8b9d6ba">GraphicClient</a></li>
+<li>_hadPlayers&#160;:&#160;<a class="el" href="classGameWorld.html#aa78b4bb4f31d3d10a37ce43a1a446bae">GameWorld</a></li>
+<li>_hasPseudo&#160;:&#160;<a class="el" href="classGraphicClient.html#a61b58ea0f04c31a6cb4f2103f5df4f51">GraphicClient</a></li>
+<li>_hasServerConfig&#160;:&#160;<a class="el" href="classGraphicClient.html#a042a31cb7e92647410b8b40c54c8d074">GraphicClient</a></li>
+<li>_hasSnapshotSeq&#160;:&#160;<a class="el" href="classNetworkClient.html#ad35265342327777ccb894b79f81b05e6">NetworkClient</a></li>
+<li>_incoming&#160;:&#160;<a class="el" href="classUDPGameServer.html#afdb634c720e621ceefae4c3cdddf2070">UDPGameServer</a></li>
+<li>_inputSystem&#160;:&#160;<a class="el" href="classGraphicClient.html#aa1b6f7632112637217ee65be6a6dcbae">GraphicClient</a></li>
+<li>_ipc&#160;:&#160;<a class="el" href="classUDPGameServer.html#a019dfad81daf07296be196eeea940c9e">UDPGameServer</a></li>
+<li>_isServer&#160;:&#160;<a class="el" href="classIpcChannel.html#afbe5a59d97124b64e1dba4d8a84189fc">IpcChannel</a></li>
+<li>_keyMap&#160;:&#160;<a class="el" href="classInputSystem.html#a3dd1e484e9025053f403fef34f5671a2">InputSystem</a></li>
+<li>_lastChatSent&#160;:&#160;<a class="el" href="classGraphicClient.html#aa935bab23b2dadf2856fe49c9aef642a">GraphicClient</a></li>
+<li>_lastDir&#160;:&#160;<a class="el" href="classInputSystem.html#af2085774ee25bb4c472b6e8a48b28773">InputSystem</a></li>
+<li>_lastHello&#160;:&#160;<a class="el" href="classGraphicClient.html#a52dcaca28beda66bed425b6020dfc43c">GraphicClient</a></li>
+<li>_lastInitError&#160;:&#160;<a class="el" href="classGraphicClient.html#a1dbb979ad32f77bcf170c02e93d9b896">GraphicClient</a></li>
+<li>_lastKeepAlive&#160;:&#160;<a class="el" href="classGraphicClient.html#aa769c45dded765a088aa3f2111d99124">GraphicClient</a></li>
+<li>_lastMonsterSpawnMs&#160;:&#160;<a class="el" href="classGameWorld.html#ab8ac13c233c40d9e8f9f6a0b4afb8ef8">GameWorld</a></li>
+<li>_lastPlayerList&#160;:&#160;<a class="el" href="classNetworkClient.html#ac396fc7cda4c100ff4afca5fccf73429">NetworkClient</a></li>
+<li>_lastSnapshot&#160;:&#160;<a class="el" href="classNetworkClient.html#a38aa8a71fa921d8afe01d8caaf6d1df0">NetworkClient</a></li>
+<li>_lastSnapshotBullets&#160;:&#160;<a class="el" href="classNetworkClient.html#a8e04154250d91bbbb2cfbc0afeaed6bb">NetworkClient</a></li>
+<li>_lastSnapshotMonsters&#160;:&#160;<a class="el" href="classNetworkClient.html#ae8afee744ef3cbfc90a6ae126c6a0c1b">NetworkClient</a></li>
+<li>_lastSnapshotMs&#160;:&#160;<a class="el" href="classUDPGameServer.html#a390e8fc2716ffa166d2bd6f91acb9bf2">UDPGameServer</a></li>
+<li>_lastSnapshotSeq&#160;:&#160;<a class="el" href="classNetworkClient.html#a7313805bd859cfc09dec94a7c8eb2fe0">NetworkClient</a></li>
+<li>_lastTickMs&#160;:&#160;<a class="el" href="classUDPGameServer.html#a2f64e138162800e13ab68e61d273e335">UDPGameServer</a></li>
+<li>_lastUdpPing&#160;:&#160;<a class="el" href="classGraphicClient.html#a3a0eeb38f5ce4b276f311b92c65fd501">GraphicClient</a></li>
+<li>_linked&#160;:&#160;<a class="el" href="classNetwork_1_1TransportLayer_1_1UnixSocket.html#a557ad717853e93ea0206baf7efe657f4">Network::TransportLayer::UnixSocket</a></li>
+<li>_lobbies&#160;:&#160;<a class="el" href="classTCPServer.html#a82ca8d45da7d3889d55662cb8c90022e">TCPServer</a></li>
+<li>_lobbyCode&#160;:&#160;<a class="el" href="classNetworkClient.html#a0b474e7f79f3dd26df29fb5fe39367b2">NetworkClient</a></li>
+<li>_lobbyScore&#160;:&#160;<a class="el" href="classGameWorld.html#ade346ceb17e4fe79c3030b7cec924a7f">GameWorld</a></li>
+<li>_localPseudo&#160;:&#160;<a class="el" href="classGraphicClient.html#a2fad4811cde141bb655df45eac5a6bae">GraphicClient</a></li>
+<li>_logPrefix&#160;:&#160;<a class="el" href="classGameWorld.html#a025e4ab2ae1b20af78178303ce541ae9">GameWorld</a></li>
+<li>_maxChildren&#160;:&#160;<a class="el" href="classChildProcessManager.html#a42bd633a489f0883777fc0be9d10febb">ChildProcessManager</a></li>
+<li>_maxFrames&#160;:&#160;<a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac99408e6df78edff7a6b5bfcb470f119">Rtype::Graphic::AnimatedSprite</a></li>
+<li>_maxInputsPerSec&#160;:&#160;<a class="el" href="classSessionManager.html#ab07589dac6e7346f7eb4dbd1c871ee80">SessionManager</a></li>
+<li>_maxShootsPerSec&#160;:&#160;<a class="el" href="classSessionManager.html#acf90d50c96347bbf4f617071b9343723">SessionManager</a></li>
+<li>_monsterEntities&#160;:&#160;<a class="el" href="classGraphicClient.html#a4e4f2c634651d79b312ce55f8bbb43d8">GraphicClient</a></li>
+<li>_monsterKilled&#160;:&#160;<a class="el" href="classGameWorld.html#aae566a13c392531f47667bd5f6af1f25">GameWorld</a></li>
+<li>_monsters&#160;:&#160;<a class="el" href="classGameState.html#a684212aeb845a80b274f98de6e46214a">GameState</a>, <a class="el" href="classGameWorld.html#a67b9e4b2ad25ed6fd3e5ca8e3b238b8d">GameWorld</a></li>
+<li>_monsterSpawnIntervalMs&#160;:&#160;<a class="el" href="classGameWorld.html#a99254eafbade5a1bad114a9477e62071">GameWorld</a></li>
+<li>_movementSystem&#160;:&#160;<a class="el" href="classGraphicClient.html#af728873f72540cf041d42a9d7e317337">GraphicClient</a></li>
+<li>_mutex&#160;:&#160;<a class="el" href="classSessionManager.html#a05d87c5c88d86aa2852d0e4778275273">SessionManager</a></li>
+<li>_net&#160;:&#160;<a class="el" href="classGraphicClient.html#a20356ba82da3f85b4eccdef7b722f472">GraphicClient</a></li>
+<li>_networkThread&#160;:&#160;<a class="el" href="classUDPGameServer.html#aa31422212ed9a118802d233aedf1453a">UDPGameServer</a></li>
+<li>_nextBulletId&#160;:&#160;<a class="el" href="classGameWorld.html#ad17902d7af7e1d778daff68c08d8076a">GameWorld</a></li>
+<li>_nextId&#160;:&#160;<a class="el" href="classTCPServer.html#a1c70f5262f8c58c76224696746b2fe61">TCPServer</a></li>
+<li>_nextMonsterId&#160;:&#160;<a class="el" href="classGameWorld.html#ad74e5cf7fea12c00759a2521d76931d9">GameWorld</a></li>
+<li>_noPlayersFlag&#160;:&#160;<a class="el" href="classGameWorld.html#ab50b19c51863e1a304ab2e22833a4e0d">GameWorld</a></li>
+<li>_offsetX&#160;:&#160;<a class="el" href="classRectangleRenderSystem.html#ae46bcea7d3acaf9af00e0f78d33b31d4">RectangleRenderSystem</a>, <a class="el" href="classSpriteRenderSystem.html#a406f5de0e7d1764fb135efe5a0f6ab80">SpriteRenderSystem</a></li>
+<li>_offsetY&#160;:&#160;<a class="el" href="classRectangleRenderSystem.html#ab8f08ab9bd2a18bd1ca44f18caa8012d">RectangleRenderSystem</a>, <a class="el" href="classSpriteRenderSystem.html#a3bf896c956a20bca32afeaeda05973fd">SpriteRenderSystem</a></li>
+<li>_onRemove&#160;:&#160;<a class="el" href="classSessionManager.html#a8fb480012df18cedb0dc9fd7517d1a9a">SessionManager</a></li>
+<li>_pendingReturnReason&#160;:&#160;<a class="el" href="classGraphicClient.html#abe1ec0067a934ed489c6bf1bb83c5af4">GraphicClient</a></li>
+<li>_pendingReturnToLobby&#160;:&#160;<a class="el" href="classGraphicClient.html#acf2b54f37edf9f394796f9b549dc9efb">GraphicClient</a></li>
+<li>_playerId&#160;:&#160;<a class="el" href="classNetworkClient.html#a8b0d8d4bb3fa98ecf345d0fc6dafd8e7">NetworkClient</a></li>
+<li>_playerLobby&#160;:&#160;<a class="el" href="classUDPGameServer.html#a4c197dcedb9480e8ad9c3aa9368b34d3">UDPGameServer</a></li>
+<li>_playerPingMs&#160;:&#160;<a class="el" href="classGraphicClient.html#a6b93f97cd4b03c881c45451ab1e60afa">GraphicClient</a></li>
+<li>_players&#160;:&#160;<a class="el" href="classGameState.html#a61038ea129759cc4631044201305b10e">GameState</a>, <a class="el" href="classGameWorld.html#a46a68b140b6bcd93c8ea4d145142d536">GameWorld</a></li>
+<li>_port&#160;:&#160;<a class="el" href="classUDPGameServer.html#a8403afcff6dde0baa509124d4553b73e">UDPGameServer</a></li>
+<li>_position&#160;:&#160;<a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#a9ead5e3f0b95f79971d2de88fe47b94d">Rtype::Graphic::AnimatedSprite</a></li>
+<li>_positionInSpritesheet&#160;:&#160;<a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac497bb551d49b7234cfe7087d91f52bc">Rtype::Graphic::AnimatedSprite</a></li>
+<li>_pseudo&#160;:&#160;<a class="el" href="classNetworkClient.html#a040896aa0ec5206449d02e6dd264f7cd">NetworkClient</a></li>
+<li>_queueMutex&#160;:&#160;<a class="el" href="classUDPGameServer.html#a20cfba9fdeb64468286e7f71a19871d2">UDPGameServer</a></li>
+<li>_rectangleRenderSystem&#160;:&#160;<a class="el" href="classGraphicClient.html#a91c6a0f863c130c89d3ff55cd05741a0">GraphicClient</a></li>
+<li>_restartToMenu&#160;:&#160;<a class="el" href="classGraphicClient.html#a5490f7579a280a251ba1441af0317d4a">GraphicClient</a></li>
+<li>_returnToLobbyAt&#160;:&#160;<a class="el" href="classGraphicClient.html#a210f3519772cd892b489fadf1962dda6">GraphicClient</a></li>
+<li>_running&#160;:&#160;<a class="el" href="classUDPGameServer.html#a03e47ae3e4629b2715c5d423f2abfc17">UDPGameServer</a></li>
+<li>_scale&#160;:&#160;<a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ac2ef4cb259da3fc514d0090d5dbb1afb">Rtype::Graphic::AnimatedSprite</a></li>
+<li>_scaleX&#160;:&#160;<a class="el" href="classSpriteRenderSystem.html#a733b0be24b57ad5533c791a6cc3d6669">SpriteRenderSystem</a></li>
+<li>_scaleY&#160;:&#160;<a class="el" href="classSpriteRenderSystem.html#a2a83c885d6559c0928e6def5ca18e5a1">SpriteRenderSystem</a></li>
+<li>_senderAddr&#160;:&#160;<a class="el" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a8cb227a0a16480a39a6dfe532e5d2d5f">Network::TransportLayer::UDPSocket</a></li>
+<li>_serverIp&#160;:&#160;<a class="el" href="classGraphicClient.html#abb4308207bbfbe4f674b28c7de9fafb7">GraphicClient</a></li>
+<li>_serverPort&#160;:&#160;<a class="el" href="classGraphicClient.html#a39d4c8c19e2ae4030687f0068cd5fa8c">GraphicClient</a></li>
+<li>_serverSocket&#160;:&#160;<a class="el" href="classTCPServer.html#a935d20653ad5ba5269b00c0fb8977e60">TCPServer</a></li>
+<li>_sessions&#160;:&#160;<a class="el" href="classSessionManager.html#a94817f0bdc3435c5a8c741ac024d556c">SessionManager</a>, <a class="el" href="classTCPServer.html#a112cedb48ad54b03fcd564d78766f763">TCPServer</a>, <a class="el" href="classUDPGameServer.html#addc03e253cc450a368fa4e17cb369bdd">UDPGameServer</a></li>
+<li>_size&#160;:&#160;<a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#aad9657c6ba086ca797a8714e18d283ea">Rtype::Graphic::AnimatedSprite</a></li>
+<li>_snapshotIntervalMs&#160;:&#160;<a class="el" href="classUDPGameServer.html#abbeb77deb2d519708ae2c6e2df26ba54">UDPGameServer</a></li>
+<li>_snapshotLost&#160;:&#160;<a class="el" href="classNetworkClient.html#a629d27e793d46d3be1754f668932dd09">NetworkClient</a></li>
+<li>_snapshotReceived&#160;:&#160;<a class="el" href="classNetworkClient.html#a45e486f8ec98988efc9030a65dc49e09">NetworkClient</a></li>
+<li>_snapshotSeq&#160;:&#160;<a class="el" href="classGameWorld.html#aa84b4174d2f8fd9c1f313687b1ee4850">GameWorld</a></li>
+<li>_socket&#160;:&#160;<a class="el" href="classUDPGameServer.html#a25c7a0d2ae641a6c71421059bb024a60">UDPGameServer</a></li>
 <li>_socketFd&#160;:&#160;<a class="el" href="classNetwork_1_1TransportLayer_1_1ASocket.html#a98cc1b369dd9afea0f122e6f07c41caa">Network::TransportLayer::ASocket</a></li>
+<li>_sockfd&#160;:&#160;<a class="el" href="classIpcChannel.html#aaa1e07804ded384aa8bddb2aa0564480">IpcChannel</a></li>
+<li>_sourceRect&#160;:&#160;<a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#ae09ae8b36b9ab3e12ebdc4d1798799b4">Rtype::Graphic::AnimatedSprite</a></li>
+<li>_spriteRenderSystem&#160;:&#160;<a class="el" href="classGraphicClient.html#a2e26499ba6df996c1ac3c980b5320c40">GraphicClient</a></li>
+<li>_state&#160;:&#160;<a class="el" href="classGraphicClient.html#acb4c98b2104cce0ec8de9051d6d53bf2">GraphicClient</a></li>
+<li>_tcpAddr&#160;:&#160;<a class="el" href="classNetworkClient.html#a11f8f91b9958ae221c08bf304fbfe31e">NetworkClient</a></li>
+<li>_tcpConnected&#160;:&#160;<a class="el" href="classNetworkClient.html#aeef42eb1f64d0e680941ec6583bbbd44">NetworkClient</a></li>
+<li>_tcpFd&#160;:&#160;<a class="el" href="classNetworkClient.html#a18dce692aa54fd1e006744d59d097e5f">NetworkClient</a></li>
+<li>_tcpRecvBuffer&#160;:&#160;<a class="el" href="classNetworkClient.html#a70fc44c2906eb7a70b74108f34df3008">NetworkClient</a></li>
+<li>_texture&#160;:&#160;<a class="el" href="classRaylib_1_1Texture.html#ad69bab86fc4c589cb6b3f1aa50e1e1ae">Raylib::Texture</a>, <a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#acc6026ccd104477fc636205013674568">Rtype::Graphic::AnimatedSprite</a></li>
+<li>_tickIntervalMs&#160;:&#160;<a class="el" href="classUDPGameServer.html#a9386af9feddd3dc985886c42ad90e44e">UDPGameServer</a></li>
+<li>_timer&#160;:&#160;<a class="el" href="classRtype_1_1Graphic_1_1AnimatedSprite.html#afeed552cf17a6135da0f2bbfc567e6cb">Rtype::Graphic::AnimatedSprite</a></li>
+<li>_udpAddr&#160;:&#160;<a class="el" href="classNetworkClient.html#ad6b5430496083ed39dacbb31514f3849">NetworkClient</a></li>
+<li>_udpBytesInWindow&#160;:&#160;<a class="el" href="classNetworkClient.html#aef7a8773ff5b23399cb9aac0b3c4d7a4">NetworkClient</a></li>
+<li>_udpBytesOutWindow&#160;:&#160;<a class="el" href="classNetworkClient.html#a8c4e09f4a487b00c7b4cfd6507f5d1d0">NetworkClient</a></li>
+<li>_udpConnected&#160;:&#160;<a class="el" href="classNetworkClient.html#afc9f1111f98037b27d3033e8d9118556">NetworkClient</a></li>
+<li>_udpFd&#160;:&#160;<a class="el" href="classNetworkClient.html#afec94b5ac7dda0fc2b434261108f43ad">NetworkClient</a></li>
+<li>_udpLastPingSentMs&#160;:&#160;<a class="el" href="classNetworkClient.html#a60a9388fce03419f064d436e02e59a23">NetworkClient</a></li>
+<li>_udpPingMs&#160;:&#160;<a class="el" href="classNetworkClient.html#a2965fb9499f0868ae11cda1c07c63425">NetworkClient</a></li>
+<li>_udpRateWindowStartMs&#160;:&#160;<a class="el" href="classNetworkClient.html#ac3ce12720fa24e5706d225d80bf5f1aa">NetworkClient</a></li>
+<li>_udpReady&#160;:&#160;<a class="el" href="classGraphicClient.html#a81a2e4066369786564a7d8221c8d83a0">GraphicClient</a></li>
+<li>_udpRxKbps&#160;:&#160;<a class="el" href="classNetworkClient.html#a633d1f57b2d80be8d61c3695115cf614">NetworkClient</a></li>
+<li>_udpTxKbps&#160;:&#160;<a class="el" href="classNetworkClient.html#a9be81688f8ada89b3b8a26144ef651bb">NetworkClient</a></li>
+<li>_uiEcs&#160;:&#160;<a class="el" href="classGraphicClient.html#aad6444ee81ce5610e8f134c8ee002077">GraphicClient</a></li>
+<li>_window&#160;:&#160;<a class="el" href="classGraphicClient.html#a9267fe8ea88f600994981271461383be">GraphicClient</a></li>
+<li>_worlds&#160;:&#160;<a class="el" href="classUDPGameServer.html#a717a4dc2095ce6aa20c6e006acf8eef4">UDPGameServer</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,0 +1,7 @@
+<map id="TCPServer::TCPServer" name="TCPServer::TCPServer">
+<area shape="rect" id="Node000001" title="Construct a new TCPServer bound to the given port." alt="" coords="5,13,168,38"/>
+<area shape="rect" id="Node000002" href="$classNetwork_1_1TransportLayer_1_1TCPSocket.html#a1101a573328f3e3763b5cc0fed67f0ae" title="Bind to an address and start listening." alt="" coords="216,5,413,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="168,23,202,23,202,28,168,28"/>
+<area shape="rect" id="Node000003" href="$classNetwork_1_1TransportLayer_1_1ASocket.html#a65fa2f6ba45358b7a7776d14b0111756" title="Bind the socket to a specific address and port." alt="" coords="461,5,643,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="413,23,447,23,447,28,413,28"/>
+</map>

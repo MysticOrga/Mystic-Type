@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="ChildProcessManager_8hpp" kind="file" language="C++">
+    <compoundname>ChildProcessManager.hpp</compoundname>
+    <includes local="no">string</includes>
+    <includes local="no">unordered_map</includes>
+    <includes local="no">optional</includes>
+    <includes local="no">cstdint</includes>
+    <includedby refid="server_8cpp" local="yes">/home/loic/EPITECH/rtype/Mystic-Type/server.cpp</includedby>
+    <includedby refid="TCPServer_8hpp" local="yes">Network/TransportLayer/TCP/TCPServer.hpp</includedby>
+    <includedby refid="ChildProcessManager_8cpp" local="yes">server/ChildProcessManager.cpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>server/ChildProcessManager.hpp</label>
+        <link refid="ChildProcessManager_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>cstdint</label>
+      </node>
+      <node id="4">
+        <label>optional</label>
+      </node>
+      <node id="2">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>unordered_map</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/server.cpp</label>
+        <link refid="server_8cpp"/>
+      </node>
+      <node id="4">
+        <label>Network/TransportLayer/TCP/TCPServer.cpp</label>
+        <link refid="TCPServer_8cpp"/>
+      </node>
+      <node id="3">
+        <label>Network/TransportLayer/TCP/TCPServer.hpp</label>
+        <link refid="TCPServer_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>server/ChildProcessManager.cpp</label>
+        <link refid="ChildProcessManager_8cpp"/>
+      </node>
+      <node id="1">
+        <label>server/ChildProcessManager.hpp</label>
+        <link refid="ChildProcessManager_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structChildInfo" prot="public">ChildInfo</innerclass>
+    <innerclass refid="classChildProcessManager" prot="public">ChildProcessManager</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">**<sp/>EPITECH<sp/>PROJECT,<sp/>2025</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">**<sp/>Mystic-Type</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">**<sp/>File<sp/>description:</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">**<sp/>Child<sp/>process<sp/>manager<sp/>to<sp/>spawn/track<sp/>UDP<sp/>game<sp/>servers</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;optional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="structChildInfo" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structChildInfo" kindref="compound">ChildInfo</ref><sp/>{</highlight></codeline>
+<codeline lineno="16" refid="structChildInfo_1a9224fac00573071274c8f35c13893047" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structChildInfo_1a9224fac00573071274c8f35c13893047" kindref="member">pid</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="17" refid="structChildInfo_1adc556c5d7e00a21c99fc48c2b715c33c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structChildInfo_1adc556c5d7e00a21c99fc48c2b715c33c" kindref="member">lobbyCode</ref>;</highlight></codeline>
+<codeline lineno="18" refid="structChildInfo_1ae87fa4d5413d350e26d0efa99cfdddf9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint16_t<sp/><ref refid="structChildInfo_1ae87fa4d5413d350e26d0efa99cfdddf9" kindref="member">udpPort</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="19" refid="structChildInfo_1a7f7c43535724aa8cc79ffc66d3d8a9d8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structChildInfo_1a7f7c43535724aa8cc79ffc66d3d8a9d8" kindref="member">ipcSock</ref>;</highlight></codeline>
+<codeline lineno="20"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="22"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Minimal<sp/>child<sp/>process<sp/>manager<sp/>to<sp/>spawn<sp/>UDP<sp/>game<sp/>servers.</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>This<sp/>is<sp/>a<sp/>stub:<sp/>no<sp/>restart<sp/>logic,<sp/>no<sp/>signal<sp/>handling,<sp/>just<sp/>spawn<sp/>and<sp/>track.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="classChildProcessManager" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classChildProcessManager" kindref="compound">ChildProcessManager</ref><sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="29" refid="classChildProcessManager_1a89d1a1a079bbfc6bdcfda0fd115b77e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classChildProcessManager_1a89d1a1a079bbfc6bdcfda0fd115b77e6" kindref="member">ChildProcessManager</ref>(std::size_t<sp/>maxChildren<sp/>=<sp/>64)<sp/>:<sp/><ref refid="classChildProcessManager_1a42bd633a489f0883777fc0be9d10febb" kindref="member">_maxChildren</ref>(maxChildren)<sp/>{}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Spawn<sp/>a<sp/>UDP<sp/>game<sp/>server<sp/>process.</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>lobby<sp/>lobby<sp/>code</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>udpPort<sp/>udp<sp/>port<sp/>to<sp/>bind</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>ipcSock<sp/>path<sp/>to<sp/>IPC<sp/>socket</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>pid<sp/>on<sp/>success,<sp/>-1<sp/>on<sp/>failure</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classChildProcessManager_1a138e2d098e92a2c6d1ad7b35dadd6541" kindref="member">spawn</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;lobby,<sp/>uint16_t<sp/>udpPort,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;ipcSock);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Retrieve<sp/>info<sp/>by<sp/>lobby<sp/>code.</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>std::optional&lt;ChildInfo&gt;<sp/><ref refid="classChildProcessManager_1a5974e717ffd0b607cbf62e33c5adf0d2" kindref="member">get</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;lobby)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Remove<sp/>tracking<sp/>info<sp/>(does<sp/>not<sp/>kill).</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classChildProcessManager_1ad5e9300f230cd2aa806b8b2f91c40939" kindref="member">forget</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;lobby);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classChildProcessManager_1af9be1ce64da7e05952b231b22df221a0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::size_t<sp/><ref refid="classChildProcessManager_1af9be1ce64da7e05952b231b22df221a0" kindref="member">activeCount</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classChildProcessManager_1a363292f659a911dbc0407ec13e669f39" kindref="member">_children</ref>.size();<sp/>}</highlight></codeline>
+<codeline lineno="51" refid="classChildProcessManager_1a3b7c34be0f81b8a841d4ecd28a837bf6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::size_t<sp/><ref refid="classChildProcessManager_1a3b7c34be0f81b8a841d4ecd28a837bf6" kindref="member">maxCount</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="classChildProcessManager_1a42bd633a489f0883777fc0be9d10febb" kindref="member">_maxChildren</ref>;<sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="54" refid="classChildProcessManager_1a363292f659a911dbc0407ec13e669f39" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;std::string,<sp/>ChildInfo&gt;<sp/><ref refid="classChildProcessManager_1a363292f659a911dbc0407ec13e669f39" kindref="member">_children</ref>;</highlight></codeline>
+<codeline lineno="55" refid="classChildProcessManager_1a42bd633a489f0883777fc0be9d10febb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::size_t<sp/><ref refid="classChildProcessManager_1a42bd633a489f0883777fc0be9d10febb" kindref="member">_maxChildren</ref>;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="server/ChildProcessManager.hpp"/>
+  </compounddef>
+</doxygen>

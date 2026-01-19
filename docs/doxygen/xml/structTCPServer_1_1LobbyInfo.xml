@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structTCPServer_1_1LobbyInfo" kind="struct" language="C++" prot="private">
+    <compoundname>TCPServer::LobbyInfo</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structTCPServer_1_1LobbyInfo_1a152296683519bb731ad8583bf8a13314" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool TCPServer::LobbyInfo::isPublic</definition>
+        <argsstring></argsstring>
+        <name>isPublic</name>
+        <qualifiedname>TCPServer::LobbyInfo::isPublic</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="227" column="18" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="227" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structTCPServer_1_1LobbyInfo_1ab819c46474e24bf8b0bd1dd5e68374aa" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; TCPServer::LobbyInfo::players</definition>
+        <argsstring></argsstring>
+        <name>players</name>
+        <qualifiedname>TCPServer::LobbyInfo::players</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="228" column="25" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="228" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structTCPServer_1_1LobbyInfo_1a6b6c390c5ef62c1db332074ebbbb7d31" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t TCPServer::LobbyInfo::udpPort</definition>
+        <argsstring></argsstring>
+        <name>udpPort</name>
+        <qualifiedname>TCPServer::LobbyInfo::udpPort</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="229" column="22" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structTCPServer_1_1LobbyInfo_1a6c62899f0b9d0876bfd082bdbe5932d6" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t TCPServer::LobbyInfo::ipcPort</definition>
+        <argsstring></argsstring>
+        <name>ipcPort</name>
+        <qualifiedname>TCPServer::LobbyInfo::ipcPort</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="230" column="22" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structTCPServer_1_1LobbyInfo_1a1f7fa98ba4cc99221634f99ec6a576a4" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classIpcChannel" kindref="compound">IpcChannel</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;IpcChannel&gt; TCPServer::LobbyInfo::ipc</definition>
+        <argsstring></argsstring>
+        <name>ipc</name>
+        <qualifiedname>TCPServer::LobbyInfo::ipc</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="231" column="29" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="231" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>TCPServer::LobbyInfo</label>
+        <link refid="structTCPServer_1_1LobbyInfo"/>
+      </node>
+    </collaborationgraph>
+    <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="226" column="9" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="226" bodyend="232"/>
+    <listofallmembers>
+      <member refid="structTCPServer_1_1LobbyInfo_1a1f7fa98ba4cc99221634f99ec6a576a4" prot="public" virt="non-virtual"><scope>TCPServer::LobbyInfo</scope><name>ipc</name></member>
+      <member refid="structTCPServer_1_1LobbyInfo_1a6c62899f0b9d0876bfd082bdbe5932d6" prot="public" virt="non-virtual"><scope>TCPServer::LobbyInfo</scope><name>ipcPort</name></member>
+      <member refid="structTCPServer_1_1LobbyInfo_1a152296683519bb731ad8583bf8a13314" prot="public" virt="non-virtual"><scope>TCPServer::LobbyInfo</scope><name>isPublic</name></member>
+      <member refid="structTCPServer_1_1LobbyInfo_1ab819c46474e24bf8b0bd1dd5e68374aa" prot="public" virt="non-virtual"><scope>TCPServer::LobbyInfo</scope><name>players</name></member>
+      <member refid="structTCPServer_1_1LobbyInfo_1a6b6c390c5ef62c1db332074ebbbb7d31" prot="public" virt="non-virtual"><scope>TCPServer::LobbyInfo</scope><name>udpPort</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

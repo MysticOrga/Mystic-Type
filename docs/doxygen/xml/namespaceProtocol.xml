@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespaceProtocol" kind="namespace" language="C++">
+    <compoundname>Protocol</compoundname>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>StreamStatus</name>
+        <qualifiedname>Protocol::StreamStatus</qualifiedname>
+        <enumvalue id="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780aef70e46fd3bbc21e3e1f0b6815e750c0" prot="public">
+          <name>Disconnected</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780a4307e7e7986aa21a4b7c3ef2b5e948f6" prot="public">
+          <name>Incomplete</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780aa60852f204ed8028c1c58808b746d115" prot="public">
+          <name>Ok</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Status for framed TCP stream parsing. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/Protocol.hpp" line="19" column="5" bodyfile="Network/TransportLayer/Protocol.hpp" bodystart="19" bodyend="23"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceProtocol_1a668bdeed219432868fca095e1b2f2667" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; uint8_t &gt;</type>
+        <definition>std::vector&lt; uint8_t &gt; Protocol::frameTcp</definition>
+        <argsstring>(const Packet &amp;packet)</argsstring>
+        <name>frameTcp</name>
+        <qualifiedname>Protocol::frameTcp</qualifiedname>
+        <param>
+          <type>const <ref refid="classPacket" kindref="compound">Packet</ref> &amp;</type>
+          <declname>packet</declname>
+        </param>
+        <briefdescription>
+<para>Build a TCP framed buffer (2 bytes length + serialized packet). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::runtime_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>if payload is too large. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/Protocol.hpp" line="30" column="17" bodyfile="Network/TransportLayer/Protocol.cpp" bodystart="11" bodyend="24" declfile="Network/TransportLayer/Protocol.hpp" declline="30" declcolumn="17"/>
+        <references refid="classPacket_1aa88c2d28796644c8a1d6137996502ca8" compoundref="Packet_8cpp" startline="10" endline="27">Packet::serialize</references>
+        <referencedby refid="classTCPServer_1a9a65a3923e77e48c5f0019b45af8fcb5" compoundref="TCPServer_8cpp" startline="88" endline="100">TCPServer::sendPacket</referencedby>
+        <referencedby refid="classNetworkClient_1af150c1b7e0aa8c19cb337fb838479324" compoundref="NetworkClient_8cpp" startline="186" endline="195">NetworkClient::sendPacketTcp</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceProtocol_1a10005c44787f8de2a0e42d395aff8baa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780" kindref="member">StreamStatus</ref></type>
+        <definition>Protocol::StreamStatus Protocol::extractFromBuffer</definition>
+        <argsstring>(std::vector&lt; uint8_t &gt; &amp;recvBuffer, Packet &amp;out)</argsstring>
+        <name>extractFromBuffer</name>
+        <qualifiedname>Protocol::extractFromBuffer</qualifiedname>
+        <param>
+          <type>std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>recvBuffer</declname>
+        </param>
+        <param>
+          <type><ref refid="classPacket" kindref="compound">Packet</ref> &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Try to extract a complete packet from an accumulated stream buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>recvBuffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mutable buffer that stores previous bytes. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parsed packet on success. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>StreamStatus </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/Protocol.hpp" line="39" column="18" bodyfile="Network/TransportLayer/Protocol.cpp" bodystart="26" bodyend="44" declfile="Network/TransportLayer/Protocol.hpp" declline="39" declcolumn="18"/>
+        <references refid="classPacket_1abfcd427a2ca434ac71592334517638fb" compoundref="Packet_8cpp" startline="29" endline="49">Packet::deserialize</references>
+        <referencedby refid="namespaceProtocol_1ad768525ca5f0324a5f414440e67679b6" compoundref="Protocol_8cpp" startline="46" endline="52">consumeChunk</referencedby>
+        <referencedby refid="classNetworkClient_1a1f77ff0729755d9782b4542582cfe214" compoundref="NetworkClient_8cpp" startline="232" endline="273">NetworkClient::pollPackets</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="namespaceProtocol_1ad768525ca5f0324a5f414440e67679b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780" kindref="member">StreamStatus</ref></type>
+        <definition>Protocol::StreamStatus Protocol::consumeChunk</definition>
+        <argsstring>(const uint8_t *data, std::size_t len, std::vector&lt; uint8_t &gt; &amp;recvBuffer, Packet &amp;out)</argsstring>
+        <name>consumeChunk</name>
+        <qualifiedname>Protocol::consumeChunk</qualifiedname>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>len</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; uint8_t &gt; &amp;</type>
+          <declname>recvBuffer</declname>
+        </param>
+        <param>
+          <type><ref refid="classPacket" kindref="compound">Packet</ref> &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Append newly read bytes then attempt extraction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/Protocol.hpp" line="44" column="18" bodyfile="Network/TransportLayer/Protocol.cpp" bodystart="46" bodyend="52" declfile="Network/TransportLayer/Protocol.hpp" declline="44" declcolumn="18"/>
+        <references refid="namespaceProtocol_1a10005c44787f8de2a0e42d395aff8baa" compoundref="Protocol_8cpp" startline="26" endline="44">extractFromBuffer</references>
+        <referencedby refid="classTCPServer_1ae9543e5003c04975a7e06a9bb85c7723" compoundref="TCPServer_8cpp" startline="102" endline="120">TCPServer::receivePacket</referencedby>
+        <referencedby refid="classNetworkClient_1ab8fe1bfbcfc0f363bce00cb1dc2a2f88" compoundref="NetworkClient_8cpp" startline="472" endline="485">NetworkClient::receiveTcpFramed</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Network/TransportLayer/Protocol.hpp" line="14" column="1"/>
+  </compounddef>
+</doxygen>

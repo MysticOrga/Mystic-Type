@@ -1,0 +1,5 @@
+<map id="ECS::getSignature" name="ECS::getSignature">
+<area shape="rect" id="Node000001" title="Gets the signature of an entity." alt="" coords="5,5,144,31"/>
+<area shape="rect" id="Node000002" href="$classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="192,5,409,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,15,178,15,178,21,144,21"/>
+</map>

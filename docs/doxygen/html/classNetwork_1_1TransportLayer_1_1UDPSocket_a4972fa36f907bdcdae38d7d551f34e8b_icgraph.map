@@ -1,0 +1,5 @@
+<map id="Network::TransportLayer::UDPSocket::bindTo" name="Network::TransportLayer::UDPSocket::bindTo">
+<area shape="rect" id="Node000001" title="Bind the UDP socket to a port/address." alt="" coords="301,5,483,45"/>
+<area shape="rect" id="Node000002" href="$classUDPGameServer.html#a0272e620fa267e7a2043b5729d24cfbc" title=" " alt="" coords="5,13,253,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="288,28,253,28,253,23,288,23"/>
+</map>

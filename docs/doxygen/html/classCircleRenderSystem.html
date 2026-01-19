@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -99,7 +100,15 @@ $(document).ready(function(){initNavTree('classCircleRenderSystem.html',''); ini
 <p>Renders circle-based entities.  
  <a href="classCircleRenderSystem.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="System_8hpp_source.html">System.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="System_8hpp_source.html">graphical-client/ecs/System.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for CircleRenderSystem:</div>
+<div class="dyncontent">
+<div class="center"><img src="classCircleRenderSystem__coll__graph.png" border="0" usemap="#aCircleRenderSystem_coll__map" alt="Collaboration graph"/></div>
+<map name="aCircleRenderSystem_coll__map" id="aCircleRenderSystem_coll__map">
+<area shape="rect" title="Renders circle&#45;based entities." alt="" coords="5,5,152,71"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -110,6 +119,8 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Renders circle-based entities. </p>
 <p>Used for rendering simple circular game objects. </p>
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00190">190</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aead45b36f0cc7ccec0004b8a9b454d07" name="aead45b36f0cc7ccec0004b8a9b454d07"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aead45b36f0cc7ccec0004b8a9b454d07">&#9670;&#160;</a></span>update()</h2>
@@ -153,6 +164,24 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="System_8hpp_source.html#l00198">198</a> of file <a class="el" href="System_8hpp_source.html">System.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Raylib_8cpp_source.html#l00052">Raylib::Draw::circle()</a>, and <a class="el" href="Core_8hpp_source.html#l00131">ECS::getComponent()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classCircleRenderSystem_aead45b36f0cc7ccec0004b8a9b454d07_cgraph.png" border="0" usemap="#aclassCircleRenderSystem_aead45b36f0cc7ccec0004b8a9b454d07_cgraph" alt=""/></div>
+<map name="aclassCircleRenderSystem_aead45b36f0cc7ccec0004b8a9b454d07_cgraph" id="aclassCircleRenderSystem_aead45b36f0cc7ccec0004b8a9b454d07_cgraph">
+<area shape="rect" title="Renders a circle entity to the screen." alt="" coords="5,23,160,63"/>
+<area shape="rect" href="classRaylib_1_1Draw.html#acd88c7a4f6721ddfe38937feaa1efbb1" title="Draws a filled circle." alt="" coords="210,5,357,31"/>
+<area shape="poly" title=" " alt="" coords="160,31,196,26,197,32,161,36"/>
+<area shape="rect" href="classECS.html#ab25123ea5b19ee74c4e120eb6d808a48" title="Retrieves a component from an entity." alt="" coords="208,55,359,80"/>
+<area shape="poly" title=" " alt="" coords="161,50,194,54,194,59,160,55"/>
+<area shape="rect" href="classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="407,55,624,80"/>
+<area shape="poly" title=" " alt="" coords="359,65,393,65,393,70,359,70"/>
+</map>
+</div>
 
 </div>
 </div>

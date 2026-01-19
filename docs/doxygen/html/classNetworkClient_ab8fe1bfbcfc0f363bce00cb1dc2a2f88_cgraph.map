@@ -1,0 +1,9 @@
+<map id="NetworkClient::receiveTcpFramed" name="NetworkClient::receiveTcpFramed">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,197,45"/>
+<area shape="rect" id="Node000002" href="$namespaceProtocol.html#ad768525ca5f0324a5f414440e67679b6" title="Append newly read bytes then attempt extraction." alt="" coords="245,13,428,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,23,232,23,232,28,198,28"/>
+<area shape="rect" id="Node000003" href="$namespaceProtocol.html#a10005c44787f8de2a0e42d395aff8baa" title="Try to extract a complete packet from an accumulated stream buffer." alt="" coords="476,13,677,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="428,23,462,23,462,28,428,28"/>
+<area shape="rect" id="Node000004" href="$classPacket.html#abfcd427a2ca434ac71592334517638fb" title="Deserialize a packet from a raw byte buffer." alt="" coords="725,13,868,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="678,23,711,23,711,28,678,28"/>
+</map>

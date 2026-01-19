@@ -1,0 +1,13 @@
+<map id="UDPGameServer::UDPGameServer" name="UDPGameServer::UDPGameServer">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,95,253,121"/>
+<area shape="rect" id="Node000002" href="$classNetwork_1_1TransportLayer_1_1UDPSocket.html#a4972fa36f907bdcdae38d7d551f34e8b" title="Bind the UDP socket to a port/address." alt="" coords="325,5,507,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,93,301,55,329,47,330,52,302,60,174,98"/>
+<area shape="rect" id="Node000004" href="$classUDPGameServer.html#ae610b7c128c3b70e06f3fc1b5a3ecdc5" title=" " alt="" coords="318,70,514,95"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="253,94,304,90,304,95,254,100"/>
+<area shape="rect" id="Node000005" href="$classGameWorld.html#a163fb2fed54650ebba995df1e64c39db" title="Prefix used in log output." alt="" coords="323,119,509,145"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="254,116,309,120,309,126,253,121"/>
+<area shape="rect" id="Node000006" href="$classSessionManager.html#aa54fb04918bcd7d31bcdfe2ce2ee6545" title="Set callback invoked when a session is removed." alt="" coords="301,169,531,194"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="174,118,302,153,342,163,341,168,301,159,173,123"/>
+<area shape="rect" id="Node000003" href="$classNetwork_1_1TransportLayer_1_1ASocket.html#a65fa2f6ba45358b7a7776d14b0111756" title="Bind the socket to a specific address and port." alt="" coords="579,5,760,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="507,23,565,23,565,28,507,28"/>
+</map>

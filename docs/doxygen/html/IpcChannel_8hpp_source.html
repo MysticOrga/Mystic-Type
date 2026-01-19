@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -108,7 +109,16 @@ $(document).ready(function(){initNavTree('IpcChannel_8hpp_source.html',''); init
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;../Network/TransportLayer/UDP/UDPSocket.hpp&quot;</span><span class="comment"></span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * @brief Small IPC helper based on a UNIX datagram socket (SOCK_DGRAM).</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * Server mode: bind() on a path, then recv/send.</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * Client mode: connect() to the existing path, then recv/send.</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> * Messages are short ASCII strings (&lt;= 1024 bytes); this is not a reliable stream</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * protocol but sufficient for READY/ALLOW/etc control signals.</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> */</span></div>
 <div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classIpcChannel.html">   22</a></span><span class="keyword">class </span><a class="code hl_class" href="classIpcChannel.html">IpcChannel</a> {</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
@@ -117,35 +127,73 @@ $(document).ready(function(){initNavTree('IpcChannel_8hpp_source.html',''); init
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classIpcChannel.html#a4cfe558307ce2aa78a5d7856588aeafb">   27</a></span>    <a class="code hl_function" href="classIpcChannel.html#a4cfe558307ce2aa78a5d7856588aeafb">IpcChannel</a>(<span class="keyword">const</span> <a class="code hl_class" href="classIpcChannel.html">IpcChannel</a>&amp;) = <span class="keyword">delete</span>;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classIpcChannel.html#a45651c654efa5e19e007b17a8a90e4ab">   28</a></span>    <a class="code hl_class" href="classIpcChannel.html">IpcChannel</a>&amp; <a class="code hl_function" href="classIpcChannel.html#a45651c654efa5e19e007b17a8a90e4ab">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classIpcChannel.html">IpcChannel</a>&amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classIpcChannel.html#a548a4a5a30f39bc66aca90d2bedb942d">bindServer</a>(<span class="keyword">const</span> std::string &amp;path);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classIpcChannel.html#a0a165a73f2f1ffe607082e1b27c3a80d">connectClient</a>(<span class="keyword">const</span> std::string &amp;path);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"></span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">     * @brief Create a socket and bind to a path (server side).</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">     * @return true on success.</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classIpcChannel.html#a08fb3b62091cf125d554b805a4e64748">bindServer</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"></span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">     * @brief Create a socket and connect to a path (client side).</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">     * @return true on success.</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classIpcChannel.html#afa8b95326afd4d66bb573f333e124d33">connectClient</a>(<span class="keyword">const</span> std::string &amp;port);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"></span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">     * @brief Send a text message (limited to 1024 bytes).</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">     */</span></div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classIpcChannel.html#a35498032e830b79724747de4e7b6ca1b">send</a>(<span class="keyword">const</span> std::string &amp;msg);</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"></span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">     * @brief Receive a message with optional timeout (ms).</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">     * timeoutMs = 0 =&gt; non-blocking, &lt;0 =&gt; blocking, &gt;0 =&gt; poll with timeout.</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">     */</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    std::optional&lt;std::string&gt; <a class="code hl_function" href="classIpcChannel.html#a733bd7b22e1828b0c48609a832f24181">recv</a>(<span class="keywordtype">int</span> timeoutMs = 0);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIpcChannel.html#aa2bbcedec629b7f3e365db5218d0bcc8">close</a>();</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classIpcChannel.html#afb6f3b2143390c926fa7489700cf4b2c">   57</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classIpcChannel.html#afb6f3b2143390c926fa7489700cf4b2c">fd</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _fd; }</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">int</span> _fd = -1;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">bool</span> _isServer = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    std::string _path;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>};</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"></span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">    * @brief get ipc port in string format</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">    */</span></div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classIpcChannel.html#a0f326fa25cb8a958dd5daa5ea071a2c5">   56</a></span>    <span class="keyword">inline</span> std::string <a class="code hl_function" href="classIpcChannel.html#a0f326fa25cb8a958dd5daa5ea071a2c5">getport</a>(<span class="keywordtype">void</span>)<span class="keyword"> const </span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">return</span> std::to_string(ntohs(<a class="code hl_variable" href="classIpcChannel.html#ad220948425e93fed642979014de89e15">_addr</a>.sin_port));</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
 </div>
-<div class="ttc" id="aclassIpcChannel_html"><div class="ttname"><a href="classIpcChannel.html">IpcChannel</a></div><div class="ttdoc">Small IPC helper based on a UNIX datagram socket (SOCK_DGRAM).</div><div class="ttdef"><b>Definition</b> IpcChannel.hpp:22</div></div>
-<div class="ttc" id="aclassIpcChannel_html_a0a165a73f2f1ffe607082e1b27c3a80d"><div class="ttname"><a href="classIpcChannel.html#a0a165a73f2f1ffe607082e1b27c3a80d">IpcChannel::connectClient</a></div><div class="ttdeci">bool connectClient(const std::string &amp;path)</div><div class="ttdoc">Create a socket and connect to a path (client side).</div><div class="ttdef"><b>Definition</b> IpcChannel.cpp:62</div></div>
-<div class="ttc" id="aclassIpcChannel_html_a35498032e830b79724747de4e7b6ca1b"><div class="ttname"><a href="classIpcChannel.html#a35498032e830b79724747de4e7b6ca1b">IpcChannel::send</a></div><div class="ttdeci">bool send(const std::string &amp;msg)</div><div class="ttdoc">Send a text message (limited to 1024 bytes).</div><div class="ttdef"><b>Definition</b> IpcChannel.cpp:93</div></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"></span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">     * @brief Close the socket and unlink the path when in server mode.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classIpcChannel.html#aa2bbcedec629b7f3e365db5218d0bcc8">close</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"></span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">    * @brief return internal sock fd</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">    */</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classIpcChannel.html#aadf27650ff534770bd014398c27d1438">   69</a></span>    <a class="code hl_typedef" href="ISocket_8hpp.html#a30353f381f5fccbb956eea1f3a110b6c">socket_t</a> <a class="code hl_function" href="classIpcChannel.html#aadf27650ff534770bd014398c27d1438">fd</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classIpcChannel.html#aaa1e07804ded384aa8bddb2aa0564480">_sockfd</a>; }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classIpcChannel.html#aaa1e07804ded384aa8bddb2aa0564480">   72</a></span>    <a class="code hl_typedef" href="ISocket_8hpp.html#a30353f381f5fccbb956eea1f3a110b6c">socket_t</a> <a class="code hl_variable" href="classIpcChannel.html#aaa1e07804ded384aa8bddb2aa0564480">_sockfd</a> = <a class="code hl_define" href="ISocket_8hpp.html#ab9a5e36d82a1772a9732740821c57bdf">INVALID_SOCKET_FD</a>;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classIpcChannel.html#ad220948425e93fed642979014de89e15">   73</a></span>    sockaddr_in <a class="code hl_variable" href="classIpcChannel.html#ad220948425e93fed642979014de89e15">_addr</a>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classIpcChannel.html#afbe5a59d97124b64e1dba4d8a84189fc">   74</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="classIpcChannel.html#afbe5a59d97124b64e1dba4d8a84189fc">_isServer</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>};</div>
+</div>
+<div class="ttc" id="aISocket_8hpp_html_a30353f381f5fccbb956eea1f3a110b6c"><div class="ttname"><a href="ISocket_8hpp.html#a30353f381f5fccbb956eea1f3a110b6c">socket_t</a></div><div class="ttdeci">int socket_t</div><div class="ttdef"><b>Definition</b> <a href="ISocket_8hpp_source.html#l00045">ISocket.hpp:45</a></div></div>
+<div class="ttc" id="aISocket_8hpp_html_ab9a5e36d82a1772a9732740821c57bdf"><div class="ttname"><a href="ISocket_8hpp.html#ab9a5e36d82a1772a9732740821c57bdf">INVALID_SOCKET_FD</a></div><div class="ttdeci">#define INVALID_SOCKET_FD</div><div class="ttdef"><b>Definition</b> <a href="ISocket_8hpp_source.html#l00046">ISocket.hpp:46</a></div></div>
+<div class="ttc" id="aclassIpcChannel_html"><div class="ttname"><a href="classIpcChannel.html">IpcChannel</a></div><div class="ttdoc">Small IPC helper based on a UNIX datagram socket (SOCK_DGRAM).</div><div class="ttdef"><b>Definition</b> <a href="IpcChannel_8hpp_source.html#l00022">IpcChannel.hpp:22</a></div></div>
+<div class="ttc" id="aclassIpcChannel_html_a08fb3b62091cf125d554b805a4e64748"><div class="ttname"><a href="classIpcChannel.html#a08fb3b62091cf125d554b805a4e64748">IpcChannel::bindServer</a></div><div class="ttdeci">bool bindServer(void)</div><div class="ttdoc">Create a socket and bind to a path (server side).</div><div class="ttdef"><b>Definition</b> <a href="IpcChannel_8cpp_source.html#l00022">IpcChannel.cpp:22</a></div></div>
+<div class="ttc" id="aclassIpcChannel_html_a0f326fa25cb8a958dd5daa5ea071a2c5"><div class="ttname"><a href="classIpcChannel.html#a0f326fa25cb8a958dd5daa5ea071a2c5">IpcChannel::getport</a></div><div class="ttdeci">std::string getport(void) const</div><div class="ttdoc">get ipc port in string format</div><div class="ttdef"><b>Definition</b> <a href="IpcChannel_8hpp_source.html#l00056">IpcChannel.hpp:56</a></div></div>
+<div class="ttc" id="aclassIpcChannel_html_a35498032e830b79724747de4e7b6ca1b"><div class="ttname"><a href="classIpcChannel.html#a35498032e830b79724747de4e7b6ca1b">IpcChannel::send</a></div><div class="ttdeci">bool send(const std::string &amp;msg)</div><div class="ttdoc">Send a text message (limited to 1024 bytes).</div><div class="ttdef"><b>Definition</b> <a href="IpcChannel_8cpp_source.html#l00071">IpcChannel.cpp:71</a></div></div>
 <div class="ttc" id="aclassIpcChannel_html_a45651c654efa5e19e007b17a8a90e4ab"><div class="ttname"><a href="classIpcChannel.html#a45651c654efa5e19e007b17a8a90e4ab">IpcChannel::operator=</a></div><div class="ttdeci">IpcChannel &amp; operator=(const IpcChannel &amp;)=delete</div></div>
 <div class="ttc" id="aclassIpcChannel_html_a4cfe558307ce2aa78a5d7856588aeafb"><div class="ttname"><a href="classIpcChannel.html#a4cfe558307ce2aa78a5d7856588aeafb">IpcChannel::IpcChannel</a></div><div class="ttdeci">IpcChannel(const IpcChannel &amp;)=delete</div></div>
-<div class="ttc" id="aclassIpcChannel_html_a548a4a5a30f39bc66aca90d2bedb942d"><div class="ttname"><a href="classIpcChannel.html#a548a4a5a30f39bc66aca90d2bedb942d">IpcChannel::bindServer</a></div><div class="ttdeci">bool bindServer(const std::string &amp;path)</div><div class="ttdoc">Create a socket and bind to a path (server side).</div><div class="ttdef"><b>Definition</b> IpcChannel.cpp:30</div></div>
-<div class="ttc" id="aclassIpcChannel_html_a733bd7b22e1828b0c48609a832f24181"><div class="ttname"><a href="classIpcChannel.html#a733bd7b22e1828b0c48609a832f24181">IpcChannel::recv</a></div><div class="ttdeci">std::optional&lt; std::string &gt; recv(int timeoutMs=0)</div><div class="ttdoc">Receive a message with optional timeout (ms). timeoutMs = 0 =&gt; non-blocking, &lt;0 =&gt; blocking,...</div><div class="ttdef"><b>Definition</b> IpcChannel.cpp:108</div></div>
-<div class="ttc" id="aclassIpcChannel_html_aa2bbcedec629b7f3e365db5218d0bcc8"><div class="ttname"><a href="classIpcChannel.html#aa2bbcedec629b7f3e365db5218d0bcc8">IpcChannel::close</a></div><div class="ttdeci">void close()</div><div class="ttdoc">Close the socket and unlink the path when in server mode.</div><div class="ttdef"><b>Definition</b> IpcChannel.cpp:132</div></div>
+<div class="ttc" id="aclassIpcChannel_html_a733bd7b22e1828b0c48609a832f24181"><div class="ttname"><a href="classIpcChannel.html#a733bd7b22e1828b0c48609a832f24181">IpcChannel::recv</a></div><div class="ttdeci">std::optional&lt; std::string &gt; recv(int timeoutMs=0)</div><div class="ttdoc">Receive a message with optional timeout (ms). timeoutMs = 0 =&gt; non-blocking, &lt;0 =&gt; blocking,...</div><div class="ttdef"><b>Definition</b> <a href="IpcChannel_8cpp_source.html#l00082">IpcChannel.cpp:82</a></div></div>
+<div class="ttc" id="aclassIpcChannel_html_aa2bbcedec629b7f3e365db5218d0bcc8"><div class="ttname"><a href="classIpcChannel.html#aa2bbcedec629b7f3e365db5218d0bcc8">IpcChannel::close</a></div><div class="ttdeci">void close()</div><div class="ttdoc">Close the socket and unlink the path when in server mode.</div><div class="ttdef"><b>Definition</b> <a href="IpcChannel_8cpp_source.html#l00104">IpcChannel.cpp:104</a></div></div>
+<div class="ttc" id="aclassIpcChannel_html_aaa1e07804ded384aa8bddb2aa0564480"><div class="ttname"><a href="classIpcChannel.html#aaa1e07804ded384aa8bddb2aa0564480">IpcChannel::_sockfd</a></div><div class="ttdeci">socket_t _sockfd</div><div class="ttdef"><b>Definition</b> <a href="IpcChannel_8hpp_source.html#l00072">IpcChannel.hpp:72</a></div></div>
+<div class="ttc" id="aclassIpcChannel_html_aadf27650ff534770bd014398c27d1438"><div class="ttname"><a href="classIpcChannel.html#aadf27650ff534770bd014398c27d1438">IpcChannel::fd</a></div><div class="ttdeci">socket_t fd() const</div><div class="ttdoc">return internal sock fd</div><div class="ttdef"><b>Definition</b> <a href="IpcChannel_8hpp_source.html#l00069">IpcChannel.hpp:69</a></div></div>
 <div class="ttc" id="aclassIpcChannel_html_accdef665be5b8cc831aa12cc9fe64959"><div class="ttname"><a href="classIpcChannel.html#accdef665be5b8cc831aa12cc9fe64959">IpcChannel::IpcChannel</a></div><div class="ttdeci">IpcChannel()=default</div></div>
-<div class="ttc" id="aclassIpcChannel_html_ad63c52abbe46734379d53197c042813a"><div class="ttname"><a href="classIpcChannel.html#ad63c52abbe46734379d53197c042813a">IpcChannel::~IpcChannel</a></div><div class="ttdeci">~IpcChannel()</div><div class="ttdef"><b>Definition</b> IpcChannel.cpp:25</div></div>
-<div class="ttc" id="aclassIpcChannel_html_afb6f3b2143390c926fa7489700cf4b2c"><div class="ttname"><a href="classIpcChannel.html#afb6f3b2143390c926fa7489700cf4b2c">IpcChannel::fd</a></div><div class="ttdeci">int fd() const</div><div class="ttdef"><b>Definition</b> IpcChannel.hpp:57</div></div>
+<div class="ttc" id="aclassIpcChannel_html_ad220948425e93fed642979014de89e15"><div class="ttname"><a href="classIpcChannel.html#ad220948425e93fed642979014de89e15">IpcChannel::_addr</a></div><div class="ttdeci">sockaddr_in _addr</div><div class="ttdef"><b>Definition</b> <a href="IpcChannel_8hpp_source.html#l00073">IpcChannel.hpp:73</a></div></div>
+<div class="ttc" id="aclassIpcChannel_html_ad63c52abbe46734379d53197c042813a"><div class="ttname"><a href="classIpcChannel.html#ad63c52abbe46734379d53197c042813a">IpcChannel::~IpcChannel</a></div><div class="ttdeci">~IpcChannel()</div><div class="ttdef"><b>Definition</b> <a href="IpcChannel_8cpp_source.html#l00017">IpcChannel.cpp:17</a></div></div>
+<div class="ttc" id="aclassIpcChannel_html_afa8b95326afd4d66bb573f333e124d33"><div class="ttname"><a href="classIpcChannel.html#afa8b95326afd4d66bb573f333e124d33">IpcChannel::connectClient</a></div><div class="ttdeci">bool connectClient(const std::string &amp;port)</div><div class="ttdoc">Create a socket and connect to a path (client side).</div><div class="ttdef"><b>Definition</b> <a href="IpcChannel_8cpp_source.html#l00054">IpcChannel.cpp:54</a></div></div>
+<div class="ttc" id="aclassIpcChannel_html_afbe5a59d97124b64e1dba4d8a84189fc"><div class="ttname"><a href="classIpcChannel.html#afbe5a59d97124b64e1dba4d8a84189fc">IpcChannel::_isServer</a></div><div class="ttdeci">bool _isServer</div><div class="ttdef"><b>Definition</b> <a href="IpcChannel_8hpp_source.html#l00074">IpcChannel.hpp:74</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

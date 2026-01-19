@@ -1,0 +1,599 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="System_8hpp" kind="file" language="C++">
+    <compoundname>System.hpp</compoundname>
+    <includes refid="NetworkClient_8hpp" local="yes">../../Network/Client/NetworkClient.hpp</includes>
+    <includes refid="Raylib_8hpp" local="yes">../Raylib/Raylib.hpp</includes>
+    <includes refid="Components_8hpp" local="yes">Components.hpp</includes>
+    <includes refid="Core_8hpp" local="yes">Core.hpp</includes>
+    <includes local="no">algorithm</includes>
+    <includes local="no">unordered_map</includes>
+    <includedby refid="GraphicClient_8hpp" local="yes">graphical-client/GraphicClient/GraphicClient.hpp</includedby>
+    <incdepgraph>
+      <node id="19">
+        <label>GameState.hpp</label>
+        <link refid="GameState_8hpp"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../../Network/Client/NetworkClient.hpp</label>
+        <link refid="NetworkClient_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>../ASocket.hpp</label>
+        <link refid="ASocket_8hpp"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>ISocket.hpp</label>
+        <link refid="ISocket_8hpp"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>../TransportLayer/Packet.hpp</label>
+        <link refid="Packet_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>../TransportLayer/UDP/UDPSocket.hpp</label>
+        <link refid="UDPSocket_8hpp"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>../Graphic/Graphic.hpp</label>
+        <link refid="Graphic_8hpp"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>../Raylib/Raylib.hpp</label>
+        <link refid="Raylib_8hpp"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>Components.hpp</label>
+        <link refid="Components_8hpp"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>Core.hpp</label>
+        <link refid="Core_8hpp"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>graphical-client/ecs/System.hpp</label>
+        <link refid="System_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>algorithm</label>
+      </node>
+      <node id="12">
+        <label>arpa/inet.h</label>
+      </node>
+      <node id="27">
+        <label>bitset</label>
+      </node>
+      <node id="3">
+        <label>cstdint</label>
+      </node>
+      <node id="13">
+        <label>errno.h</label>
+      </node>
+      <node id="25">
+        <label>memory</label>
+      </node>
+      <node id="14">
+        <label>netinet/in.h</label>
+      </node>
+      <node id="15">
+        <label>netinet/tcp.h</label>
+      </node>
+      <node id="22">
+        <label>raylib.h</label>
+      </node>
+      <node id="7">
+        <label>stdexcept</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="5">
+        <label>sys/select.h</label>
+      </node>
+      <node id="16">
+        <label>sys/socket.h</label>
+      </node>
+      <node id="17">
+        <label>sys/un.h</label>
+      </node>
+      <node id="28">
+        <label>typeindex</label>
+      </node>
+      <node id="18">
+        <label>unistd.h</label>
+      </node>
+      <node id="20">
+        <label>unordered_map</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/client.cpp</label>
+        <link refid="client_8cpp"/>
+      </node>
+      <node id="4">
+        <label>graphical-client/GraphicClient/GraphicClient.cpp</label>
+        <link refid="GraphicClient_8cpp"/>
+      </node>
+      <node id="2">
+        <label>graphical-client/GraphicClient/GraphicClient.hpp</label>
+        <link refid="GraphicClient_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>graphical-client/ecs/System.hpp</label>
+        <link refid="System_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classInputSystem" prot="public">InputSystem</innerclass>
+    <innerclass refid="classMovementSystem" prot="public">MovementSystem</innerclass>
+    <innerclass refid="classCircleRenderSystem" prot="public">CircleRenderSystem</innerclass>
+    <innerclass refid="classRectangleRenderSystem" prot="public">RectangleRenderSystem</innerclass>
+    <innerclass refid="classSpriteRenderSystem" prot="public">SpriteRenderSystem</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="System_8hpp_1adade54da2b207529e678a25e6389d494" prot="public" static="no" strong="no">
+        <type></type>
+        <name>KeyEvent</name>
+        <enumvalue id="System_8hpp_1adade54da2b207529e678a25e6389d494aec8379af7490bb9eaaf579cf17876f38" prot="public">
+          <name>RIGHT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Move right action </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="System_8hpp_1adade54da2b207529e678a25e6389d494adb45120aafd37a973140edee24708065" prot="public">
+          <name>LEFT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Move left action </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="System_8hpp_1adade54da2b207529e678a25e6389d494aba595d8bca8bc5e67c37c0a9d89becfa" prot="public">
+          <name>UP</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Move up action </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="System_8hpp_1adade54da2b207529e678a25e6389d494a9b0b4a95b99523966e0e34ffdadac9da" prot="public">
+          <name>DOWN</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Move down action </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="System_8hpp_1adade54da2b207529e678a25e6389d494a38317998d0db1f65b5a5d3f9990c02f3" prot="public">
+          <name>SHOOT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Shoot action </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enumerates keyboard events for player input mapping. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Maps directional and action inputs to keyboard keys. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/System.hpp" line="24" column="1" bodyfile="graphical-client/ecs/System.hpp" bodystart="25" bodyend="31"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">**<sp/>EPITECH<sp/>PROJECT,<sp/>2025</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">**<sp/>rtype</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">**<sp/>File<sp/>description:</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">**<sp/>System</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SYSTEM_HPP_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SYSTEM_HPP_</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../../Network/Client/NetworkClient.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Raylib/Raylib.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Components_8hpp" kindref="compound">Components.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="Core_8hpp" kindref="compound">Core.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;algorithm&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="18"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="19"><highlight class="comment">*<sp/>@enum<sp/>KeyEvent</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">*<sp/>@brief<sp/>Enumerates<sp/>keyboard<sp/>events<sp/>for<sp/>player<sp/>input<sp/>mapping.</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">*<sp/>Maps<sp/>directional<sp/>and<sp/>action<sp/>inputs<sp/>to<sp/>keyboard<sp/>keys.</highlight></codeline>
+<codeline lineno="23"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="System_8hpp_1adade54da2b207529e678a25e6389d494" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494" kindref="member">KeyEvent</ref></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26" refid="System_8hpp_1adade54da2b207529e678a25e6389d494aec8379af7490bb9eaaf579cf17876f38" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494aec8379af7490bb9eaaf579cf17876f38" kindref="member">RIGHT</ref>,<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Move<sp/>right<sp/>action<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="System_8hpp_1adade54da2b207529e678a25e6389d494adb45120aafd37a973140edee24708065" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494adb45120aafd37a973140edee24708065" kindref="member">LEFT</ref>,<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Move<sp/>left<sp/>action<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="System_8hpp_1adade54da2b207529e678a25e6389d494aba595d8bca8bc5e67c37c0a9d89becfa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494aba595d8bca8bc5e67c37c0a9d89becfa" kindref="member">UP</ref>,<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Move<sp/>up<sp/>action<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="System_8hpp_1adade54da2b207529e678a25e6389d494a9b0b4a95b99523966e0e34ffdadac9da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494a9b0b4a95b99523966e0e34ffdadac9da" kindref="member">DOWN</ref>,<sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Move<sp/>down<sp/>action<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494a38317998d0db1f65b5a5d3f9990c02f3" kindref="member">SHOOT</ref><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Shoot<sp/>action<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="System_8hpp_1adade54da2b207529e678a25e6389d494a38317998d0db1f65b5a5d3f9990c02f3" refkind="member"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="33"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="34"><highlight class="comment">*<sp/>@class<sp/>InputSystem</highlight></codeline>
+<codeline lineno="35"><highlight class="comment">*<sp/>@brief<sp/>Handles<sp/>player<sp/>input<sp/>and<sp/>keyboard<sp/>key<sp/>binding<sp/>management.</highlight></codeline>
+<codeline lineno="36"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="37"><highlight class="comment">*<sp/>This<sp/>system<sp/>manages<sp/>keyboard<sp/>input,<sp/>detects<sp/>key<sp/>presses/holds,</highlight></codeline>
+<codeline lineno="38"><highlight class="comment">*<sp/>and<sp/>communicates<sp/>player<sp/>movement<sp/>and<sp/>shooting<sp/>commands<sp/>to<sp/>the<sp/>server.</highlight></codeline>
+<codeline lineno="39"><highlight class="comment">*<sp/>Players<sp/>can<sp/>configure<sp/>custom<sp/>key<sp/>bindings<sp/>for<sp/>all<sp/>actions.</highlight></codeline>
+<codeline lineno="40"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="classInputSystem" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classInputSystem" kindref="compound">InputSystem</ref></highlight></codeline>
+<codeline lineno="42"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="45"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="46"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Constructor<sp/>initializing<sp/>default<sp/>key<sp/>bindings.</highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>Sets<sp/>up<sp/>default<sp/>arrow<sp/>keys<sp/>for<sp/>movement<sp/>and<sp/>A<sp/>for<sp/>shooting.</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classInputSystem_1a2f18d9fdb44805c63984113c1433c223" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classInputSystem_1a2f18d9fdb44805c63984113c1433c223" kindref="member">InputSystem</ref>()</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" kindref="member">_keyMap</ref>[<ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494aec8379af7490bb9eaaf579cf17876f38" kindref="member">RIGHT</ref>]<sp/>=<sp/>KEY_RIGHT;</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" kindref="member">_keyMap</ref>[<ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494adb45120aafd37a973140edee24708065" kindref="member">LEFT</ref>]<sp/>=<sp/>KEY_LEFT;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" kindref="member">_keyMap</ref>[<ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494aba595d8bca8bc5e67c37c0a9d89becfa" kindref="member">UP</ref>]<sp/>=<sp/>KEY_UP;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" kindref="member">_keyMap</ref>[<ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494a9b0b4a95b99523966e0e34ffdadac9da" kindref="member">DOWN</ref>]<sp/>=<sp/>KEY_DOWN;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" kindref="member">_keyMap</ref>[<ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494a38317998d0db1f65b5a5d3f9990c02f3" kindref="member">SHOOT</ref>]<sp/>=<sp/>KEY_SPACE;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="60"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Sets<sp/>a<sp/>custom<sp/>key<sp/>binding<sp/>for<sp/>a<sp/>specific<sp/>action.</highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>event<sp/>The<sp/>KeyEvent<sp/>action<sp/>to<sp/>rebind.</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>key<sp/>The<sp/>KeyboardKey<sp/>to<sp/>bind<sp/>to<sp/>this<sp/>action.</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="classInputSystem_1ab584f9708fa5b2c909a96a698980f682" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classInputSystem_1ab584f9708fa5b2c909a96a698980f682" kindref="member">setKey</ref>(<ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494" kindref="member">KeyEvent</ref><sp/>event,<sp/>KeyboardKey<sp/>key)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" kindref="member">_keyMap</ref>[event]<sp/>=<sp/>key;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Retrieves<sp/>the<sp/>current<sp/>key<sp/>binding<sp/>for<sp/>an<sp/>action.</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>event<sp/>The<sp/>KeyEvent<sp/>action<sp/>to<sp/>query.</highlight></codeline>
+<codeline lineno="72"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@return<sp/>The<sp/>KeyboardKey<sp/>currently<sp/>bound<sp/>to<sp/>this<sp/>action.</highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="classInputSystem_1ac4da6a8e14e4907b0c7882e1297fea3a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/>KeyboardKey<sp/><ref refid="classInputSystem_1ac4da6a8e14e4907b0c7882e1297fea3a" kindref="member">getKey</ref>(<ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494" kindref="member">KeyEvent</ref><sp/>event)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="75"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>it<sp/>=<sp/><ref refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" kindref="member">_keyMap</ref>.find(event);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>it<sp/>!=<sp/><ref refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" kindref="member">_keyMap</ref>.end()<sp/>?<sp/>it-&gt;second<sp/>:<sp/>KEY_NULL;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Updates<sp/>input<sp/>state<sp/>and<sp/>sends<sp/>player<sp/>commands<sp/>to<sp/>the<sp/>server.</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/></highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>Processes<sp/>keyboard<sp/>input<sp/>for<sp/>movement<sp/>and<sp/>shooting,<sp/>applies<sp/>velocity<sp/>changes,</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>and<sp/>sends<sp/>commands<sp/>to<sp/>the<sp/>server<sp/>for<sp/>validation<sp/>and<sp/>propagation<sp/>to<sp/>other<sp/>players.</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/></highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>net<sp/>Reference<sp/>to<sp/>NetworkClient<sp/>for<sp/>sending<sp/>commands<sp/>to<sp/>server.</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>pos<sp/>Current<sp/>player<sp/>position.</highlight></codeline>
+<codeline lineno="88"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>vel<sp/>Reference<sp/>to<sp/>velocity<sp/>component<sp/>(modified<sp/>by<sp/>this<sp/>method).</highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="classInputSystem_1af7ed09c6bfd5fba6af86af16de00d706" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classInputSystem_1af7ed09c6bfd5fba6af86af16de00d706" kindref="member">update</ref>(<ref refid="classNetworkClient" kindref="compound">NetworkClient</ref><sp/>&amp;net,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classPosition" kindref="compound">Position</ref><sp/>&amp;pos,<sp/><ref refid="classVelocity" kindref="compound">Velocity</ref><sp/>&amp;vel)</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>moved<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320ee" kindref="member">NetworkClient::MoveCmd</ref><sp/>cmd<sp/>=<sp/><ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea258f49887ef8d14ac268c92b02503aaa" kindref="member">NetworkClient::MoveCmd::Up</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int8_t<sp/>speed<sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vel.<ref refid="classVelocity_1a2592d4678c041df7b39ae7663ec0ed5d" kindref="member">vx</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vel.<ref refid="classVelocity_1ae2a7111ea8910254dce8882f3ab760a3" kindref="member">vy</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classRaylib_1_1Input_1a4cd5c6122b4771997efbb9ef2d3c4771" kindref="member">Raylib::Input::isKeyDown</ref>(<ref refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" kindref="member">_keyMap</ref>[<ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494aec8379af7490bb9eaaf579cf17876f38" kindref="member">RIGHT</ref>]))</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmd<sp/>=<sp/><ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea92b09c7c48c520c3c55e497875da437c" kindref="member">NetworkClient::MoveCmd::Right</ref>;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vel.<ref refid="classVelocity_1a2592d4678c041df7b39ae7663ec0ed5d" kindref="member">vx</ref><sp/>=<sp/>speed;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>moved<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classRaylib_1_1Input_1a4cd5c6122b4771997efbb9ef2d3c4771" kindref="member">Raylib::Input::isKeyDown</ref>(<ref refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" kindref="member">_keyMap</ref>[<ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494adb45120aafd37a973140edee24708065" kindref="member">LEFT</ref>]))</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmd<sp/>=<sp/><ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea945d5e233cf7d6240f6b783b36a374ff" kindref="member">NetworkClient::MoveCmd::Left</ref>;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vel.<ref refid="classVelocity_1a2592d4678c041df7b39ae7663ec0ed5d" kindref="member">vx</ref><sp/>=<sp/>-speed;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>moved<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classRaylib_1_1Input_1a4cd5c6122b4771997efbb9ef2d3c4771" kindref="member">Raylib::Input::isKeyDown</ref>(<ref refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" kindref="member">_keyMap</ref>[<ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494aba595d8bca8bc5e67c37c0a9d89becfa" kindref="member">UP</ref>]))</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmd<sp/>=<sp/><ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea258f49887ef8d14ac268c92b02503aaa" kindref="member">NetworkClient::MoveCmd::Up</ref>;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vel.<ref refid="classVelocity_1ae2a7111ea8910254dce8882f3ab760a3" kindref="member">vy</ref><sp/>=<sp/>-speed;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>moved<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classRaylib_1_1Input_1a4cd5c6122b4771997efbb9ef2d3c4771" kindref="member">Raylib::Input::isKeyDown</ref>(<ref refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" kindref="member">_keyMap</ref>[<ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494a9b0b4a95b99523966e0e34ffdadac9da" kindref="member">DOWN</ref>]))</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmd<sp/>=<sp/><ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea08a38277b0309070706f6652eeae9a53" kindref="member">NetworkClient::MoveCmd::Down</ref>;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>vel.<ref refid="classVelocity_1ae2a7111ea8910254dce8882f3ab760a3" kindref="member">vy</ref><sp/>=<sp/>speed;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>moved<sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(moved)</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classInputSystem_1af2085774ee25bb4c472b6e8a48b28773" kindref="member">_lastDir</ref><sp/>=<sp/>cmd;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>net.<ref refid="classNetworkClient_1afdfce51c7dbb2e61f5e9280b15368915" kindref="member">sendInput</ref>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint8_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(pos.<ref refid="classPosition_1af684446cbf0f6d53386686283da6dcc6" kindref="member">x</ref>),<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint8_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(pos.<ref refid="classPosition_1a54a6182b5f7539295b32255808897d3f" kindref="member">y</ref>),<sp/>(int8_t)vel.<ref refid="classVelocity_1a2592d4678c041df7b39ae7663ec0ed5d" kindref="member">vx</ref>,<sp/>(int8_t)vel.<ref refid="classVelocity_1ae2a7111ea8910254dce8882f3ab760a3" kindref="member">vy</ref>,</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cmd);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classRaylib_1_1Input_1a77b20ab7de1540d7cc5c18f71b137a12" kindref="member">Raylib::Input::isKeyPressed</ref>(<ref refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" kindref="member">_keyMap</ref>[<ref refid="System_8hpp_1adade54da2b207529e678a25e6389d494a38317998d0db1f65b5a5d3f9990c02f3" kindref="member">SHOOT</ref>]))</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int8_t<sp/>bvx<sp/>=<sp/>2;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>int8_t<sp/>bvy<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>startX<sp/>=<sp/>pos.<ref refid="classPosition_1af684446cbf0f6d53386686283da6dcc6" kindref="member">x</ref><sp/>+<sp/>4.0f;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>startY<sp/>=<sp/>pos.<ref refid="classPosition_1a54a6182b5f7539295b32255808897d3f" kindref="member">y</ref><sp/>+<sp/>1.0f;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>net.<ref refid="classNetworkClient_1a2773882369d758cbb23aa67b0dda78ed" kindref="member">sendShoot</ref>(</highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint8_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(std::clamp(startX,<sp/>0.0f,<sp/>255.0f)),</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint8_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(std::clamp(startY,<sp/>0.0f,<sp/>255.0f)),<sp/>bvx,<sp/>bvy);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="144" refid="classInputSystem_1af2085774ee25bb4c472b6e8a48b28773" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320ee" kindref="member">NetworkClient::MoveCmd</ref><sp/><ref refid="classInputSystem_1af2085774ee25bb4c472b6e8a48b28773" kindref="member">_lastDir</ref><sp/>=<sp/><ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea92b09c7c48c520c3c55e497875da437c" kindref="member">NetworkClient::MoveCmd::Right</ref>;</highlight></codeline>
+<codeline lineno="145" refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;uint8_t,<sp/>KeyboardKey&gt;<sp/><ref refid="classInputSystem_1a3dd1e484e9025053f403fef34f5671a2" kindref="member">_keyMap</ref>;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="148"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="149"><highlight class="comment">*<sp/>@class<sp/>MovementSystem</highlight></codeline>
+<codeline lineno="150"><highlight class="comment">*<sp/>@brief<sp/>Handles<sp/>entity<sp/>position<sp/>updates<sp/>based<sp/>on<sp/>velocity.</highlight></codeline>
+<codeline lineno="151"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="152"><highlight class="comment">*<sp/>Updates<sp/>entity<sp/>positions<sp/>using<sp/>a<sp/>fixed<sp/>tick<sp/>duration<sp/>(32ms)<sp/>to<sp/>match<sp/>server<sp/>updates</highlight></codeline>
+<codeline lineno="153"><highlight class="comment">*<sp/>and<sp/>prevent<sp/>frame-rate<sp/>dependent<sp/>velocity<sp/>accumulation.</highlight></codeline>
+<codeline lineno="154"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155" refid="classMovementSystem" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classMovementSystem" kindref="compound">MovementSystem</ref></highlight></codeline>
+<codeline lineno="156"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="158"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="159"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Updates<sp/>entity<sp/>position<sp/>based<sp/>on<sp/>velocity<sp/>with<sp/>fixed<sp/>time<sp/>stepping.</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>ecs<sp/>Reference<sp/>to<sp/>the<sp/>ECS<sp/>system.</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>e<sp/>The<sp/>entity<sp/>to<sp/>update.</highlight></codeline>
+<codeline lineno="162"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>dt<sp/>Delta<sp/>time<sp/>since<sp/>last<sp/>frame.</highlight></codeline>
+<codeline lineno="163"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="164" refid="classMovementSystem_1a57b0e4d3739f4b27ce15324b8a4d47bf" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classMovementSystem_1a57b0e4d3739f4b27ce15324b8a4d47bf" kindref="member">update</ref>(<ref refid="classECS" kindref="compound">ECS</ref><sp/>&amp;ecs,<sp/><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref><sp/>e,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dt)</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;pos<sp/>=<sp/>ecs.<ref refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" kindref="member">getComponent</ref>&lt;<ref refid="classPosition" kindref="compound">Position</ref>&gt;(e);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;vel<sp/>=<sp/>ecs.<ref refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" kindref="member">getComponent</ref>&lt;<ref refid="classVelocity" kindref="compound">Velocity</ref>&gt;(e);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>&amp;acc<sp/>=<sp/><ref refid="classMovementSystem_1ac23640cf7f551bc63f202e3ccd9aad9d" kindref="member">_accumulator</ref>[e];</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>acc<sp/>+=<sp/>dt;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>tickDuration<sp/>=<sp/>0.032f;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">while</highlight><highlight class="normal"><sp/>(acc<sp/>&gt;=<sp/>tickDuration)</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pos.x<sp/>+=<sp/>vel.vx;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pos.<ref refid="classPosition_1a54a6182b5f7539295b32255808897d3f" kindref="member">y</ref><sp/>+=<sp/>vel.vy;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>acc<sp/>-=<sp/>tickDuration;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="181" refid="classMovementSystem_1ac23640cf7f551bc63f202e3ccd9aad9d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;Entity,<sp/>float&gt;<sp/><ref refid="classMovementSystem_1ac23640cf7f551bc63f202e3ccd9aad9d" kindref="member">_accumulator</ref>;</highlight></codeline>
+<codeline lineno="182"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="184"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="185"><highlight class="comment">*<sp/>@class<sp/>CircleRenderSystem</highlight></codeline>
+<codeline lineno="186"><highlight class="comment">*<sp/>@brief<sp/>Renders<sp/>circle-based<sp/>entities.</highlight></codeline>
+<codeline lineno="187"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="188"><highlight class="comment">*<sp/>Used<sp/>for<sp/>rendering<sp/>simple<sp/>circular<sp/>game<sp/>objects.</highlight></codeline>
+<codeline lineno="189"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190" refid="classCircleRenderSystem" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classCircleRenderSystem" kindref="compound">CircleRenderSystem</ref></highlight></codeline>
+<codeline lineno="191"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="193"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="194"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Renders<sp/>a<sp/>circle<sp/>entity<sp/>to<sp/>the<sp/>screen.</highlight></codeline>
+<codeline lineno="195"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>ecs<sp/>Reference<sp/>to<sp/>the<sp/>ECS<sp/>system.</highlight></codeline>
+<codeline lineno="196"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>e<sp/>The<sp/>entity<sp/>to<sp/>render.</highlight></codeline>
+<codeline lineno="197"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198" refid="classCircleRenderSystem_1aead45b36f0cc7ccec0004b8a9b454d07" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classCircleRenderSystem_1aead45b36f0cc7ccec0004b8a9b454d07" kindref="member">update</ref>(<ref refid="classECS" kindref="compound">ECS</ref><sp/>&amp;ecs,<sp/><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref><sp/>e)</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;pos<sp/>=<sp/>ecs.<ref refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" kindref="member">getComponent</ref>&lt;<ref refid="classPosition" kindref="compound">Position</ref>&gt;(e);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;circle<sp/>=<sp/>ecs.<ref refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" kindref="member">getComponent</ref>&lt;<ref refid="classCircleComponent" kindref="compound">CircleComponent</ref>&gt;(e);</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRaylib_1_1Draw_1acd88c7a4f6721ddfe38937feaa1efbb1" kindref="member">Raylib::Draw::circle</ref>((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)(pos.x<sp/>*<sp/>5),<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)(pos.y<sp/>*<sp/>5),<sp/>circle.radius,<sp/>circle.color);</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="204"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="206"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="207"><highlight class="comment">*<sp/>@class<sp/>RectangleRenderSystem</highlight></codeline>
+<codeline lineno="208"><highlight class="comment">*<sp/>@brief<sp/>Renders<sp/>rectangle-based<sp/>entities<sp/>with<sp/>proper<sp/>coordinate<sp/>transformation.</highlight></codeline>
+<codeline lineno="209"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="210"><highlight class="comment">*<sp/>Transforms<sp/>game<sp/>coordinates<sp/>(0-255)<sp/>to<sp/>screen<sp/>coordinates<sp/>based<sp/>on<sp/>game<sp/>area<sp/>offset<sp/>and<sp/>size.</highlight></codeline>
+<codeline lineno="211"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212" refid="classRectangleRenderSystem" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRectangleRenderSystem" kindref="compound">RectangleRenderSystem</ref></highlight></codeline>
+<codeline lineno="213"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="215"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="216"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Sets<sp/>the<sp/>game<sp/>area<sp/>offset<sp/>and<sp/>size<sp/>for<sp/>coordinate<sp/>transformation.</highlight></codeline>
+<codeline lineno="217"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>offsetX<sp/>X<sp/>offset<sp/>of<sp/>the<sp/>game<sp/>area<sp/>on<sp/>screen.</highlight></codeline>
+<codeline lineno="218"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>offsetY<sp/>Y<sp/>offset<sp/>of<sp/>the<sp/>game<sp/>area<sp/>on<sp/>screen.</highlight></codeline>
+<codeline lineno="219"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>areaSize<sp/>Size<sp/>of<sp/>the<sp/>game<sp/>area<sp/>in<sp/>pixels.</highlight></codeline>
+<codeline lineno="220"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221" refid="classRectangleRenderSystem_1a084776cc697d899483b31ec00a99e9b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRectangleRenderSystem_1a084776cc697d899483b31ec00a99e9b3" kindref="member">setGameAreaOffset</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>offsetX,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>offsetY,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>areaSize)<sp/></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/>{<sp/></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRectangleRenderSystem_1ae46bcea7d3acaf9af00e0f78d33b31d4" kindref="member">_offsetX</ref><sp/>=<sp/>offsetX;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRectangleRenderSystem_1ab8f08ab9bd2a18bd1ca44f18caa8012d" kindref="member">_offsetY</ref><sp/>=<sp/>offsetY;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRectangleRenderSystem_1a00c54f80d65ee74fc5a06370b0b997e5" kindref="member">_areaSize</ref><sp/>=<sp/>areaSize;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="228"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="229"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Renders<sp/>a<sp/>rectangle<sp/>entity<sp/>to<sp/>the<sp/>screen.</highlight></codeline>
+<codeline lineno="230"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>ecs<sp/>Reference<sp/>to<sp/>the<sp/>ECS<sp/>system.</highlight></codeline>
+<codeline lineno="231"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>e<sp/>The<sp/>entity<sp/>to<sp/>render.</highlight></codeline>
+<codeline lineno="232"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="233" refid="classRectangleRenderSystem_1a92f6643f7bbedda7d15c6ea55f7407d1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRectangleRenderSystem_1a92f6643f7bbedda7d15c6ea55f7407d1" kindref="member">update</ref>(<ref refid="classECS" kindref="compound">ECS</ref><sp/>&amp;ecs,<sp/><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref><sp/>e)</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;pos<sp/>=<sp/>ecs.<ref refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" kindref="member">getComponent</ref>&lt;<ref refid="classPosition" kindref="compound">Position</ref>&gt;(e);</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;rect<sp/>=<sp/>ecs.<ref refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" kindref="member">getComponent</ref>&lt;<ref refid="classRectangleComponent" kindref="compound">RectangleComponent</ref>&gt;(e);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>screenX<sp/>=<sp/><ref refid="classRectangleRenderSystem_1ae46bcea7d3acaf9af00e0f78d33b31d4" kindref="member">_offsetX</ref><sp/>+<sp/>(pos.x<sp/>/<sp/>255.0f)<sp/>*<sp/><ref refid="classRectangleRenderSystem_1a00c54f80d65ee74fc5a06370b0b997e5" kindref="member">_areaSize</ref>;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>screenY<sp/>=<sp/><ref refid="classRectangleRenderSystem_1ab8f08ab9bd2a18bd1ca44f18caa8012d" kindref="member">_offsetY</ref><sp/>+<sp/>(pos.y<sp/>/<sp/>255.0f)<sp/>*<sp/><ref refid="classRectangleRenderSystem_1a00c54f80d65ee74fc5a06370b0b997e5" kindref="member">_areaSize</ref>;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRaylib_1_1Draw_1ac711ababd202454476d1127d61f8a837" kindref="member">Raylib::Draw::rectangle</ref>((</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)screenX,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)screenY,<sp/>rect.width,<sp/>rect.height,<sp/>rect.color);</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="244" refid="classRectangleRenderSystem_1ae46bcea7d3acaf9af00e0f78d33b31d4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classRectangleRenderSystem_1ae46bcea7d3acaf9af00e0f78d33b31d4" kindref="member">_offsetX</ref><sp/>=<sp/>0.0f;</highlight></codeline>
+<codeline lineno="245" refid="classRectangleRenderSystem_1ab8f08ab9bd2a18bd1ca44f18caa8012d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classRectangleRenderSystem_1ab8f08ab9bd2a18bd1ca44f18caa8012d" kindref="member">_offsetY</ref><sp/>=<sp/>0.0f;</highlight></codeline>
+<codeline lineno="246" refid="classRectangleRenderSystem_1a00c54f80d65ee74fc5a06370b0b997e5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classRectangleRenderSystem_1a00c54f80d65ee74fc5a06370b0b997e5" kindref="member">_areaSize</ref><sp/>=<sp/>1280.0f;</highlight></codeline>
+<codeline lineno="247"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="249"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="250"><highlight class="comment">*<sp/>@class<sp/>SpriteRenderSystem</highlight></codeline>
+<codeline lineno="251"><highlight class="comment">*<sp/>@brief<sp/>Renders<sp/>animated<sp/>sprite<sp/>entities<sp/>with<sp/>proper<sp/>coordinate<sp/>transformation.</highlight></codeline>
+<codeline lineno="252"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="253"><highlight class="comment">*<sp/>Handles<sp/>drawing<sp/>of<sp/>animated<sp/>sprites<sp/>with<sp/>scaling<sp/>and<sp/>converts<sp/>game<sp/>coordinates<sp/>to<sp/>screen<sp/>coordinates.</highlight></codeline>
+<codeline lineno="254"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255" refid="classSpriteRenderSystem" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classSpriteRenderSystem" kindref="compound">SpriteRenderSystem</ref></highlight></codeline>
+<codeline lineno="256"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="258"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="259"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Sets<sp/>the<sp/>sprite<sp/>scaling<sp/>factors.</highlight></codeline>
+<codeline lineno="260"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>sx<sp/>Horizontal<sp/>scale<sp/>factor.</highlight></codeline>
+<codeline lineno="261"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>sy<sp/>Vertical<sp/>scale<sp/>factor.</highlight></codeline>
+<codeline lineno="262"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="263" refid="classSpriteRenderSystem_1aaaf180675dc11ac4aab058fb44ab762a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSpriteRenderSystem_1aaaf180675dc11ac4aab058fb44ab762a" kindref="member">setScale</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>sx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>sy)<sp/>{<sp/><ref refid="classSpriteRenderSystem_1a733b0be24b57ad5533c791a6cc3d6669" kindref="member">_scaleX</ref><sp/>=<sp/>sx;<sp/><ref refid="classSpriteRenderSystem_1a2a83c885d6559c0928e6def5ca18e5a1" kindref="member">_scaleY</ref><sp/>=<sp/>sy;<sp/>}</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="265"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="266"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Sets<sp/>the<sp/>game<sp/>area<sp/>offset<sp/>and<sp/>size<sp/>for<sp/>coordinate<sp/>transformation.</highlight></codeline>
+<codeline lineno="267"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>offsetX<sp/>X<sp/>offset<sp/>of<sp/>the<sp/>game<sp/>area<sp/>on<sp/>screen.</highlight></codeline>
+<codeline lineno="268"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>offsetY<sp/>Y<sp/>offset<sp/>of<sp/>the<sp/>game<sp/>area<sp/>on<sp/>screen.</highlight></codeline>
+<codeline lineno="269"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>areaSize<sp/>Size<sp/>of<sp/>the<sp/>game<sp/>area<sp/>in<sp/>pixels.</highlight></codeline>
+<codeline lineno="270"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271" refid="classSpriteRenderSystem_1abb1858e6c55c336ea4e1a9e4f597946c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSpriteRenderSystem_1abb1858e6c55c336ea4e1a9e4f597946c" kindref="member">setGameAreaOffset</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>offsetX,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>offsetY,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>areaSize)</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classSpriteRenderSystem_1a406f5de0e7d1764fb135efe5a0f6ab80" kindref="member">_offsetX</ref><sp/>=<sp/>offsetX;</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classSpriteRenderSystem_1a3bf896c956a20bca32afeaeda05973fd" kindref="member">_offsetY</ref><sp/>=<sp/>offsetY;</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classSpriteRenderSystem_1ae81e2dc6198204f7e0c607edff2b6a58" kindref="member">_areaSize</ref><sp/>=<sp/>areaSize;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="278"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="279"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Updates<sp/>and<sp/>renders<sp/>an<sp/>animated<sp/>sprite<sp/>entity.</highlight></codeline>
+<codeline lineno="280"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>ecs<sp/>Reference<sp/>to<sp/>the<sp/>ECS<sp/>system.</highlight></codeline>
+<codeline lineno="281"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>e<sp/>The<sp/>entity<sp/>to<sp/>render.</highlight></codeline>
+<codeline lineno="282"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>dt<sp/>Delta<sp/>time<sp/>since<sp/>last<sp/>frame<sp/>for<sp/>animation<sp/>updates.</highlight></codeline>
+<codeline lineno="283"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="284" refid="classSpriteRenderSystem_1a439243229880829d70b83b895b500495" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSpriteRenderSystem_1a439243229880829d70b83b895b500495" kindref="member">update</ref>(<ref refid="classECS" kindref="compound">ECS</ref><sp/>&amp;ecs,<sp/><ref refid="Core_8hpp_1aff1ac8fd0b927c16980eeb4053d1d5ca" kindref="member">Entity</ref><sp/>e,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dt)</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;pos<sp/>=<sp/>ecs.<ref refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" kindref="member">getComponent</ref>&lt;<ref refid="classPosition" kindref="compound">Position</ref>&gt;(e);</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>&amp;sprite<sp/>=<sp/>ecs.<ref refid="classECS_1ab25123ea5b19ee74c4e120eb6d808a48" kindref="member">getComponent</ref>&lt;<ref refid="classSprite" kindref="compound">Sprite</ref>&gt;(e);</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!sprite.sprite)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>screenX<sp/>=<sp/><ref refid="classSpriteRenderSystem_1a406f5de0e7d1764fb135efe5a0f6ab80" kindref="member">_offsetX</ref><sp/>+<sp/>(pos.x<sp/>/<sp/>255.0f)<sp/>*<sp/><ref refid="classSpriteRenderSystem_1ae81e2dc6198204f7e0c607edff2b6a58" kindref="member">_areaSize</ref>;</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>screenY<sp/>=<sp/><ref refid="classSpriteRenderSystem_1a3bf896c956a20bca32afeaeda05973fd" kindref="member">_offsetY</ref><sp/>+<sp/>(pos.y<sp/>/<sp/>255.0f)<sp/>*<sp/><ref refid="classSpriteRenderSystem_1ae81e2dc6198204f7e0c607edff2b6a58" kindref="member">_areaSize</ref>;</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sprite.sprite-&gt;setPosition({screenX,<sp/>screenY});</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sprite.sprite-&gt;update(dt);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>sprite.sprite-&gt;draw();</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"></highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="300" refid="classSpriteRenderSystem_1a733b0be24b57ad5533c791a6cc3d6669" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classSpriteRenderSystem_1a733b0be24b57ad5533c791a6cc3d6669" kindref="member">_scaleX</ref><sp/>=<sp/>1.0f;</highlight></codeline>
+<codeline lineno="301" refid="classSpriteRenderSystem_1a2a83c885d6559c0928e6def5ca18e5a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classSpriteRenderSystem_1a2a83c885d6559c0928e6def5ca18e5a1" kindref="member">_scaleY</ref><sp/>=<sp/>1.0f;</highlight></codeline>
+<codeline lineno="302" refid="classSpriteRenderSystem_1a406f5de0e7d1764fb135efe5a0f6ab80" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classSpriteRenderSystem_1a406f5de0e7d1764fb135efe5a0f6ab80" kindref="member">_offsetX</ref><sp/>=<sp/>0.0f;</highlight></codeline>
+<codeline lineno="303" refid="classSpriteRenderSystem_1a3bf896c956a20bca32afeaeda05973fd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classSpriteRenderSystem_1a3bf896c956a20bca32afeaeda05973fd" kindref="member">_offsetY</ref><sp/>=<sp/>0.0f;</highlight></codeline>
+<codeline lineno="304" refid="classSpriteRenderSystem_1ae81e2dc6198204f7e0c607edff2b6a58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classSpriteRenderSystem_1ae81e2dc6198204f7e0c607edff2b6a58" kindref="member">_areaSize</ref><sp/>=<sp/>1280.0f;</highlight></codeline>
+<codeline lineno="305"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="306"><highlight class="normal"></highlight></codeline>
+<codeline lineno="307"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!SYSTEM_HPP_<sp/>*/</highlight><highlight class="preprocessor"></highlight></codeline>
+    </programlisting>
+    <location file="graphical-client/ecs/System.hpp"/>
+  </compounddef>
+</doxygen>

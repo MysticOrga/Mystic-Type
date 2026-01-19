@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="Graphic_8hpp" kind="file" language="C++">
+    <compoundname>Graphic.hpp</compoundname>
+    <includes refid="Raylib_8hpp" local="yes">../Raylib/Raylib.hpp</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">string</includes>
+    <includedby refid="Components_8hpp" local="yes">graphical-client/ecs/Components.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>graphical-client/Graphic/Graphic.hpp</label>
+        <link refid="Graphic_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>../Raylib/Raylib.hpp</label>
+        <link refid="Raylib_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>memory</label>
+      </node>
+      <node id="3">
+        <label>raylib.h</label>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="6">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/client.cpp</label>
+        <link refid="client_8cpp"/>
+      </node>
+      <node id="1">
+        <label>graphical-client/Graphic/Graphic.hpp</label>
+        <link refid="Graphic_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>graphical-client/GraphicClient/GraphicClient.cpp</label>
+        <link refid="GraphicClient_8cpp"/>
+      </node>
+      <node id="5">
+        <label>graphical-client/GraphicClient/GraphicClient.hpp</label>
+        <link refid="GraphicClient_8hpp"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>graphical-client/ecs/Components.hpp</label>
+        <link refid="Components_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>graphical-client/ecs/System.hpp</label>
+        <link refid="System_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classRtype_1_1Graphic_1_1AnimatedSprite" prot="public">Rtype::Graphic::AnimatedSprite</innerclass>
+    <innernamespace refid="namespaceRtype">Rtype</innernamespace>
+    <innernamespace refid="namespaceGraphic">Graphic</innernamespace>
+    <innernamespace refid="namespaceRtype_1_1Graphic">Rtype::Graphic</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">**<sp/>EPITECH<sp/>PROJECT,<sp/>2025</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">**<sp/>Mystic-Type</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">**<sp/>File<sp/>description:</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">**<sp/>Graphic</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;../Raylib/Raylib.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="13"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="14" refid="namespaceRtype" refkind="compound"><highlight class="comment">*<sp/>@namespace<sp/>Rtype</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">*<sp/>@brief<sp/>Main<sp/>namespace<sp/>for<sp/>R-Type<sp/>game.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceRtype" kindref="compound">Rtype</ref></highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="19"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="20" refid="namespaceGraphic" refkind="compound"><highlight class="comment">*<sp/>@namespace<sp/>Graphic</highlight></codeline>
+<codeline lineno="21"><highlight class="comment">*<sp/>@brief<sp/>Graphics-related<sp/>classes<sp/>and<sp/>utilities.</highlight></codeline>
+<codeline lineno="22"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="namespaceRtype_1_1Graphic" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespaceGraphic" kindref="compound">Graphic</ref></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="26"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="27"><highlight class="comment">*<sp/>@class<sp/>AnimatedSprite</highlight></codeline>
+<codeline lineno="28"><highlight class="comment">*<sp/>@brief<sp/>Manages<sp/>animated<sp/>sprite<sp/>rendering<sp/>with<sp/>frame-based<sp/>animation.</highlight></codeline>
+<codeline lineno="29"><highlight class="comment">*</highlight></codeline>
+<codeline lineno="30"><highlight class="comment">*<sp/>Handles<sp/>sprite<sp/>sheet<sp/>loading,<sp/>animation<sp/>frame<sp/>updates,<sp/>positioning,<sp/>and<sp/>rendering.</highlight></codeline>
+<codeline lineno="31"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="classRtype_1_1Graphic_1_1AnimatedSprite" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite" kindref="compound">AnimatedSprite</ref></highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="35" refid="classRtype_1_1Graphic_1_1AnimatedSprite_1acc6026ccd104477fc636205013674568" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::shared_ptr&lt;Raylib::Texture&gt;<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1acc6026ccd104477fc636205013674568" kindref="member">_texture</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Loaded<sp/>sprite<sp/>sheet<sp/>texture<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="classRtype_1_1Graphic_1_1AnimatedSprite_1aad9657c6ba086ca797a8714e18d283ea" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector2<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1aad9657c6ba086ca797a8714e18d283ea" kindref="member">_size</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Size<sp/>of<sp/>each<sp/>individual<sp/>frame<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38" refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac497bb551d49b7234cfe7087d91f52bc" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector2<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac497bb551d49b7234cfe7087d91f52bc" kindref="member">_positionInSpritesheet</ref>;<sp/></highlight><highlight class="comment">/**&lt;<sp/>Starting<sp/>position<sp/>in<sp/>sprite<sp/>sheet<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac99408e6df78edff7a6b5bfcb470f119" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac99408e6df78edff7a6b5bfcb470f119" kindref="member">_maxFrames</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Total<sp/>number<sp/>of<sp/>animation<sp/>frames<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="classRtype_1_1Graphic_1_1AnimatedSprite_1af13d2e9637dce59a579c923fdaa888d7" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1af13d2e9637dce59a579c923fdaa888d7" kindref="member">_frameTime</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Time<sp/>each<sp/>frame<sp/>is<sp/>displayed<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="classRtype_1_1Graphic_1_1AnimatedSprite_1afeed552cf17a6135da0f2bbfc567e6cb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1afeed552cf17a6135da0f2bbfc567e6cb" kindref="member">_timer</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Current<sp/>frame<sp/>timer<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a0d84c74ead5552710bfad214ae3a63b3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a0d84c74ead5552710bfad214ae3a63b3" kindref="member">_currentFrame</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Currently<sp/>displayed<sp/>frame<sp/>index<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae09ae8b36b9ab3e12ebdc4d1798799b4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Rectangle<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae09ae8b36b9ab3e12ebdc4d1798799b4" kindref="member">_sourceRect</ref>;<sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Source<sp/>rectangle<sp/>in<sp/>sprite<sp/>sheet<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a9ead5e3f0b95f79971d2de88fe47b94d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector2<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a9ead5e3f0b95f79971d2de88fe47b94d" kindref="member">_position</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/**&lt;<sp/>Current<sp/>screen<sp/>position<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac2ef4cb259da3fc514d0090d5dbb1afb" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>Vector2<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac2ef4cb259da3fc514d0090d5dbb1afb" kindref="member">_scale</ref>{1.0f,<sp/>1.0f};<sp/></highlight><highlight class="comment">/**&lt;<sp/>Sprite<sp/>scale<sp/>factors<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="50"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Constructor<sp/>for<sp/>AnimatedSprite.</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>path<sp/>Path<sp/>to<sp/>sprite<sp/>sheet<sp/>image<sp/>file.</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>size<sp/>Size<sp/>of<sp/>each<sp/>frame<sp/>(width,<sp/>height).</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>posInSheet<sp/>Position<sp/>of<sp/>first<sp/>frame<sp/>in<sp/>sprite<sp/>sheet<sp/>grid.</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>maxFrames<sp/>Total<sp/>number<sp/>of<sp/>animation<sp/>frames.</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>frameTime<sp/>Time<sp/>in<sp/>seconds<sp/>each<sp/>frame<sp/>is<sp/>displayed<sp/>(default:<sp/>0.1).</highlight></codeline>
+<codeline lineno="56"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>pos<sp/>Initial<sp/>screen<sp/>position<sp/>(default:<sp/>0,<sp/>0).</highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae284bb557cb2c7261d888df9ac1a94af" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae284bb557cb2c7261d888df9ac1a94af" kindref="member">AnimatedSprite</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;path,<sp/>Vector2<sp/>size,<sp/>Vector2<sp/>posInSheet,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxFrames,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>frameTime<sp/>=<sp/>0.1f,<sp/>Vector2<sp/>pos<sp/>=<sp/>{0,<sp/>0})</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1aad9657c6ba086ca797a8714e18d283ea" kindref="member">_size</ref>(size),<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac497bb551d49b7234cfe7087d91f52bc" kindref="member">_positionInSpritesheet</ref>(posInSheet),<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac99408e6df78edff7a6b5bfcb470f119" kindref="member">_maxFrames</ref>(maxFrames),<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1af13d2e9637dce59a579c923fdaa888d7" kindref="member">_frameTime</ref>(frameTime),</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a9ead5e3f0b95f79971d2de88fe47b94d" kindref="member">_position</ref>(pos),<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1afeed552cf17a6135da0f2bbfc567e6cb" kindref="member">_timer</ref>(0.0f),<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a0d84c74ead5552710bfad214ae3a63b3" kindref="member">_currentFrame</ref>(0)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1acc6026ccd104477fc636205013674568" kindref="member">_texture</ref><sp/>=<sp/>std::make_shared&lt;Raylib::Texture&gt;(path);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae09ae8b36b9ab3e12ebdc4d1798799b4" kindref="member">_sourceRect</ref><sp/>=<sp/>{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>posInSheet.x<sp/>*<sp/>size.x,<sp/></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>posInSheet.y<sp/>*<sp/>size.y,<sp/></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>size.x,<sp/></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>size.y</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>};</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Sets<sp/>the<sp/>sprite&apos;s<sp/>screen<sp/>position.</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>pos<sp/>New<sp/>position<sp/>coordinates.</highlight></codeline>
+<codeline lineno="76"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a1f7c6aceeed5f9ec40d5140203bf844b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a1f7c6aceeed5f9ec40d5140203bf844b" kindref="member">setPosition</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>Vector2<sp/>&amp;pos)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a9ead5e3f0b95f79971d2de88fe47b94d" kindref="member">_position</ref><sp/>=<sp/>pos;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Sets<sp/>the<sp/>sprite&apos;s<sp/>scale<sp/>factors.</highlight></codeline>
+<codeline lineno="84"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>sx<sp/>Horizontal<sp/>scale.</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>sy<sp/>Vertical<sp/>scale.</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87" refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a656054e8c3f7380066422d10a7584c44" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a656054e8c3f7380066422d10a7584c44" kindref="member">setScale</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>sx,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>sy)</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac2ef4cb259da3fc514d0090d5dbb1afb" kindref="member">_scale</ref><sp/>=<sp/>{sx,<sp/>sy};</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="92"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Updates<sp/>animation<sp/>frame<sp/>based<sp/>on<sp/>elapsed<sp/>time.</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@param<sp/>dt<sp/>Delta<sp/>time<sp/>since<sp/>last<sp/>update.</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96" refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae93338c214b783b3b9c3549c0fab7f08" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae93338c214b783b3b9c3549c0fab7f08" kindref="member">update</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>dt)</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1afeed552cf17a6135da0f2bbfc567e6cb" kindref="member">_timer</ref><sp/>+=<sp/>dt;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1afeed552cf17a6135da0f2bbfc567e6cb" kindref="member">_timer</ref><sp/>&gt;=<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1af13d2e9637dce59a579c923fdaa888d7" kindref="member">_frameTime</ref>)</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1afeed552cf17a6135da0f2bbfc567e6cb" kindref="member">_timer</ref><sp/>=<sp/>0.0f;</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a0d84c74ead5552710bfad214ae3a63b3" kindref="member">_currentFrame</ref>++;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a0d84c74ead5552710bfad214ae3a63b3" kindref="member">_currentFrame</ref><sp/>&gt;=<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac99408e6df78edff7a6b5bfcb470f119" kindref="member">_maxFrames</ref>)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a0d84c74ead5552710bfad214ae3a63b3" kindref="member">_currentFrame</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae09ae8b36b9ab3e12ebdc4d1798799b4" kindref="member">_sourceRect</ref>.x<sp/>=<sp/>(<ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac497bb551d49b7234cfe7087d91f52bc" kindref="member">_positionInSpritesheet</ref>.x<sp/>+<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a0d84c74ead5552710bfad214ae3a63b3" kindref="member">_currentFrame</ref>)<sp/>*<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1aad9657c6ba086ca797a8714e18d283ea" kindref="member">_size</ref>.x;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="112"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="113"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Renders<sp/>the<sp/>sprite<sp/>to<sp/>the<sp/>screen.</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/><sp/><sp/><sp/>*<sp/>Draws<sp/>the<sp/>current<sp/>animation<sp/>frame<sp/>centered<sp/>at<sp/>the<sp/>sprite<sp/>position.</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117" refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a963c826ca2ecb849b9b8839559916012" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a963c826ca2ecb849b9b8839559916012" kindref="member">draw</ref>()</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1acc6026ccd104477fc636205013674568" kindref="member">_texture</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>w<sp/>=<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae09ae8b36b9ab3e12ebdc4d1798799b4" kindref="member">_sourceRect</ref>.width<sp/>*<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac2ef4cb259da3fc514d0090d5dbb1afb" kindref="member">_scale</ref>.x;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>h<sp/>=<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae09ae8b36b9ab3e12ebdc4d1798799b4" kindref="member">_sourceRect</ref>.height<sp/>*<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac2ef4cb259da3fc514d0090d5dbb1afb" kindref="member">_scale</ref>.y;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Vector2<sp/>centeredPos<sp/>=<sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a9ead5e3f0b95f79971d2de88fe47b94d" kindref="member">_position</ref>;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>centeredPos.x<sp/>-=<sp/>w<sp/>/<sp/>2.0f;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>centeredPos.y<sp/>-=<sp/>h<sp/>/<sp/>2.0f;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Rectangle<sp/>dest{centeredPos.x,<sp/>centeredPos.y,<sp/>w,<sp/>h};</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1acc6026ccd104477fc636205013674568" kindref="member">_texture</ref>-&gt;draw(<ref refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae09ae8b36b9ab3e12ebdc4d1798799b4" kindref="member">_sourceRect</ref>,<sp/>dest,<sp/>WHITE);</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>Graphic</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>Rtype</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="graphical-client/Graphic/Graphic.hpp"/>
+  </compounddef>
+</doxygen>

@@ -1,16 +1,40 @@
 # Doxyfile for Mystic-Type
 PROJECT_NAME           = "Mystic-Type"
+PROJECT_NUMBER         = "1.0"
+PROJECT_BRIEF          = "Multiplayer R-Type-like with TCP/UDP authoritative server"
 OUTPUT_DIRECTORY       = docs/doxygen
+
+# Documentation generation
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+HTML_THEME             = doxygen
 GENERATE_LATEX         = NO
 GENERATE_MAN           = NO
 GENERATE_RTF           = NO
-GENERATE_XML           = NO
-QUIET                  = YES
+GENERATE_XML           = YES
+
+# HTML Theme customization (modern & professional)
+HTML_COLORSTYLE_HUE    = 220
+HTML_COLORSTYLE_SAT    = 100
+HTML_COLORSTYLE_GAMMA  = 80
+DISABLE_INDEX          = NO
+GENERATE_TREEVIEW      = YES
+TREEVIEW_WIDTH         = 250
+FULL_SIDEBAR           = NO
+
+# Search functionality
+SEARCHENGINE           = YES
+SERVER_BASED_SEARCH    = NO
+
+# Code documentation
 EXTRACT_ALL            = YES
-EXTRACT_PRIVATE        = NO
-EXTRACT_STATIC         = NO
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
 EXTRACT_LOCAL_CLASSES  = YES
-RECURSIVE              = YES
+HIDE_UNDOC_MEMBERS     = NO
+HIDE_UNDOC_CLASSES     = NO
+
+# Input files
 INPUT                  = README.md \
                          docs/mtp_protocol_rfc.txt \
                          docs/tcp_protocol_rfc.txt \
@@ -20,6 +44,63 @@ INPUT                  = README.md \
                          game.cpp
 FILE_PATTERNS          = *.hpp *.cpp *.md *.txt
 EXCLUDE_PATTERNS       = */build/* */docs/doxygen/* */sprites/*
+
+# Markdown support
 USE_MDFILE_AS_MAINPAGE = README.md
-GENERATE_TREEVIEW      = YES
+MARKDOWN_SUPPORT       = YES
+
+# Graphs and Diagrams
+HAVE_DOT               = YES
+DOT_PATH               = /usr/bin
+GENERATE_GRAPHML       = YES
+CLASS_DIAGRAMS         = YES
+MSCGEN_PATH            = /usr/bin
+UML_LOOK               = YES
+UML_LIMIT_NUM_FIELDS   = 10
+DOT_UML_DETAILS        = NO
+DOT_WRAP_THRESHOLD     = 17
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+GRAPHICAL_HIERARCHY    = YES
+DIRECTORY_GRAPH        = YES
+INTERACTIVE_SVG        = YES
+
+# Code snippets and cross-references
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+STRIP_CODE_COMMENTS    = NO
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION    = YES
+REFERENCES_LINK_SOURCE = YES
+SOURCE_TOOLTIPS        = YES
+
+# Path settings
 STRIP_FROM_PATH        = src
+STRIP_FROM_INC_PATH    = src
+
+# Quiet mode
+QUIET                  = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_DOC_ENDS_WITH_MULTIPLE_BLANKS = NO
+WARN_NO_PARAMDOC       = NO
+
+# Output options
+GENERATE_TODOLIST      = YES
+GENERATE_TESTLIST      = YES
+GENERATE_BUGLIST       = YES
+GENERATE_DEPRECATEDLIST = YES
+CLANG_ASSISTED_PARSING = NO
+INHERIT_DOCS           = YES
+MULTI_LINE_CPP_IS_BRIEF = NO
+
+# Aliases for better documentation
+ALIASES                = "rtype=\xrefitem rtype \"R-Type Feature\" \"R-Type Features\"" \
+                         "network=\xrefitem network \"Network Layer\" \"Network Layer Components\""
+
+# Recursive directory search
+RECURSIVE              = YES
+
+# Predefined defines
+PREDEFINED             = __DOXYGEN__ \
+                         DOXYGEN_SHOULD_SKIP_THIS

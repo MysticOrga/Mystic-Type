@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structUDPGameServer_1_1Incoming" kind="struct" language="C++" prot="private">
+    <compoundname>UDPGameServer::Incoming</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structUDPGameServer_1_1Incoming_1af8787121530430cf0411a81d8b9ac498" prot="public" static="no" mutable="no">
+        <type><ref refid="classPacket" kindref="compound">Packet</ref></type>
+        <definition>Packet UDPGameServer::Incoming::pkt</definition>
+        <argsstring></argsstring>
+        <name>pkt</name>
+        <qualifiedname>UDPGameServer::Incoming::pkt</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="116" column="20" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="116" bodyend="-1"/>
+        <referencedby refid="classUDPGameServer_1a7f3a37004641222f4d30d55614f05029" compoundref="UDPGameServer_8cpp" startline="277" endline="297">UDPGameServer::networkLoop</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structUDPGameServer_1_1Incoming_1a74e2b72a9291cd52c909ba3b5f3005c1" prot="public" static="no" mutable="no">
+        <type>sockaddr_in</type>
+        <definition>sockaddr_in UDPGameServer::Incoming::from</definition>
+        <argsstring></argsstring>
+        <name>from</name>
+        <qualifiedname>UDPGameServer::Incoming::from</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="117" column="25" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="117" bodyend="117"/>
+        <referencedby refid="classUDPGameServer_1a7f3a37004641222f4d30d55614f05029" compoundref="UDPGameServer_8cpp" startline="277" endline="297">UDPGameServer::networkLoop</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>Packet</label>
+        <link refid="classPacket"/>
+      </node>
+      <node id="1">
+        <label>UDPGameServer::Incoming</label>
+        <link refid="structUDPGameServer_1_1Incoming"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>+pkt</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Network/TransportLayer/UDP/UDPGameServer.hpp" line="115" column="9" bodyfile="Network/TransportLayer/UDP/UDPGameServer.hpp" bodystart="115" bodyend="118"/>
+    <listofallmembers>
+      <member refid="structUDPGameServer_1_1Incoming_1a74e2b72a9291cd52c909ba3b5f3005c1" prot="public" virt="non-virtual"><scope>UDPGameServer::Incoming</scope><name>from</name></member>
+      <member refid="structUDPGameServer_1_1Incoming_1af8787121530430cf0411a81d8b9ac498" prot="public" virt="non-virtual"><scope>UDPGameServer::Incoming</scope><name>pkt</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

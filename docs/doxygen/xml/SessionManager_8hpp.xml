@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="SessionManager_8hpp" kind="file" language="C++">
+    <compoundname>SessionManager.hpp</compoundname>
+    <includes local="no">netinet/in.h</includes>
+    <includes local="no">unordered_map</includes>
+    <includes local="no">mutex</includes>
+    <includes local="no">optional</includes>
+    <includes local="no">functional</includes>
+    <includes local="no">cstdint</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">string</includes>
+    <includedby refid="game_8cpp" local="yes">/home/loic/EPITECH/rtype/Mystic-Type/game.cpp</includedby>
+    <includedby refid="server_8cpp" local="yes">/home/loic/EPITECH/rtype/Mystic-Type/server.cpp</includedby>
+    <includedby refid="SessionManager_8cpp" local="yes">Network/SessionManager.cpp</includedby>
+    <includedby refid="TCPServer_8hpp" local="yes">Network/TransportLayer/TCP/TCPServer.hpp</includedby>
+    <includedby refid="UDPGameServer_8hpp" local="yes">Network/TransportLayer/UDP/UDPGameServer.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>Network/SessionManager.hpp</label>
+        <link refid="SessionManager_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>cstdint</label>
+      </node>
+      <node id="6">
+        <label>functional</label>
+      </node>
+      <node id="4">
+        <label>mutex</label>
+      </node>
+      <node id="2">
+        <label>netinet/in.h</label>
+      </node>
+      <node id="5">
+        <label>optional</label>
+      </node>
+      <node id="9">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>unordered_map</label>
+      </node>
+      <node id="8">
+        <label>vector</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/game.cpp</label>
+        <link refid="game_8cpp"/>
+      </node>
+      <node id="3">
+        <label>/home/loic/EPITECH/rtype/Mystic-Type/server.cpp</label>
+        <link refid="server_8cpp"/>
+      </node>
+      <node id="4">
+        <label>Network/SessionManager.cpp</label>
+        <link refid="SessionManager_8cpp"/>
+      </node>
+      <node id="1">
+        <label>Network/SessionManager.hpp</label>
+        <link refid="SessionManager_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>Network/TransportLayer/TCP/TCPServer.cpp</label>
+        <link refid="TCPServer_8cpp"/>
+      </node>
+      <node id="5">
+        <label>Network/TransportLayer/TCP/TCPServer.hpp</label>
+        <link refid="TCPServer_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>Network/TransportLayer/UDP/UDPGameServer.cpp</label>
+        <link refid="UDPGameServer_8cpp"/>
+      </node>
+      <node id="7">
+        <label>Network/TransportLayer/UDP/UDPGameServer.hpp</label>
+        <link refid="UDPGameServer_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structSession" prot="public">Session</innerclass>
+    <innerclass refid="classSessionManager" prot="public">SessionManager</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">**<sp/>EPITECH<sp/>PROJECT,<sp/>2025</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">**<sp/>Mystic-Type</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">**<sp/>File<sp/>description:</highlight></codeline>
+<codeline lineno="5"><highlight class="comment">**<sp/>Session<sp/>manager<sp/>shared<sp/>between<sp/>TCP<sp/>and<sp/>UDP<sp/>servers</highlight></codeline>
+<codeline lineno="6"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_WIN32</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;netinet/in.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor"><sp/><sp/><sp/><sp/>#include<sp/>&lt;winsock2.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unordered_map&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;mutex&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;optional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;functional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="23"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>@brief<sp/>In-memory<sp/>session<sp/>record<sp/>shared<sp/>between<sp/>TCP<sp/>and<sp/>UDP<sp/>servers.</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="structSession" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structSession" kindref="compound">Session</ref><sp/>{</highlight></codeline>
+<codeline lineno="27" refid="structSession_1a40fe33141283136858bf8f11b6f5cc46" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="28" refid="structSession_1aabdac7621ae32d2f6cc6e3830f86e539" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structSession_1aabdac7621ae32d2f6cc6e3830f86e539" kindref="member">tcpFd</ref><sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="29" refid="structSession_1a855744125c995b27c5dda56aed9ef1ec" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>sockaddr_in<sp/><ref refid="structSession_1a855744125c995b27c5dda56aed9ef1ec" kindref="member">tcpAddr</ref>{};</highlight></codeline>
+<codeline lineno="30" refid="structSession_1abd8785a968fc61b4296e7f813b33e164" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>sockaddr_in<sp/><ref refid="structSession_1abd8785a968fc61b4296e7f813b33e164" kindref="member">udpAddr</ref>{};</highlight></codeline>
+<codeline lineno="31" refid="structSession_1a801fe8001c034dc66207c2e561292d1c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="structSession_1a801fe8001c034dc66207c2e561292d1c" kindref="member">hasUdp</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="32" refid="structSession_1a82593a4e6ef0e6f9f1ef1bdacb2ec4df" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structSession_1a82593a4e6ef0e6f9f1ef1bdacb2ec4df" kindref="member">lastPong</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="structSession_1a75334035d7b9b2a2c77755975563089a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structSession_1a75334035d7b9b2a2c77755975563089a" kindref="member">lastInputMs</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="35" refid="structSession_1a5ae730d96911daf7a5bd0ddad6848b4a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structSession_1a5ae730d96911daf7a5bd0ddad6848b4a" kindref="member">inputCount</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="36" refid="structSession_1a04b8c23754d16de9469a2f5c7aeb266c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/><ref refid="structSession_1a04b8c23754d16de9469a2f5c7aeb266c" kindref="member">lastShootMs</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="37" refid="structSession_1a0a38770e87af1772c19fce6a97528056" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structSession_1a0a38770e87af1772c19fce6a97528056" kindref="member">shootCount</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="38" refid="structSession_1a0831d2d53f42052f7b48fd07393d4c0c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structSession_1a0831d2d53f42052f7b48fd07393d4c0c" kindref="member">lobbyCode</ref>;</highlight></codeline>
+<codeline lineno="39" refid="structSession_1a2235d40d78d5759a71adbefd238f5184" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structSession_1a2235d40d78d5759a71adbefd238f5184" kindref="member">pseudo</ref>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="42"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="43"><highlight class="comment"><sp/>*<sp/>@brief<sp/>Tracks<sp/>client<sp/>sessions<sp/>across<sp/>TCP<sp/>and<sp/>UDP,<sp/>and<sp/>enforces<sp/>simple<sp/>rate<sp/>limits.</highlight></codeline>
+<codeline lineno="44"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="classSessionManager" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classSessionManager" kindref="compound">SessionManager</ref><sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="47"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="48"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Construct<sp/>a<sp/>manager<sp/>with<sp/>simple<sp/>per-second<sp/>rate<sp/>limits.</highlight></codeline>
+<codeline lineno="49"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50" refid="classSessionManager_1a8321c72e22b470cade42377861508d36" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classSessionManager_1a8321c72e22b470cade42377861508d36" kindref="member">SessionManager</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxInputsPerSec<sp/>=<sp/>30,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>maxShootsPerSec<sp/>=<sp/>10)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="classSessionManager_1ab07589dac6e7346f7eb4dbd1c871ee80" kindref="member">_maxInputsPerSec</ref>(maxInputsPerSec),<sp/><ref refid="classSessionManager_1acf90d50c96347bbf4f617071b9343723" kindref="member">_maxShootsPerSec</ref>(maxShootsPerSec)<sp/>{}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Set<sp/>callback<sp/>invoked<sp/>when<sp/>a<sp/>session<sp/>is<sp/>removed.</highlight></codeline>
+<codeline lineno="55"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56" refid="classSessionManager_1aa54fb04918bcd7d31bcdfe2ce2ee6545" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSessionManager_1aa54fb04918bcd7d31bcdfe2ce2ee6545" kindref="member">setOnRemove</ref>(std::function&lt;</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)&gt;<sp/>cb)<sp/>{<sp/><ref refid="classSessionManager_1a8fb480012df18cedb0dc9fd7517d1a9a" kindref="member">_onRemove</ref><sp/>=<sp/>std::move(cb);<sp/>}</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="57"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="58"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Add<sp/>a<sp/>TCP<sp/>session<sp/>entry.</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSessionManager_1af8d1197fa1236d0295e3d31170639f6e" kindref="member">addSession</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>tcpFd,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>sockaddr_in<sp/>&amp;tcpAddr,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nowMs);</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="61"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Remove<sp/>a<sp/>session<sp/>by<sp/>player<sp/>id.</highlight></codeline>
+<codeline lineno="63"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSessionManager_1a8916c4ee701635dd8b2ee525331efb0b" kindref="member">removeById</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">);</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="65"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="66"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Remove<sp/>a<sp/>session<sp/>by<sp/>TCP<sp/>file<sp/>descriptor.</highlight></codeline>
+<codeline lineno="67"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSessionManager_1ae44030d05e51a85f73a32f6bb6b053cb" kindref="member">removeByFd</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fd);</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="69"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Register<sp/>the<sp/>client&apos;s<sp/>UDP<sp/>address.</highlight></codeline>
+<codeline lineno="71"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classSessionManager_1af2596853b8042076df0c1022468eaec3" kindref="member">setUdpAddr</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>sockaddr_in<sp/>&amp;udpAddr);</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="73"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="74"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Lookup<sp/>a<sp/>session<sp/>by<sp/>player<sp/>id.</highlight></codeline>
+<codeline lineno="75"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>std::optional&lt;Session&gt;<sp/><ref refid="classSessionManager_1a48995915db3b90fa7228d357d6293163" kindref="member">getSession</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="77"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="78"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Update<sp/>last<sp/>PONG<sp/>time<sp/>for<sp/>heartbeat<sp/>checks.</highlight></codeline>
+<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSessionManager_1ac233a47eaa6ca5e9b69e0cb8cd377358" kindref="member">updatePong</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nowMs);</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="81"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="82"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Store<sp/>the<sp/>lobby<sp/>code<sp/>for<sp/>a<sp/>player.</highlight></codeline>
+<codeline lineno="83"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSessionManager_1a8023cf136e039298b1e2ba5fe7cb224b" kindref="member">setLobbyCode</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;code);</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="85"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="86"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Fetch<sp/>the<sp/>lobby<sp/>code<sp/>for<sp/>a<sp/>player.</highlight></codeline>
+<codeline lineno="87"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>std::optional&lt;std::string&gt;<sp/><ref refid="classSessionManager_1a0c52e8605801fc4e98c84b724ec72c09" kindref="member">getLobbyCode</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="89"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="90"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Store<sp/>the<sp/>player&apos;s<sp/>pseudo.</highlight></codeline>
+<codeline lineno="91"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSessionManager_1a84b313bdbfecb70d12707d77f357bca8" kindref="member">setPseudo</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string<sp/>&amp;pseudo);</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="93"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="94"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Fetch<sp/>the<sp/>player&apos;s<sp/>pseudo.</highlight></codeline>
+<codeline lineno="95"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>std::optional&lt;std::string&gt;<sp/><ref refid="classSessionManager_1a3d137db5b62fdb63340d7b92b8eb371f" kindref="member">getPseudo</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="98"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Rate-limit<sp/>input<sp/>packets<sp/>per<sp/>second.</highlight></codeline>
+<codeline lineno="100"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classSessionManager_1a42975fcc09128c293815d29f3d72c5b7" kindref="member">allowInput</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nowMs);</highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="102"><highlight class="comment"><sp/><sp/><sp/><sp/>/**</highlight></codeline>
+<codeline lineno="103"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*<sp/>@brief<sp/>Rate-limit<sp/>shoot<sp/>packets<sp/>per<sp/>second.</highlight></codeline>
+<codeline lineno="104"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classSessionManager_1a3b6210717467960e603c7308ead2a23a" kindref="member">allowShoot</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">id</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nowMs);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classSessionManager_1a3f16df2f2fcaa18971326cf09e8741fb" kindref="member">resetCounter</ref>(</highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>nowMs,<sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/>&amp;lastMs,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>&amp;count,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>limit);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110" refid="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">mutable</highlight><highlight class="normal"><sp/>std::mutex<sp/><ref refid="classSessionManager_1a05d87c5c88d86aa2852d0e4778275273" kindref="member">_mutex</ref>;</highlight></codeline>
+<codeline lineno="111" refid="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unordered_map&lt;int,<sp/>Session&gt;<sp/><ref refid="classSessionManager_1a94817f0bdc3435c5a8c741ac024d556c" kindref="member">_sessions</ref>;</highlight></codeline>
+<codeline lineno="112" refid="classSessionManager_1a8fb480012df18cedb0dc9fd7517d1a9a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::function&lt;void(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)&gt;<sp/><ref refid="classSessionManager_1a8fb480012df18cedb0dc9fd7517d1a9a" kindref="member">_onRemove</ref>;</highlight></codeline>
+<codeline lineno="113" refid="classSessionManager_1ab07589dac6e7346f7eb4dbd1c871ee80" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classSessionManager_1ab07589dac6e7346f7eb4dbd1c871ee80" kindref="member">_maxInputsPerSec</ref>;</highlight></codeline>
+<codeline lineno="114" refid="classSessionManager_1acf90d50c96347bbf4f617071b9343723" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classSessionManager_1acf90d50c96347bbf4f617071b9343723" kindref="member">_maxShootsPerSec</ref>;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">};</highlight></codeline>
+    </programlisting>
+    <location file="Network/SessionManager.hpp"/>
+  </compounddef>
+</doxygen>

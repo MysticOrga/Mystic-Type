@@ -1,0 +1,3 @@
+<map id="GameWorld::PlayerState" name="GameWorld::PlayerState">
+<area shape="rect" id="Node000001" title="Server&#45;side player state with last known UDP address." alt="" coords="5,5,179,251"/>
+</map>

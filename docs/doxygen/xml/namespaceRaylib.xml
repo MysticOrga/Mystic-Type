@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespaceRaylib" kind="namespace" language="C++">
+    <compoundname>Raylib</compoundname>
+    <innerclass refid="classRaylib_1_1Draw" prot="public">Raylib::Draw</innerclass>
+    <innerclass refid="classRaylib_1_1Input" prot="public">Raylib::Input</innerclass>
+    <innerclass refid="classRaylib_1_1Texture" prot="public">Raylib::Texture</innerclass>
+    <innerclass refid="classRaylib_1_1Window" prot="public">Raylib::Window</innerclass>
+    <briefdescription>
+<para>Wrapper namespace for <ref refid="namespaceRaylib" kindref="compound">Raylib</ref> graphics library. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Provides simplified interfaces for window management, texture handling, drawing operations, and input handling. </para>
+    </detaileddescription>
+    <location file="graphical-client/Raylib/Raylib.cpp" line="10" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,18 @@
+<map id="TCPServer::makeStringPacket" name="TCPServer::makeStringPacket">
+<area shape="rect" id="Node000001" title="Build a packet carrying a string payload." alt="" coords="552,80,764,105"/>
+<area shape="rect" id="Node000002" href="$classTCPServer.html#ae0e94f8d712b3c9028fe674100d649b9" title="Accept incoming connection and register a new client slot." alt="" coords="285,5,492,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="608,78,503,45,456,33,457,28,505,39,610,73"/>
+<area shape="rect" id="Node000005" href="$classTCPServer.html#a867c0e233f62e2d8f181ae99dbcca0a0" title="Disconnect clients whose heartbeat timed out." alt="" coords="289,55,488,80"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="538,84,488,79,489,74,539,79"/>
+<area shape="rect" id="Node000006" href="$classTCPServer.html#ada05a61182a782b4d3326fabd26a19bf" title="Read and handle data for a single client." alt="" coords="281,104,496,129"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="539,106,496,110,496,104,538,101"/>
+<area shape="rect" id="Node000007" href="$classTCPServer.html#a2a03b7479e884f287b5a88df03eeb17b" title=" " alt="" coords="273,153,504,179"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="607,112,505,143,452,156,451,151,503,138,606,107"/>
+<area shape="rect" id="Node000003" href="$classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3" title="Run the main accept/receive loop (blocking)." alt="" coords="108,80,225,105"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="301,37,274,45,230,63,192,82,189,78,227,58,272,39,299,32"/>
+<area shape="rect" id="Node000004" href="$server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,80,60,105"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,95,60,95,60,90,94,90"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="276,83,226,89,226,83,276,78"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="267,106,226,102,226,96,268,101"/>
+<area shape="poly" id="edge9_Node000007_Node000003" title=" " alt="" coords="305,153,272,143,191,108,193,103,274,138,307,148"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="IpcChannel::~IpcChannel" name="IpcChannel::~IpcChannel">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,191,31"/>
+<area shape="rect" id="Node000002" href="$classIpcChannel.html#aa2bbcedec629b7f3e365db5218d0bcc8" title="Close the socket and unlink the path when in server mode." alt="" coords="239,5,375,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="191,15,225,15,225,21,191,21"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="ECS::getAllComponents" name="ECS::getAllComponents">
+<area shape="rect" id="Node000001" title="Retrieves all components of a specific type." alt="" coords="5,5,180,31"/>
+<area shape="rect" id="Node000002" href="$classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="228,5,445,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,15,214,15,214,21,180,21"/>
+</map>

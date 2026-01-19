@@ -1,0 +1,5 @@
+<map id="UDPGameServer::handleShoot" name="UDPGameServer::handleShoot">
+<area shape="rect" id="Node000001" title="Handle a shoot command (spawn a bullet)." alt="" coords="5,5,225,31"/>
+<area shape="rect" id="Node000002" href="$classSessionManager.html#a48995915db3b90fa7228d357d6293163" title="Lookup a session by player id." alt="" coords="273,5,481,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="226,15,260,15,260,21,226,21"/>
+</map>

@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -91,6 +92,7 @@ $(document).ready(function(){initNavTree('classGameState.html',''); initResizabl
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classGameState-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">GameState Class Reference</div></div>
 </div><!--header-->
@@ -99,7 +101,15 @@ $(document).ready(function(){initNavTree('classGameState.html',''); initResizabl
 <p>Client-side container for the latest world state.  
  <a href="classGameState.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="GameState_8hpp_source.html">GameState.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="GameState_8hpp_source.html">Network/Client/GameState.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for GameState:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameState__coll__graph.png" border="0" usemap="#aGameState_coll__map" alt="Collaboration graph"/></div>
+<map name="aGameState_coll__map" id="aGameState_coll__map">
+<area shape="rect" title="Client&#45;side container for the latest world state." alt="" coords="5,5,139,251"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -127,9 +137,20 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8fd239e201dacc3cc9d19dc34d67f301" id="r_a8fd239e201dacc3cc9d19dc34d67f301"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structMonsterState.html">MonsterState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameState.html#a8fd239e201dacc3cc9d19dc34d67f301">listMonsters</a> () const</td></tr>
 <tr class="memdesc:a8fd239e201dacc3cc9d19dc34d67f301"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a snapshot list of current monsters.  <br /></td></tr>
 <tr class="separator:a8fd239e201dacc3cc9d19dc34d67f301"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a61038ea129759cc4631044201305b10e" id="r_a61038ea129759cc4631044201305b10e"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, <a class="el" href="structPlayerState.html">PlayerState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameState.html#a61038ea129759cc4631044201305b10e">_players</a></td></tr>
+<tr class="separator:a61038ea129759cc4631044201305b10e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ebd00bef3ebc816d2796634953b7615" id="r_a6ebd00bef3ebc816d2796634953b7615"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, <a class="el" href="structBulletState.html">BulletState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameState.html#a6ebd00bef3ebc816d2796634953b7615">_bullets</a></td></tr>
+<tr class="separator:a6ebd00bef3ebc816d2796634953b7615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a684212aeb845a80b274f98de6e46214a" id="r_a684212aeb845a80b274f98de6e46214a"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; int, <a class="el" href="structMonsterState.html">MonsterState</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classGameState.html#a684212aeb845a80b274f98de6e46214a">_monsters</a></td></tr>
+<tr class="separator:a684212aeb845a80b274f98de6e46214a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Client-side container for the latest world state. </p>
+
+<p class="definition">Definition at line <a class="el" href="GameState_8hpp_source.html#l00050">50</a> of file <a class="el" href="GameState_8hpp_source.html">GameState.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aa19f7b265ddcdf1c490b1c43556d07e1" name="aa19f7b265ddcdf1c490b1c43556d07e1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa19f7b265ddcdf1c490b1c43556d07e1">&#9670;&#160;</a></span>clear()</h2>
@@ -155,6 +176,29 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Clear all cached entities. </p>
+
+<p class="definition">Definition at line <a class="el" href="GameState_8hpp_source.html#l00079">79</a> of file <a class="el" href="GameState_8hpp_source.html">GameState.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameState_8hpp_source.html#l00132">_bullets</a>, <a class="el" href="GameState_8hpp_source.html#l00133">_monsters</a>, and <a class="el" href="GameState_8hpp_source.html#l00131">_players</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l00273">GraphicClient::processNetworkEvents()</a>, and <a class="el" href="GraphicClient_8cpp_source.html#l00973">GraphicClient::run()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameState_aa19f7b265ddcdf1c490b1c43556d07e1_icgraph.png" border="0" usemap="#aclassGameState_aa19f7b265ddcdf1c490b1c43556d07e1_icgraph" alt=""/></div>
+<map name="aclassGameState_aa19f7b265ddcdf1c490b1c43556d07e1_icgraph" id="aclassGameState_aa19f7b265ddcdf1c490b1c43556d07e1_icgraph">
+<area shape="rect" title="Clear all cached entities." alt="" coords="800,42,935,67"/>
+<area shape="rect" href="classGraphicClient.html#a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" title="Processes network events and updates game state." alt="" coords="529,5,752,45"/>
+<area shape="poly" title=" " alt="" coords="786,47,752,42,753,37,786,42"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,45,247,70"/>
+<area shape="poly" title=" " alt="" coords="786,59,752,60,247,61,247,55,752,55,786,54"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,17,481,42"/>
+<area shape="poly" title=" " alt="" coords="516,30,481,31,481,25,516,25"/>
+<area shape="poly" title=" " alt="" coords="281,46,247,51,247,45,280,41"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,45,60,70"/>
+<area shape="poly" title=" " alt="" coords="94,60,60,60,60,55,94,55"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -183,6 +227,28 @@ Public Member Functions</h2></td></tr>
 
 <p>Clear only player entries. </p>
 
+<p class="definition">Definition at line <a class="el" href="GameState_8hpp_source.html#l00089">89</a> of file <a class="el" href="GameState_8hpp_source.html">GameState.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameState_8hpp_source.html#l00131">_players</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l00273">GraphicClient::processNetworkEvents()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameState_a59e8f64ec95841389e7bdbc1a07f718a_icgraph.png" border="0" usemap="#aclassGameState_a59e8f64ec95841389e7bdbc1a07f718a_icgraph" alt=""/></div>
+<map name="aclassGameState_a59e8f64ec95841389e7bdbc1a07f718a_icgraph" id="aclassGameState_a59e8f64ec95841389e7bdbc1a07f718a_icgraph">
+<area shape="rect" title="Clear only player entries." alt="" coords="800,13,983,38"/>
+<area shape="rect" href="classGraphicClient.html#a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" title="Processes network events and updates game state." alt="" coords="529,5,752,45"/>
+<area shape="poly" title=" " alt="" coords="786,28,752,28,752,23,786,23"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,13,481,38"/>
+<area shape="poly" title=" " alt="" coords="516,28,481,28,481,23,516,23"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,13,247,38"/>
+<area shape="poly" title=" " alt="" coords="281,28,247,28,247,23,281,23"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a65f539f1657ebd717fe5d48683144c82" name="a65f539f1657ebd717fe5d48683144c82"></a>
@@ -209,6 +275,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Return a snapshot list of current bullets. </p>
+
+<p class="definition">Definition at line <a class="el" href="GameState_8hpp_source.html#l00109">109</a> of file <a class="el" href="GameState_8hpp_source.html">GameState.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameState_8hpp_source.html#l00132">_bullets</a>.</p>
 
 </div>
 </div>
@@ -237,6 +307,10 @@ Public Member Functions</h2></td></tr>
 
 <p>Return a snapshot list of current monsters. </p>
 
+<p class="definition">Definition at line <a class="el" href="GameState_8hpp_source.html#l00121">121</a> of file <a class="el" href="GameState_8hpp_source.html">GameState.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameState_8hpp_source.html#l00133">_monsters</a>.</p>
+
 </div>
 </div>
 <a id="adbedaec4367fbf2705065e66a8909ce5" name="adbedaec4367fbf2705065e66a8909ce5"></a>
@@ -263,6 +337,37 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Return a snapshot list of current players. </p>
+
+<p class="definition">Definition at line <a class="el" href="GameState_8hpp_source.html#l00097">97</a> of file <a class="el" href="GameState_8hpp_source.html">GameState.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameState_8hpp_source.html#l00131">_players</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l00027">GraphicClient::init()</a>, <a class="el" href="GraphicClient_8cpp_source.html#l00273">GraphicClient::processNetworkEvents()</a>, <a class="el" href="GraphicClient_8cpp_source.html#l00774">GraphicClient::render()</a>, and <a class="el" href="GraphicClient_8cpp_source.html#l00371">GraphicClient::updateEntities()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameState_adbedaec4367fbf2705065e66a8909ce5_icgraph.png" border="0" usemap="#aclassGameState_adbedaec4367fbf2705065e66a8909ce5_icgraph" alt=""/></div>
+<map name="aclassGameState_adbedaec4367fbf2705065e66a8909ce5_icgraph" id="aclassGameState_adbedaec4367fbf2705065e66a8909ce5_icgraph">
+<area shape="rect" title="Return a snapshot list of current players." alt="" coords="800,73,971,99"/>
+<area shape="rect" href="classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="319,5,457,31"/>
+<area shape="poly" title=" " alt="" coords="851,69,805,46,751,27,674,15,595,10,521,10,458,14,457,8,520,5,595,4,674,9,753,22,807,41,853,64"/>
+<area shape="rect" href="classGraphicClient.html#a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" title="Processes network events and updates game state." alt="" coords="529,37,752,77"/>
+<area shape="poly" title=" " alt="" coords="786,77,752,73,753,67,787,72"/>
+<area shape="rect" href="classGraphicClient.html#ab0acd8f5b8996cc62295831d7af1cf59" title="Renders the entire game scene." alt="" coords="561,101,721,127"/>
+<area shape="poly" title=" " alt="" coords="787,100,721,108,720,102,786,95"/>
+<area shape="rect" href="classGraphicClient.html#a50072266faf2e76ace99e16c4c7b208a" title="Updates all game entities based on delta time." alt="" coords="535,151,747,176"/>
+<area shape="poly" title=" " alt="" coords="845,107,753,142,709,153,708,148,751,137,843,102"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,49,247,75"/>
+<area shape="poly" title=" " alt="" coords="314,36,239,52,238,47,313,31"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,49,60,75"/>
+<area shape="poly" title=" " alt="" coords="94,65,60,65,60,59,94,59"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,73,481,99"/>
+<area shape="poly" title=" " alt="" coords="516,74,482,78,481,73,515,69"/>
+<area shape="poly" title=" " alt="" coords="280,76,247,73,247,67,281,71"/>
+<area shape="poly" title=" " alt="" coords="547,106,481,99,482,94,547,101"/>
+<area shape="poly" title=" " alt="" coords="559,150,529,142,418,101,420,96,530,137,561,145"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -320,6 +425,10 @@ Public Member Functions</h2></td></tr>
 
 <p>Insert or update a bullet entry. </p>
 
+<p class="definition">Definition at line <a class="el" href="GameState_8hpp_source.html#l00063">63</a> of file <a class="el" href="GameState_8hpp_source.html">GameState.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameState_8hpp_source.html#l00132">_bullets</a>.</p>
+
 </div>
 </div>
 <a id="a72d25f3760e72101b6c3ddc990da3d04" name="a72d25f3760e72101b6c3ddc990da3d04"></a>
@@ -376,6 +485,28 @@ Public Member Functions</h2></td></tr>
 
 <p>Insert or update a monster entry. </p>
 
+<p class="definition">Definition at line <a class="el" href="GameState_8hpp_source.html#l00071">71</a> of file <a class="el" href="GameState_8hpp_source.html">GameState.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameState_8hpp_source.html#l00133">_monsters</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l00273">GraphicClient::processNetworkEvents()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameState_a72d25f3760e72101b6c3ddc990da3d04_icgraph.png" border="0" usemap="#aclassGameState_a72d25f3760e72101b6c3ddc990da3d04_icgraph" alt=""/></div>
+<map name="aclassGameState_a72d25f3760e72101b6c3ddc990da3d04_icgraph" id="aclassGameState_a72d25f3760e72101b6c3ddc990da3d04_icgraph">
+<area shape="rect" title="Insert or update a monster entry." alt="" coords="800,13,997,38"/>
+<area shape="rect" href="classGraphicClient.html#a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" title="Processes network events and updates game state." alt="" coords="529,5,752,45"/>
+<area shape="poly" title=" " alt="" coords="786,28,752,28,752,23,786,23"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,13,481,38"/>
+<area shape="poly" title=" " alt="" coords="516,28,481,28,481,23,516,23"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,13,247,38"/>
+<area shape="poly" title=" " alt="" coords="281,28,247,28,247,23,281,23"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a9f034439dd565e62cb83be4ac56baba1" name="a9f034439dd565e62cb83be4ac56baba1"></a>
@@ -431,6 +562,110 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Insert or update a player entry. </p>
+
+<p class="definition">Definition at line <a class="el" href="GameState_8hpp_source.html#l00055">55</a> of file <a class="el" href="GameState_8hpp_source.html">GameState.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="GameState_8hpp_source.html#l00131">_players</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GraphicClient_8cpp_source.html#l00027">GraphicClient::init()</a>, and <a class="el" href="GraphicClient_8cpp_source.html#l00273">GraphicClient::processNetworkEvents()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classGameState_a9f034439dd565e62cb83be4ac56baba1_icgraph.png" border="0" usemap="#aclassGameState_a9f034439dd565e62cb83be4ac56baba1_icgraph" alt=""/></div>
+<map name="aclassGameState_a9f034439dd565e62cb83be4ac56baba1_icgraph" id="aclassGameState_a9f034439dd565e62cb83be4ac56baba1_icgraph">
+<area shape="rect" title="Insert or update a player entry." alt="" coords="800,32,985,57"/>
+<area shape="rect" href="classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="319,5,457,31"/>
+<area shape="poly" title=" " alt="" coords="786,42,458,24,458,19,786,36"/>
+<area shape="rect" href="classGraphicClient.html#a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" title="Processes network events and updates game state." alt="" coords="529,53,752,93"/>
+<area shape="poly" title=" " alt="" coords="787,59,752,63,752,58,786,54"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,32,247,57"/>
+<area shape="poly" title=" " alt="" coords="305,31,247,39,247,33,304,26"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,32,60,57"/>
+<area shape="poly" title=" " alt="" coords="94,47,60,47,60,42,94,42"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,56,481,81"/>
+<area shape="poly" title=" " alt="" coords="516,73,481,73,481,67,516,68"/>
+<area shape="poly" title=" " alt="" coords="280,59,247,55,247,50,281,54"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a6ebd00bef3ebc816d2796634953b7615" name="a6ebd00bef3ebc816d2796634953b7615"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ebd00bef3ebc816d2796634953b7615">&#9670;&#160;</a></span>_bullets</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;int, <a class="el" href="structBulletState.html">BulletState</a>&gt; GameState::_bullets</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameState_8hpp_source.html#l00132">132</a> of file <a class="el" href="GameState_8hpp_source.html">GameState.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameState_8hpp_source.html#l00079">clear()</a>, <a class="el" href="GameState_8hpp_source.html#l00109">listBullets()</a>, and <a class="el" href="GameState_8hpp_source.html#l00063">upsertBullet()</a>.</p>
+
+</div>
+</div>
+<a id="a684212aeb845a80b274f98de6e46214a" name="a684212aeb845a80b274f98de6e46214a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a684212aeb845a80b274f98de6e46214a">&#9670;&#160;</a></span>_monsters</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;int, <a class="el" href="structMonsterState.html">MonsterState</a>&gt; GameState::_monsters</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameState_8hpp_source.html#l00133">133</a> of file <a class="el" href="GameState_8hpp_source.html">GameState.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameState_8hpp_source.html#l00079">clear()</a>, <a class="el" href="GameState_8hpp_source.html#l00121">listMonsters()</a>, and <a class="el" href="GameState_8hpp_source.html#l00071">upsertMonster()</a>.</p>
+
+</div>
+</div>
+<a id="a61038ea129759cc4631044201305b10e" name="a61038ea129759cc4631044201305b10e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61038ea129759cc4631044201305b10e">&#9670;&#160;</a></span>_players</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;int, <a class="el" href="structPlayerState.html">PlayerState</a>&gt; GameState::_players</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="GameState_8hpp_source.html#l00131">131</a> of file <a class="el" href="GameState_8hpp_source.html">GameState.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="GameState_8hpp_source.html#l00079">clear()</a>, <a class="el" href="GameState_8hpp_source.html#l00089">clearPlayers()</a>, <a class="el" href="GameState_8hpp_source.html#l00097">listPlayers()</a>, and <a class="el" href="GameState_8hpp_source.html#l00055">upsertPlayer()</a>.</p>
 
 </div>
 </div>

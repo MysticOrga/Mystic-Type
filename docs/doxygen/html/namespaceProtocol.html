@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -145,6 +146,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="aea1c7a72f2ed431c5d37b060c8cdb780aa60852f204ed8028c1c58808b746d115" name="aea1c7a72f2ed431c5d37b060c8cdb780aa60852f204ed8028c1c58808b746d115"></a>Ok&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
+<p class="definition">Definition at line <a class="el" href="Protocol_8hpp_source.html#l00019">19</a> of file <a class="el" href="Protocol_8hpp_source.html">Protocol.hpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
@@ -188,6 +191,63 @@ Functions</h2></td></tr>
 
 <p>Append newly read bytes then attempt extraction. </p>
 
+<p class="definition">Definition at line <a class="el" href="Protocol_8cpp_source.html#l00046">46</a> of file <a class="el" href="Protocol_8cpp_source.html">Protocol.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Protocol_8cpp_source.html#l00026">extractFromBuffer()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="TCPServer_8cpp_source.html#l00102">TCPServer::receivePacket()</a>, and <a class="el" href="NetworkClient_8cpp_source.html#l00472">NetworkClient::receiveTcpFramed()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceProtocol_ad768525ca5f0324a5f414440e67679b6_cgraph.png" border="0" usemap="#anamespaceProtocol_ad768525ca5f0324a5f414440e67679b6_cgraph" alt=""/></div>
+<map name="anamespaceProtocol_ad768525ca5f0324a5f414440e67679b6_cgraph" id="anamespaceProtocol_ad768525ca5f0324a5f414440e67679b6_cgraph">
+<area shape="rect" title="Append newly read bytes then attempt extraction." alt="" coords="5,5,188,31"/>
+<area shape="rect" href="namespaceProtocol.html#a10005c44787f8de2a0e42d395aff8baa" title="Try to extract a complete packet from an accumulated stream buffer." alt="" coords="236,5,437,31"/>
+<area shape="poly" title=" " alt="" coords="188,15,222,15,222,21,188,21"/>
+<area shape="rect" href="classPacket.html#abfcd427a2ca434ac71592334517638fb" title="Deserialize a packet from a raw byte buffer." alt="" coords="485,5,628,31"/>
+<area shape="poly" title=" " alt="" coords="438,15,471,15,471,21,438,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceProtocol_ad768525ca5f0324a5f414440e67679b6_icgraph.png" border="0" usemap="#anamespaceProtocol_ad768525ca5f0324a5f414440e67679b6_icgraph" alt=""/></div>
+<map name="anamespaceProtocol_ad768525ca5f0324a5f414440e67679b6_icgraph" id="anamespaceProtocol_ad768525ca5f0324a5f414440e67679b6_icgraph">
+<area shape="rect" title="Append newly read bytes then attempt extraction." alt="" coords="1597,35,1780,60"/>
+<area shape="rect" href="classTCPServer.html#ae9543e5003c04975a7e06a9bb85c7723" title="Receive and parse a packet from a client socket." alt="" coords="1360,5,1547,31"/>
+<area shape="poly" title=" " alt="" coords="1583,37,1547,32,1547,27,1584,32"/>
+<area shape="rect" href="classNetworkClient.html#ab8fe1bfbcfc0f363bce00cb1dc2a2f88" title=" " alt="" coords="1357,55,1549,95"/>
+<area shape="poly" title=" " alt="" coords="1584,63,1550,67,1549,61,1583,57"/>
+<area shape="rect" href="classTCPServer.html#ada05a61182a782b4d3326fabd26a19bf" title="Read and handle data for a single client." alt="" coords="1095,5,1309,31"/>
+<area shape="poly" title=" " alt="" coords="1346,21,1310,21,1310,15,1346,15"/>
+<area shape="rect" href="classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3" title="Run the main accept/receive loop (blocking)." alt="" coords="865,5,982,31"/>
+<area shape="poly" title=" " alt="" coords="1081,21,982,21,982,15,1081,15"/>
+<area shape="rect" href="server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="613,5,668,31"/>
+<area shape="poly" title=" " alt="" coords="851,21,668,21,668,15,851,15"/>
+<area shape="rect" href="classNetworkClient.html#a1773337e67c321eece590156e1a7b38a" title="Perform the application handshake over TCP." alt="" coords="800,59,1047,84"/>
+<area shape="poly" title=" " alt="" coords="1344,77,1047,75,1047,70,1344,72"/>
+<area shape="rect" href="classNetworkClient.html#ac0dca5641be17084ead40825063b944e" title=" " alt="" coords="1095,135,1309,160"/>
+<area shape="poly" title=" " alt="" coords="1370,102,1248,137,1246,132,1369,97"/>
+<area shape="rect" href="classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="319,133,457,159"/>
+<area shape="poly" title=" " alt="" coords="817,89,530,129,458,139,457,134,529,123,816,83"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,163,247,188"/>
+<area shape="poly" title=" " alt="" coords="305,160,247,168,247,163,304,155"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,163,60,188"/>
+<area shape="poly" title=" " alt="" coords="94,178,60,178,60,173,94,173"/>
+<area shape="rect" href="classNetworkClient.html#a1f77ff0729755d9782b4542582cfe214" title="Poll TCP/UDP sockets and handle any received packets." alt="" coords="825,147,1021,172"/>
+<area shape="poly" title=" " alt="" coords="1081,155,1022,158,1021,152,1081,150"/>
+<area shape="poly" title=" " alt="" coords="811,153,752,150,594,147,458,148,458,142,594,142,752,145,812,148"/>
+<area shape="rect" href="classGraphicClient.html#a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" title="Processes network events and updates game state." alt="" coords="529,209,752,249"/>
+<area shape="poly" title=" " alt="" coords="858,178,724,211,723,206,857,173"/>
+<area shape="rect" href="classGraphicClient.html#a70229e3e019e7b315f06c9ad74f23be5" title="Shows lobby selection menu." alt="" coords="543,159,739,184"/>
+<area shape="poly" title=" " alt="" coords="812,167,739,170,739,165,812,161"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,187,481,212"/>
+<area shape="poly" title=" " alt="" coords="515,217,481,213,482,207,516,212"/>
+<area shape="poly" title=" " alt="" coords="280,190,247,186,247,181,281,184"/>
+<area shape="poly" title=" " alt="" coords="529,163,457,156,458,150,529,157"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a10005c44787f8de2a0e42d395aff8baa" name="a10005c44787f8de2a0e42d395aff8baa"></a>
@@ -226,6 +286,64 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>StreamStatus </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="Protocol_8cpp_source.html#l00026">26</a> of file <a class="el" href="Protocol_8cpp_source.html">Protocol.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Packet_8cpp_source.html#l00029">Packet::deserialize()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="Protocol_8cpp_source.html#l00046">consumeChunk()</a>, and <a class="el" href="NetworkClient_8cpp_source.html#l00232">NetworkClient::pollPackets()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceProtocol_a10005c44787f8de2a0e42d395aff8baa_cgraph.png" border="0" usemap="#anamespaceProtocol_a10005c44787f8de2a0e42d395aff8baa_cgraph" alt=""/></div>
+<map name="anamespaceProtocol_a10005c44787f8de2a0e42d395aff8baa_cgraph" id="anamespaceProtocol_a10005c44787f8de2a0e42d395aff8baa_cgraph">
+<area shape="rect" title="Try to extract a complete packet from an accumulated stream buffer." alt="" coords="5,5,207,31"/>
+<area shape="rect" href="classPacket.html#abfcd427a2ca434ac71592334517638fb" title="Deserialize a packet from a raw byte buffer." alt="" coords="255,5,397,31"/>
+<area shape="poly" title=" " alt="" coords="207,15,240,15,240,21,207,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceProtocol_a10005c44787f8de2a0e42d395aff8baa_icgraph.png" border="0" usemap="#anamespaceProtocol_a10005c44787f8de2a0e42d395aff8baa_icgraph" alt=""/></div>
+<map name="anamespaceProtocol_a10005c44787f8de2a0e42d395aff8baa_icgraph" id="anamespaceProtocol_a10005c44787f8de2a0e42d395aff8baa_icgraph">
+<area shape="rect" title="Try to extract a complete packet from an accumulated stream buffer." alt="" coords="1828,129,2029,155"/>
+<area shape="rect" href="namespaceProtocol.html#ad768525ca5f0324a5f414440e67679b6" title="Append newly read bytes then attempt extraction." alt="" coords="1597,81,1780,107"/>
+<area shape="poly" title=" " alt="" coords="1851,129,1752,109,1753,104,1852,124"/>
+<area shape="rect" href="classNetworkClient.html#a1f77ff0729755d9782b4542582cfe214" title="Poll TCP/UDP sockets and handle any received packets." alt="" coords="825,157,1021,183"/>
+<area shape="poly" title=" " alt="" coords="1815,148,1022,170,1022,165,1815,142"/>
+<area shape="rect" href="classTCPServer.html#ae9543e5003c04975a7e06a9bb85c7723" title="Receive and parse a packet from a client socket." alt="" coords="1360,15,1547,40"/>
+<area shape="poly" title=" " alt="" coords="1629,80,1498,43,1500,38,1631,75"/>
+<area shape="rect" href="classNetworkClient.html#ab8fe1bfbcfc0f363bce00cb1dc2a2f88" title=" " alt="" coords="1357,74,1549,114"/>
+<area shape="poly" title=" " alt="" coords="1583,97,1550,97,1550,91,1583,91"/>
+<area shape="rect" href="classTCPServer.html#ada05a61182a782b4d3326fabd26a19bf" title="Read and handle data for a single client." alt="" coords="1095,5,1309,31"/>
+<area shape="poly" title=" " alt="" coords="1346,26,1310,25,1310,19,1346,21"/>
+<area shape="rect" href="classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3" title="Run the main accept/receive loop (blocking)." alt="" coords="865,5,982,31"/>
+<area shape="poly" title=" " alt="" coords="1081,21,982,21,982,15,1081,15"/>
+<area shape="rect" href="server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="613,5,668,31"/>
+<area shape="poly" title=" " alt="" coords="851,21,668,21,668,15,851,15"/>
+<area shape="rect" href="classNetworkClient.html#a1773337e67c321eece590156e1a7b38a" title="Perform the application handshake over TCP." alt="" coords="800,56,1047,81"/>
+<area shape="poly" title=" " alt="" coords="1343,91,1047,77,1047,72,1344,86"/>
+<area shape="rect" href="classNetworkClient.html#ac0dca5641be17084ead40825063b944e" title=" " alt="" coords="1095,107,1309,132"/>
+<area shape="poly" title=" " alt="" coords="1344,108,1310,111,1309,106,1344,102"/>
+<area shape="rect" href="classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="319,132,457,157"/>
+<area shape="poly" title=" " alt="" coords="815,86,530,126,458,137,457,131,529,121,815,81"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,161,247,187"/>
+<area shape="poly" title=" " alt="" coords="305,159,247,167,247,162,304,154"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,161,60,187"/>
+<area shape="poly" title=" " alt="" coords="94,177,60,177,60,171,94,171"/>
+<area shape="poly" title=" " alt="" coords="1119,137,994,160,994,155,1118,132"/>
+<area shape="poly" title=" " alt="" coords="834,158,752,149,594,143,458,145,458,139,594,138,752,143,835,153"/>
+<area shape="rect" href="classGraphicClient.html#a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" title="Processes network events and updates game state." alt="" coords="529,207,752,247"/>
+<area shape="poly" title=" " alt="" coords="847,188,740,210,739,205,846,183"/>
+<area shape="rect" href="classGraphicClient.html#a70229e3e019e7b315f06c9ad74f23be5" title="Shows lobby selection menu." alt="" coords="543,157,739,183"/>
+<area shape="poly" title=" " alt="" coords="812,173,739,173,739,167,812,167"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,185,481,211"/>
+<area shape="poly" title=" " alt="" coords="515,215,481,211,482,206,516,210"/>
+<area shape="poly" title=" " alt="" coords="280,188,247,185,247,179,281,183"/>
+<area shape="poly" title=" " alt="" coords="529,161,457,154,458,149,529,156"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a668bdeed219432868fca095e1b2f2667" name="a668bdeed219432868fca095e1b2f2667"></a>
@@ -251,6 +369,117 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="Protocol_8cpp_source.html#l00011">11</a> of file <a class="el" href="Protocol_8cpp_source.html">Protocol.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="Packet_8cpp_source.html#l00010">Packet::serialize()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="TCPServer_8cpp_source.html#l00088">TCPServer::sendPacket()</a>, and <a class="el" href="NetworkClient_8cpp_source.html#l00186">NetworkClient::sendPacketTcp()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceProtocol_a668bdeed219432868fca095e1b2f2667_cgraph.png" border="0" usemap="#anamespaceProtocol_a668bdeed219432868fca095e1b2f2667_cgraph" alt=""/></div>
+<map name="anamespaceProtocol_a668bdeed219432868fca095e1b2f2667_cgraph" id="anamespaceProtocol_a668bdeed219432868fca095e1b2f2667_cgraph">
+<area shape="rect" title="Build a TCP framed buffer (2 bytes length + serialized packet)." alt="" coords="5,5,148,31"/>
+<area shape="rect" href="classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="196,5,323,31"/>
+<area shape="poly" title=" " alt="" coords="148,15,182,15,182,21,148,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespaceProtocol_a668bdeed219432868fca095e1b2f2667_icgraph.png" border="0" usemap="#anamespaceProtocol_a668bdeed219432868fca095e1b2f2667_icgraph" alt=""/></div>
+<map name="anamespaceProtocol_a668bdeed219432868fca095e1b2f2667_icgraph" id="anamespaceProtocol_a668bdeed219432868fca095e1b2f2667_icgraph">
+<area shape="rect" title="Build a TCP framed buffer (2 bytes length + serialized packet)." alt="" coords="2188,595,2331,621"/>
+<area shape="rect" href="classTCPServer.html#a9a65a3923e77e48c5f0019b45af8fcb5" title="Send a packet to a specific client fd." alt="" coords="1947,390,2116,415"/>
+<area shape="poly" title=" " alt="" coords="2232,588,2045,417,2049,413,2236,584"/>
+<area shape="rect" href="classNetworkClient.html#af150c1b7e0aa8c19cb337fb838479324" title=" " alt="" coords="1923,747,2140,773"/>
+<area shape="poly" title=" " alt="" coords="2229,631,2053,749,2050,745,2226,626"/>
+<area shape="rect" href="classTCPServer.html#ae0e94f8d712b3c9028fe674100d649b9" title="Accept incoming connection and register a new client slot." alt="" coords="1391,11,1597,37"/>
+<area shape="poly" title=" " alt="" coords="2024,377,2012,311,1985,225,1965,180,1940,136,1910,97,1873,65,1838,44,1800,29,1760,18,1719,12,1639,9,1569,14,1569,9,1639,3,1719,6,1761,13,1802,23,1840,39,1876,60,1914,94,1945,133,1970,177,1990,223,2017,310,2029,376"/>
+<area shape="rect" href="classTCPServer.html#aee3fb51b52375d68f548f60cc7005ef0" title="Notify all clients of a newly connected player." alt="" coords="1379,62,1609,87"/>
+<area shape="poly" title=" " alt="" coords="2022,377,2007,319,1979,244,1959,206,1935,169,1907,136,1873,109,1837,89,1797,74,1756,65,1714,59,1633,58,1564,65,1563,59,1633,53,1715,54,1757,60,1799,69,1839,84,1876,104,1910,132,1939,166,1964,203,1984,242,2012,317,2028,376"/>
+<area shape="rect" href="classTCPServer.html#afd78aa179d3b735e82868d800629b354" title="Handle lobby&#45;related packets for a client." alt="" coords="536,163,757,189"/>
+<area shape="poly" title=" " alt="" coords="2013,380,1957,307,1918,268,1873,234,1776,179,1734,160,1694,147,1653,137,1607,132,1495,128,1206,128,1077,132,949,141,735,166,734,160,948,136,1077,126,1206,123,1495,123,1608,126,1653,132,1696,141,1736,155,1778,174,1876,230,1921,264,1961,304,2017,377"/>
+<area shape="rect" href="classTCPServer.html#ada05a61182a782b4d3326fabd26a19bf" title="Read and handle data for a single client." alt="" coords="273,365,488,390"/>
+<area shape="poly" title=" " alt="" coords="1933,398,1731,386,1495,380,919,380,488,380,488,375,919,375,1495,375,1731,381,1933,393"/>
+<area shape="rect" href="classTCPServer.html#afb22938cbabd280ec30b3ffab25aeb56" title=" " alt="" coords="1101,415,1314,441"/>
+<area shape="poly" title=" " alt="" coords="1933,408,1314,427,1314,422,1933,403"/>
+<area shape="rect" href="classTCPServer.html#a867c0e233f62e2d8f181ae99dbcca0a0" title="Disconnect clients whose heartbeat timed out." alt="" coords="547,517,746,542"/>
+<area shape="poly" title=" " alt="" coords="1998,424,1912,469,1790,521,1720,545,1646,564,1571,578,1495,583,1206,583,1077,579,948,569,734,545,735,539,949,564,1077,573,1206,577,1495,577,1570,572,1645,559,1719,540,1789,516,1910,464,1995,420"/>
+<area shape="rect" href="classTCPServer.html#a2a03b7479e884f287b5a88df03eeb17b" title=" " alt="" coords="805,466,1036,491"/>
+<area shape="poly" title=" " alt="" coords="1934,417,1875,423,1409,456,1036,476,1036,471,1409,451,1874,417,1933,411"/>
+<area shape="rect" href="classTCPServer.html#a1ef2aa5cce99901889e64fce86fbac33" title="Send a ping packet to every connected client." alt="" coords="287,593,474,618"/>
+<area shape="poly" title=" " alt="" coords="2016,429,1993,461,1960,498,1921,536,1876,566,1823,592,1777,611,1734,623,1693,630,1606,634,1495,633,919,633,678,627,474,615,474,610,678,622,919,628,1495,628,1606,629,1692,625,1733,618,1775,606,1821,587,1873,562,1918,532,1956,495,1988,457,2012,426"/>
+<area shape="rect" href="classTCPServer.html#aa87b20fb76f60c19df36f39ef3621b05" title="Send the current player list to a single client." alt="" coords="1671,244,1861,284"/>
+<area shape="poly" title=" " alt="" coords="1992,386,1804,286,1807,282,1995,381"/>
+<area shape="rect" href="classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3" title="Run the main accept/receive loop (blocking)." alt="" coords="108,466,225,491"/>
+<area shape="poly" title=" " alt="" coords="1377,27,922,27,645,27,597,31,552,42,508,61,467,85,428,113,391,146,325,218,270,294,227,366,176,467,171,464,222,364,266,291,321,215,387,142,424,109,464,80,506,56,550,37,597,25,645,21,922,21,1377,21"/>
+<area shape="rect" href="server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,466,60,491"/>
+<area shape="poly" title=" " alt="" coords="94,481,60,481,60,476,94,476"/>
+<area shape="poly" title=" " alt="" coords="1365,69,1245,67,1105,70,954,83,879,94,806,109,768,121,731,135,671,165,669,161,729,131,766,116,805,104,878,89,953,78,1104,65,1245,62,1365,64"/>
+<area shape="poly" title=" " alt="" coords="553,196,537,203,488,242,445,288,413,332,392,366,387,363,408,329,441,285,484,238,535,199,550,191"/>
+<area shape="poly" title=" " alt="" coords="341,398,196,468,193,463,339,394"/>
+<area shape="poly" title=" " alt="" coords="1087,427,833,418,536,399,477,393,478,387,536,393,833,412,1087,422"/>
+<area shape="poly" title=" " alt="" coords="1173,449,1111,479,1037,505,962,520,885,529,746,534,746,529,884,523,961,514,1035,500,1109,474,1171,445"/>
+<area shape="poly" title=" " alt="" coords="1122,446,994,468,993,463,1121,440"/>
+<area shape="poly" title=" " alt="" coords="533,525,408,515,273,500,225,492,226,487,274,495,409,509,534,520"/>
+<area shape="poly" title=" " alt="" coords="792,481,225,481,225,476,792,476"/>
+<area shape="poly" title=" " alt="" coords="341,588,272,550,185,494,188,489,275,546,343,584"/>
+<area shape="poly" title=" " alt="" coords="1657,248,1609,241,1371,217,1135,200,757,182,758,176,1135,195,1372,212,1610,236,1657,242"/>
+<area shape="rect" href="classTCPServer.html#a8d2dcfc8d8337ff577a101c4aee6aac5" title="Resend the player list to all members of a lobby." alt="" coords="1403,251,1585,277"/>
+<area shape="poly" title=" " alt="" coords="1657,267,1585,267,1585,261,1657,261"/>
+<area shape="poly" title=" " alt="" coords="1389,257,805,197,753,191,753,186,806,192,1390,251"/>
+<area shape="rect" href="classTCPServer.html#a508cc3d7023b0cfe9abed2e3166b1682" title="Remove a client from its current lobby." alt="" coords="1098,289,1317,314"/>
+<area shape="poly" title=" " alt="" coords="1390,280,1305,291,1305,286,1389,275"/>
+<area shape="poly" title=" " alt="" coords="1175,323,944,468,941,463,1173,319"/>
+<area shape="rect" href="classTCPServer.html#a84035146c9257be5714850a1f46d0bfb" title="Assign a client to a lobby (public or private)." alt="" coords="832,265,1009,290"/>
+<area shape="poly" title=" " alt="" coords="1084,294,1009,287,1010,282,1085,288"/>
+<area shape="rect" href="classTCPServer.html#a435ec8dcd340e15f964ce3c0748c7305" title="Reset client fields and close its socket." alt="" coords="837,314,1004,339"/>
+<area shape="poly" title=" " alt="" coords="1084,315,1004,322,1004,317,1084,309"/>
+<area shape="poly" title=" " alt="" coords="840,263,804,248,789,236,779,225,770,214,756,204,725,191,727,186,759,199,774,210,784,221,793,232,807,243,842,258"/>
+<area shape="rect" href="classTCPServer.html#ad6bed785945fc2f21376ff2b58090829" title="Auto&#45;match the client into a public lobby." alt="" coords="543,214,750,239"/>
+<area shape="poly" title=" " alt="" coords="837,265,716,242,717,237,838,259"/>
+<area shape="poly" title=" " alt="" coords="824,336,536,361,482,367,482,362,536,356,823,331"/>
+<area shape="poly" title=" " alt="" coords="893,349,667,519,663,514,890,345"/>
+<area shape="rect" href="classTCPServer.html#abc497ac52355e53986a6a1bd1acb9581" title="Destroy the TCPServer, closing the listening socket." alt="" coords="560,263,733,289"/>
+<area shape="poly" title=" " alt="" coords="837,314,716,291,717,286,838,309"/>
+<area shape="rect" href="classNetworkClient.html#a1773337e67c321eece590156e1a7b38a" title="Perform the application handshake over TCP." alt="" coords="1084,669,1331,694"/>
+<area shape="poly" title=" " alt="" coords="1988,744,1934,725,1874,709,1729,689,1583,679,1446,676,1331,678,1331,673,1446,671,1583,674,1730,684,1875,704,1936,720,1989,739"/>
+<area shape="rect" href="classNetworkClient.html#ae93ee27e05eea56b96d34c4789a01f41" title="Send a chat message over TCP." alt="" coords="1402,986,1586,1011"/>
+<area shape="poly" title=" " alt="" coords="2011,785,1954,839,1916,869,1876,894,1800,928,1721,955,1645,975,1579,988,1578,983,1644,969,1720,950,1798,923,1873,890,1913,864,1950,835,2008,781"/>
+<area shape="rect" href="classNetworkClient.html#a69d86a3b406a767d3feb704be440343a" title="Ask the server to create a private lobby." alt="" coords="1667,769,1865,809"/>
+<area shape="poly" title=" " alt="" coords="1909,776,1865,781,1865,776,1909,771"/>
+<area shape="rect" href="classNetworkClient.html#ab66ff3a3c9bb96ad56e141d3713914bd" title="Ask the server to join an existing lobby." alt="" coords="1657,719,1875,745"/>
+<area shape="poly" title=" " alt="" coords="1909,750,1874,746,1875,741,1909,744"/>
+<area shape="rect" href="classNetworkClient.html#a28a515bbb5f6f75d6603a5332c217f93" title="Send TCP PONG in response to server PING." alt="" coords="1673,855,1859,881"/>
+<area shape="poly" title=" " alt="" coords="1987,780,1799,858,1797,853,1985,775"/>
+<area shape="rect" href="classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="577,795,716,821"/>
+<area shape="poly" title=" " alt="" coords="1110,699,966,724,806,760,684,798,682,793,805,755,965,719,1109,693"/>
+<area shape="rect" href="classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="311,849,450,874"/>
+<area shape="poly" title=" " alt="" coords="570,826,445,851,444,846,569,821"/>
+<area shape="rect" href="client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="139,849,194,874"/>
+<area shape="poly" title=" " alt="" coords="297,864,194,864,194,859,297,859"/>
+<area shape="rect" href="classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="553,906,740,931"/>
+<area shape="poly" title=" " alt="" coords="1388,1004,1269,1005,1122,1001,963,990,805,969,738,953,680,934,682,929,739,948,806,964,964,985,1123,996,1269,999,1388,999"/>
+<area shape="poly" title=" " alt="" coords="573,906,440,876,441,871,574,900"/>
+<area shape="rect" href="classGraphicClient.html#a70229e3e019e7b315f06c9ad74f23be5" title="Shows lobby selection menu." alt="" coords="823,770,1019,795"/>
+<area shape="poly" title=" " alt="" coords="1653,791,1019,786,1019,781,1654,786"/>
+<area shape="poly" title=" " alt="" coords="809,795,716,804,716,799,809,790"/>
+<area shape="poly" title=" " alt="" coords="1644,739,1386,751,1084,769,1019,775,1019,770,1084,764,1386,745,1643,734"/>
+<area shape="poly" title=" " alt="" coords="1726,889,1672,909,1610,925,1489,942,1365,952,1241,956,1121,956,904,946,740,932,741,927,905,941,1121,950,1241,950,1365,946,1488,936,1609,920,1670,904,1724,884"/>
+<area shape="poly" title=" " alt="" coords="1659,860,1018,795,1019,790,1659,855"/>
+<area shape="rect" href="classNetworkClient.html#a5bc6fcb253ac9f9d74c649cb4b30d546" title=" " alt="" coords="1400,871,1588,911"/>
+<area shape="poly" title=" " alt="" coords="1659,879,1589,885,1588,880,1659,874"/>
+<area shape="rect" href="classNetworkClient.html#a1f77ff0729755d9782b4542582cfe214" title="Poll TCP/UDP sockets and handle any received packets." alt="" coords="1109,875,1305,901"/>
+<area shape="poly" title=" " alt="" coords="1386,892,1306,891,1306,886,1386,887"/>
+<area shape="poly" title=" " alt="" coords="1123,875,1036,861,716,819,716,813,1036,856,1123,870"/>
+<area shape="poly" title=" " alt="" coords="1132,874,1083,854,1058,835,1035,817,983,798,985,793,1037,812,1062,831,1085,850,1134,869"/>
+<area shape="rect" href="classGraphicClient.html#a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" title="Processes network events and updates game state." alt="" coords="809,871,1032,911"/>
+<area shape="poly" title=" " alt="" coords="1096,892,1032,892,1032,887,1096,886"/>
+<area shape="poly" title=" " alt="" coords="796,906,740,912,740,906,795,901"/>
+</map>
+</div>
 
 </div>
 </div>

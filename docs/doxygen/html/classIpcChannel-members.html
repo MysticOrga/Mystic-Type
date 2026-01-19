@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -95,10 +96,14 @@ $(document).ready(function(){initNavTree('classIpcChannel.html',''); initResizab
 
 <p>This is the complete list of members for <a class="el" href="classIpcChannel.html">IpcChannel</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="classIpcChannel.html#a548a4a5a30f39bc66aca90d2bedb942d">bindServer</a>(const std::string &amp;path)</td><td class="entry"><a class="el" href="classIpcChannel.html">IpcChannel</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classIpcChannel.html#aa2bbcedec629b7f3e365db5218d0bcc8">close</a>()</td><td class="entry"><a class="el" href="classIpcChannel.html">IpcChannel</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classIpcChannel.html#a0a165a73f2f1ffe607082e1b27c3a80d">connectClient</a>(const std::string &amp;path)</td><td class="entry"><a class="el" href="classIpcChannel.html">IpcChannel</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classIpcChannel.html#afb6f3b2143390c926fa7489700cf4b2c">fd</a>() const</td><td class="entry"><a class="el" href="classIpcChannel.html">IpcChannel</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classIpcChannel.html#ad220948425e93fed642979014de89e15">_addr</a></td><td class="entry"><a class="el" href="classIpcChannel.html">IpcChannel</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classIpcChannel.html#afbe5a59d97124b64e1dba4d8a84189fc">_isServer</a></td><td class="entry"><a class="el" href="classIpcChannel.html">IpcChannel</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classIpcChannel.html#aaa1e07804ded384aa8bddb2aa0564480">_sockfd</a></td><td class="entry"><a class="el" href="classIpcChannel.html">IpcChannel</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classIpcChannel.html#a08fb3b62091cf125d554b805a4e64748">bindServer</a>(void)</td><td class="entry"><a class="el" href="classIpcChannel.html">IpcChannel</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classIpcChannel.html#aa2bbcedec629b7f3e365db5218d0bcc8">close</a>()</td><td class="entry"><a class="el" href="classIpcChannel.html">IpcChannel</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classIpcChannel.html#afa8b95326afd4d66bb573f333e124d33">connectClient</a>(const std::string &amp;port)</td><td class="entry"><a class="el" href="classIpcChannel.html">IpcChannel</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classIpcChannel.html#aadf27650ff534770bd014398c27d1438">fd</a>() const</td><td class="entry"><a class="el" href="classIpcChannel.html">IpcChannel</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classIpcChannel.html#a0f326fa25cb8a958dd5daa5ea071a2c5">getport</a>(void) const</td><td class="entry"><a class="el" href="classIpcChannel.html">IpcChannel</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classIpcChannel.html#accdef665be5b8cc831aa12cc9fe64959">IpcChannel</a>()=default</td><td class="entry"><a class="el" href="classIpcChannel.html">IpcChannel</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classIpcChannel.html#a4cfe558307ce2aa78a5d7856588aeafb">IpcChannel</a>(const IpcChannel &amp;)=delete</td><td class="entry"><a class="el" href="classIpcChannel.html">IpcChannel</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classIpcChannel.html#a45651c654efa5e19e007b17a8a90e4ab">operator=</a>(const IpcChannel &amp;)=delete</td><td class="entry"><a class="el" href="classIpcChannel.html">IpcChannel</a></td><td class="entry"></td></tr>

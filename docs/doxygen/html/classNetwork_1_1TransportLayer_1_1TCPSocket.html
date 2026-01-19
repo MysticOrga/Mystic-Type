@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -99,31 +100,31 @@ $(document).ready(function(){initNavTree('classNetwork_1_1TransportLayer_1_1TCPS
 <p>TCP socket wrapper providing connect/accept helpers.  
  <a href="classNetwork_1_1TransportLayer_1_1TCPSocket.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="TCPSocket_8hpp_source.html">TCPSocket.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="TCPSocket_8hpp_source.html">Network/TransportLayer/TCP/TCPSocket.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Network::TransportLayer::TCPSocket:</div>
 <div class="dyncontent">
 <div class="center"><img src="classNetwork_1_1TransportLayer_1_1TCPSocket__inherit__graph.png" border="0" usemap="#aNetwork_1_1TransportLayer_1_1TCPSocket_inherit__map" alt="Inheritance graph"/></div>
 <map name="aNetwork_1_1TransportLayer_1_1TCPSocket_inherit__map" id="aNetwork_1_1TransportLayer_1_1TCPSocket_inherit__map">
-<area shape="rect" title="TCP socket wrapper providing connect/accept helpers." alt="" coords="5,181,187,221"/>
-<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html" title=" " alt="" coords="5,93,187,133"/>
-<area shape="poly" title=" " alt="" coords="99,147,99,181,93,181,93,147"/>
-<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ISocket.html" title="Interface for socket operations." alt="" coords="5,5,187,45"/>
-<area shape="poly" title=" " alt="" coords="99,59,99,93,93,93,93,59"/>
+<area shape="rect" title="TCP socket wrapper providing connect/accept helpers." alt="" coords="5,521,179,681"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html" title=" " alt="" coords="5,233,179,473"/>
+<area shape="poly" title=" " alt="" coords="95,487,95,521,89,521,89,487"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ISocket.html" title="Interface for socket operations." alt="" coords="5,5,179,185"/>
+<area shape="poly" title=" " alt="" coords="95,199,95,233,89,233,89,199"/>
 </map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+</div>
 <div class="dynheader">
 Collaboration diagram for Network::TransportLayer::TCPSocket:</div>
 <div class="dyncontent">
 <div class="center"><img src="classNetwork_1_1TransportLayer_1_1TCPSocket__coll__graph.png" border="0" usemap="#aNetwork_1_1TransportLayer_1_1TCPSocket_coll__map" alt="Collaboration graph"/></div>
 <map name="aNetwork_1_1TransportLayer_1_1TCPSocket_coll__map" id="aNetwork_1_1TransportLayer_1_1TCPSocket_coll__map">
-<area shape="rect" title="TCP socket wrapper providing connect/accept helpers." alt="" coords="5,181,187,221"/>
-<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html" title=" " alt="" coords="5,93,187,133"/>
-<area shape="poly" title=" " alt="" coords="99,147,99,181,93,181,93,147"/>
-<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ISocket.html" title="Interface for socket operations." alt="" coords="5,5,187,45"/>
-<area shape="poly" title=" " alt="" coords="99,59,99,93,93,93,93,59"/>
+<area shape="rect" title="TCP socket wrapper providing connect/accept helpers." alt="" coords="5,521,179,681"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html" title=" " alt="" coords="5,233,179,473"/>
+<area shape="poly" title=" " alt="" coords="95,487,95,521,89,521,89,487"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ISocket.html" title="Interface for socket operations." alt="" coords="5,5,179,185"/>
+<area shape="poly" title=" " alt="" coords="95,199,95,233,89,233,89,199"/>
 </map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -182,6 +183,8 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>TCP socket wrapper providing connect/accept helpers. </p>
 <p>Inherits the basic file descriptor management from <a class="el" href="classNetwork_1_1TransportLayer_1_1ASocket.html">ASocket</a> and adds convenience methods for client connections and server listen/accept. </p>
+
+<p class="definition">Definition at line <a class="el" href="TCPSocket_8hpp_source.html#l00021">21</a> of file <a class="el" href="TCPSocket_8hpp_source.html">TCPSocket.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad12c80bc63624bdee7d22050a0ec812a" name="ad12c80bc63624bdee7d22050a0ec812a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad12c80bc63624bdee7d22050a0ec812a">&#9670;&#160;</a></span>TCPSocket()</h2>
@@ -207,6 +210,8 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Create a TCP socket (AF_INET / SOCK_STREAM). </p>
+
+<p class="definition">Definition at line <a class="el" href="TCPSocket_8hpp_source.html#l00027">27</a> of file <a class="el" href="TCPSocket_8hpp_source.html">TCPSocket.hpp</a>.</p>
 
 </div>
 </div>
@@ -261,6 +266,26 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int Accepted client socket fd, or -1 on error. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="TCPSocket_8cpp_source.html#l00041">41</a> of file <a class="el" href="TCPSocket_8cpp_source.html">TCPSocket.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="ASocket_8hpp_source.html#l00086">Network::TransportLayer::ASocket::_socketFd</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="TCPServer_8cpp_source.html#l00165">TCPServer::acceptNewClient()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classNetwork_1_1TransportLayer_1_1TCPSocket_aab30f88e654d44503b85368f4af43e8d_icgraph.png" border="0" usemap="#aclassNetwork_1_1TransportLayer_1_1TCPSocket_aab30f88e654d44503b85368f4af43e8d_icgraph" alt=""/></div>
+<map name="aclassNetwork_1_1TransportLayer_1_1TCPSocket_aab30f88e654d44503b85368f4af43e8d_icgraph" id="aclassNetwork_1_1TransportLayer_1_1TCPSocket_aab30f88e654d44503b85368f4af43e8d_icgraph">
+<area shape="rect" title="Accept an incoming client connection." alt="" coords="528,5,715,45"/>
+<area shape="rect" href="classTCPServer.html#ae0e94f8d712b3c9028fe674100d649b9" title="Accept incoming connection and register a new client slot." alt="" coords="273,13,480,38"/>
+<area shape="poly" title=" " alt="" coords="514,28,480,28,480,23,514,23"/>
+<area shape="rect" href="classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3" title="Run the main accept/receive loop (blocking)." alt="" coords="108,13,225,38"/>
+<area shape="poly" title=" " alt="" coords="260,28,225,28,225,23,260,23"/>
+<area shape="rect" href="server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a1101a573328f3e3763b5cc0fed67f0ae" name="a1101a573328f3e3763b5cc0fed67f0ae"></a>
@@ -306,6 +331,32 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true on success, false otherwise. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="TCPSocket_8cpp_source.html#l00027">27</a> of file <a class="el" href="TCPSocket_8cpp_source.html">TCPSocket.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="ASocket_8hpp_source.html#l00086">Network::TransportLayer::ASocket::_socketFd</a>, and <a class="el" href="ASocket_8cpp_source.html#l00078">Network::TransportLayer::ASocket::bindSock()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="TCPServer_8cpp_source.html#l00039">TCPServer::TCPServer()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classNetwork_1_1TransportLayer_1_1TCPSocket_a1101a573328f3e3763b5cc0fed67f0ae_cgraph.png" border="0" usemap="#aclassNetwork_1_1TransportLayer_1_1TCPSocket_a1101a573328f3e3763b5cc0fed67f0ae_cgraph" alt=""/></div>
+<map name="aclassNetwork_1_1TransportLayer_1_1TCPSocket_a1101a573328f3e3763b5cc0fed67f0ae_cgraph" id="aclassNetwork_1_1TransportLayer_1_1TCPSocket_a1101a573328f3e3763b5cc0fed67f0ae_cgraph">
+<area shape="rect" title="Bind to an address and start listening." alt="" coords="5,5,203,45"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html#a65fa2f6ba45358b7a7776d14b0111756" title="Bind the socket to a specific address and port." alt="" coords="251,5,432,45"/>
+<area shape="poly" title=" " alt="" coords="203,23,237,23,237,28,203,28"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classNetwork_1_1TransportLayer_1_1TCPSocket_a1101a573328f3e3763b5cc0fed67f0ae_icgraph.png" border="0" usemap="#aclassNetwork_1_1TransportLayer_1_1TCPSocket_a1101a573328f3e3763b5cc0fed67f0ae_icgraph" alt=""/></div>
+<map name="aclassNetwork_1_1TransportLayer_1_1TCPSocket_a1101a573328f3e3763b5cc0fed67f0ae_icgraph" id="aclassNetwork_1_1TransportLayer_1_1TCPSocket_a1101a573328f3e3763b5cc0fed67f0ae_icgraph">
+<area shape="rect" title="Bind to an address and start listening." alt="" coords="216,5,413,45"/>
+<area shape="rect" href="classTCPServer.html#ad8f4ffce8b9317fc30a7cfa9e5c5442a" title="Construct a new TCPServer bound to the given port." alt="" coords="5,13,168,38"/>
+<area shape="poly" title=" " alt="" coords="202,28,168,28,168,23,202,23"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a9391d4bdcddb942f43210cc17ace7013" name="a9391d4bdcddb942f43210cc17ace7013"></a>
@@ -344,11 +395,15 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true on success, false otherwise. </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="TCPSocket_8cpp_source.html#l00012">12</a> of file <a class="el" href="TCPSocket_8cpp_source.html">TCPSocket.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="ASocket_8hpp_source.html#l00086">Network::TransportLayer::ASocket::_socketFd</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Network/TransportLayer/TCP/<a class="el" href="TCPSocket_8hpp_source.html">TCPSocket.hpp</a></li>
-<li>Network/TransportLayer/TCP/<a class="el" href="TCPSocket_8cpp.html">TCPSocket.cpp</a></li>
+<li>Network/TransportLayer/TCP/<a class="el" href="TCPSocket_8cpp_source.html">TCPSocket.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

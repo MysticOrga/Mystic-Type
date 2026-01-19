@@ -1,0 +1,7 @@
+<map id="NetworkClient::getUdpRxKbps" name="NetworkClient::getUdpRxKbps">
+<area shape="rect" id="Node000001" title="Get current UDP receive rate in Kbps." alt="" coords="5,35,224,60"/>
+<area shape="rect" id="Node000002" href="$classNetworkClient.html#aaf60f1216a17b46ad12539625a1022c2" title=" " alt="" coords="285,5,454,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="224,32,271,27,272,32,225,37"/>
+<area shape="rect" id="Node000003" href="$classNetworkClient.html#a36892dcdc8c2523b27947a347ea16022" title=" " alt="" coords="272,55,467,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="225,57,258,60,258,66,224,62"/>
+</map>

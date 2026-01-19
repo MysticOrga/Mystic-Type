@@ -1,0 +1,13 @@
+<map id="NetworkClient::readTcpPacket" name="NetworkClient::readTcpPacket">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,220,60"/>
+<area shape="rect" id="Node000002" href="$classNetworkClient.html#a7f69f5c30fd349d670fae18598737b86" title="Close TCP and UDP sockets and reset state." alt="" coords="268,5,461,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="220,32,254,28,255,33,220,37"/>
+<area shape="rect" id="Node000003" href="$classNetworkClient.html#ab8fe1bfbcfc0f363bce00cb1dc2a2f88" title=" " alt="" coords="269,55,461,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="220,57,255,61,255,66,220,62"/>
+<area shape="rect" id="Node000004" href="$namespaceProtocol.html#ad768525ca5f0324a5f414440e67679b6" title="Append newly read bytes then attempt extraction." alt="" coords="509,63,692,88"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="461,73,496,73,496,78,461,78"/>
+<area shape="rect" id="Node000005" href="$namespaceProtocol.html#a10005c44787f8de2a0e42d395aff8baa" title="Try to extract a complete packet from an accumulated stream buffer." alt="" coords="740,63,941,88"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="692,73,726,73,726,78,692,78"/>
+<area shape="rect" id="Node000006" href="$classPacket.html#abfcd427a2ca434ac71592334517638fb" title="Deserialize a packet from a raw byte buffer." alt="" coords="989,63,1132,88"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="942,73,975,73,975,78,942,78"/>
+</map>

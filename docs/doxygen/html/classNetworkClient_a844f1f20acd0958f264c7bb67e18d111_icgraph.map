@@ -1,0 +1,39 @@
+<map id="NetworkClient::writeAll" name="NetworkClient::writeAll">
+<area shape="rect" id="Node000001" title=" " alt="" coords="1869,120,2043,145"/>
+<area shape="rect" id="Node000002" href="$classNetworkClient.html#af150c1b7e0aa8c19cb337fb838479324" title=" " alt="" coords="1604,120,1821,145"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1856,135,1822,135,1822,130,1856,130"/>
+<area shape="rect" id="Node000003" href="$classNetworkClient.html#a1773337e67c321eece590156e1a7b38a" title="Perform the application handshake over TCP." alt="" coords="1044,5,1291,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1666,118,1613,99,1555,82,1414,53,1282,33,1282,28,1415,48,1557,77,1615,94,1668,113"/>
+<area shape="rect" id="Node000007" href="$classNetworkClient.html#ae93ee27e05eea56b96d34c4789a01f41" title="Send a chat message over TCP." alt="" coords="806,336,990,361"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="1686,156,1629,198,1557,239,1484,269,1408,294,1330,313,1253,327,1108,344,991,351,990,346,1108,339,1252,322,1329,307,1406,288,1482,264,1555,234,1626,193,1683,152"/>
+<area shape="rect" id="Node000009" href="$classNetworkClient.html#a69d86a3b406a767d3feb704be440343a" title="Ask the server to create a private lobby." alt="" coords="1069,55,1266,95"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="1627,120,1556,110,1404,94,1266,84,1267,79,1404,89,1556,105,1628,115"/>
+<area shape="rect" id="Node000011" href="$classNetworkClient.html#ab66ff3a3c9bb96ad56e141d3713914bd" title="Ask the server to join an existing lobby." alt="" coords="1339,120,1556,145"/>
+<area shape="poly" id="edge12_Node000002_Node000011" title=" " alt="" coords="1590,135,1556,135,1556,130,1590,130"/>
+<area shape="rect" id="Node000012" href="$classNetworkClient.html#a28a515bbb5f6f75d6603a5332c217f93" title="Send TCP PONG in response to server PING." alt="" coords="1354,200,1541,225"/>
+<area shape="poly" id="edge14_Node000002_Node000012" title=" " alt="" coords="1657,152,1491,202,1490,197,1656,147"/>
+<area shape="rect" id="Node000004" href="$classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="319,145,457,171"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1030,31,795,59,662,82,530,110,471,128,420,148,418,143,469,123,529,105,661,76,794,54,1030,26"/>
+<area shape="rect" id="Node000005" href="$classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,228,247,253"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="343,178,212,230,210,225,341,173"/>
+<area shape="rect" id="Node000006" href="$client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,228,60,253"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="94,243,60,243,60,238,94,238"/>
+<area shape="rect" id="Node000008" href="$classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,256,481,281"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="792,349,666,340,529,319,469,303,418,284,420,279,471,298,530,314,666,335,793,344"/>
+<area shape="poly" id="edge8_Node000008_Node000005" title=" " alt="" coords="280,257,247,253,247,247,281,252"/>
+<area shape="rect" id="Node000010" href="$classGraphicClient.html#a70229e3e019e7b315f06c9ad74f23be5" title="Shows lobby selection menu." alt="" coords="543,120,739,145"/>
+<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="1056,89,800,117,739,124,739,118,800,111,1055,84"/>
+<area shape="poly" id="edge11_Node000010_Node000004" title=" " alt="" coords="529,147,458,154,457,148,529,141"/>
+<area shape="poly" id="edge13_Node000011_Node000010" title=" " alt="" coords="1325,135,739,135,739,130,1325,130"/>
+<area shape="poly" id="edge15_Node000012_Node000008" title=" " alt="" coords="1401,233,1340,256,1316,267,1291,275,1179,292,1065,302,950,307,839,307,636,297,482,283,482,278,637,292,839,301,950,301,1064,297,1179,287,1290,270,1314,262,1338,252,1399,228"/>
+<area shape="poly" id="edge22_Node000012_Node000010" title=" " alt="" coords="1340,205,738,145,739,140,1341,200"/>
+<area shape="rect" id="Node000013" href="$classNetworkClient.html#a5bc6fcb253ac9f9d74c649cb4b30d546" title=" " alt="" coords="1073,221,1261,261"/>
+<area shape="poly" id="edge16_Node000012_Node000013" title=" " alt="" coords="1341,226,1262,234,1261,229,1340,221"/>
+<area shape="rect" id="Node000014" href="$classNetworkClient.html#a1f77ff0729755d9782b4542582cfe214" title="Poll TCP/UDP sockets and handle any received packets." alt="" coords="800,225,996,251"/>
+<area shape="poly" id="edge17_Node000013_Node000014" title=" " alt="" coords="1060,242,996,242,996,236,1060,237"/>
+<area shape="poly" id="edge18_Node000014_Node000004" title=" " alt="" coords="824,225,752,211,593,187,457,169,458,164,594,182,752,206,825,220"/>
+<area shape="poly" id="edge21_Node000014_Node000010" title=" " alt="" coords="840,223,799,204,775,185,751,167,700,148,702,143,753,162,778,181,801,200,842,218"/>
+<area shape="rect" id="Node000015" href="$classGraphicClient.html#a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" title="Processes network events and updates game state." alt="" coords="529,221,752,261"/>
+<area shape="poly" id="edge19_Node000014_Node000015" title=" " alt="" coords="786,242,752,242,752,237,786,236"/>
+<area shape="poly" id="edge20_Node000015_Node000008" title=" " alt="" coords="516,257,482,261,481,256,515,252"/>
+</map>

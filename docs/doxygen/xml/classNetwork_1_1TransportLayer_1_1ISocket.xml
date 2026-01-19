@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNetwork_1_1TransportLayer_1_1ISocket" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>Network::TransportLayer::ISocket</compoundname>
+    <derivedcompoundref refid="classNetwork_1_1TransportLayer_1_1ASocket" prot="public" virt="non-virtual">Network::TransportLayer::ASocket</derivedcompoundref>
+    <includes refid="ISocket_8hpp" local="no">Network/TransportLayer/ISocket.hpp</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1ISocket_1a1bdb2519d4962eee6952af2d561ecaed" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual Network::TransportLayer::ISocket::~ISocket</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ISocket</name>
+        <qualifiedname>Network::TransportLayer::ISocket::~ISocket</qualifiedname>
+        <briefdescription>
+<para>Destroy the <ref refid="classNetwork_1_1TransportLayer_1_1ISocket" kindref="compound">ISocket</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/ISocket.hpp" line="76" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1ISocket_1a41f6223f6c3ef123633d4015d54cacb4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="pure-virtual">
+        <type><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref></type>
+        <definition>virtual socket_t Network::TransportLayer::ISocket::getSocketFd</definition>
+        <argsstring>() const =0</argsstring>
+        <name>getSocketFd</name>
+        <qualifiedname>Network::TransportLayer::ISocket::getSocketFd</qualifiedname>
+        <reimplementedby refid="classNetwork_1_1TransportLayer_1_1ASocket_1a65e51ed926d1ef000bf854a8e7fcd474">getSocketFd</reimplementedby>
+        <briefdescription>
+<para>Get the underlying socket file descriptor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>int The socket file descriptor </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/ISocket.hpp" line="83" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1ISocket_1a0a30278de50c785952d77ac03db3700f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int Network::TransportLayer::ISocket::closeSocket</definition>
+        <argsstring>()=0</argsstring>
+        <name>closeSocket</name>
+        <qualifiedname>Network::TransportLayer::ISocket::closeSocket</qualifiedname>
+        <reimplementedby refid="classNetwork_1_1TransportLayer_1_1ASocket_1afb543d4b49e71b180cfe2259c8c5093b">closeSocket</reimplementedby>
+        <briefdescription>
+<para>Close the socket. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/ISocket.hpp" line="89" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1ISocket_1aee85921c834ee1274dc377023e25cbd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>ssize_t</type>
+        <definition>virtual ssize_t Network::TransportLayer::ISocket::readByte</definition>
+        <argsstring>(char *buffer, std::size_t size)=0</argsstring>
+        <name>readByte</name>
+        <qualifiedname>Network::TransportLayer::ISocket::readByte</qualifiedname>
+        <reimplementedby refid="classNetwork_1_1TransportLayer_1_1ASocket_1a34da0184468795bb34afb8e7008a1ed3">readByte</reimplementedby>
+        <reimplementedby refid="classNetwork_1_1TransportLayer_1_1UDPSocket_1a34b53ce1224f81fc6809a24412854294">readByte</reimplementedby>
+        <param>
+          <type>char *</type>
+          <declname>buffer</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Read bytes from the socket. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>buffer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Buffer to store the read data </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to read </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ssize_t Number of bytes read, or -1 on error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/ISocket.hpp" line="98" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1ISocket_1a5c5c1f736f6e1ce3910b8eb7383351fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>ssize_t</type>
+        <definition>virtual ssize_t Network::TransportLayer::ISocket::writeByte</definition>
+        <argsstring>(const char *data, std::size_t size)=0</argsstring>
+        <name>writeByte</name>
+        <qualifiedname>Network::TransportLayer::ISocket::writeByte</qualifiedname>
+        <reimplementedby refid="classNetwork_1_1TransportLayer_1_1ASocket_1ab5fcc3d62999cde65373dc40a1592943">writeByte</reimplementedby>
+        <reimplementedby refid="classNetwork_1_1TransportLayer_1_1UDPSocket_1a887cf24e71c890759f907c074f5b3505">writeByte</reimplementedby>
+        <param>
+          <type>const char *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+<para>Write bytes to the socket. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Data to write </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Number of bytes to write </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>ssize_t Number of bytes written, or -1 on error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/ISocket.hpp" line="107" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1ISocket_1a3bc7abee67be5b72149c67a1e990d14b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7" kindref="member">IOState</ref></type>
+        <definition>virtual IOState Network::TransportLayer::ISocket::sockState</definition>
+        <argsstring>(int timeoutSec, int timeoutUsec)=0</argsstring>
+        <name>sockState</name>
+        <qualifiedname>Network::TransportLayer::ISocket::sockState</qualifiedname>
+        <reimplementedby refid="classNetwork_1_1TransportLayer_1_1ASocket_1a50cace88b622aa442d901434ecc33bd8">sockState</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>timeoutSec</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>timeoutUsec</declname>
+        </param>
+        <briefdescription>
+<para>Check the socket state for read, write, or exception. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>timeoutSec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout in seconds </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>timeoutUsec</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Timeout in microseconds </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>IOState The state of the socket </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/ISocket.hpp" line="116" column="21"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Interface for socket operations. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Network::TransportLayer::ASocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1ASocket"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>Network::TransportLayer::ISocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1ISocket"/>
+      </node>
+      <node id="3">
+        <label>Network::TransportLayer::TCPSocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1TCPSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>Network::TransportLayer::UDPSocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1UDPSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>Network::TransportLayer::UnixSocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1UnixSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Network::TransportLayer::ISocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1ISocket"/>
+      </node>
+    </collaborationgraph>
+    <location file="Network/TransportLayer/ISocket.hpp" line="69" column="1" bodyfile="Network/TransportLayer/ISocket.hpp" bodystart="70" bodyend="120"/>
+    <listofallmembers>
+      <member refid="classNetwork_1_1TransportLayer_1_1ISocket_1a0a30278de50c785952d77ac03db3700f" prot="public" virt="pure-virtual"><scope>Network::TransportLayer::ISocket</scope><name>closeSocket</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ISocket_1a41f6223f6c3ef123633d4015d54cacb4" prot="public" virt="pure-virtual"><scope>Network::TransportLayer::ISocket</scope><name>getSocketFd</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ISocket_1aee85921c834ee1274dc377023e25cbd6" prot="public" virt="pure-virtual"><scope>Network::TransportLayer::ISocket</scope><name>readByte</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ISocket_1a3bc7abee67be5b72149c67a1e990d14b" prot="public" virt="pure-virtual"><scope>Network::TransportLayer::ISocket</scope><name>sockState</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ISocket_1a5c5c1f736f6e1ce3910b8eb7383351fe" prot="public" virt="pure-virtual"><scope>Network::TransportLayer::ISocket</scope><name>writeByte</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ISocket_1a1bdb2519d4962eee6952af2d561ecaed" prot="public" virt="virtual"><scope>Network::TransportLayer::ISocket</scope><name>~ISocket</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

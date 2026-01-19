@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -97,31 +98,33 @@ $(document).ready(function(){initNavTree('classNetwork_1_1TransportLayer_1_1ASoc
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="ASocket_8hpp_source.html">ASocket.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="ASocket_8hpp_source.html">Network/TransportLayer/ASocket.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Network::TransportLayer::ASocket:</div>
 <div class="dyncontent">
 <div class="center"><img src="classNetwork_1_1TransportLayer_1_1ASocket__inherit__graph.png" border="0" usemap="#aNetwork_1_1TransportLayer_1_1ASocket_inherit__map" alt="Inheritance graph"/></div>
 <map name="aNetwork_1_1TransportLayer_1_1ASocket_inherit__map" id="aNetwork_1_1TransportLayer_1_1ASocket_inherit__map">
-<area shape="rect" title=" " alt="" coords="108,93,289,133"/>
-<area shape="rect" href="classNetwork_1_1TransportLayer_1_1TCPSocket.html" title="TCP socket wrapper providing connect/accept helpers." alt="" coords="5,181,187,221"/>
-<area shape="poly" title=" " alt="" coords="167,144,120,183,117,179,164,140"/>
-<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html" title="UDP Socket class inheriting from ASocket." alt="" coords="211,181,392,221"/>
-<area shape="poly" title=" " alt="" coords="234,140,280,179,277,183,230,144"/>
-<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ISocket.html" title="Interface for socket operations." alt="" coords="108,5,289,45"/>
-<area shape="poly" title=" " alt="" coords="201,59,201,93,196,93,196,59"/>
+<area shape="rect" title=" " alt="" coords="203,233,376,473"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1TCPSocket.html" title="TCP socket wrapper providing connect/accept helpers." alt="" coords="5,561,179,721"/>
+<area shape="poly" title=" " alt="" coords="202,486,149,563,144,560,197,483"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html" title="UDP Socket class inheriting from ASocket." alt="" coords="203,541,376,741"/>
+<area shape="poly" title=" " alt="" coords="292,487,292,541,287,541,287,487"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UnixSocket.html" title=" " alt="" coords="400,521,573,761"/>
+<area shape="poly" title=" " alt="" coords="381,483,407,520,402,523,377,486"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ISocket.html" title="Interface for socket operations." alt="" coords="203,5,376,185"/>
+<area shape="poly" title=" " alt="" coords="292,199,292,233,287,233,287,199"/>
 </map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+</div>
 <div class="dynheader">
 Collaboration diagram for Network::TransportLayer::ASocket:</div>
 <div class="dyncontent">
 <div class="center"><img src="classNetwork_1_1TransportLayer_1_1ASocket__coll__graph.png" border="0" usemap="#aNetwork_1_1TransportLayer_1_1ASocket_coll__map" alt="Collaboration graph"/></div>
 <map name="aNetwork_1_1TransportLayer_1_1ASocket_coll__map" id="aNetwork_1_1TransportLayer_1_1ASocket_coll__map">
-<area shape="rect" title=" " alt="" coords="5,93,187,133"/>
-<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ISocket.html" title="Interface for socket operations." alt="" coords="5,5,187,45"/>
-<area shape="poly" title=" " alt="" coords="99,59,99,93,93,93,93,59"/>
+<area shape="rect" title=" " alt="" coords="5,233,179,473"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ISocket.html" title="Interface for socket operations." alt="" coords="5,5,179,185"/>
+<area shape="poly" title=" " alt="" coords="95,199,95,233,89,233,89,199"/>
 </map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -161,7 +164,10 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a4438e961d347a409c9e19efdb030bae5" id="r_a4438e961d347a409c9e19efdb030bae5"><td class="memItemLeft" align="right" valign="top">struct sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork_1_1TransportLayer_1_1ASocket.html#a4438e961d347a409c9e19efdb030bae5">_addr</a></td></tr>
 <tr class="separator:a4438e961d347a409c9e19efdb030bae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="ASocket_8hpp_source.html#l00014">14</a> of file <a class="el" href="ASocket_8hpp_source.html">ASocket.hpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae23454a39eaa82b8acf04d3e2b864e8d" name="ae23454a39eaa82b8acf04d3e2b864e8d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae23454a39eaa82b8acf04d3e2b864e8d">&#9670;&#160;</a></span>ASocket()</h2>
 
@@ -204,6 +210,10 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="ASocket_8cpp_source.html#l00014">14</a> of file <a class="el" href="ASocket_8cpp_source.html">ASocket.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="ASocket_8hpp_source.html#l00086">_socketFd</a>, and <a class="el" href="ISocket_8hpp_source.html#l00046">INVALID_SOCKET_FD</a>.</p>
+
 </div>
 </div>
 <a id="ae7ed622b5397311c5fa1126d2bab57d8" name="ae7ed622b5397311c5fa1126d2bab57d8"></a>
@@ -222,6 +232,20 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Destroy the <a class="el" href="classNetwork_1_1TransportLayer_1_1ASocket.html">ASocket</a> object. </p>
+
+<p class="definition">Definition at line <a class="el" href="ASocket_8cpp_source.html#l00023">23</a> of file <a class="el" href="ASocket_8cpp_source.html">ASocket.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="ASocket_8cpp_source.html#l00028">closeSocket()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classNetwork_1_1TransportLayer_1_1ASocket_ae7ed622b5397311c5fa1126d2bab57d8_cgraph.png" border="0" usemap="#aclassNetwork_1_1TransportLayer_1_1ASocket_ae7ed622b5397311c5fa1126d2bab57d8_cgraph" alt=""/></div>
+<map name="aclassNetwork_1_1TransportLayer_1_1ASocket_ae7ed622b5397311c5fa1126d2bab57d8_cgraph" id="aclassNetwork_1_1TransportLayer_1_1ASocket_ae7ed622b5397311c5fa1126d2bab57d8_cgraph">
+<area shape="rect" title="Destroy the ASocket object." alt="" coords="5,5,187,45"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html#afb543d4b49e71b180cfe2259c8c5093b" title="Close the socket." alt="" coords="235,5,416,45"/>
+<area shape="poly" title=" " alt="" coords="187,23,221,23,221,28,187,28"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -269,6 +293,28 @@ Protected Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if binding is successful, false otherwise </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="ASocket_8cpp_source.html#l00078">78</a> of file <a class="el" href="ASocket_8cpp_source.html">ASocket.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="ASocket_8hpp_source.html#l00087">_addr</a>, and <a class="el" href="ASocket_8hpp_source.html#l00086">_socketFd</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="TCPSocket_8cpp_source.html#l00027">Network::TransportLayer::TCPSocket::bindAndListen()</a>, and <a class="el" href="UDPSocket_8cpp_source.html#l00012">Network::TransportLayer::UDPSocket::bindTo()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classNetwork_1_1TransportLayer_1_1ASocket_a65fa2f6ba45358b7a7776d14b0111756_icgraph.png" border="0" usemap="#aclassNetwork_1_1TransportLayer_1_1ASocket_a65fa2f6ba45358b7a7776d14b0111756_icgraph" alt=""/></div>
+<map name="aclassNetwork_1_1TransportLayer_1_1ASocket_a65fa2f6ba45358b7a7776d14b0111756_icgraph" id="aclassNetwork_1_1TransportLayer_1_1ASocket_a65fa2f6ba45358b7a7776d14b0111756_icgraph">
+<area shape="rect" title="Bind the socket to a specific address and port." alt="" coords="547,37,728,77"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1TCPSocket.html#a1101a573328f3e3763b5cc0fed67f0ae" title="Bind to an address and start listening." alt="" coords="301,5,499,45"/>
+<area shape="poly" title=" " alt="" coords="533,46,498,41,499,36,534,41"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a4972fa36f907bdcdae38d7d551f34e8b" title="Bind the UDP socket to a port/address." alt="" coords="309,69,491,109"/>
+<area shape="poly" title=" " alt="" coords="534,74,491,80,490,74,533,69"/>
+<area shape="rect" href="classTCPServer.html#ad8f4ffce8b9317fc30a7cfa9e5c5442a" title="Construct a new TCPServer bound to the given port." alt="" coords="48,13,211,38"/>
+<area shape="poly" title=" " alt="" coords="288,28,211,28,211,23,288,23"/>
+<area shape="rect" href="classUDPGameServer.html#a0272e620fa267e7a2043b5729d24cfbc" title=" " alt="" coords="5,77,253,102"/>
+<area shape="poly" title=" " alt="" coords="296,92,254,92,254,87,296,87"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="afb543d4b49e71b180cfe2259c8c5093b" name="afb543d4b49e71b180cfe2259c8c5093b"></a>
@@ -297,6 +343,24 @@ Protected Attributes</h2></td></tr>
 <p>Close the socket. </p>
 
 <p>Implements <a class="el" href="classNetwork_1_1TransportLayer_1_1ISocket.html#a0a30278de50c785952d77ac03db3700f">Network::TransportLayer::ISocket</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="ASocket_8cpp_source.html#l00028">28</a> of file <a class="el" href="ASocket_8cpp_source.html">ASocket.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="ASocket_8hpp_source.html#l00086">_socketFd</a>, <a class="el" href="ISocket_8hpp_source.html#l00043">CLOSE</a>, and <a class="el" href="ISocket_8hpp_source.html#l00046">INVALID_SOCKET_FD</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="ASocket_8cpp_source.html#l00023">~ASocket()</a>, and <a class="el" href="TCPServer_8cpp_source.html#l00052">TCPServer::~TCPServer()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classNetwork_1_1TransportLayer_1_1ASocket_afb543d4b49e71b180cfe2259c8c5093b_icgraph.png" border="0" usemap="#aclassNetwork_1_1TransportLayer_1_1ASocket_afb543d4b49e71b180cfe2259c8c5093b_icgraph" alt=""/></div>
+<map name="aclassNetwork_1_1TransportLayer_1_1ASocket_afb543d4b49e71b180cfe2259c8c5093b_icgraph" id="aclassNetwork_1_1TransportLayer_1_1ASocket_afb543d4b49e71b180cfe2259c8c5093b_icgraph">
+<area shape="rect" title="Close the socket." alt="" coords="235,35,416,75"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html#ae7ed622b5397311c5fa1126d2bab57d8" title="Destroy the ASocket object." alt="" coords="5,5,187,45"/>
+<area shape="poly" title=" " alt="" coords="221,44,187,40,187,34,221,39"/>
+<area shape="rect" href="classTCPServer.html#abc497ac52355e53986a6a1bd1acb9581" title="Destroy the TCPServer, closing the listening socket." alt="" coords="9,70,183,95"/>
+<area shape="poly" title=" " alt="" coords="221,70,183,75,183,69,220,65"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -327,6 +391,24 @@ Protected Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>int The socket file descriptor </dd></dl>
 
 <p>Implements <a class="el" href="classNetwork_1_1TransportLayer_1_1ISocket.html#a41f6223f6c3ef123633d4015d54cacb4">Network::TransportLayer::ISocket</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="ASocket_8hpp_source.html#l00037">37</a> of file <a class="el" href="ASocket_8hpp_source.html">ASocket.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="ASocket_8hpp_source.html#l00086">_socketFd</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="TCPServer_8cpp_source.html#l00446">TCPServer::run()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classNetwork_1_1TransportLayer_1_1ASocket_a65e51ed926d1ef000bf854a8e7fcd474_icgraph.png" border="0" usemap="#aclassNetwork_1_1TransportLayer_1_1ASocket_a65e51ed926d1ef000bf854a8e7fcd474_icgraph" alt=""/></div>
+<map name="aclassNetwork_1_1TransportLayer_1_1ASocket_a65e51ed926d1ef000bf854a8e7fcd474_icgraph" id="aclassNetwork_1_1TransportLayer_1_1ASocket_a65e51ed926d1ef000bf854a8e7fcd474_icgraph">
+<area shape="rect" title="Get the underlying socket file descriptor." alt="" coords="273,5,455,45"/>
+<area shape="rect" href="classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3" title="Run the main accept/receive loop (blocking)." alt="" coords="108,13,225,38"/>
+<area shape="poly" title=" " alt="" coords="260,28,226,28,226,23,260,23"/>
+<area shape="rect" href="server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -378,6 +460,20 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a34b53ce1224f81fc6809a24412854294">Network::TransportLayer::UDPSocket</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="ASocket_8cpp_source.html#l00096">96</a> of file <a class="el" href="ASocket_8cpp_source.html">ASocket.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="ASocket_8hpp_source.html#l00086">_socketFd</a>, <a class="el" href="ISocket_8hpp_source.html#l00058">Network::TransportLayer::READ_READY</a>, and <a class="el" href="ASocket_8cpp_source.html#l00039">sockState()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classNetwork_1_1TransportLayer_1_1ASocket_a34da0184468795bb34afb8e7008a1ed3_cgraph.png" border="0" usemap="#aclassNetwork_1_1TransportLayer_1_1ASocket_a34da0184468795bb34afb8e7008a1ed3_cgraph" alt=""/></div>
+<map name="aclassNetwork_1_1TransportLayer_1_1ASocket_a34da0184468795bb34afb8e7008a1ed3_cgraph" id="aclassNetwork_1_1TransportLayer_1_1ASocket_a34da0184468795bb34afb8e7008a1ed3_cgraph">
+<area shape="rect" title="Read bytes from the socket." alt="" coords="5,5,187,45"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html#a50cace88b622aa442d901434ecc33bd8" title="Check the socket state for read, write, or exception." alt="" coords="235,5,416,45"/>
+<area shape="poly" title=" " alt="" coords="187,23,221,23,221,28,187,28"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a50cace88b622aa442d901434ecc33bd8" name="a50cace88b622aa442d901434ecc33bd8"></a>
@@ -425,6 +521,32 @@ Protected Attributes</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>IOState The state of the socket </dd></dl>
 
 <p>Implements <a class="el" href="classNetwork_1_1TransportLayer_1_1ISocket.html#a3bc7abee67be5b72149c67a1e990d14b">Network::TransportLayer::ISocket</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="ASocket_8cpp_source.html#l00039">39</a> of file <a class="el" href="ASocket_8cpp_source.html">ASocket.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="ASocket_8hpp_source.html#l00086">_socketFd</a>, <a class="el" href="ISocket_8hpp_source.html#l00060">Network::TransportLayer::EXCEPTION</a>, <a class="el" href="ISocket_8hpp_source.html#l00062">Network::TransportLayer::IOERROR</a>, <a class="el" href="ISocket_8hpp_source.html#l00058">Network::TransportLayer::READ_READY</a>, <a class="el" href="ISocket_8hpp_source.html#l00061">Network::TransportLayer::TIMEOUT</a>, and <a class="el" href="ISocket_8hpp_source.html#l00059">Network::TransportLayer::WRITE_READY</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="ASocket_8cpp_source.html#l00096">readByte()</a>, <a class="el" href="UDPSocket_8cpp_source.html#l00035">Network::TransportLayer::UDPSocket::readByte()</a>, and <a class="el" href="ASocket_8cpp_source.html#l00087">writeByte()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classNetwork_1_1TransportLayer_1_1ASocket_a50cace88b622aa442d901434ecc33bd8_icgraph.png" border="0" usemap="#aclassNetwork_1_1TransportLayer_1_1ASocket_a50cace88b622aa442d901434ecc33bd8_icgraph" alt=""/></div>
+<map name="aclassNetwork_1_1TransportLayer_1_1ASocket_a50cace88b622aa442d901434ecc33bd8_icgraph" id="aclassNetwork_1_1TransportLayer_1_1ASocket_a50cace88b622aa442d901434ecc33bd8_icgraph">
+<area shape="rect" title="Check the socket state for read, write, or exception." alt="" coords="816,69,997,109"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html#a34da0184468795bb34afb8e7008a1ed3" title="Read bytes from the socket." alt="" coords="587,5,768,45"/>
+<area shape="poly" title=" " alt="" coords="821,68,749,48,750,43,822,63"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a34b53ce1224f81fc6809a24412854294" title="Read bytes from the UDP socket." alt="" coords="587,69,768,109"/>
+<area shape="poly" title=" " alt="" coords="802,92,768,92,768,87,802,87"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html#ab5fcc3d62999cde65373dc40a1592943" title="Write bytes to the socket." alt="" coords="587,133,768,173"/>
+<area shape="poly" title=" " alt="" coords="822,116,750,136,749,131,821,110"/>
+<area shape="rect" href="classUDPGameServer.html#a7f3a37004641222f4d30d55614f05029" title="Thread loop to read incoming UDP packets without blocking the simulation tick." alt="" coords="316,77,539,102"/>
+<area shape="poly" title=" " alt="" coords="573,92,539,92,539,87,573,87"/>
+<area shape="rect" href="classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b" title="Start the main server loop (blocking)." alt="" coords="108,77,268,102"/>
+<area shape="poly" title=" " alt="" coords="302,92,268,92,268,87,302,87"/>
+<area shape="rect" href="game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,77,60,102"/>
+<area shape="poly" title=" " alt="" coords="94,92,60,92,60,87,94,87"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -476,6 +598,20 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a887cf24e71c890759f907c074f5b3505">Network::TransportLayer::UDPSocket</a>.</p>
 
+<p class="definition">Definition at line <a class="el" href="ASocket_8cpp_source.html#l00087">87</a> of file <a class="el" href="ASocket_8cpp_source.html">ASocket.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="ASocket_8hpp_source.html#l00086">_socketFd</a>, <a class="el" href="ASocket_8cpp_source.html#l00039">sockState()</a>, and <a class="el" href="ISocket_8hpp_source.html#l00059">Network::TransportLayer::WRITE_READY</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classNetwork_1_1TransportLayer_1_1ASocket_ab5fcc3d62999cde65373dc40a1592943_cgraph.png" border="0" usemap="#aclassNetwork_1_1TransportLayer_1_1ASocket_ab5fcc3d62999cde65373dc40a1592943_cgraph" alt=""/></div>
+<map name="aclassNetwork_1_1TransportLayer_1_1ASocket_ab5fcc3d62999cde65373dc40a1592943_cgraph" id="aclassNetwork_1_1TransportLayer_1_1ASocket_ab5fcc3d62999cde65373dc40a1592943_cgraph">
+<area shape="rect" title="Write bytes to the socket." alt="" coords="5,5,187,45"/>
+<area shape="rect" href="classNetwork_1_1TransportLayer_1_1ASocket.html#a50cace88b622aa442d901434ecc33bd8" title="Check the socket state for read, write, or exception." alt="" coords="235,5,416,45"/>
+<area shape="poly" title=" " alt="" coords="187,23,221,23,221,28,187,28"/>
+</map>
+</div>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -499,6 +635,10 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ASocket_8hpp_source.html#l00087">87</a> of file <a class="el" href="ASocket_8hpp_source.html">ASocket.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="ASocket_8cpp_source.html#l00078">bindSock()</a>.</p>
+
 </div>
 </div>
 <a id="a98cc1b369dd9afea0f122e6f07c41caa" name="a98cc1b369dd9afea0f122e6f07c41caa"></a>
@@ -521,11 +661,15 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ASocket_8hpp_source.html#l00086">86</a> of file <a class="el" href="ASocket_8hpp_source.html">ASocket.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="TCPSocket_8cpp_source.html#l00041">Network::TransportLayer::TCPSocket::acceptClient()</a>, <a class="el" href="ASocket_8cpp_source.html#l00014">ASocket()</a>, <a class="el" href="TCPSocket_8cpp_source.html#l00027">Network::TransportLayer::TCPSocket::bindAndListen()</a>, <a class="el" href="ASocket_8cpp_source.html#l00078">bindSock()</a>, <a class="el" href="ASocket_8cpp_source.html#l00028">closeSocket()</a>, <a class="el" href="TCPSocket_8cpp_source.html#l00012">Network::TransportLayer::TCPSocket::connectTo()</a>, <a class="el" href="ASocket_8hpp_source.html#l00037">getSocketFd()</a>, <a class="el" href="ASocket_8cpp_source.html#l00096">readByte()</a>, <a class="el" href="UDPSocket_8cpp_source.html#l00035">Network::TransportLayer::UDPSocket::readByte()</a>, <a class="el" href="ASocket_8cpp_source.html#l00039">sockState()</a>, <a class="el" href="ASocket_8cpp_source.html#l00087">writeByte()</a>, and <a class="el" href="UDPSocket_8cpp_source.html#l00017">Network::TransportLayer::UDPSocket::writeByte()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>Network/TransportLayer/<a class="el" href="ASocket_8hpp_source.html">ASocket.hpp</a></li>
-<li>Network/TransportLayer/<a class="el" href="ASocket_8cpp.html">ASocket.cpp</a></li>
+<li>Network/TransportLayer/<a class="el" href="ASocket_8cpp_source.html">ASocket.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

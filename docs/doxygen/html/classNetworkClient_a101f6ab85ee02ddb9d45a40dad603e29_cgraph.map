@@ -1,0 +1,9 @@
+<map id="NetworkClient::readUdpPacket" name="NetworkClient::readUdpPacket">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,55,225,80"/>
+<area shape="rect" id="Node000002" href="$classPacket.html#abfcd427a2ca434ac71592334517638fb" title="Deserialize a packet from a raw byte buffer." alt="" coords="299,5,442,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,52,290,31,291,36,182,57"/>
+<area shape="rect" id="Node000003" href="$classNetworkClient.html#aaf60f1216a17b46ad12539625a1022c2" title=" " alt="" coords="286,55,455,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="226,65,272,65,272,70,226,70"/>
+<area shape="rect" id="Node000004" href="$classNetworkClient.html#a36892dcdc8c2523b27947a347ea16022" title=" " alt="" coords="273,105,468,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="173,77,268,99,267,104,172,83"/>
+</map>

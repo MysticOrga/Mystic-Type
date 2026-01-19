@@ -1,0 +1,11 @@
+<map id="NetworkClient::sendCreateLobby" name="NetworkClient::sendCreateLobby">
+<area shape="rect" id="Node000001" title="Ask the server to create a private lobby." alt="" coords="5,23,203,63"/>
+<area shape="rect" id="Node000002" href="$classNetworkClient.html#af150c1b7e0aa8c19cb337fb838479324" title=" " alt="" coords="251,31,468,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,41,237,41,237,46,203,46"/>
+<area shape="rect" id="Node000003" href="$namespaceProtocol.html#a668bdeed219432868fca095e1b2f2667" title="Build a TCP framed buffer (2 bytes length + serialized packet)." alt="" coords="531,5,674,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="468,29,517,24,518,29,469,35"/>
+<area shape="rect" id="Node000005" href="$classNetworkClient.html#a844f1f20acd0958f264c7bb67e18d111" title=" " alt="" coords="516,55,689,80"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="469,51,503,55,502,60,468,57"/>
+<area shape="rect" id="Node000004" href="$classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="737,5,864,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="675,15,724,15,724,21,675,21"/>
+</map>

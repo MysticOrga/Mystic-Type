@@ -1,0 +1,7 @@
+<map id="SessionManager::resetCounter" name="SessionManager::resetCounter">
+<area shape="rect" id="Node000001" title=" " alt="" coords="263,31,484,56"/>
+<area shape="rect" id="Node000002" href="$classSessionManager.html#a42975fcc09128c293815d29f3d72c5b7" title="Rate&#45;limit input packets per second." alt="" coords="7,5,213,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="249,34,213,31,213,25,249,29"/>
+<area shape="rect" id="Node000003" href="$classSessionManager.html#a3b6210717467960e603c7308ead2a23a" title="Rate&#45;limit shoot packets per second." alt="" coords="5,55,215,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="249,57,215,60,215,55,249,52"/>
+</map>

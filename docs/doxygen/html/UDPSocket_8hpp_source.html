@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -108,45 +109,96 @@ $(document).ready(function(){initNavTree('UDPSocket_8hpp_source.html',''); initR
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define UDPSOCKET_HPP_</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;../ASocket.hpp&quot;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"></span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * @namespace Network::TransportLayer</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * @brief Namespace for network transport layer components</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> */</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceNetwork_1_1TransportLayer.html">Network::TransportLayer</a></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{<span class="comment"></span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">     * @brief UDP Socket class inheriting from ASocket</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">     */</span></div>
 <div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html">   23</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html">UDPSocket</a> : <span class="keyword">public</span> <a class="code hl_class" href="classNetwork_1_1TransportLayer_1_1ASocket.html">ASocket</a></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">        /**</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">         * @brief Construct a new UDPSocket object</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">         */</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a548052ba8e2a8caaf20a60ff8b73134d">   30</a></span>        <a class="code hl_function" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a548052ba8e2a8caaf20a60ff8b73134d">UDPSocket</a>() : <a class="code hl_class" href="classNetwork_1_1TransportLayer_1_1ASocket.html">ASocket</a>(AF_INET, SOCK_DGRAM, IPPROTO_UDP) {};</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"></span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">        /**</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">         * @brief Destroy the UDPSocket object</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">         */</span></div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a9f6597ae59850819906da42dfae01173">   36</a></span>        <a class="code hl_function" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a9f6597ae59850819906da42dfae01173">~UDPSocket</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"></span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">        /**</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">         * @brief Write bytes to the UDP socket</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">         * @param data Data to write</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">         * @param size Number of bytes to write</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">         * @return ssize_t Number of bytes written, or -1 on error</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">         */</span></div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        ssize_t <a class="code hl_function" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a887cf24e71c890759f907c074f5b3505">writeByte</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *data, std::size_t size) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"></span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">        /**</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">         * @brief Write bytes to the UDP socket to a specific address</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">         * @param data Data to write</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">         * @param size Number of bytes to write</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">         * @param destAddr Destination address to send data to</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">         * @return ssize_t Number of bytes written, or -1 on error</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">         */</span></div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a1d5b406ab44c0523c8bb7db44eee59a0">   55</a></span>        ssize_t <a class="code hl_function" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a1d5b406ab44c0523c8bb7db44eee59a0">writeByte</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>*data, std::size_t size, <span class="keyword">const</span> sockaddr_in &amp;destAddr);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"></span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">        /**</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">         * @brief Read bytes from the UDP socket</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">         * @param buffer Buffer to store the read data</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">         * @param size Number of bytes to read</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">         * @return ssize_t Number of bytes read, or -1 on error</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">         */</span></div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        ssize_t <a class="code hl_function" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a34b53ce1224f81fc6809a24412854294">readByte</a>(<span class="keywordtype">char</span> *buffer, std::size_t size) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a429dc0b0e539ab051d785b7145e42bf7">   71</a></span>        <span class="keyword">inline</span> sockaddr_in <a class="code hl_function" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a429dc0b0e539ab051d785b7145e42bf7">getSenderAddr</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _senderAddr; }</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"></span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">        /**</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">         * @brief Get the sender address of the last received packet</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">         * @return struct sockaddr_in The sender&#39;s address</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a429dc0b0e539ab051d785b7145e42bf7">   71</a></span>        <span class="keyword">inline</span> sockaddr_in <a class="code hl_function" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a429dc0b0e539ab051d785b7145e42bf7">getSenderAddr</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a8cb227a0a16480a39a6dfe532e5d2d5f">_senderAddr</a>; }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"></span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">        /**</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">         * @brief Bind the UDP socket to a port/address</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">         * @param port Port to bind to</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">         * @param address Address (default INADDR_ANY)</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">         * @return true on success, false otherwise</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">         */</span></div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a4972fa36f907bdcdae38d7d551f34e8b">bindTo</a>(std::uint16_t port, std::uint32_t address = INADDR_ANY);</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        sockaddr_in _senderAddr;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a8cb227a0a16480a39a6dfe532e5d2d5f">   84</a></span>        sockaddr_in <a class="code hl_variable" href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a8cb227a0a16480a39a6dfe532e5d2d5f">_senderAddr</a>;</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    };</div>
 </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="preprocessor">#endif </span><span class="comment">/* !UDPSOCKET_HPP_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1ASocket_html"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1ASocket.html">Network::TransportLayer::ASocket</a></div><div class="ttdef"><b>Definition</b> ASocket.hpp:15</div></div>
-<div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1UDPSocket_html"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1UDPSocket.html">Network::TransportLayer::UDPSocket</a></div><div class="ttdoc">UDP Socket class inheriting from ASocket.</div><div class="ttdef"><b>Definition</b> UDPSocket.hpp:24</div></div>
+<div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1ASocket_html"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1ASocket.html">Network::TransportLayer::ASocket</a></div><div class="ttdef"><b>Definition</b> <a href="ASocket_8hpp_source.html#l00014">ASocket.hpp:15</a></div></div>
+<div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1UDPSocket_html"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1UDPSocket.html">Network::TransportLayer::UDPSocket</a></div><div class="ttdoc">UDP Socket class inheriting from ASocket.</div><div class="ttdef"><b>Definition</b> <a href="UDPSocket_8hpp_source.html#l00023">UDPSocket.hpp:24</a></div></div>
 <div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1UDPSocket_html_a1d5b406ab44c0523c8bb7db44eee59a0"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a1d5b406ab44c0523c8bb7db44eee59a0">Network::TransportLayer::UDPSocket::writeByte</a></div><div class="ttdeci">ssize_t writeByte(const char *data, std::size_t size, const sockaddr_in &amp;destAddr)</div><div class="ttdoc">Write bytes to the UDP socket to a specific address.</div></div>
-<div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1UDPSocket_html_a34b53ce1224f81fc6809a24412854294"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a34b53ce1224f81fc6809a24412854294">Network::TransportLayer::UDPSocket::readByte</a></div><div class="ttdeci">ssize_t readByte(char *buffer, std::size_t size) override</div><div class="ttdoc">Read bytes from the UDP socket.</div><div class="ttdef"><b>Definition</b> UDPSocket.cpp:35</div></div>
-<div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1UDPSocket_html_a429dc0b0e539ab051d785b7145e42bf7"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a429dc0b0e539ab051d785b7145e42bf7">Network::TransportLayer::UDPSocket::getSenderAddr</a></div><div class="ttdeci">sockaddr_in getSenderAddr() const</div><div class="ttdoc">Get the sender address of the last received packet.</div><div class="ttdef"><b>Definition</b> UDPSocket.hpp:71</div></div>
-<div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1UDPSocket_html_a4972fa36f907bdcdae38d7d551f34e8b"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a4972fa36f907bdcdae38d7d551f34e8b">Network::TransportLayer::UDPSocket::bindTo</a></div><div class="ttdeci">bool bindTo(std::uint16_t port, std::uint32_t address=INADDR_ANY)</div><div class="ttdoc">Bind the UDP socket to a port/address.</div><div class="ttdef"><b>Definition</b> UDPSocket.cpp:12</div></div>
-<div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1UDPSocket_html_a548052ba8e2a8caaf20a60ff8b73134d"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a548052ba8e2a8caaf20a60ff8b73134d">Network::TransportLayer::UDPSocket::UDPSocket</a></div><div class="ttdeci">UDPSocket()</div><div class="ttdoc">Construct a new UDPSocket object.</div><div class="ttdef"><b>Definition</b> UDPSocket.hpp:30</div></div>
-<div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1UDPSocket_html_a887cf24e71c890759f907c074f5b3505"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a887cf24e71c890759f907c074f5b3505">Network::TransportLayer::UDPSocket::writeByte</a></div><div class="ttdeci">ssize_t writeByte(const char *data, std::size_t size) override</div><div class="ttdoc">Write bytes to the UDP socket.</div><div class="ttdef"><b>Definition</b> UDPSocket.cpp:17</div></div>
+<div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1UDPSocket_html_a34b53ce1224f81fc6809a24412854294"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a34b53ce1224f81fc6809a24412854294">Network::TransportLayer::UDPSocket::readByte</a></div><div class="ttdeci">ssize_t readByte(char *buffer, std::size_t size) override</div><div class="ttdoc">Read bytes from the UDP socket.</div><div class="ttdef"><b>Definition</b> <a href="UDPSocket_8cpp_source.html#l00035">UDPSocket.cpp:35</a></div></div>
+<div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1UDPSocket_html_a429dc0b0e539ab051d785b7145e42bf7"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a429dc0b0e539ab051d785b7145e42bf7">Network::TransportLayer::UDPSocket::getSenderAddr</a></div><div class="ttdeci">sockaddr_in getSenderAddr() const</div><div class="ttdoc">Get the sender address of the last received packet.</div><div class="ttdef"><b>Definition</b> <a href="UDPSocket_8hpp_source.html#l00071">UDPSocket.hpp:71</a></div></div>
+<div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1UDPSocket_html_a4972fa36f907bdcdae38d7d551f34e8b"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a4972fa36f907bdcdae38d7d551f34e8b">Network::TransportLayer::UDPSocket::bindTo</a></div><div class="ttdeci">bool bindTo(std::uint16_t port, std::uint32_t address=INADDR_ANY)</div><div class="ttdoc">Bind the UDP socket to a port/address.</div><div class="ttdef"><b>Definition</b> <a href="UDPSocket_8cpp_source.html#l00012">UDPSocket.cpp:12</a></div></div>
+<div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1UDPSocket_html_a548052ba8e2a8caaf20a60ff8b73134d"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a548052ba8e2a8caaf20a60ff8b73134d">Network::TransportLayer::UDPSocket::UDPSocket</a></div><div class="ttdeci">UDPSocket()</div><div class="ttdoc">Construct a new UDPSocket object.</div><div class="ttdef"><b>Definition</b> <a href="UDPSocket_8hpp_source.html#l00030">UDPSocket.hpp:30</a></div></div>
+<div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1UDPSocket_html_a887cf24e71c890759f907c074f5b3505"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a887cf24e71c890759f907c074f5b3505">Network::TransportLayer::UDPSocket::writeByte</a></div><div class="ttdeci">ssize_t writeByte(const char *data, std::size_t size) override</div><div class="ttdoc">Write bytes to the UDP socket.</div><div class="ttdef"><b>Definition</b> <a href="UDPSocket_8cpp_source.html#l00017">UDPSocket.cpp:17</a></div></div>
+<div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1UDPSocket_html_a8cb227a0a16480a39a6dfe532e5d2d5f"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a8cb227a0a16480a39a6dfe532e5d2d5f">Network::TransportLayer::UDPSocket::_senderAddr</a></div><div class="ttdeci">sockaddr_in _senderAddr</div><div class="ttdef"><b>Definition</b> <a href="UDPSocket_8hpp_source.html#l00084">UDPSocket.hpp:84</a></div></div>
 <div class="ttc" id="aclassNetwork_1_1TransportLayer_1_1UDPSocket_html_a9f6597ae59850819906da42dfae01173"><div class="ttname"><a href="classNetwork_1_1TransportLayer_1_1UDPSocket.html#a9f6597ae59850819906da42dfae01173">Network::TransportLayer::UDPSocket::~UDPSocket</a></div><div class="ttdeci">~UDPSocket()=default</div><div class="ttdoc">Destroy the UDPSocket object.</div></div>
-<div class="ttc" id="anamespaceNetwork_1_1TransportLayer_html"><div class="ttname"><a href="namespaceNetwork_1_1TransportLayer.html">Network::TransportLayer</a></div><div class="ttdoc">Namespace for network transport layer components.</div><div class="ttdef"><b>Definition</b> ASocket.cpp:13</div></div>
+<div class="ttc" id="anamespaceNetwork_1_1TransportLayer_html"><div class="ttname"><a href="namespaceNetwork_1_1TransportLayer.html">Network::TransportLayer</a></div><div class="ttdoc">Namespace for network transport layer components.</div><div class="ttdef"><b>Definition</b> <a href="ASocket_8cpp_source.html#l00012">ASocket.cpp:13</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

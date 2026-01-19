@@ -1,0 +1,7 @@
+<map id="UDPGameServer::updateSimulation" name="UDPGameServer::updateSimulation">
+<area shape="rect" id="Node000001" title="Advance the local simulation based on elapsed time." alt="" coords="5,31,260,56"/>
+<area shape="rect" id="Node000002" href="$classUDPGameServer.html#a04aa4dac3d2e7571a2d092c0a37e75ef" title="Monotonic time helper in milliseconds." alt="" coords="308,5,493,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="260,29,294,25,294,31,260,34"/>
+<area shape="rect" id="Node000003" href="$classIpcChannel.html#a35498032e830b79724747de4e7b6ca1b" title="Send a text message (limited to 1024 bytes)." alt="" coords="334,55,467,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="260,52,321,58,320,63,260,57"/>
+</map>

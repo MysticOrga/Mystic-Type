@@ -1,0 +1,16 @@
+<map id="NetworkClient::getLobbyCode" name="NetworkClient::getLobbyCode">
+<area shape="rect" id="Node000001" title="Get current lobby code." alt="" coords="773,31,989,56"/>
+<area shape="rect" id="Node000002" href="$classGraphicClient.html#ab0acd8f5b8996cc62295831d7af1cf59" title="Renders the entire game scene." alt="" coords="547,5,707,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="759,34,707,29,708,23,760,29"/>
+<area shape="rect" id="Node000006" href="$classGraphicClient.html#a70229e3e019e7b315f06c9ad74f23be5" title="Shows lobby selection menu." alt="" coords="529,55,725,80"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="760,57,726,61,725,55,759,52"/>
+<area shape="rect" id="Node000003" href="$classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,5,481,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="534,21,482,21,482,15,534,15"/>
+<area shape="rect" id="Node000004" href="$classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,31,247,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="281,34,247,38,247,32,280,28"/>
+<area shape="rect" id="Node000005" href="$client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,31,60,56"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="94,46,60,46,60,41,94,41"/>
+<area shape="rect" id="Node000007" href="$classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="319,55,457,80"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="515,70,458,70,458,65,515,65"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="305,61,247,54,247,49,305,55"/>
+</map>

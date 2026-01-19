@@ -1,0 +1,18 @@
+<map id="NetworkClient::clearEvents" name="NetworkClient::clearEvents">
+<area shape="rect" id="Node000001" title="Clear queued events." alt="" coords="800,66,999,91"/>
+<area shape="rect" id="Node000002" href="$classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="295,37,481,62"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="863,62,811,38,751,20,690,10,641,9,530,20,480,28,434,39,433,34,479,23,529,15,641,3,690,5,753,15,813,34,865,57"/>
+<area shape="rect" id="Node000005" href="$classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="319,94,457,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="786,88,458,106,457,100,786,82"/>
+<area shape="rect" id="Node000006" href="$classGraphicClient.html#a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" title="Processes network events and updates game state." alt="" coords="529,29,752,69"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="786,69,752,65,753,59,786,63"/>
+<area shape="rect" id="Node000007" href="$classGraphicClient.html#a70229e3e019e7b315f06c9ad74f23be5" title="Shows lobby selection menu." alt="" coords="543,145,739,170"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="847,98,753,128,688,147,686,142,751,123,845,93"/>
+<area shape="rect" id="Node000003" href="$classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,66,247,91"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="284,67,247,72,247,66,283,61"/>
+<area shape="rect" id="Node000004" href="$client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,66,60,91"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,81,60,81,60,76,94,76"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="304,98,247,91,247,85,305,93"/>
+<area shape="poly" id="edge7_Node000006_Node000002" title=" " alt="" coords="516,52,481,52,481,47,516,47"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="562,144,451,122,452,117,563,139"/>
+</map>

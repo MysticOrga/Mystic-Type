@@ -1,0 +1,15 @@
+<map id="GameWorld::tick" name="GameWorld::tick">
+<area shape="rect" id="Node000001" title="Advance simulation." alt="" coords="5,129,136,155"/>
+<area shape="rect" id="Node000002" href="$classGameWorld.html#acbdde5eb929528699e8176ec57779ec7" title=" " alt="" coords="230,5,390,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="80,127,122,84,151,60,183,40,215,27,217,32,185,44,154,64,125,88,84,131"/>
+<area shape="rect" id="Node000003" href="$classGameWorld.html#a6af008239b30629fad73ae657465d37e" title=" " alt="" coords="199,55,421,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="95,127,135,107,183,89,214,80,215,86,185,94,137,112,97,132"/>
+<area shape="rect" id="Node000004" href="$classGameWorld.html#a98daebdd5931cf333037bc3891b16794" title=" " alt="" coords="221,104,399,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="136,132,207,125,208,130,136,138"/>
+<area shape="rect" id="Node000005" href="$classGameWorld.html#ac1835fdf3232458197a2c81a1a0c5e02" title=" " alt="" coords="201,153,419,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="136,146,188,151,187,156,136,151"/>
+<area shape="rect" id="Node000006" href="$classGameWorld.html#a3bf3aa2e665bed5c7e5c87f6f482ae97" title=" " alt="" coords="209,203,411,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="99,152,139,170,185,187,221,197,220,202,183,193,137,175,97,157"/>
+<area shape="rect" id="Node000007" href="$classGameWorld.html#a0bb6ed054b809cc92573fd87850ac468" title=" " alt="" coords="184,252,436,277"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="85,153,126,195,154,218,185,237,206,245,204,250,183,242,151,222,122,199,81,157"/>
+</map>

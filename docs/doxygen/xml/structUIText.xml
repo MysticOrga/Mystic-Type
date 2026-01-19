@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structUIText" kind="struct" language="C++" prot="public">
+    <compoundname>UIText</compoundname>
+    <includes refid="Components_8hpp" local="no">graphical-client/ecs/Components.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structUIText_1ab4921f36a8c049f9775257bac9fc91a0" prot="public" static="no" mutable="no">
+        <type>Vector2</type>
+        <definition>Vector2 UIText::pos</definition>
+        <argsstring></argsstring>
+        <name>pos</name>
+        <qualifiedname>UIText::pos</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Text position </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="146" column="13" bodyfile="graphical-client/ecs/Components.hpp" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structUIText_1a1ae925f8a22a3f812b36b321af8c154b" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string UIText::text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <qualifiedname>UIText::text</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Text content </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="147" column="17" bodyfile="graphical-client/ecs/Components.hpp" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structUIText_1a3849157cea759042062b3fb1c5c1b8f8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int UIText::fontSize</definition>
+        <argsstring></argsstring>
+        <name>fontSize</name>
+        <qualifiedname>UIText::fontSize</qualifiedname>
+        <initializer>= 22</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Font size </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="148" column="9" bodyfile="graphical-client/ecs/Components.hpp" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structUIText_1a1c285eda38720ce4f2354c85eceec54a" prot="public" static="no" mutable="no">
+        <type>Color</type>
+        <definition>Color UIText::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <qualifiedname>UIText::color</qualifiedname>
+        <initializer>{230, 230, 230, 255}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Text color </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/ecs/Components.hpp" line="149" column="11" bodyfile="graphical-client/ecs/Components.hpp" bodystart="149" bodyend="149"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Component for UI text elements. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Represents text displayed in the user interface. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>UIText</label>
+        <link refid="structUIText"/>
+      </node>
+    </collaborationgraph>
+    <location file="graphical-client/ecs/Components.hpp" line="145" column="1" bodyfile="graphical-client/ecs/Components.hpp" bodystart="145" bodyend="150"/>
+    <listofallmembers>
+      <member refid="structUIText_1a1c285eda38720ce4f2354c85eceec54a" prot="public" virt="non-virtual"><scope>UIText</scope><name>color</name></member>
+      <member refid="structUIText_1a3849157cea759042062b3fb1c5c1b8f8" prot="public" virt="non-virtual"><scope>UIText</scope><name>fontSize</name></member>
+      <member refid="structUIText_1ab4921f36a8c049f9775257bac9fc91a0" prot="public" virt="non-virtual"><scope>UIText</scope><name>pos</name></member>
+      <member refid="structUIText_1a1ae925f8a22a3f812b36b321af8c154b" prot="public" virt="non-virtual"><scope>UIText</scope><name>text</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

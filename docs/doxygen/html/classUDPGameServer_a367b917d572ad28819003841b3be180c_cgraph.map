@@ -1,0 +1,21 @@
+<map id="UDPGameServer::handleHello" name="UDPGameServer::handleHello">
+<area shape="rect" id="Node000001" title="Register a new player on receipt of a hello message." alt="" coords="5,169,223,194"/>
+<area shape="rect" id="Node000002" href="$classGameWorld.html#a9a877bcf4eed6527b0896242463a3dfa" title="Build a UDP snapshot packet of current world state." alt="" coords="285,5,483,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,166,185,113,225,82,269,55,285,48,287,53,272,60,228,86,188,117,130,170"/>
+<area shape="rect" id="Node000003" href="$classSessionManager.html#a48995915db3b90fa7228d357d6293163" title="Lookup a session by player id." alt="" coords="280,70,488,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="137,166,196,135,270,104,297,96,298,101,272,109,198,140,139,171"/>
+<area shape="rect" id="Node000004" href="$classUDPGameServer.html#ae610b7c128c3b70e06f3fc1b5a3ecdc5" title=" " alt="" coords="286,119,482,145"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="184,166,300,145,301,150,185,171"/>
+<area shape="rect" id="Node000005" href="$classGameWorld.html#aaebb0cdb6bcf4382893ce438832db63e" title="Register a player on HELLO_UDP." alt="" coords="285,169,483,194"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="223,179,272,179,272,184,223,184"/>
+<area shape="rect" id="Node000006" href="$classUDPGameServer.html#a602889e958a3ff926bb8de325c982a62" title="Send a packet to a single endpoint." alt="" coords="271,218,497,243"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="185,191,301,213,300,218,184,197"/>
+<area shape="rect" id="Node000009" href="$classGameWorld.html#a163fb2fed54650ebba995df1e64c39db" title="Prefix used in log output." alt="" coords="291,267,477,293"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="139,192,198,223,272,253,298,261,297,267,270,259,196,227,137,197"/>
+<area shape="rect" id="Node000010" href="$classSessionManager.html#af2596853b8042076df0c1022468eaec3" title="Register the client&#39;s UDP address." alt="" coords="277,317,491,342"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="129,192,187,246,227,277,272,303,289,310,287,315,269,308,225,282,184,251,125,196"/>
+<area shape="rect" id="Node000007" href="$classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="573,190,699,215"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="497,215,558,209,559,214,498,221"/>
+<area shape="rect" id="Node000008" href="$classNetwork_1_1TransportLayer_1_1UDPSocket.html#a887cf24e71c890759f907c074f5b3505" title="Write bytes to the UDP socket." alt="" coords="545,240,727,280"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="494,241,532,245,531,251,493,246"/>
+</map>

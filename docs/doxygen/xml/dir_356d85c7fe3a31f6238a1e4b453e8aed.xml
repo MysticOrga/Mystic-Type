@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_356d85c7fe3a31f6238a1e4b453e8aed" kind="dir">
+    <compoundname>Network</compoundname>
+    <innerdir refid="dir_d60dc096aec6cde32ff3e3dc1cdf78ea">Network/Client</innerdir>
+    <innerdir refid="dir_8caf3a053e0342ebb07dad232101334b">Network/TransportLayer</innerdir>
+    <innerfile refid="SessionManager_8cpp">SessionManager.cpp</innerfile>
+    <innerfile refid="SessionManager_8hpp">SessionManager.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Network/"/>
+  </compounddef>
+</doxygen>

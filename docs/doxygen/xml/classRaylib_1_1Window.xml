@@ -1,0 +1,303 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classRaylib_1_1Window" kind="class" language="C++" prot="public">
+    <compoundname>Raylib::Window</compoundname>
+    <includes refid="Raylib_8hpp" local="no">graphical-client/Raylib/Raylib.hpp</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRaylib_1_1Window_1af45dda5ebdfd6ff46ed81d21ab167a39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Raylib::Window::Window</definition>
+        <argsstring>(int width, int height, const std::string &amp;title)</argsstring>
+        <name>Window</name>
+        <qualifiedname>Raylib::Window::Window</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>title</declname>
+        </param>
+        <briefdescription>
+<para>Creates a <ref refid="namespaceRaylib" kindref="compound">Raylib</ref> window. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>width</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classRaylib_1_1Window" kindref="compound">Window</ref> width in pixels. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>height</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classRaylib_1_1Window" kindref="compound">Window</ref> height in pixels. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>title</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classRaylib_1_1Window" kindref="compound">Window</ref> title string. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="42" column="9" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="12" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Window_1aa168b688c5ae5030e8a9320eb3b80c5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Raylib::Window::~Window</definition>
+        <argsstring>()</argsstring>
+        <name>~Window</name>
+        <qualifiedname>Raylib::Window::~Window</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="43" column="9" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="16" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Window_1ac0d6cca8b53645743f06c2e453624938" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Raylib::Window::shouldClose</definition>
+        <argsstring>() const</argsstring>
+        <name>shouldClose</name>
+        <qualifiedname>Raylib::Window::shouldClose</qualifiedname>
+        <briefdescription>
+<para>Checks if window should close. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if close was requested, false otherwise. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="49" column="14" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="22" bodyend="22"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">GraphicClient::gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">GraphicClient::run</referencedby>
+        <referencedby refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" compoundref="GraphicClient_8cpp" startline="1007" endline="1230">GraphicClient::selectMainMenu</referencedby>
+        <referencedby refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" compoundref="GraphicClient_8cpp" startline="679" endline="752">GraphicClient::selectPseudo</referencedby>
+        <referencedby refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" compoundref="GraphicClient_8cpp" startline="1328" endline="1574">GraphicClient::selectSettings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Window_1a5ffde9c5ef03a0b1eb1f8d8280403d43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Raylib::Window::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <qualifiedname>Raylib::Window::close</qualifiedname>
+        <briefdescription>
+<para>Closes the window. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="54" column="14" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Window_1a0d93c896921575743b097baa6d66a6b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Raylib::Window::beginDrawing</definition>
+        <argsstring>()</argsstring>
+        <name>beginDrawing</name>
+        <qualifiedname>Raylib::Window::beginDrawing</qualifiedname>
+        <briefdescription>
+<para>Begins drawing frame. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="59" column="14" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="24" bodyend="24"/>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">GraphicClient::render</referencedby>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+        <referencedby refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" compoundref="GraphicClient_8cpp" startline="1007" endline="1230">GraphicClient::selectMainMenu</referencedby>
+        <referencedby refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" compoundref="GraphicClient_8cpp" startline="679" endline="752">GraphicClient::selectPseudo</referencedby>
+        <referencedby refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" compoundref="GraphicClient_8cpp" startline="1328" endline="1574">GraphicClient::selectSettings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Window_1a9692f845607bfbb28fb4e889ea0d3b37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Raylib::Window::endDrawing</definition>
+        <argsstring>()</argsstring>
+        <name>endDrawing</name>
+        <qualifiedname>Raylib::Window::endDrawing</qualifiedname>
+        <briefdescription>
+<para>Ends drawing frame and displays it. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="64" column="14" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="25" bodyend="25"/>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">GraphicClient::render</referencedby>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+        <referencedby refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" compoundref="GraphicClient_8cpp" startline="1007" endline="1230">GraphicClient::selectMainMenu</referencedby>
+        <referencedby refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" compoundref="GraphicClient_8cpp" startline="679" endline="752">GraphicClient::selectPseudo</referencedby>
+        <referencedby refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" compoundref="GraphicClient_8cpp" startline="1328" endline="1574">GraphicClient::selectSettings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Window_1ab5db70ee0a095180020beaa8f134247d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Raylib::Window::clearBackground</definition>
+        <argsstring>(Color color)</argsstring>
+        <name>clearBackground</name>
+        <qualifiedname>Raylib::Window::clearBackground</qualifiedname>
+        <param>
+          <type>Color</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+<para>Clears background with specified color. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>color</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Clear color. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="70" column="14" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="26" bodyend="26"/>
+        <referencedby refid="classGraphicClient_1ab72f007713bd3d5074c566a425c0d9b1" compoundref="GraphicClient_8cpp" startline="754" endline="772">GraphicClient::drawGameBackground</referencedby>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+        <referencedby refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" compoundref="GraphicClient_8cpp" startline="1007" endline="1230">GraphicClient::selectMainMenu</referencedby>
+        <referencedby refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" compoundref="GraphicClient_8cpp" startline="679" endline="752">GraphicClient::selectPseudo</referencedby>
+        <referencedby refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" compoundref="GraphicClient_8cpp" startline="1328" endline="1574">GraphicClient::selectSettings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Window_1a31a4f1d19b906283532f3d904f5c8fd4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Raylib::Window::getWidth</definition>
+        <argsstring>() const</argsstring>
+        <name>getWidth</name>
+        <qualifiedname>Raylib::Window::getWidth</qualifiedname>
+        <briefdescription>
+<para>Gets window width. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Width in pixels. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="76" column="13" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="27" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Window_1a23bf2cf4127671525c4fb6d4a5f4d420" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int Raylib::Window::getHeight</definition>
+        <argsstring>() const</argsstring>
+        <name>getHeight</name>
+        <qualifiedname>Raylib::Window::getHeight</qualifiedname>
+        <briefdescription>
+<para>Gets window height. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Height in pixels. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="82" column="13" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Window_1a8a6eedeecb648b4c1527681a42727e15" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float Raylib::Window::getFrameTime</definition>
+        <argsstring>() const</argsstring>
+        <name>getFrameTime</name>
+        <qualifiedname>Raylib::Window::getFrameTime</qualifiedname>
+        <briefdescription>
+<para>Gets time delta since last frame. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Delta time in seconds. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="88" column="15" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="29" bodyend="29"/>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">GraphicClient::gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+        <referencedby refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" compoundref="GraphicClient_8cpp" startline="1007" endline="1230">GraphicClient::selectMainMenu</referencedby>
+        <referencedby refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" compoundref="GraphicClient_8cpp" startline="679" endline="752">GraphicClient::selectPseudo</referencedby>
+        <referencedby refid="classGraphicClient_1a349a93e6b861365d4aaa7d7cea0d9ccf" compoundref="GraphicClient_8cpp" startline="1328" endline="1574">GraphicClient::selectSettings</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classRaylib_1_1Window_1a3cc1b124c027948c7b0928a13ee065b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void Raylib::Window::setTargetFPS</definition>
+        <argsstring>(int fps)</argsstring>
+        <name>setTargetFPS</name>
+        <qualifiedname>Raylib::Window::setTargetFPS</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>fps</declname>
+        </param>
+        <briefdescription>
+<para>Sets target FPS (frames per second). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>fps</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Target framerate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Raylib/Raylib.hpp" line="94" column="14" bodyfile="graphical-client/Raylib/Raylib.cpp" bodystart="30" bodyend="30"/>
+        <referencedby refid="classGraphicClient_1aca385d0199520832fb464e03a8112dd5" compoundref="GraphicClient_8cpp" startline="20" endline="25">GraphicClient::GraphicClient</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Encapsulates <ref refid="namespaceRaylib" kindref="compound">Raylib</ref> window management. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Handles window creation, rendering, and lifecycle. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Raylib::Window</label>
+        <link refid="classRaylib_1_1Window"/>
+      </node>
+    </collaborationgraph>
+    <location file="graphical-client/Raylib/Raylib.hpp" line="34" column="5" bodyfile="graphical-client/Raylib/Raylib.hpp" bodystart="34" bodyend="95"/>
+    <listofallmembers>
+      <member refid="classRaylib_1_1Window_1a0d93c896921575743b097baa6d66a6b4" prot="public" virt="non-virtual"><scope>Raylib::Window</scope><name>beginDrawing</name></member>
+      <member refid="classRaylib_1_1Window_1ab5db70ee0a095180020beaa8f134247d" prot="public" virt="non-virtual"><scope>Raylib::Window</scope><name>clearBackground</name></member>
+      <member refid="classRaylib_1_1Window_1a5ffde9c5ef03a0b1eb1f8d8280403d43" prot="public" virt="non-virtual"><scope>Raylib::Window</scope><name>close</name></member>
+      <member refid="classRaylib_1_1Window_1a9692f845607bfbb28fb4e889ea0d3b37" prot="public" virt="non-virtual"><scope>Raylib::Window</scope><name>endDrawing</name></member>
+      <member refid="classRaylib_1_1Window_1a8a6eedeecb648b4c1527681a42727e15" prot="public" virt="non-virtual"><scope>Raylib::Window</scope><name>getFrameTime</name></member>
+      <member refid="classRaylib_1_1Window_1a23bf2cf4127671525c4fb6d4a5f4d420" prot="public" virt="non-virtual"><scope>Raylib::Window</scope><name>getHeight</name></member>
+      <member refid="classRaylib_1_1Window_1a31a4f1d19b906283532f3d904f5c8fd4" prot="public" virt="non-virtual"><scope>Raylib::Window</scope><name>getWidth</name></member>
+      <member refid="classRaylib_1_1Window_1a3cc1b124c027948c7b0928a13ee065b2" prot="public" virt="non-virtual"><scope>Raylib::Window</scope><name>setTargetFPS</name></member>
+      <member refid="classRaylib_1_1Window_1ac0d6cca8b53645743f06c2e453624938" prot="public" virt="non-virtual"><scope>Raylib::Window</scope><name>shouldClose</name></member>
+      <member refid="classRaylib_1_1Window_1af45dda5ebdfd6ff46ed81d21ab167a39" prot="public" virt="non-virtual"><scope>Raylib::Window</scope><name>Window</name></member>
+      <member refid="classRaylib_1_1Window_1aa168b688c5ae5030e8a9320eb3b80c5f" prot="public" virt="non-virtual"><scope>Raylib::Window</scope><name>~Window</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

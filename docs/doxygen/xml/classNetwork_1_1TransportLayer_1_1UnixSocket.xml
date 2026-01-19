@@ -1,0 +1,278 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNetwork_1_1TransportLayer_1_1UnixSocket" kind="class" language="C++" prot="public">
+    <compoundname>Network::TransportLayer::UnixSocket</compoundname>
+    <basecompoundref refid="classNetwork_1_1TransportLayer_1_1ASocket" prot="public" virt="non-virtual">Network::TransportLayer::ASocket</basecompoundref>
+    <includes refid="UnixSocket_8hpp" local="no">Network/TransportLayer/UNIX/UnixSocket.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNetwork_1_1TransportLayer_1_1UnixSocket_1a5ce10aa23c1a06d3ca8787c5d6db7f26" prot="private" static="no" mutable="no">
+        <type>sockaddr_un</type>
+        <definition>sockaddr_un Network::TransportLayer::UnixSocket::_addr</definition>
+        <argsstring></argsstring>
+        <name>_addr</name>
+        <qualifiedname>Network::TransportLayer::UnixSocket::_addr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UNIX/UnixSocket.hpp" line="97" column="17" bodyfile="Network/TransportLayer/UNIX/UnixSocket.hpp" bodystart="97" bodyend="-1"/>
+        <referencedby refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1aa0af0c2c6d70855370ea6742e50e41b5" compoundref="UnixSocket_8hpp" startline="69" endline="77">unink</referencedby>
+        <referencedby refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a1af981b253cbec410b4700f45d16f860" compoundref="UnixSocket_8cpp" startline="10" endline="18">UnixSocket</referencedby>
+        <referencedby refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1afa61938db07dee4b7bcd4f76e2fea0f0" compoundref="UnixSocket_8hpp" startline="44" endline="48">~UnixSocket</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetwork_1_1TransportLayer_1_1UnixSocket_1a557ad717853e93ea0206baf7efe657f4" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool Network::TransportLayer::UnixSocket::_linked</definition>
+        <argsstring></argsstring>
+        <name>_linked</name>
+        <qualifiedname>Network::TransportLayer::UnixSocket::_linked</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UNIX/UnixSocket.hpp" line="98" column="10" bodyfile="Network/TransportLayer/UNIX/UnixSocket.hpp" bodystart="98" bodyend="-1"/>
+        <referencedby refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a6cc9059163c78f09be4a57fe0ac7a8c6" compoundref="UnixSocket_8hpp" startline="58" endline="61">isLink</referencedby>
+        <referencedby refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1aa0af0c2c6d70855370ea6742e50e41b5" compoundref="UnixSocket_8hpp" startline="69" endline="77">unink</referencedby>
+        <referencedby refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a1af981b253cbec410b4700f45d16f860" compoundref="UnixSocket_8cpp" startline="10" endline="18">UnixSocket</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1UnixSocket_1ab78710f79a24f6c32b71f65af4e8f908" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Network::TransportLayer::UnixSocket::UnixSocket</definition>
+        <argsstring>()</argsstring>
+        <name>UnixSocket</name>
+        <qualifiedname>Network::TransportLayer::UnixSocket::UnixSocket</qualifiedname>
+        <briefdescription>
+<para>Construct a new Unix Socket object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UNIX/UnixSocket.hpp" line="28" column="5" bodyfile="Network/TransportLayer/UNIX/UnixSocket.hpp" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1UnixSocket_1a1af981b253cbec410b4700f45d16f860" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Network::TransportLayer::UnixSocket::UnixSocket</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>UnixSocket</name>
+        <qualifiedname>Network::TransportLayer::UnixSocket::UnixSocket</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Construct a new Unix Socket object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para></para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UNIX/UnixSocket.hpp" line="38" column="5" bodyfile="Network/TransportLayer/UNIX/UnixSocket.cpp" bodystart="10" bodyend="18"/>
+        <references refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a5ce10aa23c1a06d3ca8787c5d6db7f26" compoundref="UnixSocket_8hpp" startline="97">_addr</references>
+        <references refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a557ad717853e93ea0206baf7efe657f4" compoundref="UnixSocket_8hpp" startline="98">_linked</references>
+      </memberdef>
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1UnixSocket_1afa61938db07dee4b7bcd4f76e2fea0f0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Network::TransportLayer::UnixSocket::~UnixSocket</definition>
+        <argsstring>()</argsstring>
+        <name>~UnixSocket</name>
+        <qualifiedname>Network::TransportLayer::UnixSocket::~UnixSocket</qualifiedname>
+        <briefdescription>
+<para>Destroy the Unix Socket object. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UNIX/UnixSocket.hpp" line="44" column="12" bodyfile="Network/TransportLayer/UNIX/UnixSocket.hpp" bodystart="44" bodyend="48"/>
+        <references refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a5ce10aa23c1a06d3ca8787c5d6db7f26" compoundref="UnixSocket_8hpp" startline="97">_addr</references>
+      </memberdef>
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1UnixSocket_1a207cfb6db259da409456e6c4dce13692" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Network::TransportLayer::UnixSocket::setPath</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>setPath</name>
+        <qualifiedname>Network::TransportLayer::UnixSocket::setPath</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UNIX/UnixSocket.hpp" line="50" column="10" bodyfile="Network/TransportLayer/UNIX/UnixSocket.cpp" bodystart="20" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1UnixSocket_1a6cc9059163c78f09be4a57fe0ac7a8c6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Network::TransportLayer::UnixSocket::isLink</definition>
+        <argsstring>(void) const</argsstring>
+        <name>isLink</name>
+        <qualifiedname>Network::TransportLayer::UnixSocket::isLink</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Check if socket is linked to an unix socket. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true linked </para>
+</simplesect>
+<simplesect kind="return"><para>false not linked </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UNIX/UnixSocket.hpp" line="58" column="17" bodyfile="Network/TransportLayer/UNIX/UnixSocket.hpp" bodystart="58" bodyend="61"/>
+        <references refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a557ad717853e93ea0206baf7efe657f4" compoundref="UnixSocket_8hpp" startline="98">_linked</references>
+      </memberdef>
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1UnixSocket_1aa0af0c2c6d70855370ea6742e50e41b5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Network::TransportLayer::UnixSocket::unink</definition>
+        <argsstring>(void)</argsstring>
+        <name>unink</name>
+        <qualifiedname>Network::TransportLayer::UnixSocket::unink</qualifiedname>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>unlink socket path </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true succes </para>
+</simplesect>
+<simplesect kind="return"><para>false error </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UNIX/UnixSocket.hpp" line="69" column="17" bodyfile="Network/TransportLayer/UNIX/UnixSocket.hpp" bodystart="69" bodyend="77"/>
+        <references refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a5ce10aa23c1a06d3ca8787c5d6db7f26" compoundref="UnixSocket_8hpp" startline="97">_addr</references>
+        <references refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a557ad717853e93ea0206baf7efe657f4" compoundref="UnixSocket_8hpp" startline="98">_linked</references>
+      </memberdef>
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1UnixSocket_1a43306c350ec2b76dcdbce1d1391f7677" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Network::TransportLayer::UnixSocket::bind</definition>
+        <argsstring>()</argsstring>
+        <name>bind</name>
+        <qualifiedname>Network::TransportLayer::UnixSocket::bind</qualifiedname>
+        <briefdescription>
+<para>Bind Unix socket to file specified. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true bind succesfull </para>
+</simplesect>
+<simplesect kind="return"><para>false error happend </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UNIX/UnixSocket.hpp" line="85" column="10" bodyfile="Network/TransportLayer/UNIX/UnixSocket.cpp" bodystart="31" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classNetwork_1_1TransportLayer_1_1UnixSocket_1a22f15bf78074a9acd4a3016e0e7aab6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Network::TransportLayer::UnixSocket::connect</definition>
+        <argsstring>()</argsstring>
+        <name>connect</name>
+        <qualifiedname>Network::TransportLayer::UnixSocket::connect</qualifiedname>
+        <briefdescription>
+<para>Connect to a Unix socket. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>true connection success </para>
+</simplesect>
+<simplesect kind="return"><para>false error happen </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/UNIX/UnixSocket.hpp" line="93" column="10" bodyfile="Network/TransportLayer/UNIX/UnixSocket.cpp" bodystart="41" bodyend="49"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>Network::TransportLayer::ASocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1ASocket"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Network::TransportLayer::ISocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1ISocket"/>
+      </node>
+      <node id="1">
+        <label>Network::TransportLayer::UnixSocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1UnixSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>Network::TransportLayer::ASocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1ASocket"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>Network::TransportLayer::ISocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1ISocket"/>
+      </node>
+      <node id="1">
+        <label>Network::TransportLayer::UnixSocket</label>
+        <link refid="classNetwork_1_1TransportLayer_1_1UnixSocket"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="Network/TransportLayer/UNIX/UnixSocket.hpp" line="21" column="1" bodyfile="Network/TransportLayer/UNIX/UnixSocket.hpp" bodystart="22" bodyend="99"/>
+    <listofallmembers>
+      <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a5ce10aa23c1a06d3ca8787c5d6db7f26" prot="private" virt="non-virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>_addr</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a557ad717853e93ea0206baf7efe657f4" prot="private" virt="non-virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>_linked</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a98cc1b369dd9afea0f122e6f07c41caa" prot="protected" virt="non-virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>_socketFd</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1ae23454a39eaa82b8acf04d3e2b864e8d" prot="public" virt="non-virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>ASocket</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a43306c350ec2b76dcdbce1d1391f7677" prot="public" virt="non-virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>bind</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a65fa2f6ba45358b7a7776d14b0111756" prot="public" virt="non-virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>bindSock</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1afb543d4b49e71b180cfe2259c8c5093b" prot="public" virt="virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>closeSocket</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a22f15bf78074a9acd4a3016e0e7aab6d" prot="public" virt="non-virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>connect</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a65e51ed926d1ef000bf854a8e7fcd474" prot="public" virt="virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>getSocketFd</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a6cc9059163c78f09be4a57fe0ac7a8c6" prot="public" virt="non-virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>isLink</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a34da0184468795bb34afb8e7008a1ed3" prot="public" virt="virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>readByte</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a207cfb6db259da409456e6c4dce13692" prot="public" virt="non-virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>setPath</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1a50cace88b622aa442d901434ecc33bd8" prot="public" virt="virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>sockState</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1aa0af0c2c6d70855370ea6742e50e41b5" prot="public" virt="non-virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>unink</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1ab78710f79a24f6c32b71f65af4e8f908" prot="public" virt="non-virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>UnixSocket</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1a1af981b253cbec410b4700f45d16f860" prot="public" virt="non-virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>UnixSocket</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1ab5fcc3d62999cde65373dc40a1592943" prot="public" virt="virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>writeByte</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ASocket_1ae7ed622b5397311c5fa1126d2bab57d8" prot="public" virt="non-virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>~ASocket</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1ISocket_1a1bdb2519d4962eee6952af2d561ecaed" prot="public" virt="virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>~ISocket</name></member>
+      <member refid="classNetwork_1_1TransportLayer_1_1UnixSocket_1afa61938db07dee4b7bcd4f76e2fea0f0" prot="public" virt="non-virtual"><scope>Network::TransportLayer::UnixSocket</scope><name>~UnixSocket</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

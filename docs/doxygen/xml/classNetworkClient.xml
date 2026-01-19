@@ -1,0 +1,1708 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classNetworkClient" kind="class" language="C++" prot="public">
+    <compoundname>NetworkClient</compoundname>
+    <includes refid="NetworkClient_8hpp" local="no">Network/Client/NetworkClient.hpp</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="enum" id="classNetworkClient_1af897ec3417cf4dc121accb155d7320ee" prot="public" static="no" strong="yes">
+        <type>uint8_t</type>
+        <name>MoveCmd</name>
+        <qualifiedname>NetworkClient::MoveCmd</qualifiedname>
+        <enumvalue id="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea258f49887ef8d14ac268c92b02503aaa" prot="public">
+          <name>Up</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea08a38277b0309070706f6652eeae9a53" prot="public">
+          <name>Down</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea945d5e233cf7d6240f6b783b36a374ff" prot="public">
+          <name>Left</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classNetworkClient_1af897ec3417cf4dc121accb155d7320eea92b09c7c48c520c3c55e497875da437c" prot="public">
+          <name>Right</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Input directions for UDP INPUT packets. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="55" column="5" bodyfile="Network/Client/NetworkClient.hpp" bodystart="55" bodyend="55"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55" prot="private" static="no" strong="yes">
+        <type></type>
+        <name>RecvResult</name>
+        <qualifiedname>NetworkClient::RecvResult</qualifiedname>
+        <enumvalue id="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55aef70e46fd3bbc21e3e1f0b6815e750c0" prot="private">
+          <name>Disconnected</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55a4307e7e7986aa21a4b7c3ef2b5e948f6" prot="private">
+          <name>Incomplete</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55aa60852f204ed8028c1c58808b746d115" prot="private">
+          <name>Ok</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Result of a framed TCP receive attempt. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="175" column="5" bodyfile="Network/Client/NetworkClient.hpp" bodystart="175" bodyend="175"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classNetworkClient_1a18dce692aa54fd1e006744d59d097e5f" prot="private" static="no" mutable="no">
+        <type><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref></type>
+        <definition>socket_t NetworkClient::_tcpFd</definition>
+        <argsstring></argsstring>
+        <name>_tcpFd</name>
+        <qualifiedname>NetworkClient::_tcpFd</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="185" column="14" bodyfile="Network/Client/NetworkClient.hpp" bodystart="185" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1aaeedfac221d22aa5df4135b1680c4c99" compoundref="NetworkClient_8cpp" startline="36" endline="52">connectToServer</referencedby>
+        <referencedby refid="classNetworkClient_1a7f69f5c30fd349d670fae18598737b86" compoundref="NetworkClient_8cpp" startline="487" endline="500">disconnect</referencedby>
+        <referencedby refid="classNetworkClient_1a1f77ff0729755d9782b4542582cfe214" compoundref="NetworkClient_8cpp" startline="232" endline="273">pollPackets</referencedby>
+        <referencedby refid="classNetworkClient_1ab8fe1bfbcfc0f363bce00cb1dc2a2f88" compoundref="NetworkClient_8cpp" startline="472" endline="485">receiveTcpFramed</referencedby>
+        <referencedby refid="classNetworkClient_1af150c1b7e0aa8c19cb337fb838479324" compoundref="NetworkClient_8cpp" startline="186" endline="195">sendPacketTcp</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1afec94b5ac7dda0fc2b434261108f43ad" prot="private" static="no" mutable="no">
+        <type><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref></type>
+        <definition>socket_t NetworkClient::_udpFd</definition>
+        <argsstring></argsstring>
+        <name>_udpFd</name>
+        <qualifiedname>NetworkClient::_udpFd</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="186" column="14" bodyfile="Network/Client/NetworkClient.hpp" bodystart="186" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1a7f69f5c30fd349d670fae18598737b86" compoundref="NetworkClient_8cpp" startline="487" endline="500">disconnect</referencedby>
+        <referencedby refid="classNetworkClient_1a632c4eeb2d8086de97cd616b2be972cf" compoundref="NetworkClient_8cpp" startline="502" endline="509">disconnectUdp</referencedby>
+        <referencedby refid="classNetworkClient_1a0ea20f35b1cb3a917add14fc0bbc03af" compoundref="NetworkClient_8cpp" startline="511" endline="520">ensureUdp</referencedby>
+        <referencedby refid="classNetworkClient_1a1f77ff0729755d9782b4542582cfe214" compoundref="NetworkClient_8cpp" startline="232" endline="273">pollPackets</referencedby>
+        <referencedby refid="classNetworkClient_1a101f6ab85ee02ddb9d45a40dad603e29" compoundref="NetworkClient_8cpp" startline="218" endline="230">readUdpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a6c612ab362cc3e4ea8c94ebc2cddc4e6" compoundref="NetworkClient_8cpp" startline="197" endline="206">sendPacketUdp</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1aeef42eb1f64d0e680941ec6583bbbd44" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NetworkClient::_tcpConnected</definition>
+        <argsstring></argsstring>
+        <name>_tcpConnected</name>
+        <qualifiedname>NetworkClient::_tcpConnected</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="187" column="10" bodyfile="Network/Client/NetworkClient.hpp" bodystart="187" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1aaeedfac221d22aa5df4135b1680c4c99" compoundref="NetworkClient_8cpp" startline="36" endline="52">connectToServer</referencedby>
+        <referencedby refid="classNetworkClient_1a7f69f5c30fd349d670fae18598737b86" compoundref="NetworkClient_8cpp" startline="487" endline="500">disconnect</referencedby>
+        <referencedby refid="classNetworkClient_1a08e45bde82ce1fbc60128fd538b58078" compoundref="NetworkClient_8hpp" startline="112" endline="112">isConnected</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1afc9f1111f98037b27d3033e8d9118556" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NetworkClient::_udpConnected</definition>
+        <argsstring></argsstring>
+        <name>_udpConnected</name>
+        <qualifiedname>NetworkClient::_udpConnected</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="188" column="10" bodyfile="Network/Client/NetworkClient.hpp" bodystart="188" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1a7f69f5c30fd349d670fae18598737b86" compoundref="NetworkClient_8cpp" startline="487" endline="500">disconnect</referencedby>
+        <referencedby refid="classNetworkClient_1a632c4eeb2d8086de97cd616b2be972cf" compoundref="NetworkClient_8cpp" startline="502" endline="509">disconnectUdp</referencedby>
+        <referencedby refid="classNetworkClient_1a0ea20f35b1cb3a917add14fc0bbc03af" compoundref="NetworkClient_8cpp" startline="511" endline="520">ensureUdp</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1a11f8f91b9958ae221c08bf304fbfe31e" prot="private" static="no" mutable="no">
+        <type>sockaddr_in</type>
+        <definition>sockaddr_in NetworkClient::_tcpAddr</definition>
+        <argsstring></argsstring>
+        <name>_tcpAddr</name>
+        <qualifiedname>NetworkClient::_tcpAddr</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="189" column="17" bodyfile="Network/Client/NetworkClient.hpp" bodystart="189" bodyend="189"/>
+        <referencedby refid="classNetworkClient_1aaeedfac221d22aa5df4135b1680c4c99" compoundref="NetworkClient_8cpp" startline="36" endline="52">connectToServer</referencedby>
+        <referencedby refid="classNetworkClient_1a20f2bfa3171ebbc20722c4d8f8eb3d12" compoundref="NetworkClient_8cpp" startline="23" endline="29">NetworkClient</referencedby>
+        <referencedby refid="classNetworkClient_1acb108e50dae9dda5b2cef508db1dd582" compoundref="NetworkClient_8cpp" startline="607" endline="613">updateServerAddress</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1ad6b5430496083ed39dacbb31514f3849" prot="private" static="no" mutable="no">
+        <type>sockaddr_in</type>
+        <definition>sockaddr_in NetworkClient::_udpAddr</definition>
+        <argsstring></argsstring>
+        <name>_udpAddr</name>
+        <qualifiedname>NetworkClient::_udpAddr</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="190" column="17" bodyfile="Network/Client/NetworkClient.hpp" bodystart="190" bodyend="190"/>
+        <referencedby refid="classNetworkClient_1a5bc6fcb253ac9f9d74c649cb4b30d546" compoundref="NetworkClient_8cpp" startline="275" endline="345">handleTcpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a20f2bfa3171ebbc20722c4d8f8eb3d12" compoundref="NetworkClient_8cpp" startline="23" endline="29">NetworkClient</referencedby>
+        <referencedby refid="classNetworkClient_1a6c612ab362cc3e4ea8c94ebc2cddc4e6" compoundref="NetworkClient_8cpp" startline="197" endline="206">sendPacketUdp</referencedby>
+        <referencedby refid="classNetworkClient_1acb108e50dae9dda5b2cef508db1dd582" compoundref="NetworkClient_8cpp" startline="607" endline="613">updateServerAddress</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1a8b0d8d4bb3fa98ecf345d0fc6dafd8e7" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NetworkClient::_playerId</definition>
+        <argsstring></argsstring>
+        <name>_playerId</name>
+        <qualifiedname>NetworkClient::_playerId</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="191" column="9" bodyfile="Network/Client/NetworkClient.hpp" bodystart="191" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1a3a848ca2af9ba2a3008e33ecc39a3622" compoundref="NetworkClient_8hpp" startline="121" endline="121">getPlayerId</referencedby>
+        <referencedby refid="classNetworkClient_1a1773337e67c321eece590156e1a7b38a" compoundref="NetworkClient_8cpp" startline="54" endline="91">performHandshake</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+        <referencedby refid="classNetworkClient_1aeb3772e8f3674783b14953ee27e1cd39" compoundref="NetworkClient_8cpp" startline="99" endline="107">sendHelloUdp</referencedby>
+        <referencedby refid="classNetworkClient_1afdfce51c7dbb2e61f5e9280b15368915" compoundref="NetworkClient_8cpp" startline="123" endline="135">sendInput</referencedby>
+        <referencedby refid="classNetworkClient_1a2773882369d758cbb23aa67b0dda78ed" compoundref="NetworkClient_8cpp" startline="137" endline="148">sendShoot</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1a0b474e7f79f3dd26df29fb5fe39367b2" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string NetworkClient::_lobbyCode</definition>
+        <argsstring></argsstring>
+        <name>_lobbyCode</name>
+        <qualifiedname>NetworkClient::_lobbyCode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="192" column="17" bodyfile="Network/Client/NetworkClient.hpp" bodystart="192" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1a7f69f5c30fd349d670fae18598737b86" compoundref="NetworkClient_8cpp" startline="487" endline="500">disconnect</referencedby>
+        <referencedby refid="classNetworkClient_1a9f92ea1a77f00b2867ebc37b6581d507" compoundref="NetworkClient_8hpp" startline="125" endline="125">getLobbyCode</referencedby>
+        <referencedby refid="classNetworkClient_1a5bc6fcb253ac9f9d74c649cb4b30d546" compoundref="NetworkClient_8cpp" startline="275" endline="345">handleTcpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1a040896aa0ec5206449d02e6dd264f7cd" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string NetworkClient::_pseudo</definition>
+        <argsstring></argsstring>
+        <name>_pseudo</name>
+        <qualifiedname>NetworkClient::_pseudo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="193" column="17" bodyfile="Network/Client/NetworkClient.hpp" bodystart="193" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1af14f1f811649fc4555ea11aba8a812f2" compoundref="NetworkClient_8hpp" startline="129" endline="129">getPseudo</referencedby>
+        <referencedby refid="classNetworkClient_1a1773337e67c321eece590156e1a7b38a" compoundref="NetworkClient_8cpp" startline="54" endline="91">performHandshake</referencedby>
+        <referencedby refid="classNetworkClient_1acfbb5b079e33b388d8df440cf29e89a1" compoundref="NetworkClient_8hpp" startline="79" endline="79">setPseudo</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1a38aa8a71fa921d8afe01d8caaf6d1df0" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structPlayerState" kindref="compound">PlayerState</ref> &gt;</type>
+        <definition>std::vector&lt;PlayerState&gt; NetworkClient::_lastSnapshot</definition>
+        <argsstring></argsstring>
+        <name>_lastSnapshot</name>
+        <qualifiedname>NetworkClient::_lastSnapshot</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="195" column="17" bodyfile="Network/Client/NetworkClient.hpp" bodystart="195" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1a501553ba5f6d381f43855eda057157bf" compoundref="NetworkClient_8hpp" startline="133" endline="133">getLastSnapshot</referencedby>
+        <referencedby refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" compoundref="NetworkClient_8cpp" startline="347" endline="456">handleUdpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1a8e04154250d91bbbb2cfbc0afeaed6bb" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structBulletState" kindref="compound">BulletState</ref> &gt;</type>
+        <definition>std::vector&lt;BulletState&gt; NetworkClient::_lastSnapshotBullets</definition>
+        <argsstring></argsstring>
+        <name>_lastSnapshotBullets</name>
+        <qualifiedname>NetworkClient::_lastSnapshotBullets</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="196" column="17" bodyfile="Network/Client/NetworkClient.hpp" bodystart="196" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1abfd2ef3eb235148e35fe65831187feab" compoundref="NetworkClient_8hpp" startline="137" endline="137">getLastSnapshotBullets</referencedby>
+        <referencedby refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" compoundref="NetworkClient_8cpp" startline="347" endline="456">handleUdpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1ae8afee744ef3cbfc90a6ae126c6a0c1b" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structMonsterState" kindref="compound">MonsterState</ref> &gt;</type>
+        <definition>std::vector&lt;MonsterState&gt; NetworkClient::_lastSnapshotMonsters</definition>
+        <argsstring></argsstring>
+        <name>_lastSnapshotMonsters</name>
+        <qualifiedname>NetworkClient::_lastSnapshotMonsters</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="197" column="17" bodyfile="Network/Client/NetworkClient.hpp" bodystart="197" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1a4b6f0c20c59eeeddf98e738257c8a793" compoundref="NetworkClient_8hpp" startline="141" endline="141">getLastSnapshotMonsters</referencedby>
+        <referencedby refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" compoundref="NetworkClient_8cpp" startline="347" endline="456">handleUdpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1ac396fc7cda4c100ff4afca5fccf73429" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structPlayerState" kindref="compound">PlayerState</ref> &gt;</type>
+        <definition>std::vector&lt;PlayerState&gt; NetworkClient::_lastPlayerList</definition>
+        <argsstring></argsstring>
+        <name>_lastPlayerList</name>
+        <qualifiedname>NetworkClient::_lastPlayerList</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="198" column="17" bodyfile="Network/Client/NetworkClient.hpp" bodystart="198" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1ac79abc81697913608e849a936eee4ada" compoundref="NetworkClient_8hpp" startline="145" endline="145">getLastPlayerList</referencedby>
+        <referencedby refid="classNetworkClient_1a5bc6fcb253ac9f9d74c649cb4b30d546" compoundref="NetworkClient_8cpp" startline="275" endline="345">handleTcpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1a71ebf3bcf361e32e24abecffca56fdec" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; NetworkClient::_events</definition>
+        <argsstring></argsstring>
+        <name>_events</name>
+        <qualifiedname>NetworkClient::_events</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="199" column="17" bodyfile="Network/Client/NetworkClient.hpp" bodystart="199" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1ad93611688c9c99aba516b5396a543cd8" compoundref="NetworkClient_8hpp" startline="153" endline="153">clearEvents</referencedby>
+        <referencedby refid="classNetworkClient_1aa443eee7ab598870a1028935b1b8c174" compoundref="NetworkClient_8hpp" startline="149" endline="149">getEvents</referencedby>
+        <referencedby refid="classNetworkClient_1a5bc6fcb253ac9f9d74c649cb4b30d546" compoundref="NetworkClient_8cpp" startline="275" endline="345">handleTcpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" compoundref="NetworkClient_8cpp" startline="347" endline="456">handleUdpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1ac0dca5641be17084ead40825063b944e" compoundref="NetworkClient_8cpp" startline="208" endline="216">readTcpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1a70fc44c2906eb7a70b74108f34df3008" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; uint8_t &gt;</type>
+        <definition>std::vector&lt;uint8_t&gt; NetworkClient::_tcpRecvBuffer</definition>
+        <argsstring></argsstring>
+        <name>_tcpRecvBuffer</name>
+        <qualifiedname>NetworkClient::_tcpRecvBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="200" column="17" bodyfile="Network/Client/NetworkClient.hpp" bodystart="200" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1a1f77ff0729755d9782b4542582cfe214" compoundref="NetworkClient_8cpp" startline="232" endline="273">pollPackets</referencedby>
+        <referencedby refid="classNetworkClient_1ab8fe1bfbcfc0f363bce00cb1dc2a2f88" compoundref="NetworkClient_8cpp" startline="472" endline="485">receiveTcpFramed</referencedby>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1a7313805bd859cfc09dec94a7c8eb2fe0" prot="private" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t NetworkClient::_lastSnapshotSeq</definition>
+        <argsstring></argsstring>
+        <name>_lastSnapshotSeq</name>
+        <qualifiedname>NetworkClient::_lastSnapshotSeq</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="201" column="14" bodyfile="Network/Client/NetworkClient.hpp" bodystart="201" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" compoundref="NetworkClient_8cpp" startline="347" endline="456">handleUdpPacket</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1ad35265342327777ccb894b79f81b05e6" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool NetworkClient::_hasSnapshotSeq</definition>
+        <argsstring></argsstring>
+        <name>_hasSnapshotSeq</name>
+        <qualifiedname>NetworkClient::_hasSnapshotSeq</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="202" column="10" bodyfile="Network/Client/NetworkClient.hpp" bodystart="202" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" compoundref="NetworkClient_8cpp" startline="347" endline="456">handleUdpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1a45e486f8ec98988efc9030a65dc49e09" prot="private" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t NetworkClient::_snapshotReceived</definition>
+        <argsstring></argsstring>
+        <name>_snapshotReceived</name>
+        <qualifiedname>NetworkClient::_snapshotReceived</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="203" column="14" bodyfile="Network/Client/NetworkClient.hpp" bodystart="203" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1a9b4492241691163874e561440a379c3e" compoundref="NetworkClient_8cpp" startline="587" endline="593">getUdpLossPct</referencedby>
+        <referencedby refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" compoundref="NetworkClient_8cpp" startline="347" endline="456">handleUdpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1a629d27e793d46d3be1754f668932dd09" prot="private" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t NetworkClient::_snapshotLost</definition>
+        <argsstring></argsstring>
+        <name>_snapshotLost</name>
+        <qualifiedname>NetworkClient::_snapshotLost</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="204" column="14" bodyfile="Network/Client/NetworkClient.hpp" bodystart="204" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1a9b4492241691163874e561440a379c3e" compoundref="NetworkClient_8cpp" startline="587" endline="593">getUdpLossPct</referencedby>
+        <referencedby refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" compoundref="NetworkClient_8cpp" startline="347" endline="456">handleUdpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1a2965fb9499f0868ae11cda1c07c63425" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NetworkClient::_udpPingMs</definition>
+        <argsstring></argsstring>
+        <name>_udpPingMs</name>
+        <qualifiedname>NetworkClient::_udpPingMs</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="205" column="9" bodyfile="Network/Client/NetworkClient.hpp" bodystart="205" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1aa2de4fb4f6154441c96a7620ae3fb982" compoundref="NetworkClient_8hpp" startline="157" endline="157">getUdpPingMs</referencedby>
+        <referencedby refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" compoundref="NetworkClient_8cpp" startline="347" endline="456">handleUdpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1a60a9388fce03419f064d436e02e59a23" prot="private" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t NetworkClient::_udpLastPingSentMs</definition>
+        <argsstring></argsstring>
+        <name>_udpLastPingSentMs</name>
+        <qualifiedname>NetworkClient::_udpLastPingSentMs</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="206" column="14" bodyfile="Network/Client/NetworkClient.hpp" bodystart="206" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1ad087f54b86ec34f0be29053415ab7a46" compoundref="NetworkClient_8cpp" startline="109" endline="121">sendUdpPing</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1aef7a8773ff5b23399cb9aac0b3c4d7a4" prot="private" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t NetworkClient::_udpBytesInWindow</definition>
+        <argsstring></argsstring>
+        <name>_udpBytesInWindow</name>
+        <qualifiedname>NetworkClient::_udpBytesInWindow</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="207" column="14" bodyfile="Network/Client/NetworkClient.hpp" bodystart="207" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1a101f6ab85ee02ddb9d45a40dad603e29" compoundref="NetworkClient_8cpp" startline="218" endline="230">readUdpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+        <referencedby refid="classNetworkClient_1a36892dcdc8c2523b27947a347ea16022" compoundref="NetworkClient_8cpp" startline="570" endline="585">updateUdpRates</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1a8c4e09f4a487b00c7b4cfd6507f5d1d0" prot="private" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t NetworkClient::_udpBytesOutWindow</definition>
+        <argsstring></argsstring>
+        <name>_udpBytesOutWindow</name>
+        <qualifiedname>NetworkClient::_udpBytesOutWindow</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="208" column="14" bodyfile="Network/Client/NetworkClient.hpp" bodystart="208" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+        <referencedby refid="classNetworkClient_1a6c612ab362cc3e4ea8c94ebc2cddc4e6" compoundref="NetworkClient_8cpp" startline="197" endline="206">sendPacketUdp</referencedby>
+        <referencedby refid="classNetworkClient_1a36892dcdc8c2523b27947a347ea16022" compoundref="NetworkClient_8cpp" startline="570" endline="585">updateUdpRates</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1ac3ce12720fa24e5706d225d80bf5f1aa" prot="private" static="no" mutable="no">
+        <type>long long</type>
+        <definition>long long NetworkClient::_udpRateWindowStartMs</definition>
+        <argsstring></argsstring>
+        <name>_udpRateWindowStartMs</name>
+        <qualifiedname>NetworkClient::_udpRateWindowStartMs</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="209" column="15" bodyfile="Network/Client/NetworkClient.hpp" bodystart="209" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+        <referencedby refid="classNetworkClient_1a36892dcdc8c2523b27947a347ea16022" compoundref="NetworkClient_8cpp" startline="570" endline="585">updateUdpRates</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1a633d1f57b2d80be8d61c3695115cf614" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float NetworkClient::_udpRxKbps</definition>
+        <argsstring></argsstring>
+        <name>_udpRxKbps</name>
+        <qualifiedname>NetworkClient::_udpRxKbps</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="210" column="11" bodyfile="Network/Client/NetworkClient.hpp" bodystart="210" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1a14ed76e74eea78d36e9009129f641f79" compoundref="NetworkClient_8cpp" startline="595" endline="599">getUdpRxKbps</referencedby>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+        <referencedby refid="classNetworkClient_1a36892dcdc8c2523b27947a347ea16022" compoundref="NetworkClient_8cpp" startline="570" endline="585">updateUdpRates</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classNetworkClient_1a9be81688f8ada89b3b8a26144ef651bb" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float NetworkClient::_udpTxKbps</definition>
+        <argsstring></argsstring>
+        <name>_udpTxKbps</name>
+        <qualifiedname>NetworkClient::_udpTxKbps</qualifiedname>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="211" column="11" bodyfile="Network/Client/NetworkClient.hpp" bodystart="211" bodyend="-1"/>
+        <referencedby refid="classNetworkClient_1ad5c06bb19f3f5959f30bc383d89cb6e4" compoundref="NetworkClient_8cpp" startline="601" endline="605">getUdpTxKbps</referencedby>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" compoundref="NetworkClient_8cpp" startline="543" endline="562">resetForReconnect</referencedby>
+        <referencedby refid="classNetworkClient_1a36892dcdc8c2523b27947a347ea16022" compoundref="NetworkClient_8cpp" startline="570" endline="585">updateUdpRates</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classNetworkClient_1a20f2bfa3171ebbc20722c4d8f8eb3d12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NetworkClient::NetworkClient</definition>
+        <argsstring>(const std::string &amp;ip, uint16_t port)</argsstring>
+        <name>NetworkClient</name>
+        <qualifiedname>NetworkClient::NetworkClient</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>ip</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>port</declname>
+        </param>
+        <briefdescription>
+<para>Build a client targeting a server address. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ip</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>IPv4 address as string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>TCP port. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="30" column="5" bodyfile="Network/Client/NetworkClient.cpp" bodystart="23" bodyend="29"/>
+        <references refid="classNetworkClient_1a11f8f91b9958ae221c08bf304fbfe31e" compoundref="NetworkClient_8hpp" startline="189" endline="189">_tcpAddr</references>
+        <references refid="classNetworkClient_1ad6b5430496083ed39dacbb31514f3849" compoundref="NetworkClient_8hpp" startline="190" endline="190">_udpAddr</references>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1ab82fb597494c89b4a7ba9fd0d4b659c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>NetworkClient::~NetworkClient</definition>
+        <argsstring>()</argsstring>
+        <name>~NetworkClient</name>
+        <qualifiedname>NetworkClient::~NetworkClient</qualifiedname>
+        <briefdescription>
+<para>Disconnect on destruction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="34" column="5" bodyfile="Network/Client/NetworkClient.cpp" bodystart="31" bodyend="34"/>
+        <references refid="classNetworkClient_1a7f69f5c30fd349d670fae18598737b86" compoundref="NetworkClient_8cpp" startline="487" endline="500">disconnect</references>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1aaeedfac221d22aa5df4135b1680c4c99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::connectToServer</definition>
+        <argsstring>()</argsstring>
+        <name>connectToServer</name>
+        <qualifiedname>NetworkClient::connectToServer</qualifiedname>
+        <briefdescription>
+<para>Create a TCP connection and ensure UDP socket exists. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="39" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="36" bodyend="52"/>
+        <references refid="classNetworkClient_1a11f8f91b9958ae221c08bf304fbfe31e" compoundref="NetworkClient_8hpp" startline="189" endline="189">_tcpAddr</references>
+        <references refid="classNetworkClient_1aeef42eb1f64d0e680941ec6583bbbd44" compoundref="NetworkClient_8hpp" startline="187">_tcpConnected</references>
+        <references refid="classNetworkClient_1a18dce692aa54fd1e006744d59d097e5f" compoundref="NetworkClient_8hpp" startline="185">_tcpFd</references>
+        <references refid="classNetworkClient_1a0ea20f35b1cb3a917add14fc0bbc03af" compoundref="NetworkClient_8cpp" startline="511" endline="520">ensureUdp</references>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">GraphicClient::init</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a1773337e67c321eece590156e1a7b38a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::performHandshake</definition>
+        <argsstring>()</argsstring>
+        <name>performHandshake</name>
+        <qualifiedname>NetworkClient::performHandshake</qualifiedname>
+        <briefdescription>
+<para>Perform the application handshake over TCP. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="43" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="54" bodyend="91"/>
+        <references refid="classNetworkClient_1a8b0d8d4bb3fa98ecf345d0fc6dafd8e7" compoundref="NetworkClient_8hpp" startline="191">_playerId</references>
+        <references refid="classNetworkClient_1a040896aa0ec5206449d02e6dd264f7cd" compoundref="NetworkClient_8hpp" startline="193">_pseudo</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a68f215961d3807b1f3e363ab9dc3b9fd">CLIENT_HELLO</references>
+        <references refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55aa60852f204ed8028c1c58808b746d115">Ok</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ae0aa021e21dddbd6d8cecec71e9cf564">OK</references>
+        <references refid="classPacket_1a3f718725cfd763776d87841235986095" compoundref="Packet_8hpp" startline="52">Packet::payload</references>
+        <references refid="classNetworkClient_1ab8fe1bfbcfc0f363bce00cb1dc2a2f88" compoundref="NetworkClient_8cpp" startline="472" endline="485">receiveTcpFramed</references>
+        <references refid="classNetworkClient_1af150c1b7e0aa8c19cb337fb838479324" compoundref="NetworkClient_8cpp" startline="186" endline="195">sendPacketTcp</references>
+        <references refid="classPacket_1aebbae2cef32f967d0bbcabbe41dae6bf" compoundref="Packet_8hpp" startline="50">Packet::type</references>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">GraphicClient::init</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a28a515bbb5f6f75d6603a5332c217f93" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::sendPong</definition>
+        <argsstring>()</argsstring>
+        <name>sendPong</name>
+        <qualifiedname>NetworkClient::sendPong</qualifiedname>
+        <briefdescription>
+<para>Send TCP PONG in response to server PING. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="47" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="93" bodyend="97"/>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a15c94917c8795679ecb650ed760c27f0">PONG</references>
+        <references refid="classNetworkClient_1af150c1b7e0aa8c19cb337fb838479324" compoundref="NetworkClient_8cpp" startline="186" endline="195">sendPacketTcp</references>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">GraphicClient::gameLoop</referencedby>
+        <referencedby refid="classNetworkClient_1a5bc6fcb253ac9f9d74c649cb4b30d546" compoundref="NetworkClient_8cpp" startline="275" endline="345">handleTcpPacket</referencedby>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1aeb3772e8f3674783b14953ee27e1cd39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::sendHelloUdp</definition>
+        <argsstring>(uint8_t x=0, uint8_t y=0)</argsstring>
+        <name>sendHelloUdp</name>
+        <qualifiedname>NetworkClient::sendHelloUdp</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>x</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>y</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+<para>Send UDP hello to register address/port on server. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="51" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="99" bodyend="107"/>
+        <references refid="classNetworkClient_1a8b0d8d4bb3fa98ecf345d0fc6dafd8e7" compoundref="NetworkClient_8hpp" startline="191">_playerId</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a96a4de9c97bf5686278b38d16e7658ea">HELLO_UDP</references>
+        <references refid="classNetworkClient_1a6c612ab362cc3e4ea8c94ebc2cddc4e6" compoundref="NetworkClient_8cpp" startline="197" endline="206">sendPacketUdp</references>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">GraphicClient::gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">GraphicClient::init</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1afdfce51c7dbb2e61f5e9280b15368915" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::sendInput</definition>
+        <argsstring>(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY, MoveCmd dir)</argsstring>
+        <name>sendInput</name>
+        <qualifiedname>NetworkClient::sendInput</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>posX</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>posY</declname>
+        </param>
+        <param>
+          <type>int8_t</type>
+          <declname>velX</declname>
+        </param>
+        <param>
+          <type>int8_t</type>
+          <declname>velY</declname>
+        </param>
+        <param>
+          <type><ref refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320ee" kindref="member">MoveCmd</ref></type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+<para>Send player input over UDP. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="59" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="123" bodyend="135"/>
+        <references refid="classNetworkClient_1a8b0d8d4bb3fa98ecf345d0fc6dafd8e7" compoundref="NetworkClient_8hpp" startline="191">_playerId</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56aa84cc046d48610b05c21fd3670d0c829">INPUT</references>
+        <references refid="classNetworkClient_1a6c612ab362cc3e4ea8c94ebc2cddc4e6" compoundref="NetworkClient_8cpp" startline="197" endline="206">sendPacketUdp</references>
+        <referencedby refid="classInputSystem_1af7ed09c6bfd5fba6af86af16de00d706" compoundref="System_8hpp" startline="90" endline="141">InputSystem::update</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a2773882369d758cbb23aa67b0dda78ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::sendShoot</definition>
+        <argsstring>(uint8_t posX, uint8_t posY, int8_t velX, int8_t velY)</argsstring>
+        <name>sendShoot</name>
+        <qualifiedname>NetworkClient::sendShoot</qualifiedname>
+        <param>
+          <type>uint8_t</type>
+          <declname>posX</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>posY</declname>
+        </param>
+        <param>
+          <type>int8_t</type>
+          <declname>velX</declname>
+        </param>
+        <param>
+          <type>int8_t</type>
+          <declname>velY</declname>
+        </param>
+        <briefdescription>
+<para>Send a shoot command over UDP. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="63" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="137" bodyend="148"/>
+        <references refid="classNetworkClient_1a8b0d8d4bb3fa98ecf345d0fc6dafd8e7" compoundref="NetworkClient_8hpp" startline="191">_playerId</references>
+        <references refid="classNetworkClient_1a6c612ab362cc3e4ea8c94ebc2cddc4e6" compoundref="NetworkClient_8cpp" startline="197" endline="206">sendPacketUdp</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a0504ea30baff7b670a10cb44f8e5cca2">SHOOT</references>
+        <referencedby refid="classInputSystem_1af7ed09c6bfd5fba6af86af16de00d706" compoundref="System_8hpp" startline="90" endline="141">InputSystem::update</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1ae93ee27e05eea56b96d34c4789a01f41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::sendChat</definition>
+        <argsstring>(const std::string &amp;text)</argsstring>
+        <name>sendChat</name>
+        <qualifiedname>NetworkClient::sendChat</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Send a chat message over TCP. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="67" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="150" bodyend="170"/>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a90791ed805bd5b00d78527d39d9ef7e4">MESSAGE</references>
+        <references refid="classNetworkClient_1af150c1b7e0aa8c19cb337fb838479324" compoundref="NetworkClient_8cpp" startline="186" endline="195">sendPacketTcp</references>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">GraphicClient::gameLoop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a69d86a3b406a767d3feb704be440343a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::sendCreateLobby</definition>
+        <argsstring>()</argsstring>
+        <name>sendCreateLobby</name>
+        <qualifiedname>NetworkClient::sendCreateLobby</qualifiedname>
+        <briefdescription>
+<para>Ask the server to create a private lobby. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="71" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="172" bodyend="177"/>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a262dd3836d38576837418316684d57fa">CREATE_LOBBY</references>
+        <references refid="classNetworkClient_1af150c1b7e0aa8c19cb337fb838479324" compoundref="NetworkClient_8cpp" startline="186" endline="195">sendPacketTcp</references>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1ab66ff3a3c9bb96ad56e141d3713914bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::sendJoinLobby</definition>
+        <argsstring>(const std::string &amp;code)</argsstring>
+        <name>sendJoinLobby</name>
+        <qualifiedname>NetworkClient::sendJoinLobby</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+<para>Ask the server to join an existing lobby. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="75" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="179" bodyend="184"/>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a3888a668dd55727dbed1a4d11ad839db">JOIN_LOBBY</references>
+        <references refid="classNetworkClient_1af150c1b7e0aa8c19cb337fb838479324" compoundref="NetworkClient_8cpp" startline="186" endline="195">sendPacketTcp</references>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1acfbb5b079e33b388d8df440cf29e89a1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NetworkClient::setPseudo</definition>
+        <argsstring>(const std::string &amp;pseudo)</argsstring>
+        <name>setPseudo</name>
+        <qualifiedname>NetworkClient::setPseudo</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>pseudo</declname>
+        </param>
+        <briefdescription>
+<para>Set the preferred pseudo for the handshake payload. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="79" column="10" bodyfile="Network/Client/NetworkClient.hpp" bodystart="79" bodyend="79"/>
+        <references refid="classNetworkClient_1a040896aa0ec5206449d02e6dd264f7cd" compoundref="NetworkClient_8hpp" startline="193">_pseudo</references>
+        <referencedby refid="classGraphicClient_1a14824911dd4c90d0f459ed532aec0dd7" compoundref="GraphicClient_8cpp" startline="679" endline="752">GraphicClient::selectPseudo</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1ad087f54b86ec34f0be29053415ab7a46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::sendUdpPing</definition>
+        <argsstring>()</argsstring>
+        <name>sendUdpPing</name>
+        <qualifiedname>NetworkClient::sendUdpPing</qualifiedname>
+        <briefdescription>
+<para>Send a UDP ping with client timestamp. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="83" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="109" bodyend="121"/>
+        <references refid="classNetworkClient_1a60a9388fce03419f064d436e02e59a23" compoundref="NetworkClient_8hpp" startline="206">_udpLastPingSentMs</references>
+        <references refid="classNetworkClient_1aaf60f1216a17b46ad12539625a1022c2" compoundref="NetworkClient_8cpp" startline="564" endline="568">nowMs</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a600e36d8f89903f17192c68b6ff1e6eb">PING_UDP</references>
+        <references refid="classNetworkClient_1a6c612ab362cc3e4ea8c94ebc2cddc4e6" compoundref="NetworkClient_8cpp" startline="197" endline="206">sendPacketUdp</references>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">GraphicClient::gameLoop</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a1f77ff0729755d9782b4542582cfe214" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::pollPackets</definition>
+        <argsstring>()</argsstring>
+        <name>pollPackets</name>
+        <qualifiedname>NetworkClient::pollPackets</qualifiedname>
+        <briefdescription>
+<para>Poll TCP/UDP sockets and handle any received packets. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="88" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="232" bodyend="273"/>
+        <references refid="classNetworkClient_1a18dce692aa54fd1e006744d59d097e5f" compoundref="NetworkClient_8hpp" startline="185">_tcpFd</references>
+        <references refid="classNetworkClient_1a70fc44c2906eb7a70b74108f34df3008" compoundref="NetworkClient_8hpp" startline="200">_tcpRecvBuffer</references>
+        <references refid="classNetworkClient_1afec94b5ac7dda0fc2b434261108f43ad" compoundref="NetworkClient_8hpp" startline="186">_udpFd</references>
+        <references refid="namespaceProtocol_1a10005c44787f8de2a0e42d395aff8baa" compoundref="Protocol_8cpp" startline="26" endline="44">Protocol::extractFromBuffer</references>
+        <references refid="classNetworkClient_1a5bc6fcb253ac9f9d74c649cb4b30d546" compoundref="NetworkClient_8cpp" startline="275" endline="345">handleTcpPacket</references>
+        <references refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" compoundref="NetworkClient_8cpp" startline="347" endline="456">handleUdpPacket</references>
+        <references refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" compoundref="ISocket_8hpp" startline="46">INVALID_SOCKET_FD</references>
+        <references refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780aa60852f204ed8028c1c58808b746d115">Protocol::Ok</references>
+        <references refid="classNetworkClient_1ac0dca5641be17084ead40825063b944e" compoundref="NetworkClient_8cpp" startline="208" endline="216">readTcpPacket</references>
+        <references refid="classNetworkClient_1a101f6ab85ee02ddb9d45a40dad603e29" compoundref="NetworkClient_8cpp" startline="218" endline="230">readUdpPacket</references>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">GraphicClient::init</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">GraphicClient::processNetworkEvents</referencedby>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a7f69f5c30fd349d670fae18598737b86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NetworkClient::disconnect</definition>
+        <argsstring>()</argsstring>
+        <name>disconnect</name>
+        <qualifiedname>NetworkClient::disconnect</qualifiedname>
+        <briefdescription>
+<para>Close TCP and UDP sockets and reset state. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="92" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="487" bodyend="500"/>
+        <references refid="classNetworkClient_1a0b474e7f79f3dd26df29fb5fe39367b2" compoundref="NetworkClient_8hpp" startline="192">_lobbyCode</references>
+        <references refid="classNetworkClient_1aeef42eb1f64d0e680941ec6583bbbd44" compoundref="NetworkClient_8hpp" startline="187">_tcpConnected</references>
+        <references refid="classNetworkClient_1a18dce692aa54fd1e006744d59d097e5f" compoundref="NetworkClient_8hpp" startline="185">_tcpFd</references>
+        <references refid="classNetworkClient_1afc9f1111f98037b27d3033e8d9118556" compoundref="NetworkClient_8hpp" startline="188">_udpConnected</references>
+        <references refid="classNetworkClient_1afec94b5ac7dda0fc2b434261108f43ad" compoundref="NetworkClient_8hpp" startline="186">_udpFd</references>
+        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="43">CLOSE</references>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">GraphicClient::gameLoop</referencedby>
+        <referencedby refid="classNetworkClient_1a5bc6fcb253ac9f9d74c649cb4b30d546" compoundref="NetworkClient_8cpp" startline="275" endline="345">handleTcpPacket</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">GraphicClient::processNetworkEvents</referencedby>
+        <referencedby refid="classNetworkClient_1ac0dca5641be17084ead40825063b944e" compoundref="NetworkClient_8cpp" startline="208" endline="216">readTcpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1ab82fb597494c89b4a7ba9fd0d4b659c4" compoundref="NetworkClient_8cpp" startline="31" endline="34">~NetworkClient</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a632c4eeb2d8086de97cd616b2be972cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NetworkClient::disconnectUdp</definition>
+        <argsstring>()</argsstring>
+        <name>disconnectUdp</name>
+        <qualifiedname>NetworkClient::disconnectUdp</qualifiedname>
+        <briefdescription>
+<para>Close UDP socket only. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="96" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="502" bodyend="509"/>
+        <references refid="classNetworkClient_1afc9f1111f98037b27d3033e8d9118556" compoundref="NetworkClient_8hpp" startline="188">_udpConnected</references>
+        <references refid="classNetworkClient_1afec94b5ac7dda0fc2b434261108f43ad" compoundref="NetworkClient_8hpp" startline="186">_udpFd</references>
+        <references refid="ISocket_8hpp_1a447262784bff93c31a4e2d61ef6d55c4" compoundref="ISocket_8hpp" startline="43">CLOSE</references>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">GraphicClient::gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">GraphicClient::processNetworkEvents</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a0ea20f35b1cb3a917add14fc0bbc03af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::ensureUdp</definition>
+        <argsstring>()</argsstring>
+        <name>ensureUdp</name>
+        <qualifiedname>NetworkClient::ensureUdp</qualifiedname>
+        <briefdescription>
+<para>Ensure UDP socket exists. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="100" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="511" bodyend="520"/>
+        <references refid="classNetworkClient_1afc9f1111f98037b27d3033e8d9118556" compoundref="NetworkClient_8hpp" startline="188">_udpConnected</references>
+        <references refid="classNetworkClient_1afec94b5ac7dda0fc2b434261108f43ad" compoundref="NetworkClient_8hpp" startline="186">_udpFd</references>
+        <referencedby refid="classNetworkClient_1aaeedfac221d22aa5df4135b1680c4c99" compoundref="NetworkClient_8cpp" startline="36" endline="52">connectToServer</referencedby>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">GraphicClient::init</referencedby>
+        <referencedby refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" compoundref="NetworkClient_8cpp" startline="522" endline="541">resetForLobby</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NetworkClient::resetForLobby</definition>
+        <argsstring>()</argsstring>
+        <name>resetForLobby</name>
+        <qualifiedname>NetworkClient::resetForLobby</qualifiedname>
+        <briefdescription>
+<para>Reset state when entering a lobby. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="104" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="522" bodyend="541"/>
+        <references refid="classNetworkClient_1a71ebf3bcf361e32e24abecffca56fdec" compoundref="NetworkClient_8hpp" startline="199">_events</references>
+        <references refid="classNetworkClient_1ad35265342327777ccb894b79f81b05e6" compoundref="NetworkClient_8hpp" startline="202">_hasSnapshotSeq</references>
+        <references refid="classNetworkClient_1ac396fc7cda4c100ff4afca5fccf73429" compoundref="NetworkClient_8hpp" startline="198">_lastPlayerList</references>
+        <references refid="classNetworkClient_1a38aa8a71fa921d8afe01d8caaf6d1df0" compoundref="NetworkClient_8hpp" startline="195">_lastSnapshot</references>
+        <references refid="classNetworkClient_1a8e04154250d91bbbb2cfbc0afeaed6bb" compoundref="NetworkClient_8hpp" startline="196">_lastSnapshotBullets</references>
+        <references refid="classNetworkClient_1ae8afee744ef3cbfc90a6ae126c6a0c1b" compoundref="NetworkClient_8hpp" startline="197">_lastSnapshotMonsters</references>
+        <references refid="classNetworkClient_1a0b474e7f79f3dd26df29fb5fe39367b2" compoundref="NetworkClient_8hpp" startline="192">_lobbyCode</references>
+        <references refid="classNetworkClient_1a629d27e793d46d3be1754f668932dd09" compoundref="NetworkClient_8hpp" startline="204">_snapshotLost</references>
+        <references refid="classNetworkClient_1a45e486f8ec98988efc9030a65dc49e09" compoundref="NetworkClient_8hpp" startline="203">_snapshotReceived</references>
+        <references refid="classNetworkClient_1a70fc44c2906eb7a70b74108f34df3008" compoundref="NetworkClient_8hpp" startline="200">_tcpRecvBuffer</references>
+        <references refid="classNetworkClient_1aef7a8773ff5b23399cb9aac0b3c4d7a4" compoundref="NetworkClient_8hpp" startline="207">_udpBytesInWindow</references>
+        <references refid="classNetworkClient_1a8c4e09f4a487b00c7b4cfd6507f5d1d0" compoundref="NetworkClient_8hpp" startline="208">_udpBytesOutWindow</references>
+        <references refid="classNetworkClient_1a2965fb9499f0868ae11cda1c07c63425" compoundref="NetworkClient_8hpp" startline="205">_udpPingMs</references>
+        <references refid="classNetworkClient_1ac3ce12720fa24e5706d225d80bf5f1aa" compoundref="NetworkClient_8hpp" startline="209">_udpRateWindowStartMs</references>
+        <references refid="classNetworkClient_1a633d1f57b2d80be8d61c3695115cf614" compoundref="NetworkClient_8hpp" startline="210">_udpRxKbps</references>
+        <references refid="classNetworkClient_1a9be81688f8ada89b3b8a26144ef651bb" compoundref="NetworkClient_8hpp" startline="211">_udpTxKbps</references>
+        <references refid="classNetworkClient_1a0ea20f35b1cb3a917add14fc0bbc03af" compoundref="NetworkClient_8cpp" startline="511" endline="520">ensureUdp</references>
+        <referencedby refid="classGraphicClient_1ad39a5f1d7ec30752f8d412d6925ef109" compoundref="GraphicClient_8cpp" startline="973" endline="1005">GraphicClient::run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NetworkClient::resetForReconnect</definition>
+        <argsstring>()</argsstring>
+        <name>resetForReconnect</name>
+        <qualifiedname>NetworkClient::resetForReconnect</qualifiedname>
+        <briefdescription>
+<para>Reset state after a full reconnect. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="108" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="543" bodyend="562"/>
+        <references refid="classNetworkClient_1a71ebf3bcf361e32e24abecffca56fdec" compoundref="NetworkClient_8hpp" startline="199">_events</references>
+        <references refid="classNetworkClient_1ad35265342327777ccb894b79f81b05e6" compoundref="NetworkClient_8hpp" startline="202">_hasSnapshotSeq</references>
+        <references refid="classNetworkClient_1ac396fc7cda4c100ff4afca5fccf73429" compoundref="NetworkClient_8hpp" startline="198">_lastPlayerList</references>
+        <references refid="classNetworkClient_1a38aa8a71fa921d8afe01d8caaf6d1df0" compoundref="NetworkClient_8hpp" startline="195">_lastSnapshot</references>
+        <references refid="classNetworkClient_1a8e04154250d91bbbb2cfbc0afeaed6bb" compoundref="NetworkClient_8hpp" startline="196">_lastSnapshotBullets</references>
+        <references refid="classNetworkClient_1ae8afee744ef3cbfc90a6ae126c6a0c1b" compoundref="NetworkClient_8hpp" startline="197">_lastSnapshotMonsters</references>
+        <references refid="classNetworkClient_1a0b474e7f79f3dd26df29fb5fe39367b2" compoundref="NetworkClient_8hpp" startline="192">_lobbyCode</references>
+        <references refid="classNetworkClient_1a8b0d8d4bb3fa98ecf345d0fc6dafd8e7" compoundref="NetworkClient_8hpp" startline="191">_playerId</references>
+        <references refid="classNetworkClient_1a629d27e793d46d3be1754f668932dd09" compoundref="NetworkClient_8hpp" startline="204">_snapshotLost</references>
+        <references refid="classNetworkClient_1a45e486f8ec98988efc9030a65dc49e09" compoundref="NetworkClient_8hpp" startline="203">_snapshotReceived</references>
+        <references refid="classNetworkClient_1a70fc44c2906eb7a70b74108f34df3008" compoundref="NetworkClient_8hpp" startline="200">_tcpRecvBuffer</references>
+        <references refid="classNetworkClient_1aef7a8773ff5b23399cb9aac0b3c4d7a4" compoundref="NetworkClient_8hpp" startline="207">_udpBytesInWindow</references>
+        <references refid="classNetworkClient_1a8c4e09f4a487b00c7b4cfd6507f5d1d0" compoundref="NetworkClient_8hpp" startline="208">_udpBytesOutWindow</references>
+        <references refid="classNetworkClient_1a2965fb9499f0868ae11cda1c07c63425" compoundref="NetworkClient_8hpp" startline="205">_udpPingMs</references>
+        <references refid="classNetworkClient_1ac3ce12720fa24e5706d225d80bf5f1aa" compoundref="NetworkClient_8hpp" startline="209">_udpRateWindowStartMs</references>
+        <references refid="classNetworkClient_1a633d1f57b2d80be8d61c3695115cf614" compoundref="NetworkClient_8hpp" startline="210">_udpRxKbps</references>
+        <references refid="classNetworkClient_1a9be81688f8ada89b3b8a26144ef651bb" compoundref="NetworkClient_8hpp" startline="211">_udpTxKbps</references>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a08e45bde82ce1fbc60128fd538b58078" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::isConnected</definition>
+        <argsstring>() const</argsstring>
+        <name>isConnected</name>
+        <qualifiedname>NetworkClient::isConnected</qualifiedname>
+        <briefdescription>
+<para>Return true when TCP is connected. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="112" column="10" bodyfile="Network/Client/NetworkClient.hpp" bodystart="112" bodyend="112"/>
+        <references refid="classNetworkClient_1aeef42eb1f64d0e680941ec6583bbbd44" compoundref="NetworkClient_8hpp" startline="187">_tcpConnected</references>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">GraphicClient::init</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1acb108e50dae9dda5b2cef508db1dd582" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NetworkClient::updateServerAddress</definition>
+        <argsstring>(const std::string &amp;ip, uint16_t port)</argsstring>
+        <name>updateServerAddress</name>
+        <qualifiedname>NetworkClient::updateServerAddress</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>ip</declname>
+        </param>
+        <param>
+          <type>uint16_t</type>
+          <declname>port</declname>
+        </param>
+        <briefdescription>
+<para>Update remote server address for TCP and UDP. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="116" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="607" bodyend="613"/>
+        <references refid="classNetworkClient_1a11f8f91b9958ae221c08bf304fbfe31e" compoundref="NetworkClient_8hpp" startline="189" endline="189">_tcpAddr</references>
+        <references refid="classNetworkClient_1ad6b5430496083ed39dacbb31514f3849" compoundref="NetworkClient_8hpp" startline="190" endline="190">_udpAddr</references>
+        <referencedby refid="classGraphicClient_1a2d663515d7165fbe3533e038b5b2e916" compoundref="GraphicClient_8cpp" startline="1007" endline="1230">GraphicClient::selectMainMenu</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a3a848ca2af9ba2a3008e33ecc39a3622" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int NetworkClient::getPlayerId</definition>
+        <argsstring>() const</argsstring>
+        <name>getPlayerId</name>
+        <qualifiedname>NetworkClient::getPlayerId</qualifiedname>
+        <briefdescription>
+<para>Get server-assigned player id. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="121" column="9" bodyfile="Network/Client/NetworkClient.hpp" bodystart="121" bodyend="121"/>
+        <references refid="classNetworkClient_1a8b0d8d4bb3fa98ecf345d0fc6dafd8e7" compoundref="NetworkClient_8hpp" startline="191">_playerId</references>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">GraphicClient::init</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">GraphicClient::processNetworkEvents</referencedby>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">GraphicClient::render</referencedby>
+        <referencedby refid="classGraphicClient_1aacb31035c31d741d0ae2ca5ec9228b12" compoundref="GraphicClient_8cpp" startline="130" endline="197">GraphicClient::syncEntities</referencedby>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">GraphicClient::updateEntities</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a9f92ea1a77f00b2867ebc37b6581d507" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; NetworkClient::getLobbyCode</definition>
+        <argsstring>() const</argsstring>
+        <name>getLobbyCode</name>
+        <qualifiedname>NetworkClient::getLobbyCode</qualifiedname>
+        <briefdescription>
+<para>Get current lobby code. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="125" column="23" bodyfile="Network/Client/NetworkClient.hpp" bodystart="125" bodyend="125"/>
+        <references refid="classNetworkClient_1a0b474e7f79f3dd26df29fb5fe39367b2" compoundref="NetworkClient_8hpp" startline="192">_lobbyCode</references>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">GraphicClient::render</referencedby>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1af14f1f811649fc4555ea11aba8a812f2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; NetworkClient::getPseudo</definition>
+        <argsstring>() const</argsstring>
+        <name>getPseudo</name>
+        <qualifiedname>NetworkClient::getPseudo</qualifiedname>
+        <briefdescription>
+<para>Get current pseudo. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="129" column="23" bodyfile="Network/Client/NetworkClient.hpp" bodystart="129" bodyend="129"/>
+        <references refid="classNetworkClient_1a040896aa0ec5206449d02e6dd264f7cd" compoundref="NetworkClient_8hpp" startline="193">_pseudo</references>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a501553ba5f6d381f43855eda057157bf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="structPlayerState" kindref="compound">PlayerState</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt; PlayerState &gt; &amp; NetworkClient::getLastSnapshot</definition>
+        <argsstring>() const</argsstring>
+        <name>getLastSnapshot</name>
+        <qualifiedname>NetworkClient::getLastSnapshot</qualifiedname>
+        <briefdescription>
+<para>Get last received player snapshots. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="133" column="23" bodyfile="Network/Client/NetworkClient.hpp" bodystart="133" bodyend="133"/>
+        <references refid="classNetworkClient_1a38aa8a71fa921d8afe01d8caaf6d1df0" compoundref="NetworkClient_8hpp" startline="195">_lastSnapshot</references>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">GraphicClient::processNetworkEvents</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1abfd2ef3eb235148e35fe65831187feab" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="structBulletState" kindref="compound">BulletState</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt; BulletState &gt; &amp; NetworkClient::getLastSnapshotBullets</definition>
+        <argsstring>() const</argsstring>
+        <name>getLastSnapshotBullets</name>
+        <qualifiedname>NetworkClient::getLastSnapshotBullets</qualifiedname>
+        <briefdescription>
+<para>Get last received bullet snapshots. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="137" column="23" bodyfile="Network/Client/NetworkClient.hpp" bodystart="137" bodyend="137"/>
+        <references refid="classNetworkClient_1a8e04154250d91bbbb2cfbc0afeaed6bb" compoundref="NetworkClient_8hpp" startline="196">_lastSnapshotBullets</references>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">GraphicClient::updateEntities</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a4b6f0c20c59eeeddf98e738257c8a793" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="structMonsterState" kindref="compound">MonsterState</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt; MonsterState &gt; &amp; NetworkClient::getLastSnapshotMonsters</definition>
+        <argsstring>() const</argsstring>
+        <name>getLastSnapshotMonsters</name>
+        <qualifiedname>NetworkClient::getLastSnapshotMonsters</qualifiedname>
+        <briefdescription>
+<para>Get last received monster snapshots. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="141" column="23" bodyfile="Network/Client/NetworkClient.hpp" bodystart="141" bodyend="141"/>
+        <references refid="classNetworkClient_1ae8afee744ef3cbfc90a6ae126c6a0c1b" compoundref="NetworkClient_8hpp" startline="197">_lastSnapshotMonsters</references>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">GraphicClient::processNetworkEvents</referencedby>
+        <referencedby refid="classGraphicClient_1a50072266faf2e76ace99e16c4c7b208a" compoundref="GraphicClient_8cpp" startline="371" endline="414">GraphicClient::updateEntities</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1ac79abc81697913608e849a936eee4ada" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="structPlayerState" kindref="compound">PlayerState</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt; PlayerState &gt; &amp; NetworkClient::getLastPlayerList</definition>
+        <argsstring>() const</argsstring>
+        <name>getLastPlayerList</name>
+        <qualifiedname>NetworkClient::getLastPlayerList</qualifiedname>
+        <briefdescription>
+<para>Get last received player list from TCP. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="145" column="23" bodyfile="Network/Client/NetworkClient.hpp" bodystart="145" bodyend="145"/>
+        <references refid="classNetworkClient_1ac396fc7cda4c100ff4afca5fccf73429" compoundref="NetworkClient_8hpp" startline="198">_lastPlayerList</references>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">GraphicClient::init</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">GraphicClient::processNetworkEvents</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1aa443eee7ab598870a1028935b1b8c174" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::vector&lt; std::string &gt; &amp;</type>
+        <definition>const std::vector&lt; std::string &gt; &amp; NetworkClient::getEvents</definition>
+        <argsstring>() const</argsstring>
+        <name>getEvents</name>
+        <qualifiedname>NetworkClient::getEvents</qualifiedname>
+        <briefdescription>
+<para>Get pending network events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="149" column="23" bodyfile="Network/Client/NetworkClient.hpp" bodystart="149" bodyend="149"/>
+        <references refid="classNetworkClient_1a71ebf3bcf361e32e24abecffca56fdec" compoundref="NetworkClient_8hpp" startline="199">_events</references>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">GraphicClient::gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">GraphicClient::processNetworkEvents</referencedby>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1ad93611688c9c99aba516b5396a543cd8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void NetworkClient::clearEvents</definition>
+        <argsstring>()</argsstring>
+        <name>clearEvents</name>
+        <qualifiedname>NetworkClient::clearEvents</qualifiedname>
+        <briefdescription>
+<para>Clear queued events. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="153" column="10" bodyfile="Network/Client/NetworkClient.hpp" bodystart="153" bodyend="153"/>
+        <references refid="classNetworkClient_1a71ebf3bcf361e32e24abecffca56fdec" compoundref="NetworkClient_8hpp" startline="199">_events</references>
+        <referencedby refid="classGraphicClient_1a5cb5c37142e62f04824cc6e21dd199b2" compoundref="GraphicClient_8cpp" startline="859" endline="971">GraphicClient::gameLoop</referencedby>
+        <referencedby refid="classGraphicClient_1a4b416d0d2b3f07134ce30afb0c60adbe" compoundref="GraphicClient_8cpp" startline="27" endline="81">GraphicClient::init</referencedby>
+        <referencedby refid="classGraphicClient_1a1fa2cfd0c71b32b0b1f0e0675a2e1cb2" compoundref="GraphicClient_8cpp" startline="273" endline="370">GraphicClient::processNetworkEvents</referencedby>
+        <referencedby refid="classGraphicClient_1a70229e3e019e7b315f06c9ad74f23be5" compoundref="GraphicClient_8cpp" startline="416" endline="677">GraphicClient::selectLobby</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1aa2de4fb4f6154441c96a7620ae3fb982" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int NetworkClient::getUdpPingMs</definition>
+        <argsstring>() const</argsstring>
+        <name>getUdpPingMs</name>
+        <qualifiedname>NetworkClient::getUdpPingMs</qualifiedname>
+        <briefdescription>
+<para>Last measured UDP RTT in ms. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="157" column="9" bodyfile="Network/Client/NetworkClient.hpp" bodystart="157" bodyend="157"/>
+        <references refid="classNetworkClient_1a2965fb9499f0868ae11cda1c07c63425" compoundref="NetworkClient_8hpp" startline="205">_udpPingMs</references>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">GraphicClient::render</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a9b4492241691163874e561440a379c3e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float NetworkClient::getUdpLossPct</definition>
+        <argsstring>() const</argsstring>
+        <name>getUdpLossPct</name>
+        <qualifiedname>NetworkClient::getUdpLossPct</qualifiedname>
+        <briefdescription>
+<para>Estimated snapshot loss percentage. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="161" column="11" bodyfile="Network/Client/NetworkClient.cpp" bodystart="587" bodyend="593"/>
+        <references refid="classNetworkClient_1a629d27e793d46d3be1754f668932dd09" compoundref="NetworkClient_8hpp" startline="204">_snapshotLost</references>
+        <references refid="classNetworkClient_1a45e486f8ec98988efc9030a65dc49e09" compoundref="NetworkClient_8hpp" startline="203">_snapshotReceived</references>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">GraphicClient::render</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a14ed76e74eea78d36e9009129f641f79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float NetworkClient::getUdpRxKbps</definition>
+        <argsstring>()</argsstring>
+        <name>getUdpRxKbps</name>
+        <qualifiedname>NetworkClient::getUdpRxKbps</qualifiedname>
+        <briefdescription>
+<para>Get current UDP receive rate in Kbps. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="165" column="11" bodyfile="Network/Client/NetworkClient.cpp" bodystart="595" bodyend="599"/>
+        <references refid="classNetworkClient_1a633d1f57b2d80be8d61c3695115cf614" compoundref="NetworkClient_8hpp" startline="210">_udpRxKbps</references>
+        <references refid="classNetworkClient_1aaf60f1216a17b46ad12539625a1022c2" compoundref="NetworkClient_8cpp" startline="564" endline="568">nowMs</references>
+        <references refid="classNetworkClient_1a36892dcdc8c2523b27947a347ea16022" compoundref="NetworkClient_8cpp" startline="570" endline="585">updateUdpRates</references>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">GraphicClient::render</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1ad5c06bb19f3f5959f30bc383d89cb6e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float NetworkClient::getUdpTxKbps</definition>
+        <argsstring>()</argsstring>
+        <name>getUdpTxKbps</name>
+        <qualifiedname>NetworkClient::getUdpTxKbps</qualifiedname>
+        <briefdescription>
+<para>Get current UDP transmit rate in Kbps. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="169" column="11" bodyfile="Network/Client/NetworkClient.cpp" bodystart="601" bodyend="605"/>
+        <references refid="classNetworkClient_1a9be81688f8ada89b3b8a26144ef651bb" compoundref="NetworkClient_8hpp" startline="211">_udpTxKbps</references>
+        <references refid="classNetworkClient_1aaf60f1216a17b46ad12539625a1022c2" compoundref="NetworkClient_8cpp" startline="564" endline="568">nowMs</references>
+        <references refid="classNetworkClient_1a36892dcdc8c2523b27947a347ea16022" compoundref="NetworkClient_8cpp" startline="570" endline="585">updateUdpRates</references>
+        <referencedby refid="classGraphicClient_1ab0acd8f5b8996cc62295831d7af1cf59" compoundref="GraphicClient_8cpp" startline="774" endline="857">GraphicClient::render</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classNetworkClient_1ac0dca5641be17084ead40825063b944e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::readTcpPacket</definition>
+        <argsstring>(Packet &amp;p)</argsstring>
+        <name>readTcpPacket</name>
+        <qualifiedname>NetworkClient::readTcpPacket</qualifiedname>
+        <param>
+          <type><ref refid="classPacket" kindref="compound">Packet</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="176" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="208" bodyend="216"/>
+        <references refid="classNetworkClient_1a71ebf3bcf361e32e24abecffca56fdec" compoundref="NetworkClient_8hpp" startline="199">_events</references>
+        <references refid="classNetworkClient_1a7f69f5c30fd349d670fae18598737b86" compoundref="NetworkClient_8cpp" startline="487" endline="500">disconnect</references>
+        <references refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55aef70e46fd3bbc21e3e1f0b6815e750c0">Disconnected</references>
+        <references refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55aa60852f204ed8028c1c58808b746d115">Ok</references>
+        <references refid="classNetworkClient_1ab8fe1bfbcfc0f363bce00cb1dc2a2f88" compoundref="NetworkClient_8cpp" startline="472" endline="485">receiveTcpFramed</references>
+        <referencedby refid="classNetworkClient_1a1f77ff0729755d9782b4542582cfe214" compoundref="NetworkClient_8cpp" startline="232" endline="273">pollPackets</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a101f6ab85ee02ddb9d45a40dad603e29" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::readUdpPacket</definition>
+        <argsstring>(Packet &amp;p)</argsstring>
+        <name>readUdpPacket</name>
+        <qualifiedname>NetworkClient::readUdpPacket</qualifiedname>
+        <param>
+          <type><ref refid="classPacket" kindref="compound">Packet</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="177" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="218" bodyend="230"/>
+        <references refid="classNetworkClient_1aef7a8773ff5b23399cb9aac0b3c4d7a4" compoundref="NetworkClient_8hpp" startline="207">_udpBytesInWindow</references>
+        <references refid="classNetworkClient_1afec94b5ac7dda0fc2b434261108f43ad" compoundref="NetworkClient_8hpp" startline="186">_udpFd</references>
+        <references refid="TCPServer_8hpp_1a6b20d41d6252e9871430c242cb1a56e7" compoundref="TCPServer_8hpp" startline="24">BUFFER_SIZE</references>
+        <references refid="classPacket_1abfcd427a2ca434ac71592334517638fb" compoundref="Packet_8cpp" startline="29" endline="49">Packet::deserialize</references>
+        <references refid="classNetworkClient_1aaf60f1216a17b46ad12539625a1022c2" compoundref="NetworkClient_8cpp" startline="564" endline="568">nowMs</references>
+        <references refid="classNetworkClient_1a36892dcdc8c2523b27947a347ea16022" compoundref="NetworkClient_8cpp" startline="570" endline="585">updateUdpRates</references>
+        <referencedby refid="classNetworkClient_1a1f77ff0729755d9782b4542582cfe214" compoundref="NetworkClient_8cpp" startline="232" endline="273">pollPackets</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1af150c1b7e0aa8c19cb337fb838479324" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::sendPacketTcp</definition>
+        <argsstring>(const Packet &amp;p)</argsstring>
+        <name>sendPacketTcp</name>
+        <qualifiedname>NetworkClient::sendPacketTcp</qualifiedname>
+        <param>
+          <type>const <ref refid="classPacket" kindref="compound">Packet</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="178" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="186" bodyend="195"/>
+        <references refid="classNetworkClient_1a18dce692aa54fd1e006744d59d097e5f" compoundref="NetworkClient_8hpp" startline="185">_tcpFd</references>
+        <references refid="namespaceProtocol_1a668bdeed219432868fca095e1b2f2667" compoundref="Protocol_8cpp" startline="11" endline="24">Protocol::frameTcp</references>
+        <references refid="classNetworkClient_1a844f1f20acd0958f264c7bb67e18d111" compoundref="NetworkClient_8cpp" startline="458" endline="470">writeAll</references>
+        <referencedby refid="classNetworkClient_1a1773337e67c321eece590156e1a7b38a" compoundref="NetworkClient_8cpp" startline="54" endline="91">performHandshake</referencedby>
+        <referencedby refid="classNetworkClient_1ae93ee27e05eea56b96d34c4789a01f41" compoundref="NetworkClient_8cpp" startline="150" endline="170">sendChat</referencedby>
+        <referencedby refid="classNetworkClient_1a69d86a3b406a767d3feb704be440343a" compoundref="NetworkClient_8cpp" startline="172" endline="177">sendCreateLobby</referencedby>
+        <referencedby refid="classNetworkClient_1ab66ff3a3c9bb96ad56e141d3713914bd" compoundref="NetworkClient_8cpp" startline="179" endline="184">sendJoinLobby</referencedby>
+        <referencedby refid="classNetworkClient_1a28a515bbb5f6f75d6603a5332c217f93" compoundref="NetworkClient_8cpp" startline="93" endline="97">sendPong</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a6c612ab362cc3e4ea8c94ebc2cddc4e6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::sendPacketUdp</definition>
+        <argsstring>(const Packet &amp;p)</argsstring>
+        <name>sendPacketUdp</name>
+        <qualifiedname>NetworkClient::sendPacketUdp</qualifiedname>
+        <param>
+          <type>const <ref refid="classPacket" kindref="compound">Packet</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="179" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="197" bodyend="206"/>
+        <references refid="classNetworkClient_1ad6b5430496083ed39dacbb31514f3849" compoundref="NetworkClient_8hpp" startline="190" endline="190">_udpAddr</references>
+        <references refid="classNetworkClient_1a8c4e09f4a487b00c7b4cfd6507f5d1d0" compoundref="NetworkClient_8hpp" startline="208">_udpBytesOutWindow</references>
+        <references refid="classNetworkClient_1afec94b5ac7dda0fc2b434261108f43ad" compoundref="NetworkClient_8hpp" startline="186">_udpFd</references>
+        <references refid="classNetworkClient_1aaf60f1216a17b46ad12539625a1022c2" compoundref="NetworkClient_8cpp" startline="564" endline="568">nowMs</references>
+        <references refid="classPacket_1aa88c2d28796644c8a1d6137996502ca8" compoundref="Packet_8cpp" startline="10" endline="27">Packet::serialize</references>
+        <references refid="classNetworkClient_1a36892dcdc8c2523b27947a347ea16022" compoundref="NetworkClient_8cpp" startline="570" endline="585">updateUdpRates</references>
+        <referencedby refid="classNetworkClient_1aeb3772e8f3674783b14953ee27e1cd39" compoundref="NetworkClient_8cpp" startline="99" endline="107">sendHelloUdp</referencedby>
+        <referencedby refid="classNetworkClient_1afdfce51c7dbb2e61f5e9280b15368915" compoundref="NetworkClient_8cpp" startline="123" endline="135">sendInput</referencedby>
+        <referencedby refid="classNetworkClient_1a2773882369d758cbb23aa67b0dda78ed" compoundref="NetworkClient_8cpp" startline="137" endline="148">sendShoot</referencedby>
+        <referencedby refid="classNetworkClient_1ad087f54b86ec34f0be29053415ab7a46" compoundref="NetworkClient_8cpp" startline="109" endline="121">sendUdpPing</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a5bc6fcb253ac9f9d74c649cb4b30d546" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NetworkClient::handleTcpPacket</definition>
+        <argsstring>(const Packet &amp;p)</argsstring>
+        <name>handleTcpPacket</name>
+        <qualifiedname>NetworkClient::handleTcpPacket</qualifiedname>
+        <param>
+          <type>const <ref refid="classPacket" kindref="compound">Packet</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="180" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="275" bodyend="345"/>
+        <references refid="classNetworkClient_1a71ebf3bcf361e32e24abecffca56fdec" compoundref="NetworkClient_8hpp" startline="199">_events</references>
+        <references refid="classNetworkClient_1ac396fc7cda4c100ff4afca5fccf73429" compoundref="NetworkClient_8hpp" startline="198">_lastPlayerList</references>
+        <references refid="classNetworkClient_1a0b474e7f79f3dd26df29fb5fe39367b2" compoundref="NetworkClient_8hpp" startline="192">_lobbyCode</references>
+        <references refid="classNetworkClient_1ad6b5430496083ed39dacbb31514f3849" compoundref="NetworkClient_8hpp" startline="190" endline="190">_udpAddr</references>
+        <references refid="classNetworkClient_1a7f69f5c30fd349d670fae18598737b86" compoundref="NetworkClient_8cpp" startline="487" endline="500">disconnect</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a641d4a02e984224028338d5c33936ce9">LOBBY_ERROR</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ad516ccad8300c04495db993fcec70efc">LOBBY_OK</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a90791ed805bd5b00d78527d39d9ef7e4">MESSAGE</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ad4f5148ace6252399e4d60ce75602ae8">NEW_PLAYER</references>
+        <references refid="classPacket_1a3f718725cfd763776d87841235986095" compoundref="Packet_8hpp" startline="52">Packet::payload</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56ae07ff41a486c27c095a15898dcca34d1">PING</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56aa933b4eab2f8c05c250a78452a4475ef">PLAYER_LIST</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a392253eaea22aafdb199bc238bafc082">REFUSED</references>
+        <references refid="classNetworkClient_1a28a515bbb5f6f75d6603a5332c217f93" compoundref="NetworkClient_8cpp" startline="93" endline="97">sendPong</references>
+        <references refid="classPacket_1aebbae2cef32f967d0bbcabbe41dae6bf" compoundref="Packet_8hpp" startline="50">Packet::type</references>
+        <referencedby refid="classNetworkClient_1a1f77ff0729755d9782b4542582cfe214" compoundref="NetworkClient_8cpp" startline="232" endline="273">pollPackets</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NetworkClient::handleUdpPacket</definition>
+        <argsstring>(const Packet &amp;p)</argsstring>
+        <name>handleUdpPacket</name>
+        <qualifiedname>NetworkClient::handleUdpPacket</qualifiedname>
+        <param>
+          <type>const <ref refid="classPacket" kindref="compound">Packet</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="181" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="347" bodyend="456"/>
+        <references refid="classNetworkClient_1a71ebf3bcf361e32e24abecffca56fdec" compoundref="NetworkClient_8hpp" startline="199">_events</references>
+        <references refid="classNetworkClient_1ad35265342327777ccb894b79f81b05e6" compoundref="NetworkClient_8hpp" startline="202">_hasSnapshotSeq</references>
+        <references refid="classNetworkClient_1a38aa8a71fa921d8afe01d8caaf6d1df0" compoundref="NetworkClient_8hpp" startline="195">_lastSnapshot</references>
+        <references refid="classNetworkClient_1a8e04154250d91bbbb2cfbc0afeaed6bb" compoundref="NetworkClient_8hpp" startline="196">_lastSnapshotBullets</references>
+        <references refid="classNetworkClient_1ae8afee744ef3cbfc90a6ae126c6a0c1b" compoundref="NetworkClient_8hpp" startline="197">_lastSnapshotMonsters</references>
+        <references refid="classNetworkClient_1a7313805bd859cfc09dec94a7c8eb2fe0" compoundref="NetworkClient_8hpp" startline="201">_lastSnapshotSeq</references>
+        <references refid="classNetworkClient_1a629d27e793d46d3be1754f668932dd09" compoundref="NetworkClient_8hpp" startline="204">_snapshotLost</references>
+        <references refid="classNetworkClient_1a45e486f8ec98988efc9030a65dc49e09" compoundref="NetworkClient_8hpp" startline="203">_snapshotReceived</references>
+        <references refid="classNetworkClient_1a2965fb9499f0868ae11cda1c07c63425" compoundref="NetworkClient_8hpp" startline="205">_udpPingMs</references>
+        <references refid="classNetworkClient_1aaf60f1216a17b46ad12539625a1022c2" compoundref="NetworkClient_8cpp" startline="564" endline="568">nowMs</references>
+        <references refid="classPacket_1a3f718725cfd763776d87841235986095" compoundref="Packet_8hpp" startline="52">Packet::payload</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56adc6c95d7a7387379cf7fd130bbf3f77d">PONG_UDP</references>
+        <references refid="Packet_8hpp_1a0628f13bcd4685c7a4b4a9f1aad83b56a46b8744c6bc840d2cb241fa165f3e204">SNAPSHOT</references>
+        <references refid="classPacket_1aebbae2cef32f967d0bbcabbe41dae6bf" compoundref="Packet_8hpp" startline="50">Packet::type</references>
+        <referencedby refid="classNetworkClient_1a1f77ff0729755d9782b4542582cfe214" compoundref="NetworkClient_8cpp" startline="232" endline="273">pollPackets</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a844f1f20acd0958f264c7bb67e18d111" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool NetworkClient::writeAll</definition>
+        <argsstring>(socket_t fd, const uint8_t *data, std::size_t size)</argsstring>
+        <name>writeAll</name>
+        <qualifiedname>NetworkClient::writeAll</qualifiedname>
+        <param>
+          <type><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref></type>
+          <declname>fd</declname>
+        </param>
+        <param>
+          <type>const uint8_t *</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="182" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="458" bodyend="470"/>
+        <referencedby refid="classNetworkClient_1af150c1b7e0aa8c19cb337fb838479324" compoundref="NetworkClient_8cpp" startline="186" endline="195">sendPacketTcp</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1ab8fe1bfbcfc0f363bce00cb1dc2a2f88" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55" kindref="member">RecvResult</ref></type>
+        <definition>NetworkClient::RecvResult NetworkClient::receiveTcpFramed</definition>
+        <argsstring>(Packet &amp;p)</argsstring>
+        <name>receiveTcpFramed</name>
+        <qualifiedname>NetworkClient::receiveTcpFramed</qualifiedname>
+        <param>
+          <type><ref refid="classPacket" kindref="compound">Packet</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="183" column="16" bodyfile="Network/Client/NetworkClient.cpp" bodystart="472" bodyend="485"/>
+        <references refid="classNetworkClient_1a18dce692aa54fd1e006744d59d097e5f" compoundref="NetworkClient_8hpp" startline="185">_tcpFd</references>
+        <references refid="classNetworkClient_1a70fc44c2906eb7a70b74108f34df3008" compoundref="NetworkClient_8hpp" startline="200">_tcpRecvBuffer</references>
+        <references refid="TCPServer_8hpp_1a6b20d41d6252e9871430c242cb1a56e7" compoundref="TCPServer_8hpp" startline="24">BUFFER_SIZE</references>
+        <references refid="namespaceProtocol_1ad768525ca5f0324a5f414440e67679b6" compoundref="Protocol_8cpp" startline="46" endline="52">Protocol::consumeChunk</references>
+        <references refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55aef70e46fd3bbc21e3e1f0b6815e750c0">Disconnected</references>
+        <references refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55a4307e7e7986aa21a4b7c3ef2b5e948f6">Incomplete</references>
+        <references refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780a4307e7e7986aa21a4b7c3ef2b5e948f6">Protocol::Incomplete</references>
+        <references refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55aa60852f204ed8028c1c58808b746d115">Ok</references>
+        <references refid="namespaceProtocol_1aea1c7a72f2ed431c5d37b060c8cdb780aa60852f204ed8028c1c58808b746d115">Protocol::Ok</references>
+        <referencedby refid="classNetworkClient_1a1773337e67c321eece590156e1a7b38a" compoundref="NetworkClient_8cpp" startline="54" endline="91">performHandshake</referencedby>
+        <referencedby refid="classNetworkClient_1ac0dca5641be17084ead40825063b944e" compoundref="NetworkClient_8cpp" startline="208" endline="216">readTcpPacket</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1aaf60f1216a17b46ad12539625a1022c2" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>long long</type>
+        <definition>long long NetworkClient::nowMs</definition>
+        <argsstring>() const</argsstring>
+        <name>nowMs</name>
+        <qualifiedname>NetworkClient::nowMs</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="213" column="15" bodyfile="Network/Client/NetworkClient.cpp" bodystart="564" bodyend="568"/>
+        <referencedby refid="classNetworkClient_1a14ed76e74eea78d36e9009129f641f79" compoundref="NetworkClient_8cpp" startline="595" endline="599">getUdpRxKbps</referencedby>
+        <referencedby refid="classNetworkClient_1ad5c06bb19f3f5959f30bc383d89cb6e4" compoundref="NetworkClient_8cpp" startline="601" endline="605">getUdpTxKbps</referencedby>
+        <referencedby refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" compoundref="NetworkClient_8cpp" startline="347" endline="456">handleUdpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a101f6ab85ee02ddb9d45a40dad603e29" compoundref="NetworkClient_8cpp" startline="218" endline="230">readUdpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a6c612ab362cc3e4ea8c94ebc2cddc4e6" compoundref="NetworkClient_8cpp" startline="197" endline="206">sendPacketUdp</referencedby>
+        <referencedby refid="classNetworkClient_1ad087f54b86ec34f0be29053415ab7a46" compoundref="NetworkClient_8cpp" startline="109" endline="121">sendUdpPing</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="classNetworkClient_1a36892dcdc8c2523b27947a347ea16022" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void NetworkClient::updateUdpRates</definition>
+        <argsstring>(long long nowMs)</argsstring>
+        <name>updateUdpRates</name>
+        <qualifiedname>NetworkClient::updateUdpRates</qualifiedname>
+        <param>
+          <type>long long</type>
+          <declname>nowMs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/Client/NetworkClient.hpp" line="214" column="10" bodyfile="Network/Client/NetworkClient.cpp" bodystart="570" bodyend="585"/>
+        <references refid="classNetworkClient_1aef7a8773ff5b23399cb9aac0b3c4d7a4" compoundref="NetworkClient_8hpp" startline="207">_udpBytesInWindow</references>
+        <references refid="classNetworkClient_1a8c4e09f4a487b00c7b4cfd6507f5d1d0" compoundref="NetworkClient_8hpp" startline="208">_udpBytesOutWindow</references>
+        <references refid="classNetworkClient_1ac3ce12720fa24e5706d225d80bf5f1aa" compoundref="NetworkClient_8hpp" startline="209">_udpRateWindowStartMs</references>
+        <references refid="classNetworkClient_1a633d1f57b2d80be8d61c3695115cf614" compoundref="NetworkClient_8hpp" startline="210">_udpRxKbps</references>
+        <references refid="classNetworkClient_1a9be81688f8ada89b3b8a26144ef651bb" compoundref="NetworkClient_8hpp" startline="211">_udpTxKbps</references>
+        <referencedby refid="classNetworkClient_1a14ed76e74eea78d36e9009129f641f79" compoundref="NetworkClient_8cpp" startline="595" endline="599">getUdpRxKbps</referencedby>
+        <referencedby refid="classNetworkClient_1ad5c06bb19f3f5959f30bc383d89cb6e4" compoundref="NetworkClient_8cpp" startline="601" endline="605">getUdpTxKbps</referencedby>
+        <referencedby refid="classNetworkClient_1a101f6ab85ee02ddb9d45a40dad603e29" compoundref="NetworkClient_8cpp" startline="218" endline="230">readUdpPacket</referencedby>
+        <referencedby refid="classNetworkClient_1a6c612ab362cc3e4ea8c94ebc2cddc4e6" compoundref="NetworkClient_8cpp" startline="197" endline="206">sendPacketUdp</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>TCP+UDP client responsible for handshake, lobby, and gameplay packets. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>NetworkClient</label>
+        <link refid="classNetworkClient"/>
+      </node>
+    </collaborationgraph>
+    <location file="Network/Client/NetworkClient.hpp" line="23" column="1" bodyfile="Network/Client/NetworkClient.hpp" bodystart="23" bodyend="215"/>
+    <listofallmembers>
+      <member refid="classNetworkClient_1a71ebf3bcf361e32e24abecffca56fdec" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_events</name></member>
+      <member refid="classNetworkClient_1ad35265342327777ccb894b79f81b05e6" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_hasSnapshotSeq</name></member>
+      <member refid="classNetworkClient_1ac396fc7cda4c100ff4afca5fccf73429" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_lastPlayerList</name></member>
+      <member refid="classNetworkClient_1a38aa8a71fa921d8afe01d8caaf6d1df0" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_lastSnapshot</name></member>
+      <member refid="classNetworkClient_1a8e04154250d91bbbb2cfbc0afeaed6bb" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_lastSnapshotBullets</name></member>
+      <member refid="classNetworkClient_1ae8afee744ef3cbfc90a6ae126c6a0c1b" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_lastSnapshotMonsters</name></member>
+      <member refid="classNetworkClient_1a7313805bd859cfc09dec94a7c8eb2fe0" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_lastSnapshotSeq</name></member>
+      <member refid="classNetworkClient_1a0b474e7f79f3dd26df29fb5fe39367b2" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_lobbyCode</name></member>
+      <member refid="classNetworkClient_1a8b0d8d4bb3fa98ecf345d0fc6dafd8e7" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_playerId</name></member>
+      <member refid="classNetworkClient_1a040896aa0ec5206449d02e6dd264f7cd" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_pseudo</name></member>
+      <member refid="classNetworkClient_1a629d27e793d46d3be1754f668932dd09" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_snapshotLost</name></member>
+      <member refid="classNetworkClient_1a45e486f8ec98988efc9030a65dc49e09" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_snapshotReceived</name></member>
+      <member refid="classNetworkClient_1a11f8f91b9958ae221c08bf304fbfe31e" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_tcpAddr</name></member>
+      <member refid="classNetworkClient_1aeef42eb1f64d0e680941ec6583bbbd44" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_tcpConnected</name></member>
+      <member refid="classNetworkClient_1a18dce692aa54fd1e006744d59d097e5f" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_tcpFd</name></member>
+      <member refid="classNetworkClient_1a70fc44c2906eb7a70b74108f34df3008" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_tcpRecvBuffer</name></member>
+      <member refid="classNetworkClient_1ad6b5430496083ed39dacbb31514f3849" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_udpAddr</name></member>
+      <member refid="classNetworkClient_1aef7a8773ff5b23399cb9aac0b3c4d7a4" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_udpBytesInWindow</name></member>
+      <member refid="classNetworkClient_1a8c4e09f4a487b00c7b4cfd6507f5d1d0" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_udpBytesOutWindow</name></member>
+      <member refid="classNetworkClient_1afc9f1111f98037b27d3033e8d9118556" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_udpConnected</name></member>
+      <member refid="classNetworkClient_1afec94b5ac7dda0fc2b434261108f43ad" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_udpFd</name></member>
+      <member refid="classNetworkClient_1a60a9388fce03419f064d436e02e59a23" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_udpLastPingSentMs</name></member>
+      <member refid="classNetworkClient_1a2965fb9499f0868ae11cda1c07c63425" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_udpPingMs</name></member>
+      <member refid="classNetworkClient_1ac3ce12720fa24e5706d225d80bf5f1aa" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_udpRateWindowStartMs</name></member>
+      <member refid="classNetworkClient_1a633d1f57b2d80be8d61c3695115cf614" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_udpRxKbps</name></member>
+      <member refid="classNetworkClient_1a9be81688f8ada89b3b8a26144ef651bb" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>_udpTxKbps</name></member>
+      <member refid="classNetworkClient_1ad93611688c9c99aba516b5396a543cd8" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>clearEvents</name></member>
+      <member refid="classNetworkClient_1aaeedfac221d22aa5df4135b1680c4c99" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>connectToServer</name></member>
+      <member refid="classNetworkClient_1a7f69f5c30fd349d670fae18598737b86" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>disconnect</name></member>
+      <member refid="classNetworkClient_1a632c4eeb2d8086de97cd616b2be972cf" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>disconnectUdp</name></member>
+      <member refid="classNetworkClient_1a0ea20f35b1cb3a917add14fc0bbc03af" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>ensureUdp</name></member>
+      <member refid="classNetworkClient_1aa443eee7ab598870a1028935b1b8c174" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>getEvents</name></member>
+      <member refid="classNetworkClient_1ac79abc81697913608e849a936eee4ada" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>getLastPlayerList</name></member>
+      <member refid="classNetworkClient_1a501553ba5f6d381f43855eda057157bf" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>getLastSnapshot</name></member>
+      <member refid="classNetworkClient_1abfd2ef3eb235148e35fe65831187feab" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>getLastSnapshotBullets</name></member>
+      <member refid="classNetworkClient_1a4b6f0c20c59eeeddf98e738257c8a793" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>getLastSnapshotMonsters</name></member>
+      <member refid="classNetworkClient_1a9f92ea1a77f00b2867ebc37b6581d507" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>getLobbyCode</name></member>
+      <member refid="classNetworkClient_1a3a848ca2af9ba2a3008e33ecc39a3622" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>getPlayerId</name></member>
+      <member refid="classNetworkClient_1af14f1f811649fc4555ea11aba8a812f2" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>getPseudo</name></member>
+      <member refid="classNetworkClient_1a9b4492241691163874e561440a379c3e" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>getUdpLossPct</name></member>
+      <member refid="classNetworkClient_1aa2de4fb4f6154441c96a7620ae3fb982" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>getUdpPingMs</name></member>
+      <member refid="classNetworkClient_1a14ed76e74eea78d36e9009129f641f79" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>getUdpRxKbps</name></member>
+      <member refid="classNetworkClient_1ad5c06bb19f3f5959f30bc383d89cb6e4" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>getUdpTxKbps</name></member>
+      <member refid="classNetworkClient_1a5bc6fcb253ac9f9d74c649cb4b30d546" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>handleTcpPacket</name></member>
+      <member refid="classNetworkClient_1acfb90d5461a5eb3826a710d6394faba0" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>handleUdpPacket</name></member>
+      <member refid="classNetworkClient_1a08e45bde82ce1fbc60128fd538b58078" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>isConnected</name></member>
+      <member refid="classNetworkClient_1af897ec3417cf4dc121accb155d7320ee" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>MoveCmd</name></member>
+      <member refid="classNetworkClient_1a20f2bfa3171ebbc20722c4d8f8eb3d12" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>NetworkClient</name></member>
+      <member refid="classNetworkClient_1aaf60f1216a17b46ad12539625a1022c2" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>nowMs</name></member>
+      <member refid="classNetworkClient_1a1773337e67c321eece590156e1a7b38a" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>performHandshake</name></member>
+      <member refid="classNetworkClient_1a1f77ff0729755d9782b4542582cfe214" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>pollPackets</name></member>
+      <member refid="classNetworkClient_1ac0dca5641be17084ead40825063b944e" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>readTcpPacket</name></member>
+      <member refid="classNetworkClient_1a101f6ab85ee02ddb9d45a40dad603e29" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>readUdpPacket</name></member>
+      <member refid="classNetworkClient_1ab8fe1bfbcfc0f363bce00cb1dc2a2f88" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>receiveTcpFramed</name></member>
+      <member refid="classNetworkClient_1a187e3fa8efedbd07b5ccbc9ff0b44e55" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>RecvResult</name></member>
+      <member refid="classNetworkClient_1a92915cb59bb0f4e98f30c1a36964d989" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>resetForLobby</name></member>
+      <member refid="classNetworkClient_1a8d887ba6e7708446cee34eebc70a2b7d" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>resetForReconnect</name></member>
+      <member refid="classNetworkClient_1ae93ee27e05eea56b96d34c4789a01f41" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>sendChat</name></member>
+      <member refid="classNetworkClient_1a69d86a3b406a767d3feb704be440343a" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>sendCreateLobby</name></member>
+      <member refid="classNetworkClient_1aeb3772e8f3674783b14953ee27e1cd39" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>sendHelloUdp</name></member>
+      <member refid="classNetworkClient_1afdfce51c7dbb2e61f5e9280b15368915" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>sendInput</name></member>
+      <member refid="classNetworkClient_1ab66ff3a3c9bb96ad56e141d3713914bd" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>sendJoinLobby</name></member>
+      <member refid="classNetworkClient_1af150c1b7e0aa8c19cb337fb838479324" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>sendPacketTcp</name></member>
+      <member refid="classNetworkClient_1a6c612ab362cc3e4ea8c94ebc2cddc4e6" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>sendPacketUdp</name></member>
+      <member refid="classNetworkClient_1a28a515bbb5f6f75d6603a5332c217f93" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>sendPong</name></member>
+      <member refid="classNetworkClient_1a2773882369d758cbb23aa67b0dda78ed" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>sendShoot</name></member>
+      <member refid="classNetworkClient_1ad087f54b86ec34f0be29053415ab7a46" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>sendUdpPing</name></member>
+      <member refid="classNetworkClient_1acfbb5b079e33b388d8df440cf29e89a1" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>setPseudo</name></member>
+      <member refid="classNetworkClient_1acb108e50dae9dda5b2cef508db1dd582" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>updateServerAddress</name></member>
+      <member refid="classNetworkClient_1a36892dcdc8c2523b27947a347ea16022" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>updateUdpRates</name></member>
+      <member refid="classNetworkClient_1a844f1f20acd0958f264c7bb67e18d111" prot="private" virt="non-virtual"><scope>NetworkClient</scope><name>writeAll</name></member>
+      <member refid="classNetworkClient_1ab82fb597494c89b4a7ba9fd0d4b659c4" prot="public" virt="non-virtual"><scope>NetworkClient</scope><name>~NetworkClient</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

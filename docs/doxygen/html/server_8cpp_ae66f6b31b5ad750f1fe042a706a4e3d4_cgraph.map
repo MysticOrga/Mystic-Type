@@ -1,0 +1,124 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,512,60,537"/>
+<area shape="rect" id="Node000002" href="$classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3" title="Run the main accept/receive loop (blocking)." alt="" coords="108,512,225,537"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,522,94,522,94,527,61,527"/>
+<area shape="rect" id="Node000003" href="$classTCPServer.html#ae0e94f8d712b3c9028fe674100d649b9" title="Accept incoming connection and register a new client slot." alt="" coords="285,221,492,247"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="176,510,368,256,372,259,180,513"/>
+<area shape="rect" id="Node000008" href="$classTCPServer.html#a6d824f4302f15bbd2c7c8b754d1a51dd" title="Get current time in milliseconds." alt="" coords="568,487,767,512"/>
+<area shape="poly" id="edge29_Node000002_Node000008" title=" " alt="" coords="225,519,554,502,555,508,226,524"/>
+<area shape="rect" id="Node000015" href="$classTCPServer.html#a867c0e233f62e2d8f181ae99dbcca0a0" title="Disconnect clients whose heartbeat timed out." alt="" coords="289,537,488,563"/>
+<area shape="poly" id="edge14_Node000002_Node000015" title=" " alt="" coords="226,529,276,534,275,540,225,534"/>
+<area shape="rect" id="Node000024" href="$classNetwork_1_1TransportLayer_1_1ASocket.html#a65e51ed926d1ef000bf854a8e7fcd474" title="Get the underlying socket file descriptor." alt="" coords="298,763,479,803"/>
+<area shape="poly" id="edge30_Node000002_Node000024" title=" " alt="" coords="173,537,182,578,201,636,231,697,251,725,275,749,287,758,284,762,272,753,247,728,227,700,196,638,177,580,168,538"/>
+<area shape="rect" id="Node000025" href="$classTCPServer.html#a5e77543739e5b801384f9fe3e63c2bf8" title="Poll all sockets using select()." alt="" coords="303,968,474,993"/>
+<area shape="poly" id="edge31_Node000002_Node000025" title=" " alt="" coords="174,537,210,653,239,734,276,814,324,893,370,956,366,959,320,896,271,817,234,736,205,655,169,539"/>
+<area shape="rect" id="Node000027" href="$classTCPServer.html#ada05a61182a782b4d3326fabd26a19bf" title="Read and handle data for a single client." alt="" coords="281,713,496,739"/>
+<area shape="poly" id="edge33_Node000002_Node000027" title=" " alt="" coords="184,536,365,702,361,706,181,540"/>
+<area shape="rect" id="Node000048" href="$classTCPServer.html#a2a03b7479e884f287b5a88df03eeb17b" title=" " alt="" coords="273,411,504,436"/>
+<area shape="poly" id="edge65_Node000002_Node000048" title=" " alt="" coords="195,509,346,439,349,444,197,514"/>
+<area shape="rect" id="Node000050" href="$classTCPServer.html#a1ef2aa5cce99901889e64fce86fbac33" title="Send a ping packet to every connected client." alt="" coords="1682,5,1869,31"/>
+<area shape="poly" id="edge71_Node000002_Node000050" title=" " alt="" coords="166,511,173,458,190,378,204,334,221,289,244,246,271,207,316,156,358,114,400,81,442,55,489,37,540,24,598,17,666,15,1221,15,1668,15,1668,21,1221,21,666,21,599,23,541,29,490,42,445,60,403,85,362,118,320,160,275,210,248,249,226,291,209,335,195,379,178,459,172,512"/>
+<area shape="rect" id="Node000004" href="$classNetwork_1_1TransportLayer_1_1TCPSocket.html#aab30f88e654d44503b85368f4af43e8d" title="Accept an incoming client connection." alt="" coords="574,106,761,146"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="413,219,475,188,551,156,574,148,575,153,553,160,477,193,415,224"/>
+<area shape="rect" id="Node000005" href="$classSessionManager.html#af8d1197fa1236d0295e3d31170639f6e" title="Add a TCP session entry." alt="" coords="562,171,773,196"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="459,219,583,196,584,201,460,224"/>
+<area shape="rect" id="Node000006" href="$classTCPServer.html#aa6089a11e438f73bfc614c44f86e5d75" title="Close and invalidate a file descriptor." alt="" coords="871,329,1017,355"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="457,244,783,307,867,324,866,329,782,313,456,249"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="402,246,506,397,519,420,526,439,536,455,554,472,565,479,562,483,550,476,532,459,522,441,514,422,502,399,397,249"/>
+<area shape="rect" id="Node000009" href="$classTCPServer.html#a35b89efbda16dd8af6b7ff45b6da036d" title="Build a packet carrying a string payload." alt="" coords="561,437,773,463"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="406,245,468,302,554,372,635,428,632,432,550,376,465,306,402,249"/>
+<area shape="rect" id="Node000010" href="$classTCPServer.html#a9a65a3923e77e48c5f0019b45af8fcb5" title="Send a packet to a specific client fd." alt="" coords="1950,585,2119,611"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="398,220,421,191,457,155,501,120,551,92,607,71,656,60,700,54,743,54,831,61,943,66,1499,66,1552,71,1603,83,1652,104,1698,130,1741,162,1782,198,1855,279,1916,365,1965,448,2002,519,2025,571,2020,574,1997,522,1960,450,1911,368,1851,283,1778,202,1738,166,1695,135,1650,108,1602,89,1551,76,1499,71,943,71,831,66,742,59,701,60,657,65,609,77,553,96,504,124,460,159,425,195,402,223"/>
+<area shape="rect" id="Node000007" href="$classTCPServer.html#a2595c03eed6bf37e098e619e6751a3d4" title="Close a raw fd without resetting the caller&#39;s variable." alt="" coords="1133,329,1307,355"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1018,339,1119,339,1119,345,1018,345"/>
+<area shape="rect" id="Node000011" href="$namespaceProtocol.html#a668bdeed219432868fca095e1b2f2667" title="Build a TCP framed buffer (2 bytes length + serialized packet)." alt="" coords="2181,561,2323,587"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="2119,586,2167,581,2167,586,2120,591"/>
+<area shape="rect" id="Node000013" href="$classTCPServer.html#a79e20e1d2821e399fe47dd1055341d5e" title="Ensure the full buffer is written to the socket." alt="" coords="2179,611,2325,636"/>
+<area shape="poly" id="edge12_Node000010_Node000013" title=" " alt="" coords="2120,605,2165,611,2165,616,2119,611"/>
+<area shape="rect" id="Node000012" href="$classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="2383,561,2509,587"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="2323,571,2369,571,2369,577,2323,577"/>
+<area shape="rect" id="Node000014" href="$classTCPServer.html#a5b1988f8a542c2d39f3d3556264e71b2" title="Write raw bytes to a socket fd." alt="" coords="2373,611,2519,636"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="2326,621,2359,621,2359,626,2326,626"/>
+<area shape="poly" id="edge17_Node000015_Node000008" title=" " alt="" coords="459,535,583,512,584,517,460,540"/>
+<area shape="poly" id="edge18_Node000015_Node000009" title=" " alt="" coords="412,535,474,503,551,471,579,463,581,468,553,477,476,508,414,540"/>
+<area shape="poly" id="edge28_Node000015_Node000010" title=" " alt="" coords="488,547,1219,545,1499,545,1617,548,1736,557,1938,581,1937,586,1735,562,1617,554,1499,550,1219,550,488,552"/>
+<area shape="rect" id="Node000016" href="$classTCPServer.html#afb22938cbabd280ec30b3ffab25aeb56" title=" " alt="" coords="561,588,774,613"/>
+<area shape="poly" id="edge15_Node000015_Node000016" title=" " alt="" coords="460,560,584,583,583,588,459,565"/>
+<area shape="rect" id="Node000017" href="$classTCPServer.html#a435ec8dcd340e15f964ce3c0748c7305" title="Reset client fields and close its socket." alt="" coords="584,637,751,663"/>
+<area shape="poly" id="edge19_Node000015_Node000017" title=" " alt="" coords="415,560,476,591,553,622,585,631,583,637,551,627,474,596,412,565"/>
+<area shape="poly" id="edge16_Node000016_Node000010" title=" " alt="" coords="774,597,1219,595,1499,595,1937,595,1937,601,1499,601,1219,601,774,603"/>
+<area shape="poly" id="edge20_Node000017_Node000006" title=" " alt="" coords="750,638,781,622,813,595,840,563,864,528,884,491,915,422,933,367,938,369,920,424,889,494,869,530,844,566,816,599,784,627,752,643"/>
+<area shape="rect" id="Node000018" href="$classSessionManager.html#a8916c4ee701635dd8b2ee525331efb0b" title="Remove a session by player id." alt="" coords="836,636,1052,661"/>
+<area shape="poly" id="edge21_Node000017_Node000018" title=" " alt="" coords="751,647,822,647,822,652,751,652"/>
+<area shape="rect" id="Node000019" href="$classTCPServer.html#a508cc3d7023b0cfe9abed2e3166b1682" title="Remove a client from its current lobby." alt="" coords="1111,736,1329,761"/>
+<area shape="poly" id="edge22_Node000017_Node000019" title=" " alt="" coords="740,660,1135,731,1134,736,739,665"/>
+<area shape="rect" id="Node000020" href="$classTCPServer.html#a8d2dcfc8d8337ff577a101c4aee6aac5" title="Resend the player list to all members of a lobby." alt="" coords="1407,736,1588,761"/>
+<area shape="poly" id="edge23_Node000019_Node000020" title=" " alt="" coords="1329,746,1393,746,1393,751,1329,751"/>
+<area shape="rect" id="Node000023" href="$classSessionManager.html#a8023cf136e039298b1e2ba5fe7cb224b" title="Store the lobby code for a player." alt="" coords="1383,687,1612,712"/>
+<area shape="poly" id="edge27_Node000019_Node000023" title=" " alt="" coords="1292,733,1411,712,1412,717,1293,739"/>
+<area shape="rect" id="Node000021" href="$classTCPServer.html#aa87b20fb76f60c19df36f39ef3621b05" title="Send the current player list to a single client." alt="" coords="1680,1129,1871,1169"/>
+<area shape="poly" id="edge24_Node000020_Node000021" title=" " alt="" coords="1590,755,1614,772,1631,794,1642,815,1649,837,1652,859,1649,902,1640,945,1630,988,1627,1030,1636,1072,1646,1094,1662,1115,1670,1123,1667,1127,1658,1118,1642,1096,1631,1074,1622,1030,1625,987,1635,944,1644,901,1647,859,1644,838,1637,817,1626,797,1610,776,1587,760"/>
+<area shape="poly" id="edge26_Node000021_Node000010" title=" " alt="" coords="1869,1129,1889,1115,1914,1077,1938,1022,1960,954,1979,879,2009,731,2027,624,2032,625,2015,732,1984,880,1965,955,1943,1024,1919,1080,1893,1119,1872,1133"/>
+<area shape="rect" id="Node000022" href="$classTCPServer.html#a196ba30f88f890e9acf0ef1a21a74c71" title="Build the packet containing the list of connected players." alt="" coords="1939,1129,2131,1169"/>
+<area shape="poly" id="edge25_Node000021_Node000022" title=" " alt="" coords="1871,1146,1925,1146,1925,1151,1871,1151"/>
+<area shape="rect" id="Node000026" href="$classTCPServer.html#a3b0daca7192b0342a5694a287319ddaa" title="Wrapper around select for testability." alt="" coords="581,1085,753,1111"/>
+<area shape="poly" id="edge32_Node000025_Node000026" title=" " alt="" coords="409,991,471,1031,511,1053,553,1072,577,1079,575,1084,551,1076,509,1058,469,1036,407,996"/>
+<area shape="poly" id="edge35_Node000027_Node000008" title=" " alt="" coords="401,711,463,650,550,573,632,517,635,521,554,577,467,654,404,715"/>
+<area shape="poly" id="edge55_Node000027_Node000009" title=" " alt="" coords="399,712,446,653,502,573,514,544,521,519,529,495,550,472,557,467,560,471,554,476,534,498,526,520,519,546,506,575,450,656,403,715"/>
+<area shape="poly" id="edge62_Node000027_Node000010" title=" " alt="" coords="496,715,1936,603,1937,608,497,720"/>
+<area shape="poly" id="edge34_Node000027_Node000016" title=" " alt="" coords="404,711,466,667,507,643,551,622,574,614,575,619,553,627,510,648,469,672,408,715"/>
+<area shape="poly" id="edge61_Node000027_Node000017" title=" " alt="" coords="435,711,606,664,607,669,437,716"/>
+<area shape="rect" id="Node000028" href="$classSessionManager.html#a0c52e8605801fc4e98c84b724ec72c09" title="Fetch the lobby code for a player." alt="" coords="552,1036,783,1061"/>
+<area shape="poly" id="edge36_Node000027_Node000028" title=" " alt="" coords="489,737,506,750,529,784,538,819,537,854,530,889,524,923,523,957,531,990,554,1023,557,1026,553,1030,550,1026,526,992,518,957,519,922,525,888,531,853,533,819,525,786,502,753,486,741"/>
+<area shape="rect" id="Node000029" href="$classSessionManager.html#a3d137db5b62fdb63340d7b92b8eb371f" title="Fetch the player&#39;s pseudo." alt="" coords="565,739,770,764"/>
+<area shape="poly" id="edge37_Node000027_Node000029" title=" " alt="" coords="497,733,551,738,550,743,496,738"/>
+<area shape="rect" id="Node000030" href="$classTCPServer.html#afd78aa179d3b735e82868d800629b354" title="Handle lobby&#45;related packets for a client." alt="" coords="557,888,778,913"/>
+<area shape="poly" id="edge38_Node000027_Node000030" title=" " alt="" coords="486,737,506,749,519,765,527,781,531,813,534,844,541,859,554,873,561,879,558,883,550,877,537,862,529,846,525,814,522,782,515,768,502,753,483,741"/>
+<area shape="rect" id="Node000040" href="$classTCPServer.html#a13efa1ebda8d0f4c99eae65d6b012b75" title="Build a packet carrying a simple integer id." alt="" coords="574,788,761,813"/>
+<area shape="poly" id="edge54_Node000027_Node000040" title=" " alt="" coords="462,736,505,749,529,762,553,774,579,782,577,787,551,779,527,766,503,754,461,741"/>
+<area shape="rect" id="Node000041" href="$classTCPServer.html#ae9543e5003c04975a7e06a9bb85c7723" title="Receive and parse a packet from a client socket." alt="" coords="574,987,761,1012"/>
+<area shape="poly" id="edge56_Node000027_Node000041" title=" " alt="" coords="489,737,506,749,526,778,534,806,534,835,530,864,527,892,527,920,535,947,554,974,564,981,560,986,550,977,530,949,522,921,521,892,525,863,529,835,529,807,521,780,502,753,485,741"/>
+<area shape="rect" id="Node000046" href="$classSessionManager.html#a84b313bdbfecb70d12707d77f357bca8" title="Store the player&#39;s pseudo." alt="" coords="565,837,769,863"/>
+<area shape="poly" id="edge63_Node000027_Node000046" title=" " alt="" coords="481,736,506,749,523,768,530,788,538,807,554,824,562,829,559,834,550,828,533,809,525,790,518,771,502,753,479,741"/>
+<area shape="rect" id="Node000047" href="$classSessionManager.html#ac233a47eaa6ca5e9b69e0cb8cd377358" title="Update last PONG time for heartbeat checks." alt="" coords="560,937,775,963"/>
+<area shape="poly" id="edge64_Node000027_Node000047" title=" " alt="" coords="488,737,506,749,523,771,530,794,531,839,531,883,538,904,554,924,558,928,554,932,550,928,533,906,525,884,525,839,525,795,518,774,502,753,485,741"/>
+<area shape="poly" id="edge52_Node000030_Node000010" title=" " alt="" coords="729,911,783,923,850,942,906,961,999,999,1045,1014,1094,1027,1151,1035,1219,1038,1499,1038,1547,1034,1594,1024,1639,1008,1683,986,1724,960,1764,931,1836,865,1899,794,1951,726,2018,621,2022,624,1955,729,1903,798,1840,869,1767,935,1727,965,1685,991,1641,1013,1595,1029,1548,1040,1499,1043,1219,1043,1150,1040,1093,1032,1043,1019,998,1004,904,966,848,947,782,929,727,916"/>
+<area shape="poly" id="edge51_Node000030_Node000020" title=" " alt="" coords="778,908,898,910,1041,901,1116,889,1191,873,1264,849,1333,818,1348,808,1357,796,1366,783,1381,772,1400,763,1402,768,1384,776,1370,787,1361,799,1351,811,1336,823,1266,854,1193,878,1117,895,1042,906,898,915,778,913"/>
+<area shape="poly" id="edge53_Node000030_Node000021" title=" " alt="" coords="767,911,785,924,806,955,813,987,812,1019,806,1050,801,1081,801,1111,810,1139,832,1165,849,1174,876,1180,955,1188,1061,1190,1184,1187,1446,1173,1666,1156,1666,1161,1446,1178,1184,1193,1061,1195,955,1193,875,1185,847,1179,829,1169,805,1142,796,1112,796,1081,801,1050,807,1018,808,987,801,957,781,928,764,916"/>
+<area shape="rect" id="Node000031" href="$classTCPServer.html#a84035146c9257be5714850a1f46d0bfb" title="Assign a client to a lobby (public or private)." alt="" coords="855,788,1033,813"/>
+<area shape="poly" id="edge39_Node000030_Node000031" title=" " alt="" coords="752,885,781,873,796,862,804,849,814,836,829,824,846,816,849,820,832,828,818,840,809,852,800,865,784,878,754,890"/>
+<area shape="rect" id="Node000037" href="$classTCPServer.html#aee3fb51b52375d68f548f60cc7005ef0" title="Notify all clients of a newly connected player." alt="" coords="1660,1079,1891,1104"/>
+<area shape="poly" id="edge47_Node000030_Node000037" title=" " alt="" coords="765,911,784,924,799,941,806,959,808,994,811,1028,818,1043,832,1057,859,1073,893,1086,980,1105,1085,1117,1201,1121,1322,1120,1441,1116,1646,1101,1647,1107,1441,1121,1322,1126,1201,1126,1084,1122,979,1111,892,1091,857,1078,829,1061,814,1046,806,1029,803,995,800,960,794,944,781,928,762,916"/>
+<area shape="rect" id="Node000038" href="$classTCPServer.html#a063b685012f0cd7b069ad82dbffcb95f" title="Generate a random lobby code (6 chars alnum)." alt="" coords="831,1129,1057,1155"/>
+<area shape="poly" id="edge49_Node000030_Node000038" title=" " alt="" coords="766,911,785,924,802,947,810,970,812,994,810,1018,808,1041,809,1064,817,1086,833,1108,849,1121,846,1125,829,1112,812,1088,804,1064,803,1041,805,1017,806,994,805,972,797,950,781,928,763,916"/>
+<area shape="rect" id="Node000039" href="$classTCPServer.html#ae45d63761257c84a68a96c24541c13e4" title=" " alt="" coords="837,837,1051,863"/>
+<area shape="poly" id="edge50_Node000030_Node000039" title=" " alt="" coords="737,885,860,863,861,868,738,891"/>
+<area shape="poly" id="edge45_Node000031_Node000019" title=" " alt="" coords="1012,785,1138,761,1139,766,1013,791"/>
+<area shape="poly" id="edge46_Node000031_Node000023" title=" " alt="" coords="1033,810,1101,813,1178,810,1258,797,1297,786,1333,772,1348,761,1357,748,1366,734,1381,721,1395,714,1397,719,1384,726,1370,738,1361,751,1352,764,1336,776,1298,791,1259,803,1179,815,1101,818,1033,815"/>
+<area shape="rect" id="Node000032" href="$classTCPServer.html#a30203c2836aa52676f3e6205d8730943" title=" " alt="" coords="1105,923,1335,948"/>
+<area shape="poly" id="edge40_Node000031_Node000032" title=" " alt="" coords="1021,811,1058,824,1098,843,1135,867,1195,912,1192,916,1132,871,1095,848,1056,828,1019,816"/>
+<area shape="rect" id="Node000033" href="$classChildProcessManager.html#af9be1ce64da7e05952b231b22df221a0" title=" " alt="" coords="1416,963,1579,1003"/>
+<area shape="poly" id="edge41_Node000032_Node000033" title=" " alt="" coords="1294,945,1403,964,1402,970,1293,951"/>
+<area shape="rect" id="Node000034" href="$classTCPServer.html#a25273652d6d80037ec5bcad8725bd269" title=" " alt="" coords="1410,785,1585,811"/>
+<area shape="poly" id="edge42_Node000032_Node000034" title=" " alt="" coords="1296,920,1333,901,1349,882,1356,862,1363,841,1381,821,1396,812,1399,817,1384,825,1368,844,1361,864,1354,885,1336,905,1298,925"/>
+<area shape="rect" id="Node000035" href="$classChildProcessManager.html#a3b7c34be0f81b8a841d4ecd28a837bf6" title=" " alt="" coords="1416,835,1579,875"/>
+<area shape="poly" id="edge43_Node000032_Node000035" title=" " alt="" coords="1268,920,1334,901,1382,885,1409,877,1410,882,1383,890,1335,906,1269,925"/>
+<area shape="rect" id="Node000036" href="$classChildProcessManager.html#a138e2d098e92a2c6d1ad7b35dadd6541" title="Spawn a UDP game server process." alt="" coords="1416,899,1579,939"/>
+<area shape="poly" id="edge44_Node000032_Node000036" title=" " alt="" coords="1335,926,1402,922,1402,927,1335,931"/>
+<area shape="poly" id="edge48_Node000037_Node000010" title=" " alt="" coords="1859,1076,1889,1057,1931,1007,1964,949,1989,887,2006,824,2018,763,2026,708,2031,624,2036,625,2031,708,2024,764,2012,826,1994,889,1969,951,1935,1010,1892,1061,1862,1081"/>
+<area shape="rect" id="Node000042" href="$namespaceProtocol.html#ad768525ca5f0324a5f414440e67679b6" title="Append newly read bytes then attempt extraction." alt="" coords="853,1280,1035,1305"/>
+<area shape="poly" id="edge57_Node000041_Node000042" title=" " alt="" coords="762,1007,785,1023,806,1054,814,1085,814,1116,809,1147,804,1178,804,1208,812,1238,833,1267,843,1275,839,1279,829,1270,807,1240,799,1209,799,1177,804,1146,809,1116,809,1085,801,1056,781,1027,759,1012"/>
+<area shape="rect" id="Node000045" href="$classTCPServer.html#a00011973e407cab03dde7c74a4c65949" title="Read raw bytes from a socket fd." alt="" coords="873,1231,1015,1256"/>
+<area shape="poly" id="edge60_Node000041_Node000045" title=" " alt="" coords="763,1008,784,1023,802,1046,810,1070,812,1094,810,1118,808,1141,809,1164,816,1187,833,1209,862,1229,859,1233,829,1213,812,1189,804,1165,803,1141,805,1117,806,1094,805,1071,798,1049,781,1027,760,1012"/>
+<area shape="rect" id="Node000043" href="$namespaceProtocol.html#a10005c44787f8de2a0e42d395aff8baa" title="Try to extract a complete packet from an accumulated stream buffer." alt="" coords="1119,1280,1321,1305"/>
+<area shape="poly" id="edge58_Node000042_Node000043" title=" " alt="" coords="1036,1290,1105,1290,1105,1295,1036,1295"/>
+<area shape="rect" id="Node000044" href="$classPacket.html#abfcd427a2ca434ac71592334517638fb" title="Deserialize a packet from a raw byte buffer." alt="" coords="1426,1280,1569,1305"/>
+<area shape="poly" id="edge59_Node000043_Node000044" title=" " alt="" coords="1321,1290,1412,1290,1412,1295,1321,1295"/>
+<area shape="poly" id="edge68_Node000048_Node000009" title=" " alt="" coords="505,432,548,436,547,441,504,437"/>
+<area shape="poly" id="edge70_Node000048_Node000010" title=" " alt="" coords="401,408,462,357,505,329,551,308,608,290,657,279,702,274,744,273,831,278,943,282,1499,282,1542,284,1585,292,1668,317,1746,355,1819,401,1884,449,1939,497,2015,573,2011,577,1935,501,1880,453,1816,405,1744,360,1666,322,1583,297,1541,290,1499,287,943,287,831,283,744,278,702,279,658,284,609,295,553,312,507,334,465,361,405,413"/>
+<area shape="poly" id="edge66_Node000048_Node000016" title=" " alt="" coords="411,434,636,578,633,583,408,438"/>
+<area shape="poly" id="edge69_Node000048_Node000019" title=" " alt="" coords="462,408,531,401,612,398,699,404,742,411,784,422,853,450,920,486,983,528,1041,572,1138,658,1200,724,1197,727,1134,662,1038,576,980,532,917,491,851,455,782,427,741,416,698,409,612,403,531,406,463,413"/>
+<area shape="rect" id="Node000049" href="$classChildProcessManager.html#ad5e9300f230cd2aa806b8b2f91c40939" title="Remove tracking info (does not kill)." alt="" coords="586,322,749,362"/>
+<area shape="poly" id="edge67_Node000048_Node000049" title=" " alt="" coords="432,408,584,363,586,368,434,413"/>
+<area shape="poly" id="edge72_Node000050_Node000010" title=" " alt="" coords="1863,29,1893,48,1920,89,1945,149,1967,222,1986,302,2016,459,2033,571,2027,572,2011,460,1981,303,1962,223,1940,151,1915,92,1889,52,1860,33"/>
+</map>

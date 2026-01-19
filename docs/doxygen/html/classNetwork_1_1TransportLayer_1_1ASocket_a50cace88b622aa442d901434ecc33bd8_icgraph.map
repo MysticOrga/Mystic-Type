@@ -1,0 +1,15 @@
+<map id="Network::TransportLayer::ASocket::sockState" name="Network::TransportLayer::ASocket::sockState">
+<area shape="rect" id="Node000001" title="Check the socket state for read, write, or exception." alt="" coords="816,69,997,109"/>
+<area shape="rect" id="Node000002" href="$classNetwork_1_1TransportLayer_1_1ASocket.html#a34da0184468795bb34afb8e7008a1ed3" title="Read bytes from the socket." alt="" coords="587,5,768,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="821,68,749,48,750,43,822,63"/>
+<area shape="rect" id="Node000003" href="$classNetwork_1_1TransportLayer_1_1UDPSocket.html#a34b53ce1224f81fc6809a24412854294" title="Read bytes from the UDP socket." alt="" coords="587,69,768,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="802,92,768,92,768,87,802,87"/>
+<area shape="rect" id="Node000007" href="$classNetwork_1_1TransportLayer_1_1ASocket.html#ab5fcc3d62999cde65373dc40a1592943" title="Write bytes to the socket." alt="" coords="587,133,768,173"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="822,116,750,136,749,131,821,110"/>
+<area shape="rect" id="Node000004" href="$classUDPGameServer.html#a7f3a37004641222f4d30d55614f05029" title="Thread loop to read incoming UDP packets without blocking the simulation tick." alt="" coords="316,77,539,102"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="573,92,539,92,539,87,573,87"/>
+<area shape="rect" id="Node000005" href="$classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b" title="Start the main server loop (blocking)." alt="" coords="108,77,268,102"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="302,92,268,92,268,87,302,87"/>
+<area shape="rect" id="Node000006" href="$game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,77,60,102"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="94,92,60,92,60,87,94,87"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Protocol::extractFromBuffer" name="Protocol::extractFromBuffer">
+<area shape="rect" id="Node000001" title="Try to extract a complete packet from an accumulated stream buffer." alt="" coords="5,5,207,31"/>
+<area shape="rect" id="Node000002" href="$classPacket.html#abfcd427a2ca434ac71592334517638fb" title="Deserialize a packet from a raw byte buffer." alt="" coords="255,5,397,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="207,15,240,15,240,21,207,21"/>
+</map>

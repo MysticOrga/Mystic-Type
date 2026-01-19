@@ -1,0 +1,5 @@
+<map id="NetworkClient::~NetworkClient" name="NetworkClient::~NetworkClient">
+<area shape="rect" id="Node000001" title="Disconnect on destruction." alt="" coords="5,5,232,31"/>
+<area shape="rect" id="Node000002" href="$classNetworkClient.html#a7f69f5c30fd349d670fae18598737b86" title="Close TCP and UDP sockets and reset state." alt="" coords="280,5,473,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="232,15,266,15,266,21,232,21"/>
+</map>

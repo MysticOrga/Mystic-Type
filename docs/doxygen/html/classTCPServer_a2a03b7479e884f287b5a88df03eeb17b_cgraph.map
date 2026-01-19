@@ -1,0 +1,31 @@
+<map id="TCPServer::processIpcMessages" name="TCPServer::processIpcMessages">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,113,236,139"/>
+<area shape="rect" id="Node000002" href="$classTCPServer.html#afb22938cbabd280ec30b3ffab25aeb56" title=" " alt="" coords="828,5,1041,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,111,203,77,242,61,283,47,353,33,424,21,567,9,701,5,814,8,814,13,701,10,567,14,425,27,354,38,285,53,244,66,205,82,144,116"/>
+<area shape="rect" id="Node000003" href="$classTCPServer.html#a9a65a3923e77e48c5f0019b45af8fcb5" title="Send a packet to a specific client fd." alt="" coords="1101,56,1270,81"/>
+<area shape="poly" id="edge15_Node000001_Node000003" title=" " alt="" coords="174,111,284,91,509,73,733,64,933,62,1087,63,1087,69,933,67,733,69,509,78,284,97,175,116"/>
+<area shape="rect" id="Node000008" href="$classChildProcessManager.html#ad5e9300f230cd2aa806b8b2f91c40939" title="Remove tracking info (does not kill)." alt="" coords="312,106,475,146"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="236,123,298,123,298,129,236,129"/>
+<area shape="rect" id="Node000009" href="$classTCPServer.html#a35b89efbda16dd8af6b7ff45b6da036d" title="Build a packet carrying a string payload." alt="" coords="287,171,499,196"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="182,136,319,165,318,170,181,141"/>
+<area shape="rect" id="Node000010" href="$classTCPServer.html#a508cc3d7023b0cfe9abed2e3166b1682" title="Remove a client from its current lobby." alt="" coords="284,220,503,245"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="144,136,206,171,285,206,310,214,308,219,283,211,204,176,141,141"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="999,28,1109,51,1108,56,998,33"/>
+<area shape="rect" id="Node000004" href="$namespaceProtocol.html#a668bdeed219432868fca095e1b2f2667" title="Build a TCP framed buffer (2 bytes length + serialized packet)." alt="" coords="1331,32,1474,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1270,57,1317,51,1318,57,1271,62"/>
+<area shape="rect" id="Node000006" href="$classTCPServer.html#a79e20e1d2821e399fe47dd1055341d5e" title="Ensure the full buffer is written to the socket." alt="" coords="1329,81,1476,107"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="1271,76,1316,81,1315,87,1270,81"/>
+<area shape="rect" id="Node000005" href="$classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="1533,32,1660,57"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="1474,42,1519,42,1519,47,1474,47"/>
+<area shape="rect" id="Node000007" href="$classTCPServer.html#a5b1988f8a542c2d39f3d3556264e71b2" title="Write raw bytes to a socket fd." alt="" coords="1524,81,1669,107"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1476,91,1510,91,1510,97,1476,97"/>
+<area shape="rect" id="Node000011" href="$classTCPServer.html#a8d2dcfc8d8337ff577a101c4aee6aac5" title="Resend the player list to all members of a lobby." alt="" coords="575,156,756,181"/>
+<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="452,217,502,206,600,182,601,187,503,211,454,223"/>
+<area shape="rect" id="Node000014" href="$classSessionManager.html#a8023cf136e039298b1e2ba5fe7cb224b" title="Store the lobby code for a player." alt="" coords="551,220,780,245"/>
+<area shape="poly" id="edge14_Node000010_Node000014" title=" " alt="" coords="503,230,537,230,537,235,503,235"/>
+<area shape="rect" id="Node000012" href="$classTCPServer.html#aa87b20fb76f60c19df36f39ef3621b05" title="Send the current player list to a single client." alt="" coords="839,121,1030,161"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="756,157,825,149,826,155,756,162"/>
+<area shape="poly" id="edge13_Node000012_Node000003" title=" " alt="" coords="1004,118,1127,83,1128,88,1006,123"/>
+<area shape="rect" id="Node000013" href="$classTCPServer.html#a196ba30f88f890e9acf0ef1a21a74c71" title="Build the packet containing the list of connected players." alt="" coords="1089,121,1281,161"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="1030,138,1075,138,1075,143,1030,143"/>
+</map>

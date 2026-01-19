@@ -1,0 +1,9 @@
+<map id="Network::TransportLayer::UDPSocket::readByte" name="Network::TransportLayer::UDPSocket::readByte">
+<area shape="rect" id="Node000001" title="Read bytes from the UDP socket." alt="" coords="587,5,768,45"/>
+<area shape="rect" id="Node000002" href="$classUDPGameServer.html#a7f3a37004641222f4d30d55614f05029" title="Thread loop to read incoming UDP packets without blocking the simulation tick." alt="" coords="316,13,539,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="573,28,539,28,539,23,573,23"/>
+<area shape="rect" id="Node000003" href="$classUDPGameServer.html#a476a4f2e8bb0833c788761298eb4a72b" title="Start the main server loop (blocking)." alt="" coords="108,13,268,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="302,28,268,28,268,23,302,23"/>
+<area shape="rect" id="Node000004" href="$game_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>

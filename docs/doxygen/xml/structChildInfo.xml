@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structChildInfo" kind="struct" language="C++" prot="public">
+    <compoundname>ChildInfo</compoundname>
+    <includes refid="ChildProcessManager_8hpp" local="no">server/ChildProcessManager.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structChildInfo_1a9224fac00573071274c8f35c13893047" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ChildInfo::pid</definition>
+        <argsstring></argsstring>
+        <name>pid</name>
+        <qualifiedname>ChildInfo::pid</qualifiedname>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/ChildProcessManager.hpp" line="16" column="9" bodyfile="server/ChildProcessManager.hpp" bodystart="16" bodyend="-1"/>
+        <referencedby refid="classChildProcessManager_1a138e2d098e92a2c6d1ad7b35dadd6541" compoundref="ChildProcessManager_8cpp" startline="21" endline="114">ChildProcessManager::spawn</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structChildInfo_1adc556c5d7e00a21c99fc48c2b715c33c" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string ChildInfo::lobbyCode</definition>
+        <argsstring></argsstring>
+        <name>lobbyCode</name>
+        <qualifiedname>ChildInfo::lobbyCode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/ChildProcessManager.hpp" line="17" column="17" bodyfile="server/ChildProcessManager.hpp" bodystart="17" bodyend="-1"/>
+        <referencedby refid="classChildProcessManager_1a138e2d098e92a2c6d1ad7b35dadd6541" compoundref="ChildProcessManager_8cpp" startline="21" endline="114">ChildProcessManager::spawn</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structChildInfo_1ae87fa4d5413d350e26d0efa99cfdddf9" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t ChildInfo::udpPort</definition>
+        <argsstring></argsstring>
+        <name>udpPort</name>
+        <qualifiedname>ChildInfo::udpPort</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/ChildProcessManager.hpp" line="18" column="14" bodyfile="server/ChildProcessManager.hpp" bodystart="18" bodyend="-1"/>
+        <referencedby refid="classChildProcessManager_1a138e2d098e92a2c6d1ad7b35dadd6541" compoundref="ChildProcessManager_8cpp" startline="21" endline="114">ChildProcessManager::spawn</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structChildInfo_1a7f7c43535724aa8cc79ffc66d3d8a9d8" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string ChildInfo::ipcSock</definition>
+        <argsstring></argsstring>
+        <name>ipcSock</name>
+        <qualifiedname>ChildInfo::ipcSock</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="server/ChildProcessManager.hpp" line="19" column="17" bodyfile="server/ChildProcessManager.hpp" bodystart="19" bodyend="-1"/>
+        <referencedby refid="classChildProcessManager_1a138e2d098e92a2c6d1ad7b35dadd6541" compoundref="ChildProcessManager_8cpp" startline="21" endline="114">ChildProcessManager::spawn</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>ChildInfo</label>
+        <link refid="structChildInfo"/>
+      </node>
+    </collaborationgraph>
+    <location file="server/ChildProcessManager.hpp" line="15" column="1" bodyfile="server/ChildProcessManager.hpp" bodystart="15" bodyend="20"/>
+    <listofallmembers>
+      <member refid="structChildInfo_1a7f7c43535724aa8cc79ffc66d3d8a9d8" prot="public" virt="non-virtual"><scope>ChildInfo</scope><name>ipcSock</name></member>
+      <member refid="structChildInfo_1adc556c5d7e00a21c99fc48c2b715c33c" prot="public" virt="non-virtual"><scope>ChildInfo</scope><name>lobbyCode</name></member>
+      <member refid="structChildInfo_1a9224fac00573071274c8f35c13893047" prot="public" virt="non-virtual"><scope>ChildInfo</scope><name>pid</name></member>
+      <member refid="structChildInfo_1ae87fa4d5413d350e26d0efa99cfdddf9" prot="public" virt="non-virtual"><scope>ChildInfo</scope><name>udpPort</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

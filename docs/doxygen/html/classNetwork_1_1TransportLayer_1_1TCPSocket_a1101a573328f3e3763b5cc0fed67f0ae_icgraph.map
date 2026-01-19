@@ -1,0 +1,5 @@
+<map id="Network::TransportLayer::TCPSocket::bindAndListen" name="Network::TransportLayer::TCPSocket::bindAndListen">
+<area shape="rect" id="Node000001" title="Bind to an address and start listening." alt="" coords="216,5,413,45"/>
+<area shape="rect" id="Node000002" href="$classTCPServer.html#ad8f4ffce8b9317fc30a7cfa9e5c5442a" title="Construct a new TCPServer bound to the given port." alt="" coords="5,13,168,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="202,28,168,28,168,23,202,23"/>
+</map>

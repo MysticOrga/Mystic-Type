@@ -1,0 +1,21 @@
+<map id="Raylib::Window::shouldClose" name="Raylib::Window::shouldClose">
+<area shape="rect" id="Node000001" title="Checks if window should close." alt="" coords="1013,107,1223,132"/>
+<area shape="rect" id="Node000002" href="$classGraphicClient.html#a5cb5c37142e62f04824cc6e21dd199b2" title="Main game loop iteration." alt="" coords="501,5,687,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1082,102,1028,76,965,53,893,37,820,28,688,20,688,15,821,22,894,32,966,47,1030,71,1084,98"/>
+<area shape="rect" id="Node000003" href="$classGraphicClient.html#ad39a5f1d7ec30752f8d412d6925ef109" title="Main application loop." alt="" coords="108,56,247,81"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="1000,116,247,75,247,70,1000,110"/>
+<area shape="rect" id="Node000005" href="$classGraphicClient.html#a2d663515d7165fbe3533e038b5b2e916" title="Shows main menu with server connection options." alt="" coords="481,131,707,156"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="999,127,707,141,707,136,999,122"/>
+<area shape="rect" id="Node000007" href="$classGraphicClient.html#a14824911dd4c90d0f459ed532aec0dd7" title="Shows pseudo/username input menu." alt="" coords="758,207,962,232"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="1085,141,1030,170,966,198,928,209,927,204,964,193,1028,165,1082,137"/>
+<area shape="rect" id="Node000008" href="$classGraphicClient.html#a349a93e6b861365d4aaa7d7cea0d9ccf" title="Shows controls settings menu for key remapping." alt="" coords="755,157,965,183"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="1040,137,926,160,925,155,1039,132"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="487,31,295,53,248,60,247,54,294,47,487,25"/>
+<area shape="rect" id="Node000004" href="$client_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,56,60,81"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="94,71,60,71,60,66,94,66"/>
+<area shape="rect" id="Node000006" href="$classGraphicClient.html#a4b416d0d2b3f07134ce30afb0c60adbe" title="Initializes the client (connects to server, shows menus)." alt="" coords="295,131,433,156"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="467,146,434,146,434,141,467,141"/>
+<area shape="poly" id="edge7_Node000006_Node000003" title=" " alt="" coords="317,128,209,84,211,79,319,123"/>
+<area shape="poly" id="edge9_Node000007_Node000006" title=" " alt="" coords="744,208,481,170,423,159,424,153,482,165,745,203"/>
+<area shape="poly" id="edge11_Node000008_Node000005" title=" " alt="" coords="741,161,707,157,707,152,742,155"/>
+</map>

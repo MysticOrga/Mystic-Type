@@ -1,0 +1,16 @@
+<map id="GraphicClient::syncMonsters" name="GraphicClient::syncMonsters">
+<area shape="rect" id="Node000001" title="Synchronizes monster entities with server state." alt="" coords="5,77,213,103"/>
+<area shape="rect" id="Node000002" href="$classGraphicClient.html#a6dd918f7ac4761ab4946371df06386ec" title="Creates a monster entity at specified position." alt="" coords="261,41,473,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="213,76,247,72,248,77,214,81"/>
+<area shape="rect" id="Node000007" href="$classECS.html#ab25123ea5b19ee74c4e120eb6d808a48" title="Retrieves a component from an entity." alt="" coords="292,105,443,131"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="214,99,279,106,278,111,213,104"/>
+<area shape="rect" id="Node000003" href="$classECS.html#a4fbe0d70b0934255d301ced9df6287e7" title="Adds a component to an entity." alt="" coords="521,5,676,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="473,38,515,31,516,36,474,44"/>
+<area shape="rect" id="Node000006" href="$classECS.html#a41b876f3725cbb04aac3f2edd95522c6" title="Creates a new entity." alt="" coords="531,55,666,80"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="474,61,518,62,517,68,474,66"/>
+<area shape="rect" id="Node000004" href="$classComponentArray.html#a37f484a9d2b6716e2facff9eabe1bb64" title="Adds or updates a component for an entity." alt="" coords="751,5,914,31"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="676,15,737,15,737,21,676,21"/>
+<area shape="rect" id="Node000005" href="$classECS.html#aacd3f4c4db77a1e5ff41711297ec6602" title="Gets the type index for a component type." alt="" coords="724,80,941,105"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="641,28,677,39,780,73,779,78,675,45,640,33"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="443,111,710,97,711,102,443,117"/>
+</map>

@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -91,6 +92,7 @@ $(document).ready(function(){initNavTree('classChildProcessManager.html',''); in
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="classChildProcessManager-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">ChildProcessManager Class Reference</div></div>
 </div><!--header-->
@@ -99,7 +101,15 @@ $(document).ready(function(){initNavTree('classChildProcessManager.html',''); in
 <p>Minimal child process manager to spawn UDP game servers.  
  <a href="classChildProcessManager.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="ChildProcessManager_8hpp_source.html">ChildProcessManager.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="ChildProcessManager_8hpp_source.html">server/ChildProcessManager.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for ChildProcessManager:</div>
+<div class="dyncontent">
+<div class="center"><img src="classChildProcessManager__coll__graph.png" border="0" usemap="#aChildProcessManager_coll__map" alt="Collaboration graph"/></div>
+<map name="aChildProcessManager_coll__map" id="aChildProcessManager_coll__map">
+<area shape="rect" title="Minimal child process manager to spawn UDP game servers." alt="" coords="5,5,184,191"/>
+</map>
+</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -118,10 +128,19 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af9be1ce64da7e05952b231b22df221a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b7c34be0f81b8a841d4ecd28a837bf6" id="r_a3b7c34be0f81b8a841d4ecd28a837bf6"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChildProcessManager.html#a3b7c34be0f81b8a841d4ecd28a837bf6">maxCount</a> () const</td></tr>
 <tr class="separator:a3b7c34be0f81b8a841d4ecd28a837bf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a363292f659a911dbc0407ec13e669f39" id="r_a363292f659a911dbc0407ec13e669f39"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, <a class="el" href="structChildInfo.html">ChildInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChildProcessManager.html#a363292f659a911dbc0407ec13e669f39">_children</a></td></tr>
+<tr class="separator:a363292f659a911dbc0407ec13e669f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42bd633a489f0883777fc0be9d10febb" id="r_a42bd633a489f0883777fc0be9d10febb"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classChildProcessManager.html#a42bd633a489f0883777fc0be9d10febb">_maxChildren</a></td></tr>
+<tr class="separator:a42bd633a489f0883777fc0be9d10febb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Minimal child process manager to spawn UDP game servers. </p>
 <p>This is a stub: no restart logic, no signal handling, just spawn and track. </p>
+
+<p class="definition">Definition at line <a class="el" href="ChildProcessManager_8hpp_source.html#l00027">27</a> of file <a class="el" href="ChildProcessManager_8hpp_source.html">ChildProcessManager.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a89d1a1a079bbfc6bdcfda0fd115b77e6" name="a89d1a1a079bbfc6bdcfda0fd115b77e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a89d1a1a079bbfc6bdcfda0fd115b77e6">&#9670;&#160;</a></span>ChildProcessManager()</h2>
@@ -146,6 +165,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ChildProcessManager_8hpp_source.html#l00029">29</a> of file <a class="el" href="ChildProcessManager_8hpp_source.html">ChildProcessManager.hpp</a>.</p>
 
 </div>
 </div>
@@ -173,6 +194,34 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="ChildProcessManager_8hpp_source.html#l00050">50</a> of file <a class="el" href="ChildProcessManager_8hpp_source.html">ChildProcessManager.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="ChildProcessManager_8hpp_source.html#l00054">_children</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="TCPServer_8cpp_source.html#l00647">TCPServer::ensureLobbyProcess()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classChildProcessManager_af9be1ce64da7e05952b231b22df221a0_icgraph.png" border="0" usemap="#aclassChildProcessManager_af9be1ce64da7e05952b231b22df221a0_icgraph" alt=""/></div>
+<map name="aclassChildProcessManager_af9be1ce64da7e05952b231b22df221a0_icgraph" id="aclassChildProcessManager_af9be1ce64da7e05952b231b22df221a0_icgraph">
+<area shape="rect" title=" " alt="" coords="1308,23,1471,63"/>
+<area shape="rect" href="classTCPServer.html#a30203c2836aa52676f3e6205d8730943" title=" " alt="" coords="1031,31,1260,56"/>
+<area shape="poly" title=" " alt="" coords="1294,46,1260,46,1260,41,1294,41"/>
+<area shape="rect" href="classTCPServer.html#a84035146c9257be5714850a1f46d0bfb" title="Assign a client to a lobby (public or private)." alt="" coords="805,31,983,56"/>
+<area shape="poly" title=" " alt="" coords="1017,46,983,46,983,41,1017,41"/>
+<area shape="rect" href="classTCPServer.html#ad6bed785945fc2f21376ff2b58090829" title="Auto&#45;match the client into a public lobby." alt="" coords="543,5,750,31"/>
+<area shape="poly" title=" " alt="" coords="791,36,750,31,750,26,792,30"/>
+<area shape="rect" href="classTCPServer.html#afd78aa179d3b735e82868d800629b354" title="Handle lobby&#45;related packets for a client." alt="" coords="536,55,757,80"/>
+<area shape="poly" title=" " alt="" coords="792,56,758,59,757,54,791,51"/>
+<area shape="rect" href="classTCPServer.html#ada05a61182a782b4d3326fabd26a19bf" title="Read and handle data for a single client." alt="" coords="273,55,488,80"/>
+<area shape="poly" title=" " alt="" coords="523,70,488,70,488,65,523,65"/>
+<area shape="rect" href="classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3" title="Run the main accept/receive loop (blocking)." alt="" coords="108,55,225,80"/>
+<area shape="poly" title=" " alt="" coords="260,70,225,70,225,65,260,65"/>
+<area shape="rect" href="server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,55,60,80"/>
+<area shape="poly" title=" " alt="" coords="94,70,60,70,60,65,94,65"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="ad5e9300f230cd2aa806b8b2f91c40939" name="ad5e9300f230cd2aa806b8b2f91c40939"></a>
@@ -193,6 +242,26 @@ Public Member Functions</h2></td></tr>
 
 <p>Remove tracking info (does not kill). </p>
 
+<p class="definition">Definition at line <a class="el" href="ChildProcessManager_8cpp_source.html#l00124">124</a> of file <a class="el" href="ChildProcessManager_8cpp_source.html">ChildProcessManager.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="ChildProcessManager_8hpp_source.html#l00054">_children</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="TCPServer_8cpp_source.html#l00377">TCPServer::processIpcMessages()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classChildProcessManager_ad5e9300f230cd2aa806b8b2f91c40939_icgraph.png" border="0" usemap="#aclassChildProcessManager_ad5e9300f230cd2aa806b8b2f91c40939_icgraph" alt=""/></div>
+<map name="aclassChildProcessManager_ad5e9300f230cd2aa806b8b2f91c40939_icgraph" id="aclassChildProcessManager_ad5e9300f230cd2aa806b8b2f91c40939_icgraph">
+<area shape="rect" title="Remove tracking info (does not kill)." alt="" coords="552,5,715,45"/>
+<area shape="rect" href="classTCPServer.html#a2a03b7479e884f287b5a88df03eeb17b" title=" " alt="" coords="273,13,504,38"/>
+<area shape="poly" title=" " alt="" coords="538,28,504,28,504,23,538,23"/>
+<area shape="rect" href="classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3" title="Run the main accept/receive loop (blocking)." alt="" coords="108,13,225,38"/>
+<area shape="poly" title=" " alt="" coords="260,28,226,28,226,23,260,23"/>
+<area shape="rect" href="server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>
+</div>
+
 </div>
 </div>
 <a id="a5974e717ffd0b607cbf62e33c5adf0d2" name="a5974e717ffd0b607cbf62e33c5adf0d2"></a>
@@ -212,6 +281,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retrieve info by lobby code. </p>
+
+<p class="definition">Definition at line <a class="el" href="ChildProcessManager_8cpp_source.html#l00116">116</a> of file <a class="el" href="ChildProcessManager_8cpp_source.html">ChildProcessManager.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="ChildProcessManager_8hpp_source.html#l00054">_children</a>.</p>
 
 </div>
 </div>
@@ -237,6 +310,34 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ChildProcessManager_8hpp_source.html#l00051">51</a> of file <a class="el" href="ChildProcessManager_8hpp_source.html">ChildProcessManager.hpp</a>.</p>
+
+<p class="reference">References <a class="el" href="ChildProcessManager_8hpp_source.html#l00055">_maxChildren</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="TCPServer_8cpp_source.html#l00647">TCPServer::ensureLobbyProcess()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classChildProcessManager_a3b7c34be0f81b8a841d4ecd28a837bf6_icgraph.png" border="0" usemap="#aclassChildProcessManager_a3b7c34be0f81b8a841d4ecd28a837bf6_icgraph" alt=""/></div>
+<map name="aclassChildProcessManager_a3b7c34be0f81b8a841d4ecd28a837bf6_icgraph" id="aclassChildProcessManager_a3b7c34be0f81b8a841d4ecd28a837bf6_icgraph">
+<area shape="rect" title=" " alt="" coords="1308,23,1471,63"/>
+<area shape="rect" href="classTCPServer.html#a30203c2836aa52676f3e6205d8730943" title=" " alt="" coords="1031,31,1260,56"/>
+<area shape="poly" title=" " alt="" coords="1294,46,1260,46,1260,41,1294,41"/>
+<area shape="rect" href="classTCPServer.html#a84035146c9257be5714850a1f46d0bfb" title="Assign a client to a lobby (public or private)." alt="" coords="805,31,983,56"/>
+<area shape="poly" title=" " alt="" coords="1017,46,983,46,983,41,1017,41"/>
+<area shape="rect" href="classTCPServer.html#ad6bed785945fc2f21376ff2b58090829" title="Auto&#45;match the client into a public lobby." alt="" coords="543,5,750,31"/>
+<area shape="poly" title=" " alt="" coords="791,36,750,31,750,26,792,30"/>
+<area shape="rect" href="classTCPServer.html#afd78aa179d3b735e82868d800629b354" title="Handle lobby&#45;related packets for a client." alt="" coords="536,55,757,80"/>
+<area shape="poly" title=" " alt="" coords="792,56,758,59,757,54,791,51"/>
+<area shape="rect" href="classTCPServer.html#ada05a61182a782b4d3326fabd26a19bf" title="Read and handle data for a single client." alt="" coords="273,55,488,80"/>
+<area shape="poly" title=" " alt="" coords="523,70,488,70,488,65,523,65"/>
+<area shape="rect" href="classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3" title="Run the main accept/receive loop (blocking)." alt="" coords="108,55,225,80"/>
+<area shape="poly" title=" " alt="" coords="260,70,225,70,225,65,260,65"/>
+<area shape="rect" href="server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,55,60,80"/>
+<area shape="poly" title=" " alt="" coords="94,70,60,70,60,65,94,65"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -283,11 +384,92 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>pid on success, -1 on failure </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="ChildProcessManager_8cpp_source.html#l00021">21</a> of file <a class="el" href="ChildProcessManager_8cpp_source.html">ChildProcessManager.cpp</a>.</p>
+
+<p class="reference">References <a class="el" href="ChildProcessManager_8hpp_source.html#l00054">_children</a>, <a class="el" href="ChildProcessManager_8hpp_source.html#l00019">ChildInfo::ipcSock</a>, <a class="el" href="ChildProcessManager_8hpp_source.html#l00017">ChildInfo::lobbyCode</a>, <a class="el" href="ChildProcessManager_8hpp_source.html#l00016">ChildInfo::pid</a>, and <a class="el" href="ChildProcessManager_8hpp_source.html#l00018">ChildInfo::udpPort</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="TCPServer_8cpp_source.html#l00647">TCPServer::ensureLobbyProcess()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classChildProcessManager_a138e2d098e92a2c6d1ad7b35dadd6541_icgraph.png" border="0" usemap="#aclassChildProcessManager_a138e2d098e92a2c6d1ad7b35dadd6541_icgraph" alt=""/></div>
+<map name="aclassChildProcessManager_a138e2d098e92a2c6d1ad7b35dadd6541_icgraph" id="aclassChildProcessManager_a138e2d098e92a2c6d1ad7b35dadd6541_icgraph">
+<area shape="rect" title="Spawn a UDP game server process." alt="" coords="1308,23,1471,63"/>
+<area shape="rect" href="classTCPServer.html#a30203c2836aa52676f3e6205d8730943" title=" " alt="" coords="1031,31,1260,56"/>
+<area shape="poly" title=" " alt="" coords="1294,46,1260,46,1260,41,1294,41"/>
+<area shape="rect" href="classTCPServer.html#a84035146c9257be5714850a1f46d0bfb" title="Assign a client to a lobby (public or private)." alt="" coords="805,31,983,56"/>
+<area shape="poly" title=" " alt="" coords="1017,46,983,46,983,41,1017,41"/>
+<area shape="rect" href="classTCPServer.html#ad6bed785945fc2f21376ff2b58090829" title="Auto&#45;match the client into a public lobby." alt="" coords="543,5,750,31"/>
+<area shape="poly" title=" " alt="" coords="791,36,750,31,750,26,792,30"/>
+<area shape="rect" href="classTCPServer.html#afd78aa179d3b735e82868d800629b354" title="Handle lobby&#45;related packets for a client." alt="" coords="536,55,757,80"/>
+<area shape="poly" title=" " alt="" coords="792,56,758,59,757,54,791,51"/>
+<area shape="rect" href="classTCPServer.html#ada05a61182a782b4d3326fabd26a19bf" title="Read and handle data for a single client." alt="" coords="273,55,488,80"/>
+<area shape="poly" title=" " alt="" coords="523,70,488,70,488,65,523,65"/>
+<area shape="rect" href="classTCPServer.html#a4e6d2ef05b71c4ecbd0518fc7215ece3" title="Run the main accept/receive loop (blocking)." alt="" coords="108,55,225,80"/>
+<area shape="poly" title=" " alt="" coords="260,70,225,70,225,65,260,65"/>
+<area shape="rect" href="server_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,55,60,80"/>
+<area shape="poly" title=" " alt="" coords="94,70,60,70,60,65,94,65"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a363292f659a911dbc0407ec13e669f39" name="a363292f659a911dbc0407ec13e669f39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a363292f659a911dbc0407ec13e669f39">&#9670;&#160;</a></span>_children</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, <a class="el" href="structChildInfo.html">ChildInfo</a>&gt; ChildProcessManager::_children</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ChildProcessManager_8hpp_source.html#l00054">54</a> of file <a class="el" href="ChildProcessManager_8hpp_source.html">ChildProcessManager.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="ChildProcessManager_8hpp_source.html#l00050">activeCount()</a>, <a class="el" href="ChildProcessManager_8cpp_source.html#l00124">forget()</a>, <a class="el" href="ChildProcessManager_8cpp_source.html#l00116">get()</a>, and <a class="el" href="ChildProcessManager_8cpp_source.html#l00021">spawn()</a>.</p>
+
+</div>
+</div>
+<a id="a42bd633a489f0883777fc0be9d10febb" name="a42bd633a489f0883777fc0be9d10febb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42bd633a489f0883777fc0be9d10febb">&#9670;&#160;</a></span>_maxChildren</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t ChildProcessManager::_maxChildren</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="ChildProcessManager_8hpp_source.html#l00055">55</a> of file <a class="el" href="ChildProcessManager_8hpp_source.html">ChildProcessManager.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="ChildProcessManager_8hpp_source.html#l00051">maxCount()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>server/<a class="el" href="ChildProcessManager_8hpp_source.html">ChildProcessManager.hpp</a></li>
-<li>server/<a class="el" href="ChildProcessManager_8cpp.html">ChildProcessManager.cpp</a></li>
+<li>server/<a class="el" href="ChildProcessManager_8cpp_source.html">ChildProcessManager.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

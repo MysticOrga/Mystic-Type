@@ -1,0 +1,31 @@
+<map id="UDPGameServer::handlePacket" name="UDPGameServer::handlePacket">
+<area shape="rect" id="Node000001" title="Route an incoming packet to the appropriate handler." alt="" coords="5,81,231,107"/>
+<area shape="rect" id="Node000002" href="$classUDPGameServer.html#a367b917d572ad28819003841b3be180c" title="Register a new player on receipt of a hello message." alt="" coords="280,135,497,160"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="184,104,311,129,310,135,183,109"/>
+<area shape="rect" id="Node000007" href="$classUDPGameServer.html#a602889e958a3ff926bb8de325c982a62" title="Send a packet to a single endpoint." alt="" coords="547,317,773,343"/>
+<area shape="poly" id="edge16_Node000001_Node000007" title=" " alt="" coords="142,104,306,196,424,253,548,303,574,311,572,317,546,309,422,258,304,201,139,109"/>
+<area shape="rect" id="Node000012" href="$classUDPGameServer.html#abe9913c5eaa12c361bdcc9ce68bdc835" title="Update player inputs (movement/direction)." alt="" coords="281,55,497,80"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="231,80,267,77,267,82,231,86"/>
+<area shape="rect" id="Node000013" href="$classUDPGameServer.html#a0117b7531413f5b7b161675f9e9efd3d" title="Handle a shoot command (spawn a bullet)." alt="" coords="279,5,499,31"/>
+<area shape="poly" id="edge14_Node000001_Node000013" title=" " alt="" coords="154,79,278,39,311,31,312,36,279,45,156,84"/>
+<area shape="rect" id="Node000003" href="$classGameWorld.html#a9a877bcf4eed6527b0896242463a3dfa" title="Build a UDP snapshot packet of current world state." alt="" coords="561,154,759,194"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="498,155,547,160,547,166,497,161"/>
+<area shape="rect" id="Node000004" href="$classSessionManager.html#a48995915db3b90fa7228d357d6293163" title="Lookup a session by player id." alt="" coords="556,5,764,31"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="420,132,458,114,497,89,511,76,520,64,529,51,545,40,559,33,561,38,548,44,533,55,524,67,515,80,500,93,461,118,422,137"/>
+<area shape="rect" id="Node000005" href="$classUDPGameServer.html#ae610b7c128c3b70e06f3fc1b5a3ecdc5" title=" " alt="" coords="562,55,758,80"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="421,132,546,89,578,81,579,86,547,94,423,137"/>
+<area shape="rect" id="Node000006" href="$classGameWorld.html#aaebb0cdb6bcf4382893ce438832db63e" title="Register a player on HELLO_UDP." alt="" coords="561,219,759,244"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="421,158,479,180,547,203,583,213,581,218,546,209,477,185,419,163"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="412,158,455,188,501,230,515,251,523,270,531,287,548,304,557,309,554,314,545,308,527,291,518,272,510,253,497,233,452,192,409,162"/>
+<area shape="rect" id="Node000010" href="$classGameWorld.html#a163fb2fed54650ebba995df1e64c39db" title="Prefix used in log output." alt="" coords="567,268,753,293"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="406,158,465,205,505,232,548,254,567,262,566,267,546,259,502,236,462,210,402,162"/>
+<area shape="rect" id="Node000011" href="$classSessionManager.html#af2596853b8042076df0c1022468eaec3" title="Register the client&#39;s UDP address." alt="" coords="553,104,767,129"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="497,132,539,128,540,133,498,138"/>
+<area shape="rect" id="Node000008" href="$classPacket.html#aa88c2d28796644c8a1d6137996502ca8" title="Serialize the packet to a byte buffer ready to send." alt="" coords="849,288,975,313"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="769,315,835,307,836,312,770,320"/>
+<area shape="rect" id="Node000009" href="$classNetwork_1_1TransportLayer_1_1UDPSocket.html#a887cf24e71c890759f907c074f5b3505" title="Write bytes to the UDP socket." alt="" coords="821,338,1003,378"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="774,340,808,344,807,349,773,345"/>
+<area shape="poly" id="edge12_Node000012_Node000004" title=" " alt="" coords="459,52,575,31,576,36,460,57"/>
+<area shape="poly" id="edge13_Node000012_Node000005" title=" " alt="" coords="497,65,548,65,548,70,497,70"/>
+<area shape="poly" id="edge15_Node000013_Node000004" title=" " alt="" coords="499,15,542,15,542,21,499,21"/>
+</map>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespaceNetwork_1_1TransportLayer" kind="namespace" language="C++">
+    <compoundname>Network::TransportLayer</compoundname>
+    <innerclass refid="classNetwork_1_1TransportLayer_1_1ASocket" prot="public">Network::TransportLayer::ASocket</innerclass>
+    <innerclass refid="classNetwork_1_1TransportLayer_1_1ISocket" prot="public">Network::TransportLayer::ISocket</innerclass>
+    <innerclass refid="classNetwork_1_1TransportLayer_1_1TCPSocket" prot="public">Network::TransportLayer::TCPSocket</innerclass>
+    <innerclass refid="classNetwork_1_1TransportLayer_1_1UDPSocket" prot="public">Network::TransportLayer::UDPSocket</innerclass>
+    <innerclass refid="classNetwork_1_1TransportLayer_1_1UnixSocket" prot="public">Network::TransportLayer::UnixSocket</innerclass>
+    <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7" prot="public" static="no" strong="no">
+        <type></type>
+        <name>IOState</name>
+        <qualifiedname>Network::TransportLayer::IOState</qualifiedname>
+        <enumvalue id="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a27be65353a27abba0a6da38c5b55fdfa" prot="public">
+          <name>READ_READY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a87ff53b60baedce247f2c2a00e99a2fe" prot="public">
+          <name>WRITE_READY</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a8d3837e0e73b39e89137cf22ccd4280b" prot="public">
+          <name>EXCEPTION</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7a5147a57e64bc0949dd8c51a36b01029c" prot="public">
+          <name>TIMEOUT</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceNetwork_1_1TransportLayer_1a6d26a09ee731d25bab8b11b909ca73e7abb13e459f18172f849fcb2c733a538fc" prot="public">
+          <name>IOERROR</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Represents the state of I/O operations on a socket. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/ISocket.hpp" line="56" column="1" bodyfile="Network/TransportLayer/ISocket.hpp" bodystart="57" bodyend="63"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Namespace for network transport layer components. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Network/TransportLayer/ASocket.cpp" line="12" column="1"/>
+  </compounddef>
+</doxygen>

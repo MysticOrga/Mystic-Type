@@ -25,8 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mystic-Type
+   <div id="projectname">Mystic-Type<span id="projectnumber">&#160;1.0</span>
    </div>
+   <div id="projectbrief">Multiplayer R-Type-like with TCP/UDP authoritative server</div>
   </td>
  </tr>
  </tbody>
@@ -93,42 +94,54 @@ $(document).ready(function(){initNavTree('IpcChannel_8cpp.html',''); initResizab
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="IpcChannel_8hpp_source.html">IpcChannel.hpp</a>&quot;</code><br />
-<code>#include &lt;cstddef&gt;</code><br />
 <code>#include &lt;cstring&gt;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;sys/socket.h&gt;</code><br />
-<code>#include &lt;sys/un.h&gt;</code><br />
-<code>#include &lt;unistd.h&gt;</code><br />
-<code>#include &lt;poll.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for IpcChannel.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="IpcChannel_8cpp__incl.png" border="0" usemap="#aserver_2IpcChannel_8cpp" alt=""/></div>
 <map name="aserver_2IpcChannel_8cpp" id="aserver_2IpcChannel_8cpp">
-<area shape="rect" title=" " alt="" coords="366,5,533,31"/>
-<area shape="rect" href="IpcChannel_8hpp.html" title=" " alt="" coords="19,79,141,104"/>
-<area shape="poly" title=" " alt="" coords="390,33,154,79,153,73,389,28"/>
-<area shape="rect" title=" " alt="" coords="166,79,237,104"/>
-<area shape="poly" title=" " alt="" coords="410,33,251,79,249,74,409,28"/>
-<area shape="rect" title=" " alt="" coords="261,79,328,104"/>
-<area shape="poly" title=" " alt="" coords="426,33,333,75,331,70,423,28"/>
-<area shape="rect" title=" " alt="" coords="352,79,432,104"/>
-<area shape="poly" title=" " alt="" coords="442,33,412,70,408,66,438,29"/>
-<area shape="rect" title=" " alt="" coords="457,79,559,104"/>
-<area shape="poly" title=" " alt="" coords="461,29,492,67,488,70,457,33"/>
-<area shape="rect" title=" " alt="" coords="583,79,659,104"/>
-<area shape="poly" title=" " alt="" coords="478,28,582,71,580,76,476,33"/>
-<area shape="rect" title=" " alt="" coords="684,79,759,104"/>
-<area shape="poly" title=" " alt="" coords="494,28,672,74,670,79,492,33"/>
-<area shape="rect" title=" " alt="" coords="783,79,841,104"/>
-<area shape="poly" title=" " alt="" coords="521,28,634,48,770,76,769,81,633,53,520,33"/>
-<area shape="rect" title=" " alt="" coords="5,152,64,177"/>
-<area shape="poly" title=" " alt="" coords="75,106,52,142,47,139,70,103"/>
-<area shape="rect" title=" " alt="" coords="88,152,163,177"/>
-<area shape="poly" title=" " alt="" coords="90,103,113,139,108,142,85,106"/>
+<area shape="rect" title=" " alt="" coords="165,5,331,31"/>
+<area shape="rect" href="IpcChannel_8hpp.html" title=" " alt="" coords="68,79,191,104"/>
+<area shape="poly" title=" " alt="" coords="230,33,162,74,159,69,228,28"/>
+<area shape="rect" title=" " alt="" coords="215,79,281,104"/>
+<area shape="poly" title=" " alt="" coords="251,31,251,65,245,65,245,31"/>
+<area shape="rect" title=" " alt="" coords="305,79,385,104"/>
+<area shape="poly" title=" " alt="" coords="265,29,320,68,317,72,262,33"/>
+<area shape="rect" title=" " alt="" coords="9,159,68,185"/>
+<area shape="poly" title=" " alt="" coords="118,106,64,152,61,148,114,102"/>
+<area shape="rect" title=" " alt="" coords="92,159,167,185"/>
+<area shape="poly" title=" " alt="" coords="132,104,132,145,127,145,127,104"/>
+<area shape="rect" href="UDPSocket_8hpp.html" title=" " alt="" coords="191,152,380,192"/>
+<area shape="poly" title=" " alt="" coords="153,102,237,143,234,148,151,106"/>
+<area shape="rect" href="ASocket_8hpp.html" title=" " alt="" coords="303,240,417,265"/>
+<area shape="poly" title=" " alt="" coords="305,190,341,228,337,232,301,194"/>
+<area shape="rect" title=" " alt="" coords="5,387,72,412"/>
+<area shape="poly" title=" " alt="" coords="267,194,64,379,60,375,263,190"/>
+<area shape="rect" href="ISocket_8hpp.html" title=" " alt="" coords="366,313,463,339"/>
+<area shape="poly" title=" " alt="" coords="371,264,400,301,395,304,367,267"/>
+<area shape="rect" title=" " alt="" coords="97,387,189,412"/>
+<area shape="poly" title=" " alt="" coords="372,341,200,386,199,381,370,336"/>
+<area shape="poly" title=" " alt="" coords="366,338,243,359,86,389,85,384,242,353,365,332"/>
+<area shape="rect" title=" " alt="" coords="213,387,281,412"/>
+<area shape="poly" title=" " alt="" coords="389,341,288,384,286,379,387,336"/>
+<area shape="rect" title=" " alt="" coords="305,387,401,412"/>
+<area shape="poly" title=" " alt="" coords="407,341,374,378,370,374,403,337"/>
+<area shape="rect" title=" " alt="" coords="425,387,529,412"/>
+<area shape="poly" title=" " alt="" coords="427,337,460,374,456,378,423,341"/>
+<area shape="rect" title=" " alt="" coords="553,387,652,412"/>
+<area shape="poly" title=" " alt="" coords="446,336,560,379,558,384,444,341"/>
+<area shape="rect" title=" " alt="" coords="677,387,779,412"/>
+<area shape="poly" title=" " alt="" coords="464,336,665,381,663,386,463,341"/>
+<area shape="rect" title=" " alt="" coords="803,387,879,412"/>
+<area shape="poly" title=" " alt="" coords="464,331,607,352,790,384,789,389,606,358,463,337"/>
+<area shape="rect" title=" " alt="" coords="904,387,979,412"/>
+<area shape="poly" title=" " alt="" coords="464,329,647,349,891,384,890,389,647,354,463,334"/>
 </map>
 </div>
-</div></div><!-- contents -->
+</div>
+<p><a href="IpcChannel_8cpp_source.html">Go to the source code of this file.</a></p>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

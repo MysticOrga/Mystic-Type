@@ -1,0 +1,424 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classRtype_1_1Graphic_1_1AnimatedSprite" kind="class" language="C++" prot="public">
+    <compoundname>Rtype::Graphic::AnimatedSprite</compoundname>
+    <includes refid="Graphic_8hpp" local="no">graphical-client/Graphic/Graphic.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classRtype_1_1Graphic_1_1AnimatedSprite_1acc6026ccd104477fc636205013674568" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classRaylib_1_1Texture" kindref="compound">Raylib::Texture</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Raylib::Texture&gt; Rtype::Graphic::AnimatedSprite::_texture</definition>
+        <argsstring></argsstring>
+        <name>_texture</name>
+        <qualifiedname>Rtype::Graphic::AnimatedSprite::_texture</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Loaded sprite sheet texture </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Graphic/Graphic.hpp" line="35" column="21" bodyfile="graphical-client/Graphic/Graphic.hpp" bodystart="35" bodyend="-1"/>
+        <referencedby refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a963c826ca2ecb849b9b8839559916012" compoundref="Graphic_8hpp" startline="117" endline="129">draw</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classRtype_1_1Graphic_1_1AnimatedSprite_1aad9657c6ba086ca797a8714e18d283ea" prot="private" static="no" mutable="no">
+        <type>Vector2</type>
+        <definition>Vector2 Rtype::Graphic::AnimatedSprite::_size</definition>
+        <argsstring></argsstring>
+        <name>_size</name>
+        <qualifiedname>Rtype::Graphic::AnimatedSprite::_size</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Size of each individual frame </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Graphic/Graphic.hpp" line="37" column="13" bodyfile="graphical-client/Graphic/Graphic.hpp" bodystart="37" bodyend="-1"/>
+        <referencedby refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae93338c214b783b3b9c3549c0fab7f08" compoundref="Graphic_8hpp" startline="96" endline="110">update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classRtype_1_1Graphic_1_1AnimatedSprite_1ac497bb551d49b7234cfe7087d91f52bc" prot="private" static="no" mutable="no">
+        <type>Vector2</type>
+        <definition>Vector2 Rtype::Graphic::AnimatedSprite::_positionInSpritesheet</definition>
+        <argsstring></argsstring>
+        <name>_positionInSpritesheet</name>
+        <qualifiedname>Rtype::Graphic::AnimatedSprite::_positionInSpritesheet</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Starting position in sprite sheet </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Graphic/Graphic.hpp" line="38" column="13" bodyfile="graphical-client/Graphic/Graphic.hpp" bodystart="38" bodyend="-1"/>
+        <referencedby refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae93338c214b783b3b9c3549c0fab7f08" compoundref="Graphic_8hpp" startline="96" endline="110">update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classRtype_1_1Graphic_1_1AnimatedSprite_1ac99408e6df78edff7a6b5bfcb470f119" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Rtype::Graphic::AnimatedSprite::_maxFrames</definition>
+        <argsstring></argsstring>
+        <name>_maxFrames</name>
+        <qualifiedname>Rtype::Graphic::AnimatedSprite::_maxFrames</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Total number of animation frames </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Graphic/Graphic.hpp" line="39" column="9" bodyfile="graphical-client/Graphic/Graphic.hpp" bodystart="39" bodyend="-1"/>
+        <referencedby refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae93338c214b783b3b9c3549c0fab7f08" compoundref="Graphic_8hpp" startline="96" endline="110">update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classRtype_1_1Graphic_1_1AnimatedSprite_1af13d2e9637dce59a579c923fdaa888d7" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Rtype::Graphic::AnimatedSprite::_frameTime</definition>
+        <argsstring></argsstring>
+        <name>_frameTime</name>
+        <qualifiedname>Rtype::Graphic::AnimatedSprite::_frameTime</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Time each frame is displayed </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Graphic/Graphic.hpp" line="40" column="11" bodyfile="graphical-client/Graphic/Graphic.hpp" bodystart="40" bodyend="-1"/>
+        <referencedby refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae93338c214b783b3b9c3549c0fab7f08" compoundref="Graphic_8hpp" startline="96" endline="110">update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classRtype_1_1Graphic_1_1AnimatedSprite_1afeed552cf17a6135da0f2bbfc567e6cb" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Rtype::Graphic::AnimatedSprite::_timer</definition>
+        <argsstring></argsstring>
+        <name>_timer</name>
+        <qualifiedname>Rtype::Graphic::AnimatedSprite::_timer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current frame timer </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Graphic/Graphic.hpp" line="41" column="11" bodyfile="graphical-client/Graphic/Graphic.hpp" bodystart="41" bodyend="-1"/>
+        <referencedby refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae93338c214b783b3b9c3549c0fab7f08" compoundref="Graphic_8hpp" startline="96" endline="110">update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classRtype_1_1Graphic_1_1AnimatedSprite_1a0d84c74ead5552710bfad214ae3a63b3" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int Rtype::Graphic::AnimatedSprite::_currentFrame</definition>
+        <argsstring></argsstring>
+        <name>_currentFrame</name>
+        <qualifiedname>Rtype::Graphic::AnimatedSprite::_currentFrame</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Currently displayed frame index </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Graphic/Graphic.hpp" line="42" column="9" bodyfile="graphical-client/Graphic/Graphic.hpp" bodystart="42" bodyend="-1"/>
+        <referencedby refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae93338c214b783b3b9c3549c0fab7f08" compoundref="Graphic_8hpp" startline="96" endline="110">update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classRtype_1_1Graphic_1_1AnimatedSprite_1ae09ae8b36b9ab3e12ebdc4d1798799b4" prot="private" static="no" mutable="no">
+        <type>Rectangle</type>
+        <definition>Rectangle Rtype::Graphic::AnimatedSprite::_sourceRect</definition>
+        <argsstring></argsstring>
+        <name>_sourceRect</name>
+        <qualifiedname>Rtype::Graphic::AnimatedSprite::_sourceRect</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Source rectangle in sprite sheet </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Graphic/Graphic.hpp" line="44" column="15" bodyfile="graphical-client/Graphic/Graphic.hpp" bodystart="44" bodyend="-1"/>
+        <referencedby refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a963c826ca2ecb849b9b8839559916012" compoundref="Graphic_8hpp" startline="117" endline="129">draw</referencedby>
+        <referencedby refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae93338c214b783b3b9c3549c0fab7f08" compoundref="Graphic_8hpp" startline="96" endline="110">update</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classRtype_1_1Graphic_1_1AnimatedSprite_1a9ead5e3f0b95f79971d2de88fe47b94d" prot="private" static="no" mutable="no">
+        <type>Vector2</type>
+        <definition>Vector2 Rtype::Graphic::AnimatedSprite::_position</definition>
+        <argsstring></argsstring>
+        <name>_position</name>
+        <qualifiedname>Rtype::Graphic::AnimatedSprite::_position</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Current screen position </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Graphic/Graphic.hpp" line="45" column="13" bodyfile="graphical-client/Graphic/Graphic.hpp" bodystart="45" bodyend="-1"/>
+        <referencedby refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a963c826ca2ecb849b9b8839559916012" compoundref="Graphic_8hpp" startline="117" endline="129">draw</referencedby>
+        <referencedby refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a1f7c6aceeed5f9ec40d5140203bf844b" compoundref="Graphic_8hpp" startline="77" endline="80">setPosition</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="classRtype_1_1Graphic_1_1AnimatedSprite_1ac2ef4cb259da3fc514d0090d5dbb1afb" prot="private" static="no" mutable="no">
+        <type>Vector2</type>
+        <definition>Vector2 Rtype::Graphic::AnimatedSprite::_scale</definition>
+        <argsstring></argsstring>
+        <name>_scale</name>
+        <qualifiedname>Rtype::Graphic::AnimatedSprite::_scale</qualifiedname>
+        <initializer>{1.0f, 1.0f}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><ref refid="classSprite" kindref="compound">Sprite</ref> scale factors </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Graphic/Graphic.hpp" line="46" column="13" bodyfile="graphical-client/Graphic/Graphic.hpp" bodystart="46" bodyend="46"/>
+        <referencedby refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a963c826ca2ecb849b9b8839559916012" compoundref="Graphic_8hpp" startline="117" endline="129">draw</referencedby>
+        <referencedby refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a656054e8c3f7380066422d10a7584c44" compoundref="Graphic_8hpp" startline="87" endline="90">setScale</referencedby>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classRtype_1_1Graphic_1_1AnimatedSprite_1ae284bb557cb2c7261d888df9ac1a94af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>Rtype::Graphic::AnimatedSprite::AnimatedSprite</definition>
+        <argsstring>(const std::string &amp;path, Vector2 size, Vector2 posInSheet, int maxFrames, float frameTime=0.1f, Vector2 pos={0, 0})</argsstring>
+        <name>AnimatedSprite</name>
+        <qualifiedname>Rtype::Graphic::AnimatedSprite::AnimatedSprite</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>Vector2</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>Vector2</type>
+          <declname>posInSheet</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>maxFrames</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>frameTime</declname>
+          <defval>0.1f</defval>
+        </param>
+        <param>
+          <type>Vector2</type>
+          <declname>pos</declname>
+          <defval>{0, 0}</defval>
+        </param>
+        <briefdescription>
+<para>Constructor for <ref refid="classRtype_1_1Graphic_1_1AnimatedSprite" kindref="compound">AnimatedSprite</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Path to sprite sheet image file. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Size of each frame (width, height). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>posInSheet</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="classPosition" kindref="compound">Position</ref> of first frame in sprite sheet grid. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>maxFrames</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Total number of animation frames. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>frameTime</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time in seconds each frame is displayed (default: 0.1). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Initial screen position (default: 0, 0). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Graphic/Graphic.hpp" line="58" column="5" bodyfile="graphical-client/Graphic/Graphic.hpp" bodystart="58" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classRtype_1_1Graphic_1_1AnimatedSprite_1a1f7c6aceeed5f9ec40d5140203bf844b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Rtype::Graphic::AnimatedSprite::setPosition</definition>
+        <argsstring>(const Vector2 &amp;pos)</argsstring>
+        <name>setPosition</name>
+        <qualifiedname>Rtype::Graphic::AnimatedSprite::setPosition</qualifiedname>
+        <param>
+          <type>const Vector2 &amp;</type>
+          <declname>pos</declname>
+        </param>
+        <briefdescription>
+<para>Sets the sprite&apos;s screen position. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>pos</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>New position coordinates. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Graphic/Graphic.hpp" line="77" column="10" bodyfile="graphical-client/Graphic/Graphic.hpp" bodystart="77" bodyend="80"/>
+        <references refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a9ead5e3f0b95f79971d2de88fe47b94d" compoundref="Graphic_8hpp" startline="45">_position</references>
+      </memberdef>
+      <memberdef kind="function" id="classRtype_1_1Graphic_1_1AnimatedSprite_1a656054e8c3f7380066422d10a7584c44" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Rtype::Graphic::AnimatedSprite::setScale</definition>
+        <argsstring>(float sx, float sy)</argsstring>
+        <name>setScale</name>
+        <qualifiedname>Rtype::Graphic::AnimatedSprite::setScale</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>sx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>sy</declname>
+        </param>
+        <briefdescription>
+<para>Sets the sprite&apos;s scale factors. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Horizontal scale. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sy</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Vertical scale. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Graphic/Graphic.hpp" line="87" column="10" bodyfile="graphical-client/Graphic/Graphic.hpp" bodystart="87" bodyend="90"/>
+        <references refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac2ef4cb259da3fc514d0090d5dbb1afb" compoundref="Graphic_8hpp" startline="46" endline="46">_scale</references>
+      </memberdef>
+      <memberdef kind="function" id="classRtype_1_1Graphic_1_1AnimatedSprite_1ae93338c214b783b3b9c3549c0fab7f08" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Rtype::Graphic::AnimatedSprite::update</definition>
+        <argsstring>(float dt)</argsstring>
+        <name>update</name>
+        <qualifiedname>Rtype::Graphic::AnimatedSprite::update</qualifiedname>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+<para>Updates animation frame based on elapsed time. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Delta time since last update. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Graphic/Graphic.hpp" line="96" column="10" bodyfile="graphical-client/Graphic/Graphic.hpp" bodystart="96" bodyend="110"/>
+        <references refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a0d84c74ead5552710bfad214ae3a63b3" compoundref="Graphic_8hpp" startline="42">_currentFrame</references>
+        <references refid="classRtype_1_1Graphic_1_1AnimatedSprite_1af13d2e9637dce59a579c923fdaa888d7" compoundref="Graphic_8hpp" startline="40">_frameTime</references>
+        <references refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac99408e6df78edff7a6b5bfcb470f119" compoundref="Graphic_8hpp" startline="39">_maxFrames</references>
+        <references refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac497bb551d49b7234cfe7087d91f52bc" compoundref="Graphic_8hpp" startline="38">_positionInSpritesheet</references>
+        <references refid="classRtype_1_1Graphic_1_1AnimatedSprite_1aad9657c6ba086ca797a8714e18d283ea" compoundref="Graphic_8hpp" startline="37">_size</references>
+        <references refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae09ae8b36b9ab3e12ebdc4d1798799b4" compoundref="Graphic_8hpp" startline="44">_sourceRect</references>
+        <references refid="classRtype_1_1Graphic_1_1AnimatedSprite_1afeed552cf17a6135da0f2bbfc567e6cb" compoundref="Graphic_8hpp" startline="41">_timer</references>
+      </memberdef>
+      <memberdef kind="function" id="classRtype_1_1Graphic_1_1AnimatedSprite_1a963c826ca2ecb849b9b8839559916012" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Rtype::Graphic::AnimatedSprite::draw</definition>
+        <argsstring>()</argsstring>
+        <name>draw</name>
+        <qualifiedname>Rtype::Graphic::AnimatedSprite::draw</qualifiedname>
+        <briefdescription>
+<para>Renders the sprite to the screen. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Draws the current animation frame centered at the sprite position. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="graphical-client/Graphic/Graphic.hpp" line="117" column="10" bodyfile="graphical-client/Graphic/Graphic.hpp" bodystart="117" bodyend="129"/>
+        <references refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a9ead5e3f0b95f79971d2de88fe47b94d" compoundref="Graphic_8hpp" startline="45">_position</references>
+        <references refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac2ef4cb259da3fc514d0090d5dbb1afb" compoundref="Graphic_8hpp" startline="46" endline="46">_scale</references>
+        <references refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae09ae8b36b9ab3e12ebdc4d1798799b4" compoundref="Graphic_8hpp" startline="44">_sourceRect</references>
+        <references refid="classRtype_1_1Graphic_1_1AnimatedSprite_1acc6026ccd104477fc636205013674568" compoundref="Graphic_8hpp" startline="35">_texture</references>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Manages animated sprite rendering with frame-based animation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Handles sprite sheet loading, animation frame updates, positioning, and rendering. </para>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>Rtype::Graphic::AnimatedSprite</label>
+        <link refid="classRtype_1_1Graphic_1_1AnimatedSprite"/>
+      </node>
+    </collaborationgraph>
+    <location file="graphical-client/Graphic/Graphic.hpp" line="32" column="1" bodyfile="graphical-client/Graphic/Graphic.hpp" bodystart="33" bodyend="130"/>
+    <listofallmembers>
+      <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a0d84c74ead5552710bfad214ae3a63b3" prot="private" virt="non-virtual"><scope>Rtype::Graphic::AnimatedSprite</scope><name>_currentFrame</name></member>
+      <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1af13d2e9637dce59a579c923fdaa888d7" prot="private" virt="non-virtual"><scope>Rtype::Graphic::AnimatedSprite</scope><name>_frameTime</name></member>
+      <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac99408e6df78edff7a6b5bfcb470f119" prot="private" virt="non-virtual"><scope>Rtype::Graphic::AnimatedSprite</scope><name>_maxFrames</name></member>
+      <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a9ead5e3f0b95f79971d2de88fe47b94d" prot="private" virt="non-virtual"><scope>Rtype::Graphic::AnimatedSprite</scope><name>_position</name></member>
+      <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac497bb551d49b7234cfe7087d91f52bc" prot="private" virt="non-virtual"><scope>Rtype::Graphic::AnimatedSprite</scope><name>_positionInSpritesheet</name></member>
+      <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ac2ef4cb259da3fc514d0090d5dbb1afb" prot="private" virt="non-virtual"><scope>Rtype::Graphic::AnimatedSprite</scope><name>_scale</name></member>
+      <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1aad9657c6ba086ca797a8714e18d283ea" prot="private" virt="non-virtual"><scope>Rtype::Graphic::AnimatedSprite</scope><name>_size</name></member>
+      <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae09ae8b36b9ab3e12ebdc4d1798799b4" prot="private" virt="non-virtual"><scope>Rtype::Graphic::AnimatedSprite</scope><name>_sourceRect</name></member>
+      <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1acc6026ccd104477fc636205013674568" prot="private" virt="non-virtual"><scope>Rtype::Graphic::AnimatedSprite</scope><name>_texture</name></member>
+      <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1afeed552cf17a6135da0f2bbfc567e6cb" prot="private" virt="non-virtual"><scope>Rtype::Graphic::AnimatedSprite</scope><name>_timer</name></member>
+      <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae284bb557cb2c7261d888df9ac1a94af" prot="public" virt="non-virtual"><scope>Rtype::Graphic::AnimatedSprite</scope><name>AnimatedSprite</name></member>
+      <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a963c826ca2ecb849b9b8839559916012" prot="public" virt="non-virtual"><scope>Rtype::Graphic::AnimatedSprite</scope><name>draw</name></member>
+      <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a1f7c6aceeed5f9ec40d5140203bf844b" prot="public" virt="non-virtual"><scope>Rtype::Graphic::AnimatedSprite</scope><name>setPosition</name></member>
+      <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1a656054e8c3f7380066422d10a7584c44" prot="public" virt="non-virtual"><scope>Rtype::Graphic::AnimatedSprite</scope><name>setScale</name></member>
+      <member refid="classRtype_1_1Graphic_1_1AnimatedSprite_1ae93338c214b783b3b9c3549c0fab7f08" prot="public" virt="non-virtual"><scope>Rtype::Graphic::AnimatedSprite</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

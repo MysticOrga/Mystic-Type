@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structTCPServer_1_1Client" kind="struct" language="C++" prot="private">
+    <compoundname>TCPServer::Client</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structTCPServer_1_1Client_1a385ed81e747992c181106b429e17f47c" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int TCPServer::Client::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>TCPServer::Client::id</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="57" column="17" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="57" bodyend="-1"/>
+        <referencedby refid="classTCPServer_1a84035146c9257be5714850a1f46d0bfb" compoundref="TCPServer_8cpp" startline="669" endline="693">TCPServer::assignLobby</referencedby>
+        <referencedby refid="classTCPServer_1aee3fb51b52375d68f548f60cc7005ef0" compoundref="TCPServer_8cpp" startline="578" endline="594">TCPServer::broadcastNewPlayer</referencedby>
+        <referencedby refid="classTCPServer_1afd78aa179d3b735e82868d800629b354" compoundref="TCPServer_8cpp" startline="702" endline="760">TCPServer::handleLobbyPacket</referencedby>
+        <referencedby refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" compoundref="TCPServer_8cpp" startline="203" endline="331">TCPServer::processClientData</referencedby>
+        <referencedby refid="classTCPServer_1a508cc3d7023b0cfe9abed2e3166b1682" compoundref="TCPServer_8cpp" startline="620" endline="637">TCPServer::removeFromLobby</referencedby>
+        <referencedby refid="classTCPServer_1a435ec8dcd340e15f964ce3c0748c7305" compoundref="TCPServer_8cpp" startline="142" endline="158">TCPServer::resetClient</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structTCPServer_1_1Client_1a80b5bef5c073ae58027443ff40b77574" prot="public" static="no" mutable="no">
+        <type><ref refid="ISocket_8hpp_1a30353f381f5fccbb956eea1f3a110b6c" kindref="member">socket_t</ref></type>
+        <definition>socket_t TCPServer::Client::fd</definition>
+        <argsstring></argsstring>
+        <name>fd</name>
+        <qualifiedname>TCPServer::Client::fd</qualifiedname>
+        <initializer>= <ref refid="ISocket_8hpp_1ab9a5e36d82a1772a9732740821c57bdf" kindref="member">INVALID_SOCKET_FD</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="58" column="22" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="58" bodyend="-1"/>
+        <referencedby refid="classTCPServer_1afd78aa179d3b735e82868d800629b354" compoundref="TCPServer_8cpp" startline="702" endline="760">TCPServer::handleLobbyPacket</referencedby>
+        <referencedby refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" compoundref="TCPServer_8cpp" startline="203" endline="331">TCPServer::processClientData</referencedby>
+        <referencedby refid="classTCPServer_1a435ec8dcd340e15f964ce3c0748c7305" compoundref="TCPServer_8cpp" startline="142" endline="158">TCPServer::resetClient</referencedby>
+        <referencedby refid="classTCPServer_1aa87b20fb76f60c19df36f39ef3621b05" compoundref="TCPServer_8cpp" startline="572" endline="576">TCPServer::sendPlayerListToClient</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structTCPServer_1_1Client_1a8661a692a1475ba65b26c1bf68a0c6e1" prot="public" static="no" mutable="no">
+        <type>sockaddr_in</type>
+        <definition>sockaddr_in TCPServer::Client::addr</definition>
+        <argsstring></argsstring>
+        <name>addr</name>
+        <qualifiedname>TCPServer::Client::addr</qualifiedname>
+        <initializer>{}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="59" column="25" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="59" bodyend="59"/>
+        <referencedby refid="classTCPServer_1a435ec8dcd340e15f964ce3c0748c7305" compoundref="TCPServer_8cpp" startline="142" endline="158">TCPServer::resetClient</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structTCPServer_1_1Client_1a7cdb53bae6b61f342267e3533cfbc15d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool TCPServer::Client::handshakeDone</definition>
+        <argsstring></argsstring>
+        <name>handshakeDone</name>
+        <qualifiedname>TCPServer::Client::handshakeDone</qualifiedname>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="60" column="18" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="60" bodyend="-1"/>
+        <referencedby refid="classTCPServer_1afd78aa179d3b735e82868d800629b354" compoundref="TCPServer_8cpp" startline="702" endline="760">TCPServer::handleLobbyPacket</referencedby>
+        <referencedby refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" compoundref="TCPServer_8cpp" startline="203" endline="331">TCPServer::processClientData</referencedby>
+        <referencedby refid="classTCPServer_1a435ec8dcd340e15f964ce3c0748c7305" compoundref="TCPServer_8cpp" startline="142" endline="158">TCPServer::resetClient</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structTCPServer_1_1Client_1a80c8ff0e99db13162ad08d4e815ed9a2" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long TCPServer::Client::lastPongTime</definition>
+        <argsstring></argsstring>
+        <name>lastPongTime</name>
+        <qualifiedname>TCPServer::Client::lastPongTime</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="61" column="18" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="61" bodyend="-1"/>
+        <referencedby refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" compoundref="TCPServer_8cpp" startline="203" endline="331">TCPServer::processClientData</referencedby>
+        <referencedby refid="classTCPServer_1a435ec8dcd340e15f964ce3c0748c7305" compoundref="TCPServer_8cpp" startline="142" endline="158">TCPServer::resetClient</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structTCPServer_1_1Client_1a9f8ac490d641d47a24750f9589975257" prot="public" static="no" mutable="no">
+        <type>long</type>
+        <definition>long TCPServer::Client::handshakeStart</definition>
+        <argsstring></argsstring>
+        <name>handshakeStart</name>
+        <qualifiedname>TCPServer::Client::handshakeStart</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="62" column="18" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="62" bodyend="-1"/>
+        <referencedby refid="classTCPServer_1a435ec8dcd340e15f964ce3c0748c7305" compoundref="TCPServer_8cpp" startline="142" endline="158">TCPServer::resetClient</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structTCPServer_1_1Client_1a0ca2062e591d1682792cec104afe8478" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string TCPServer::Client::lobbyCode</definition>
+        <argsstring></argsstring>
+        <name>lobbyCode</name>
+        <qualifiedname>TCPServer::Client::lobbyCode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="63" column="25" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="63" bodyend="-1"/>
+        <referencedby refid="classTCPServer_1a84035146c9257be5714850a1f46d0bfb" compoundref="TCPServer_8cpp" startline="669" endline="693">TCPServer::assignLobby</referencedby>
+        <referencedby refid="classTCPServer_1aee3fb51b52375d68f548f60cc7005ef0" compoundref="TCPServer_8cpp" startline="578" endline="594">TCPServer::broadcastNewPlayer</referencedby>
+        <referencedby refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" compoundref="TCPServer_8cpp" startline="203" endline="331">TCPServer::processClientData</referencedby>
+        <referencedby refid="classTCPServer_1a508cc3d7023b0cfe9abed2e3166b1682" compoundref="TCPServer_8cpp" startline="620" endline="637">TCPServer::removeFromLobby</referencedby>
+        <referencedby refid="classTCPServer_1a435ec8dcd340e15f964ce3c0748c7305" compoundref="TCPServer_8cpp" startline="142" endline="158">TCPServer::resetClient</referencedby>
+        <referencedby refid="classTCPServer_1aa87b20fb76f60c19df36f39ef3621b05" compoundref="TCPServer_8cpp" startline="572" endline="576">TCPServer::sendPlayerListToClient</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structTCPServer_1_1Client_1af501147212a29d1473e4e40892851218" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string TCPServer::Client::pseudo</definition>
+        <argsstring></argsstring>
+        <name>pseudo</name>
+        <qualifiedname>TCPServer::Client::pseudo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="64" column="25" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="64" bodyend="-1"/>
+        <referencedby refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" compoundref="TCPServer_8cpp" startline="203" endline="331">TCPServer::processClientData</referencedby>
+        <referencedby refid="classTCPServer_1a435ec8dcd340e15f964ce3c0748c7305" compoundref="TCPServer_8cpp" startline="142" endline="158">TCPServer::resetClient</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structTCPServer_1_1Client_1a9a493b9b18fd9ddd0a1abcb190a2be7a" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t TCPServer::Client::posX</definition>
+        <argsstring></argsstring>
+        <name>posX</name>
+        <qualifiedname>TCPServer::Client::posX</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="66" column="21" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="66" bodyend="-1"/>
+        <referencedby refid="classTCPServer_1aee3fb51b52375d68f548f60cc7005ef0" compoundref="TCPServer_8cpp" startline="578" endline="594">TCPServer::broadcastNewPlayer</referencedby>
+        <referencedby refid="classTCPServer_1a435ec8dcd340e15f964ce3c0748c7305" compoundref="TCPServer_8cpp" startline="142" endline="158">TCPServer::resetClient</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structTCPServer_1_1Client_1a6dce4953a90a676fe6b8cca63658bc99" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t TCPServer::Client::posY</definition>
+        <argsstring></argsstring>
+        <name>posY</name>
+        <qualifiedname>TCPServer::Client::posY</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="67" column="21" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="67" bodyend="-1"/>
+        <referencedby refid="classTCPServer_1aee3fb51b52375d68f548f60cc7005ef0" compoundref="TCPServer_8cpp" startline="578" endline="594">TCPServer::broadcastNewPlayer</referencedby>
+        <referencedby refid="classTCPServer_1a435ec8dcd340e15f964ce3c0748c7305" compoundref="TCPServer_8cpp" startline="142" endline="158">TCPServer::resetClient</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structTCPServer_1_1Client_1ac76dcdb18f709112fa0b0203a0b73044" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t TCPServer::Client::hp</definition>
+        <argsstring></argsstring>
+        <name>hp</name>
+        <qualifiedname>TCPServer::Client::hp</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="68" column="21" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="68" bodyend="-1"/>
+        <referencedby refid="classTCPServer_1aee3fb51b52375d68f548f60cc7005ef0" compoundref="TCPServer_8cpp" startline="578" endline="594">TCPServer::broadcastNewPlayer</referencedby>
+        <referencedby refid="classTCPServer_1a435ec8dcd340e15f964ce3c0748c7305" compoundref="TCPServer_8cpp" startline="142" endline="158">TCPServer::resetClient</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structTCPServer_1_1Client_1ad12b6292fcb16aecf58f6bb9a09df960" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; uint8_t &gt;</type>
+        <definition>std::vector&lt;uint8_t&gt; TCPServer::Client::recvBuffer</definition>
+        <argsstring></argsstring>
+        <name>recvBuffer</name>
+        <qualifiedname>TCPServer::Client::recvBuffer</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="69" column="25" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="69" bodyend="-1"/>
+        <referencedby refid="classTCPServer_1ada05a61182a782b4d3326fabd26a19bf" compoundref="TCPServer_8cpp" startline="203" endline="331">TCPServer::processClientData</referencedby>
+        <referencedby refid="classTCPServer_1a435ec8dcd340e15f964ce3c0748c7305" compoundref="TCPServer_8cpp" startline="142" endline="158">TCPServer::resetClient</referencedby>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Lightweight representation of a connected client. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>TCPServer::Client</label>
+        <link refid="structTCPServer_1_1Client"/>
+      </node>
+    </collaborationgraph>
+    <location file="Network/TransportLayer/TCP/TCPServer.hpp" line="55" column="9" bodyfile="Network/TransportLayer/TCP/TCPServer.hpp" bodystart="56" bodyend="70"/>
+    <listofallmembers>
+      <member refid="structTCPServer_1_1Client_1a8661a692a1475ba65b26c1bf68a0c6e1" prot="public" virt="non-virtual"><scope>TCPServer::Client</scope><name>addr</name></member>
+      <member refid="structTCPServer_1_1Client_1a80b5bef5c073ae58027443ff40b77574" prot="public" virt="non-virtual"><scope>TCPServer::Client</scope><name>fd</name></member>
+      <member refid="structTCPServer_1_1Client_1a7cdb53bae6b61f342267e3533cfbc15d" prot="public" virt="non-virtual"><scope>TCPServer::Client</scope><name>handshakeDone</name></member>
+      <member refid="structTCPServer_1_1Client_1a9f8ac490d641d47a24750f9589975257" prot="public" virt="non-virtual"><scope>TCPServer::Client</scope><name>handshakeStart</name></member>
+      <member refid="structTCPServer_1_1Client_1ac76dcdb18f709112fa0b0203a0b73044" prot="public" virt="non-virtual"><scope>TCPServer::Client</scope><name>hp</name></member>
+      <member refid="structTCPServer_1_1Client_1a385ed81e747992c181106b429e17f47c" prot="public" virt="non-virtual"><scope>TCPServer::Client</scope><name>id</name></member>
+      <member refid="structTCPServer_1_1Client_1a80c8ff0e99db13162ad08d4e815ed9a2" prot="public" virt="non-virtual"><scope>TCPServer::Client</scope><name>lastPongTime</name></member>
+      <member refid="structTCPServer_1_1Client_1a0ca2062e591d1682792cec104afe8478" prot="public" virt="non-virtual"><scope>TCPServer::Client</scope><name>lobbyCode</name></member>
+      <member refid="structTCPServer_1_1Client_1a9a493b9b18fd9ddd0a1abcb190a2be7a" prot="public" virt="non-virtual"><scope>TCPServer::Client</scope><name>posX</name></member>
+      <member refid="structTCPServer_1_1Client_1a6dce4953a90a676fe6b8cca63658bc99" prot="public" virt="non-virtual"><scope>TCPServer::Client</scope><name>posY</name></member>
+      <member refid="structTCPServer_1_1Client_1af501147212a29d1473e4e40892851218" prot="public" virt="non-virtual"><scope>TCPServer::Client</scope><name>pseudo</name></member>
+      <member refid="structTCPServer_1_1Client_1ad12b6292fcb16aecf58f6bb9a09df960" prot="public" virt="non-virtual"><scope>TCPServer::Client</scope><name>recvBuffer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
