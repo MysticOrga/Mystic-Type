@@ -28,4 +28,5 @@ jobs:
                 echo "rtype-udp-server is not here"
                 exit 1
             fi
+            find ./src -type f \( -name "*.cpp" -o -name "*.hpp" -o -name "*.h" \) -print0 | xargs -0 clang-format -i
         shell: bash
