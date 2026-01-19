@@ -96,7 +96,7 @@ cd .\build/Release
 - Client UI: lobby/pseudo selection, in-game chat, and return-to-lobby flow.
 
 ## Documentation
-- [Doxygen](https://mysticorga.github.io/Mystic-Type/)
+- [Doxygen](https://mysticorga.github.io/Mystic-Type/doxygen/html/index.html)
 - Protocol RFCs:
 
     - [mtp protocol](https://mysticorga.github.io/Mystic-Type/rfc/mtp_protocol_rfc.txt)
